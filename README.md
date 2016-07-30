@@ -59,6 +59,7 @@ mrs-2.0 configure and make instructions:
 
 Modify paths to companion libraries in `custom_config.sh` and then:
 
+        cd mrs-2.0
         ./custom_config.sh
         make
 
