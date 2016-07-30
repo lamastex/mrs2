@@ -1,0 +1,492 @@
+Follow current CONTENTS in:
+https://github.com/raazesh-sainudiin/mrs2
+.
+├── [ 34K]  aclocal.m4
+├── [ 301]  AUTHORS
+├── [  86]  bootstrap
+├── [ 945]  ChangeLog
+├── [4.0K]  config
+│   ├── [ 11K]  acinclude.m4
+│   ├── [4.6K]  aminclude.am
+│   ├── [ 17K]  depcomp
+│   ├── [ 13K]  install-sh
+│   └── [ 11K]  missing
+├── [2.5K]  config.h.in
+├── [244K]  configure
+├── [3.2K]  configure.ac
+├── [ 22K]  CONTENTS
+├── [ 34K]  COPYING
+├── [ 620]  custom_config.sh
+├── [4.0K]  docs
+│   └── [4.0K]  images
+│       ├── [ 12K]  AIAexample11_33.png
+│       ├── [6.5K]  AIAexample11_35.png
+│       ├── [9.6K]  AIAexample3_3.png
+│       ├── [ 17K]  AIAexample3_4.png
+│       ├── [ 85K]  BGAvgHist.png
+│       ├── [153K]  BivGaussHists10.png
+│       ├── [ 19K]  bivgaussian.png
+│       ├── [ 50K]  CFNCin762Cnin133.png
+│       ├── [ 64K]  Levy_function.png
+│       ├── [ 18K]  LevyT40TargetShape.png
+│       ├── [5.1K]  minimalsp1.png
+│       ├── [265K]  MRS.png
+│       ├── [ 19K]  MRSs.png
+│       ├── [ 15K]  NEWexample3_4Coarse.png
+│       ├── [ 12K]  NEWexample3_4Fine.png
+│       ├── [ 576]  new_footer.html
+│       ├── [1.6K]  new_header.html
+│       ├── [ 15K]  new_stylesheet.css
+│       ├── [4.6K]  nonminimalsp1.png
+│       ├── [ 39K]  Rosenbrock_function.png
+│       ├── [ 31K]  RSAlg.png
+│       └── [8.2K]  statsspaddingdata.png
+├── [ 74K]  Doxyfile
+├── [4.0K]  examples
+│   ├── [4.0K]  AIA
+│   │   ├── [4.0K]  Exm_3_3
+│   │   │   ├── [5.1K]  Exm_3_3.cpp
+│   │   │   ├── [ 991]  Exm_3_3.hpp
+│   │   │   ├── [ 187]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   └── [ 985]  show3_3.m
+│   │   ├── [4.0K]  Exm_3_4
+│   │   │   ├── [6.6K]  Exm_3_4.cpp
+│   │   │   ├── [ 991]  Exm_3_4.hpp
+│   │   │   ├── [ 186]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   └── [1.2K]  show3_4.m
+│   │   ├── [4.0K]  Exr_11_33
+│   │   │   ├── [7.6K]  Exr_11_33.cpp
+│   │   │   ├── [ 995]  Exr_11_33.hpp
+│   │   │   ├── [ 201]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   └── [ 991]  show11_33.m
+│   │   ├── [4.0K]  Exr_11_35
+│   │   │   ├── [3.2K]  Exr_11_35.cpp
+│   │   │   ├── [ 995]  Exr_11_35.hpp
+│   │   │   ├── [ 201]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   └── [ 500]  show11_35.m
+│   │   ├── [  46]  Makefile.am
+│   │   └── [ 16K]  Makefile.in
+│   ├── [4.0K]  CXSC
+│   │   ├── [1.6K]  example.cpp
+│   │   ├── [2.0K]  lexample.cpp
+│   │   ├── [ 223]  Makefile.am
+│   │   └── [ 17K]  Makefile.in
+│   ├── [4.0K]  GOpt
+│   │   ├── [4.0K]  Levy
+│   │   │   ├── [3.7K]  Levy2D.cpp
+│   │   │   ├── [ 219]  Makefile.am
+│   │   │   └── [ 17K]  Makefile.in
+│   │   ├── [  35]  Makefile.am
+│   │   ├── [ 16K]  Makefile.in
+│   │   ├── [4.0K]  PhyloPOT
+│   │   │   ├── [ 303]  Makefile.am
+│   │   │   ├── [ 19K]  Makefile.in
+│   │   │   └── [4.4K]  PhyloPOT.cpp
+│   │   └── [4.0K]  Rosenbrock
+│   │       ├── [ 257]  Makefile.am
+│   │       ├── [ 18K]  Makefile.in
+│   │       └── [2.9K]  Rosenbrock.cpp
+│   ├── [ 101]  Makefile.am
+│   ├── [ 16K]  Makefile.in
+│   ├── [4.0K]  MappedSP
+│   │   ├── [4.0K]  Booleans
+│   │   │   ├── [ 939]  ExBooleans.cpp
+│   │   │   ├── [ 302]  Makefile.am
+│   │   │   └── [ 18K]  Makefile.in
+│   │   ├── [4.0K]  Example1D
+│   │   │   ├── [1.8K]  Ex1D.cpp
+│   │   │   ├── [ 532]  ExampleFobj1D_1.cpp
+│   │   │   ├── [ 726]  ExampleFobj1D_1.hpp
+│   │   │   ├── [ 573]  ExampleFobj1D_2.cpp
+│   │   │   ├── [ 726]  ExampleFobj1D_2.hpp
+│   │   │   ├── [ 228]  Makefile.am
+│   │   │   └── [ 19K]  Makefile.in
+│   │   ├── [4.0K]  Example2D
+│   │   │   ├── [1.4K]  Ex2D.cpp
+│   │   │   ├── [ 758]  ExampleFobj2D.cpp
+│   │   │   ├── [ 849]  ExampleFobj2D.hpp
+│   │   │   ├── [ 184]  Makefile.am
+│   │   │   └── [ 17K]  Makefile.in
+│   │   ├── [4.0K]  ExampleColour2D
+│   │   │   ├── [3.5K]  ExColour2D.cpp
+│   │   │   ├── [ 206]  Makefile.am
+│   │   │   ├── [ 17K]  Makefile.in
+│   │   │   ├── [3.0K]  RGBColour.cpp
+│   │   │   └── [1.4K]  RGBColour.hpp
+│   │   ├── [4.0K]  ExampleColour3D
+│   │   │   ├── [5.9K]  ExColour3D.cpp
+│   │   │   ├── [ 265]  Makefile.am
+│   │   │   └── [ 18K]  Makefile.in
+│   │   ├── [4.0K]  ExampleOsc1D
+│   │   │   ├── [ 821]  ExampleFobjOsc1D_1.cpp
+│   │   │   ├── [ 957]  ExampleFobjOsc1D_1.hpp
+│   │   │   ├── [ 584]  ExampleFobjOsc1D_2.cpp
+│   │   │   ├── [ 909]  ExampleFobjOsc1D_2.hpp
+│   │   │   ├── [ 584]  ExampleFobjOsc1D_3.cpp
+│   │   │   ├── [ 908]  ExampleFobjOsc1D_3.hpp
+│   │   │   ├── [ 163]  ExampleFobjOscPI.hpp
+│   │   │   ├── [3.1K]  ExOsc1D.cpp
+│   │   │   ├── [ 343]  Makefile.am
+│   │   │   └── [ 22K]  Makefile.in
+│   │   ├── [4.0K]  ExampleSine
+│   │   │   ├── [ 485]  ExampleFobjSine.cpp
+│   │   │   ├── [ 867]  ExampleFobjSine.hpp
+│   │   │   ├── [ 174]  ExampleFobjSinePI.hpp
+│   │   │   ├── [ 767]  ExampleFobjSineSum.cpp
+│   │   │   ├── [ 883]  ExampleFobjSineSum.hpp
+│   │   │   ├── [3.5K]  ExSine.cpp
+│   │   │   ├── [ 278]  Makefile.am
+│   │   │   └── [ 19K]  Makefile.in
+│   │   ├── [4.0K]  ExampleVector3D
+│   │   │   ├── [3.5K]  ExVector3D.cpp
+│   │   │   ├── [ 182]  Makefile.am
+│   │   │   ├── [ 17K]  Makefile.in
+│   │   │   ├── [2.1K]  Vec.cpp
+│   │   │   └── [1.2K]  Vec.hpp
+│   │   ├── [4.0K]  Levy
+│   │   │   ├── [7.6K]  LevyDensity2D.cpp
+│   │   │   ├── [ 295]  Makefile.am
+│   │   │   └── [ 16K]  Makefile.in
+│   │   ├── [ 199]  Makefile.am
+│   │   ├── [ 17K]  Makefile.in
+│   │   ├── [4.0K]  Rosen
+│   │   │   ├── [ 245]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   └── [4.2K]  Rosen.cpp
+│   │   ├── [4.0K]  SpatialObjectRepresentation
+│   │   │   ├── [ 502]  Makefile.am
+│   │   │   ├── [ 16K]  Makefile.in
+│   │   │   ├── [6.0K]  TestSORArithmeticExtended.cpp
+│   │   │   ├── [ 29K]  TestSORBVArithmetic.cpp
+│   │   │   ├── [ 10K]  TestSORBVBasic.cpp
+│   │   │   ├── [5.6K]  TestSORBVFunImageEst.cpp
+│   │   │   ├── [2.4K]  TestSORBVSlice.cpp
+│   │   │   ├── [1.1K]  TestSOR.cpp
+│   │   │   ├── [1.1K]  TestSOR.hpp
+│   │   │   ├── [5.1K]  TestSORSliceExtended.cpp
+│   │   │   ├── [3.0K]  TestSORTools.cpp
+│   │   │   └── [1.2K]  TestSORTools.hpp
+│   │   └── [4.0K]  Testing
+│   │       ├── [ 243]  Makefile.am
+│   │       ├── [ 17K]  Makefile.in
+│   │       ├── [1.3K]  MappedSP.cpp
+│   │       ├── [ 25K]  MappedSPTesting.cpp
+│   │       ├── [ 19K]  MappedSPTesting_Framework.hpp
+│   │       └── [ 556]  MappedSPTesting.hpp
+│   ├── [4.0K]  MappedTargets
+│   │   ├── [2.0K]  GaussianFobj.cpp
+│   │   ├── [1.5K]  GaussianFobj.hpp
+│   │   ├── [1.9K]  LevyDensityFobj2D.cpp
+│   │   ├── [ 906]  LevyDensityFobj2D.hpp
+│   │   ├── [ 925]  Makefile.am
+│   │   ├── [ 18K]  Makefile.in
+│   │   ├── [1.4K]  oscFobj1.cpp
+│   │   ├── [ 908]  oscFobj1.hpp
+│   │   ├── [1.8K]  RosenDensityFobj.cpp
+│   │   ├── [ 807]  RosenDensityFobj.hpp
+│   │   ├── [1.7K]  RosenFobj.cpp
+│   │   ├── [ 826]  RosenFobj.hpp
+│   │   ├── [1.6K]  SphereFobj.cpp
+│   │   ├── [ 830]  SphereFobj.hpp
+│   │   ├── [3.5K]  TestGaussianFobj.cpp
+│   │   ├── [1.1K]  TestLevyDensity2DFobj.cpp
+│   │   ├── [2.2K]  TestOscFobj.cpp
+│   │   ├── [1.0K]  TestRosenDensityFobj.cpp
+│   │   ├── [1005]  TestRosenFobj.cpp
+│   │   ├── [3.6K]  TestSphereFobj.cpp
+│   │   ├── [4.6K]  TestUniformFobj.cpp
+│   │   ├── [2.1K]  UniformFobj.cpp
+│   │   └── [1.6K]  UniformFobj.hpp
+│   ├── [4.0K]  MooreRejSam
+│   │   ├── [4.0K]  BinomialPartition
+│   │   │   ├── [7.3K]  BinomialPartition.cpp
+│   │   │   ├── [ 304]  Makefile.am
+│   │   │   ├── [ 18K]  Makefile.in
+│   │   │   └── [ 674]  README
+│   │   ├── [4.0K]  CFN3
+│   │   │   ├── [8.9K]  CFN3.cpp
+│   │   │   ├── [ 213]  Makefile.am
+│   │   │   └── [ 17K]  Makefile.in
+│   │   ├── [4.0K]  IsIt1or2Coins
+│   │   │   ├── [6.8K]  IsIt1or2Coins.cpp
+│   │   │   ├── [ 276]  Makefile.am
+│   │   │   ├── [ 18K]  Makefile.in
+│   │   │   └── [2.9K]  README
+│   │   ├── [4.0K]  Levy
+│   │   │   ├── [ 107]  commands
+│   │   │   ├── [5.3K]  Levy2D.cpp
+│   │   │   ├── [ 228]  Makefile.am
+│   │   │   └── [ 17K]  Makefile.in
+│   │   ├── [  93]  Makefile.am
+│   │   ├── [ 17K]  Makefile.in
+│   │   ├── [4.0K]  PhyloPOT
+│   │   │   ├── [ 172]  commands
+│   │   │   ├── [ 310]  Makefile.am
+│   │   │   ├── [ 19K]  Makefile.in
+│   │   │   └── [5.5K]  PhyloPOT.cpp
+│   │   ├── [4.0K]  Rosenbrock
+│   │   │   ├── [ 255]  Makefile.am
+│   │   │   ├── [ 18K]  Makefile.in
+│   │   │   └── [5.7K]  Rosenbrock.cpp
+│   │   ├── [4.0K]  Shiryaev
+│   │   │   ├── [ 247]  Makefile.am
+│   │   │   ├── [ 17K]  Makefile.in
+│   │   │   └── [5.6K]  Shiryaev1D.cpp
+│   │   └── [4.0K]  WitchesHat
+│   │       ├── [ 255]  Makefile.am
+│   │       ├── [ 18K]  Makefile.in
+│   │       └── [5.0K]  WitchesHat.cpp
+│   ├── [4.0K]  newSubPav
+│   │   ├── [4.0K]  Exm_3_3
+│   │   │   ├── [ 193]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   ├── [5.5K]  NewExm_3_3.cpp
+│   │   │   ├── [1.1K]  NewExm_3_3.hpp
+│   │   │   └── [ 685]  show3_3.m
+│   │   ├── [4.0K]  Exm_3_4
+│   │   │   ├── [ 193]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   ├── [7.1K]  NewExm_3_4.cpp
+│   │   │   ├── [1.1K]  NewExm_3_4.hpp
+│   │   │   └── [1.2K]  show3_4.m
+│   │   ├── [4.0K]  Exr_11_33
+│   │   │   ├── [ 207]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   ├── [8.5K]  NewExr_11_33.cpp
+│   │   │   ├── [1.1K]  NewExr_11_33.hpp
+│   │   │   └── [ 721]  show11_33.m
+│   │   ├── [4.0K]  Exr_11_35
+│   │   │   ├── [ 207]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   ├── [3.2K]  NewExr_11_35.cpp
+│   │   │   ├── [1.1K]  NewExr_11_35.hpp
+│   │   │   └── [ 268]  show11_35.m
+│   │   ├── [  46]  Makefile.am
+│   │   └── [ 16K]  Makefile.in
+│   ├── [4.0K]  StatsSubPav
+│   │   ├── [4.0K]  Averaging
+│   │   │   ├── [5.3K]  Averaging.cpp
+│   │   │   ├── [2.2K]  BGAvBoxes.m
+│   │   │   ├── [ 23K]  BGHistsBoxes.m
+│   │   │   ├── [ 605]  EvalGaussPDF.m
+│   │   │   ├── [ 259]  Makefile.am
+│   │   │   └── [ 15K]  Makefile.in
+│   │   ├── [4.0K]  BivGaussian
+│   │   │   ├── [6.7K]  BiGTest.cpp
+│   │   │   ├── [4.2K]  BivGaussian.m
+│   │   │   ├── [1.2K]  dataprep.hpp
+│   │   │   ├── [ 205]  Makefile.am
+│   │   │   └── [ 15K]  Makefile.in
+│   │   ├── [4.0K]  CatalanCoeff
+│   │   │   ├── [9.1K]  CatalanCoeff.cpp
+│   │   │   ├── [2.1K]  CatalanCoeff.hpp
+│   │   │   ├── [ 204]  Makefile.am
+│   │   │   └── [ 15K]  Makefile.in
+│   │   ├── [4.0K]  COPERRandAIC
+│   │   │   ├── [1.2K]  dataprep.hpp
+│   │   │   ├── [ 197]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   └── [9.9K]  ScoreTest.cpp
+│   │   ├── [4.0K]  HistReport
+│   │   │   ├── [ 11K]  HistReport.cpp
+│   │   │   ├── [ 223]  Makefile.am
+│   │   │   └── [ 15K]  Makefile.in
+│   │   ├── [4.0K]  Levy
+│   │   │   ├── [1.8K]  LevyAvBoxes.m
+│   │   │   ├── [ 20K]  LevyHistsBoxes.m
+│   │   │   ├── [8.1K]  LevyTest.cpp
+│   │   │   ├── [ 250]  Makefile.am
+│   │   │   └── [ 17K]  Makefile.in
+│   │   ├── [ 149]  Makefile.am
+│   │   ├── [ 17K]  Makefile.in
+│   │   ├── [4.0K]  MCMC
+│   │   │   ├── [1.2K]  dataprep.hpp
+│   │   │   ├── [ 569]  Makefile.am
+│   │   │   ├── [ 21K]  Makefile.in
+│   │   │   ├── [ 11K]  MCMCFunctionSimGaussian.cpp
+│   │   │   ├── [7.6K]  MCMCGaussian.cpp
+│   │   │   ├── [7.3K]  MCMCnewtest.cpp
+│   │   │   └── [6.1K]  MCMCuniform.cpp
+│   │   ├── [4.0K]  MultiManager
+│   │   │   ├── [ 188]  Makefile.am
+│   │   │   ├── [ 15K]  Makefile.in
+│   │   │   └── [1.4K]  MultiManager.cpp
+│   │   └── [4.0K]  Uniform
+│   │       ├── [ 208]  Makefile.am
+│   │       ├── [ 15K]  Makefile.in
+│   │       └── [9.5K]  Uniform.cpp
+│   └── [4.0K]  targets
+│       ├── [ 17K]  FBinomialPartition.cpp
+│       ├── [3.2K]  FBinomialPartition.hpp
+│       ├── [ 23K]  FCFN3.cpp
+│       ├── [8.6K]  FCFN3.hpp
+│       ├── [6.8K]  FIsIt1or2Coins.cpp
+│       ├── [2.8K]  FIsIt1or2Coins.hpp
+│       ├── [7.0K]  FLevy2D.cpp
+│       ├── [2.9K]  FLevy2D.hpp
+│       ├── [ 28K]  FPhyloPOT.cpp
+│       ├── [8.0K]  FPhyloPOT.hpp
+│       ├── [3.4K]  FRosenbrock.cpp
+│       ├── [2.6K]  FRosenbrock.hpp
+│       ├── [5.6K]  FShiryaev1D.cpp
+│       ├── [2.8K]  FShiryaev1D.hpp
+│       ├── [4.3K]  FWitchesHat.cpp
+│       ├── [1.7K]  FWitchesHat.hpp
+│       ├── [ 36K]  PhyloTree.cpp
+│       └── [ 18K]  PhyloTree.hpp
+├── [9.3K]  INSTALL
+├── [ 860]  Makefile.am
+├── [ 28K]  Makefile.in
+├── [  74]  NEWS
+├── [2.6K]  README
+└── [ 12K]  src
+    ├── [3.6K]  adaptivehistogram_changeofstateinfo_automcmc.cpp
+    ├── [2.8K]  adaptivehistogram_changeofstateinfo_automcmc.hpp
+    ├── [2.3K]  adaptivehistogram_changeofstateinfo_basic.cpp
+    ├── [2.1K]  adaptivehistogram_changeofstateinfo_basic.hpp
+    ├── [ 25K]  adaptivehistogramcollator.cpp
+    ├── [ 26K]  adaptivehistogramcollator.hpp
+    ├── [218K]  adaptivehistogram.cpp
+    ├── [170K]  adaptivehistogram.hpp
+    ├── [ 18K]  AIAsubpaving.cpp
+    ├── [ 10K]  AIAsubpaving.hpp
+    ├── [4.6K]  booleanvalue.cpp
+    ├── [3.1K]  booleanvalue.hpp
+    ├── [2.1K]  booleanvalue_image_estimate.cpp
+    ├── [2.3K]  booleanvalue_image_estimate.hpp
+    ├── [3.3K]  booleanvalue_image_expander_estimate.cpp
+    ├── [3.1K]  booleanvalue_image_expander_estimate.hpp
+    ├── [ 21K]  booleanvaluemappedspnode.cpp
+    ├── [ 14K]  booleanvaluemappedspnode.hpp
+    ├── [ 69K]  carver_seb.cpp
+    ├── [ 43K]  carver_seb.hpp
+    ├── [ 45K]  collatorspnode.cpp
+    ├── [ 42K]  collatorspnode.hpp
+    ├── [1.3K]  cxsc.hpp
+    ├── [1.1K]  debug_control.hpp
+    ├── [138K]  docu.hpp
+    ├── [1.9K]  fei_evalobj.cpp
+    ├── [3.0K]  fei_evalobj.hpp
+    ├── [9.0K]  Fobj.hpp
+    ├── [ 51K]  functionestimator_interval.cpp
+    ├── [ 48K]  functionestimator_interval.hpp
+    ├── [ 26K]  functionestimator_kde.cpp
+    ├── [ 19K]  functionestimator_kde.hpp
+    ├── [ 13K]  functionestimator_real.cpp
+    ├── [ 13K]  functionestimator_real.hpp
+    ├── [ 20K]  functionimage_estimator_booleanvalue.cpp
+    ├── [ 20K]  functionimage_estimator_booleanvalue.hpp
+    ├── [8.5K]  GOpt.cpp
+    ├── [3.9K]  GOpt.hpp
+    ├── [1.2K]  histall.hpp
+    ├── [ 11K]  histevalobj.cpp
+    ├── [ 11K]  histevalobj.hpp
+    ├── [ 13K]  histmcmcobjs.cpp
+    ├── [ 10K]  histmcmcobjs.hpp
+    ├── [5.0K]  histpenalty.cpp
+    ├── [3.9K]  histpenalty.hpp
+    ├── [1.9K]  interval_estimate.cpp
+    ├── [1.9K]  interval_estimate.hpp
+    ├── [2.9K]  intervalexpander_estimate.cpp
+    ├── [3.8K]  intervalexpander_estimate.hpp
+    ├── [ 17K]  intervalmappedspnode.cpp
+    ├── [ 16K]  intervalmappedspnode.hpp
+    ├── [1.6K]  intervalmappedspnode_measurers.cpp
+    ├── [2.0K]  intervalmappedspnode_measurers.hpp
+    ├── [5.2K]  Makefile.am
+    ├── [ 29K]  Makefile.in
+    ├── [1.7K]  mappedFobj1D.cpp
+    ├── [2.1K]  mappedFobj1D.hpp
+    ├── [1.7K]  mappedFobj2D.cpp
+    ├── [2.2K]  mappedFobj2D.hpp
+    ├── [1.4K]  mappedFobj.cpp
+    ├── [1.7K]  mappedFobj.hpp
+    ├── [ 61K]  mappedspnode.hpp
+    ├── [ 15K]  MCMCGRAuto.cpp
+    ├── [ 20K]  MCMCGRAuto.hpp
+    ├── [ 32K]  MCMCGRAutoNew.cpp
+    ├── [6.3K]  MCMCGRAutoNew.hpp
+    ├── [2.6K]  MCMCGRDiagnosticIntervalAvDepth.cpp
+    ├── [3.8K]  MCMCGRDiagnosticIntervalAvDepth.hpp
+    ├── [2.6K]  MCMCGRDiagnosticIntervalCherries.cpp
+    ├── [3.8K]  MCMCGRDiagnosticIntervalCherries.hpp
+    ├── [ 16K]  MCMCGRDiagnosticInterval.cpp
+    ├── [ 11K]  MCMCGRDiagnosticInterval.hpp
+    ├── [2.6K]  MCMCGRDiagnosticIntervalLeaves.cpp
+    ├── [3.8K]  MCMCGRDiagnosticIntervalLeaves.hpp
+    ├── [2.2K]  MCMCGRDiagnosticPSRFAvDepth.cpp
+    ├── [2.4K]  MCMCGRDiagnosticPSRFAvDepth.hpp
+    ├── [2.2K]  MCMCGRDiagnosticPSRFCherries.cpp
+    ├── [2.4K]  MCMCGRDiagnosticPSRFCherries.hpp
+    ├── [ 18K]  MCMCGRDiagnosticPSRF.cpp
+    ├── [10.0K]  MCMCGRDiagnosticPSRF.hpp
+    ├── [2.2K]  MCMCGRDiagnosticPSRFLeaves.cpp
+    ├── [2.3K]  MCMCGRDiagnosticPSRFLeaves.hpp
+    ├── [2.2K]  MCMCGRDiagnosticPSRFLogpost.cpp
+    ├── [2.3K]  MCMCGRDiagnosticPSRFLogpost.hpp
+    ├── [ 16K]  mcmc_kde.cpp
+    ├── [6.9K]  mcmc_kde.hpp
+    ├── [ 22K]  MCMCPartitionGenerator.cpp
+    ├── [3.2K]  MCMCPartitionGenerator.hpp
+    ├── [ 33K]  MRSampler.cpp
+    ├── [6.5K]  MRSampler.hpp
+    ├── [ 21K]  multitreemanager.cpp
+    ├── [9.1K]  multitreemanager.hpp
+    ├── [8.7K]  nodecompobj.hpp
+    ├── [6.1K]  norm_kde.cpp
+    ├── [3.7K]  norm_kde.hpp
+    ├── [ 47K]  piecewise_constant_function.cpp
+    ├── [ 48K]  piecewise_constant_function.hpp
+    ├── [ 11K]  polygon_piecewise_function.cpp
+    ├── [ 17K]  polygon_piecewise_function.hpp
+    ├── [8.9K]  rangecollection_hist.cpp
+    ├── [6.9K]  rangecollection_hist.hpp
+    ├── [1.9K]  real_estimate.cpp
+    ├── [1.8K]  real_estimate.hpp
+    ├── [2.8K]  realexpander_estimate.cpp
+    ├── [3.8K]  realexpander_estimate.hpp
+    ├── [3.3K]  real_kde_mid_estimate.cpp
+    ├── [3.6K]  real_kde_mid_estimate.hpp
+    ├── [ 17K]  realmappedshapenode.cpp
+    ├── [ 16K]  realmappedshapenode.hpp
+    ├── [ 33K]  realmappedspnode.cpp
+    ├── [ 31K]  realmappedspnode.hpp
+    ├── [2.2K]  real_pointwise_function_estimate.hpp
+    ├── [ 14K]  SmallClasses.hpp
+    ├── [7.3K]  spalgorithms.cpp
+    ├── [6.1K]  spalgorithms.hpp
+    ├── [ 21K]  spatial_object_representation_bv.cpp
+    ├── [ 28K]  spatial_object_representation_bv.hpp
+    ├── [4.5K]  sp_check_visitor.cpp
+    ├── [6.8K]  sp_check_visitor.hpp
+    ├── [1.3K]  sp_expand_visitor.hpp
+    ├── [5.4K]  splitdecisionobj.hpp
+    ├── [ 29K]  spminimalnode.cpp
+    ├── [ 17K]  spminimalnode.hpp
+    ├── [1.2K]  spnodeall.hpp
+    ├── [ 47K]  spnode.cpp
+    ├── [ 30K]  spnode.hpp
+    ├── [1.4K]  spnodevisitor.hpp
+    ├── [ 90K]  spsnode.cpp
+    ├── [ 67K]  spsnode.hpp
+    ├── [6.4K]  spsnode_measure_obj.cpp
+    ├── [7.4K]  spsnode_measure_obj.hpp
+    ├── [ 13K]  sptemplates.hpp
+    ├── [ 59K]  sptools.cpp
+    ├── [ 41K]  sptools.hpp
+    ├── [9.8K]  sptypes.hpp
+    ├── [1.4K]  sp_value_visitor.hpp
+    ├── [4.3K]  subpaving_exception.cpp
+    ├── [4.0K]  subpaving_exception.hpp
+    ├── [8.9K]  toolz.cpp
+    ├── [7.1K]  toolz.hpp
+    ├── [1.9K]  type_kde.hpp
+    ├── [5.2K]  voxel_tools.cpp
+    └── [2.3K]  voxel_tools.hpp
+
+54 directories, 432 files
+

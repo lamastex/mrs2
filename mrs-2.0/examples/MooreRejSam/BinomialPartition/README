@@ -1,0 +1,13 @@
+#!/bin/bash
+#just the prior is returned as posterior with no data
+#./BinomialPartition 1000 100000 0 0 0 0 0 0
+#Madeup example
+#./BinomialPartition 100 1000 0 10 8 10 9 0
+#Mortality of slash variety of pine seelings planted too high or two deep
+#Consonni and Veronese (1955) from Table 1 of Green (1995)
+./BinomialPartition 1000000 10000000 0 100 88 100 95 0
+#Mortality of longleaf variety of pine seelings planted too high or two deep
+#./BinomialPartition 10000 10000 0 100 59 100 89 0
+#thisi is for the bi partition of Indian monsoon at 1976 into the following data:
+#n_1 = 250000, y_1 = 1264 and n_2 = 250000, y_2 = 1542
+#./BinomialPartition 10000000 1000000 0 0 0 0 0 1

@@ -1,0 +1,170 @@
+TO DO FOR Raaz:
+Start from PointClous.cpp and make it specialized for one optimal density estimation.
+
+The code for generating samples for piecewise constant approx can be found in:
+
+mrs/trunk/examples/StatsSubPav/MCMC/MCMCFunctionSimGaussian.cpp - lines 93 to 178
+
+The L1 errors calculation: getIAE() - line 229 
+The getIAE function is defined in piecewise_constant_function.hpp
+
+-----------------------------------------------------------------
+calls:
+for 2d gaussian example with IAE:
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+$ ./CVOptMAP s 0 0. 5.0 5 2000 2
+maximium is the one at index 15
+maxMaxLaunchPoint = 141
+maxMaxPostPoint = 219
+maxMaxPosterior = -6.427698E+003
+
+At recreate point with leaves 219
+from carving point 141
+maxPosterior from earlier pq was -6.427698E+003 and posterior calculated here is -6.426591E+003
+(logLik here is -6.184085E+003 and logPrior is -2.425056E+002)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_2_2000_pcf.txt
+
+time to get prior-selected adaptive hist = 4.15285
+leave-1-out CV summand =  -0.059769
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 0.903072	0.0601173	 -0.059769	  0.315026
+-----------------------------------------------------------------
+./CVOptMAP s 0 0. 5.0 5 10000 2
+
+100 carverstarts and fixed minvol=0.000001
+100 carverstarts and fixed minvol=0.001
+
+./CVOptMAP s 0 0. 5.0 5 10000 2
+
+At recreate point with leaves 676
+time to get prior-selected adaptive hist = 18.6341
+leave-1-out CV summand =  -0.063114
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 1.11341	0.063114	 -0.063114	  0.215422
+-----------------------------------------------------------------
+./CVOptMAP s 0 0. 5.0 5 100000 2
+100 carverstarts and fixed minvol=0.001
+maximium is the one at index 4
+maxMaxLaunchPoint = 2000
+maxMaxPostPoint = 2114
+maxMaxPosterior = -3.108085E+005
+
+At recreate point with leaves 2114
+from carving point 2000
+maxPosterior from earlier pq was -3.108085E+005 and posterior calculated here is -3.108075E+005
+(logLik here is -3.087118E+005 and logPrior is -2.095670E+003)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_2_100000_pcf.txt
+
+time to get prior-selected adaptive hist = 297.962
+leave-1-out CV summand =  -0.065585
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 1.00875	0.065586	 -0.065585	  0.125609
+
+-----------------------------------------------------------------
+with 10 carver starts the AIE is higher with a lot more leaves with little time savings
+./CVOptMAP s 0 0. 5.0 5 100000 2
+10 carverstarts and fixed minvol=0.001
+At recreate point with leaves 4839
+from carving point 4813
+maxPosterior from earlier pq was -3.119277E+005 and posterior calculated here is -3.119266E+005
+(logLik here is -3.068141E+005 and logPrior is -5.112465E+003)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_2_100000_pcf.txt
+
+time to get prior-selected adaptive hist = 280.587
+leave-1-out CV summand =  -0.065518
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 0.94651	0.0655185	 -0.065518	  0.142950
+
+-----------------------------------------------------------------
+with 1000 carver starts the AIE is lowest with a fewer leaves (same as with 100 carver starts) with little time savings
+./CVOptMAP s 0 0. 5.0 5 100000 2
+10 carverstarts and fixed minvol=0.001
+maximium is the one at index 4
+maxMaxLaunchPoint = 2000
+maxMaxPostPoint = 2114
+maxMaxPosterior = -3.108085E+005
+
+At recreate point with leaves 2114
+from carving point 2000
+maxPosterior from earlier pq was -3.108085E+005 and posterior calculated here is -3.108075E+005
+(logLik here is -3.087118E+005 and logPrior is -2.095670E+003)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_2_100000_pcf.txt
+
+time to get prior-selected adaptive hist = 302.281
+leave-1-out CV summand =  -0.065585
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 1.00875	0.065586	 -0.065585	  0.125609
+-----------------------------------------------------------------
+In 3 dimensions
+./CVOptMAP s 0 0. 5.0 5 10000 3
+
+At recreate point with leaves 1246
+from carving point 951
+maxPosterior from earlier pq was -4.300151E+004 and posterior calculated here is -4.300020E+004
+(logLik here is -4.137336E+004 and logPrior is -1.626849E+003)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_3_10000_pcf.txt
+
+time to get prior-selected adaptive hist = 23.0537
+leave-1-out CV summand =  -0.030588
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 0.765898	0.0305894	 -0.030588	  0.409382
+-----------------------------------------------------------------
+In 3 dimensions
+$ ./CVOptMAP s 0 0. 5.0 5 100000 3
+maximium is the one at index 4
+maxMaxLaunchPoint = 1921
+maxMaxPostPoint = 4079
+maxMaxPosterior = -4.173554E+005
+
+At recreate point with leaves 4079
+from carving point 1921
+maxPosterior from earlier pq was -4.173554E+005 and posterior calculated here is -4.173539E+005
+(logLik here is -4.111590E+005 and logPrior is -6.194900E+003)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_3_100000_pcf.txt
+
+time to get prior-selected adaptive hist = 927.48
+leave-1-out CV summand =  -0.033631
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 0.658445	0.033641	 -0.033631	  0.274676
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+testing:
+time to get prior-selected adaptive hist = 4.10307
+leave-1-out CV summand =  -0.059769
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 0.879314	0.0601173	 -0.059769	  0.315026
+-----------------------------------------------------------------
+
+____________________________________
+dim 4
+
+./CVOptMAP s 0 0. 5.0 5 100000 4
+At recreate point with leaves 6384
+from carving point 980
+maxPosterior from earlier pq was -5.362618E+005 and posterior calculated here is -5.362596E+005
+(logLik here is -5.226385E+005 and logPrior is -1.362113E+004)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_4_100000_pcf.txt
+
+time to get prior-selected adaptive hist = 1091.43
+leave-1-out CV summand =  -0.017569
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 0.468615	0.017584	 -0.017569	  0.458261
+--------------------------------------------------------------
+--------------------------------------------------------------
+./CVOptMAP dataCVOptMAP/datasets/dp.txt 0 0. 5.0 2 
+--------------------------------------------------------------
+--------------------------------------------------------------
+5 dim
+/PointClouds$ ./CVOptMAP s 0 0. 5.0 5 100000 5
+At recreate point with leaves 14034
+from carving point 3000
+maxPosterior from earlier pq was -6.527217E+005 and posterior calculated here is -6.527200E+005
+(logLik here is -6.293980E+005 and logPrior is -2.332201E+004)
+The output of the PiecewiseConstantFunction has been written to dataCVOptMAP/datasets/sim_5_100000_pcf.txt
+
+time to get prior-selected adaptive hist = 1079.13
+leave-1-out CV summand =  -0.009692
+Getting the L1-distance and KL-distance: 
+optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : 0.601712	0.00969941	 -0.009692	  0.620476
+--------------------------------------------------------------

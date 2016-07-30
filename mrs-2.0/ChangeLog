@@ -1,0 +1,55 @@
+MRS Release 1.0 ChangeLog
+-----------------------------
+In the following we summarize the major changes to the MRS library
+since release MRS 0.1.2-beta505 (released 30.04.2009):
+
+** Introduced SPMinimalnode class, derived from SPnode, to use for
+   reimplemention of the routines in
+   "Applied Interval Analysis", by Jaulin, Kieffer, 
+   Didrit and Walter; Springer, 2001.
+
+** Considerable additional functionality for 
+   adaptive histogram class (AdaptiveHistogram),
+   including improvements to priority queue methods and introduction
+   of Markov Chain Monte Carlo (MCMC) methods.
+
+** Addition of a general type of mapped paving with arithmetic
+   operations on mapped pavings defined.  Specialisations of 
+   the general mapped paving type
+   created for real-mapped pavings and interval-mapped pavings.
+
+** Type to represent real-valued functions added 
+   (PiecewiseConstantFunction).  Methods include marginalisation,
+   creating conditional functions, integration, normalisation, and
+   arithmetic on PiecewiseConstantFunctions.  Conversion of
+   AdaptiveHistogram into a PiecewiseConstantFunction. 
+
+** Types to create function estimates using function 
+   interval enclosures or real-valued function approximations
+   added.
+
+
+
+
+MRS Release 0.1.2 ChangeLog
+-----------------------------
+In the following we summarize the major changes to the MRS library
+since release MRS 0.1 (released 15.12.2005):
+
+** Upgraded to latest autotools (libtool-2.2.6, autoconf-2.63, automake-1.10.2)
+
+** Maintainance Release due to newer compiler versions
+
+** Sub-pavings from "Applied Interval Analysis", by Jaulin, Kieffer, 
+   Didrit and Walter; Springer, 2001 have been reimplemented in C-XSC with 
+   a BUG in their Contains routine fixed (see BUGS/Contains.png)
+
+** A more general class for sub-pavings added
+
+** Various example targets added
+
+** uniform and exponential priors in Moore rejegtion samplers
+
+** Trans-dimensional Moore rejection samplers
+
+** basic adaptive histograms based on sub-pavings

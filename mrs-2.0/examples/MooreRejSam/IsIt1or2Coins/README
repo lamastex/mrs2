@@ -1,0 +1,40 @@
+#!/bin/bash
+#########################################################################################
+#just the prior is returned as posterior with no data
+#########################################################################################
+#./IsIt1or2Coins 1000 1000000 0 0 0 0 0 0
+#########################################################################################
+#Posterior probabilities and MAPs for sample space of 2-Bernoulli Partition Model
+#########################################################################################
+#./IsIt1or2Coins 10000 10000000 0 1 0 1 0 0 | tee -a PosProbsBernoulliParts2nsam1e7.txt
+#./IsIt1or2Coins 10000 10000000 0 1 0 1 1 0 | tee -a PosProbsBernoulliParts2nsam1e7.txt
+#./IsIt1or2Coins 10000 10000000 0 1 1 1 0 0 | tee -a PosProbsBernoulliParts2nsam1e7.txt
+#./IsIt1or2Coins 10000 10000000 0 1 1 1 1 0 | tee -a PosProbsBernoulliParts2nsam1e7.txt
+./IsIt1or2Coins 100000 1000000 0 1 0 1 0 0 | tee -a PosProbsBernoulliParts2nsam1e6NoBCs.txt
+./IsIt1or2Coins 100000 1000000 0 1 0 1 1 0 | tee -a PosProbsBernoulliParts2nsam1e6NoBCs.txt
+./IsIt1or2Coins 100000 1000000 0 1 1 1 0 0 | tee -a PosProbsBernoulliParts2nsam1e6NoBCs.txt
+./IsIt1or2Coins 100000 1000000 0 1 1 1 1 0 | tee -a PosProbsBernoulliParts2nsam1e6NoBCs.txt
+#########################################################################################
+#Madeup example
+#########################################################################################
+#./IsIt1or2Coins 1000 1000 0 100 50 100 50 1
+#########################################################################################
+#Mortality of slash variety of pine seelings planted too high or two deep
+#########################################################################################
+#Consonni and Veronese (1955) from Table 1 of Green (1995)
+#./IsIt1or2Coins 10000 10000000 0 100 88 100 95 0
+#Mortality of longleaf variety of pine seelings planted too high or two deep
+#./IsIt1or2Coins 10000 10000 0 100 59 100 89 0
+#########################################################################################
+#########################################################################################
+#Posterior probabilities and MAPs for sample space of 2-Binomial Partition Model Monsoon
+#########################################################################################
+#./IsIt1or2Coins 10000 10000000 0 1 0 1 0 1 | tee -a PosProbsBinomialMonsoonnsam1e7.txt
+#./IsIt1or2Coins 10000 10000000 0 1 0 1 1 1 | tee -a PosProbsBinomialMonsoonnsam1e7.txt
+#./IsIt1or2Coins 10000 10000000 0 1 1 1 0 1 | tee -a PosProbsBinomialMonsoonnsam1e7.txt
+#./IsIt1or2Coins 10000 10000000 0 1 1 1 1 1 | tee -a PosProbsBinomialMonsoonnsam1e7.txt
+#########################################################################################
+#Rangatira post-managed phase 1990-1998 the two mst extreme years' surivival probabilities
+./IsIt1or2Coins 1000 10000 0 49 42 61 38 1
+# two very similar years
+./IsIt1or2Coins 1000 10000 0 73 51 93 65 1

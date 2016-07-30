@@ -1,0 +1,3 @@
+#!/bin/bash
+# tree_space: 3 #characters: 4 n_boxes: 500  n_samples: 100  (defaults rng_seed=1234   use_f_scale=true   UseLogPi=true   prior_type=0)
+./PhyloPOT 3  4 500 100

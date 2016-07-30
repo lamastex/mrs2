@@ -1,0 +1,3 @@
+#!/bin/bash
+# n_dimensions: 2  n_boxes: 1000  n_samples: 10000  rng_seed = 12345
+./Levy2D 1000 10000 12345

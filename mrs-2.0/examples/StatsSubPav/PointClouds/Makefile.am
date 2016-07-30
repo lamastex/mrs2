@@ -1,0 +1,12 @@
+noinst_PROGRAMS = PointClouds OnePointCloud CVOptMAP
+TARGETS = ../../MixtureTargets
+CVOptMAP_SOURCES = CVOptMAP.cpp dataprep.hpp testDenCommon.cpp testDenCommon.hpp testDenTools.cpp testDenTools.hpp ../../MixtureTargets/mixture_mvn.cpp ../../MixtureTargets/mixture_mvn.hpp
+PointClouds_SOURCES = PointClouds.cpp dataprep.hpp 
+OnePointCloud_SOURCES = OnePointCloud.cpp dataprep.hpp testDenCommon.cpp testDenCommon.hpp testDenTools.cpp testDenTools.hpp ../../MixtureTargets/mixture_mvn.cpp ../../MixtureTargets/mixture_mvn.hpp
+EXTRA_DIST = PointClouds.m
+CVOptMAP_CPPFLAGS = -I${top_builddir}/src -I./  -I../../MixtureTargets
+PointClouds_CPPFLAGS = -I${top_builddir}/src -I./
+OnePointCloud_CPPFLAGS = -I${top_builddir}/src -I./ -I../../MixtureTargets
+CVOptMAP_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+PointClouds_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+OnePointCloud_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
