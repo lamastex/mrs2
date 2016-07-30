@@ -86,3 +86,14 @@ The file `custom_config.sh' can also be used, which contains a variation on the
 above command.  Make sure you export the environmet variable LD_LIBRARY_PATH 
 properly (for example see last few lines of custom_config.sh):
 export LD_LIBRARY_PATH=/usr/local/cxsc/lib:$LD_LIBRARY_PATH
+
+Supported by
+============
+
+* 2003 by NSF grant DGE-9870631 (United States)
+* 2004, 2005 by joint NSF/NIGMS grant DMS-02-01037 (United States)
+* 2006, 2007 by Research Fellowship of the Royal Commission for the Exhibition of 1851 (United Kingdom)
+* 2007, 2008 by internal research grants from Mathematics and Statistics Department, University of Canterbury (New Zealand)
+* 2009 by statistical consulting revenues of Raazesh Sainudiin
+* 2012 University of Canterbury Postgraduate Scholarship 
+* 2015, 2016 by the project CORCON: Correctness by Construction, Seventh Framework Programme of the European Union, Marie Curie Actions-People, International Research Staff Exchange Scheme with counter-part funding by The Royal Society of New Zealand
