@@ -42,9 +42,15 @@ You may need libgsl0-dev also.
 Computer-aided Proofs in Dynamics:
 http://capd.ii.uj.edu.pl/
 
-4.
-The Computational Geometry Algorithms Library:
+4. (optional for 2016)
+The Computational Geometry Algorithms Library (only needed for linear-transformation invariant arithmetics for densities):
 http://www.cgal.org/
+
+cgal has several dependencies that we assume you will take care of from (http://doc.cgal.org/latest/Manual/installation.html):
+
+4.1: https://gmplib.org/
+4.2: http://www.mpfr.org/
+etc
 
 Other dependencies include boost++ and standard GNU packages and collections.
 
@@ -59,6 +65,7 @@ mrs-2.0 configure and make instructions:
 
 Modify paths to companion libraries in `custom_config.sh` and then:
 
+        cd mrs-2.0
         ./custom_config.sh
         make
 

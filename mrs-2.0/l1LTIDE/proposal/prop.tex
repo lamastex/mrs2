@@ -1,0 +1,143 @@
+\documentclass[a4paper, 10pt]{report} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+%\usepackage{parskip}
+\usepackage{soul, color} % highlighting
+\flushbottom
+
+\usepackage{mathpazo} % Use the Palatino font
+\linespread{1.0} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\makeatletter
+%\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title and author name here, see the TITLE block below
+\begin{flushright} % Right align
+{\LARGE\@title} % Increase the font size of the title
+
+\vspace{10pt} % Some vertical space between the title and author name
+
+{\large\@author} % Author name
+\\\@date % Date
+
+%\vspace{10pt} % Some vertical space between the author block and abstract
+
+\end{flushright}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Resource Here: https://www.wpi.edu/academics/ugradstudies/writeproposal.html
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\title{\textbf{Project Proposal}\\ % Title
+Statistical BSP trees for Density Estimation} % Subtitle
+
+\author{\textsc{Dillon George} % Author
+\\{\textit{University of Canterbury}}
+\\{\textit{Supervisors: Kourosh Neshatian \& Raazesh Sainudiin}}} % Institution
+
+\date{\today} % Date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title section
+
+
+%----------------------------------------------------------------------------------------
+%	ESSAY BODY
+%----------------------------------------------------------------------------------------
+
+\section*{Introduction}
+%------------------------------------------------
+
+Density estimation is a fundamental problem in statistics and probabilistic learning. It is the method of estimating a probability density function using samples from some unknown distribution. This density estimate can then be used as a basis for virtually any method of data analysis \cite{gray2003nonparametric, Bishop:1995:NNP:525960}, such as regression or clustering.
+
+For this project, a method of density estimation using Binary Space Partitioning (BSP) trees will be developed.
+A BSP tree recursively partitions a space into convex sets. The primary focus project will be of developing an algorithm to construct BSP trees that partitions the space of some data set into these convex sets. There are multiple possible partitions of this space and multiple partitioning methods will be evaluated for their effectiveness and efficiency. The notion of a BSP tree can be extended to that of a statistical BSP tree, by associating each node of the BSP tree with recursively computable statistics. One such statistic is simply the number of points that fall into the region of space that the node represents. By considering the fraction of the data that lies within a region, a histogram can be obtained from the BSP tree by dividing this fraction by the volume of the region \cite{sainudiin2013posterior}. As such a method for an efficent method of calculating the volume of these regions is a crucial step for fast density estimation, and is expected that a significant portion of this project will focus on this implementing this.
+
+This method of density estimation falls into the category of non-parametric density estimation, as it does not rely on any assumptions on the probability distribution of the data. Existing methods for non-parametric density estimation typically scale poorly with large data sets and high dimensionality of the data. There do exist space partitioning methods for density estimation that address this issue, and will be discussed below; but still have various shortcomings that this project intends to address. Primarily amongst these is the problem of scaling massive data volume well, especially in higher dimensions. Due to these limitations non-parametric density estimation has typically seen limited use. As such, methods that handle large and potentially high dimensional datasets are desirable and make density estimation feasible where otherwise it would not be.
+
+%The "Introduction" tells the reader 
+%1) what your project is about,
+%2) why the project is worth doing, and
+%3) why your project is a good topic for fulfilling the objectives of the degree requirement.
+
+%A good Project proposal has an additional advantage; with appropriate revisions, the chapters in the proposal can give you a start on similar sections for the final report. Good work on the proposal has two advantages: planning for effective resource use when doing the project, and getting a jump ahead on the final report.
+
+
+
+
+
+\section*{Literature Review}
+%------------------------------------------------
+%To show your advisor that you know what your talking about concerning your project, you need to demonstrate that you know the background and context of your topic. Good questions to answer in this section are:
+
+
+Existing methods for \textit{tree-based} density estimation are \textit{kd}-trees\cite{gray2003nonparametric} and statistical regular pavings(SRP) \cite{sainudiin2013posterior}.
+Due to how they partition the data both \textit{kd}-trees SRPs scale poorly with the dimension of the data \cite{gray2003nonparametric}. In practice SRPs were limited to 5-6 dimensions \cite{teng2014l1}, and \textit{kd}-trees to around 10 \cite{gray2003nonparametric}. However these are both improvements on "traditional methods" for larger sample sizes (better scaling in the number of data points). Ball-Trees are introduced in \cite{gray2003nonparametric}, as an alternative to \textit{kd}-trees in higher dimensions, but this approach has short comings when there is no underlying structure to the data \cite{Lang:2005,Moore00theanchors}, whereas SRPs perform well for unstructured data \cite{sainudiin2013posterior} but poorly when the data is more structured in high dimensions.
+
+Other research utilises density estimation trees(DETs) \cite{Ram:2011:DET:2020408.2020507} as a structure for density estimation. These trees are slightly less accurate than existing methods, but are interpretable and adaptable unlike some other methods. The key advantage of these trees is the speed of querying to find the density estimate of a data point, having faster query times than kernel density estimates(KDE) of a similar accuracy. This does come with a significant increase in training time over KDEs. However BSP trees should have similar query times to DETs as both require only a tree traversal to look up the density estimate. Moreover training (or construction) times for BSP trees should be smaller as the expensive cross validation step that can be cast as a tree arithmetic problem as is done for SRP trees (Sainudiin current research).
+
+%How have others gone about trying to solve problems you want to tackle, and in what ways will your approach build on and vary from previous work?
+Statistical BSP(SBSP) trees can be seen as a generalisation of the partitioning trees mentioned above. The key difference is the invariance under affine transformations under hyperplane splitting. SRPs and \textit{kd}-trees are both constructed by hyperplane cuts are parallel to the axis of a given dimension. But in the more general case proposed here the data can be split by any arbitrary hyperplane. It is hoped that well chosen hyperplane splits will be able to partition the data in a way that can avoid the variance to affine transformations(of the data space) that the other methods suffer from.
+This invariance property will allow SBSP trees to represent richer patterns in the data when compared to those that are representable by axis-parallel splits in \textit{kd} \& SRP trees.
+
+
+
+%%
+\section*{Procedure}
+
+The initial steps will be to develop a general algorithm to construct BSP trees in $d$ dimensions. This will be kept general in order to evaluate the effectiveness of different methods of hyperplane splitting. The first method to be evaluated is to select $d$ points from the data and from those construct a hyperplane to split the data. The aim of these tests is to find a method of splitting that minimises the log of the ratio of the number of points in each half of region, that is to ensure it splits the region into two subsets containing an approximately equal number of points. This is desirable to ensure that the number of cells in the partition grows sub-linearly in the number of data points while the number of data points in most of the populated cells is statistically equivalent.
+
+Different methods for constructing the tree will be considered. The initial, and `immediately' obvious is a top down construction of the tree, the root node of the tree is formed splitting the entire region by some hyperplane, and then continuing this process recursively for the sub regions. Another potential construction method is a `middle-out' approach \cite{Moore00theanchors}, though some thought is required on if this will work in the framework of a BSP tree.
+
+Multiple stopping rules for the tree construction can be trialled, these determine at which point the construction of the tree should halt. These rules may be determined by various factors on a case by case basis. One such factor is the availability of computing resources, a resource constrained system may necessitate a smaller tree. Examples of stopping rules: stopping when a certain tree depth is reached, continuing the construction process until each region contains fewer data points than some threshold value.
+
+%Talk about the recursively computable statistics
+%Too free standing
+As the tree is constructed, each node will store information on the data in the region defined by that node. Initially only the number of enclosed points will be stored as a statistic, but other values such as the sample mean and covariance of the points could also be computed and stored. % Why use them?
+
+Once a method of constructing BSP trees has been developed, the next step will be to begin implementing density estimation utilising the BSP tree. This requires computing the volume of each cell in the partition given by the leaves of the BSP tree.
+In order for the volume to be computed it is required to bound the volume of the region in which the data-points are enclosed. One method that has been considered for this creates $d$ splitting hyperplanes, where each hyperplane is accompanied by two data-enclosing parallel hyperplanes on either side. These enclosing hyperplanes will enclose the points and allow beginning the tree construction. Volume can then be found by calculating volume of the $d$-dimensional regions of the tree.
+ A possible approach to volume computation is to decompose the region into a set of $d$-simplices, for which the volume can be easily expressed \cite{10.2307/2315353}. It is expected that finding an efficient method for volume calculation will take a significant portion of the project's time.
+Once a method for calculating the volume has been found, the density of a partition is a product of the fraction of the data in that partition by the inverse of the volume.
+
+
+In order to construct d-dimensional trees CGAL \cite{cgal:eb-15b}, a  C++ library for computation geometry will be used for $d$-dimensional primitives, such as hyperplanes and $d$-dimensional points. This will allow for focus on the problem at hand, without having to develop the tools to deal with arbitrarily dimensional planes and points. %tie this in with actually creating BSP Trees
+
+If time permits there is a desire to scale this process to a cluster computing environment such as Apache Spark \cite{Zaharia:2010:SCC:1863103.1863113}. As this is the case, care will be taken in the algorithm design to avoid steps that would hamper computing in such an environment. Things such as global shared state will be avoided where possible to make this transition easier. Care will also be given to implementing these structires and algorithms in Spark distributed processing frameworks(GraphX, GraphFrames \& IndexedRDDs).
+
+In order to evaluate the effectiveness of this approach data from a distribution with a well know density will be simulated. For arbitrary data sets the true density estimate is hard to know, thus simulated data will used so that an effective measure of the accuracy can be obtained. These results can then be compared to those of existing methods using data from the same distribution so that a fair comparison can be made.
+
+
+%The procedure or the methodology is the heart of the proposal because it must tell the reader how you propose to carry out your project. It must convince your advisor (or in industry your manager or potential client) that you clearly understand your task, have a logical time plan for solving your problems, and have identified all the resources you need.
+
+%If your proposal is for an IQP, you must take special care to explain HOW you plan to relate some aspect of science or technology to society. Note that "technology" need not be defined narrowly here: "technology" can mean the techniques used to manage or evaluate any resource efficiently, not just "nuts and bolts" hardware. But you must explain clearly how your procedure insures that the WPI IQP degree requirement will be satisfied by completing a project which defines, investigates, and reports on a topic relating science or technology to a social need or issue. In short, why is your topic an IQP?
+
+%Some of the other questions the reader will expect you to answer in this section are:
+
+%What are the tasks and sub-tasks identified to achieve your objectives?
+%What materials will you need to carry out your project: equipment? computer support? typing? graphics? others?
+%What data are needed for the project and how will they be collected? If the project requires a survey or interviews, the design of this instrument (especially the selection of participants) must be explained and justified.
+%What method or process will be used to analyze this data and where else (if anywhere) has this method or process been used?
+%What time frame do you think you will need to accomplish identified tasks or subtasks? Should schedules be presented in standard forms like PERT or Task Charts? (see Figures 1 and 2.)
+
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliographystyle{unsrt}
+
+\bibliography{prop}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

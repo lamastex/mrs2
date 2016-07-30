@@ -42,9 +42,16 @@ You may need libgsl0-dev also.
 Computer-aided Proofs in Dynamics:
 http://capd.ii.uj.edu.pl/
 
-4.
-The Computational Geometry Algorithms Library:
+4. (optional for 2016)
+The Computational Geometry Algorithms Library (only needed for linear-transformation invariant arithmetics for densities):
 http://www.cgal.org/
+
+cgal has several dependencies that we assume you will take care of from (http://doc.cgal.org/latest/Manual/installation.html):
+
+4.1: https://gmplib.org/
+4.2: http://www.mpfr.org/
+4.3: for openGL in Ubuutu: sudo apt-get install libglew-dev
+etc
 
 Other dependencies include boost++ and standard GNU packages and collections.
 

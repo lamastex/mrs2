@@ -1,0 +1,6 @@
+CMakeCache.txt
+.ycm_extra_conf*
+build/*
+compile_commands.json
+.idea/
+build/
