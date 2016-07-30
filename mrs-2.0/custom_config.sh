@@ -1,8 +1,8 @@
 #!/bin/sh
 
 #Edit this to match your own location
-CXSCDIR=/home/rsa64/all/software/cxsc/cxsc-2-5-4
-GSLDIR=/home/rsa64/all/software/gsl/gsl-2.1
+CXSCDIR=/home/rsa64/all/svn/mrs/branches/raaz/git/mrs2/companions/cxsc-2-5-4
+GSLDIR=/home/rsa64/all/svn/mrs/branches/raaz/git/mrs2/companions/gsl-2.1
 #CXSCDIR=/usr/local/cxsc
 #CXSCDIR=/home/gat41/cxsc
 #MYMRSDIR=/users/math/rsa64/mrs
@@ -10,8 +10,8 @@ GSLDIR=/home/rsa64/all/software/gsl/gsl-2.1
 #MYMRSDIR=/home/gat41/mrs
 #MYMRSDIR=/Users/jah217/newsvn/mrs
 #CXSCDIR=/Users/raazesh/cxsc
-MYMRSDIR=/home/wynrs1/software/mrs
-#MYMRSDIR=/Users/raazesh/newsvn/mrs
+MYMRSDIR=/home/rsa64/all/svn/mrs/branches/raaz/git/mrs2/mrs-2.0
+
 
 set -x;
 #./configure CPPFLAGS="-I${CXSCDIR}/include" LDFLAGS="-L${CXSCDIR}/lib" --prefix="${MYMRSDIR}" $@
@@ -25,5 +25,5 @@ set -x;
 ##sometimes you need to:
 #export DYLD_LIBRARY_PATH=/Users/raazesh/cxsc/lib:$DYLD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=/usr/local/cxsc/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/rsa64/all/software/cxsc/cxsc-2-5-4/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/rsa64/all/software/gsl/gsl-2.1/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=${CXSCDIR}/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=${GSLDIR}/lib:$LD_LIBRARY_PATH

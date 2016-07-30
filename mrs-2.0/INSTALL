@@ -1,3 +1,13 @@
+mrs-2.0 configure and make instructions:
+========================================
+
+Modify paths to companion libraries in `custom_config.sh` and then:
+
+$ ./custom_config.sh
+$ make
+
+Generic GNU instructions follows.
+
 Installation Instructions
 *************************
 
