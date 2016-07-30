@@ -5,10 +5,10 @@
 // SSE
 /*
  */
-#define HAVE_SSE
+// #define HAVE_SSE
 
 // X87
-// #define HAVE_X87
+#define HAVE_X87
 
 // ISO C99 rounding functions
 /*
