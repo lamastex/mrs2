@@ -59,15 +59,12 @@ mrs-2.0 configure and make instructions:
 
 Modify paths to companion libraries in `custom_config.sh` and then:
 
-$ ./custom_config.sh
-$ make
-
+        ./custom_config.sh
+        make
 
 For a basic installation, run
 =============================
 
-        ./configure
-        make
         make install
 
 In addition, the (highly incomplete!) documentation can be compiled with
