@@ -50,7 +50,7 @@ cgal has several dependencies that we assume you will take care of from (http://
 
 4.1: https://gmplib.org/
 4.2: http://www.mpfr.org/
-4.3: for openGL in Ubuutu: sudo apt-get install libglew-dev
+4.3: for openGL in Ubuutu: sudo apt-get install libglew-dev ...
 etc
 
 Other dependencies include boost++ and standard GNU packages and collections.
