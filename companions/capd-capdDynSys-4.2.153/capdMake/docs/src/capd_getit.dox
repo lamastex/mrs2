@@ -1,0 +1,8 @@
+/*! \page capd_getit Get CAPD
+
+The \b CAPD library is a collection of flexible C++ modules which are mainly designed for:
+- validated numerics for dynamical systems [DynSys](http://capd.ii.uj.edu.pl),
+- computational homology [RedHom](http://redhom.ii.uj.edu.pl).
+
+Download \subpage capd_binary_install or \subpage capd_source_install.
+*/

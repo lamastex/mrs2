@@ -1,0 +1,7 @@
+/*! \page capd_binary_install Binaries
+
+Binary version of the \b CAPD library can be [<b>download</b>](https://sourceforge.net/projects/capd/files/newest/bin)  from SourceForge.
+If there is no version for your system then you need to compile the source code (see \ref capd_source_install).
+Let us know if you would like to see binaries for your system!
+
+*/
