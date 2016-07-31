@@ -24,9 +24,9 @@ claim for lost profits, fees or expenses of any nature or kind.
 Also see the disclaimers in the C-XSC library that this program 
 builds upon. 
 
-Dependencies (see ./companions):
-================================
-The following companion libraries are distributed under the terms of the GNU General Public License (GPL).
+Dependencies:
+=============
+The following necessary companion libraries (see `./companions`) are also distributed under the terms of the GNU General Public License (GPL).
 
   * [C-XSC 2.5.4, A C++ Class Library for Extended Scientific Computing](http://www2.math.uni-wuppertal.de/~xsc/)
 
