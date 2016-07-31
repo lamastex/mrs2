@@ -28,14 +28,13 @@ Dependencies (see ./companions):
 ================================
 The following companion libraries are distributed under the terms of the GNU General Public License (GPL).
 
-  1. [C-XSC 2.5.4, A C++ Class Library for Extended Scientific Computing](http://www2.math.uni-wuppertal.de/~xsc/)
+  * [C-XSC 2.5.4, A C++ Class Library for Extended Scientific Computing](http://www2.math.uni-wuppertal.de/~xsc/)
 
   * [GSL 2.1, GNU Scientific Library](http://www.gnu.org/software/gsl/)
 
-  * [Capd-capdDynSys-4.2.153, Computer-aided Proofs in Dynamics - Dynamical Systems](http://capd.ii.uj.edu.pl/)
+  * (optional for 2016) [Capd-capdDynSys-4.2.153, Computer-aided Proofs in Dynamics - Dynamical Systems](http://capd.ii.uj.edu.pl/)
 
-  * (optional for 2016)[The Computational Geometry Algorithms Library](http://www.cgal.org/); This is only needed for linear-transformation invariant arithmetic for densities.
-     * cgal has several dependencies that we assume you will take care of from (http://doc.cgal.org/latest/Manual/installation.html):
+  * (optional for 2016)[The Computational Geometry Algorithms Library](http://www.cgal.org/) which has [multiple dependencies](http://doc.cgal.org/latest/Manual/installation.html). This is only needed for the experimental linear-transformation invariant arithmetic for densities under development.
 
 
 Other dependencies include standard C++ template library, boost++ and standard GNU packages and collections.
