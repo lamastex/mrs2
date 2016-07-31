@@ -1,4 +1,4 @@
-mrs 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics.
+MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics.
 ====================================================================================================
 
 created:	Sat Jul 30 18:02:29 CEST 2016
@@ -26,40 +26,29 @@ builds upon.
 
 Dependencies (see ./companions):
 ================================
+The following companion libraries are distributed under the terms of the GNU General Public License (GPL).
 
-1.
-You are assumed to have C-XSC2.5* already installed
-http://www2.math.uni-wuppertal.de/~xsc/
-C-XSC is distributed under the terms of the GNU General Public License (GPL).
+  1. [C-XSC 2.5.4, A C++ Class Library for Extended Scientific Computing](http://www2.math.uni-wuppertal.de/~xsc/)
 
-2.
-You are also expected to have GSL already installed
-http://www.gnu.org/software/gsl/
-GSL is distributed under the terms of the GNU General Public License (GPL).
-You may need libgsl0-dev also.
+  * [GSL 2.1, GNU Scientific Library](http://www.gnu.org/software/gsl/)
 
-3.
-Computer-aided Proofs in Dynamics:
-http://capd.ii.uj.edu.pl/
+  * [Capd-capdDynSys-4.2.153, Computer-aided Proofs in Dynamics - Dynamical Systems](http://capd.ii.uj.edu.pl/)
 
-4. (optional for 2016)
-The Computational Geometry Algorithms Library (only needed for linear-transformation invariant arithmetics for densities):
-http://www.cgal.org/
+  * (optional for 2016)[The Computational Geometry Algorithms Library](http://www.cgal.org/); This is only needed for linear-transformation invariant arithmetic for densities.
+     * cgal has several dependencies that we assume you will take care of from (http://doc.cgal.org/latest/Manual/installation.html):
 
-cgal has several dependencies that we assume you will take care of from (http://doc.cgal.org/latest/Manual/installation.html):
 
-4.1: https://gmplib.org/
-4.2: http://www.mpfr.org/
-4.3: for openGL in Ubuutu: sudo apt-get install libglew-dev ...
-etc
-
-Other dependencies include boost++ and standard GNU packages and collections.
+Other dependencies include standard C++ template library, boost++ and standard GNU packages and collections.
 
 Distribution:
+=============
+
 https://github.com/raazesh-sainudiin/mrs2
 
 Citation:
-"mrs 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics", Raazesh Sainudiin and Thomas York,
+=========
+
+MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics, Raazesh Sainudiin, Thomas York, Jennifer Harlow, Gloria Teng, Warwick Tucker and Dillon George, URL https://github.com/raazesh-sainudiin/mrs2
 
 mrs-2.0 configure and make instructions:
 ========================================
@@ -99,6 +88,6 @@ Supported by
 * 2004, 2005 by joint NSF/NIGMS grant DMS-02-01037 (United States)
 * 2006, 2007 by Research Fellowship of the Royal Commission for the Exhibition of 1851 (United Kingdom)
 * 2007, 2008 by internal research grants from Mathematics and Statistics Department, University of Canterbury (New Zealand)
-* 2009 by statistical consulting revenues of Raazesh Sainudiin
 * 2012 University of Canterbury Postgraduate Scholarship 
+* 2009-2015 by industrial consulting revenues of Raazesh Sainudiin
 * 2015, 2016 by the project CORCON: Correctness by Construction, Seventh Framework Programme of the European Union, Marie Curie Actions-People, International Research Staff Exchange Scheme with counter-part funding by The Royal Society of New Zealand
