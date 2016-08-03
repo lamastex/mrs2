@@ -1,6 +1,6 @@
-# Essential CORCON-related Communications (referred from The PRESS)
+# Essential CORCON-related Communications (referred from The Press)
 
-Please contact this git repository owner from an email address devoid of the substring: "canterbury.ac.nz" in From, To, Cc, Bcc and body fields, including possibly partially parsed threads and forwards among others including sed-awk-greppable attachments within secure containers. This mechanism for communication had to be established since Sun, 31 Jul 2016 04:24:03 -0700 (PDT) for reasons stated in the PRESS.
+Please contact this git repository owner from an email address devoid of the substring: "canterbury.ac.nz" in From, To, Cc, Bcc and body fields, including possibly partially parsed threads and forwards among others including sed-awk-greppable attachments within secure containers. This mechanism for communication had to be established since Sun, 31 Jul 2016 04:24:03 -0700 (PDT) for reasons stated in The Press.
 
 Raazesh Sainudiin (Employee of University of Canterbury, Christchurch New Zealand -- a full partner institution on the project [CORCON: Correctness by Construction](http://corcon.net/about/), Seventh Framework Programme of the European Union, Marie Curie Actions-People, International Research Staff Exchange Scheme with counter-part funding from the Royal Society of New Zealand).
 
