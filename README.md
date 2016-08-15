@@ -1,10 +1,9 @@
-# Essential CORCON-related Communications (referred from The Press)
 
-Please contact this git repository owner for details.
-
-# [CORCON: Correctness by Construction](http://corcon.net/about/) Progress Report
+## Project  [CORCON: Correctness by Construction](http://corcon.net/about/) Progress Report
   * Target 1 Achieved: MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics
   * Target 2 In Progress.
+
+Please contact this git repository owner for details.
 
 MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics.
 ====================================================================================================
