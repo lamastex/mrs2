@@ -5,6 +5,9 @@
 
 Please contact this git repository owner for details.
 
+---
+---
+
 MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics.
 ====================================================================================================
 
