@@ -107,7 +107,7 @@ bool selectPriorByLv1OutCV (RVecData & Data, double t_lo, double t_hi,
 				int LocalMaxTempIterations, int MaxTempIterations,
 				RealVec & Lv1OutCVScores, vector<double> & Temperatures, 
 				double & t_opt, double & Lv1OutCVScores_opt,
-				size_t minPoints, int chooseStarts, int keep, 
+				size_t minPoints, double minVolume, int chooseStarts, int keep, 
 				bool stopOnMaxPosterior, string postFileName, 
 				string checkPostFileNameBase, string burstsFileBaseName, 
 				bool printHist, int precPQ, 
@@ -118,7 +118,7 @@ bool optPQMCAdapHist (RVecData & transformedData,
 				double & t_opt, 
 				vector< subpavings::AdaptiveHistogram* > & hists, 
 				vector< subpavings::PiecewiseConstantFunction* > & pcfs,
-				size_t minPoints, int chooseStarts, int keep, 
+				size_t minPoints, double minVolume, int chooseStarts, int keep, 
 				bool stopOnMaxPosterior, string postFileName, 
 				string checkPostFileNameBase, string burstsFileBaseName, 
 				bool printHist, int precPQ, bool CarvingMaxPosterior, 
@@ -140,7 +140,7 @@ int main(int argc, char ** argv)
     double t_opt = 0.5;//
     size_t dim = 1; //dimensions
     size_t n = 1000; //sample size
-    int reps = 1; //replications	
+    int reps = 1; //replications - just used to change seed in each replicate simulation	
     size_t K = 5; //K-fold CV
     double t_lo=0.01;//lowest temperature in search 
 	// make sure this is high enough to avoid
@@ -156,8 +156,9 @@ int main(int argc, char ** argv)
         bool CarvingMaxPosterior=true;// false means using SEB PQ with minChildPoints
 	long unsigned int seed = 7871234;
 	int keep = 1;
-	int chooseStarts = 100;//10;
+	int chooseStarts = 10;//10;
 	size_t minPoints = 1;
+        double minVolume = 0.001;
 /*
 	int MaxTempIterations= atoi(argv[6]); //how many temperatures
 	double t_lo=atof(argv[7]);//lowest temperature in search
@@ -193,10 +194,16 @@ int main(int argc, char ** argv)
        dim = atoi(argv[7]);
     }
     if (argc > 8) {
-       reps = atoi(argv[8]);
+       reps = atoi(argv[8]);// just using a seed for 1 replicate
     }
     if (argc > 9) {
-       K = atoi(argv[9]);
+       minVolume = atof(argv[9]);
+    }
+    if (argc > 10) {
+       minPoints = atoi(argv[10]);
+    }
+    if (argc > 11) {
+       chooseStarts = atoi(argv[11]);
     }
     // Mixture of Normals is made in either case
     long unsigned int MVNseed = 9876;// seed for data simulator
@@ -205,7 +212,7 @@ int main(int argc, char ** argv)
         stringstream ss; ss << "dataCVOptMAP/datasets/sim_" << dim << "_" << n;
         burstsFileBaseName = ss.str();
 	//cout << "simulating data" << endl; getchar();
-	long unsigned int dataseed = MVNseed+reps;
+	long unsigned int dataseed = MVNseed+reps;// modified by reps seed
 	mixMVNptr->resetPRNG(dataseed);
 	cout << "\nGenerate " << n << " random values:" << endl;
 	mixMVNptr->prn(Data, n);
@@ -266,7 +273,7 @@ int main(int argc, char ** argv)
 				LocalMaxTempIterations, MaxTempIterations,
 				CVScores, Temperatures, 
 				t_opt, CVScores_opt,
-				minPoints, chooseStarts, keep, 
+				minPoints, minVolume, chooseStarts, keep, 
 				stopOnMaxPosterior, postFileName, 
 				checkPostFileNameBase, burstsFileBaseName, 
 				printCVHists, precPQ, 
@@ -285,7 +292,7 @@ bool succPQMCopt = false;
 bool printHist=true;
 succPQMCopt = optPQMCAdapHist (Data, 
 				t_opt, hists, pcfs,
-				minPoints, chooseStarts, keep, 
+				minPoints, minVolume, chooseStarts, keep, 
 				stopOnMaxPosterior, postFileName, 
 				checkPostFileNameBase, burstsFileBaseName, printHist, precPQ, 
 				CarvingMaxPosterior, seedStarts);
@@ -305,7 +312,7 @@ succPQMCopt = optPQMCAdapHist (Data,
 	// get quasi random points in the box 
 	ivector box = pcfs[0]->getRootBox();
     	std::vector < std::vector < real > > qrPts;
-    	int intN = 1000000;
+    	int intN = 10000000;
 	getQuasiRandomPoints( box, qrPts, intN);
 				
 	std::vector < real > estDensities_QR;
@@ -322,6 +329,7 @@ succPQMCopt = optPQMCAdapHist (Data,
 	real estL1_QR = boxVol * avAbsDiffDen(trueIntPtDensities_QR, estDensities_QR);
         //cout << "apprx L1 error = " << estL1_QR << endl; //getchar();
         cout << "optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : " << t_opt << '\t' << CVScores_opt << '\t' << lv1outCVScore << '\t' << estL1_QR << endl; //getchar();
+        cout << "minPoints, minVolume, chooseStarts, keep are : " << minPoints << '\t' << minVolume << '\t' << chooseStarts << '\t' << keep << endl;
     }
     //to free all the contents of pcfs at the end
     for (size_t i = 0; i < pcfs.size(); ++i) 
@@ -356,7 +364,7 @@ bool selectPriorByLv1OutCV (RVecData & Data, double t_lo, double t_hi,
 				int LocalMaxTempIterations, int MaxTempIterations,
 				RealVec & Lv1OutCVScores, vector<double> & Temperatures, 
 				double & t_opt, double & Lv1OutCVScores_opt,
-				size_t minPoints, int chooseStarts, int keep, 
+				size_t minPoints, double minVolume, int chooseStarts, int keep, 
 				bool stopOnMaxPosterior, string postFileName, 
 				string checkPostFileNameBase, string burstsFileBaseName, 
 				bool printHist, int precPQ, 
@@ -406,7 +414,7 @@ bool selectPriorByLv1OutCV (RVecData & Data, double t_lo, double t_hi,
 	  //ostringstream strs; strs << temperatureNow;
           //string burstsFileBaseNameNow = burstsFileBaseName+"_"+strs.str();
 	  succPQMCopt = optPQMCAdapHist (Data, temperatureNow, hists, pcfs,
-				minPoints, chooseStarts, keep, 
+				minPoints, minVolume, chooseStarts, keep, 
 				stopOnMaxPosterior, postFileName, 
 				checkPostFileNameBase, burstsFileBaseName, printHist, precPQ, 
 				CarvingMaxPosterior, seedStarts);
@@ -433,7 +441,7 @@ bool selectPriorByLv1OutCV (RVecData & Data, double t_lo, double t_hi,
           cout << "- Lv1OutCVScores: (looking for maximum of -1.0*Lv1OutCVScores)" << endl;
           cout << Lv1OutCVScores << endl << endl;
           cout << "Temp Iteration Number " << TempIterations << endl; //getchar();
-          cout << "MaxTempIterations = " << MaxTempIterations << endl; getchar();
+          cout << "MaxTempIterations = " << MaxTempIterations << endl; //getchar();
 
         vector<size_t> indtop(Lv1OutCVScores.size());
         topk(Lv1OutCVScores, indtop);
@@ -448,7 +456,7 @@ bool optPQMCAdapHist (RVecData & transformedData,
 				double & t_opt, 
 				vector< subpavings::AdaptiveHistogram* > & hists, 
 				vector< subpavings::PiecewiseConstantFunction* > & pcfs,
-				size_t minPoints, int chooseStarts, int keep, 
+				size_t minPoints, double minVolume, int chooseStarts, int keep, 
 				bool stopOnMaxPosterior, string postFileName, 
 				string checkPostFileNameBase, string burstsFileBaseName, 
 				bool printHist, int precPQ, bool CarvingMaxPosterior, 
@@ -481,10 +489,11 @@ bool optPQMCAdapHist (RVecData & transformedData,
 
     if(CarvingMaxPosterior)
     { 
-      //find out more about this function XXX minvolume = 0.01 - make smaller!!! PASS from outdide!!! TODO
+      //find out more about this function XXX minVolume = 0.01 - make smaller!!! PASS from outdide!!! TODO
 	CarverSEB::findStartingPointsBest(adhA0, hists, evaluatorCarving, evaluatorSEB, 
 						logPrior, 
-				minPoints, 0.1758, chooseStarts, keep, stopOnMaxPosterior, 
+				//minPoints, 0.1758, chooseStarts, keep, stopOnMaxPosterior, 
+				minPoints, minVolume, chooseStarts, keep, stopOnMaxPosterior, 
 				//minPoints, 0.001, chooseStarts, keep, stopOnMaxPosterior, 
 				//minPoints, chooseStarts, keep, stopOnMaxPosterior, 
 				"", "", precPQ, seedStarts);
@@ -501,8 +510,8 @@ bool optPQMCAdapHist (RVecData & transformedData,
                < minPoints of data associated with it. */
 //THINK!!! before setting these!!!
               size_t minChildPoints = 80;//static_cast<size_t>(std::log(static_cast<double>(n)))
-              double minVolume = 0.01;
-              adhA0.prioritySplit(compCount, maxLeavesSEB, NOLOG, minChildPoints, minVolume);
+              double minVol = 0.01;
+              adhA0.prioritySplit(compCount, maxLeavesSEB, NOLOG, minChildPoints, minVol);
               //adhA0.prioritySplit(compVol, maxLeavesSEB, NOLOG, minVolume);
               hists.push_back(& adhA0);
               //AdaptiveHistogram* adhPtr = & adhA0;

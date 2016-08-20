@@ -415,8 +415,11 @@ if(TempIterate)
               /* minimum points to use when splitting.
               A node will not be splittable if either child would then have
                < minPoints of data associated with it. */
-              size_t minChildPoints = 80;//static_cast<size_t>(std::log(static_cast<double>(n)))
-              double minVolume = 0.01;
+              size_t minChildPoints = 10;//static_cast<size_t>(std::log(static_cast<double>(n)))
+              //double minVolume = 0.01;
+              //double minVolume = 0.001;
+              double minVolume = 0.000001;
+              cout << "minChildPoints, minVolume = " << minChildPoints << "\t" << minVolume << endl; getchar();
               adhA0.prioritySplit(compCount, maxLeavesSEB, NOLOG, minChildPoints, minVolume);
               //adhA0.prioritySplit(compVol, maxLeavesSEB, NOLOG, minVolume);
               hists.push_back(& adhA0);
