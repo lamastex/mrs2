@@ -76,11 +76,10 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-noinst_PROGRAMS = PointClouds$(EXEEXT) OnePointCloud$(EXEEXT) \
-	CVOptMAP$(EXEEXT)
+noinst_PROGRAMS = PointClouds$(EXEEXT) OnePointCloud$(EXEEXT)
 subdir = examples/StatsSubPav/PointClouds
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
-	$(top_srcdir)/config/depcomp README
+	$(top_srcdir)/config/depcomp
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/config/acinclude.m4 \
 	$(top_srcdir)/configure.ac
@@ -92,12 +91,6 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__dirstamp = $(am__leading_dot)dirstamp
-am_CVOptMAP_OBJECTS = CVOptMAP-CVOptMAP.$(OBJEXT) \
-	CVOptMAP-testDenCommon.$(OBJEXT) \
-	CVOptMAP-testDenTools.$(OBJEXT) \
-	../../MixtureTargets/CVOptMAP-mixture_mvn.$(OBJEXT)
-CVOptMAP_OBJECTS = $(am_CVOptMAP_OBJECTS)
-CVOptMAP_DEPENDENCIES = ${top_builddir}/src/libmrs.a
 am_OnePointCloud_OBJECTS = OnePointCloud-OnePointCloud.$(OBJEXT) \
 	OnePointCloud-testDenCommon.$(OBJEXT) \
 	OnePointCloud-testDenTools.$(OBJEXT) \
@@ -152,10 +145,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(CVOptMAP_SOURCES) $(OnePointCloud_SOURCES) \
-	$(PointClouds_SOURCES)
-DIST_SOURCES = $(CVOptMAP_SOURCES) $(OnePointCloud_SOURCES) \
-	$(PointClouds_SOURCES)
+SOURCES = $(OnePointCloud_SOURCES) $(PointClouds_SOURCES)
+DIST_SOURCES = $(OnePointCloud_SOURCES) $(PointClouds_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -299,14 +290,11 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 TARGETS = ../../MixtureTargets
-CVOptMAP_SOURCES = CVOptMAP.cpp dataprep.hpp testDenCommon.cpp testDenCommon.hpp testDenTools.cpp testDenTools.hpp ../../MixtureTargets/mixture_mvn.cpp ../../MixtureTargets/mixture_mvn.hpp
 PointClouds_SOURCES = PointClouds.cpp dataprep.hpp 
 OnePointCloud_SOURCES = OnePointCloud.cpp dataprep.hpp testDenCommon.cpp testDenCommon.hpp testDenTools.cpp testDenTools.hpp ../../MixtureTargets/mixture_mvn.cpp ../../MixtureTargets/mixture_mvn.hpp
 EXTRA_DIST = PointClouds.m
-CVOptMAP_CPPFLAGS = -I${top_builddir}/src -I./  -I../../MixtureTargets
 PointClouds_CPPFLAGS = -I${top_builddir}/src -I./
 OnePointCloud_CPPFLAGS = -I${top_builddir}/src -I./ -I../../MixtureTargets
-CVOptMAP_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
 PointClouds_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
 OnePointCloud_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
 all: all-am
@@ -352,13 +340,6 @@ clean-noinstPROGRAMS:
 ../../MixtureTargets/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) ../../MixtureTargets/$(DEPDIR)
 	@: > ../../MixtureTargets/$(DEPDIR)/$(am__dirstamp)
-../../MixtureTargets/CVOptMAP-mixture_mvn.$(OBJEXT):  \
-	../../MixtureTargets/$(am__dirstamp) \
-	../../MixtureTargets/$(DEPDIR)/$(am__dirstamp)
-
-CVOptMAP$(EXEEXT): $(CVOptMAP_OBJECTS) $(CVOptMAP_DEPENDENCIES) $(EXTRA_CVOptMAP_DEPENDENCIES) 
-	@rm -f CVOptMAP$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(CVOptMAP_OBJECTS) $(CVOptMAP_LDADD) $(LIBS)
 ../../MixtureTargets/OnePointCloud-mixture_mvn.$(OBJEXT):  \
 	../../MixtureTargets/$(am__dirstamp) \
 	../../MixtureTargets/$(DEPDIR)/$(am__dirstamp)
@@ -378,11 +359,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@../../MixtureTargets/$(DEPDIR)/CVOptMAP-mixture_mvn.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@../../MixtureTargets/$(DEPDIR)/OnePointCloud-mixture_mvn.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CVOptMAP-CVOptMAP.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CVOptMAP-testDenCommon.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/CVOptMAP-testDenTools.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/OnePointCloud-OnePointCloud.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/OnePointCloud-testDenCommon.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/OnePointCloud-testDenTools.Po@am__quote@
@@ -403,62 +380,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
-
-CVOptMAP-CVOptMAP.o: CVOptMAP.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CVOptMAP-CVOptMAP.o -MD -MP -MF $(DEPDIR)/CVOptMAP-CVOptMAP.Tpo -c -o CVOptMAP-CVOptMAP.o `test -f 'CVOptMAP.cpp' || echo '$(srcdir)/'`CVOptMAP.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/CVOptMAP-CVOptMAP.Tpo $(DEPDIR)/CVOptMAP-CVOptMAP.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='CVOptMAP.cpp' object='CVOptMAP-CVOptMAP.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CVOptMAP-CVOptMAP.o `test -f 'CVOptMAP.cpp' || echo '$(srcdir)/'`CVOptMAP.cpp
-
-CVOptMAP-CVOptMAP.obj: CVOptMAP.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CVOptMAP-CVOptMAP.obj -MD -MP -MF $(DEPDIR)/CVOptMAP-CVOptMAP.Tpo -c -o CVOptMAP-CVOptMAP.obj `if test -f 'CVOptMAP.cpp'; then $(CYGPATH_W) 'CVOptMAP.cpp'; else $(CYGPATH_W) '$(srcdir)/CVOptMAP.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/CVOptMAP-CVOptMAP.Tpo $(DEPDIR)/CVOptMAP-CVOptMAP.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='CVOptMAP.cpp' object='CVOptMAP-CVOptMAP.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CVOptMAP-CVOptMAP.obj `if test -f 'CVOptMAP.cpp'; then $(CYGPATH_W) 'CVOptMAP.cpp'; else $(CYGPATH_W) '$(srcdir)/CVOptMAP.cpp'; fi`
-
-CVOptMAP-testDenCommon.o: testDenCommon.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CVOptMAP-testDenCommon.o -MD -MP -MF $(DEPDIR)/CVOptMAP-testDenCommon.Tpo -c -o CVOptMAP-testDenCommon.o `test -f 'testDenCommon.cpp' || echo '$(srcdir)/'`testDenCommon.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/CVOptMAP-testDenCommon.Tpo $(DEPDIR)/CVOptMAP-testDenCommon.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='testDenCommon.cpp' object='CVOptMAP-testDenCommon.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CVOptMAP-testDenCommon.o `test -f 'testDenCommon.cpp' || echo '$(srcdir)/'`testDenCommon.cpp
-
-CVOptMAP-testDenCommon.obj: testDenCommon.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CVOptMAP-testDenCommon.obj -MD -MP -MF $(DEPDIR)/CVOptMAP-testDenCommon.Tpo -c -o CVOptMAP-testDenCommon.obj `if test -f 'testDenCommon.cpp'; then $(CYGPATH_W) 'testDenCommon.cpp'; else $(CYGPATH_W) '$(srcdir)/testDenCommon.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/CVOptMAP-testDenCommon.Tpo $(DEPDIR)/CVOptMAP-testDenCommon.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='testDenCommon.cpp' object='CVOptMAP-testDenCommon.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CVOptMAP-testDenCommon.obj `if test -f 'testDenCommon.cpp'; then $(CYGPATH_W) 'testDenCommon.cpp'; else $(CYGPATH_W) '$(srcdir)/testDenCommon.cpp'; fi`
-
-CVOptMAP-testDenTools.o: testDenTools.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CVOptMAP-testDenTools.o -MD -MP -MF $(DEPDIR)/CVOptMAP-testDenTools.Tpo -c -o CVOptMAP-testDenTools.o `test -f 'testDenTools.cpp' || echo '$(srcdir)/'`testDenTools.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/CVOptMAP-testDenTools.Tpo $(DEPDIR)/CVOptMAP-testDenTools.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='testDenTools.cpp' object='CVOptMAP-testDenTools.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CVOptMAP-testDenTools.o `test -f 'testDenTools.cpp' || echo '$(srcdir)/'`testDenTools.cpp
-
-CVOptMAP-testDenTools.obj: testDenTools.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CVOptMAP-testDenTools.obj -MD -MP -MF $(DEPDIR)/CVOptMAP-testDenTools.Tpo -c -o CVOptMAP-testDenTools.obj `if test -f 'testDenTools.cpp'; then $(CYGPATH_W) 'testDenTools.cpp'; else $(CYGPATH_W) '$(srcdir)/testDenTools.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/CVOptMAP-testDenTools.Tpo $(DEPDIR)/CVOptMAP-testDenTools.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='testDenTools.cpp' object='CVOptMAP-testDenTools.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CVOptMAP-testDenTools.obj `if test -f 'testDenTools.cpp'; then $(CYGPATH_W) 'testDenTools.cpp'; else $(CYGPATH_W) '$(srcdir)/testDenTools.cpp'; fi`
-
-../../MixtureTargets/CVOptMAP-mixture_mvn.o: ../../MixtureTargets/mixture_mvn.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT ../../MixtureTargets/CVOptMAP-mixture_mvn.o -MD -MP -MF ../../MixtureTargets/$(DEPDIR)/CVOptMAP-mixture_mvn.Tpo -c -o ../../MixtureTargets/CVOptMAP-mixture_mvn.o `test -f '../../MixtureTargets/mixture_mvn.cpp' || echo '$(srcdir)/'`../../MixtureTargets/mixture_mvn.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) ../../MixtureTargets/$(DEPDIR)/CVOptMAP-mixture_mvn.Tpo ../../MixtureTargets/$(DEPDIR)/CVOptMAP-mixture_mvn.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='../../MixtureTargets/mixture_mvn.cpp' object='../../MixtureTargets/CVOptMAP-mixture_mvn.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o ../../MixtureTargets/CVOptMAP-mixture_mvn.o `test -f '../../MixtureTargets/mixture_mvn.cpp' || echo '$(srcdir)/'`../../MixtureTargets/mixture_mvn.cpp
-
-../../MixtureTargets/CVOptMAP-mixture_mvn.obj: ../../MixtureTargets/mixture_mvn.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT ../../MixtureTargets/CVOptMAP-mixture_mvn.obj -MD -MP -MF ../../MixtureTargets/$(DEPDIR)/CVOptMAP-mixture_mvn.Tpo -c -o ../../MixtureTargets/CVOptMAP-mixture_mvn.obj `if test -f '../../MixtureTargets/mixture_mvn.cpp'; then $(CYGPATH_W) '../../MixtureTargets/mixture_mvn.cpp'; else $(CYGPATH_W) '$(srcdir)/../../MixtureTargets/mixture_mvn.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) ../../MixtureTargets/$(DEPDIR)/CVOptMAP-mixture_mvn.Tpo ../../MixtureTargets/$(DEPDIR)/CVOptMAP-mixture_mvn.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='../../MixtureTargets/mixture_mvn.cpp' object='../../MixtureTargets/CVOptMAP-mixture_mvn.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(CVOptMAP_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o ../../MixtureTargets/CVOptMAP-mixture_mvn.obj `if test -f '../../MixtureTargets/mixture_mvn.cpp'; then $(CYGPATH_W) '../../MixtureTargets/mixture_mvn.cpp'; else $(CYGPATH_W) '$(srcdir)/../../MixtureTargets/mixture_mvn.cpp'; fi`
 
 OnePointCloud-OnePointCloud.o: OnePointCloud.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(OnePointCloud_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT OnePointCloud-OnePointCloud.o -MD -MP -MF $(DEPDIR)/OnePointCloud-OnePointCloud.Tpo -c -o OnePointCloud-OnePointCloud.o `test -f 'OnePointCloud.cpp' || echo '$(srcdir)/'`OnePointCloud.cpp

@@ -285,7 +285,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = Averaging BivGaussian Levy Uniform COPERRandAIC HistReport \
-CatalanCoeff MCMC MultiManager PointClouds MCMCHistTimingAndErrors
+CatalanCoeff MCMC MultiManager PointClouds MCMCHistTimingAndErrors CVOptMap
 
 all: all-recursive
 
@@ -592,6 +592,7 @@ uninstall-am:
 
 
 #jah took out AHABC 11 March 2013 - obselete
+#raaz added PointClouds and CVOptMap - 2015/2016 CORCON maths@Stockholm
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

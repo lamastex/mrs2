@@ -1,4 +1,5 @@
 SUBDIRS = src examples tests
+AUTOMAKE_OPTIONS = foreign # http://stackoverflow.com/questions/15013672/use-autotools-with-readme-md
 
 EXTRA_DIST = bootstrap CONTENTS Doxyfile \
   custom_config.sh \

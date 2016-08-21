@@ -142,10 +142,12 @@ examples/StatsSubPav/MultiManager/.deps/
 examples/StatsSubPav/MultiManager/Makefile
 examples/StatsSubPav/MultiManager/MultiManager
 examples/StatsSubPav/PointClouds/.deps/
-examples/StatsSubPav/PointClouds/CVOptMAP
 examples/StatsSubPav/PointClouds/Makefile
 examples/StatsSubPav/PointClouds/OnePointCloud
 examples/StatsSubPav/PointClouds/PointClouds
+examples/StatsSubPav/CVOptMap/.deps/
+examples/StatsSubPav/CVOptMap/CVOptMAP
+examples/StatsSubPav/CVOptMap/Makefile
 examples/StatsSubPav/Uniform/.deps/
 examples/StatsSubPav/Uniform/Makefile
 examples/StatsSubPav/Uniform/Uniform

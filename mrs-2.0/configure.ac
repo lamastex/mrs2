@@ -97,6 +97,7 @@ examples/StatsSubPav/Makefile
 examples/StatsSubPav/Averaging/Makefile
 examples/StatsSubPav/BivGaussian/Makefile
 examples/StatsSubPav/PointClouds/Makefile
+examples/StatsSubPav/CVOptMap/Makefile
 examples/StatsSubPav/Levy/Makefile
 examples/StatsSubPav/Uniform/Makefile
 examples/StatsSubPav/COPERRandAIC/Makefile

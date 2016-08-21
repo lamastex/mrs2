@@ -105,10 +105,10 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-DIST_COMMON = $(srcdir)/config/aminclude.am INSTALL NEWS README \
-	AUTHORS ChangeLog $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
-	$(top_srcdir)/configure $(am__configure_deps) \
-	$(srcdir)/config.h.in COPYING config/compile config/depcomp \
+DIST_COMMON = $(srcdir)/config/aminclude.am $(srcdir)/Makefile.in \
+	$(srcdir)/Makefile.am $(top_srcdir)/configure \
+	$(am__configure_deps) $(srcdir)/config.h.in AUTHORS COPYING \
+	ChangeLog INSTALL NEWS config/compile config/depcomp \
 	config/install-sh config/missing $(top_srcdir)/config/compile \
 	$(top_srcdir)/config/install-sh $(top_srcdir)/config/missing
 subdir = .
@@ -340,6 +340,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = src examples tests
+AUTOMAKE_OPTIONS = foreign # http://stackoverflow.com/questions/15013672/use-autotools-with-readme-md
 EXTRA_DIST = bootstrap CONTENTS Doxyfile \
   custom_config.sh \
   docs/images/AIAexample11_33.png \
@@ -399,15 +400,15 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(srcdir)/config/aminclude.am $(am
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
-	      echo ' cd $(srcdir) && $(AUTOMAKE) --gnu'; \
-	      $(am__cd) $(srcdir) && $(AUTOMAKE) --gnu \
+	      echo ' cd $(srcdir) && $(AUTOMAKE) --foreign'; \
+	      $(am__cd) $(srcdir) && $(AUTOMAKE) --foreign \
 		&& exit 0; \
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu Makefile
+	  $(AUTOMAKE) --foreign Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \

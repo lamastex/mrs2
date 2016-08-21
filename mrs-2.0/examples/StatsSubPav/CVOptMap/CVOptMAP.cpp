@@ -329,7 +329,7 @@ succPQMCopt = optPQMCAdapHist (Data,
 	real estL1_QR = boxVol * avAbsDiffDen(trueIntPtDensities_QR, estDensities_QR);
         //cout << "apprx L1 error = " << estL1_QR << endl; //getchar();
         cout << "optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : " << t_opt << '\t' << CVScores_opt << '\t' << lv1outCVScore << '\t' << estL1_QR << endl; //getchar();
-        cout << "minPoints, minVolume, chooseStarts, keep are : " << minPoints << '\t' << minVolume << '\t' << chooseStarts << '\t' << keep << endl;
+        cout << "n, dim, minPoints, minVolume, chooseStarts, keep are : " << n <<'\t' << dim << '\t' << minPoints << '\t' << minVolume << '\t' << chooseStarts << '\t' << keep << endl;
     }
     //to free all the contents of pcfs at the end
     for (size_t i = 0; i < pcfs.size(); ++i) 
@@ -476,7 +476,8 @@ bool optPQMCAdapHist (RVecData & transformedData,
 	    size_t critSEB = static_cast<size_t>(std::log(static_cast<double>(n)));//can be as low as 1
 	    /* some guesses for maximum leaves we'll let SEB queue go to */
 	    size_t maxLeavesSEB = n;//*adhA0.getDimensions();// / critSEB; // integer division
-	    size_t maxLeavesCarving = maxLeavesSEB/2;//*adhA0.getDimensions();///2; // integer division
+	    size_t maxLeavesCarving = maxLeavesSEB/2;// need for Thm on sublinear growth of # leaves!!*adhA0.getDimensions();///2; // integer division
+	    //size_t maxLeavesCarving = maxLeavesSEB*1000;//adhA0.getDimensions();///2; // integer division
 	    SPSNodeMeasureVolMassMinus compCarving(n);
 	    AdaptiveHistogram::PrioritySplitQueueEvaluator evaluatorCarving( compCarving, maxLeavesCarving);
 	    SPSNodeMeasureCount compSEB;
