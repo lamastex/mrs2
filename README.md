@@ -16,7 +16,7 @@ created:	Sat Jul 30 18:02:29 CEST 2016
 
 This software is copy-lefted and distributed under the terms of the 
 GNU General Public License (GPL).
-see http://www.gnu.org/copyleft/gpl.html
+see http://www.gnu.org/copyleft/gpl.html 
 
 See specific source files for author lists by year.
 
