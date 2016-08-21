@@ -60,36 +60,10 @@ Citation:
 
 MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics, Raazesh Sainudiin, Thomas York, Jennifer Harlow, Gloria Teng, Warwick Tucker and Dillon George, URL https://github.com/raazesh-sainudiin/mrs2
 
-mrs-2.0 configure and make instructions:
-========================================
+mrs-2.0 configure, make and install instructions:
+================================================
 
-Modify paths to companion libraries in `custom_config.sh` and then:
-
-        cd mrs-2.0
-        ./custom_config.sh
-        make
-
-For a basic installation, run
-=============================
-
-        make install
-
-In addition, the (highly incomplete!) documentation can be compiled with
-
-        make doxygen-doc
-
-If the required dependencies are located in places other than the default,
-will you will need to specify their locations as arguments to the configure
-script. For example:
-
-	./configure CPPFLAGS='-I /usr/local/cxsc/include' \
-                    LDFLAGS='-L /usr/local/cxsc/lib' \
-	            --prefix='/home/user_name/mrs'
-
-The file `custom_config.sh' can also be used, which contains a variation on the 
-above command.  Make sure you export the environmet variable LD_LIBRARY_PATH 
-properly (for example see last few lines of custom_config.sh):
-export LD_LIBRARY_PATH=/usr/local/cxsc/lib:$LD_LIBRARY_PATH
+See [mrs-2.0/README.md](mrs-2.0/README.md).
 
 Supported by
 ============
