@@ -4,6 +4,10 @@ config.h
 config.log
 config.status
 .dirstamp
+Makefile.in
+aclocal.m4
+config.h.in
+configure
 examples/AIA/Exm_3_3/.deps/
 examples/AIA/Exm_3_3/Exm_3_3
 examples/AIA/Exm_3_3/Makefile
