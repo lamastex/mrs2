@@ -51,17 +51,28 @@ MRS 2.0, a C++ class library for statistical set processing and computer-aided p
 
 mrs-2.0 configure and make instructions:
 ========================================
+Bootstrap to generate configure
+```%sh
+$ cd /path_to_dir_containing/mrs2/mrs-2.0
+
+/mrs2/mrs-2.0$ ./bootstrap 
++ aclocal -I config
++ autoheader
++ automake --add-missing --copy
++ autoconf
+```
 
 Modify paths to companion libraries in `custom_config.sh` and then:
-
-        cd mrs-2.0
-        ./custom_config.sh
-        make
+```%sh
+/mrs2/mrs-2.0$ ./custom_config.sh
+/mrs2/mrs-2.0$ make
+```
 
 For a basic installation, run
 =============================
-
-        make install
+```%sh
+/mrs2/mrs-2.0$ make install
+```
 
 In addition, the (highly incomplete!) documentation can be compiled with
 
