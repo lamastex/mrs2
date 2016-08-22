@@ -154,7 +154,7 @@ int main(int argc, char ** argv)
 	bool stopOnMaxPosterior = true;//bool for carver PQ
         // set to do Carver PQ + SEBPB for posterior maximization
         bool CarvingMaxPosterior=true;// false means using SEB PQ with minChildPoints
-	long unsigned int seed = 7871234;
+	long unsigned int seed = 0;
 	int keep = 1;
 	int chooseStarts = 10;//10;
 	size_t minPoints = 1;
@@ -179,7 +179,7 @@ int main(int argc, char ** argv)
     if (argc > 3) {
        t_opt = atof(argv[3]);
        //cout << "t_opt = " << t_opt << endl; getchar();
-       priorSelectByCV = (t_opt == 0.0);
+       priorSelectByCV = (t_opt == 0.0);// this is true if this argument is 0.0 - the main case here!
     }
     if (argc > 4) {
        t_hi = atof(argv[4]);
@@ -194,7 +194,7 @@ int main(int argc, char ** argv)
        dim = atoi(argv[7]);
     }
     if (argc > 8) {
-       reps = atoi(argv[8]);// just using a seed for 1 replicate
+       reps = atoi(argv[8]);
     }
     if (argc > 9) {
        minVolume = atof(argv[9]);
@@ -205,21 +205,45 @@ int main(int argc, char ** argv)
     if (argc > 11) {
        chooseStarts = atoi(argv[11]);
     }
+    if (argc > 12) {
+       seed = atoi(argv[12]);//user-specified seed for prng
+    }
     // Mixture of Normals is made in either case
-    long unsigned int MVNseed = 9876;// seed for data simulator
+    long unsigned int MVNseed = seed+9876;// seed for data simulator
+        /* containers for stuff we will be storing */
+        std::vector < double > timingMake(reps);// time to make the optMAP density estimate
+        std::vector < size_t > leaves(reps);// number of leaves in the optMAP estimate
+//        std::vector < real > avLogDens(reps);
+        std::vector < real > avLogDenRatios(reps);
+        std::vector < real > estL1ErrorsQR(reps);
+        std::vector < std::vector < double > > timingDensities(reps);
+        std::vector < std::vector < double > > timingIntDensities(reps);
+
+    size_t intN = 1000000;
+    size_t intNcensored = intN;
+
+    stringstream ss; ss << "summaryAllReps_d_" << dim << "_n_" << n << "_r_" << reps << "_" << seed << ".txt";
+    string repLogFilename = ss.str();
+
+    for (int rep = 0; rep < reps; ++rep) {
+
+       cout << "\nrep number " << (rep+1) << endl;
+
     MixtureMVN* mixMVNptr = makeMixture(dim , MVNseed); 
+    
+
     if (simulateOrUseDataFile){
-        stringstream ss; ss << "dataCVOptMAP/datasets/sim_" << dim << "_" << n;
+        stringstream ss; ss << "dataCVOptMAP/datasets/sim_d_" << dim << "_n_" << n << "_r_" << (rep+1) << ".txt";
         burstsFileBaseName = ss.str();
 	//cout << "simulating data" << endl; getchar();
-	long unsigned int dataseed = MVNseed+reps;// modified by reps seed
+	long unsigned int dataseed = MVNseed+rep;// modify seed by rep
 	mixMVNptr->resetPRNG(dataseed);
 	cout << "\nGenerate " << n << " random values:" << endl;
 	mixMVNptr->prn(Data, n);
         //cout << "size of Data = " << Data.size() << endl; getchar(); 
 	//cout << "simulating data setup done" << endl; getchar();
     }
-    else {
+    else {// this is MOSTLY ignored here as it is from PointClouds - to allow for reading from a sequence of bursts of point clouds...
     	samplesFileName = burstsFileBaseName;//"dataFiles/B2K0.txt";
         // get a count of the lines in the txt file
         int dataCount = countLinesInTxt(samplesFileName);
@@ -233,7 +257,7 @@ int main(int argc, char ** argv)
         cout << "size of Data = " << Data.size() << endl; getchar(); 
      }// end of getting data from file
 
-     if(transformData){
+     if(transformData){//working MOSTLY with untransformed data now!
        //bool successfullyTransformed=false;
        cout << "transforming data OK - press ENTER" << endl; getchar();
        bool successfullyTransformed=translateByMeanScaleByVar(Data);
@@ -249,7 +273,7 @@ int main(int argc, char ** argv)
       std::vector<double> Temperatures;
       //cout << Temperatures << endl; getchar();
       RealVec CVScores;
-      unsigned long int seedStarts = seed+12345;
+      unsigned long int seedStarts = seed+12345+rep;
         
       bool CVSuccessful=false;
       double CVScores_opt = 0.0;
@@ -257,7 +281,7 @@ int main(int argc, char ** argv)
       if(priorSelectByCV){
           cout << " doing automatic prior selection by CV " << endl;
 	// this is a slower and generic K-fold CV method 
-	// (held out Lkl is used as an example and should be replaced 
+	// (held out Lkl is used as an example and should be replaced by faster selectPriorByLv1OutCV as below - modularize this as an option!
 	//with the appropriate scoring rule for maximization over parameter in [t_lo, t_hi])
 /*
 	CVSuccessful = selectPriorByLlkCV (Data, K, t_lo, t_hi,
@@ -282,14 +306,14 @@ int main(int argc, char ** argv)
       }
       //cout << "optimal temperature and AvgHeldOutLkls are : " << t_opt << '\t' << AvgHeldOutLkls_opt << endl; getchar();
 
-// make the below modular also!!!
+    // make the below modular also!!!
     // a container for our histograms
     std::vector< subpavings::AdaptiveHistogram* > hists;
     // a container for our PCFs of histograms
     std::vector< subpavings::PiecewiseConstantFunction* > pcfs;
     //getchar();
 bool succPQMCopt = false;
-bool printHist=true;
+bool printHist=false;//true;
 succPQMCopt = optPQMCAdapHist (Data, 
 				t_opt, hists, pcfs,
 				minPoints, minVolume, chooseStarts, keep, 
@@ -300,19 +324,24 @@ succPQMCopt = optPQMCAdapHist (Data,
 	clock_t endtime = clock();	
 	double timingStarts = (static_cast<double>(endtime-starttime)/CLOCKS_PER_SEC);	
 	cout << "time to get prior-selected adaptive hist = " << timingStarts << endl;
-
+        timingMake.push_back(timingStarts);
     // L1 error calculations
     if (simulateOrUseDataFile){
-    real lv1outCVScore = pcfs[0]->getLeave1OutCVScore(*hists[0]);
-    //lv1outCVScore = tmpPcf.getTotalIntegral() + lv1outCVScore;
-    cout << "leave-1-out CV summand = " << lv1outCVScore << endl;      
-    /* Get L1-distance and KL-distance */
+      //getting number of leaves in optimal MAP estimate
+      size_t NoOfLeaves = pcfs[0]->getRootLeaves();
+      cout << "\nOptMAP estimate with " << NoOfLeaves << " leaves"<< endl; //getchar();
+      leaves.push_back(NoOfLeaves);
+
+      real lv1outCVScore = pcfs[0]->getLeave1OutCVScore(*hists[0]);
+      //lv1outCVScore = tmpPcf.getTotalIntegral() + lv1outCVScore;
+      cout << "leave-1-out CV summand = " << lv1outCVScore << endl;      
+      /* Get L1-distance and KL-distance */
 	cout << "Getting the L1-distance and KL-distance: " << endl;
-	
-	// get quasi random points in the box 
+////comment this
+/*	// get quasi random points in the box 
 	ivector box = pcfs[0]->getRootBox();
     	std::vector < std::vector < real > > qrPts;
-    	int intN = 10000000;
+    	int intN = 1000000;
 	getQuasiRandomPoints( box, qrPts, intN);
 				
 	std::vector < real > estDensities_QR;
@@ -321,16 +350,82 @@ succPQMCopt = optPQMCAdapHist (Data,
 	getPCFDensities(pcfSmeared, qrPts, estDensities_QR);
 	//cout << "qrPts.size() = " << qrPts.size() << endl 
 	//	<< "estDensities_QR.size() = " << estDensities_QR.size() << endl; getchar();
-	/*get true densities at the qr points */
+	//get true densities at the qr points
 	std::vector < real > trueIntPtDensities_QR;
 	getTrueDensities(*mixMVNptr, qrPts, trueIntPtDensities_QR);
-	/*approx L1 errors*/
+	//approx L1 errors
 	real boxVol = realVolume(box);
 	real estL1_QR = boxVol * avAbsDiffDen(trueIntPtDensities_QR, estDensities_QR);
+        estL1ErrorsQR.push_back(estL1_QR);
+*/
+//////end of comment
         //cout << "apprx L1 error = " << estL1_QR << endl; //getchar();
-        cout << "optimal temperature, CVScores_opt, lv1outCV, apprx L1 error are : " << t_opt << '\t' << CVScores_opt << '\t' << lv1outCVScore << '\t' << estL1_QR << endl; //getchar();
+///////
+        /*get quasi random points in the box */
+        ivector box = pcfs[0]->getRootBox();
+        std::vector < std::vector < real > > qrPts;
+        getQuasiRandomPoints( box, qrPts, intN);
+        /* get points from true density */
+        std::vector < std::vector < real > > intPts;
+        mixMVNptr->prn(intPts, intN);
+        /*get MCMC histogram densities at the remaining integration points and log results*/
+        std::vector < real > estDensitiesOptMAP_IS;
+        std::vector < real > estDensitiesOptMAP_QR;
+        {
+          PiecewiseConstantFunction pcfSmeared = pcfs[0]->makeSmearZeroValues(1/(1000000.0));
+          getPCFDensitiesCensor(pcfSmeared, intPts, // intPts is censored in this process
+                                        estDensitiesOptMAP_IS, timingIntDensities[rep]);
+          intNcensored = intPts.size();
+          getPCFDensities(pcfSmeared, qrPts, estDensitiesOptMAP_QR);
+        }
+        /*get true densities at the remaining integration points points */
+        std::vector < real > trueIntPtDensities_IS;
+        getTrueDensities(*mixMVNptr, intPts, trueIntPtDensities_IS, timingIntDensities[rep]);
+        /*get true densities at the qr points */
+        std::vector < real > trueIntPtDensities_QR;
+        getTrueDensities(*mixMVNptr, qrPts, trueIntPtDensities_QR);
+        /*get average log true den and pcf den and ratios*/
+        real avLogTrueDen = avLogDen(trueIntPtDensities_IS);
+        //avLogDens[rep].push_back(avLogTrueDen);
+        //avLogDenRatios[rep].push_back(0.0);
+        //estL1ErrorsQR[rep].push_back(0.0);
+           real avLogEstDen = avLogDen(estDensitiesOptMAP_IS);
+           //avLogDens[rep].push_back(avLogEstDen);
+           real KLDist = avLogTrueDen - avLogEstDen;
+           avLogDenRatios.push_back(KLDist);
+                      /*approx L1 errors*/
+	   real boxVol = realVolume(box);
+           real estL1_QR = boxVol * avAbsDiffDen(trueIntPtDensities_QR, estDensitiesOptMAP_QR);
+           estL1ErrorsQR.push_back(estL1_QR);
+
+////////
         cout << "n, dim, minPoints, minVolume, chooseStarts, keep are : " << n <<'\t' << dim << '\t' << minPoints << '\t' << minVolume << '\t' << chooseStarts << '\t' << keep << endl;
+        cout << "optimal temperature, CVScores_opt, lv1outCV, apprx L1 error, KL dist are : " << t_opt << '\t' << CVScores_opt << '\t' << lv1outCVScore << '\t' << estL1_QR <<  KLDist << endl; //getchar();
+
+    // print all reps results to file
+                ofstream os(repLogFilename.c_str(), ios::app);         // append
+                if (os.is_open()) {
+                  if (rep==0){
+                        os << "n, dim, minPoints, minVolume, chooseStarts, keep, optimal_temperature, CVScores_opt, lv1outCVScore are : \n" 
+                           << n <<'\t' << dim << '\t' << minPoints << '\t' << minVolume << '\t' << chooseStarts << '\t' << keep << t_opt 
+                           << '\t' << CVScores_opt << '\t' << lv1outCVScore << endl;
+                        os << "-------------------------------------------------------------------" << endl;
+                        os << "L1\t" << "KL\t" << "Timing\t" << "Leaves\t" << endl;
+                        os << estL1ErrorsQR.back() << '\t' << avLogDenRatios.back() << '\t' <<  timingMake.back() << '\t' << leaves.back() << endl;
+                  }
+		  else{
+                        //os << estL1ErrorsQR[rep] << '\t' << avLogDenRatios[rep] << '\t' <<  timingMake[rep] << '\t' << leaves[rep] << endl;
+                        os << estL1ErrorsQR.back() << '\t' << avLogDenRatios.back() << '\t' <<  timingMake.back() << '\t' << leaves.back() << endl;
+                 }
+                 os.close();
+                }
+                else {
+                        std::cerr << "Error: could not open file named "
+                                << repLogFilename << std::endl << std::endl;
+                }
+          //getchar();
     }
+
     //to free all the contents of pcfs at the end
     for (size_t i = 0; i < pcfs.size(); ++i) 
     {
@@ -348,8 +443,9 @@ succPQMCopt = optPQMCAdapHist (Data,
       }
     }    
 
-        //delete the data generator 
-        delete mixMVNptr;	
+    //delete the data generator 
+    delete mixMVNptr;	
+    }//end for-loop for reps
 
     return 0;
 
