@@ -1,31 +1,31 @@
-# This is the Prior-selected MAP or optimally penalized ML estimate
+# Prior-selected MAP or optimally penalized ML estimate
 
 The simulations are based on independent samples from Gaussian ixture density for comparison with Zhang's MCMC badwidth-selected KDE method.
 
 TODO: For reliable L1-error computations beyond 5 dimensions one needs to simulate from piece-wise constant approximations to target densities.  
 The code for generating samples for piecewise constant approx can be found in:
 
-* mrs-2.0/examples/StatsSubPav/MCMC/MCMCFunctionSimGaussian.cpp - lines 93 to 178
-* The L1 errors calculation: getIAE() - line 229 
-* The getIAE function is defined in piecewise_constant_function.hpp
+* `mrs-2.0/examples/StatsSubPav/MCMC/MCMCFunctionSimGaussian.cpp` - lines 93 to 178
+* The L1 errors calculation: `getIAE()` - line 229 
+* The `getIAE` function is defined in `piecewise_constant_function.hpp`
 
 ## To run
 
 ```%sh
-$ # use appropriate paths!
-$ CXSCDIR=/home/rsa64/all/git/mrs2/companions/cxsc-2-5-4
-$ GSLDIR=/home/rsa64/all/git/mrs2/companions/gsl-2.1
-$ export LD_LIBRARY_PATH=${CXSCDIR}/lib:$LD_LIBRARY_PATH
-$ export LD_LIBRARY_PATH=${GSLDIR}/lib:$LD_LIBRARY_PATH
+# use appropriate paths!
+CXSCDIR=/home/rsa64/all/git/mrs2/companions/cxsc-2-5-4
+GSLDIR=/home/rsa64/all/git/mrs2/companions/gsl-2.1
+export LD_LIBRARY_PATH=${CXSCDIR}/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=${GSLDIR}/lib:$LD_LIBRARY_PATH
 
-$ # now call the program - see the argc and argv for the input details
-$ ./CVOptMAP s 0 0. 5.0 5 2000 2 2 0.0001 1 100 2002 &> logOutput_2_reps.txt
+# now call the program - see the argc and argv for the input details
+./CVOptMAP s 0 0. 5.0 5 2000 2 2 0.0001 1 100 2002 &> logOutput_2_reps.txt
 ```
 
 ### Summary of the run
 
 ```%sh
-$ cat summaryAllReps_d_2_n_2000_r_2_2002.txt
+cat summaryAllReps_d_2_n_2000_r_2_2002.txt
 
 n, dim, minPoints, minVolume, chooseStarts, keep, optimal_temperature, CVScores_opt, lv1outCVScore are : 
 2000	2	1	0.0001	100	10.646584	0.061346	 -0.061083
@@ -37,10 +37,13 @@ L1	KL	Timing	Leaves
 
 ### Here are snippets of the output in `logOutput_2_reps.txt`:
 
+There are two replicated: `rep number 1` and `rep number 2`. The output has been truncated. This program needs more TLC for industrial use. The detailed logs are mainly for mathematical intuition.
 
+
+```%sh
+cat logOutput_2_reps.txt
 
 rep number 1
-------------
 
 Generate 2000 random values:
  doing automatic prior selection by CV 
@@ -88,7 +91,6 @@ n, dim, minPoints, minVolume, chooseStarts, keep are : 2000	2	1	0.0001	100	1
 optimal temperature, CVScores_opt, lv1outCV, apprx L1 error, KL dist are : 0.646584	0.061346	 -0.061083	  0.340406  0.268218
 
 rep number 2
-------------
 
 Generate 2000 random values:
  doing automatic prior selection by CV 
@@ -134,6 +136,19 @@ Number of importance sample points censored from 1000000 to 997779
 
 n, dim, minPoints, minVolume, chooseStarts, keep are : 2000	2	1	0.0001	100	1
 optimal temperature, CVScores_opt, lv1outCV, apprx L1 error, KL dist are : 1.01165	0.0629522	 -0.062923	  0.326602  0.258687
+```
 
 ### Replicate runs
 For replicate runs see `/outputs/run.sh`.
+Also see `/outputs/runOutput2Sage.sh` for converting the L1-error and KL-distance estimate into TV-distance and Pinsker's inequality friendly tranformation of KL-distance, using sageMath (downloadable binaries at [http://www.sagemath.org/download.html](http://www.sagemath.org/download.html)) on commandline as follows:
+
+```%sh
+cat outputs/runOutput2Sage.sh
+
+#!/bin/bash
+FILE="$1"
+#cat "$FILE"
+# take the output of run.sh and parse it for getting mean, min, max and std in sage using numpy
+cat "$FILE" | tail -10 | head -10 | sed 's/\t/,/g' | sed 's/ //g' | tr '\n' '; ' | sed '$s/;$/\n/' | sed -e "s/'/'\\\\''/g;s/\(.*\)/'\1'/" | sed '$i import numpy as np; np.set_printoptions(suppress=True); a=np.matrix(' | sed '$a ); print "----------------L1 dist and d_KL--------"; print a.mean(0); print a.min(0); print a.max(0); print a.std(0); print "----------------TV dist and sqrt(d_KL/2)--------"; b=a.copy(); b[:,0]=a[:,0]/2.0; b[:,1]=np.sqrt(a[:,1]/2.0); print b.mean(0); print b.min(0); print b.max(0); print b.std(0);\n'
+# now paste the output into $sage shell
+```
