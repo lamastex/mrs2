@@ -138,7 +138,7 @@ int main(int argc, char ** argv)
     bool transformData=false;
     bool priorSelectByCV=false;
     double t_opt = 0.5;//
-    size_t dim = 1; //dimensions
+    size_t dim = 2; //dimensions
     size_t n = 1000; //sample size
     int reps = 1; //replications - just used to change seed in each replicate simulation	
     size_t K = 5; //K-fold CV
@@ -158,7 +158,8 @@ int main(int argc, char ** argv)
 	int keep = 1;
 	int chooseStarts = 10;//10;
 	size_t minPoints = 1;
-        double minVolume = 0.001;
+        //double minVolume = 0.001;
+        double minVolume = 1.0;
 /*
 	int MaxTempIterations= atoi(argv[6]); //how many temperatures
 	double t_lo=atof(argv[7]);//lowest temperature in search
@@ -172,7 +173,7 @@ int main(int argc, char ** argv)
     if (argc > 1) {
       burstsFileBaseName = argv[1];
     }
-    simulateOrUseDataFile = (burstsFileBaseName == "s");
+    simulateOrUseDataFile = (burstsFileBaseName == "s");// this input should be the path/to/sampleDataFile eg. dataCVOptMAP/datasets/dp.txt
     if (argc > 2) {
        transformData = atoi(argv[2]) != 0;
     }
@@ -313,7 +314,8 @@ int main(int argc, char ** argv)
     std::vector< subpavings::PiecewiseConstantFunction* > pcfs;
     //getchar();
 bool succPQMCopt = false;
-bool printHist=false;//true;
+//bool printHist=false;
+bool printHist=true;
 succPQMCopt = optPQMCAdapHist (Data, 
 				t_opt, hists, pcfs,
 				minPoints, minVolume, chooseStarts, keep, 

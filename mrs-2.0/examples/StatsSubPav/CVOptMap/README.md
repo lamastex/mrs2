@@ -18,6 +18,10 @@ GSLDIR=/home/rsa64/all/git/mrs2/companions/gsl-2.1
 export LD_LIBRARY_PATH=${CXSCDIR}/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=${GSLDIR}/lib:$LD_LIBRARY_PATH
 
+# for data from a file do
+```%sh
+./CVOptMAP dataCVOptMAP/datasets/dp.txt 0 0. 5.0 3 1 2
+```
 # now call the program - see the argc and argv for the input details
 ./CVOptMAP s 0 0. 5.0 5 2000 2 2 0.0001 1 100 2002 &> logOutput_2_reps.txt
 ```
