@@ -2,8 +2,8 @@
 ---
 
 ## Project  [CORCON: Correctness by Construction](http://corcon.net/about/) Progress Report
-  * Target 1 Achieved: MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics
-  * Target 2 In Progress.
+  * Target 1: MRS 2.0, a C++ class library for statistical set processing and computer-aided proofs in statistics
+  * Target 2: Data-adaptive histograms through statistical regular pavings, Raazesh Sainudiin, Gloria Teng, Jennifer Harlow and Warwick Tucker, 2016 ([PDF](http://lamastex.org/preprints/20161121optMAPMDE.pdf) 1.8MB)
 
 Please contact this git repository owner for details.
 

@@ -1,6 +1,6 @@
 # Prior-selected MAP or optimally penalized ML estimate
 
-The simulations are based on independent samples from Gaussian ixture density for comparison with Zhang's MCMC badwidth-selected KDE method.
+The simulations are based on independent samples from Gaussian mixture density for comparison with Zhang's MCMC badwidth-selected KDE method.
 
 TODO: For reliable L1-error computations beyond 5 dimensions one needs to simulate from piece-wise constant approximations to target densities.  
 The code for generating samples for piecewise constant approx can be found in:

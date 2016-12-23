@@ -7,7 +7,8 @@ clear functions
 
 %boxesFileName = 'datasets/rosenbrock_d_2_n_E4_pcf.txt';
 %boxesFileName = 'datasets/sim_3_2000_pcf.txt';%'datasets/dp.txt_pcf.txt';
-boxesFileName = 'datasets/dp.txt_pcf.txt';
+%boxesFileName = 'datasets/dp.txt_pcf.txt';
+boxesFileName = 'datasets/dpAR123.txt_pcf.txt';
 %boxesFileName = 'datasets/sim_2_100000_pcf.txt';
 %put the base name of the output files here
 %this can include a path, in windows format, ie '\' path\file
