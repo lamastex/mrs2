@@ -1,9 +1,0 @@
-SUFFIXES=.cpp .c .C .cxx .h .hpp .hxx
-
-AM_CXXFLAGS=-I${top_builddir}/include -I${top_srcdir}/include -DFILE_BUILD_DIR=\"${abs_builddir}\" ${CAPD_AM_CXXFLAGS}
-AM_CPPFLAGS=-I${top_builddir}/include -I${top_srcdir}/include -DFILE_BUILD_DIR=\"${abs_builddir}\" ${CAPD_AM_CPPFLAGS}
-ACLOCAL_AMFLAGS=-I${capdMake}/m4 -I${capdMake}/make
-
-
-all-install-local: all
-	$(MAKE) $(AM_MAKEFLAGS) prefix=${top_capd} install
