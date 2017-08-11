@@ -51,6 +51,11 @@ MRS 2.0, a C++ class library for statistical set processing and computer-aided p
 
 mrs-2.0 configure and make instructions:
 ========================================
+Make sure you have `automake` installed:
+```%sh
+$ sudo apt-get install automake
+
+```
 Bootstrap to generate configure
 ```%sh
 $ cd /path_to_dir_containing/mrs2/mrs-2.0
