@@ -327,6 +327,9 @@ succPQMCopt = optPQMCAdapHist (Data,
 	double timingStarts = (static_cast<double>(endtime-starttime)/CLOCKS_PER_SEC);	
 	cout << "time to get prior-selected adaptive hist = " << timingStarts << endl;
         timingMake.push_back(timingStarts);
+//--------------------------------------------------------------------------------------------------------------
+//------------------------ only for the case of simulated data--------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
     // L1 error calculations
     if (simulateOrUseDataFile){
       //getting number of leaves in optimal MAP estimate
@@ -427,6 +430,9 @@ succPQMCopt = optPQMCAdapHist (Data,
                 }
           //getchar();
     }
+//--------------------------------------------------------------------------------------------------------------
+//------------------------ END of the case of simulated data----------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
 
     //to free all the contents of pcfs at the end
     for (size_t i = 0; i < pcfs.size(); ++i) 
