@@ -292,6 +292,7 @@ int main(int argc, char ** argv)
 				minPoints, chooseStarts, keep, 
 				stopOnMaxPosterior, postFileName, 
 				checkPostFileNameBase, precPQ, seedStarts);
+      //cout << "optimal temperature and AvgHeldOutLkls are : " << t_opt << '\t' << AvgHeldOutLkls_opt << endl; getchar();
 */
 	bool printCVHists=false;
 	CVSuccessful = selectPriorByLv1OutCV (Data, t_lo, t_hi,
@@ -304,8 +305,8 @@ int main(int argc, char ** argv)
 				printCVHists, precPQ, 
 				CarvingMaxPosterior, 
 				seedStarts);
+        cout << "optimal temperature : " << t_opt << '\t' << endl; // getchar();
       }
-      //cout << "optimal temperature and AvgHeldOutLkls are : " << t_opt << '\t' << AvgHeldOutLkls_opt << endl; getchar();
 
     // make the below modular also!!!
     // a container for our histograms
