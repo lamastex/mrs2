@@ -1,14 +1,25 @@
 # To Use mrs-2.0 docker container 
+(See next heding for how to build this docker container from source.)
 
 ```%sh
 $ docker run -it raazesh/mrs2 /bin/bash
-root@bf9520ac1c4c:/# ./mrs2/mrs-2.0/examples/MooreRejSam/Rosenbrock/
+Unable to find image 'raazesh/mrs2:latest' locally
+latest: Pulling from raazesh/mrs2
+Digest: sha256:c1f636b1a6383ab4a6a77dfe0519eb357fbc818cb443a19fca62992868a1a496
+Status: Downloaded newer image for raazesh/mrs2:latest
+root@e8142f03bc52:/# cd /mrs2/mrs-2.0/
+root@e8142f03bc52:/mrs2/mrs-2.0# ls
+AUTHORS   ChangeLog  Makefile     NEWS        autom4te.cache  config.h     config.status  custom_config.sh  l1LTIDE   tests
+CONTENTS  Doxyfile   Makefile.am  README.md   bootstrap       config.h.in  configure      docs              src
+COPYING   INSTALL    Makefile.in  aclocal.m4  config          config.log   configure.ac   examples          stamp-h1
+
 ```
 
 To test out a routine try:
 
 ```%sh
-root@bf9520ac1c4c:/# ./mrs2/mrs-2.0/examples/MooreRejSam/Rosenbrock/Rosenbrock
+root@e8142f03bc52:/mrs2/mrs-2.0# cd examples/MooreRejSam/Rosenbrock/
+root@e8142f03bc52:/mrs2/mrs-2.0/examples/MooreRejSam/Rosenbrock# ./Rosenbrock
 # n_dimensions: 2  n_boxes: 100  n_samples: 50  rng_seed = 0
 in FirstBox, before getBoxREInfo. k: 0
 0 [ -10.000000000000000,  10.000000000000000] [ -10.000000000000000,  10.000000000000000] RE: [   0.000000000000000,   1.000000000000000] BoxIntegral: [   0.000000000000000, 400.000000000000000]
@@ -49,8 +60,10 @@ Labelled Mean:
 
 n interval function calls: 199
 n real function calls: 522
-# CPU Time (seconds). Partitioning: 0.006193  Sampling: 0.001824  Total: 0.008017
-# CPU time (secods) per estimate: 0.00016034
+# CPU Time (seconds). Partitioning: 0.006633  Sampling: 0.001503  Total: 0.008136
+# CPU time (secods) per estimate: 0.00016272
+root@e8142f03bc52:/mrs2/mrs-2.0/examples/MooreRejSam/Rosenbrock# 
+
 ```
 
 # Steps in Making mrs2 docker container
