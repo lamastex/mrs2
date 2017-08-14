@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#Edit this to match your own location
-CXSCDIR=/home/raazesh/all/git/mrs2/companions/cxsc-2-5-4
-GSLDIR=/home/raazesh/all/git/mrs2/companions/gsl-2.1
+#Edit this to match your own location - they are well-defined in docker: raazesh/mrs2
+#CXSCDIR=/home/raazesh/all/git/mrs2/companions/cxsc-2-5-4
+#GSLDIR=/home/raazesh/all/git/mrs2/companions/gsl-2.1
 #CXSCDIR=/usr/local/cxsc
 #CXSCDIR=/home/gat41/cxsc
 #MYMRSDIR=/users/math/rsa64/mrs
@@ -10,7 +10,7 @@ GSLDIR=/home/raazesh/all/git/mrs2/companions/gsl-2.1
 #MYMRSDIR=/home/gat41/mrs
 #MYMRSDIR=/Users/jah217/newsvn/mrs
 #CXSCDIR=/Users/raazesh/cxsc
-MYMRSDIR=/home/raazesh/all/git/mrs2/mrs-2.0
+#MYMRSDIR=/home/raazesh/all/git/mrs2/mrs-2.0
 
 
 set -x;
