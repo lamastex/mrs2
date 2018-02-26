@@ -1,5 +1,8 @@
-noinst_PROGRAMS = CVOptMAP
+noinst_PROGRAMS = CVOptMAP SimpleIO
 TARGETS = ../../MixtureTargets ../PointClouds
 CVOptMAP_SOURCES = CVOptMAP.cpp ../PointClouds/dataprep.hpp ../PointClouds/testDenCommon.cpp ../PointClouds/testDenCommon.hpp ../PointClouds/testDenTools.cpp ../PointClouds/testDenTools.hpp ../../MixtureTargets/mixture_mvn.cpp ../../MixtureTargets/mixture_mvn.hpp
+SimpleIO_SOURCES = SimpleIO.cpp ../PointClouds/dataprep.hpp ../PointClouds/testDenCommon.cpp ../PointClouds/testDenCommon.hpp ../PointClouds/testDenTools.cpp ../PointClouds/testDenTools.hpp ../../MixtureTargets/mixture_mvn.cpp ../../MixtureTargets/mixture_mvn.hpp
 CVOptMAP_CPPFLAGS = -I${top_builddir}/src -I./  -I../../MixtureTargets -I../PointClouds
 CVOptMAP_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+SimpleIO_CPPFLAGS = -I${top_builddir}/src -I./  -I../../MixtureTargets -I../PointClouds
+SimpleIO_LDADD = -lcxsc ${top_builddir}/src/libmrs.a

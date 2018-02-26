@@ -298,6 +298,7 @@ class PiecewiseConstantFunction {
     Allocation order is this, left child with remainder of allocation, 
     * right child with remainder.*/
     void allocateRanges(const std::vector< cxsc::real >& rangesToAllocate);
+    void allocateRangesToLeaves(const std::vector< cxsc::real >& rangesToAllocate);
     
 	/*! \brief Change this so that the subpaving it manages is
 	the union of this's subpaving and the subpaving of another

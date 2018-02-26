@@ -470,6 +470,28 @@ void PiecewiseConstantFunction::allocateRanges(
 	// any other exceptions are unhandled
 }
 
+
+void PiecewiseConstantFunction::allocateRangesToLeaves(
+				const std::vector< cxsc::real >& rangesToAllocate)
+{
+	// checks:  is there a root paving, is the string properly formed?
+	if (!hasSubPaving()) {
+		throw NullSubpavingPointer_Error(
+				"PiecewiseConstantFunction::allocateRangesToLeaves(...)");
+	}
+	RealMappedSPnode temp(*getSubPaving()); // copy to temp
+	try {
+		getSubPaving()->allocateRangesToLeaves(rangesToAllocate);
+	   
+	}
+	catch (std::invalid_argument const& ia) {
+		cerr << ia.what() << endl;
+		handleSPError(temp);
+	}
+	
+	// any other exceptions are unhandled
+}
+
 void PiecewiseConstantFunction::reshapeToUnion(
 					const PiecewiseConstantFunction& other)
 {

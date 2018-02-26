@@ -372,6 +372,44 @@ namespace subpavings {
 	
     }
 
+    size_t allocateRangesToLeaves(const std::vector< T >& rangesToAllocate, size_t index = 0)
+    {
+		if (index >= rangesToAllocate.size()) {
+			throw std::invalid_argument("Range allocations too short");
+
+		}
+                
+		std::size_t newIndex;
+
+		if (isLeaf()) {
+			range = rangesToAllocate[index];
+                	newIndex = index+1;
+		}
+		else {
+			range=0.0;// allocate 0.0 if it is not a leaf node
+			newIndex = index;
+		}
+
+		if (hasLCwithBox()) {
+			newIndex = getLeftChild()->allocateRangesToLeaves(rangesToAllocate, newIndex);
+		}
+		if (hasRCwithBox()) {
+			newIndex = getRightChild()->allocateRangesToLeaves(rangesToAllocate, newIndex);
+		}
+
+		// have done all the children
+		// if this is the root, want to check we have used all the allocations
+		if (NULL == getParent()) {
+			if (newIndex < rangesToAllocate.size()) {
+				throw std::invalid_argument("More ranges than nodes in tree");
+			}
+
+		}
+
+		return newIndex;
+	
+    }
+
 
     /*! \brief Splits paving according to string instruction.
 	
