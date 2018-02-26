@@ -101,11 +101,9 @@ int main(int argc, char ** argv)
     if (argc > 4) {
       rangesFileName = argv[4];
     }
+    else cout << "USAGE: ./SimpleIO 2 rootBox.txt ldfn.txt ranges.txt" << endl;
     // Mixture of Normals is made in either case
-    //long unsigned int MVNseed = seed+9876;// seed for data simulator
-    // containers for stuff we will be storing 
-    //std::vector < real > estL1ErrorsQR(reps);
-    //size_t intN = 10;//00000;
+    long unsigned int MVNseed = seed+9876;// seed for data simulator
 
     std::ifstream ifs(leafDepthFileName.c_str());
     std::string str((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
@@ -150,23 +148,12 @@ int main(int argc, char ** argv)
              << pcf.getLeafLevelsString() << endl;
    //cout << endl << pcf << endl;
    pcf.outputToStreamTabs(cout);
-/*
-        SPSnodePtrs Pleaves; // set up empty container for leaf node pointers
-        SPSnodePtrsItr it; // and an iterator over the container
-        adh.getSubPaving()->getLeaves(Pleaves); // fill the container
-        // container is filled by reading leaves off tree from left to right
-        for(it = Pleaves.begin(); it < Pleaves.end(); it++) {
-            // remember that it points to a pointer, so *it is still a ptr
-            //get the counts in all the Pleaves
-            //get the boxes from all the Pleaves
-            Pboxes.push_back((*it)->getBox());
-        }
-        PartSize = Pboxes.size();
-*/
 
 
-/*
-    MixtureMVN* mixMVNptr = makeMixture(dim , MVNseed); 
+    // containers for stuff we will be storing 
+    size_t intN = 10;//00000;
+    //MixtureMVN* mixMVNptr = makeMixture(dim , MVNseed); 
+    MixtureMVN* mixMVNptr = makeStandard(dim , MVNseed); 
     
 
     clock_t starttime = clock();
@@ -179,50 +166,39 @@ int main(int argc, char ** argv)
     //std::vector< subpavings::PiecewiseConstantFunction* > pcfs;
     //getchar();
 
-	clock_t endtime = clock();	
-	double timingStarts = (static_cast<double>(endtime-starttime)/CLOCKS_PER_SEC);	
-	cout << "time to get prior-selected adaptive hist = " << timingStarts << endl;
-        timingMake.push_back(timingStarts);
-//--------------------------------------------------------------------------------------------------------------
-//------------------------ only for the case of simulated data--------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------
+    clock_t endtime = clock();	
+    double timingStarts = (static_cast<double>(endtime-starttime)/CLOCKS_PER_SEC);	
+    cout << "time to get prior-selected adaptive hist = " << timingStarts << endl;
+
     // L1 error calculations
-    if (1){
-      //getting number of leaves in optimal MAP estimate
-      size_t NoOfLeaves = pcfs[0]->getRootLeaves();
-      cout << "\nOptMAP estimate with " << NoOfLeaves << " leaves"<< endl; //getchar();
-      leaves.push_back(NoOfLeaves);
+    //getting number of leaves in optimal MAP estimate
+    size_t NoOfLeaves = pcf.getRootLeaves();
+    cout << "\nOptMAP estimate with " << NoOfLeaves << " leaves"<< endl; //getchar();
+    //get quasi random points in the box 
+    ivector box = pcf.getRootBox();
+    std::vector < std::vector < real > > qrPts;
+    getQuasiRandomPoints( box, qrPts, intN);
+    // get points from true density 
+    //std::vector < std::vector < real > > intPts;
+    //mixMVNptr->prn(intPts, intN);
+    //get MCMC histogram densities at the remaining integration points and log results
+    std::vector < real > estDensitiesOptMAP_QR;
+    getPCFDensities(pcf, qrPts, estDensitiesOptMAP_QR);
+    
+    //get true densities at the qr points 
+    std::vector < real > trueIntPtDensities_QR;
+    getTrueDensities(*mixMVNptr, qrPts, trueIntPtDensities_QR);
+    for(int i=0; i < qrPts.size(); i++) { cout << qrPts[i]  << '\t' << trueIntPtDensities_QR[i] << '\t' << estDensitiesOptMAP_QR[i] << '\n';} cout << endl;
+    real boxVol = realVolume(box);
+    real estL1_QR = boxVol * avAbsDiffDen(trueIntPtDensities_QR, estDensitiesOptMAP_QR);
 
-        //get quasi random points in the box 
-        ivector box = pcfs[0]->getRootBox();
-        std::vector < std::vector < real > > qrPts;
-        getQuasiRandomPoints( box, qrPts, intN);
-        // get points from true density 
-        std::vector < std::vector < real > > intPts;
-        mixMVNptr->prn(intPts, intN);
-        //get MCMC histogram densities at the remaining integration points and log results
-        std::vector < real > estDensitiesOptMAP_QR;
-          PiecewiseConstantFunction pcfSmeared = pcfs[0]->makeSmearZeroValues(1/(1000000.0));
-          getPCFDensities(pcf, qrPts, estDensitiesOptMAP_QR);
-        }
-        //get true densities at the qr points 
-        std::vector < real > trueIntPtDensities_QR;
-        getTrueDensities(*mixMVNptr, qrPts, trueIntPtDensities_QR);
-	real boxVol = realVolume(box);
-           real estL1_QR = boxVol * avAbsDiffDen(trueIntPtDensities_QR, estDensitiesOptMAP_QR);
-           estL1ErrorsQR.push_back(estL1_QR);
-
-          //getchar();
-//--------------------------------------------------------------------------------------------------------------
-//------------------------ END of the case of simulated data----------------------------------------------------
-//--------------------------------------------------------------------------------------------------------------
-
+    cout << endl << "estimated L1 error = " << estL1_QR << endl;
     //to free all the contents of pcfs at the end
    //if (NULL != &pcf) delete *pcf;
 
     //delete the data generator 
     delete mixMVNptr;	
-*/
+
     return 0;
 
 } // end of program
