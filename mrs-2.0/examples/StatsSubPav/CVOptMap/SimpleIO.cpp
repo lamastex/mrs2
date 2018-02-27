@@ -78,6 +78,8 @@ using namespace subpavings::kde;
 
 int main(int argc, char ** argv) 
 {
+    //cout << "USAGE: ./SimpleIO 2 rootBox.txt ldfn.txt ranges.txt I/0" << endl;
+
     // ------- prepare to generate some data for the tests -----------
     //const int n=10000;  // number to generate
 
@@ -85,6 +87,7 @@ int main(int argc, char ** argv)
     double timeTaken;
     int reps=1;
     int dim = 2;
+    int output = 0; // amount of output on stdout
     long unsigned int seed =1234;
     string leafDepthFileName = "ldfn.txt"; // for leaf-depth encoded string specifying the shape of the SRP histogram
     string rangesFileName = "ranges.txt"; // for the range or height value of each leaf node
@@ -101,7 +104,9 @@ int main(int argc, char ** argv)
     if (argc > 4) {
       rangesFileName = argv[4];
     }
-    else cout << "USAGE: ./SimpleIO 2 rootBox.txt ldfn.txt ranges.txt" << endl;
+    if (argc > 5) {
+      output = atoi(argv[5]);
+    }
     // Mixture of Normals is made in either case
     long unsigned int MVNseed = seed+9876;// seed for data simulator
 
@@ -144,19 +149,21 @@ int main(int argc, char ** argv)
     //std::vector < real > ranges(3); ranges[0]=5.0; ranges[1]=0.1; ranges[2]=0.2;//ranges[3]=0.3; ranges[4]=0.4;
     pcf.allocateRangesToLeaves(ranges);
 
-    cout << "Level string for new partition is "
-             << pcf.getLeafLevelsString() << endl;
-   //cout << endl << pcf << endl;
-   pcf.outputToStreamTabs(cout);
+    if(output>1) cout << "Level string for new partition is "
+                          << pcf.getLeafLevelsString() << endl;
+       //cout << endl << pcf << endl;
+    if(output>2) pcf.outputToStreamTabs(cout);
+     
 
 
     // containers for stuff we will be storing 
     size_t intN = 10;//00000;
     //MixtureMVN* mixMVNptr = makeMixture(dim , MVNseed); 
+
     MixtureMVN* mixMVNptr = makeStandard(dim , MVNseed); 
     
 
-    clock_t starttime = clock();
+    //clock_t starttime = clock();
         
 
     // make the below modular also!!!
@@ -166,14 +173,13 @@ int main(int argc, char ** argv)
     //std::vector< subpavings::PiecewiseConstantFunction* > pcfs;
     //getchar();
 
-    clock_t endtime = clock();	
-    double timingStarts = (static_cast<double>(endtime-starttime)/CLOCKS_PER_SEC);	
-    cout << "time to get prior-selected adaptive hist = " << timingStarts << endl;
+    //clock_t endtime = clock();	
+    //double timingStarts = (static_cast<double>(endtime-starttime)/CLOCKS_PER_SEC);	
+    //cout << "time to get prior-selected adaptive hist = " << timingStarts << endl;
 
     // L1 error calculations
     //getting number of leaves in optimal MAP estimate
     size_t NoOfLeaves = pcf.getRootLeaves();
-    cout << "\nOptMAP estimate with " << NoOfLeaves << " leaves"<< endl; //getchar();
     //get quasi random points in the box 
     ivector box = pcf.getRootBox();
     std::vector < std::vector < real > > qrPts;
@@ -188,11 +194,14 @@ int main(int argc, char ** argv)
     //get true densities at the qr points 
     std::vector < real > trueIntPtDensities_QR;
     getTrueDensities(*mixMVNptr, qrPts, trueIntPtDensities_QR);
-    for(int i=0; i < qrPts.size(); i++) { cout << qrPts[i]  << '\t' << trueIntPtDensities_QR[i] << '\t' << estDensitiesOptMAP_QR[i] << '\n';} cout << endl;
+     if (output != 0) {
+       for(int i=0; i < qrPts.size(); i++) 
+        { cout << qrPts[i]  << '\t' << trueIntPtDensities_QR[i] << '\t' << estDensitiesOptMAP_QR[i] << '\n';} cout << endl;
+    }
     real boxVol = realVolume(box);
     real estL1_QR = boxVol * avAbsDiffDen(trueIntPtDensities_QR, estDensitiesOptMAP_QR);
 
-    cout << endl << "estimated L1 error = " << estL1_QR << endl;
+    cout << "# of leaves and estimated L1 error = " << NoOfLeaves << '\t' << estL1_QR << endl;
     //to free all the contents of pcfs at the end
    //if (NULL != &pcf) delete *pcf;
 
