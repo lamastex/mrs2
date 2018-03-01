@@ -78,7 +78,7 @@ using namespace subpavings::kde;
 
 int main(int argc, char ** argv) 
 {
-    //cout << "USAGE: ./SimpleIO 2 rootBox.txt ldfn.txt ranges.txt I/0" << endl;
+    //cout << "USAGE: ./SimpleIO dimension{1,[2],...} rootBox.txt ldfn.txt ranges.txt numberofQRNGIntegralPoints[1000000] I/0-level{[0],1,2,3}" << endl;
 
     // ------- prepare to generate some data for the tests -----------
     //const int n=10000;  // number to generate
@@ -92,6 +92,7 @@ int main(int argc, char ** argv)
     string leafDepthFileName = "ldfn.txt"; // for leaf-depth encoded string specifying the shape of the SRP histogram
     string rangesFileName = "ranges.txt"; // for the range or height value of each leaf node
     string rootBoxFileName = "rootBox.txt";// root box of the histogram
+    size_t intN = 1000000;// number of qrng points
     if (argc > 1) {
       dim = atoi(argv[1]);
     }
@@ -105,7 +106,10 @@ int main(int argc, char ** argv)
       rangesFileName = argv[4];
     }
     if (argc > 5) {
-      output = atoi(argv[5]);
+      intN = atoi(argv[5]);
+    }
+    if (argc > 6) {
+      output = atoi(argv[6]);
     }
     // Mixture of Normals is made in either case
     long unsigned int MVNseed = seed+9876;// seed for data simulator
@@ -157,7 +161,6 @@ int main(int argc, char ** argv)
 
 
     // containers for stuff we will be storing 
-    size_t intN = 10;//00000;
     //MixtureMVN* mixMVNptr = makeMixture(dim , MVNseed); 
 
     MixtureMVN* mixMVNptr = makeStandard(dim , MVNseed); 
