@@ -1,0 +1,109 @@
+\hypertarget{classsubpavings_1_1RangeCollectionException}{\subsection{subpavings\-:\-:\-Range\-Collection\-Exception \-Class \-Reference}
+\label{classsubpavings_1_1RangeCollectionException}\index{subpavings\-::\-Range\-Collection\-Exception@{subpavings\-::\-Range\-Collection\-Exception}}
+}
+
+
+{\ttfamily \#include $<$rangecollectionexception.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Range\-Collection\-Exception\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Range\-Collection\-Exception\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionException_a6c650a490421a912d40e1144f7bf492e}{\-Range\-Collection\-Exception} (std\-::string ss)
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionException_ad1d65fa032ca1b3f25d1e6252aed9500}{$\sim$\-Range\-Collection\-Exception} ()  throw ()
+\item 
+virtual const char $\ast$ \hyperlink{classsubpavings_1_1RangeCollectionException_a050eeb5807139b76de360d4ac704c9fe}{what} () const   throw ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classsubpavings_1_1RangeCollectionException_a01bfb5e3ed83359d9b011c97a924ec60}{s}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+a class for \-Range\-Container-\/related exceptions. 
+
+\-Definition at line 39 of file rangecollectionexception.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionException_a6c650a490421a912d40e1144f7bf492e}{\index{subpavings\-::\-Range\-Collection\-Exception@{subpavings\-::\-Range\-Collection\-Exception}!\-Range\-Collection\-Exception@{\-Range\-Collection\-Exception}}
+\index{\-Range\-Collection\-Exception@{\-Range\-Collection\-Exception}!subpavings::RangeCollectionException@{subpavings\-::\-Range\-Collection\-Exception}}
+\paragraph[{\-Range\-Collection\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Exception\-::\-Range\-Collection\-Exception} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{ss}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionException_a6c650a490421a912d40e1144f7bf492e}
+
+
+\-Definition at line 33 of file rangecollectionexception.\-cpp.
+
+
+\begin{DoxyCode}
+: s(ss) {}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionException_ad1d65fa032ca1b3f25d1e6252aed9500}{\index{subpavings\-::\-Range\-Collection\-Exception@{subpavings\-::\-Range\-Collection\-Exception}!$\sim$\-Range\-Collection\-Exception@{$\sim$\-Range\-Collection\-Exception}}
+\index{$\sim$\-Range\-Collection\-Exception@{$\sim$\-Range\-Collection\-Exception}!subpavings::RangeCollectionException@{subpavings\-::\-Range\-Collection\-Exception}}
+\paragraph[{$\sim$\-Range\-Collection\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Exception\-::$\sim$\-Range\-Collection\-Exception} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)  throw ()}}\label{classsubpavings_1_1RangeCollectionException_ad1d65fa032ca1b3f25d1e6252aed9500}
+
+
+\-Definition at line 34 of file rangecollectionexception.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionException_a050eeb5807139b76de360d4ac704c9fe}{\index{subpavings\-::\-Range\-Collection\-Exception@{subpavings\-::\-Range\-Collection\-Exception}!what@{what}}
+\index{what@{what}!subpavings::RangeCollectionException@{subpavings\-::\-Range\-Collection\-Exception}}
+\paragraph[{what}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ {\bf \-Range\-Collection\-Exception\-::what} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const  throw ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionException_a050eeb5807139b76de360d4ac704c9fe}
+
+
+\-Definition at line 35 of file rangecollectionexception.\-cpp.
+
+
+
+\-References s.
+
+
+\begin{DoxyCode}
+{ return s.c_str(); }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionException_a01bfb5e3ed83359d9b011c97a924ec60}{\index{subpavings\-::\-Range\-Collection\-Exception@{subpavings\-::\-Range\-Collection\-Exception}!s@{s}}
+\index{s@{s}!subpavings::RangeCollectionException@{subpavings\-::\-Range\-Collection\-Exception}}
+\paragraph[{s}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf subpavings\-::\-Range\-Collection\-Exception\-::s}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionException_a01bfb5e3ed83359d9b011c97a924ec60}
+
+
+\-Definition at line 41 of file rangecollectionexception.\-hpp.
+
+
+
+\-Referenced by what().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rangecollectionexception_8hpp}{rangecollectionexception.\-hpp}\item 
+\hyperlink{rangecollectionexception_8cpp}{rangecollectionexception.\-cpp}\end{DoxyCompactItemize}

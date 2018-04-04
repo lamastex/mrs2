@@ -1,0 +1,46 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{FPhyloPOT\n|- tree_space\l- n_dimensions\l- topologies\l- tree_nodes\l- SeqData\l- treeRoots\l- n_interval_calls\l- n_real_calls\l|+ FPhyloPOT()\l+ ~FPhyloPOT()\l+ operator()()\l+ operator()()\l+ operator()()\l+ LabBoxVolume()\l+ get_interval_calls()\l+ get_real_calls()\l+ getNoTrees()\l- ReadSequence()\l- FindPattern()\l- PrintSequence()\l- ReadTrees()\l- PrintTopologyTrees()\l- destroyRoots()\l- Char2Code()\l- Code2Char()\l- CheckReadLine()\l- FileInputError()\l- ReformatSequence()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node2 [label="{Fobj\n|# UsingLogDensity\l# LabDomainList\l# LabDomainPriorIntegralList\l# PriorType\l|+ get_interval_calls()\l+ get_real_calls()\l+ LabBoxVolume()\l+ operator()()\l+ operator()()\l+ ~Fobj()\l+ operator()()\l+ LabBoxPriorIntegral()\l+ SetupLabDomainPriorIntegralList()\l+ DrawFromBoxPrior()\land 7 more...}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFobj.shtml",tooltip="An abstract class for target function objects."];
+  Node3 -> Node2 [color="grey25",fontsize="10",style="solid",label=" LabDomainPriorIntegralList" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node3 [label="{std::vector\< real \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node3 [dir="back",color="orange",fontsize="10",style="solid",label=" \< real \>" ,fontname="FreeSans"];
+  Node4 [label="{std::vector\< T \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node5 -> Node4 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node5 [label="{T\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" treeRoots" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node6 [label="{std::vector\< PhyloTree * \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 -> Node6 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node7 [label="{PhyloTree\n|- root\l- CharacterSpace\l|+ PhyloTree()\l+ PhyloTree()\l+ PhyloTree()\l+ ~PhyloTree()\l+ PrintTree()\l+ getRoot()\l+ getNumberNodes()\l+ getNumberBranches()\l+ fillProbRealJC69()\l+ fillProbIntervalJC69()\l+ fillProbHessJC69()\l+ fillProbRealCFN()\l- DecodeTree()\l- TreeFileErrorExit()\l- findTime()\l- findLabel()\l- findSeqNo()\l- PhyloTree()\l- operator=()\l- nodePOTreal()\l- nodePOTinterval()\l- nodePOTHess()\l- PrintBranch()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPhyloTree.shtml"];
+  Node8 -> Node7 [color="grey25",fontsize="10",style="solid",label=" root" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node8 [label="{PhyloNode\n|- ibranch\l- seq_no\l- time\l- label\l- seq_name\l- parent\l- childNodes\l|+ PhyloNode()\l+ ~PhyloNode()\l+ getParent()\l+ getChildren()\l+ getBranch()\l+ getTime()\l+ getLabel()\l+ getSeqNo()\l+ getSeqName()\l+ setBranch()\land 8 more...- PhyloNode()\l- operator=()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPhyloNode.shtml",tooltip="A class for nodes of a phylogenetic tree."];
+  Node9 -> Node8 [color="grey25",fontsize="10",style="solid",label=" childNodes" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node9 [label="{std::vector\< PhyloNode * \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node8 -> Node9 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node4 -> Node9 [dir="back",color="orange",fontsize="10",style="solid",label=" \< PhyloNode * \>" ,fontname="FreeSans"];
+  Node10 -> Node8 [color="grey25",fontsize="10",style="solid",label=" seq_name" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node10 [label="{std::string\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node11 [label="{std::basic_string\< char \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node8 -> Node8 [color="grey25",fontsize="10",style="solid",label=" parent" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node4 -> Node6 [dir="back",color="orange",fontsize="10",style="solid",label=" \< PhyloTree * \>" ,fontname="FreeSans"];
+  Node12 -> Node1 [color="grey25",fontsize="10",style="solid",label=" SeqData" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node12 [label="{DATA\n|+ seqNames\l+ rawSequences\l+ No_seq\l+ Seq_length\l+ BPatternCounts\l+ BPatterns\l+ baseSequences\l+ BNo_pattern\l|}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structDATA.shtml"];
+  Node13 -> Node12 [color="grey25",fontsize="10",style="solid",label=" baseSequences" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node13 [label="{std::vector\< vector\< int \> \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node14 -> Node13 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node14 [label="{std::vector\< int \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node14 [dir="back",color="orange",fontsize="10",style="solid",label=" \< int \>" ,fontname="FreeSans"];
+  Node4 -> Node13 [dir="back",color="orange",fontsize="10",style="solid",label=" \< vector\< int \> \>" ,fontname="FreeSans"];
+  Node15 -> Node12 [color="grey25",fontsize="10",style="solid",label=" rawSequences" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node15 [label="{std::vector\< vector\< char \> \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node15 [dir="back",color="orange",fontsize="10",style="solid",label=" \< vector\< char \> \>" ,fontname="FreeSans"];
+  Node16 -> Node12 [color="grey25",fontsize="10",style="solid",label=" seqNames\nBPatterns" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node16 [label="{std::vector\< string \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node10 -> Node16 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node4 -> Node16 [dir="back",color="orange",fontsize="10",style="solid",label=" \< string \>" ,fontname="FreeSans"];
+  Node14 -> Node12 [color="grey25",fontsize="10",style="solid",label=" BPatternCounts" ,arrowhead="odiamond",fontname="FreeSans"];
+}

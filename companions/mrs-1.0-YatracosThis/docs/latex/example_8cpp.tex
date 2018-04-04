@@ -1,0 +1,47 @@
+\hypertarget{example_8cpp}{\subsection{example.\-cpp \-File \-Reference}
+\label{example_8cpp}\index{example.\-cpp@{example.\-cpp}}
+}
+
+
+\-C-\/\-X\-S\-C \-Example on interval subtraction.  
+
+
+{\ttfamily \#include \char`\"{}interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{example_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-C-\/\-X\-S\-C \-Example on interval subtraction. 
+
+\-Definition in file \hyperlink{example_8cpp_source}{example.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{example_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{example.\-cpp@{example.\-cpp}!main@{main}}
+\index{main@{main}!example.cpp@{example.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{example_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 30 of file example.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  interval a, b;            // Standard intervals     
+  a = 1.0;                  // a   = [1.0,1.0]       
+  "[1, 2]" >> b;          // string to interval conversion b   = [1.0,2.0]     
+         
+  cout << "a - a = " << a-a << endl;
+  cout << "b - b = " << b-b << endl;
+}
+\end{DoxyCode}

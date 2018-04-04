@@ -1,0 +1,703 @@
+\hypertarget{classFobj}{\subsection{\-Fobj \-Class \-Reference}
+\label{classFobj}\index{\-Fobj@{\-Fobj}}
+}
+
+
+\-An abstract class for target function objects.  
+
+
+
+
+{\ttfamily \#include $<$\-Fobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-Fobj\-:
+
+
+\-Collaboration diagram for \-Fobj\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{get\-\_\-interval\-\_\-calls} ()=0
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{get\-\_\-real\-\_\-calls} ()=0
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)=0
+\begin{DoxyCompactList}\small\item\em a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box \end{DoxyCompactList}\item 
+virtual interval \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B) const =0
+\begin{DoxyCompactList}\small\item\em a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-L\-P) const =0
+\begin{DoxyCompactList}\small\item\em a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+virtual \hyperlink{classFobj_a51d84b4865a42d81e4311a25546f846e}{$\sim$\-Fobj} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+virtual \-Hess\-Type \hyperlink{classFobj_abe7df6a2da2b1d26915b41128d7693fe}{operator()} (const \-H\-Tvector \&x, const int label=0) const 
+\begin{DoxyCompactList}\small\item\em a virtual function for \-Hess\-Type image of \-H\-Tvector under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFobj_aa44c68d5c5ea0330b428d0fae8aa1bdf}{\-Lab\-Box\-Prior\-Integral} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em \-Integral over box of the prior. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classFobj_a8e3160c380ff77e60fd90c9d5f608fd1}{\-Setup\-Lab\-Domain\-Prior\-Integral\-List} ()
+\begin{DoxyCompactList}\small\item\em set up the prior integral over the list of labeled domain boxes \end{DoxyCompactList}\item 
+virtual rvector \hyperlink{classFobj_a96f576383f9061e630341cb0121603b0}{\-Draw\-From\-Box\-Prior} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B, const rvector \&randvec)
+\begin{DoxyCompactList}\small\item\em \-Draw a real point in labeled box from density proportional to prior. \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFobj_a4a18a9cfa5c9e6d3e101cb95c83d3f7b}{\-Prior\-Density} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-L\-P)
+\begin{DoxyCompactList}\small\item\em prior density of a labeled real point \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFobj_a1bef464bc98d6047f7e2b112d1ea25a3}{\-Bisect\-Pt} (\hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B, int k)
+\begin{DoxyCompactList}\small\item\em return the point at which to bisect a labeled box along dimension k \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFobj_adfdb53846db8ec3b667b9ffe09ad10db}{inv\-\_\-cdf} (interval \-I, real \-R)
+\begin{DoxyCompactList}\small\item\em return real x s.\-t. that fraction \-R of probability lies below x \end{DoxyCompactList}\item 
+void \hyperlink{classFobj_a809ddeff11d2485c9baef63217cf8ec5}{set\-Using\-Log\-Density} (bool \-Log\-Pi)
+\begin{DoxyCompactList}\small\item\em set the target scale to natural logarithm \end{DoxyCompactList}\item 
+bool \hyperlink{classFobj_add01053ad6d7c48fa088d6831e126d92}{get\-Using\-Log\-Density} ()
+\begin{DoxyCompactList}\small\item\em get the target scale being used \end{DoxyCompactList}\item 
+int \hyperlink{classFobj_add9a33b412a85fb11102eb4bd5998669}{get\-Labeled\-Domain\-Dim} (int label) const 
+\begin{DoxyCompactList}\small\item\em \-Get the dimensions of the list of labeled domains. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classLabBox}{\-Lab\-Box} $>$ \hyperlink{classFobj_a69285b7966b3711d04dadf874ae6332a}{get\-\_\-domain} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the list of labeled domains. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classFobj_aab479dd3bf44fa338cbab0991b783189}{get\-\_\-labelset} ()
+\begin{DoxyCompactList}\small\item\em \-Get the set of unique integer labels in \-Lab\-Domain\-List. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classFobj_acf1d6b659549cea75e54582668ea7c3b}{\-Using\-Log\-Density}
+\begin{DoxyCompactList}\small\item\em a flag for working on the log(target shape) scale \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classLabBox}{\-Lab\-Box} $>$ \hyperlink{classFobj_a7d5297f74590a7bf95aa65d37a72fdff}{\-Lab\-Domain\-List}
+\begin{DoxyCompactList}\small\item\em \-The initial collection of labelled domain boxes -\/-\/ prior support. \end{DoxyCompactList}\item 
+vector$<$ real $>$ \hyperlink{classFobj_aacc4fb1fe699ad34bd51eea955220d72}{\-Lab\-Domain\-Prior\-Integral\-List}
+\begin{DoxyCompactList}\small\item\em \-The prior integral over the list of labeled domain boxes. \end{DoxyCompactList}\item 
+int \hyperlink{classFobj_aa58fc4a0d73e6ece446db9a87a633820}{\-Prior\-Type}
+\begin{DoxyCompactList}\small\item\em \-To specify a type of prior density\-: uniform, exponential, user\-\_\-defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-An abstract class for target function objects. 
+
+\-For use with \-M\-R\-S, for sampling from a unnormalized density which is typically a likelihood times a prior density. \-We know how to normalize the prior density over any compact box. \-Currently\-: either unif (\-Prior\-Type == 0) or exp(-\/x) \-The function object operator () returns the likelihood, or if \-Using\-Log\-Density is true, the log of the \-Log\-Likelihood.
+
+\-Also for use with \-C-\/\-X\-S\-C \-Global optimization routines \hyperlink{GOpt_8cpp_aa1ef10e5facfa08af99a235f02dce943}{\-G\-Opt\-Min()} and \hyperlink{GOpt_8cpp_ad4d421e8fe8cd7dc081fbc719c43c8b4}{\-G\-Opt\-Max()}, in the context of rigorous maximum lkelihood estimation over labeled domains. 
+
+\-Definition at line 44 of file \-Fobj.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFobj_a51d84b4865a42d81e4311a25546f846e}{\index{\-Fobj@{\-Fobj}!$\sim$\-Fobj@{$\sim$\-Fobj}}
+\index{$\sim$\-Fobj@{$\sim$\-Fobj}!Fobj@{\-Fobj}}
+\paragraph[{$\sim$\-Fobj}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf \-Fobj\-::$\sim$\-Fobj} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_a51d84b4865a42d81e4311a25546f846e}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 88 of file \-Fobj.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFobj_a1bef464bc98d6047f7e2b112d1ea25a3}{\index{\-Fobj@{\-Fobj}!\-Bisect\-Pt@{\-Bisect\-Pt}}
+\index{\-Bisect\-Pt@{\-Bisect\-Pt}!Fobj@{\-Fobj}}
+\paragraph[{\-Bisect\-Pt}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-Fobj\-::\-Bisect\-Pt} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Lab\-Box} \&}]{\-L\-B, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_a1bef464bc98d6047f7e2b112d1ea25a3}
+
+
+return the point at which to bisect a labeled box along dimension k 
+
+\-Bisect labeled box along k-\/th dimension so as to get equal prior probabilities in the resulting two halves. 
+
+\-Definition at line 161 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, and inv\-\_\-cdf().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Bisect().
+
+
+\begin{DoxyCode}
+    { 
+      // two new boxes should each get half the prior prob.
+      real x2 = inv_cdf(LB.Box[k], 0.5);
+      //if(x1-x2 != 0.0){
+      //cout << "bisect pt: x1, x2: " << x1 
+      //  << "    " << x2 << "   " << (x1-x2) << endl;
+      //}
+      return x2;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_a96f576383f9061e630341cb0121603b0}{\index{\-Fobj@{\-Fobj}!\-Draw\-From\-Box\-Prior@{\-Draw\-From\-Box\-Prior}}
+\index{\-Draw\-From\-Box\-Prior@{\-Draw\-From\-Box\-Prior}!Fobj@{\-Fobj}}
+\paragraph[{\-Draw\-From\-Box\-Prior}]{\setlength{\rightskip}{0pt plus 5cm}virtual rvector {\bf \-Fobj\-::\-Draw\-From\-Box\-Prior} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B, }
+\item[{const rvector \&}]{randvec}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_a96f576383f9061e630341cb0121603b0}
+
+
+\-Draw a real point in labeled box from density proportional to prior. 
+
+
+
+\-Definition at line 112 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, inv\-\_\-cdf(), taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once().
+
+
+\begin{DoxyCode}
+    {
+      int lo = Lb(LB.Box);
+      int hi = Ub(LB.Box);
+      rvector the_point(lo, hi);
+      if((hi - lo) >  (Ub(randvec) - Lb(randvec)))
+      {
+        cerr 
+          << "in Fobj::DrawFromBoxPrior. Too few random numbers in randvec. \n"
+      ;
+        exit(1);
+      }
+
+      for(int i=lo; i<=hi; i++)
+      {
+        the_point[i] = inv_cdf(LB.Box[i], randvec[i]);
+      }
+
+      return the_point;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_a69285b7966b3711d04dadf874ae6332a}{\index{\-Fobj@{\-Fobj}!get\-\_\-domain@{get\-\_\-domain}}
+\index{get\-\_\-domain@{get\-\_\-domain}!Fobj@{\-Fobj}}
+\paragraph[{get\-\_\-domain}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Lab\-Box}$>$ {\bf \-Fobj\-::get\-\_\-domain} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj_a69285b7966b3711d04dadf874ae6332a}
+
+
+\-Get the list of labeled domains. 
+
+
+
+\-Definition at line 224 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Domain\-List.
+
+
+\begin{DoxyCode}
+    {
+      return LabDomainList;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\index{\-Fobj@{\-Fobj}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!Fobj@{\-Fobj}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}virtual int {\bf \-Fobj\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implemented in \hyperlink{classFPhyloPOT_af1164c3a4f529f5b4af38d18c79f7b47}{\-F\-Phylo\-P\-O\-T}, \hyperlink{classFCFN3_acfca28a02e2f9dbcf8ff115a8bb4f262}{\-F\-C\-F\-N3}, \hyperlink{classFCFN3Rooted_ac1b0ba1a574c970bd1681f4273d4075e}{\-F\-C\-F\-N3\-Rooted}, \hyperlink{classFCFN3UnRooted_a8cd2bfdf21a3f8a8109dce3a80833b98}{\-F\-C\-F\-N3\-Un\-Rooted}, \hyperlink{classFRosenbrock_a6ca09c94fc6597d64474a87af8ffc59d}{\-F\-Rosenbrock}, \hyperlink{classFLevy2D_a8ca0edbf796cd3d7687a86a1c80266c1}{\-F\-Levy2\-D}, \hyperlink{classFShiryaev1D__Lkl__aa__fromData_af64393de70c67faba8af5f5e8aade1cb}{\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data}, \hyperlink{classFCFN3Star_aaa71b2dc822592e81afb4b12fdd8463c}{\-F\-C\-F\-N3\-Star}, \hyperlink{classFCesaroBellNo_acfda8e11028fbc5d41cd8810cc17567f}{\-F\-Cesaro\-Bell\-No}, \hyperlink{classFShiryaev1D_a3012ae56329e3f2e9bf34cec1db2aceb}{\-F\-Shiryaev1\-D}, and \hyperlink{classFWitchesHat_ac5039f4bf8564b17e2c5c3fcbd10ddfd}{\-F\-Witches\-Hat}.
+
+
+
+\-Referenced by \-Produce\-M\-R\-Samples().
+
+\hypertarget{classFobj_aab479dd3bf44fa338cbab0991b783189}{\index{\-Fobj@{\-Fobj}!get\-\_\-labelset@{get\-\_\-labelset}}
+\index{get\-\_\-labelset@{get\-\_\-labelset}!Fobj@{\-Fobj}}
+\paragraph[{get\-\_\-labelset}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf \-Fobj\-::get\-\_\-labelset} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj_aab479dd3bf44fa338cbab0991b783189}
+
+
+\-Get the set of unique integer labels in \-Lab\-Domain\-List. 
+
+
+
+\-Definition at line 230 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Domain\-List.
+
+
+\begin{DoxyCode}
+    {
+      set<int> LS;
+
+      for(vector<LabBox>::const_iterator it = LabDomainList.begin();
+          it != LabDomainList.end(); it++) LS.insert(it->L);
+      vector<int> LV;
+      for(set<int>::const_iterator it = LS.begin(); 
+          it != LS.end(); it++) LV.push_back(*it);
+      return LV;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_a63df2521571faeb43663613a9a4611e7}{\index{\-Fobj@{\-Fobj}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!Fobj@{\-Fobj}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}virtual int {\bf \-Fobj\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classFobj_a63df2521571faeb43663613a9a4611e7}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implemented in \hyperlink{classFPhyloPOT_a439b0be63da661a8e7c945c986874c8c}{\-F\-Phylo\-P\-O\-T}, \hyperlink{classFCFN3_acc6f4fb7f07f280fe124499e9c5062ab}{\-F\-C\-F\-N3}, \hyperlink{classFCFN3Rooted_acd3454ab1e5e8b52f323749a5236856e}{\-F\-C\-F\-N3\-Rooted}, \hyperlink{classFCFN3UnRooted_a56cccac7570877578c6337183c2153d3}{\-F\-C\-F\-N3\-Un\-Rooted}, \hyperlink{classFRosenbrock_ab1f708734168295d5120388e9a25d767}{\-F\-Rosenbrock}, \hyperlink{classFLevy2D_a48cec5994f9d62306e3852dda50f7f5a}{\-F\-Levy2\-D}, \hyperlink{classFShiryaev1D__Lkl__aa__fromData_a1b055fdade523cb5df05994c9a565f2f}{\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data}, \hyperlink{classFCFN3Star_a1a5955ccbbecdce0f6cab399ef93f53c}{\-F\-C\-F\-N3\-Star}, \hyperlink{classFCesaroBellNo_a20e3fb43978e543c32d826bc9ccf07f8}{\-F\-Cesaro\-Bell\-No}, \hyperlink{classFShiryaev1D_a893357913c92294604f237dcb1117a6c}{\-F\-Shiryaev1\-D}, and \hyperlink{classFWitchesHat_a601c966b9479f0d500f677ab1756347f}{\-F\-Witches\-Hat}.
+
+
+
+\-Referenced by \-Produce\-M\-R\-Samples().
+
+\hypertarget{classFobj_add9a33b412a85fb11102eb4bd5998669}{\index{\-Fobj@{\-Fobj}!get\-Labeled\-Domain\-Dim@{get\-Labeled\-Domain\-Dim}}
+\index{get\-Labeled\-Domain\-Dim@{get\-Labeled\-Domain\-Dim}!Fobj@{\-Fobj}}
+\paragraph[{get\-Labeled\-Domain\-Dim}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Fobj\-::get\-Labeled\-Domain\-Dim} (
+\begin{DoxyParamCaption}
+\item[{int}]{label}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj_add9a33b412a85fb11102eb4bd5998669}
+
+
+\-Get the dimensions of the list of labeled domains. 
+
+
+
+\-Definition at line 202 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Domain\-List, taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-G\-Opt\-Max(), \-G\-Opt\-Min(), and main().
+
+
+\begin{DoxyCode}
+    {
+      int retValue = 0;
+      bool foundLabel = 0;
+
+      vector<LabBox>::const_iterator it;
+
+      it = LabDomainList.begin();
+
+      while(!foundLabel && it < LabDomainList.end())
+      {
+        if (it->L == label)
+        {
+          foundLabel = 1;
+          retValue = Ub(it->Box) - Lb(it->Box) + 1;
+        }
+        it++;
+      }
+      return retValue;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_add01053ad6d7c48fa088d6831e126d92}{\index{\-Fobj@{\-Fobj}!get\-Using\-Log\-Density@{get\-Using\-Log\-Density}}
+\index{get\-Using\-Log\-Density@{get\-Using\-Log\-Density}!Fobj@{\-Fobj}}
+\paragraph[{get\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Fobj\-::get\-Using\-Log\-Density} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj_add01053ad6d7c48fa088d6831e126d92}
+
+
+get the target scale being used 
+
+
+
+\-Definition at line 196 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Using\-Log\-Density.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-M\-R\-Sampler().
+
+
+\begin{DoxyCode}
+    {
+      return UsingLogDensity;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_adfdb53846db8ec3b667b9ffe09ad10db}{\index{\-Fobj@{\-Fobj}!inv\-\_\-cdf@{inv\-\_\-cdf}}
+\index{inv\-\_\-cdf@{inv\-\_\-cdf}!Fobj@{\-Fobj}}
+\paragraph[{inv\-\_\-cdf}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-Fobj\-::inv\-\_\-cdf} (
+\begin{DoxyParamCaption}
+\item[{interval}]{\-I, }
+\item[{real}]{\-R}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_adfdb53846db8ec3b667b9ffe09ad10db}
+
+
+return real x s.\-t. that fraction \-R of probability lies below x 
+
+for prior density (either unif (\-Prior\-Type == 0) or exp(-\/x)) normalized to 1 in box 
+
+\-Definition at line 177 of file \-Fobj.\-hpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::ln(), and \-Prior\-Type.
+
+
+
+\-Referenced by \-Bisect\-Pt(), and \-Draw\-From\-Box\-Prior().
+
+
+\begin{DoxyCode}
+    {
+      // cout << "In inv_cdf. PriorType: " << PriorType << endl;
+      return (PriorType == 0)?
+      // Inf(I) + R*(diam(I))
+      // better than the line above? agrees with mid(I) when R=0.5
+        (1.0 - R)*Inf(I) + R*Sup(I)
+        : Inf(I) - ln(1.0 - R*(1.0 - exp(-diam(I))));
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_aa44c68d5c5ea0330b428d0fae8aa1bdf}{\index{\-Fobj@{\-Fobj}!\-Lab\-Box\-Prior\-Integral@{\-Lab\-Box\-Prior\-Integral}}
+\index{\-Lab\-Box\-Prior\-Integral@{\-Lab\-Box\-Prior\-Integral}!Fobj@{\-Fobj}}
+\paragraph[{\-Lab\-Box\-Prior\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Fobj\-::\-Lab\-Box\-Prior\-Integral} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_aa44c68d5c5ea0330b428d0fae8aa1bdf}
+
+
+\-Integral over box of the prior. 
+
+get the default integral of prior over a labeled box
+
+an inline definition of the virtual function for default integral of prior over a labeled box -\/-\/ not yet pure virtual 
+
+\-Definition at line 263 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, taylor\-::exp(), and \-Prior\-Type.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info(), and \-Setup\-Lab\-Domain\-Prior\-Integral\-List().
+
+
+\begin{DoxyCode}
+{
+  real integral = 1.0;
+  for (int i = 1; i <= VecLen(LB.Box); i++)
+  {
+    integral *= (PriorType == 0)? 
+      diam(LB.Box[i]): exp(-Inf(LB.Box[i])) - exp(-Sup(LB.Box[i]));
+  }
+  return integral;
+}
+\end{DoxyCode}
+\hypertarget{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\index{\-Fobj@{\-Fobj}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!Fobj@{\-Fobj}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Fobj\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, pure virtual\mbox{]}}}}\label{classFobj_a8da39e1c8780124d6826742cdf21aaf5}
+
+
+a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box 
+
+get the default volume (\-Lebesgue) of a labeled box
+
+derived classes inherit interface and default behavior see \mbox{[}\-Item 34,\-P.\-166, \-Meyers, \-Effective \-C++\mbox{]}
+
+an inline definition of the pure virtual function for default \-Lebesgue measure (volume) of a labeled box 
+
+\-Implemented in \hyperlink{classFPhyloPOT_a580e93411b4a2dd881f4854481a8aeef}{\-F\-Phylo\-P\-O\-T}, \hyperlink{classFCFN3_ae16fa2a68755b135ac0d4f9faea41b20}{\-F\-C\-F\-N3}, \hyperlink{classFCFN3Rooted_a0797569e9fea66f72f4e90642e10da15}{\-F\-C\-F\-N3\-Rooted}, \hyperlink{classFCFN3UnRooted_aae39656be045741eddc3590529aec2b6}{\-F\-C\-F\-N3\-Un\-Rooted}, \hyperlink{classFRosenbrock_ac6cdd39b087bbb77561eb8dd0e427ce9}{\-F\-Rosenbrock}, \hyperlink{classFLevy2D_a8d1acd389752d1554445b0247bb06f60}{\-F\-Levy2\-D}, \hyperlink{classFShiryaev1D__Lkl__aa__fromData_ace0761a116e45f3f924903e355742486}{\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data}, \hyperlink{classFCFN3Star_ad9fea247c542560b3c13dd0ad340d25f}{\-F\-C\-F\-N3\-Star}, \hyperlink{classFCesaroBellNo_a565d2a382aed9be6b5aebd99810be370}{\-F\-Cesaro\-Bell\-No}, \hyperlink{classFShiryaev1D_a18052485756b302b7ac397355f6fc48c}{\-F\-Shiryaev1\-D}, and \hyperlink{classFWitchesHat_a4549cc1c30758e673f050e9b30eae67e}{\-F\-Witches\-Hat}.
+
+
+
+\-Definition at line 251 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info(), \-F\-Cesaro\-Bell\-No\-::\-Lab\-Box\-Volume(), \-F\-Levy2\-D\-::\-Lab\-Box\-Volume(), \-F\-Rosenbrock\-::\-Lab\-Box\-Volume(), and \-F\-Phylo\-P\-O\-T\-::\-Lab\-Box\-Volume().
+
+
+\begin{DoxyCode}
+{
+  real volume = 1.0;
+  for (int i = 1; i <= VecLen(LB.Box); i++) volume *= diam(LB.Box[i]);
+  return volume;
+}
+\end{DoxyCode}
+\hypertarget{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\index{\-Fobj@{\-Fobj}!operator()@{operator()}}
+\index{operator()@{operator()}!Fobj@{\-Fobj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual interval \-Fobj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}
+
+
+a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} 
+
+\-Derived classes inherit interface only see \mbox{[}\-Item 34,\-P.\-162, \-Meyers, \-Effective \-C++\mbox{]} 
+
+\-Implemented in \hyperlink{classFPhyloPOT_a4d0a6125142aba97d718b11d8b8fc909}{\-F\-Phylo\-P\-O\-T}, \hyperlink{classFCFN3_aec0a3534e5961954300b910f7a7401da}{\-F\-C\-F\-N3}, \hyperlink{classFCFN3Rooted_a13851aabf5dfdd262bd5d0c3b0128612}{\-F\-C\-F\-N3\-Rooted}, \hyperlink{classFCFN3UnRooted_abaaaa5afcbd3a3c9baa2c6afb58bb5d6}{\-F\-C\-F\-N3\-Un\-Rooted}, \hyperlink{classFShiryaev1D__Lkl__aa__fromData_ac3ef0d8ca7ece7015c1c79af2a85e261}{\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data}, \hyperlink{classFRosenbrock_a31adc48845c9b35628d57497cff8666c}{\-F\-Rosenbrock}, \hyperlink{classFLevy2D_a0bf7bf18b3f8bdcb2034526f2b809162}{\-F\-Levy2\-D}, \hyperlink{classFCesaroBellNo_a92568b498df7475dd13d20cb7bfa1d23}{\-F\-Cesaro\-Bell\-No}, \hyperlink{classFCFN3Star_af2b3d4543f1ba7f9040e24433ac7436e}{\-F\-C\-F\-N3\-Star}, \hyperlink{classFShiryaev1D_a8e4ea007da7c37a1491f56fe663b7437}{\-F\-Shiryaev1\-D}, and \hyperlink{classFWitchesHat_a11734772d7dea57df5ff72ebbfd3e272}{\-F\-Witches\-Hat}.
+
+\hypertarget{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\index{\-Fobj@{\-Fobj}!operator()@{operator()}}
+\index{operator()@{operator()}!Fobj@{\-Fobj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual real \-Fobj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-L\-P}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classFobj_a7e89aa4918cf8e40683dde607257d1ee}
+
+
+a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} 
+
+
+
+\-Implemented in \hyperlink{classFPhyloPOT_afdf1491ae76809442d33e224b4607102}{\-F\-Phylo\-P\-O\-T}, \hyperlink{classFCFN3_a922aacaa4b75d80ef6a08ae3243e63fc}{\-F\-C\-F\-N3}, \hyperlink{classFCFN3Rooted_aeae1016b0962cf66922fdf27c0fdb514}{\-F\-C\-F\-N3\-Rooted}, \hyperlink{classFCFN3UnRooted_a598796f5e3db2e01ad871ab84833a1fb}{\-F\-C\-F\-N3\-Un\-Rooted}, \hyperlink{classFShiryaev1D__Lkl__aa__fromData_aa14358629387c248e96ccc8183fa9353}{\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data}, \hyperlink{classFRosenbrock_aa626842acb0907225aa493f048996535}{\-F\-Rosenbrock}, \hyperlink{classFLevy2D_a69223536c13e52445d3ee1fc435447d8}{\-F\-Levy2\-D}, \hyperlink{classFCesaroBellNo_ab866e2831e6bf8c4fca46433ad2a6417}{\-F\-Cesaro\-Bell\-No}, \hyperlink{classFCFN3Star_a3ea99664a49607ab495aad38b6a4a31d}{\-F\-C\-F\-N3\-Star}, \hyperlink{classFShiryaev1D_af6742131d4d7acf6327d757a112b35ee}{\-F\-Shiryaev1\-D}, and \hyperlink{classFWitchesHat_a027d78c3e9e90da19370cb50d8b43b46}{\-F\-Witches\-Hat}.
+
+\hypertarget{classFobj_abe7df6a2da2b1d26915b41128d7693fe}{\index{\-Fobj@{\-Fobj}!operator()@{operator()}}
+\index{operator()@{operator()}!Fobj@{\-Fobj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type \-Fobj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const \-H\-Tvector \&}]{x, }
+\item[{const int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_abe7df6a2da2b1d26915b41128d7693fe}
+
+
+a virtual function for \-Hess\-Type image of \-H\-Tvector under \hyperlink{classFobj}{\-Fobj} 
+
+an inline definition for \-Hess\-Type image of \-H\-Tvector under \hyperlink{classFobj}{\-Fobj}
+
+\-Matches signature for \-H\-Tscalar\-\_\-\-Fct\-Ptr type for \-Global optimization using \-All\-G\-Op and model label if a label is specified 
+
+\-Reimplemented in \hyperlink{classFPhyloPOT_a8a259ba9d2704e586dc2dcea268dc8e8}{\-F\-Phylo\-P\-O\-T}, \hyperlink{classFRosenbrock_a47652c3d90874911897f9601f7003e8f}{\-F\-Rosenbrock}, and \hyperlink{classFLevy2D_a0a031a396ed8aa0591ee214a6ec20b7f}{\-F\-Levy2\-D}.
+
+
+
+\-Definition at line 275 of file \-Fobj.\-hpp.
+
+
+\begin{DoxyCode}
+{
+  HessType hh(1);
+  hh = 0.0;
+  return hh;
+}
+\end{DoxyCode}
+\hypertarget{classFobj_a4a18a9cfa5c9e6d3e101cb95c83d3f7b}{\index{\-Fobj@{\-Fobj}!\-Prior\-Density@{\-Prior\-Density}}
+\index{\-Prior\-Density@{\-Prior\-Density}!Fobj@{\-Fobj}}
+\paragraph[{\-Prior\-Density}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-Fobj\-::\-Prior\-Density} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-L\-P}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_a4a18a9cfa5c9e6d3e101cb95c83d3f7b}
+
+
+prior density of a labeled real point 
+
+
+
+\-Definition at line 133 of file \-Fobj.\-hpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::\-Lb(), \-Lab\-Pnt\-::\-Pnt, \-Prior\-Type, and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi().
+
+
+\begin{DoxyCode}
+    {
+      rvector Pnt = LP.Pnt;
+
+      if(PriorType == 0)
+      {
+        return 1.0;
+      }
+      else
+      {
+        // -1*log of prior density
+        real mlpd = 0.0;
+
+        for(int i=Lb(Pnt); i<=Ub(Pnt); i++)
+        {
+          mlpd -= Pnt[i];
+        }
+
+        return exp(mlpd);
+      }
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_a8e3160c380ff77e60fd90c9d5f608fd1}{\index{\-Fobj@{\-Fobj}!\-Setup\-Lab\-Domain\-Prior\-Integral\-List@{\-Setup\-Lab\-Domain\-Prior\-Integral\-List}}
+\index{\-Setup\-Lab\-Domain\-Prior\-Integral\-List@{\-Setup\-Lab\-Domain\-Prior\-Integral\-List}!Fobj@{\-Fobj}}
+\paragraph[{\-Setup\-Lab\-Domain\-Prior\-Integral\-List}]{\setlength{\rightskip}{0pt plus 5cm}virtual void {\bf \-Fobj\-::\-Setup\-Lab\-Domain\-Prior\-Integral\-List} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj_a8e3160c380ff77e60fd90c9d5f608fd1}
+
+
+set up the prior integral over the list of labeled domain boxes 
+
+
+
+\-Definition at line 101 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Box\-Prior\-Integral(), \-Lab\-Domain\-List, and \-Lab\-Domain\-Prior\-Integral\-List.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-::\-F\-C\-F\-N3().
+
+
+\begin{DoxyCode}
+    {
+      LabDomainPriorIntegralList.resize(LabDomainList.size());
+      for(size_t i=0; i<LabDomainList.size(); i++)
+      {
+        LabDomainPriorIntegralList[i] 
+          = Fobj::LabBoxPriorIntegral(LabDomainList[i]);
+      }
+    }
+\end{DoxyCode}
+\hypertarget{classFobj_a809ddeff11d2485c9baef63217cf8ec5}{\index{\-Fobj@{\-Fobj}!set\-Using\-Log\-Density@{set\-Using\-Log\-Density}}
+\index{set\-Using\-Log\-Density@{set\-Using\-Log\-Density}!Fobj@{\-Fobj}}
+\paragraph[{set\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Fobj\-::set\-Using\-Log\-Density} (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-Log\-Pi}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj_a809ddeff11d2485c9baef63217cf8ec5}
+
+
+set the target scale to natural logarithm 
+
+
+
+\-Definition at line 190 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Using\-Log\-Density.
+
+
+
+\-Referenced by \-F\-Cesaro\-Bell\-No\-::\-F\-Cesaro\-Bell\-No(), \-F\-C\-F\-N3\-::\-F\-C\-F\-N3(), \-F\-C\-F\-N3\-Rooted\-::\-F\-C\-F\-N3\-Rooted(), \-F\-C\-F\-N3\-Star\-::\-F\-C\-F\-N3\-Star(), \-F\-C\-F\-N3\-Un\-Rooted\-::\-F\-C\-F\-N3\-Un\-Rooted(), \-F\-Levy2\-D\-::\-F\-Levy2\-D(), \-F\-Phylo\-P\-O\-T\-::\-F\-Phylo\-P\-O\-T(), \-F\-Rosenbrock\-::\-F\-Rosenbrock(), \-F\-Shiryaev1\-D\-::\-F\-Shiryaev1\-D(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data(), and \-F\-Witches\-Hat\-::\-F\-Witches\-Hat().
+
+
+\begin{DoxyCode}
+    {
+      UsingLogDensity = LogPi;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFobj_a7d5297f74590a7bf95aa65d37a72fdff}{\index{\-Fobj@{\-Fobj}!\-Lab\-Domain\-List@{\-Lab\-Domain\-List}}
+\index{\-Lab\-Domain\-List@{\-Lab\-Domain\-List}!Fobj@{\-Fobj}}
+\paragraph[{\-Lab\-Domain\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Lab\-Box}$>$ {\bf \-Fobj\-::\-Lab\-Domain\-List}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classFobj_a7d5297f74590a7bf95aa65d37a72fdff}
+
+
+\-The initial collection of labelled domain boxes -\/-\/ prior support. 
+
+
+
+\-Definition at line 52 of file \-Fobj.\-hpp.
+
+
+
+\-Referenced by \-F\-Cesaro\-Bell\-No\-::\-F\-Cesaro\-Bell\-No(), \-F\-C\-F\-N3\-::\-F\-C\-F\-N3(), \-F\-C\-F\-N3\-Rooted\-::\-F\-C\-F\-N3\-Rooted(), \-F\-C\-F\-N3\-Star\-::\-F\-C\-F\-N3\-Star(), \-F\-C\-F\-N3\-Un\-Rooted\-::\-F\-C\-F\-N3\-Un\-Rooted(), \-F\-Levy2\-D\-::\-F\-Levy2\-D(), \-F\-Phylo\-P\-O\-T\-::\-F\-Phylo\-P\-O\-T(), \-F\-Rosenbrock\-::\-F\-Rosenbrock(), \-F\-Shiryaev1\-D\-::\-F\-Shiryaev1\-D(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data(), \-F\-Witches\-Hat\-::\-F\-Witches\-Hat(), get\-\_\-domain(), get\-\_\-labelset(), get\-Labeled\-Domain\-Dim(), and \-Setup\-Lab\-Domain\-Prior\-Integral\-List().
+
+\hypertarget{classFobj_aacc4fb1fe699ad34bd51eea955220d72}{\index{\-Fobj@{\-Fobj}!\-Lab\-Domain\-Prior\-Integral\-List@{\-Lab\-Domain\-Prior\-Integral\-List}}
+\index{\-Lab\-Domain\-Prior\-Integral\-List@{\-Lab\-Domain\-Prior\-Integral\-List}!Fobj@{\-Fobj}}
+\paragraph[{\-Lab\-Domain\-Prior\-Integral\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$real$>$ {\bf \-Fobj\-::\-Lab\-Domain\-Prior\-Integral\-List}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classFobj_aacc4fb1fe699ad34bd51eea955220d72}
+
+
+\-The prior integral over the list of labeled domain boxes. 
+
+
+
+\-Definition at line 55 of file \-Fobj.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-::\-F\-C\-F\-N3(), \-F\-C\-F\-N3\-::operator()(), and \-Setup\-Lab\-Domain\-Prior\-Integral\-List().
+
+\hypertarget{classFobj_aa58fc4a0d73e6ece446db9a87a633820}{\index{\-Fobj@{\-Fobj}!\-Prior\-Type@{\-Prior\-Type}}
+\index{\-Prior\-Type@{\-Prior\-Type}!Fobj@{\-Fobj}}
+\paragraph[{\-Prior\-Type}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Fobj\-::\-Prior\-Type}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classFobj_aa58fc4a0d73e6ece446db9a87a633820}
+
+
+\-To specify a type of prior density\-: uniform, exponential, user\-\_\-defined. 
+
+
+
+\-Definition at line 58 of file \-Fobj.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-::\-F\-C\-F\-N3(), \-F\-C\-F\-N3\-Rooted\-::\-F\-C\-F\-N3\-Rooted(), \-F\-C\-F\-N3\-Star\-::\-F\-C\-F\-N3\-Star(), \-F\-C\-F\-N3\-Un\-Rooted\-::\-F\-C\-F\-N3\-Un\-Rooted(), \-F\-Levy2\-D\-::\-F\-Levy2\-D(), \-F\-Phylo\-P\-O\-T\-::\-F\-Phylo\-P\-O\-T(), \-F\-Rosenbrock\-::\-F\-Rosenbrock(), \-F\-Shiryaev1\-D\-::\-F\-Shiryaev1\-D(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data(), \-F\-Witches\-Hat\-::\-F\-Witches\-Hat(), inv\-\_\-cdf(), \-Lab\-Box\-Prior\-Integral(), and \-Prior\-Density().
+
+\hypertarget{classFobj_acf1d6b659549cea75e54582668ea7c3b}{\index{\-Fobj@{\-Fobj}!\-Using\-Log\-Density@{\-Using\-Log\-Density}}
+\index{\-Using\-Log\-Density@{\-Using\-Log\-Density}!Fobj@{\-Fobj}}
+\paragraph[{\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Fobj\-::\-Using\-Log\-Density}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classFobj_acf1d6b659549cea75e54582668ea7c3b}
+
+
+a flag for working on the log(target shape) scale 
+
+
+
+\-Definition at line 49 of file \-Fobj.\-hpp.
+
+
+
+\-Referenced by get\-Using\-Log\-Density(), \-F\-Witches\-Hat\-::operator()(), \-F\-Shiryaev1\-D\-::operator()(), \-F\-C\-F\-N3\-Star\-::operator()(), \-F\-Cesaro\-Bell\-No\-::operator()(), \-F\-Levy2\-D\-::operator()(), \-F\-Rosenbrock\-::operator()(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::operator()(), \-F\-C\-F\-N3\-Un\-Rooted\-::operator()(), \-F\-C\-F\-N3\-Rooted\-::operator()(), \-F\-C\-F\-N3\-::operator()(), and set\-Using\-Log\-Density().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Fobj_8hpp}{\-Fobj.\-hpp}\end{DoxyCompactItemize}

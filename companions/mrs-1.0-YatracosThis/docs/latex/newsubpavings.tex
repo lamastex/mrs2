@@ -1,0 +1,256 @@
+
+\begin{DoxyItemize}
+\item \hyperlink{newsubpavings_newsec_subpavingsKd}{\-Subpavings and kd-\/trees}
+\item \hyperlink{newsubpavings_newsec_reimplementation}{\-A revised class for subpavings}
+\item \hyperlink{newsubpavings_newsec_equivalence}{\-Equivalence to the \-A\-I\-A\-S\-Pnode class}
+\item \hyperlink{newsubpavings_newsec_extension}{\-Extending the \-S\-Pnode class}
+\end{DoxyItemize}
+
+
+
+\hypertarget{newsubpavings_newsec_subpavingsKd}{}\subsection{\-Subpavings and kd-\/trees}\label{newsubpavings_newsec_subpavingsKd}
+\-Regular subpavings represent a special case of the general kd tree structure\-: a space partitioning data structure for organising points in k-\/dimensional space. \-We aim to combine interval analysis and inclusion functions with kd trees and manipulation of tree structures in order to use subpavings for statistical set processing.
+
+
+
+\hypertarget{newsubpavings_newsec_reimplementation}{}\subsection{\-A revised class for subpavings}\label{newsubpavings_newsec_reimplementation}
+\-We start with a re-\/implemention in \-C++ of a subpaving-\/as-\/a-\/binary-\/tree object based on \mbox{[}\-A\-I\-A2001\mbox{]}. \-Our new class is called \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode }, and a pointer to an \-S\-Pnode is aliased as \hyperlink{namespacesubpavings_a7e50e3fe54ef41646fbb6155160805cc}{\-Sub\-Paving }. \-Again, we use \-C-\/\-X\-S\-C as the interval analysis library. \-We alter the structure of the class and functions to give us a better basis for using the class as a base class for derived classes specifically designed for various forms of statistical set processing. \-Our new tree has links from child to parent as well as from parent to child (ie, each child knows who its parent is); this may be used in 'shrink' the tree, absorbing children back up into the parent.
+
+\-Other new members of the \-S\-Pnode class include \hyperlink{classsubpavings_1_1SPnode_a90803dc066d955d4aec89c00879ff610}{node\-Name }. \-The node\-Name is a used as a convenient way to assist human interpretation of a tree of nodes. \-A \label{newsubpavings_SPnodename}%
+\hypertarget{newsubpavings_SPnodename}{}%
+node\-Name is based on the parent node's name suffixed with '\-L' if the node is the left child of that parent and by '\-R' if the node is the right child of that parent. \-A root node is usually named '\-X'.
+
+\-The \-S\-Pnode class declarations and inline definitions are in the header file \hyperlink{spnode_8hpp}{spnode.\-hpp}. \-Other definitions are in the file \hyperlink{spnode_8cpp}{spnode.\-cpp}. \-Type definitions relevant to \-S\-Pnodes are in the file \hyperlink{sptypes_8hpp}{sptypes.\-hpp}. \-General tool functions useful for spnodes are in \hyperlink{sptools_8hpp}{sptools.\-hpp} and \hyperlink{sptools_8cpp}{sptools.\-cpp}. \-Algorithms used for set computation are declared in \hyperlink{spalgorithms_8hpp}{spalgorithms.\-hpp} and defined in \hyperlink{spalgorithms_8hpp}{spalgorithms.\-hpp}. \-Template functions requiring node concepts are in \hyperlink{sptemplates_8hpp}{sptemplates.\-hpp}.
+
+
+
+\hypertarget{newsubpavings_newsec_equivalence}{}\subsection{\-Equivalence to the A\-I\-A\-S\-Pnode class}\label{newsubpavings_newsec_equivalence}
+\-In order to demonstrate that this implementation is equivalent to that of \-A\-I\-A2001, we reimplement the set inversion and image evaluation functions and using our new \-S\-Pnode class. \-However, set computation is not the primary purpose of this class.
+
+\-For examples using the new \-S\-Pnode class for set computation and demonstrating the equivalence of the results to those in \hyperlink{AIASubPavings_AIAsec_examples}{\-Examples from \-Applied \-Interval \-Analysis using \-A\-I\-A\-S\-Pnodes} see \hyperlink{newsubpavings_newexamples}{\-Example of set computation with \-S\-Pnodes}\hypertarget{newsubpavings_newexamples}{}\subsubsection{\-Example of set computation with S\-Pnodes}\label{newsubpavings_newexamples}
+\-S\-Pnodes are re-\/implemention in \-C++ of a subpaving-\/as-\/a-\/binary-\/tree object based on \mbox{[}\-A\-I\-A2001\mbox{]}. \-S\-Pnodes are intended for more than set computation but here we demonstrates that, for set computation, \-S\-Pnodes behave exactly as \-A\-I\-A\-S\-Pnodes do. \-We also highlights some of the minor changes that we have made the way that this class is coded and used.\hypertarget{newsubpavings_newexamsec_3_4}{}\paragraph{\-Example 3.\-4}\label{newsubpavings_newexamsec_3_4}
+\-In this example show how example 3.\-4 from \-A\-I\-A2001, pp. 61-\/63, can be performed using the \-S\-Pnode class (for the same example using \-A\-I\-A\-S\-Pnodes, code closely based on \-A\-I\-A2001, see \hyperlink{AIASubPavings_AIAexample3_4}{\-Example 3.4 using \-A\-I\-A\-P\-Snodes}). \-This example uses our implementations of both \-Sivia (see \hyperlink{AIASubPavings_AIAsec_SIVIA}{\-Set inversion using interval analysis}) for set inversion and \-Image\-Sp (see \hyperlink{AIASubPavings_AIAsec_imageSp}{\-Image evaluation}) for image evaluation. \-The functions we use here are \-Sivia(\-P\-I\-B\-T \-Bool\-Test, const \-S\-Pnode $\ast$ const to\-Invert, \-S\-Pnode $\ast$ const search, const double eps) and \hyperlink{classsubpavings_1_1SPnode_a5e79ff65a692b09c98ff53264ddfba9f}{\-Image\-Sp(\-P\-I\-V\-F f, S\-Pnode$\ast$ spn, double eps)}.
+
+\-Our implementation of this example is in the file \-New\-Exm\-\_\-3\-\_\-4.\-cpp, which has header file \-New\-Exm\-\_\-3\-\_\-4.\-hpp. \-The header file is
+
+
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-We include headers and libraries we want to be able to use\-: $<$time.\-h$>$ for a clock, $<$fstream$>$ for file output, and suppavings.\-hpp for our class declarations. \-We also specify the namespaces we want to be able to use without qualification. \-Note that subpavings is now a namespace. \-If we did not specify that we are using this namespace we would have to qualify all references to entities declared within it, for example \hyperlink{namespacesubpavings_a7e50e3fe54ef41646fbb6155160805cc}{subpavings\-::\-Sub\-Paving} (\-Sub\-Paving is an alias for a pointer to an \-S\-Pnode).
+
+\-In \-New\-Exm\-\_\-3\-\_\-4.\-cpp we include the header file
+
+
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-Then we define some functions used in our main program.
+
+\-The first is a boolean interval test, \label{newsubpavings_NewIBT_ex3_4}%
+\hypertarget{newsubpavings_NewIBT_ex3_4}{}%
+\-I\-B\-T\-\_\-ex3\-\_\-4.
+
+\-The interval boolean test is the key to set inversion with interval analysis. \-Recall that set inversion is the computation of a reciprocal image \-X = {\bfseries f}$^{\mbox{-\/1}}$ (\-Y) where \-Y is regular subpaving of \-R$^{\mbox{m}}$  (see \hyperlink{AIASubPavings_AIAsec_SIVIA}{\-Set inversion using interval analysis}). \-Y is the subpaving we want to invert. \-The interval boolean test takes a box in 'x-\/space' and tests whether the image of the box in 'y-\/space' ie the image under the inclusion function \mbox{[}{\bfseries f}\mbox{]}, is in the subpaving \-Y. \-The interval boolean test can return one of the special interval boolean types \-B\-I\-\_\-\-T\-R\-U\-E (the image of the box is inside \-Y), \-B\-I\-\_\-\-F\-A\-L\-S\-E (the image of the box is outside \-Y), or \-B\-I\-\_\-\-I\-N\-D\-E\-T (indeterminate\-: the image of the box \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]} is partly in and partly out of the subpaving \-Y, ie overlaps the boundary of \-Y).
+
+\-This test \label{newsubpavings_NewIBT_ex3_4}%
+\hypertarget{newsubpavings_NewIBT_ex3_4}{}%
+\-I\-B\-T\-\_\-ex3\-\_\-4 tests the image of a box x for inclusion in a subpaving represented by the \-S\-Pnode pointer spn. \-Values for x and spn are given by the caller as the function arguments. {\bfseries f} is specified in the test as {\bfseries f}\-: \-R$^{\mbox{2}}$  -\/$>$ \-R such that {\bfseries f}(x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = x$_{\mbox{1}}$ $^{\mbox{4}}$  -\/ x$_{\mbox{1}}$ $^{\mbox{2}}$  + 4x$_{\mbox{2}}$ $^{\mbox{2}}$ .
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\begin{DoxyNote}{\-Note}
+\-Interval boolean tests in the subpavings namespace take a pointer to subpaving we want to invert as a parameter. \-This avoids the use of global subpaving variables in these tests as in \hyperlink{AIASubPavings_AIAglobal}{example 3.4 with \-A\-I\-A\-S\-Pnodes} and makes the functions somewhat clearer to interpret.
+\end{DoxyNote}
+\-Then we have another boolean interval test, \label{newsubpavings_NewIBTFinverse_ex3_4}%
+\hypertarget{newsubpavings_NewIBTFinverse_ex3_4}{}%
+\-I\-B\-T\-Finverse\-\_\-ex3\-\_\-4. \-Again this specifies a function {\bfseries f}, this time
+
+{\bfseries f}\-: \-R$^{\mbox{2}}$  -\/$>$ \-R$^{\mbox{2}}$ , f$_{\mbox{1}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = (x$_{\mbox{1}}$  -\/ 1)$^{\mbox{2}}$  -\/1 + x$_{\mbox{2}}$ , f$_{\mbox{2}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = -\/x$_{\mbox{1}}$ $^{\mbox{2}}$  + (x$_{\mbox{2}}$  -\/ 1)$^{\mbox{2}}$ . \-Values for x, the box whose image we test, and spn, a pointer to the subpaving to invert, are given by the caller as the function arguments.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-The next function is an interval vector function, \label{newsubpavings_NewIVF_ex3_4}%
+\hypertarget{newsubpavings_NewIVF_ex3_4}{}%
+\-I\-V\-F\-\_\-ex3\-\_\-4. \-An interval vector function returns the interval vector image of an interval vector x under {\bfseries f} for {\bfseries f} as specified in the function and x supplied as the function argument. \-In this case {\bfseries f} is exactly the same as in the boolean interval test \hyperlink{newsubpavings_NewIBTFinverse_ex3_4}{\-I\-B\-T\-Finverse\-\_\-ex3\-\_\-4} above.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-Then we start the main program, declare some variables, and set up an initial search box \mbox{[}-\/3.\-0 3.\-0\mbox{]}$^{\mbox{2}}$ . \-This is used to initialise a newed \-S\-Pnode in dynamic memory, with \-A as a \-Sub\-Paving or pointer to a \-S\-Pnode. \-Creating the node object in dynamic memory allows us to use pointers to it outside the scope of the function which created the object
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-We then set up the subpaving we want to invert (again, in dynamic memory).
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-And then prepare to use \-S\-I\-V\-I\-A to do the set inversion. \-We make some standard output to say what we are doing and ask the user to enter a precision.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-Now we use the \-S\-I\-V\-I\-A algorithm (see \hyperlink{AIASubPavings_AIAsec_SIVIA}{\-Set inversion using interval analysis}) to find a 'subpaving characterisation' \-Sc5 of the set we want with \-Sivia(\-P\-I\-B\-T \-Bool\-Test, const \-S\-Pnode $\ast$ const to\-Invert, \-S\-Pnode $\ast$ const search, const double eps). \-A \-P\-I\-B\-T is a pointer to a boolean interval test, in this case \hyperlink{newsubpavings_NewIBT_ex3_4}{\-I\-B\-T\-\_\-ex3\-\_\-4}. \-The set we want is defined by the combination of the \-Sub\-Paving \-To\-Invert and the {\bfseries f} specifed in the boolean interval test \hyperlink{newsubpavings_NewIBT_ex3_4}{\-I\-B\-T\-\_\-ex3\-\_\-4}. \-We are finding a characterisation for the set (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) such that {\bfseries f}(x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = x$_{\mbox{1}}$ $^{\mbox{4}}$  -\/ x$_{\mbox{1}}$ $^{\mbox{2}}$  + 4x$_{\mbox{2}}$ $^{\mbox{2}}$  is in \-To\-Invert, which is the interval \mbox{[}-\/0.\-1 0.\-1\mbox{]}.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-The \-S\-I\-V\-I\-A algorithm works by taking an initial search box, testing it, rejecting those returning \-B\-I\-\_\-\-F\-A\-L\-S\-E, including those returning \-B\-I\-\_\-\-T\-R\-U\-E in the subpaving it is building, and bisecting again if the interval boolean test returns \-B\-I\-\_\-\-I\-N\-D\-E\-T, and recursively sending each subbox to \-S\-I\-V\-I\-A to be tested similarly. \-Each subbox continues to be bisected until either the test returns a clear \-B\-I\-\_\-\-T\-R\-U\-E or \-B\-I\-\_\-\-F\-A\-L\-S\-E or the test is \-B\-I\-\_\-\-I\-N\-D\-E\-T but the width of the box is the value given for eps, which means that it is thin enough to be included in the subpaving to be returned. \-The eps parameter (precision) provides a 'stopping rule' prevents \-S\-I\-V\-I\-A recursing endlessly. \-A larger value for eps will mean a thicker uncertainty layer in the outer subpaving of the area we seek to characterise.
+
+\begin{DoxyNote}{\-Note}
+\-This version of \-Sivia takes a parameter for the \-Sub\-Paving to invert because it must pass this on to the boolean interval test.
+\end{DoxyNote}
+\-Sc5 now points to the subpaving characterisation we have created. \-We say 'subpaving characterisation' because the subpaving is an \hyperlink{AIASubPavings_outerpaving}{outer subpaving} of the actual set we want.
+
+\-We print the computing time, volume, and number of leaves of the subpaving we create to standard output.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-And send the output to a txt file.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-Now we want to find the image of this set using the function specified in \hyperlink{newsubpavings_NewIVF_ex3_4}{\-I\-V\-F\-\_\-ex3\-\_\-4}. {\bfseries f}\-: \-R$^{\mbox{2}}$  -\/$>$ \-R$^{\mbox{2}}$ , f$_{\mbox{1}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = (x$_{\mbox{1}}$  -\/ 1)$^{\mbox{2}}$  -\/1 + x$_{\mbox{2}}$ , f$_{\mbox{2}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = -\/x$_{\mbox{1}}$ $^{\mbox{2}}$  + (x$_{\mbox{2}}$  -\/ 1)$^{\mbox{2}}$ .
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-This function is not invertible in the usual sense and we have to use \-Image\-Sp to find the image. \-The version of \-Image\-Sp used is \hyperlink{classsubpavings_1_1SPnode_a5e79ff65a692b09c98ff53264ddfba9f}{\-Image\-Sp(\-P\-I\-V\-F f, S\-Pnode$\ast$ spn, double eps)}. \-We supply the interval vector function \hyperlink{newsubpavings_NewIVF_ex3_4}{\-I\-V\-F\-\_\-ex3\-\_\-4}, the subpaving \-Sc5 and the precision input by the user as arguments in the call to \-Image\-Sp.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-Sc6 now points to the root node of a tree representing the subpaving constructed with \-Image\-Sp.
+
+\-The \-Image\-Sp algorithm works by taking an initial subpaving (represented by \-Sc5 in this case), mincing it up into a fine subpaving where every box has width less than the precision specified, and finding the image of each of these boxes with the specified interval vector test. \-It then forms a minimal regular subpaving which covers the union of all these image boxes, again with precision as specified.
+
+\-Sc6 now points to a subpaving representation in 'y-\/space', the image of \-Sc5 under the function {\bfseries f} in \hyperlink{newsubpavings_NewIVF_ex3_4}{\-I\-V\-F\-\_\-ex3\-\_\-4}.
+
+\-We report computing time, volume and number of leaves and send the suppaving output to a txt file.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-Subpaving \-A, which will have been minced and mangled in the process of forming \-Sc6, is now deleted and remade to provide another initial search box.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-What happens if we now use \-Sivia on our \-Image\-Sp-\/created image \-Sc6 in 'y-\/space', inverting our image to get back to 'x-\/space'?
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-The boolean interval test \hyperlink{newsubpavings_NewIBTFinverse_ex3_4}{\-I\-B\-T\-Finverse\-\_\-ex3\-\_\-4} specifies the function. \-We pass a pointer to this function to \-Sivia by supplying it as the value for the \-P\-I\-B\-T parameter. \-We give \-Sc6 as representing the \-Sub\-Paving to invert and \-A as reprsenting the initial search box, and we also give the precision supplied by user.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-Sc7 is now points to 'x-\/space' subpaving characterisation of the reciprocal image of \-Sc6, which was in turn a subpaving characterisation of \-Sc5.
+
+\-We report computing time, volume and number of leaves and output the subpaving to a txt file.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-We delete our subpavings created in dynamic memory before we end the program
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+\-The subpavings produced by this program run using precision 0.\-05 in each case are shown below.
+
+\-As well as showing the initial subpaving, the image subpaving, and the reciprocal image of the image, we capture an intermediate step in the process of creating \-Sc6 from \-Sc5 with \-Image\-Sp. \-This is the evaluation step, where we have a large set of (possibly overlapping) image boxes formed from all the minced up subboxes of the initial box \mbox{[}-\/3.\-0 3.\-0\mbox{]}$^{\mbox{2}}$  chopped up so that each one is less than 0.\-05 wide. \-This set can be compared to the \-Sc6, the regular minimal subpaving characterisation of the image.
+
+\-The most interesting comparison though is between the initial subpaving and the subpaving for a reciprocal image of the image subpaving. \-The initial set (characterised by \-Sc5) is in there but the result is fatter due to error accumulation in the process of going to 'y-\/space' and back, and the final subpaving has additional parts which appear because {\bfseries f}(.) is only invertible in the set-\/theoretic sense (\-A\-I\-A2001, pp. 63)
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{NEWexample3_4Coarse.png}
+\caption{\-Results for \-Example 3.4 using precision 0.05}
+\end{DoxyImage}
+
+
+\-We can rerun the program to explore the effect of the precision. \-The image below was created using a precision of 0.\-001 for the initial subpaving and then precisions of 0.\-01 to create the image of this in 'y-\/space' and and 0.\-01 to go back again to the reciprocal image of the image in 'x-\/space'. \-The evaluated images of the initial subpaving after it has been minced up very finely (precision 0.\-001) are also shown. \-The reciprocal image of the image is a much better comparison to the initial subpaving as the errors accumulated are smaller, but the additional parts due to are again apparent -\/ they are caused by the process, not by the precision to which we carry it out.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{NEWexample3_4Fine.png}
+\caption{\-Results for \-Example 3.4 using precision 0.001 for initial paving, then 0.01}
+\end{DoxyImage}
+
+
+
+
+\hypertarget{newsubpavings_newsec_extension}{}\subsection{\-Extending the S\-Pnode class}\label{newsubpavings_newsec_extension}
+\-We can create new classes derived from this base class, each class a form of \-S\-Pnode specialised for a particular kind of statistical set processing.
+
+\-See\-:
+\begin{DoxyItemize}
+\item \hyperlink{StatsSubPavings}{\-Subpavings for processing statistical sample data} 
+\end{DoxyItemize}

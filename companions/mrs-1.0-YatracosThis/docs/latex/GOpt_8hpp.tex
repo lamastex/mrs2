@@ -1,0 +1,389 @@
+\hypertarget{GOpt_8hpp}{\subsection{\-G\-Opt.\-hpp \-File \-Reference}
+\label{GOpt_8hpp}\index{\-G\-Opt.\-hpp@{\-G\-Opt.\-hpp}}
+}
+
+
+\-Global \-Optimisation declarations. \-Global optimisation using the \-C++ \-Toolbox for \-Verified \-Computing \-See \-Hammer, \-R., \-Hocks, \-M., \-Kulisch, \-U., and \-Ratz, \-D (1995), \-C++ \-Toolbox for \-Verified \-Computing, \-Springer, pp. 312-\/342.  
+
+
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{GOpt_8hpp_abcc17b8ab0c15811dd2d1c6e6b760007}{\-G\-Opt\-Min} (\hyperlink{classFobj}{\-Fobj} $\ast$\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, ivector search, real t, const int label=0)
+\begin{DoxyCompactList}\small\item\em \-This runs the global optimisation procedure \-All\-G\-Op for global minimums and prints results. \end{DoxyCompactList}\item 
+void \hyperlink{GOpt_8hpp_a89c491798147580e08ebb3349e9b146f}{\-G\-Opt\-Max} (\hyperlink{classFobj}{\-Fobj} $\ast$\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, ivector search, real t, const int label=0)
+\begin{DoxyCompactList}\small\item\em \-This runs the global optimisation procedure \-All\-G\-Op for global maximums and prints results. \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{GOpt_8hpp_a3f84a8488c00dd1560b0a3ba013d90fe}{func\-Hess\-Min} (const \-H\-Tvector \&x)
+\begin{DoxyCompactList}\small\item\em \-Function conforming to typedef \-H\-Tscalar\-\_\-\-Fct\-Ptr for global minimums. \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{GOpt_8hpp_aa604d9b6cc2535d0b422a9838de48b2b}{func\-Hess\-Max} (const \-H\-Tvector \&x)
+\begin{DoxyCompactList}\small\item\em \-Function conforming to typedef \-H\-Tscalar\-\_\-\-Fct\-Ptr for global maximums. \end{DoxyCompactList}\item 
+void \hyperlink{GOpt_8hpp_a82f1bc87790710a1599bc1dc2906339a}{print\-Outcome\-Min} (ivector \&\-Search\-Interval, real \&\-Tolerance, imatrix \&\-Opti, intvector \&\-Unique, int \-Number\-Of\-Optis, interval \&\-Minimum, int \-Error)
+\begin{DoxyCompactList}\small\item\em \-Print the results for mimimums. \end{DoxyCompactList}\item 
+void \hyperlink{GOpt_8hpp_aa50f2e0b46bc83d573cd3971624f0d3d}{print\-Outcome\-Max} (ivector \&\-Search\-Interval, real \&\-Tolerance, imatrix \&\-Opti, intvector \&\-Unique, int \-Number\-Of\-Optis, interval \&\-Maximum, int \-Error)
+\begin{DoxyCompactList}\small\item\em \-Print the results for maximums. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Global \-Optimisation declarations. \-Global optimisation using the \-C++ \-Toolbox for \-Verified \-Computing \-See \-Hammer, \-R., \-Hocks, \-M., \-Kulisch, \-U., and \-Ratz, \-D (1995), \-C++ \-Toolbox for \-Verified \-Computing, \-Springer, pp. 312-\/342. \-This routine uses a global variable. \-This is not ideal but seems, on balance, to be the most sensible way around the problems of having a polymorphic implemention of \-All\-Gop, ie one that can take some function object and use the appropriate method of that function object as the \-H\-Tscalar\-\_\-\-Fct\-Ptr needed by \-All\-Gop. \-Ideally, we would take an f\-Obj as the parameter and use its \-H\-Tscalar\-\_\-\-Fct\-Ptr method directly but to do that we have to bind 'this', the function object, into the call to the method. \-That is possible, but in this case the signature of the \-H\-Tscalar\-\_\-\-Fct\-Ptr type, as defined for \-All\-Gop, is \-Hess\-Type ($\ast$) (const \-H\-Tvector\&) and using the basic stl functional binders, we can't bind to when one of the arguments is a reference. \-We could get around this by using the std\-::tr1\-::function binders, which have wrappers for references, but this would mean that the process would only compile and run where some implementation of tr1 is available and this would be a severe limitiation. \-If and when tr1 is 'officially' implemented, we could clean all this up and get rid of the global. \-We have to use a pointer to an \hyperlink{classFobj}{\-Fobj} as the global because \hyperlink{classFobj}{\-Fobj} is an abstract class and so cannot be declared on just as \hyperlink{classFobj}{\-Fobj}. \-But in this only when the other arguments 
+
+\-Definition in file \hyperlink{GOpt_8hpp_source}{\-G\-Opt.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{GOpt_8hpp_aa604d9b6cc2535d0b422a9838de48b2b}{\index{\-G\-Opt.\-hpp@{\-G\-Opt.\-hpp}!func\-Hess\-Max@{func\-Hess\-Max}}
+\index{func\-Hess\-Max@{func\-Hess\-Max}!GOpt.hpp@{\-G\-Opt.\-hpp}}
+\paragraph[{func\-Hess\-Max}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type {\bf func\-Hess\-Max} (
+\begin{DoxyParamCaption}
+\item[{const \-H\-Tvector \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{GOpt_8hpp_aa604d9b6cc2535d0b422a9838de48b2b}
+
+
+\-Function conforming to typedef \-H\-Tscalar\-\_\-\-Fct\-Ptr for global maximums. 
+
+
+
+\-Definition at line 152 of file \-G\-Opt.\-cpp.
+
+
+
+\-References flabel.
+
+
+
+\-Referenced by \-G\-Opt\-Max().
+
+
+\begin{DoxyCode}
+{
+  HessType hh;
+  // use negative of the operator () of the function pointed to by global
+  // fToOpt to calculate hh
+  hh = -((*fToOtp)(x, flabel));
+  return hh;
+}
+\end{DoxyCode}
+\hypertarget{GOpt_8hpp_a3f84a8488c00dd1560b0a3ba013d90fe}{\index{\-G\-Opt.\-hpp@{\-G\-Opt.\-hpp}!func\-Hess\-Min@{func\-Hess\-Min}}
+\index{func\-Hess\-Min@{func\-Hess\-Min}!GOpt.hpp@{\-G\-Opt.\-hpp}}
+\paragraph[{func\-Hess\-Min}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type {\bf func\-Hess\-Min} (
+\begin{DoxyParamCaption}
+\item[{const \-H\-Tvector \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{GOpt_8hpp_a3f84a8488c00dd1560b0a3ba013d90fe}
+
+
+\-Function conforming to typedef \-H\-Tscalar\-\_\-\-Fct\-Ptr for global minimums. 
+
+
+
+\-Definition at line 139 of file \-G\-Opt.\-cpp.
+
+
+
+\-References flabel.
+
+
+
+\-Referenced by \-G\-Opt\-Min().
+
+
+\begin{DoxyCode}
+{
+  HessType hh;
+  // use the operator () of the function pointed to by global fToOpt to
+  // calculate hh
+  hh = (*fToOtp)(x, flabel);
+  return hh;
+}
+\end{DoxyCode}
+\hypertarget{GOpt_8hpp_a89c491798147580e08ebb3349e9b146f}{\index{\-G\-Opt.\-hpp@{\-G\-Opt.\-hpp}!\-G\-Opt\-Max@{\-G\-Opt\-Max}}
+\index{\-G\-Opt\-Max@{\-G\-Opt\-Max}!GOpt.hpp@{\-G\-Opt.\-hpp}}
+\paragraph[{\-G\-Opt\-Max}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-G\-Opt\-Max} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Fobj} $\ast$}]{f, }
+\item[{ivector}]{search, }
+\item[{real}]{t, }
+\item[{const int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{GOpt_8hpp_a89c491798147580e08ebb3349e9b146f}
+
+
+\-This runs the global optimisation procedure \-All\-G\-Op for global maximums and prints results. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em f} & a pointer to the \hyperlink{classFobj}{\-Fobj} we want to do global optimisation on \\
+\hline
+{\em search} & an initial search box \\
+\hline
+{\em t} & a tolerance for optimisation -\/-\/ stops search when interval searched is below t in width \\
+\hline
+{\em label} & the model or topology label \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 100 of file \-G\-Opt.\-cpp.
+
+
+
+\-References f(), flabel, func\-Hess\-Max(), \-Fobj\-::get\-Labeled\-Domain\-Dim(), taylor\-::\-Lb(), print\-Outcome\-Max(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  fToOtp = f;       // point the global pointer to f
+  flabel = label;   // and set flabel = label
+  ivector SearchInterval = search;
+  real Tolerance = t;
+  // check the dimensions match
+  int search_dim = Ub(search) - Lb(search) +1;
+                    // get the dimensions of the domain for boxes labelled 0;
+  size_t func_dim = f->getLabeledDomainDim(0);
+  if(static_cast<int>(func_dim) != search_dim)
+  {
+    std::cerr << "Error in GOpt: dimensions of search box " << search_dim
+      << " do not match dimensions of function domain " << func_dim << 
+      std::endl
+      << std::endl;
+    exit(1);
+  }
+  // these are filled in by running AllGOp
+  interval    Maximum;
+  imatrix     Opti;
+  intvector   Unique;
+  int         NumberOfOptis;
+  int   Error;
+  // running AllGop fills in Opti, Unique, NumberOfOptis, Mimimum and Error,
+  // all of which are passed by reference
+  AllGOp(funcHessMax, SearchInterval, Tolerance,
+         Opti, Unique, NumberOfOptis, Maximum, Error);
+  // AllGOp also takes a final optional parameter for maximum number of
+  // optimisation attemtps to perform
+  // this has default value of MaxCount = 10000 - see gop.hpp
+  // print the outcomes
+  printOutcomeMax(SearchInterval, Tolerance, Opti, Unique, NumberOfOptis,
+                  Maximum, Error);
+}
+\end{DoxyCode}
+\hypertarget{GOpt_8hpp_abcc17b8ab0c15811dd2d1c6e6b760007}{\index{\-G\-Opt.\-hpp@{\-G\-Opt.\-hpp}!\-G\-Opt\-Min@{\-G\-Opt\-Min}}
+\index{\-G\-Opt\-Min@{\-G\-Opt\-Min}!GOpt.hpp@{\-G\-Opt.\-hpp}}
+\paragraph[{\-G\-Opt\-Min}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-G\-Opt\-Min} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Fobj} $\ast$}]{f, }
+\item[{ivector}]{search, }
+\item[{real}]{t, }
+\item[{const int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{GOpt_8hpp_abcc17b8ab0c15811dd2d1c6e6b760007}
+
+
+\-This runs the global optimisation procedure \-All\-G\-Op for global minimums and prints results. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em f} & a pointer to the \hyperlink{classFobj}{\-Fobj} we want to do global optimisation on \\
+\hline
+{\em search} & an initial search box \\
+\hline
+{\em t} & a tolerance for optimisation -\/-\/ stops search when interval searched is below t in width \\
+\hline
+{\em label} & the model or topology label \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 61 of file \-G\-Opt.\-cpp.
+
+
+
+\-References f(), flabel, func\-Hess\-Min(), \-Fobj\-::get\-Labeled\-Domain\-Dim(), taylor\-::\-Lb(), print\-Outcome\-Min(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  fToOtp = f;       // point the global pointer to f
+  flabel = label;   // and set flabel = label
+  ivector SearchInterval = search;
+  real Tolerance = t;
+  // check the dimensions match
+  int search_dim = Ub(search) - Lb(search) +1;
+  // get the dimensions of the domain for boxes labelled 0;
+  size_t func_dim = f->getLabeledDomainDim(0);
+  if(static_cast<int>(func_dim) != search_dim)
+  {
+    std::cerr << "Error in GOpt: dimensions of search box "
+      << search_dim << " do not match dimensions of function domain "
+      << func_dim << endl<< std::endl;
+    exit(1);
+  }
+  // these are filled in by running AllGOp
+  interval    Minimum;
+  imatrix     Opti;
+  intvector   Unique;
+  int         NumberOfOptis;
+  int   Error;
+  // running AllGop fills in Opti, Unique, NumberOfOptis, Mimimum and Error,
+  // all of which are passed by reference
+  AllGOp(funcHessMin, SearchInterval, Tolerance,
+    Opti, Unique, NumberOfOptis, Minimum, Error);
+  // AllGOp also takes a final optional parameter for maximum number of
+  // optimisation attemtps to perform
+  // this has default value of MaxCount = 10000 - see gop.hpp
+  // print the outcomes
+  printOutcomeMin(SearchInterval, Tolerance, Opti, Unique, NumberOfOptis,
+                  Minimum, Error);
+}
+\end{DoxyCode}
+\hypertarget{GOpt_8hpp_aa50f2e0b46bc83d573cd3971624f0d3d}{\index{\-G\-Opt.\-hpp@{\-G\-Opt.\-hpp}!print\-Outcome\-Max@{print\-Outcome\-Max}}
+\index{print\-Outcome\-Max@{print\-Outcome\-Max}!GOpt.hpp@{\-G\-Opt.\-hpp}}
+\paragraph[{print\-Outcome\-Max}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf print\-Outcome\-Max} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{\-Search\-Interval, }
+\item[{real \&}]{\-Tolerance, }
+\item[{imatrix \&}]{\-Opti, }
+\item[{intvector \&}]{\-Unique, }
+\item[{int}]{\-Number\-Of\-Optis, }
+\item[{interval \&}]{\-Maximum, }
+\item[{int}]{\-Error}
+\end{DoxyParamCaption}
+)}}\label{GOpt_8hpp_aa50f2e0b46bc83d573cd3971624f0d3d}
+
+
+\-Print the results for maximums. 
+
+
+
+\-Definition at line 209 of file \-G\-Opt.\-cpp.
+
+
+
+\-Referenced by \-G\-Opt\-Max().
+
+
+\begin{DoxyCode}
+{
+                    // Output format
+  std::cout << SetPrecision(23,15) << Scientific;
+
+  std::cout << std::endl << std::endl << std:: endl;
+  std::cout << "Global optimisation: Maximums" << std::endl;
+  std::cout << "Results of running AllGOp with Tolerance " << Tolerance
+    << std::endl;
+  std::cout << "with an initial search box of: " << std::endl;
+  std::cout << SearchInterval << endl<<endl;
+
+  std::cout << "The results for global optimisation (maximums) are "
+    << std::endl;
+
+  for (int i = 1; i <= NumberOfOptis; i++)
+  {
+    std::cout << Opti[i];
+    if (Unique[i])
+      std::cout
+        << " encloses a locally unique candidate for a global maximiser!";
+    else
+      std::cout << " may contain a local or global maximiser!";
+    std::cout << std::endl << std::endl;
+  }
+
+  if (NumberOfOptis != 0)
+  {
+    std::cout << Maximum << std::endl
+      << "encloses the global maximum value!" << std::endl << std::endl;
+  }
+
+  std::cout << NumberOfOptis << " interval enclosure(s)" << std::endl;
+
+  if (Error)
+    std::cout << endl << AllGOpErrMsg(Error) << std::endl;
+  else if (NumberOfOptis == 1 && Unique[1])
+    std::cout << std::endl << "We have validated that there is "
+        "a unique global optimiser!" << std::endl;
+
+  std::cout << std::endl << "End of global optimisation for maximums"
+    << std::endl << std::endl;
+
+}
+\end{DoxyCode}
+\hypertarget{GOpt_8hpp_a82f1bc87790710a1599bc1dc2906339a}{\index{\-G\-Opt.\-hpp@{\-G\-Opt.\-hpp}!print\-Outcome\-Min@{print\-Outcome\-Min}}
+\index{print\-Outcome\-Min@{print\-Outcome\-Min}!GOpt.hpp@{\-G\-Opt.\-hpp}}
+\paragraph[{print\-Outcome\-Min}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf print\-Outcome\-Min} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{\-Search\-Interval, }
+\item[{real \&}]{\-Tolerance, }
+\item[{imatrix \&}]{\-Opti, }
+\item[{intvector \&}]{\-Unique, }
+\item[{int}]{\-Number\-Of\-Optis, }
+\item[{interval \&}]{\-Minimum, }
+\item[{int}]{\-Error}
+\end{DoxyParamCaption}
+)}}\label{GOpt_8hpp_a82f1bc87790710a1599bc1dc2906339a}
+
+
+\-Print the results for mimimums. 
+
+
+
+\-Definition at line 162 of file \-G\-Opt.\-cpp.
+
+
+
+\-Referenced by \-G\-Opt\-Min().
+
+
+\begin{DoxyCode}
+{
+  // Output format
+  std::cout << SetPrecision(23,15) << Scientific;
+
+  std::cout << std::endl << std::endl << std:: endl;
+  std::cout << "Global optimisation: minimums " << std::endl;
+  std::cout << "Results of running AllGOp with Tolerance " << Tolerance
+    << std::endl;
+  std::cout << "with an initial search box of: " << std::endl;
+  std::cout << SearchInterval << endl<<endl;
+
+  std::cout << "The results for global optimisation (minimums) are "
+    << std::endl;
+
+  for (int i = 1; i <= NumberOfOptis; i++)
+  {
+    std::cout << Opti[i];
+    if (Unique[i])
+      std::cout
+        << " encloses a locally unique candidate for a global minimiser!";
+    else
+      std::cout << " may contain a local or global minimiser!";
+    std::cout << std::endl << std::endl;
+  }
+
+  if (NumberOfOptis != 0)
+  {
+    std::cout << Minimum << std::endl
+      << "encloses the global minimum value!" << std::endl << std::endl;
+  }
+
+  std::cout << NumberOfOptis << " interval enclosure(s)" << std::endl;
+
+  if (Error)
+    std::cout << endl << AllGOpErrMsg(Error) << std::endl;
+  else if (NumberOfOptis == 1 && Unique[1])
+    std::cout << std::endl << "We have validated that there is "
+        "a unique global optimiser!" << std::endl;
+
+  std::cout << std::endl << "End of global optimisation for minimums"
+    << std::endl << std::endl;
+}
+\end{DoxyCode}

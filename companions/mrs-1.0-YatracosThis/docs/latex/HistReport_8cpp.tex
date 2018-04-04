@@ -1,0 +1,279 @@
+\hypertarget{HistReport_8cpp}{\subsection{\-Hist\-Report.\-cpp \-File \-Reference}
+\label{HistReport_8cpp}\index{\-Hist\-Report.\-cpp@{\-Hist\-Report.\-cpp}}
+}
+
+
+\-Testing histograms with histrogram reports distribution examples.  
+
+
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLexicoSorting}{\-Lexico\-Sorting$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{HistReport_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing histograms with histrogram reports distribution examples. 
+
+\-Definition in file \hyperlink{HistReport_8cpp_source}{\-Hist\-Report.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{HistReport_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Hist\-Report.\-cpp@{\-Hist\-Report.\-cpp}!main@{main}}
+\index{main@{main}!HistReport.cpp@{\-Hist\-Report.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{HistReport_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 58 of file \-Hist\-Report.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Box(), subpavings\-::\-Adaptive\-Histogram\-::get\-Leaf\-Levels(), subpavings\-::\-Adaptive\-Histogram\-::get\-Leaf\-Levels\-String(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::sp\-Leaves(), and subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+    // ------- prepare to generate some data for the tests -----------
+
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    long s = time (NULL) * getpid();
+    gsl_rng_set(r, s);
+
+
+    string fileName; // create a name for the file to use
+
+    // ----------------   example to create multiple histograms
+       -------------------
+    int numHist = 100000; // the number of histograms to make
+    int minLeaves = 1; // for number of leaves pq splitting stopping criteria
+    int MINLeaves = 4; // for number of leaves pq splitting stopping criteria
+
+    // a map for counting visits to states of Histograms encoded
+    // as OrderedLeafDepths
+    typedef map<vector<int>,int,LexicoSorting<vector<int> > > OrdLeafDepthsMap;
+    vector< OrdLeafDepthsMap > AnOrdLfDpMapVec(MINLeaves-minLeaves+1);
+    //OrdLeafDepthsMap AnOrdLfDpMap;
+    OrdLeafDepthsMap::iterator OrdLeafDepthsMap_Iter;
+    std::pair<OrdLeafDepthsMap::iterator, bool> OrdLeafDepthsMap_bool;
+
+    string outputFileName;// for output file
+    ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(5);
+    bool successfulInsertion = false;
+    bool successfulPQSplit = false;
+    bool Mixture_bool = false;//using mixture or not
+    //----data generating partition----------------------------------------
+        int d = 1; // dimension of the uniform hypercube to sample data from
+        ivector pavingBox(d);
+
+        // domain is a hypercube
+        interval pavingInterval(0,1);
+        for(int i=1; i <= d; i++) pavingBox[i] = pavingInterval;
+
+        // data sampled as uniform mixture over leaves of sub-paving myPart
+        AdaptiveHistogram myPart(pavingBox);
+        // a container for the boxes
+        vector<ivector> Pboxes;
+        size_t PartSize;
+if (Mixture_bool) {
+        //not working bool successfulInstruction = myPart.splitToShape("0");//
+       uniform
+        bool successfulInstruction = myPart.splitToShape("1,1");// uniform
+       mixture
+        //bool successfulInstruction = myPart.splitToShape("2,2,1");// uniform
+       mixture
+        //bool successfulInstruction = myPart.splitToShape("3,3, 2, 1");
+        cout << "result is " << successfulInstruction << endl;
+        cout << "Level string for new partition is "
+             << myPart.getLeafLevelsString() << endl;
+        // we can keep splitting if the state is reachable
+        /*
+        if (successfulInstruction) {
+          successfulInstruction = myPart.splitToShape("3, 4,4, 2,2, 3,3");
+          cout << "result is " << successfulInstruction << endl;
+          cout << "Level string for new partition is "
+               << myPart.getLeafLevelsString() << endl;
+        // We could also have put the data from the container into
+        // the histogram with the splitToShape partition, no splitting here
+        // successfulInsertion = myPart.insertFromRVec(theData);
+        }
+        */
+        SPSnodePtrs Pleaves; // set up empty container for leaf node pointers
+        SPSnodePtrsItr it; // and an iterator over the container
+        myPart.getSubPaving()->getLeaves(Pleaves); // fill the container
+        // container is filled by reading leaves off tree from left to right
+        for(it = Pleaves.begin(); it < Pleaves.end(); it++) {
+            // remember that it points to a pointer, so *it is still a ptr
+            //get the counts in all the Pleaves
+            //get the boxes from all the Pleaves
+            Pboxes.push_back((*it)->getBox());
+        }
+        PartSize = Pboxes.size();
+    //----end of data generating
+       partition----------------------------------------
+}
+    for (int j = 1; j <= numHist; j++)
+    { // loop to make histograms
+
+        //cout << "Doing hist number " << j << endl;
+        RVecData theData;   // a container for all the points generated
+        // make a simulated data set allData to sample from
+        int n = 4; // total points from random number generator
+        // data sampled as uniform equi-mixture over leaves of sub-paving
+       myPart
+        for (int i = 0; i < n; i++) {
+            rvector thisrv(d);
+            if(Mixture_bool) {
+              size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+              //cout << Pboxes[RndBoxNum] << endl;
+              thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);
+            }
+            else {
+              for(int i=1; i <= d; i++) {
+                  thisrv[i]  = gsl_rng_uniform(r);
+              }
+            }
+
+            // put points generated into container
+            //cout << thisrv;
+            theData.push_back(thisrv);
+        }  // data  should be in theData
+
+        // make an Adaptive Histogram object with a specified box
+        AdaptiveHistogram myHist(pavingBox);
+
+        // put the data from the container into the histogram, no splitting
+       here
+        successfulInsertion = myHist.insertFromRVec(theData);
+
+        for(int L=minLeaves; L<=MINLeaves; L++)
+        {
+
+          CompCount nodeCompCount;
+          CritLeaves_GTE critLeavesGTE(L);
+          if (successfulInsertion) {
+              // now split with priority queue
+              // split node wth most pointsin first (compCount)
+              // until leaves >= minLeaves (critLeaves_GTE)
+              // no minPoints or minVolB limitations on splittable nodes
+              successfulPQSplit = myHist.prioritySplit(nodeCompCount,
+                                critLeavesGTE, NOLOG, r); // no logs
+          }
+
+          if (successfulPQSplit) {
+            //
+            // optional - if you want to get a txt output of each histogram
+            // create a name for the file to output
+            // fileName = "Hist";
+            //convert j to a string
+            // std::ostringstream stm2;
+            // stm2 << j;
+            // add the stringed j to the filename
+            // fileName += stm2.str();
+            // fileName += ".txt"; // and finish the filename
+            // To realize a file output
+            // myHist.outputToTxtTabs(fileName);
+            //myHist.outputToTxtTabsWithEMPs(fileName);
+
+            SPSnodePtrs leaves; // set up empty container for leaf node
+       pointers
+            SPSnodePtrsItr it; // and an iterator over the container
+            myHist.getSubPaving()->getLeaves(leaves); // fill the container
+            // container is filled by reading leaves off tree from left to
+       right
+
+            // a container for the counts
+            IntVec counts;  // IntVec is a typedef for vector<int>
+                            // the iterator is typedefed as IntVecItr
+            // a container for the boxes
+            vector<ivector> boxes;
+            // a container for the volumes
+            vector<double> volumes;
+            // a valarray container for the node levels, sized to fit
+            valarray<int> levels(spLeaves(myHist.getSubPaving()));
+
+            int v=0;
+//            for(it = leaves.begin(); it < leaves.end(); it++) {
+//                // remember that it points to a pointer, so *it is still a
+       ptr
+//                //get the counts in all the leaves
+//                counts.push_back((*it)->getCounter());
+//                //get the boxes from all the leaves
+//                boxes.push_back((*it)->getBox());
+//                //get the volumes of all the leaves
+//                volumes.push_back((*it)->nodeVolume());
+//                //get the levels of the leaves
+//                levels[v] = (*it)->getNodeDepth();
+//                v++;
+//            }
+//
+            IntVec altLevels = myHist.getLeafLevels();
+//
+//            copy (altLevels.begin(), altLevels.end(),
+//                    ostream_iterator<int>(cout, "\t"));
+//            cout << '\n';
+//
+            OrdLeafDepthsMap_bool = AnOrdLfDpMapVec[L-minLeaves].insert(
+      make_pair(altLevels,1));
+            if(!(OrdLeafDepthsMap_bool.second)) {
+                (OrdLeafDepthsMap_bool.first)->second +=1;
+            }
+            //  This is where you'd have to use/manipulate/store/whatever
+            //    the stuff you have from the containers for each hist
+            //
+          }//end op PQSplit
+        }//end of leaf level pecific splitting loop
+    } // end of loop for histograms
+    // free the random number generator
+    gsl_rng_free (r);
+
+
+    cout << "empirical histogram frequencies\n";
+    for(int L=minLeaves; L<=MINLeaves; L++)
+    {
+      cout << "L : " << '\t' << L << '\n';
+      for(OrdLeafDepthsMap_Iter=AnOrdLfDpMapVec[L-minLeaves].begin();
+          OrdLeafDepthsMap_Iter != AnOrdLfDpMapVec[L-minLeaves].end();
+          ++OrdLeafDepthsMap_Iter){
+              IntVec altLevels = OrdLeafDepthsMap_Iter->first;
+              cout << OrdLeafDepthsMap_Iter->second << " : " << '\t';
+              copy (altLevels.begin(), altLevels.end(),
+                      ostream_iterator<int>(cout, ";"));
+              cout << '\n';
+      }
+    }
+    //  All the histograms done, you've somehow stored some summary from each,
+    //  you can now do something with the summary
+
+    return 0;
+
+} // end of histrogram report test program
+\end{DoxyCode}

@@ -1,0 +1,157 @@
+\hypertarget{Exr__11__35_8cpp}{\subsection{\-Exr\-\_\-11\-\_\-35.\-cpp \-File \-Reference}
+\label{Exr__11__35_8cpp}\index{\-Exr\-\_\-11\-\_\-35.\-cpp@{\-Exr\-\_\-11\-\_\-35.\-cpp}}
+}
+
+
+\-Exercise 11.\-35 from \-Jaulin et al, \-Springer, 2001.  
+
+
+{\ttfamily \#include \char`\"{}\-Exr\-\_\-11\-\_\-35.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+ivector \hyperlink{Exr__11__35_8cpp_a949a82886ebeb78d489bd48611f55ffa}{\-I\-V\-F\-\_\-ex11\-\_\-35} (const ivector \&x)
+\item 
+int \hyperlink{Exr__11__35_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{Exr__11__35_8cpp_a035ba8beea4e3b6004503cabaaa344c5}{\-Sc3}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Exercise 11.\-35 from \-Jaulin et al, \-Springer, 2001. \-Implementation of \-Exercise 11.\-35 from \-Jaulin, \-Kieffer, \-Didrit and \-Walter, \-Applied \-Interval \-Analysis, \-Springer, 2001. 
+
+\-Definition in file \hyperlink{Exr__11__35_8cpp_source}{\-Exr\-\_\-11\-\_\-35.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Exr__11__35_8cpp_a949a82886ebeb78d489bd48611f55ffa}{\index{\-Exr\-\_\-11\-\_\-35.\-cpp@{\-Exr\-\_\-11\-\_\-35.\-cpp}!\-I\-V\-F\-\_\-ex11\-\_\-35@{\-I\-V\-F\-\_\-ex11\-\_\-35}}
+\index{\-I\-V\-F\-\_\-ex11\-\_\-35@{\-I\-V\-F\-\_\-ex11\-\_\-35}!Exr_11_35.cpp@{\-Exr\-\_\-11\-\_\-35.\-cpp}}
+\paragraph[{\-I\-V\-F\-\_\-ex11\-\_\-35}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-I\-V\-F\-\_\-ex11\-\_\-35} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{Exr__11__35_8cpp_a949a82886ebeb78d489bd48611f55ffa}
+
+
+\-Definition at line 35 of file \-Exr\-\_\-11\-\_\-35.\-cpp.
+
+
+
+\-References taylor\-::sqr().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  // example in 2-d space R2
+  // for f: R2 -> R2
+  //f1(x1, x2) = x1^2 + x2 - x2^2
+  //f2(x1, x2) = x1^2 + x2^2
+
+  ivector Img(2);
+
+  Img[1] = sqr(x[1]) + x[2] - sqr(x[2]);
+  Img[2] = sqr(x[1]) + sqr(x[2]);
+
+  return (Img);
+}
+\end{DoxyCode}
+\hypertarget{Exr__11__35_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Exr\-\_\-11\-\_\-35.\-cpp@{\-Exr\-\_\-11\-\_\-35.\-cpp}!main@{main}}
+\index{main@{main}!Exr_11_35.cpp@{\-Exr\-\_\-11\-\_\-35.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Exr__11__35_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 53 of file \-Exr\-\_\-11\-\_\-35.\-cpp.
+
+
+
+\-References \-Image\-Sp(), \-I\-V\-F\-\_\-ex11\-\_\-35(), \-Nb\-Leaves(), \-Sc3, and \-Volume().
+
+
+\begin{DoxyCode}
+{
+  AIASubPaving A;
+  ivector x(2);
+
+  using namespace cxsc;
+  using namespace std;
+
+  x[1] = interval(-2.0,2.0);
+  x[2] = interval(-2.0,2.0);
+
+  double prec;
+  clock_t start, end;
+
+  A = new AIASPnode(x);
+
+  // find the image of A with the function
+  // f1 = x1^2 + x2 - x2^2
+  // f1 = x1^2 + x2^2
+
+  cout << "Characterization of the set Sc3=f(A)" << endl
+    << "with f1(x) = x1^2 + x2 - x2^2," << endl
+    << "     f2(x) = x1^2 + x2^2," << endl;
+  cout << "by realizing the image of f by ImageSp" << endl;
+  cout << "Enter a precision (between 1 and 0.001): ";
+  cin >> prec;
+
+  start = clock();
+
+  //use Image SP to find a characterisation of the image of Sc using the 
+  // function in IVF
+  Sc3 = ImageSp(IVF_ex11_35, A, prec);
+
+  end = clock();
+
+  cout << "Computing time : " 
+      << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl;
+  cout << "The volume is " << Volume(Sc3) << endl;
+  cout << "The number of leaves is " << NbLeaves(Sc3) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os4("AIAimage.txt");
+  os4 << 2 << endl; // Dimension of the AIASubPaving
+                    // Domain AIASubPaving
+  os4 << interval(-2.0,2.0) << " "
+    << interval(-2.0,2.0) << " " << endl;
+                    // Precision used
+  os4 << "Precision is " << prec << endl;
+                    // Image AIASubPaving itself
+  os4 << Sc3 << endl;
+
+  cout << "The output AIASubPaving has been written to AIAimage.txt" 
+       << endl << endl;
+
+  delete A;         // delete subpavings newed in dynamic memory
+  delete Sc3;
+
+  return 0;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Variable \-Documentation}
+\hypertarget{Exr__11__35_8cpp_a035ba8beea4e3b6004503cabaaa344c5}{\index{\-Exr\-\_\-11\-\_\-35.\-cpp@{\-Exr\-\_\-11\-\_\-35.\-cpp}!\-Sc3@{\-Sc3}}
+\index{\-Sc3@{\-Sc3}!Exr_11_35.cpp@{\-Exr\-\_\-11\-\_\-35.\-cpp}}
+\paragraph[{\-Sc3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-Sc3}}}\label{Exr__11__35_8cpp_a035ba8beea4e3b6004503cabaaa344c5}
+
+
+\-Definition at line 31 of file \-Exr\-\_\-11\-\_\-35.\-cpp.
+
+
+
+\-Referenced by main().
+

@@ -1,0 +1,239 @@
+\hypertarget{Exm__3__3_8cpp}{\subsection{\-Exm\-\_\-3\-\_\-3.\-cpp \-File \-Reference}
+\label{Exm__3__3_8cpp}\index{\-Exm\-\_\-3\-\_\-3.\-cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}}
+}
+
+
+\-Example 3.\-3 from \-Jaulin et al, \-Springer, 2001, p. 61.  
+
+
+{\ttfamily \#include \char`\"{}\-Exm\-\_\-3\-\_\-3.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6}{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L} \hyperlink{Exm__3__3_8cpp_ad4bce9ed969316e3fb7c990094be55a7}{\-I\-B\-T\-Annular} (const ivector \&x)
+\item 
+ivector \hyperlink{Exm__3__3_8cpp_a08a7ccec803f0858fe9d44dbeb8e9a29}{\-I\-V\-F\-\_\-ex3\-\_\-3} (const ivector \&x)
+\item 
+int \hyperlink{Exm__3__3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{Exm__3__3_8cpp_a61a4b8518251e3f73c3e1951e3c733ec}{\-Sc}
+\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{Exm__3__3_8cpp_a58bc430cfad550646042603ef50cd6b7}{\-Sc4}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Example 3.\-3 from \-Jaulin et al, \-Springer, 2001, p. 61. \-Implementation of example 3.\-3 from \-Jaulin, \-Kieffer, \-Didrit and \-Walter, \-Applied \-Interval \-Analysis, \-Springer, 2001, p. 61. 
+
+\-Definition in file \hyperlink{Exm__3__3_8cpp_source}{\-Exm\-\_\-3\-\_\-3.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Exm__3__3_8cpp_ad4bce9ed969316e3fb7c990094be55a7}{\index{\-Exm\-\_\-3\-\_\-3.\-cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}!\-I\-B\-T\-Annular@{\-I\-B\-T\-Annular}}
+\index{\-I\-B\-T\-Annular@{\-I\-B\-T\-Annular}!Exm_3_3.cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}}
+\paragraph[{\-I\-B\-T\-Annular}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L} {\bf \-I\-B\-T\-Annular} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{Exm__3__3_8cpp_ad4bce9ed969316e3fb7c990094be55a7}
+
+
+\-Definition at line 36 of file \-Exm\-\_\-3\-\_\-3.\-cpp.
+
+
+
+\-References \-B\-I\-\_\-\-F\-A\-L\-S\-E, \-B\-I\-\_\-\-I\-N\-D\-E\-T, \-B\-I\-\_\-\-T\-R\-U\-E, \-Intersection(), and taylor\-::sqr().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  // here we test a 2-d box for inclusion in the area between circles centred 
+  // on the origin with radii 1 and 2
+  interval ToInvert(1.0,2.0),Temp;
+  interval Img = sqr(x[1]) + sqr(x[2]);
+
+  if (!Intersection(Temp,Img,ToInvert)) return BI_FALSE;
+  if ( Img<=ToInvert ) return BI_TRUE;
+
+  return BI_INDET;
+}
+\end{DoxyCode}
+\hypertarget{Exm__3__3_8cpp_a08a7ccec803f0858fe9d44dbeb8e9a29}{\index{\-Exm\-\_\-3\-\_\-3.\-cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}!\-I\-V\-F\-\_\-ex3\-\_\-3@{\-I\-V\-F\-\_\-ex3\-\_\-3}}
+\index{\-I\-V\-F\-\_\-ex3\-\_\-3@{\-I\-V\-F\-\_\-ex3\-\_\-3}!Exm_3_3.cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}}
+\paragraph[{\-I\-V\-F\-\_\-ex3\-\_\-3}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-I\-V\-F\-\_\-ex3\-\_\-3} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{Exm__3__3_8cpp_a08a7ccec803f0858fe9d44dbeb8e9a29}
+
+
+\-Definition at line 54 of file \-Exm\-\_\-3\-\_\-3.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  // example in 2-d space R2
+  // for f: R2 -> R2
+  //f1(x1, x2) = x1*x2
+  //f2(x1, x2) = x1 + x2
+
+  ivector Img(2);
+
+  Img[1] = x[1] * x[2];
+  Img[2] = x[1] + x[2];
+
+  return (Img);
+}
+\end{DoxyCode}
+\hypertarget{Exm__3__3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Exm\-\_\-3\-\_\-3.\-cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}!main@{main}}
+\index{main@{main}!Exm_3_3.cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Exm__3__3_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 74 of file \-Exm\-\_\-3\-\_\-3.\-cpp.
+
+
+
+\-References \-I\-B\-T\-Annular(), \-Image\-Sp(), \-I\-V\-F\-\_\-ex3\-\_\-3(), \-Nb\-Leaves(), \-Sc, \-Sc4, \-Sivia(), and \-Volume().
+
+
+\begin{DoxyCode}
+{
+  double prec;
+  clock_t start, end;
+
+  ivector x(2);
+  x[1] = interval(-3.0,3.0);
+  x[2] = interval(-3.0,3.0);
+
+  AIASubPaving A;
+  A = new AIASPnode(x);
+
+  // Using SIVIA for set inversion
+  // find an AIASubPaving characterisation Sc containing the area between 
+  // circles centred on the origin
+  // with radii 1 and 2 (in 2 dimensional space)
+  cout << "Characterization of the set Sc={(x1,x2) | 1 <= x1^2+x2^2 <= 2 }" 
+       << endl;
+  cout << "Enter a precision (between 1 and 0.001): ";
+  cin >> prec;
+
+  start = clock();
+
+  // when we start we give A a box big enough to guarantee to contain the 
+  // characterisation of Sc
+
+  Sc = Sivia(IBTAnnular,A,prec);
+  end = clock();
+
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "Volume: " << Volume(Sc) << endl;
+  cout << "Number of leaves: " << NbLeaves(Sc) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os("AIA3_3a.txt");
+  os << 2 << endl;  // Dimension of the AIASubPaving
+                    // Root box
+  os << interval(-5.0,5.0) << " "
+    << interval(-5.0,5.0) << " " << endl;
+                    // Precision used
+  os << "Precision is " << prec << endl;
+  os << Sc << endl; // AIASubPaving itself
+  cout << "The output AIASubPaving has been written to AIA3_3a.txt" 
+       << endl << endl;
+
+  // the AIASubPaving Sc that we have created is the regular 
+  // AIASubPaving that covers the set
+  // X = {(x1,x2) in R2 | sqr(x1) + sqr(x2) is in [1,2]} 
+  // (remember that it contains this area rather than being this area, 
+  // and that eps has determined how small we go in the AIASubPaving 
+  // characterisation)
+
+  cout << "Characterization of the set Sc4=f(Sc)" << endl
+    << " with Sc from our first example and "<< endl
+    << "with f1(x) = x1*x2," << endl
+    << "     f2(x) = x1 + x2," << endl;
+  cout << "by realizing the image of f by ImageSp" << endl;
+  cout << "Enter a precision (between 1 and 0.01): ";
+  cin >> prec;
+
+  start = clock();
+
+  // use Image SP to find a characterisation of the image of Sc using the 
+  // function in IVF
+  Sc4 = ImageSp(IVF_ex3_3, Sc, prec);
+
+  end = clock();
+
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "The volume is " << Volume(Sc4) << endl;
+  cout << "The number of leaves is " << NbLeaves(Sc4) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os4("AIA3_3d.txt");
+  os4 << 2 << endl; // Dimension of the AIASubPaving
+                    // Domain AIASubPaving
+  os4 << interval(-3.0,3.0) << " "
+    << interval(-3.0,3.0) << " " << endl;
+                    // Precision used
+  os4 << "Precision is " << prec << endl;
+                    // Image AIASubPaving itself
+  os4 << Sc4 << endl;
+
+  cout << "The output AIASubPaving has been written to AIA3_3d.txt" 
+       << endl << endl;
+
+  delete A;         // Delete all subpavings newed in dynamic memory
+  delete Sc;
+  delete Sc4;
+
+  return 0;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Variable \-Documentation}
+\hypertarget{Exm__3__3_8cpp_a61a4b8518251e3f73c3e1951e3c733ec}{\index{\-Exm\-\_\-3\-\_\-3.\-cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}!\-Sc@{\-Sc}}
+\index{\-Sc@{\-Sc}!Exm_3_3.cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}}
+\paragraph[{\-Sc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-Sc}}}\label{Exm__3__3_8cpp_a61a4b8518251e3f73c3e1951e3c733ec}
+
+
+\-Definition at line 31 of file \-Exm\-\_\-3\-\_\-3.\-cpp.
+
+
+
+\-Referenced by main().
+
+\hypertarget{Exm__3__3_8cpp_a58bc430cfad550646042603ef50cd6b7}{\index{\-Exm\-\_\-3\-\_\-3.\-cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}!\-Sc4@{\-Sc4}}
+\index{\-Sc4@{\-Sc4}!Exm_3_3.cpp@{\-Exm\-\_\-3\-\_\-3.\-cpp}}
+\paragraph[{\-Sc4}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-Sc4}}}\label{Exm__3__3_8cpp_a58bc430cfad550646042603ef50cd6b7}
+
+
+\-Definition at line 31 of file \-Exm\-\_\-3\-\_\-3.\-cpp.
+
+
+
+\-Referenced by main().
+

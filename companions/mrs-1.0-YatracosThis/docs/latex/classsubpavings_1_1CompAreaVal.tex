@@ -1,0 +1,78 @@
+\hypertarget{classsubpavings_1_1CompAreaVal}{\subsection{subpavings\-:\-:\-Comp\-Area\-Val \-Class \-Reference}
+\label{classsubpavings_1_1CompAreaVal}\index{subpavings\-::\-Comp\-Area\-Val@{subpavings\-::\-Comp\-Area\-Val}}
+}
+
+
+\-Class comparing the area of a histogram.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobjval.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-Area\-Val\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-Area\-Val\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompAreaVal_a559579f9dc047c35866d8144b59feed6}{operator()} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing the area of a histogram. 
+
+\-Definition at line 101 of file nodecompobjval.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompAreaVal_a559579f9dc047c35866d8144b59feed6}{\index{subpavings\-::\-Comp\-Area\-Val@{subpavings\-::\-Comp\-Area\-Val}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompAreaVal@{subpavings\-::\-Comp\-Area\-Val}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-Area\-Val\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompAreaVal_a559579f9dc047c35866d8144b59feed6}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObjVal_a0c12ddc23446e5be6bb71d024ec40c62}{subpavings\-::\-Node\-Comp\-Obj\-Val}.
+
+
+
+\-Definition at line 103 of file nodecompobjval.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Counter(), subpavings\-::\-S\-P\-S\-Vnode\-::get\-Root\-Counter(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+      { 
+        size_t n = lhs->getRootCounter();
+        
+        cxsc::interval lCount = interval(lhs->getCounter()*1.0/(n*1.0));
+        cxsc::interval rCount = interval(rhs->getCounter()*1.0/(n*1.0));
+        
+        cxsc::interval lVol = interval(lhs->nodeVolume());
+        cxsc::interval rVol = interval(rhs->nodeVolume());
+        
+        cxsc::interval lMassVol = lCount * lVol;
+        cxsc::interval rMassVol = rCount * rVol;
+       
+        cxsc::real lMid = mid(lMassVol);
+        cxsc::real rMid = mid(rMassVol);
+        
+        return ( (lMid < rMid) );
+    }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobjval_8hpp}{nodecompobjval.\-hpp}\end{DoxyCompactItemize}

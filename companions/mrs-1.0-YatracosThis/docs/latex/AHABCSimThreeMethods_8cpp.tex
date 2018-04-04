@@ -1,0 +1,721 @@
+\hypertarget{AHABCSimThreeMethods_8cpp}{\subsection{\-A\-H\-A\-B\-C\-Sim\-Three\-Methods.\-cpp \-File \-Reference}
+\label{AHABCSimThreeMethods_8cpp}\index{\-A\-H\-A\-B\-C\-Sim\-Three\-Methods.\-cpp@{\-A\-H\-A\-B\-C\-Sim\-Three\-Methods.\-cpp}}
+}
+{\ttfamily \#include $<$iomanip$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{AHABCSimThreeMethods_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{AHABCSimThreeMethods_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-A\-H\-A\-B\-C\-Sim\-Three\-Methods.\-cpp@{\-A\-H\-A\-B\-C\-Sim\-Three\-Methods.\-cpp}!main@{main}}
+\index{main@{main}!AHABCSimThreeMethods.cpp@{\-A\-H\-A\-B\-C\-Sim\-Three\-Methods.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{AHABCSimThreeMethods_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 44 of file \-A\-H\-A\-B\-C\-Sim\-Three\-Methods.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-To\-Collation(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::find\-Density\-Region(), subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-S\-Sample(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), \-Lab\-Pnt\-::\-L, subpavings\-::label\-Data\-From\-Filter(), taylor\-::\-Lb(), subpavings\-::\-L\-O\-G\-S\-A\-M\-P\-L\-E\-S, subpavings\-::\-Adaptive\-Histogram\-Collator\-::marginalise(), subpavings\-::\-Adaptive\-Histogram\-::\-M\-C\-M\-C(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-Average\-To\-Txt\-Tabs(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs(), subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), \-Lab\-Pnt\-::\-Pnt, subpavings\-::point\-Mass\-Filter(), taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::read\-Rvectors\-From\-Txt(), \-R\-S\-Sample\-::\-Samples, and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+     //---------Some preliminaries-------------------------------------------//
+   //set formatting fors input to oss
+    ofstream os;         // ofstream object
+    os << scientific;  // set formatting for input to oss
+    os.precision(16);
+   
+   // set up a random number generator for uniform rvs in priority queue
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    long s = time (NULL) * getpid();
+    gsl_rng_set(r, s);
+   
+  //--------------input parameters------------------------------------------//
+   //directory to store files in
+  string dirName = argv[8];
+  
+  // names of files
+  string simDataFiles = argv[1]; // this is a row vector of filenames
+ 
+  // method to construct histogram
+   // 1: PQ with k as a function of n
+   // 2: MCMC
+   // 3: PQ with MDE - not implemented yet
+   // 4: Regular Histograms - not implemented yet
+   int method = atoi(argv[2]);
+  
+  //sample for numRep times for sampled data of samplingSize
+  size_t samplingSize = atoi(argv[3]);
+  size_t numRep = atoi(argv[4]);
+  
+  //parameters for log-likelihood estimation
+  double wt = atof(argv[5]); //mass to ensure positive density 
+                     //everywhere in domain
+  double dx = atof(argv[6]); //1 for non-atomic densities
+  
+   //user-defined coverage value to get wanted density region
+  double cov = atof(argv[7]);
+   //--------------end of input parameters----------------------------------//
+    
+   //-------Setup to read in data files------------------------------------//
+   //create a vector object to store the filenames of simulated data
+  vector<string> simDataFilesVec;
+  string fileName;
+  cout << "Reading in file names for simulated data: " << endl;    
+  ifstream file; // create file for input
+  file.open(simDataFiles.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists'
+    cerr << "Could not open " << simDataFiles << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+    // else read in the filenames
+  // store the filenames in the vector simDataFilesVec
+  while ( !file.eof() ) { // read until end of file or error
+    file >> fileName;
+    cout << fileName << endl; 
+    simDataFilesVec.push_back(fileName);
+  }
+  // Somehow an extra line will be read in. Need to delete that extra line.
+  simDataFilesVec.pop_back();
+   
+  //container to keep individual data containers for re-sampling
+  vector<RVecData> unlabDataVec; //unlabelled data
+
+   //container to keep both simulated and observed data to make root box
+   RVecData* dataPtr;
+  dataPtr = new RVecData; 
+
+  // put all simulated data into container allData
+  cout << "\nPut all data in a container to get rootbox: " << endl;
+  for (size_t i = 0;  i < simDataFilesVec.size(); i++) {
+    cout << simDataFilesVec[i] << endl;
+    //read into allData
+    bool retvalue = readRvectorsFromTxt((*dataPtr), simDataFilesVec[i], 0);
+    if (retvalue == false)  {
+      cerr << "Could not open " << simDataFiles << ". It does not exist." 
+        << endl;
+      exit(1);
+    } 
+    //cout << (*(dataPtr)).size() << "is the size of dataPtr at iteration " <<
+       i << endl;
+    //Then read each data set and push into unlabDataVec 
+    RVecData unlabIndData;
+    readRvectorsFromTxt(unlabIndData, simDataFilesVec[i], 0);
+    unlabDataVec.push_back(unlabIndData);
+  } // end of putting simulated data into container
+  
+  //Make root box from all the data
+  cout << "\n" << endl;
+  AdaptiveHistogram* histRoot;
+  histRoot = new AdaptiveHistogram;
+        //cout << (*(dataPtr)).size() << "is the size of dataPtr AFTER
+       iteration "  << endl;
+  histRoot->insertFromRVec((*dataPtr));
+  ivector pavingBox = histRoot->getSubPaving()->getBox();
+  //find the data dimensions from the first datapoint
+  size_t dataDim = Ub(*(*dataPtr).begin()) - Lb(*(*dataPtr).begin()) + 1;
+  cout << "Data has " << dataDim << " dimensions." << endl;
+  
+  delete dataPtr; //we do not need this in memory
+  delete histRoot; //we do not need this in memory
+  //-----end of setup to read in data files-------------------------------//
+  
+  //----go through each RVecData in unlabData for:-------------------------//
+  //1. point mass filtering
+  //2. build a histogram
+  
+  //Set up containers to contain weights for each mixture model
+  vector< map<rvector, double, less<rvector> > > WeightPMVec;//for point mass
+  vector<double> WeightHistVec; //for histogram
+  vector<double> WeightPM;
+  
+    //Set up containers to contain histogram objects
+  vector<AdaptiveHistogram*> vecPQHist; //if method 1
+  vector<AdaptiveHistogramCollator*> vecMCMCHist; //if method 2
+  vector<AdaptiveHistogramValidation*> vecMDEHist; //if method 3
+  
+  //Now loop through each RVecData
+  vector<RVecData>::iterator unlabDataIt;
+  RVecData::iterator dataIt;
+  size_t D = 0;
+  for (unlabDataIt = unlabDataVec.begin(); unlabDataIt < unlabDataVec.end(); 
+      unlabDataIt++) 
+  {
+      cout << "==============Simulated Data " << D << "==========" << endl;
+      RSSample labData; //for point mass filtering 
+      if (dataDim == 1) { //for now, do this only in 1D
+      //make a map for value of x (the key) and each of its respective 
+      //counts (the value)
+      map<rvector, size_t, less<rvector> > CountsMap;   
+      //run a point mass filtering to get "atomic" points
+      pointMassFilter((*unlabDataIt), CountsMap);
+    
+      //Is there a more efficient way for the following:
+      //Iterate through the data set again. Label point-mass with 0 and 
+      //the rest with 1.
+      //Also get a map for the EMF of  point mass data
+      map<rvector,double, less<rvector> > EMFMap;
+      map<rvector, double, less<rvector> >::iterator EMFMapIt;
+      labelDataFromFilter((*unlabDataIt), labData, CountsMap, EMFMap);
+            
+      /*optional: output RSSample this to .txt
+      vector<LabPnt>::iterator LabPntIt; //to iterate over labData.Samples
+      string fileName = "Labelled";
+      fileName += simDataFilesVec[D];
+      oftream os;
+      os.open(fileName.c_str());
+      for (LabPntIt = labData.Samples.begin(); LabPntIt <
+       labData.Samples.end();
+          LabPntIt++) {
+        (*LabPntIt).Print(os);
+      }
+      os << flush;
+      */ //end of optional output
+      
+      //Store the weights
+      cout << "Atomic points and their EMFs" << endl;
+      double pmWeight = 0.0;
+      double MaxpmWeight = 0.0;
+                        rvector AtomWithMaxpm = EMFMap.begin()->first;
+      for (EMFMapIt = EMFMap.begin(); EMFMapIt != EMFMap.end(); EMFMapIt++) {
+        if(EMFMapIt->second > MaxpmWeight) 
+          {//a messy way to keep the max atom and weight...
+            MaxpmWeight=EMFMapIt->second;
+            AtomWithMaxpm = EMFMapIt->first;
+          }
+        pmWeight += EMFMapIt->second;
+        if( EMFMapIt->second < 0.0)// use < to skip the ? below
+          {
+            cout << setprecision(16) << EMFMapIt->first 
+           << "\t" << EMFMapIt->second << endl;
+            cout << "is this atomic in your experimental precision?" << endl; 
+      getchar();
+          }
+      }
+                        cout << "Maximum Weight of a set of Atoms of size "<< 
+      EMFMap.size() 
+        << " is " << MaxpmWeight << " at " << AtomWithMaxpm << endl;
+      WeightHistVec.push_back(1.0 - pmWeight);
+      WeightPMVec.push_back(EMFMap);
+      WeightPM.push_back(pmWeight);
+      
+      //output the weights for the point mass so that we can plot the point
+       mass
+        //and the normalised histogram
+        string weightFileName = dirName;
+        weightFileName += "Weights";
+      ostringstream stm1;
+      stm1 << D;
+      weightFileName += stm1.str();
+      weightFileName += ".txt";
+      os.open(weightFileName.c_str());
+      map<rvector, double, less<rvector> > ::iterator mapIt;
+      for (mapIt = (EMFMap).begin(); mapIt != (EMFMap).end(); mapIt++) {
+        os << mapIt->second << "\t" << mapIt->first;
+      }
+       os << endl;
+      os << flush;
+       os.close();
+       cout << "Weights output to " << weightFileName << endl; 
+       cout << "=================================================" << endl;
+      
+    
+    } // end of point mass filtering for 1D
+  
+    //----Now build the histograms using MCMC with automated convergence
+    // diagnostics---------------------------------------------------------
+    cout << "\nMaking histogram for simulated data in " << simDataFilesVec[D] 
+        << endl;
+    //booleans to check is insertion is successful and if PQ is successful
+    bool successfulInsertion = false;
+    bool successfulMadeHist = false;
+
+    switch(method)  { 
+      case 1: //PQ with kmax as a function of n 
+      { 
+        cout << "Make histogram using PQ:" << endl;
+        // make an Adaptive Histogram object with box specified by the data.
+        AdaptiveHistogram* myHistPtr;
+        myHistPtr = new AdaptiveHistogram(pavingBox);
+        
+        // feed the data into myHist. No splits are done yet.
+        if (dataDim == 1) {
+               cout << "about to insert into histogram only data with label 1"<
+      <endl;
+          successfulInsertion = myHistPtr->insertFromRSSample(labData, NOLOG, 1
+      );
+        }
+        else { 
+          successfulInsertion = myHistPtr->insertFromRVec((*unlabDataIt), NOLOG
+      );
+        }
+          
+        if (successfulInsertion) {
+          
+          size_t n =(myHistPtr->getSubPaving())->getCounter();
+          double alpha = 0.5;   
+          size_t finalK = int(pow(n, alpha));
+          if (dataDim==1) cout << "sample size for non-atomic data = " << n << 
+      endl;
+          cout << "Max K: " << finalK << endl;
+          CompCount nodeCompCount; // split node wth most points in first 
+          // until number of points in all nodes <= finalK
+          CritLargestCount_LTE critCount(finalK); 
+          double beta = 0.95;
+          size_t maxLeafNodes = int(pow(n, beta));//maximum #leaves
+          //TODO: this is a unjustified stopping rule for finite n!!!!!!!!! 
+          // to get min volume, need volume of root box
+          //double volRoot = (myHistPtr->getSubPaving())->nodeVolume();
+          // double minVol = volRoot/pow(2, int(pow(n, 1.0-alpha)-1.0));
+          // double minVol = volRoot/(pow(n, 1.0-alpha)*1.0);
+          //cout << "minimum volume: " << minVol << endl;
+          
+          // now split with priority queue
+          successfulMadeHist = myHistPtr->prioritySplit(nodeCompCount,
+                  critCount, NOLOG, r, maxLeafNodes); // without minVol 
+          //successfulMadeHist = myHist.prioritySplit(nodeCompCount,
+          //          critCount, NOLOG, 0, minVol, r); // with minVol       
+          
+          if (successfulMadeHist) { 
+            vecPQHist.push_back(myHistPtr); 
+            // optional output for histogram
+            string histFileName;
+            histFileName = dirName;
+            histFileName += "Hist";
+            ostringstream stm1;
+            stm1 << D;
+            histFileName += stm1.str();
+            histFileName += ".txt";
+            myHistPtr->outputToTxtTabs(histFileName);
+            // end of optional output for histogram
+          }
+          else { cerr << "Histogram not made." << endl; exit(1); }
+        } // end of successfulInsertion  
+        break;
+      }
+      
+      case 2: // MCMC
+      {
+        cout << "Make histogram using MCMC:" << endl;
+        // make an Adaptive Histogram object with box specified by the
+       simulated data.
+        AdaptiveHistogram myHist(pavingBox);
+        // feed the data into myHist. No splits are done yet.
+        if (dataDim == 1) {
+          successfulInsertion = myHist.insertFromRSSample(labData, NOLOG, 1);
+        }//Gloria has not fielded this option??? TODO: for univariate
+       trandimensional density estimation
+        else { 
+          successfulInsertion = myHist.insertFromRVec((*unlabDataIt), NOLOG);
+        }
+        if (successfulInsertion) {
+          UniformProposal proposal; // set up proposal distribution object
+          LogCatalanPrior logPrior; // set up prior distribution object 
+          // specify minPoints
+          int minPoints = 0;          
+          //TODO: need to add a minVol criteria in MCMC!!!
+          //Parameters
+          unsigned int loops = 10000;
+          unsigned int burnin = 500;
+          unsigned int thinout = 50;
+          AdaptiveHistogramCollator* myCollPtr;
+          myCollPtr = new AdaptiveHistogramCollator; 
+          *myCollPtr = myHist.MCMC(loops, burnin, 
+              thinout, D, proposal, logPrior, minPoints, LOGSAMPLES); 
+              //thinout, D, proposal, logPrior, minPoints);//GT??: how to stop
+       log samples - this did not work  
+          
+          if (NULL != myCollPtr) {  
+            successfulMadeHist = true;
+            vecMCMCHist.push_back(myCollPtr); 
+            // optional output for histogram
+            string histFileName;
+            histFileName = dirName;
+            histFileName += "AverageMCMC";
+            ostringstream stm1;
+            stm1 << D;
+            histFileName += stm1.str();
+            histFileName += ".txt";
+            myCollPtr->outputAverageToTxtTabs(histFileName);
+            // end of optional output for histogram
+            }
+          else { cerr << "MCMC failed." << endl; exit(1); }   
+        } // end of successfulInsertion
+        break;            
+      }
+    } // end of switch(method)  
+    D++; // counter to go through unlabDataVec
+  } // end of going through unlabDataVec
+
+  //-----end of going through each RVecData in unlabData------------------//
+  
+  //-----get marginal histograms for dimensions more than 1 --------------//
+  //---- and density region----------------//
+  //Marginalise
+   D = 0; //reset D to 0
+  //iterate through each data set
+  for (unlabDataIt = unlabDataVec.begin(); 
+      unlabDataIt < unlabDataVec.end(); unlabDataIt++) {  
+    if (dataDim == 1) { // get density region only for 1D data
+      cout << "\nGet " << cov << " density region for dataset " << D;
+      
+      ostringstream stm1; stm1 << cov;
+      string covFileName = dirName;
+      covFileName += stm1.str(); 
+      covFileName += "RegionBoxes";
+      ostringstream stm2; stm2 << D;
+      covFileName += "Data";
+      covFileName += stm2.str();
+      covFileName += ".txt";
+      if (method ==1 ) {
+        SPSnodePtrs covNodes;
+        vecPQHist[D]->findDensityRegion(cov, WeightPM[D], covNodes, covFileName
+      ); 
+      }
+      else if (method ==2) {
+        vector<CollatorSPnode*> covNodes;
+        vecMCMCHist[D]->findDensityRegion(cov, WeightPM[D], covNodes, 
+      covFileName); 
+      }
+      cout << " and output to " << covFileName << endl;
+    } // done with dataDim == 1
+  
+    // only do the marginalisation if dimension > 1
+    else { //(dataDim > 1) 
+      bool done = false;
+      while (!done) {
+        for (size_t i = 1; i <= dataDim; i++){
+          //marginalise for univariate histograms
+          cout << "\nMaking marginal histogram for coordinate " << i 
+              << endl;
+          int myints[] = {i}; 
+          std::vector < int > margDims (myints, 
+                      myints + sizeof(myints) / sizeof(int) );
+          AdaptiveHistogramCollator marginal; 
+          
+          if (method == 1) { 
+            AdaptiveHistogramCollator myColl;
+            myColl.addToCollation(*vecPQHist[D]);
+            marginal = myColl.marginalise(margDims); 
+          }
+          else if (method == 2) {
+            marginal = vecMCMCHist[D]->marginalise(margDims);
+          }
+          
+          //output to .txt          
+          string margFileName = dirName; 
+          margFileName += "MarginalHist";   // provide a filename
+          ostringstream stm1; stm1 << i;
+          margFileName += stm1.str();
+          ostringstream stm4; stm4 << D;
+          margFileName += "Data";
+          margFileName += stm4.str();
+          margFileName +=  ".txt";
+          // output the marginal to file
+          marginal.outputToTxtTabs(margFileName); 
+      
+          // get density region
+          cout << "Get " << cov << " density region ";
+          ostringstream stm3;
+          stm3 << cov;
+          string covFileName = dirName;
+          covFileName += stm3.str(); 
+          covFileName += "RegionBoxes";
+          covFileName += stm1.str();
+          covFileName += "Data";
+          covFileName += stm4.str();
+          covFileName += ".txt";
+          vector<CollatorSPnode*> covNodes;
+          marginal.findDensityRegion(cov, 0, covNodes, covFileName);  
+          cout << " and output to " << covFileName << endl;   
+            
+          if(i == dataDim) { done = true; } // can't make marginal for
+                                  // pair dataDim-dataDim
+          //marginalise for (dataDim choose 2) pairs
+          for (size_t j=(i+1); j <= dataDim; j++) {
+            cout << "\nMaking marginal histogram for pair " << i 
+              << " " << j << endl;
+            int myints[] = {i,j}; 
+            std::vector < int > margDims (myints, 
+                    myints + sizeof(myints) / sizeof(int) );
+            AdaptiveHistogramCollator marginal; 
+            
+            if (method == 1) { 
+              AdaptiveHistogramCollator myColl;
+              myColl.addToCollation(*vecPQHist[D]);
+              marginal = myColl.marginalise(margDims); 
+            }
+            else if (method == 2) {
+            marginal = vecMCMCHist[D]->marginalise(margDims);
+            }           
+            margFileName = dirName;
+            margFileName += "MarginalHist";     // provide a filename
+            ostringstream stm2; stm2 << j;
+            margFileName += stm1.str();
+            margFileName += "_";
+            margFileName += stm2.str();
+            margFileName += "Data";
+            margFileName += stm4.str();
+            margFileName +=  ".txt";
+            // output the marginal to file
+            marginal.outputToTxtTabs(margFileName);  
+            cout << "Marginal output is in " << margFileName << endl;
+        
+            // get density region
+            cout << "Get " << cov << " density region ";
+            string covFileName = dirName;
+            covFileName += stm3.str(); 
+            covFileName += "RegionBoxes";
+            covFileName += stm1.str();
+            covFileName += "_";
+            covFileName += stm2.str();
+            covFileName += "Data";
+            covFileName += stm4.str();
+            covFileName += ".txt";
+            vector<CollatorSPnode*> covNodes;
+            marginal.findDensityRegion(cov, 0, covNodes, covFileName);            
+            cout << "and output to " << covFileName << endl;          
+          } // end of j
+        } // end of i
+      } // end of while
+    } // end of dim > 1
+    D++; //increment the data container count
+  } // end of going through unlabDataVed
+  //----end of marginalising histograms to get scatter histogram plots---//
+  
+  //TODO: The following procedure takes up a lot of memory. Need to make it 
+  //more memory efficient!!!! 
+  //--Sample from RVecData in unlabData and get estimated log-likelihood-//
+  cout << "\nSample from simulated datasets and get estimated log-likelihood" 
+      << endl;
+  for (size_t i = 0; i < numRep; i++) {
+    //cout << "===========Round " << i << "==============" << endl;
+    // container to store the likelihood ratios for this i
+    vector< vector<real> > loglikMat; 
+    
+    //iterate through unlabDataVec
+    D = 0; // reset counter for unlabDataVec
+    for (unlabDataIt = unlabDataVec.begin(); unlabDataIt < unlabDataVec.end(); 
+      unlabDataIt++) 
+    {
+      cout << "\nSampling from simulated dataset " << D << endl;
+  
+      //container to store the likelihood ratios for this dataset
+      vector<real> loglikVec; 
+    
+      //label the data and make into RSSample
+      RSSample labSampledData;
+  
+      //we need to sample without repetition
+      set<int, less<int> > indexSet;
+      if ( samplingSize >= (*unlabDataIt).size() ) { 
+        cerr << "\nTerminated. Sampling size more than or equal to n." << endl;
+        exit(1);
+      }
+      while ( indexSet.size() < samplingSize ) {
+        //draw a random number in [0,1)
+        double rand = gsl_rng_uniform(r);
+        //turn this into an index in [0, (*unlabDataIt).size()-1]
+        int index = static_cast<int>(ceil(rand*((*unlabDataIt).size()
+                                          -1)));
+        indexSet.insert(index);
+      }           
+      
+      // sample from (*unlabDataIt)
+      RVecData sampledData;
+      set<int, less<int> >::iterator setIt;
+      for (setIt = indexSet.begin(); setIt != indexSet.end(); setIt++) {
+        //put element in allData indexed into data
+        sampledData.push_back((*unlabDataIt)[*setIt]);
+      }
+      
+      if (dataDim == 1) { // only filter for 1D
+        //make a map for value of x (the key) and each of its respective 
+        //counts (the value)
+        map<rvector, size_t, less<rvector> > CountsMap;   
+        //run a point mass filter to get "atomic" points
+        cout << "run point mass filter over sampled data:" << endl;
+        pointMassFilter(sampledData, CountsMap);
+    
+        //EMFMap is not needed anymore actually - will see how i can turn it
+       off or do something else
+                                //TODO: see TODO comment in
+       "../../../src/sptools.cpp" 1220ish Line
+        map<rvector, double, less<rvector> > EMFMap; 
+        cout << "label data" << endl;
+        labelDataFromFilter(sampledData, labSampledData, CountsMap, EMFMap);
+      }
+      else { // for now make RVecData into RSSample object for higher dim
+     //TODO: This can be done (not for GT's PhD necessarily) "trans-dimensional
+       density estimation!"
+     //this is a beautiful extension of estimating axis-parallel
+       low-dimensional atomic densities 
+     //inside root box in R^d or other subsets specified by prior constraints
+        RVecData::iterator it;
+        for (it = sampledData.begin(); it < sampledData.end(); it++) {
+          LabPnt labThisData;
+          labThisData.Pnt = (*it);
+          labThisData.L = 1;
+          //labThisData.Print(cout);
+          labSampledData.Samples.push_back(labThisData);
+        }
+      }
+      
+      cout << "Get estimated likelihood" << endl;
+      //get estimated log-likelihood over each histogram      
+      switch(method) {
+        case 1: //PQ
+        {   
+          //go through each histogram
+          for(size_t k=0; k < vecPQHist.size(); k++) {
+            cout << "----Hist " << k << "----------" << endl; 
+            real estLogLik;
+            if (dataDim == 1) {
+              estLogLik=vecPQHist[k]->getEstLogLikelihoodFromRSSample(
+              labSampledData, dx, wt, WeightHistVec[k], WeightPMVec[k]);
+            }
+            else {
+              estLogLik=vecPQHist[k]->getEstLogLikelihoodFromRSSample(
+              labSampledData, dx, wt);
+            }
+            cout << setprecision(6) << "Estimated lik for Hist " << k << ": " <
+      < estLogLik << endl;
+            loglikVec.push_back(estLogLik);
+          }           
+          //now get the ratios
+          real Dividend = loglikVec[D];
+          for(size_t k=0; k < loglikVec.size(); k++) {
+            //Gloria's ratio of loglikelihoods: log(lik1)/log(lik2)
+            //loglikVec[k] = Dividend/loglikVec[k];
+            //Not quite log Likelihood Ratio
+       -2log(lik1/lik2)=-2.0*log(lik1)+2*log(lik2)
+            //loglikVec[k] = -2.0*Dividend + 2.0*loglikVec[k];
+            //log relative likelihood:
+       lik1/lik2=exp(log(lik1/lik2))=exp(log(lik1)-log(lik2))
+            //loglikVec[k] = exp(Dividend - loglikVec[k]);
+            //do nothing and leave the loglikelihood as it is
+          }
+          //push back the log-likehood at the end of the vector if transformed
+       in previous loop
+          loglikVec.push_back(Dividend);
+          loglikMat.push_back(loglikVec);
+          break;
+        }         
+        case 2: //MCMC
+        {
+          //go through each histogram
+          for(size_t k=0; k < vecMCMCHist.size(); k++) {
+            real estLogLik;
+            if (dataDim == 1) {
+              estLogLik=vecMCMCHist[k]->getEstLogLikelihoodFromRSSample(
+              labSampledData, dx, wt, WeightHistVec[k], WeightPMVec[k]);
+            }
+            else {
+              estLogLik=vecMCMCHist[k]->getEstLogLikelihoodFromRSSample(
+              labSampledData, dx, wt);
+            }
+            cout << setprecision(16) <<"Estimated lik for Hist " << k << ": " <
+      < estLogLik << endl;
+            loglikVec.push_back(estLogLik);
+          }       
+          //now get the ratios
+          real Dividend = loglikVec[D];
+          for(size_t k=0; k < loglikVec.size(); k++) {
+            //Gloria's ratio of loglikelihoods: log(lik1)/log(lik2)
+            //loglikVec[k] = Dividend/loglikVec[k];
+            //Not quite log Likelihood Ratio
+       -2log(lik1/lik2)=-2.0*log(lik1)+2*log(lik2)
+            //loglikVec[k] = -2.0*Dividend + 2.0*loglikVec[k];
+            //log relative likelihood:
+       lik1/lik2=exp(log(lik1/lik2))=exp(log(lik1)-log(lik2))
+            //loglikVec[k] = exp(Dividend - loglikVec[k]);
+            //do nothing and leave the loglikelihoods as it is
+          }
+          //push back the log-likehood at the end of the vector
+          loglikVec.push_back(Dividend);
+          loglikMat.push_back(loglikVec);
+          break;
+        }
+      } // end of switch(method)
+              
+      D++; // counter to go through unlabDataVec
+    } // end of going through unlabDataVec
+    
+    //output liklogMat for round i to .txt
+    string EstLikOut = dirName;
+    EstLikOut += "EstLkl";
+    ostringstream stm1;
+    stm1 << i;
+    EstLikOut += stm1.str(); 
+    EstLikOut += ".txt";
+    os.open(EstLikOut.c_str());
+    vector< vector<real> >::iterator it1;
+    vector<real>::iterator it2; 
+    for (it1 = loglikMat.begin(); it1 < loglikMat.end(); it1++) {
+      for (it2 = (*it1).begin(); it2 < (*it1).end(); it2++) {
+        os << (*it2) << "\t";
+        //cout << setprecision(16) <<(*it2) << "\t";
+      }
+      os << endl;
+      //cout << setprecision(16) <<endl;
+    } 
+    os << flush;
+    os.close();
+    cout << "Likelihood ratios output to " << EstLikOut << endl; 
+    cout << "=================================================" << endl;          
+  } // end of numRep
+   //-----------output the estimated likelihood to .txt file------------//
+ //---------------end of sampling and estimating likelihood----------------// 
+   
+   //output the weights for the point mass so that we can plot the point mass
+   //and the normalised histogram
+   //output liklogMat for round i to .txt
+   string weightFileName = dirName;
+   weightFileName += "Weights.txt";
+    os.open(weightFileName.c_str());
+   vector<map<rvector, double, less<rvector> > >::iterator vecIt;
+   map<rvector, double, less<rvector> > ::iterator mapIt;
+  for (vecIt = WeightPMVec.begin(); vecIt < WeightPMVec.end(); vecIt++) {
+    for (mapIt = (*vecIt).begin(); mapIt != (*vecIt).end(); mapIt++) {
+        os << mapIt->first << "\t" << mapIt->second;
+    }
+    os << endl;
+  } 
+  
+    os << flush;
+    os.close();
+    cout << "Weights output to " << weightFileName << endl; 
+    cout << "=================================================" << endl;  
+   
+   // free the random generator
+   gsl_rng_free(r);
+
+   return 0;
+
+} // end of AHABC
+\end{DoxyCode}

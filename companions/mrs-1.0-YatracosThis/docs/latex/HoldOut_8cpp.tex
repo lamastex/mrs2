@@ -1,0 +1,211 @@
+\hypertarget{HoldOut_8cpp}{\subsection{\-Hold\-Out.\-cpp \-File \-Reference}
+\label{HoldOut_8cpp}\index{\-Hold\-Out.\-cpp@{\-Hold\-Out.\-cpp}}
+}
+
+
+\-Hold out estimation.  
+
+
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{HoldOut_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Hold out estimation. 
+
+\-Definition in file \hyperlink{HoldOut_8cpp_source}{\-Hold\-Out.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{HoldOut_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Hold\-Out.\-cpp@{\-Hold\-Out.\-cpp}!main@{main}}
+\index{main@{main}!HoldOut.cpp@{\-Hold\-Out.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{HoldOut_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 39 of file \-Hold\-Out.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::insert\-From\-R\-Vec\-For\-Hold\-Out(), subpavings\-::\-N\-O\-L\-O\-G, taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), and subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+   //===================== user-inputs======================================//
+   const int n = atoi(argv[1]); //number of points
+   int d = atoi(argv[2]); // dimensions
+  int shape = atoi(argv[3]);
+  int hist = atoi(argv[5]); //the hist-th histogram
+  int maxCheck = atoi(argv[6]); //number of checks for successive error
+       increase in MDE
+   
+   //==============set formatting for input to oss=============================
+   ofstream os;         // ofstream object
+   os << scientific;  // set formatting for input to oss
+   os.precision(5);
+    
+   //=================set up for data generation===============================
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+   const gsl_rng_type * T;
+   gsl_rng * r;             
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+   long s = time (NULL) * getpid();
+   gsl_rng_set(r, s);
+
+   //data generating partition
+   ivector pavingBox(d);
+   interval pavingInterval(0,1);
+   for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+   // data sampled as uniform mixture over leaves of sub-paving myPart
+   //make an Adaptive Histogram object with a specified box
+   AdaptiveHistogram myPart(pavingBox);
+   // a container for the boxes
+   vector<ivector> Pboxes;
+   size_t PartSize;
+  
+   // mixture shape
+   string mixShape;
+  if (shape == 1) { mixShape = "1,1"; }
+  else if ( shape == 2) { mixShape = "3,3,2,1"; }
+  else if (shape ==3 ) { mixShape = "3,4,4, 2, 2, 3, 3"; } 
+  else if (shape==4) {
+    mixShape = "
+      5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6,5,5,6,7,8,9,10,10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"; }      
+       
+  myPart.splitToShape(mixShape);// uniform mixture      
+   SPSnodePtrs Pleaves; // set up empty container for leaf node pointers
+   SPSnodePtrsItr it; // and an iterator over the container
+   myPart.getSubPaving()->getLeaves(Pleaves); // fill the container
+   // container is filled by reading leaves off tree from left to right
+   for(it = Pleaves.begin(); it < Pleaves.end(); it++) {
+      Pboxes.push_back((*it)->getBox());
+   }
+  PartSize = Pboxes.size();
+  //cout << "Partition size:" << PartSize << endl;
+    
+  // cout << "Generating data: " << endl;
+   // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+   RVecData theData;   
+   for (int i = 0; i < n; i++) {
+        rvector thisrv(d);
+        size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+        //cout << RndBoxNum << "\t" << Pboxes[RndBoxNum] << endl;
+        thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);         
+     // cout << thisrv << endl;
+        theData.push_back(thisrv);
+   }  // data  should be in theData
+    
+   //=========insert data into an AdaptiveHistogramValidation object=========//
+   // indicators
+    bool successfulInsertion = false;
+  
+    //maximum number of points in each leaf box        
+    int finalK = atoi(argv[4]);;
+    SplitNever sn;
+       
+    // now split with priority queue
+    // Stopping Criteria: critCount
+    CompCountVal nodeCompCount;
+    CritLargestCount_LTEV critCount(finalK);
+    size_t finalLeaves = 32;
+   CritLeaves_LTEV  critLeaves(finalLeaves);
+  
+   cout << "========================================================" << endl;
+    cout << "Running hold out estimation..." << endl;
+    cout << "Max k is: " << finalK << endl; 
+    cout << "Performing hold-out estimation: " << endl;
+   
+    // Put the data from the container into the histogram  
+    AdaptiveHistogramValidation myHistVal(pavingBox);
+    int holdOutCount = int(n*0.3);   
+    successfulInsertion = myHistVal.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+    cout << n-holdOutCount << " training data and " 
+      << holdOutCount << " validation data inserted." << endl; 
+ 
+    // clock
+       clock_t start, end;
+       double timing; 
+    
+   if (successfulInsertion) { // if data successfully inserted       
+      
+     string timeFile = "Times.txt";
+     vector<double> times;
+     
+  //==============MDEAll and STAll==============================//      
+      //start the hold out estimation
+      //with stopping criteria
+      bool stopCrit = true;
+     cout << "------Running MDEAll with stopping criteria-----------" << endl;
+    int method = 2;
+    start = clock();
+      //create an AdaptiveHistogramCollator object
+      AdaptiveHistogramVCollator collStop; 
+      //maximum number of leavef nodes allowed in the PQ and MDE
+    double beta = 0.95;
+    size_t maxLeafNodes = int(pow(n, beta));
+    collStop = myHistVal.prioritySplitAndEstimate(nodeCompCount, critCount, 
+      NOLOG, 
+                           0, 0.0, stopCrit, myPart, method, hist, maxLeafNodes
+      , maxCheck);
+      end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    times.push_back(timing);
+
+    /*
+    //without stopping criteria
+      stopCrit = false;
+     cout << "\n------Running MDEAll without stopping criteria-----------" <<
+       endl;
+    start = clock();
+    //create an AdaptiveHistogramCollator object
+      AdaptiveHistogramVCollator collNoStop; 
+     AdaptiveHistogramValidation myHistValNoStop(pavingBox);
+     successfulInsertion = myHistValNoStop.insertFromRVecForHoldOut(theData,
+       sn, holdOutCount, NOLOG);
+ 
+    collNoStop = myHistValNoStop.prioritySplitAndEstimate(nodeCompCount,
+       critCount, NOLOG, 
+                           0, 0.0, stopCrit, myPart, method);                   
+      end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    times.push_back(timing);  
+    */
+  //===============end of MDE and STAll======================================//
+       
+    
+  //output timings  
+  os.open(timeFile.c_str());
+  for (size_t i = 0; i < times.size(); i++) {
+    os << times[i] << endl;
+  }
+  os << flush;
+  os.close();
+    
+  } // end of successful insertion  
+  
+  return 0; 
+} // end of uniform mixture test program
+\end{DoxyCode}

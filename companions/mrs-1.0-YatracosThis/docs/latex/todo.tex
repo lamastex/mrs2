@@ -1,0 +1,66 @@
+
+\begin{DoxyRefList}
+\item[\label{todo__todo000002}%
+\hypertarget{todo__todo000002}{}%
+\-Page \hyperlink{AdaptiveHistograms}{\-Adaptive histograms} ]\-More flexible user friendly input and output 
+
+\-Generate graphical output for histograms 
+\item[\label{todo__todo000018}%
+\hypertarget{todo__todo000018}{}%
+\-Member \hyperlink{classFCFN3_aec0a3534e5961954300b910f7a7401da}{\-F\-C\-F\-N3\-:\-:operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const ]divide by volume of labelled domain -\/-\/ volume of rooted trees need transformation (specalise \hyperlink{classFobj}{\-Fobj} member function get\-\_\-volume\-\_\-\-Lab\-Box)  
+\item[\label{todo__todo000019}%
+\hypertarget{todo__todo000019}{}%
+\-Class \hyperlink{classFLevy2D__Lkl__Tfrom1data}{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data} ]get rid of \hyperlink{classFobj1D}{\-Fobj1\-D} and make these inherit from \hyperlink{classFobj}{\-Fobj} as \hyperlink{classFCFN3Star}{\-F\-C\-F\-N3\-Star}  
+\item[\label{todo__todo000021}%
+\hypertarget{todo__todo000021}{}%
+\-Member \hyperlink{classFShiryaev1D__Lkl__aa__fromData_aa14358629387c248e96ccc8183fa9353}{\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-:\-:operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-A) const ]use dotprec accumulator here instead  
+\item[\label{todo__todo000020}%
+\hypertarget{todo__todo000020}{}%
+\-Member \hyperlink{classFShiryaev1D__Lkl__aa__fromData_ac3ef0d8ca7ece7015c1c79af2a85e261}{\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-:\-:operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-A) const ]use dotprec accumulator here instead  
+\item[\label{todo__todo000011}%
+\hypertarget{todo__todo000011}{}%
+\-Member \hyperlink{classISSample_ab2913a50ee258c5b55d91202ac35ff00}{\-I\-S\-Sample\-:\-:\-Integral\-Estimate} (vector$<$ real $>$ \&\-Integral\-Ests)]\-Needs \-Label\-Set specifics like \-Mean() 
+
+replace with gsl\-\_\-mean like computations due to their diff eqns form or \-Kahan \-Summations  
+\item[\label{todo__todo000013}%
+\hypertarget{todo__todo000013}{}%
+\-Member \hyperlink{classISSample_a67d18d57af02d5adc0025eeb025db972}{\-I\-S\-Sample\-:\-:\-Mean} ()]\-Either replace with gsl\-\_\-mean like computations due to their diff eqns form or \-Kahan \-Summations \-Function \-Obj using std\-::transform or \-Dot\-Accum in c-\/xsc  
+\item[\label{todo__todo000017}%
+\hypertarget{todo__todo000017}{}%
+\-Member \hyperlink{CesaroBellNo_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)]replace with \-C-\/\-X\-S\-C constant \-P\-I 
+
+\-Need to do simultaneous glabal opoptimisation over all labeles see \-Raaz's 2004 code with hacked older \-C-\/\-X\-S\-C libs  
+\item[\label{todo__todo000015}%
+\hypertarget{todo__todo000015}{}%
+\-Member \hyperlink{toolz_8hpp_a9efdc4ede6e6e3539c2ddca8b71e79a8}{mean\-\_\-var} (const vector$<$ real $>$ \&x, real \&mean, real \&var)]using the recurrence relation in \hyperlink{structkahan__sum}{kahan\-\_\-sum} and the sample variance using a similar recurrence \-O\-R cxsc \-Dot\-Precision \-Accumulators.  
+\item[\label{todo__todo000005}%
+\hypertarget{todo__todo000005}{}%
+\-Class \hyperlink{classMRSampler}{\-M\-R\-Sampler} ]\-In \hyperlink{classMRSampler}{\-M\-R\-Sampler} everything is inline for now -\/-\/ we need to make this truly object oriented, add a default constructor, add mrs namespace, get rid of \#defines, etc. \-Needs about 20 hours for complete documentation...  
+\item[\label{todo__todo000004}%
+\hypertarget{todo__todo000004}{}%
+\-Member \hyperlink{classMRSampler_a7142c1478e259ec85354407fccfbfa78}{\-M\-R\-Sampler\-:\-:\-M\-R\-Soutput} (std\-::ostream \&os, const double eps=0) const ]may want the output to be padded with \-T\-A\-B\-S for easy dlmread in \-M\-A\-T\-L\-A\-B for the trans-\/diminsional case\-: same for \-Output\-\_\-\-Domain\-\_\-\-Partition  
+\item[\label{todo__todo000006}%
+\hypertarget{todo__todo000006}{}%
+\-Member \hyperlink{classMRSampler_a25d99bdee1a715fb2a8e2a8068b890db}{\-M\-R\-Sampler\-:\-:\-Print\-Boxes} (int \-Nprint)]\-Needs standardization of rendering format(s) for ease of making low-\/dimensional pictures -\/-\/ \-M\-A\-T\-L\-A\-B/\-P\-O\-V\-R\-A\-Y/\-M\-A\-T\-P\-L\-O\-T\-L\-I\-B.  
+\item[\label{todo__todo000009}%
+\hypertarget{todo__todo000009}{}%
+\-Member \hyperlink{classRSSample_a9537562ed9b4bc945e4c92b2237732a8}{\-R\-S\-Sample\-:\-:\-Integral\-Estimate} ()]\-Needs \-Label\-Set specifics like \-Mean()  
+\item[\label{todo__todo000010}%
+\hypertarget{todo__todo000010}{}%
+\-Member \hyperlink{classRSSample_a6e553a95e36dbecd6f0491bf71c6a761}{\-R\-S\-Sample\-:\-:\-Mean} ()]\-Either replace with gsl\-\_\-mean like computations due to their diff eqns form or \-Kahan \-Summations \-Function \-Obj using std\-::transform or \-Dot\-Accum in c-\/xsc  
+\item[\label{todo__todo000008}%
+\hypertarget{todo__todo000008}{}%
+\-Class \hyperlink{classSortBox}{\-Sort\-Box} ]\-Read \-Josuttis1999 \-Sec 8.\-1.\-2 to extend and intervene the automatic sorting criterion via \-Function \-Objects with more than one internal state at the same time \mbox{[}perhaps also try defining different sorting criterion of the same data type as in p. 178 '\-As a constructor parameter' with e.\-g. in \-P. 191\mbox{]}. \-Perhaps incorporate alternative sorting criterion into \hyperlink{classSortBox}{\-Sort\-Box}. \-Older ideas for total order between \-Ranged\-Lab\-Boxes include\-: class \-Sort\-By\-Box\-R\-E\-Diam \{ // sort by diameter of range enclosure public\-: bool operator() ( const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P1, const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P2 ) const \{ return ( diam(\-P1.\-Box\-R\-E) $<$= diam(\-P2.\-Box\-R\-E) ); \} \}; and class \-Sort\-By\-Box\-Vol \{ // sort by volume of subdomain box public\-: bool operator() ( const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P1, const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P2 ) const \{ return ( (\-P1.\-Box\-Vol) $<$= (\-P2.\-Box\-Vol) ); \} \};  
+\item[\label{todo__todo000001}%
+\hypertarget{todo__todo000001}{}%
+\-Class \hyperlink{classsubpavings_1_1HistDescription}{subpavings\-:\-:\-Hist\-Description} ]complete this class and use instead of strings in describing histograms. 
+\item[\label{todo__todo000003}%
+\hypertarget{todo__todo000003}{}%
+\-Member \hyperlink{classsubpavings_1_1MappedSPnode_a83d5b7a4609c73e1818fe2d3231c0979}{subpavings\-:\-:\-Mapped\-S\-Pnode$<$ \-T $>$\-:\-:slice} (const std\-::vector$<$ int $>$ \&slice\-Dims, const std\-::vector$<$ cxsc\-::real $>$ \&slice\-Pts)]better description.  
+\item[\label{todo__todo000007}%
+\hypertarget{todo__todo000007}{}%
+\-Class \hyperlink{classsubpavings_1_1RealMappedSPnode}{subpavings\-:\-:\-Real\-Mapped\-S\-Pnode} ]\-Really it seems like we should not have both the \-Real\-Mapped\-S\-Pnode and the \-Real\-Mapped\-S\-Pnode classes. \-Should look at the collator stuff and see if that can be the \-Real\-Mapped\-S\-Pnode and just replace all this code by that and rename it. \-That would mean that we lose the connection with the templatised \-Mapped\-S\-Pnode class which would be a good thing really -\/ the \-Real\-Mapped\-S\-Pnode is adding functionality to the extent that it is not appropriate to see it as a derived class from the mapped nodes any more. \-Combining collators and real mapped spnodes would deal with all the duplication of code that there is at present.  
+\item[\label{todo__todo000014}%
+\hypertarget{todo__todo000014}{}%
+\-Member \hyperlink{classsubpavings_1_1SPnode_ad04e240d9152c1a927c2ec280aa29371}{subpavings\-:\-:\-S\-Pnode\-:\-:get\-Split\-Dim} () const ]\-We could just keep the split\-Dim for all spnode types. \-But then we'd have to adjust this when nodes were marginalised etc. but this is expensive ... \-See \-Real\-Mapped\-S\-Pnode\-Single\-Range etc as well 
+\end{DoxyRefList}

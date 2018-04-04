@@ -1,0 +1,41 @@
+\-On this page we show some examples of using \-Moore \-Rejection \-Sampling with selected targets
+
+
+\begin{DoxyItemize}
+\item \-Cavender-\/\-Farris-\/\-Neyman \-Model
+\item \hyperlink{target_examples_MRSexamsec_Levy}{\-The function of \-Levy}
+\item \hyperlink{target_examples_MRSexamsec_Rosenbrock}{\-Rosenbrock's \-Multi-\/dimensional function}
+\item \-Witch's \-Hat
+\item \-Trans-\/dimensional \-Cavender-\/\-Farris-\/\-Neyman \-Model
+\end{DoxyItemize}\hypertarget{target_examples_MRSexamsec_Levy}{}\subsection{\-The function of Levy}\label{target_examples_MRSexamsec_Levy}
+\-The function of \-Levy is $ \Re^2 \rightarrow \Re $ with
+
+\[ f(x,y) = \sum_{i=1}^5 i \cos((i - 1)x + i)\sum_{j=1}^5j\cos((j + 1)y + j) \]
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{Levy_function.png}
+\caption{\-Function of \-Levy on a domain \mbox{[}-\/2,2\mbox{]}x\mbox{[}-\/2,2\mbox{]}}
+\end{DoxyImage}
+
+
+\-We convert the above function into a target shape by exponentiating its negative that is scaled by a temperature parameter $T$ \-: \[ l_{T}(x) = \exp \left( - \frac{1}{T}\sum_{i=1}^5 i \cos((i - 1)x_1 + i) \sum_{j=1}^5j\cos((j + 1)x_2 + j) \right) \]
+
+\-Levy \-Target \-Shape $l_{40}(x_1,x_2): [-10,10]\times [-10,10] \to \Re $ is plotted below.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{LevyT40TargetShape.png}
+\caption{\-Levy \-Target \-Shape on a domain \mbox{[}-\/10,10\mbox{]}x\mbox{[}-\/10,10\mbox{]}}
+\end{DoxyImage}
+\hypertarget{target_examples_MRSexamsec_Rosenbrock}{}\subsection{\-Rosenbrock's Multi-\/dimensional function}\label{target_examples_MRSexamsec_Rosenbrock}
+\-Rosenbrock's $ D $-\/dimensional function $ \Re^2 \rightarrow \Re $ with
+
+\[ f(x) = \exp \left( - \sum_{i=2}^D \left( 100(x_i - x_{i-1}^2)^2 + ( 1 - x_{i-1})^2 \right) \right) \]
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{Rosenbrock_function.png}
+\caption{\-Rosenbrock's \-D=2 dimensional function on a domain \mbox{[}-\/2,2\mbox{]}x\mbox{[}-\/1,3\mbox{]}}
+\end{DoxyImage}
+ 

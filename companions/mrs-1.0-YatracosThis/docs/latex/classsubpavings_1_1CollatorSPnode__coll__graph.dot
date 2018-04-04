@@ -1,0 +1,19 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{subpavings::CollatorSPnode\n|- summary\l|+ CollatorSPnode()\l+ CollatorSPnode()\l+ CollatorSPnode()\l+ CollatorSPnode()\l+ operator=()\l+ makeAverageCollation()\l+ getSummary()\l+ getNumberSummarised()\l+ getLeafNodeAbsAreaAccumulations()\l+ getLeafNodeSummaryAccumulations()\land 32 more...+ getParent()\l+ getLeftChild()\l+ getRightChild()\l+ addPavings()\l+ subtractPavings()\l+ _marginalise()\l+ marginalise()\l- CollatorSPnode()\l- nodeNegate()\l- leafAverageOutputTabs()\l- getLeafNodeAbsAreaAccumulations()\l- getLeafNodeAbsAreaAccumulationTotal()\l- getLeafNodeSummaryAccumulations()\l- dotDiffPaving()\l- dotDifferenceSummary()\l* getParent()\l* getLeftChild()\l* getRightChild()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{subpavings::SPnode\n|# theBox\l# dimension\l# label\l# parent\l# leftChild\l# rightChild\l# nodeName\l|+ SPnode()\l+ SPnode()\l+ SPnode()\l+ SPnode()\l+ SPnode()\l+ SPnode()\l+ ~SPnode()\l+ operator=()\l+ recursiveRename()\l+ isSplittableNode()\land 49 more...+ getParent()\l+ getLeftChild()\l+ getRightChild()\l+ leavesOutputTabs()\l+ leavesOutputTabs()\l+ nodesAllOutput()\l+ nodesAllOutput()\l+ vecLeafBoxOuterJacket()\l+ spLeafBoxOuterJacket()\l+ volOuterJacket()\l+ vecLeafBoxIntersection()\l+ spLeafBoxIntersection()\l+ volIntersection()\l+ vecLeafBoxDifference()\l+ vecBoxNodeDifference()\l+ spLeafBoxDifference()\l+ volDifference()\l+ makeTreeFromLeaves()\l+ makeTreeFromVoxels()\l+ vtkPaving()\l# splitLeft()\l# _reshapeToUnion()\l- constructor_error_handler()\l* getParent()\l* getLeftChild()\l* getRightChild()\l* leavesOutputTabs()\l* leavesOutputTabs()\l* nodesAllOutput()\l* nodesAllOutput()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1SPnode.shtml",tooltip="SPnodes are nodes in the representation of a subpaving as a binary tree."];
+  Node2 -> Node2 [color="grey25",fontsize="10",style="solid",label=" rightChild\nparent\nleftChild" ,arrowhead="odiamond"];
+  Node3 -> Node2 [color="grey25",fontsize="10",style="solid",label=" nodeName" ,arrowhead="odiamond"];
+  Node3 [label="{std::string\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node4 [label="{std::basic_string\< char \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" summary" ,arrowhead="odiamond"];
+  Node5 [label="{std::vector\< double \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node5 [dir="back",color="orange",fontsize="10",style="solid",label=" \< double \>" ];
+  Node6 [label="{std::vector\< T \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node7 -> Node6 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond"];
+  Node7 [label="{T\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

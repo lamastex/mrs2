@@ -1,0 +1,62 @@
+\hypertarget{rangecollection__hulloperator_8cpp}{\subsection{rangecollection\-\_\-hulloperator.\-cpp \-File \-Reference}
+\label{rangecollection__hulloperator_8cpp}\index{rangecollection\-\_\-hulloperator.\-cpp@{rangecollection\-\_\-hulloperator.\-cpp}}
+}
+
+
+\-Range\-Collection hull operator specialisation definitions.  
+
+
+{\ttfamily \#include \char`\"{}rangecollection.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$$>$ }\\cxsc\-::interval \hyperlink{rangecollection__hulloperator_8cpp_a0793853f7c4629877b87fd7345b5fe12}{subpavings\-::hull\-Operator$<$ cxsc\-::interval $>$} (const cxsc\-::interval \&x, const cxsc\-::interval \&y)
+\item 
+{\footnotesize template$<$$>$ }\\cxsc\-::ivector \hyperlink{rangecollection__hulloperator_8cpp_a49fafd2d0d1c044d859d5171ec26da27}{subpavings\-::hull\-Operator$<$ cxsc\-::ivector $>$} (const cxsc\-::ivector \&x, const cxsc\-::ivector \&y)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Range\-Collection hull operator specialisation definitions. / 
+
+\-Definition in file \hyperlink{rangecollection__hulloperator_8cpp_source}{rangecollection\-\_\-hulloperator.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{rangecollection__hulloperator_8cpp_a0793853f7c4629877b87fd7345b5fe12}{\index{rangecollection\-\_\-hulloperator.\-cpp@{rangecollection\-\_\-hulloperator.\-cpp}!subpavings\-::hull\-Operator$<$ cxsc\-::interval $>$@{subpavings\-::hull\-Operator$<$ cxsc\-::interval $>$}}
+\index{subpavings\-::hull\-Operator$<$ cxsc\-::interval $>$@{subpavings\-::hull\-Operator$<$ cxsc\-::interval $>$}!rangecollection_hulloperator.cpp@{rangecollection\-\_\-hulloperator.\-cpp}}
+\paragraph[{subpavings\-::hull\-Operator$<$ cxsc\-::interval $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ cxsc\-::interval {\bf subpavings\-::hull\-Operator}$<$ cxsc\-::interval $>$ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::interval \&}]{x, }
+\item[{const cxsc\-::interval \&}]{y}
+\end{DoxyParamCaption}
+)}}\label{rangecollection__hulloperator_8cpp_a0793853f7c4629877b87fd7345b5fe12}
+
+
+\-Definition at line 32 of file rangecollection\-\_\-hulloperator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+   return x | y; // convex hull
+}
+\end{DoxyCode}
+\hypertarget{rangecollection__hulloperator_8cpp_a49fafd2d0d1c044d859d5171ec26da27}{\index{rangecollection\-\_\-hulloperator.\-cpp@{rangecollection\-\_\-hulloperator.\-cpp}!subpavings\-::hull\-Operator$<$ cxsc\-::ivector $>$@{subpavings\-::hull\-Operator$<$ cxsc\-::ivector $>$}}
+\index{subpavings\-::hull\-Operator$<$ cxsc\-::ivector $>$@{subpavings\-::hull\-Operator$<$ cxsc\-::ivector $>$}!rangecollection_hulloperator.cpp@{rangecollection\-\_\-hulloperator.\-cpp}}
+\paragraph[{subpavings\-::hull\-Operator$<$ cxsc\-::ivector $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ cxsc\-::ivector {\bf subpavings\-::hull\-Operator}$<$ cxsc\-::ivector $>$ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::ivector \&}]{x, }
+\item[{const cxsc\-::ivector \&}]{y}
+\end{DoxyParamCaption}
+)}}\label{rangecollection__hulloperator_8cpp_a49fafd2d0d1c044d859d5171ec26da27}
+
+
+\-Definition at line 39 of file rangecollection\-\_\-hulloperator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+   return x | y; // convex hull
+}
+\end{DoxyCode}

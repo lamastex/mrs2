@@ -1,0 +1,826 @@
+\hypertarget{classsubpavings_1_1RangeCollectionClass}{\subsection{subpavings\-:\-:\-Range\-Collection\-Class$<$ \-T $>$ \-Class \-Template \-Reference}
+\label{classsubpavings_1_1RangeCollectionClass}\index{subpavings\-::\-Range\-Collection\-Class$<$ T $>$@{subpavings\-::\-Range\-Collection\-Class$<$ T $>$}}
+}
+
+
+\-A class for range collection objects.  
+
+
+
+
+{\ttfamily \#include $<$rangecollection.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionClass_aef62d2aa5ff8ba9dec79cb9bb714fc68}{\-Range\-Collection\-Class} ()
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionClass_a994407fb9063dec6364b57697ee4ffbd}{\-Range\-Collection\-Class} (const \-T \&range)
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionClass_afd2ea195d16d474bf618c2fd478cdfc4}{\-Range\-Collection\-Class} (const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&other)
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \& \hyperlink{classsubpavings_1_1RangeCollectionClass_aba4094c69cec254d23643c00051ce068}{operator=} (const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&rhs)
+\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1RangeCollectionClass_ac7965fd94f11b817f6f533a5dab2a106}{get\-Size} () const 
+\item 
+bool \hyperlink{classsubpavings_1_1RangeCollectionClass_a777b04fa8e011fdbaabdd85ced542e83}{is\-Empty} () const 
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_aad3fca9cdacde8581cd6d1684357d1d1}{push\-Back} (const \-T \&to\-Add)
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_ab0bda06429ce2355970cdfe02a1c1b36}{add\-Reduce} ()
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_acc3641f81593a24b242bed4f223cbd85}{product\-Reduce} ()
+\item 
+\-T \hyperlink{classsubpavings_1_1RangeCollectionClass_a98e31e9ed0220ed3358860b808258a55}{abs\-Value} ()
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_ad34b794f99d2b254f1a7d8a1fa608bf8}{hull\-Collection} (const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&other)
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_acf3cc8c38b9a009312dc4d6660705958}{scalar\-Mult} (const \-T \&mult)
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_ab2bb4230d2cdfffab259895a8bf0037d}{hull\-Collection} (const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&lhs, const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&rhs)
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_a6bfb2802ef229b5671ce6e095fd5004e}{combine\-Collection} (const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&lhs, const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&rhs)
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_a5a93572c908847119d9f562208088792}{subtract\-Collection} (const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&lhs, const \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ \-T $>$ \&rhs)
+\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1RangeCollectionClass_a853143f43198b6f2dbfffbe364e75d09}{output\-Tabs} (std\-::ostream \&os) const 
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_a6173b655063220537c3630f1347cfdd5}{get\-Weights} (std\-::vector$<$ double $>$ \&\-Weights\-Vector, std\-::vector$<$ interval $>$ \&\-Weights\-Int, double box\-Vol)
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_a14b0dd04add88d021dc3a67a3a1c8656}{get\-Height} (std\-::vector$<$ real $>$ \&\-Heights\-Vector)
+\item 
+real \hyperlink{classsubpavings_1_1RangeCollectionClass_aa2490dc5f0d3e9651753ad6aea148c1b}{get\-Node\-I\-A\-E} (double box\-Vol)
+\item 
+real \hyperlink{classsubpavings_1_1RangeCollectionClass_a638fb0cb53c34ae359743cd22d6da8ee}{get\-Node\-I\-A\-E\-Reg\-Hist} (double box\-Vol, double height)
+\item 
+real \hyperlink{classsubpavings_1_1RangeCollectionClass_a364b0e829d6f1dea3b2cb9085036dd2c}{get\-Node\-Area} (double box\-Vol)
+\item 
+real \hyperlink{classsubpavings_1_1RangeCollectionClass_a4a8632e2e2f9f9743256c7dbaa7a7529}{norm\-Node\-Height} (double total\-Area)
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionClass_ac728d483dcb418354e6286c8b6db08e1}{clear\-All} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\-::vector$<$ \-T $>$ \hyperlink{classsubpavings_1_1RangeCollectionClass_aad6b97397ee955fe4ed74e1d8dc0776a}{\-Range\-Collection\-Type}
+\item 
+typedef std\-::vector$<$ \-T $>$\-::iterator \hyperlink{classsubpavings_1_1RangeCollectionClass_afc18b2f0242b0fc4314bbf8af2cc7034}{\-Range\-Collection\-Itr}
+\item 
+typedef std\-::vector$<$ \-T $>$\*
+\-::const\-\_\-iterator \hyperlink{classsubpavings_1_1RangeCollectionClass_a636405dad973d70f8addd86d416418ca}{\-Range\-Collection\-Const\-Itr}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionClass_aad6b97397ee955fe4ed74e1d8dc0776a}{\-Range\-Collection\-Type} \hyperlink{classsubpavings_1_1RangeCollectionClass_a91c127974a65a450569f9c33bbc2fcf6}{container}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename \-T$>$class subpavings\-::\-Range\-Collection\-Class$<$ T $>$}
+
+\-A class for range collection objects. 
+
+\-A \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class} is an implementation for collections of ranges used by \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode} objects. \-The type of the range object is the template parameter \-T.
+
+\-The underlying container should be some kind of sequence container.
+
+\-This implementation uses an stl\-::vector as the implementation container. 
+
+\-Definition at line 98 of file rangecollection.\-hpp.
+
+
+
+\subsubsection{\-Member \-Typedef \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a636405dad973d70f8addd86d416418ca}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!\-Range\-Collection\-Const\-Itr@{\-Range\-Collection\-Const\-Itr}}
+\index{\-Range\-Collection\-Const\-Itr@{\-Range\-Collection\-Const\-Itr}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{\-Range\-Collection\-Const\-Itr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ typedef std\-::vector$<$\-T$>$\-::const\-\_\-iterator {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf \-Range\-Collection\-Const\-Itr}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a636405dad973d70f8addd86d416418ca}
+
+
+\-Definition at line 102 of file rangecollection.\-hpp.
+
+\hypertarget{classsubpavings_1_1RangeCollectionClass_afc18b2f0242b0fc4314bbf8af2cc7034}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!\-Range\-Collection\-Itr@{\-Range\-Collection\-Itr}}
+\index{\-Range\-Collection\-Itr@{\-Range\-Collection\-Itr}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{\-Range\-Collection\-Itr}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ typedef std\-::vector$<$\-T$>$\-::iterator {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf \-Range\-Collection\-Itr}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_afc18b2f0242b0fc4314bbf8af2cc7034}
+
+
+\-Definition at line 101 of file rangecollection.\-hpp.
+
+\hypertarget{classsubpavings_1_1RangeCollectionClass_aad6b97397ee955fe4ed74e1d8dc0776a}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!\-Range\-Collection\-Type@{\-Range\-Collection\-Type}}
+\index{\-Range\-Collection\-Type@{\-Range\-Collection\-Type}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{\-Range\-Collection\-Type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ typedef std\-::vector$<$\-T$>$ {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf \-Range\-Collection\-Type}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_aad6b97397ee955fe4ed74e1d8dc0776a}
+
+
+\-Definition at line 100 of file rangecollection.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_aef62d2aa5ff8ba9dec79cb9bb714fc68}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!\-Range\-Collection\-Class@{\-Range\-Collection\-Class}}
+\index{\-Range\-Collection\-Class@{\-Range\-Collection\-Class}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{\-Range\-Collection\-Class}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf \-Range\-Collection\-Class} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_aef62d2aa5ff8ba9dec79cb9bb714fc68}
+
+
+\-Definition at line 110 of file rangecollection.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a994407fb9063dec6364b57697ee4ffbd}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!\-Range\-Collection\-Class@{\-Range\-Collection\-Class}}
+\index{\-Range\-Collection\-Class@{\-Range\-Collection\-Class}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{\-Range\-Collection\-Class}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf \-Range\-Collection\-Class} (
+\begin{DoxyParamCaption}
+\item[{const \-T \&}]{range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a994407fb9063dec6364b57697ee4ffbd}
+
+
+\-Definition at line 113 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::push\-Back().
+
+
+\begin{DoxyCode}
+        {
+            pushBack(range);
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_afd2ea195d16d474bf618c2fd478cdfc4}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!\-Range\-Collection\-Class@{\-Range\-Collection\-Class}}
+\index{\-Range\-Collection\-Class@{\-Range\-Collection\-Class}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{\-Range\-Collection\-Class}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf \-Range\-Collection\-Class} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_afd2ea195d16d474bf618c2fd478cdfc4}
+
+
+\-Definition at line 119 of file rangecollection.\-hpp.
+
+
+\begin{DoxyCode}
+        : container(other.container) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a98e31e9ed0220ed3358860b808258a55}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!abs\-Value@{abs\-Value}}
+\index{abs\-Value@{abs\-Value}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{abs\-Value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ \-T {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf abs\-Value} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a98e31e9ed0220ed3358860b808258a55}
+
+
+\-Definition at line 193 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+        {
+            T accumulation; // default constructor
+
+            if (!container.empty()) {
+
+                accumulation = abs(*(container.begin()));
+
+
+                if (container.size() > 1) {
+                    RangeCollectionItr rit = container.begin();
+
+                    rit++;
+                    for (;
+                            rit < container.end(); rit++) {
+                        // don't use *= in case type T does not support it
+                        accumulation = accumulation + abs(*rit);
+                    }
+                }
+
+            }
+            return accumulation;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_ab0bda06429ce2355970cdfe02a1c1b36}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!add\-Reduce@{add\-Reduce}}
+\index{add\-Reduce@{add\-Reduce}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{add\-Reduce}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf add\-Reduce} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_ab0bda06429ce2355970cdfe02a1c1b36}
+
+
+\-Definition at line 149 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+        {
+            if (!container.empty()) {
+
+                // use std::accumulate for this but from second value in
+       collection on
+                // so that we can use first value as intial one
+                // avoids having to know the equivalent of '0' for T
+
+                T accumulation = *(container.begin());
+
+                if (container.size() > 1) {
+                    accumulation = std::accumulate(++container.begin(),
+                                    container.end(), accumulation);
+                }
+
+                container.clear();
+                container.push_back(accumulation);
+            }
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_ac728d483dcb418354e6286c8b6db08e1}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!clear\-All@{clear\-All}}
+\index{clear\-All@{clear\-All}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{clear\-All}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf clear\-All} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_ac728d483dcb418354e6286c8b6db08e1}
+
+
+\-Definition at line 441 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+   {
+    if (!container.empty()) {
+       container.clear();
+    }
+   }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a6bfb2802ef229b5671ce6e095fd5004e}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!combine\-Collection@{combine\-Collection}}
+\index{combine\-Collection@{combine\-Collection}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{combine\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf combine\-Collection} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{lhs, }
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a6bfb2802ef229b5671ce6e095fd5004e}
+
+
+\-Definition at line 286 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+        {
+            // now give this node a range collection which contains all the
+            // elements in both lhs and rhs range collections, going l->r
+            container.clear(); // make sure current range collection empty
+            container.insert(container.begin(),
+                                            lhs.container.begin(),
+                                            lhs.container.end());
+            container.insert(container.end(),
+                                            rhs.container.begin(),
+                                            rhs.container.end());
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a14b0dd04add88d021dc3a67a3a1c8656}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!get\-Height@{get\-Height}}
+\index{get\-Height@{get\-Height}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{get\-Height}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf get\-Height} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ real $>$ \&}]{\-Heights\-Vector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a14b0dd04add88d021dc3a67a3a1c8656}
+
+
+\-Definition at line 366 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+
+\-Referenced by get\-Height\-And\-Box().
+
+
+\begin{DoxyCode}
+    {
+      RangeCollectionItr cit;
+      if (container.size() == 1) {
+        for (cit = container.begin(); cit < container.end(); cit++) {
+            HeightsVector.push_back((*cit));
+        }
+      }
+      }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a364b0e829d6f1dea3b2cb9085036dd2c}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!get\-Node\-Area@{get\-Node\-Area}}
+\index{get\-Node\-Area@{get\-Node\-Area}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{get\-Node\-Area}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ real {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf get\-Node\-Area} (
+\begin{DoxyParamCaption}
+\item[{double}]{box\-Vol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a364b0e829d6f1dea3b2cb9085036dd2c}
+
+
+\-Definition at line 412 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+      {
+      RangeCollectionItr cit;
+      real area = 0.0;
+      //std::cout << "get node area: " << std::endl;
+      if (container.size() == 1) {
+        for (cit = container.begin(); cit < container.end(); cit++) {
+            //std::cout << (*cit) << "\t" << boxVol << std::endl;
+            area = (*cit)*boxVol;
+        }
+      }
+      return area;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_aa2490dc5f0d3e9651753ad6aea148c1b}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!get\-Node\-I\-A\-E@{get\-Node\-I\-A\-E}}
+\index{get\-Node\-I\-A\-E@{get\-Node\-I\-A\-E}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{get\-Node\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ real {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf get\-Node\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{double}]{box\-Vol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_aa2490dc5f0d3e9651753ad6aea148c1b}
+
+
+\-Definition at line 380 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+    {
+      RangeCollectionItr cit;
+      real IAE;
+      if (container.size() == 1) {
+        for (cit = container.begin(); cit < container.end(); cit++) {
+            real diff = (*cit);
+            if (diff < 0) { diff = diff * (-1.0); } //to make it positive
+            IAE = (boxVol*diff);
+            //std::cout << diff << "\t" << boxVol << std::endl;
+        }
+      }
+      return IAE;
+      }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a638fb0cb53c34ae359743cd22d6da8ee}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!get\-Node\-I\-A\-E\-Reg\-Hist@{get\-Node\-I\-A\-E\-Reg\-Hist}}
+\index{get\-Node\-I\-A\-E\-Reg\-Hist@{get\-Node\-I\-A\-E\-Reg\-Hist}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{get\-Node\-I\-A\-E\-Reg\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ real {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf get\-Node\-I\-A\-E\-Reg\-Hist} (
+\begin{DoxyParamCaption}
+\item[{double}]{box\-Vol, }
+\item[{double}]{height}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a638fb0cb53c34ae359743cd22d6da8ee}
+
+
+\-Definition at line 397 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+    {
+      RangeCollectionItr cit;
+      real IAE;
+      if (container.size() == 1) {
+        for (cit = container.begin(); cit < container.end(); cit++) {
+            real diff = (*cit) - height;
+            if (diff < 0) { diff = diff * (-1.0); } //to make it positive
+            IAE = (boxVol*diff);
+        }
+      }
+      return IAE;
+      }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_ac7965fd94f11b817f6f533a5dab2a106}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!get\-Size@{get\-Size}}
+\index{get\-Size@{get\-Size}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ size\-\_\-t {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf get\-Size} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_ac7965fd94f11b817f6f533a5dab2a106}
+
+
+\-Definition at line 130 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+
+\-Referenced by subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::hull\-Collection(), and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::subtract\-Collection().
+
+
+\begin{DoxyCode}
+        {
+            return container.size();
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a6173b655063220537c3630f1347cfdd5}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!get\-Weights@{get\-Weights}}
+\index{get\-Weights@{get\-Weights}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{get\-Weights}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf get\-Weights} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$ \&}]{\-Weights\-Vector, }
+\item[{std\-::vector$<$ interval $>$ \&}]{\-Weights\-Int, }
+\item[{double}]{box\-Vol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a6173b655063220537c3630f1347cfdd5}
+
+
+\-Definition at line 339 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+
+\-Referenced by get\-All\-Weights().
+
+
+\begin{DoxyCode}
+    {
+      RangeCollectionItr cit;
+      if (container.size() == 1) {
+        for (cit = container.begin(); cit < container.end(); cit++) {
+            
+            interval vol = interval(boxVol);
+            interval height = interval(*cit);
+            //std::cout << vol << "\t" << height << std::endl;
+            
+            interval area = vol*height;
+            WeightsInt.push_back(area);
+            WeightsVector.push_back(_double(mid(area)));
+            //i know this is horrible but i don't know how else to do this
+            //for now and i don't have time to improve this.. sorry..
+            //mainly i need a double for the gsl_ran_discrete_preproc
+            //which only takes in doubles, hence the cast.
+        }
+      }
+      }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_ad34b794f99d2b254f1a7d8a1fa608bf8}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!hull\-Collection@{hull\-Collection}}
+\index{hull\-Collection@{hull\-Collection}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{hull\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf hull\-Collection} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_ad34b794f99d2b254f1a7d8a1fa608bf8}
+
+
+\-Definition at line 219 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container, subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Size(), subpavings\-::hull\-Operator(), and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::is\-Empty().
+
+
+
+\-Referenced by subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::hull\-Collection().
+
+
+\begin{DoxyCode}
+        {
+
+            size_t i = 0;
+
+            size_t n = other.getSize();
+
+            if (isEmpty()) { // nothing here already
+                // copy the other's container for this
+                container = other.container;
+            }
+            else { // has something in
+
+                // we have to make sure the rangeCollection for this matches
+                // that of the children
+                // number of elements in this rangeCollection should = child
+                if (getSize() != n) {
+                    throw RangeCollectionException("rangeCollections do not
+       match");
+                }
+
+                // store current container temporarily
+                RangeCollectionType _temp = container;
+
+                container.clear();
+
+                // put into this container the hull operator of
+                // the pairs of values from the other's container and the
+       this's container
+                for (i=0; i < n; i++) {
+                    container.push_back(
+                                hullOperator((other.container)[i],
+                                _temp[i]));
+                }
+            }
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_ab2bb4230d2cdfffab259895a8bf0037d}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!hull\-Collection@{hull\-Collection}}
+\index{hull\-Collection@{hull\-Collection}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{hull\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf hull\-Collection} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{lhs, }
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_ab2bb4230d2cdfffab259895a8bf0037d}
+
+
+\-Definition at line 276 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container, and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::hull\-Collection().
+
+
+\begin{DoxyCode}
+        {
+            container = lhs.container;
+            hullCollection(rhs);
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a777b04fa8e011fdbaabdd85ced542e83}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ bool {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf is\-Empty} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a777b04fa8e011fdbaabdd85ced542e83}
+
+
+\-Definition at line 136 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+
+\-Referenced by subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::hull\-Collection().
+
+
+\begin{DoxyCode}
+        {
+            return container.empty();
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a4a8632e2e2f9f9743256c7dbaa7a7529}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!norm\-Node\-Height@{norm\-Node\-Height}}
+\index{norm\-Node\-Height@{norm\-Node\-Height}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{norm\-Node\-Height}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ real {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf norm\-Node\-Height} (
+\begin{DoxyParamCaption}
+\item[{double}]{total\-Area}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a4a8632e2e2f9f9743256c7dbaa7a7529}
+
+
+\-Definition at line 426 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+
+\-Referenced by norm\-Heights().
+
+
+\begin{DoxyCode}
+    {
+      RangeCollectionItr cit;
+      real newHeight;
+      if (container.size() == 1) {
+        for (cit = container.begin(); cit < container.end(); cit++) {
+            newHeight = (*cit)/totalArea;
+        }
+      }
+      return newHeight;
+    } // end of normNodeHeight
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_aba4094c69cec254d23643c00051ce068}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!operator=@{operator=}}
+\index{operator=@{operator=}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf \-Range\-Collection\-Class}$<$\-T$>$\& {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_aba4094c69cec254d23643c00051ce068}
+
+
+\-Definition at line 123 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+        {
+            container = rhs.container;
+            return *this;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a853143f43198b6f2dbfffbe364e75d09}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!output\-Tabs@{output\-Tabs}}
+\index{output\-Tabs@{output\-Tabs}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ std\-::ostream\& {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a853143f43198b6f2dbfffbe364e75d09}
+
+
+\-Definition at line 326 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+        {
+            RangeCollectionConstItr cit;
+            for (cit = container.begin(); cit < container.end(); cit++) {
+                os << "\t" << (*cit);
+            }
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_acc3641f81593a24b242bed4f223cbd85}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!product\-Reduce@{product\-Reduce}}
+\index{product\-Reduce@{product\-Reduce}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{product\-Reduce}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf product\-Reduce} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_acc3641f81593a24b242bed4f223cbd85}
+
+
+\-Definition at line 171 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+        {
+            if (!container.empty()) {
+
+                RangeCollectionItr rit = container.begin();
+                T product = *(rit);
+
+                if (container.size() > 1) {
+                    rit++;
+                    for (;
+                            rit < container.end(); rit++) {
+                        // don't use *= in case type T does not support it
+                        product = product * (*rit);
+                    }
+               }
+
+                container.clear();
+                container.push_back(product);
+            }
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_aad3fca9cdacde8581cd6d1684357d1d1}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!push\-Back@{push\-Back}}
+\index{push\-Back@{push\-Back}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{push\-Back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf push\-Back} (
+\begin{DoxyParamCaption}
+\item[{const \-T \&}]{to\-Add}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_aad3fca9cdacde8581cd6d1684357d1d1}
+
+
+\-Definition at line 142 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+
+\-Referenced by subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::\-Range\-Collection\-Class().
+
+
+\begin{DoxyCode}
+        {
+            container.push_back(toAdd);
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_acf3cc8c38b9a009312dc4d6660705958}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!scalar\-Mult@{scalar\-Mult}}
+\index{scalar\-Mult@{scalar\-Mult}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{scalar\-Mult}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf scalar\-Mult} (
+\begin{DoxyParamCaption}
+\item[{const \-T \&}]{mult}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_acf3cc8c38b9a009312dc4d6660705958}
+
+
+\-Definition at line 262 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container.
+
+
+\begin{DoxyCode}
+        {
+            //transform (container.begin(), container.end(), container.begin(),
+            //            bind1st(transformMult<T>(),mult));
+
+            RangeCollectionItr rit = container.begin();
+            for (RangeCollectionItr rit = container.begin();
+                            rit < container.end(); rit++) {
+                        // don't use *= in case type T does not support it
+                        *rit = mult * (*rit);
+            }
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a5a93572c908847119d9f562208088792}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!subtract\-Collection@{subtract\-Collection}}
+\index{subtract\-Collection@{subtract\-Collection}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{subtract\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ void {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf subtract\-Collection} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{lhs, }
+\item[{const {\bf \-Range\-Collection\-Class}$<$ \-T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a5a93572c908847119d9f562208088792}
+
+
+\-Definition at line 301 of file rangecollection.\-hpp.
+
+
+
+\-References subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::container, and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Size().
+
+
+\begin{DoxyCode}
+        {
+            size_t i = 0;
+            size_t n = rhs.getSize();
+            size_t m = lhs.getSize();
+            // we have to make sure the rangeCollection for this matches
+            // that of the other
+            // number of elements in this rangeCollection should = child
+            if (m < n) {
+                throw RangeCollectionException("rangeCollections do not match")
+      ;
+            }
+            container.clear();
+            // put into this container the difference of
+            // the pairs of values from the two containers
+            for (i=0; i < n; i++) {
+                container.push_back(
+                            lhs.container[i] - rhs.container[i]);
+            }
+            for (i = n; i < m; i++) {
+                container.push_back(lhs.container[i]);
+            }
+        }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionClass_a91c127974a65a450569f9c33bbc2fcf6}{\index{subpavings\-::\-Range\-Collection\-Class@{subpavings\-::\-Range\-Collection\-Class}!container@{container}}
+\index{container@{container}!subpavings::RangeCollectionClass@{subpavings\-::\-Range\-Collection\-Class}}
+\paragraph[{container}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename \-T$>$ {\bf \-Range\-Collection\-Type} {\bf subpavings\-::\-Range\-Collection\-Class}$<$ \-T $>$\-::{\bf container}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionClass_a91c127974a65a450569f9c33bbc2fcf6}
+
+
+\-Definition at line 105 of file rangecollection.\-hpp.
+
+
+
+\-Referenced by subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::abs\-Value(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::add\-Reduce(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::clear\-All(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::combine\-Collection(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Height(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Node\-Area(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Node\-I\-A\-E(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Node\-I\-A\-E\-Reg\-Hist(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Size(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Weights(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::hull\-Collection(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::is\-Empty(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::norm\-Node\-Height(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::operator=(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::output\-Tabs(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::product\-Reduce(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::push\-Back(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::scalar\-Mult(), and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::subtract\-Collection().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rangecollection_8hpp}{rangecollection.\-hpp}\end{DoxyCompactItemize}

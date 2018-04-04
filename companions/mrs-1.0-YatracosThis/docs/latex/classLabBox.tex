@@ -1,0 +1,153 @@
+\hypertarget{classLabBox}{\subsection{\-Lab\-Box \-Class \-Reference}
+\label{classLabBox}\index{\-Lab\-Box@{\-Lab\-Box}}
+}
+
+
+\-A labeled box class.  
+
+
+
+
+{\ttfamily \#include $<$\-Small\-Classes.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classLabBox_a93f97cf6932b8caf8911a0cf440807e6}{\-Print} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Output formatted with brackets etc, suitable for human reading. \end{DoxyCompactList}\item 
+void \hyperlink{classLabBox_a1bed774c2eb23a4b94b2a9934610faea}{\-Output} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Tab-\/delimited output format for a labelled box, numeric only. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ivector \hyperlink{classLabBox_a65253d570e3236bde747ddfabc7c6849}{\-Box}
+\begin{DoxyCompactList}\small\item\em specifies the box as cxsc\-::ivector \-Box of the labeled box \hyperlink{classLabBox}{\-Lab\-Box} \end{DoxyCompactList}\item 
+int \hyperlink{classLabBox_a4f0197d8aaeb58676d6c50f0f229a63b}{\-L}
+\begin{DoxyCompactList}\small\item\em specifies the label \-L of the labeled box \hyperlink{classLabBox}{\-Lab\-Box} \end{DoxyCompactList}\item 
+int \hyperlink{classLabBox_a54c51c9c9300c28e166fac122b2bd9a9}{\-Samples\-To\-Do}
+\begin{DoxyCompactList}\small\item\em number of samples to be drawn from each labeled box \hyperlink{classLabBox}{\-Lab\-Box} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A labeled box class. 
+
+\-Definition at line 71 of file \-Small\-Classes.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classLabBox_a1bed774c2eb23a4b94b2a9934610faea}{\index{\-Lab\-Box@{\-Lab\-Box}!\-Output@{\-Output}}
+\index{\-Output@{\-Output}!LabBox@{\-Lab\-Box}}
+\paragraph[{\-Output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Lab\-Box\-::\-Output} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classLabBox_a1bed774c2eb23a4b94b2a9934610faea}
+
+
+\-Tab-\/delimited output format for a labelled box, numeric only. 
+
+\-Suitable to be read with \-M\-A\-T\-L\-A\-B's dlmread etc. 
+
+\-Definition at line 97 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Box, \-L, taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+    {
+      out << L;
+      for(int i=Lb(Box); i<=Ub(Box); i++)
+      {
+        out << "\t" << Inf(Box[i]) << "\t" << Sup(Box[i]);
+      }
+      out << endl;
+      return;
+    }
+\end{DoxyCode}
+\hypertarget{classLabBox_a93f97cf6932b8caf8911a0cf440807e6}{\index{\-Lab\-Box@{\-Lab\-Box}!\-Print@{\-Print}}
+\index{\-Print@{\-Print}!LabBox@{\-Lab\-Box}}
+\paragraph[{\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Lab\-Box\-::\-Print} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classLabBox_a93f97cf6932b8caf8911a0cf440807e6}
+
+
+\-Output formatted with brackets etc, suitable for human reading. 
+
+
+
+\-Definition at line 82 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Box, \-L, taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-First\-Box().
+
+
+\begin{DoxyCode}
+    {
+      out << L;
+      for(int i=Lb(Box); i<=Ub(Box); i++)
+      {
+        out << " " << Box[i];
+      }
+      out << endl;
+      return;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classLabBox_a65253d570e3236bde747ddfabc7c6849}{\index{\-Lab\-Box@{\-Lab\-Box}!\-Box@{\-Box}}
+\index{\-Box@{\-Box}!LabBox@{\-Lab\-Box}}
+\paragraph[{\-Box}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-Lab\-Box\-::\-Box}}}\label{classLabBox_a65253d570e3236bde747ddfabc7c6849}
+
+
+specifies the box as cxsc\-::ivector \-Box of the labeled box \hyperlink{classLabBox}{\-Lab\-Box} 
+
+
+
+\-Definition at line 75 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Bisect(), \-Fobj\-::\-Bisect\-Pt(), \-Fobj\-::\-Draw\-From\-Box\-Prior(), \-F\-Cesaro\-Bell\-No\-::\-F\-Cesaro\-Bell\-No(), \-F\-C\-F\-N3\-::\-F\-C\-F\-N3(), \-F\-C\-F\-N3\-Rooted\-::\-F\-C\-F\-N3\-Rooted(), \-F\-C\-F\-N3\-Star\-::\-F\-C\-F\-N3\-Star(), \-F\-C\-F\-N3\-Un\-Rooted\-::\-F\-C\-F\-N3\-Un\-Rooted(), \-F\-Levy2\-D\-::\-F\-Levy2\-D(), \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data(), \-F\-Phylo\-P\-O\-T\-::\-F\-Phylo\-P\-O\-T(), \-F\-Rosenbrock\-::\-F\-Rosenbrock(), \-F\-Shiryaev1\-D\-::\-F\-Shiryaev1\-D(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data(), \-F\-Witches\-Hat\-::\-F\-Witches\-Hat(), \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-Fobj\-::\-Lab\-Box\-Prior\-Integral(), \-Fobj\-::\-Lab\-Box\-Volume(), \-F\-C\-F\-N3\-Rooted\-::\-Lab\-Box\-Volume(), \-F\-C\-F\-N3\-::\-Lab\-Box\-Volume(), \-M\-R\-Sampler\-::\-M\-R\-Soutput(), \-F\-Witches\-Hat\-::operator()(), \-F\-Shiryaev1\-D\-::operator()(), \-F\-C\-F\-N3\-Star\-::operator()(), \-F\-Cesaro\-Bell\-No\-::operator()(), \-F\-Levy2\-D\-::operator()(), \-F\-Rosenbrock\-::operator()(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::operator()(), \-F\-C\-F\-N3\-Un\-Rooted\-::operator()(), \-F\-C\-F\-N3\-Rooted\-::operator()(), \-F\-C\-F\-N3\-::operator()(), \-F\-Phylo\-P\-O\-T\-::operator()(), \-Output(), \-Print(), \-Ranged\-Lab\-Box\-::\-Print(), \-M\-R\-Sampler\-::\-Print\-Boxes(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once(), subpavings\-::\-S\-Pnode\-::\-S\-Pnode(), and \-M\-R\-Sampler\-::update\-Umax().
+
+\hypertarget{classLabBox_a4f0197d8aaeb58676d6c50f0f229a63b}{\index{\-Lab\-Box@{\-Lab\-Box}!\-L@{\-L}}
+\index{\-L@{\-L}!LabBox@{\-Lab\-Box}}
+\paragraph[{\-L}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Lab\-Box\-::\-L}}}\label{classLabBox_a4f0197d8aaeb58676d6c50f0f229a63b}
+
+
+specifies the label \-L of the labeled box \hyperlink{classLabBox}{\-Lab\-Box} 
+
+
+
+\-Definition at line 77 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Bisect(), \-F\-Cesaro\-Bell\-No\-::\-F\-Cesaro\-Bell\-No(), \-F\-C\-F\-N3\-::\-F\-C\-F\-N3(), \-F\-C\-F\-N3\-Rooted\-::\-F\-C\-F\-N3\-Rooted(), \-F\-C\-F\-N3\-Star\-::\-F\-C\-F\-N3\-Star(), \-F\-C\-F\-N3\-Un\-Rooted\-::\-F\-C\-F\-N3\-Un\-Rooted(), \-F\-Levy2\-D\-::\-F\-Levy2\-D(), \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data(), \-F\-Phylo\-P\-O\-T\-::\-F\-Phylo\-P\-O\-T(), \-F\-Rosenbrock\-::\-F\-Rosenbrock(), \-F\-Shiryaev1\-D\-::\-F\-Shiryaev1\-D(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::\-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data(), \-F\-Witches\-Hat\-::\-F\-Witches\-Hat(), \-F\-C\-F\-N3\-::\-Lab\-Box\-Volume(), \-F\-C\-F\-N3\-Rooted\-::operator()(), \-F\-C\-F\-N3\-::operator()(), \-F\-Phylo\-P\-O\-T\-::operator()(), \-Output(), \-Print(), \-Ranged\-Lab\-Box\-::\-Print(), and \-M\-R\-Sampler\-::update\-Umax().
+
+\hypertarget{classLabBox_a54c51c9c9300c28e166fac122b2bd9a9}{\index{\-Lab\-Box@{\-Lab\-Box}!\-Samples\-To\-Do@{\-Samples\-To\-Do}}
+\index{\-Samples\-To\-Do@{\-Samples\-To\-Do}!LabBox@{\-Lab\-Box}}
+\paragraph[{\-Samples\-To\-Do}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Lab\-Box\-::\-Samples\-To\-Do}}}\label{classLabBox_a54c51c9c9300c28e166fac122b2bd9a9}
+
+
+number of samples to be drawn from each labeled box \hyperlink{classLabBox}{\-Lab\-Box} 
+
+
+
+\-Definition at line 79 of file \-Small\-Classes.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SmallClasses_8hpp}{\-Small\-Classes.\-hpp}\end{DoxyCompactItemize}

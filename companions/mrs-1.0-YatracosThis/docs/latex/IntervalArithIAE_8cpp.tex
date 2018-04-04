@@ -1,0 +1,440 @@
+\hypertarget{IntervalArithIAE_8cpp}{\subsection{\-Interval\-Arith\-I\-A\-E.\-cpp \-File \-Reference}
+\label{IntervalArithIAE_8cpp}\index{\-Interval\-Arith\-I\-A\-E.\-cpp@{\-Interval\-Arith\-I\-A\-E.\-cpp}}
+}
+
+
+1. \-Build histograms for a finite \-Gaussian mixture. 2. \-Locates all roots in a given interval \mbox{[}x\mbox{]} by a combination of a bisection scheme and the interval \-Newton operator. 3. \-Computes definite integrals over a given interval \-X by adaptively subdividing \-X into subintervals, and enclosing the graph of the integrand by a \-Taylor series expansion with remainder term. \-The quadrature scheme in 'riemann\-Term' was obtained from the books  
+
+
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{IntervalArithIAE_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+1. \-Build histograms for a finite \-Gaussian mixture. 2. \-Locates all roots in a given interval \mbox{[}x\mbox{]} by a combination of a bisection scheme and the interval \-Newton operator. 3. \-Computes definite integrals over a given interval \-X by adaptively subdividing \-X into subintervals, and enclosing the graph of the integrand by a \-Taylor series expansion with remainder term. \-The quadrature scheme in 'riemann\-Term' was obtained from the books \-Aberth, \-O. \char`\"{}\-Precise Numerical Analysis\char`\"{} \-W\-C\-B \-Publishers, 1988. \-Aberth, \-O. \char`\"{}\-Precise Numerical Methods Using C++\char`\"{} \-Academic \-Press, 1998 4. \-Get the \-L1-\/error of the histogram by using steps 2 and 3 
+
+\-Definition in file \hyperlink{IntervalArithIAE_8cpp_source}{\-Interval\-Arith\-I\-A\-E.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{IntervalArithIAE_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Interval\-Arith\-I\-A\-E.\-cpp@{\-Interval\-Arith\-I\-A\-E.\-cpp}!main@{main}}
+\index{main@{main}!IntervalArithIAE.cpp@{\-Interval\-Arith\-I\-A\-E.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{IntervalArithIAE_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 66 of file \-Interval\-Arith\-I\-A\-E.\-cpp.
+
+
+
+\-References bisect(), subpavings\-::count\-Lines\-In\-Txt(), find\-Comp(), get\-L1error(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), \-Fin\-Mix\-::\-M, subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), \-Fin\-Mix\-::\-S, taylor\-::sqrt(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+  //-----------user-defined parameters
+  if ( argc != 3 ) {
+    cerr << "Syntax: IntervalArithIAE Mix SampleSize" << endl;
+    exit(0);
+  }
+  int mix = atoi(argv[1]);
+  int n = atoi(argv[2]);
+
+  double TOL = 1e-15; // tolerance for root finding and integration routines
+  cout << "Tolerance is: " << TOL << endl;
+  int Deg = 2; // Degree of Taylor series.
+
+  //---------get the relevant parameters for the finite mixture density
+  //string formatting
+   ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(10);
+
+   // read input from mix*.txt
+   string mixfileName;
+   mixfileName = "MixtureFiles/mix";
+  std::ostringstream stmMix;
+  stmMix << mix;
+  mixfileName += stmMix.str();
+  mixfileName += ".txt";
+
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  // create vectors for Weight, Mean, Variance
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+
+  cout << "Reading in parameters of mixture " << mix << endl;
+  ifstream file; // create file for input
+  file.open(mixfileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << mixfileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+  
+  //put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+  //=========================end of setting up parameter===================//
+
+  // ------- prepare to generate some data for the tests -----------
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    long s = time (NULL) * getpid();
+    gsl_rng_set(r, s);
+
+   //set up a random number generator for gaussian rvs
+     const gsl_rng_type * T1;
+     gsl_rng * r1;
+     gsl_rng_env_setup();
+     T1 = gsl_rng_default;
+     r1 = gsl_rng_alloc (T1);
+     gsl_rng_set(r1,s);
+     
+  //Generate n U(0,1) r.v. and determine component membership.
+  double a=0, b=1;
+  vector<double> u;
+  int j;
+  for (j = 0; j < n; j++) {
+      u.push_back(gsl_ran_flat(r, a, b));
+  }
+
+  // number of components
+  const int comp = countLinesInTxt(mixfileName) - 1;
+  cout << "There are " << comp << " components in this mixture." << endl;
+
+  // get cumulative sum of the weights
+  double WeightCum[comp];
+  //initialize the array
+  WeightCum[0] = Weight[0]; 
+  cout << WeightCum[0] << endl;
+   for (int j = 1; j < comp; j++) {
+    WeightCum[j] = WeightCum[j-1] + Weight[j];
+  }
+
+  //Create mixture data using component densities that are normal.
+  cout<<"Creating mixture data..."<<endl; 
+  RVecData theData; // a container to keep the data
+    cout << "Generating data: " << endl;
+    //find the number of members generated from each component.
+    for (j = 0; j < comp; j++) {  
+      int ind=0;
+      findComp(u, ind, n, WeightCum, j);
+      cout<<"Component " << j << " has " << ind << " members." <<endl;
+      //now generate the data
+      for (int k =0; k < ind; k++) {
+        rvector thisrv(1);
+        double z = gsl_ran_gaussian(r1, Sigma[j]); // generate a normal r.v.
+        thisrv[1] =Mean[j]+z; // transform the r.v.         
+        theData.push_back(thisrv);
+      }
+    }
+  //-------------finish generating data---------------------------------//
+
+  //--------make an Adaptive Histogram object with a specified box
+  // domain is a hypercube
+   interval pavingInterval(-10,10);
+   int d = 1;
+    ivector pavingBox(d);
+   for(int i=1; i <= d; i++) pavingBox[i] = pavingInterval;
+  AdaptiveHistogram myHist(pavingBox);
+  
+  // put the data from the container into the histogram, no splitting here
+  bool successfulInsertion = false;
+   bool successfulPQSplit = false;
+  cout << "Inserting data... " << endl;
+  successfulInsertion = myHist.insertFromRVec(theData);
+
+  CompCount nodeCompCount;
+  CritLeaves_GTE critLeavesGTE(2);
+  if (successfulInsertion) {
+    cout << "building the histogram..." << endl;
+    // now split with priority queue
+    // split node wth most pointsin first (compCount)
+    // until leaves >= minLeaves (critLeaves_GTE)
+    // no minPoints or minVolB limitations on splittable nodes
+    double beta = 0.99; //re-calculate this!
+    size_t maxLeafNodes = int(pow(n, beta)); 
+    successfulPQSplit = myHist.prioritySplit(nodeCompCount,
+                critLeavesGTE, NOLOG, r, maxLeafNodes); // no logs
+  }
+
+  if (successfulPQSplit) {
+    // optional - if you want to get a txt output of each histogram
+    // create a name for the file to output
+     string fileName;
+     fileName = "Hist";
+    //convert j to a string
+    // std::ostringstream stm2;
+    // stm2 << j;
+    // add the stringed j to the filename
+    // fileName += stm2.str();
+     fileName += ".txt"; // and finish the filename
+    // To realize a file output
+     myHist.outputToTxtTabs(fileName);
+
+    //-----get the IAE of this histogram
+    interval totalArea(0.0);
+    
+    cout << "iterating through the leaf nodes to get the L1-error..." << endl;
+    SPSnodePtrs leaves; // set up empty container for leaf node pointers
+    SPSnodePtrsItr it; // and an iterator over the container
+    myHist.getSubPaving()->getLeaves(leaves); // fill the container
+    // container is filled by reading leaves off tree from left to right
+    for(it = leaves.begin(); it < leaves.end(); it++) {
+      //a container for the roots at this leaf node
+      vector<intervalw> rootVec;
+      
+       // remember that it points to a pointer, so *it is still a ptr
+       //get the height in this leaf node
+       double fhat = (*it)->getCounter()/(*it)->nodeVolume()/n;
+       cout << "-----------------------------" << endl;
+       cout << "height at this node: " << fhat << endl;
+       
+       //get the box of this leaf node
+      ivector thisBox = (*it)->getBox();
+      
+      //---------find the root at this domain
+      // make an intervalw object using thisBox
+      rvector lb = Inf(thisBox);
+      rvector ub = Sup(thisBox);
+      intervalw thisIntW(_double(lb[1]),_double(ub[1]));
+      interval thisInt(_double(lb[1]),_double(ub[1]));
+      
+      // find the root
+      cout << "finding roots at this node " << thisInt << endl;
+      bisect(thisIntW, TOL, fhat, rootVec, Weight, Mean, Sigma); 
+      
+      //---------find the area at this domain and take the absolute value
+      //if rootVec is empty, there are no roots - so we can integrate over
+      //this domain
+      if ((rootVec.size() == 0)) { 
+        //get the L1 error
+        interval diffArea = getL1error(fhat, thisInt, Deg, TOL, Weight, Mean, 
+      Sigma);
+        //add to totalArea
+        totalArea += diffArea;
+      } //end of rootVec is empty
+
+      else { //if rootVec is not empty
+        cout << "There are root(s)" << endl;
+
+        // if there's only 1 root
+        if (rootVec.size() == 1) {
+          cout << "there is only one root.." << endl;
+          // is the root at the left or right boundary?
+          if ( (abs(Inf(thisInt) - inf(rootVec[0])) < 1e-10) || 
+              (abs(Sup(thisInt) - inf(rootVec[0])) < 1e-10) ) {
+            cout << "there's a root at the left/right boundary:" << rootVec[0] 
+      << endl;
+            interval diffArea = getL1error(fhat, thisInt, Deg, TOL, Weight, 
+      Mean, Sigma);
+            totalArea += diffArea;
+          }
+          else { // the root is not at the boundaries
+            cout << "no root at the boundaries" << endl;
+            //get the left sub-interval
+            interval thisSubIntLeft = interval(Inf(thisInt), sup(rootVec[0]));
+            cout << "left interval: " << thisSubIntLeft << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLeft, Deg, TOL, 
+      Weight, Mean, Sigma);
+            totalArea += diffArea;
+            
+            //get the right sub-interval
+            //get the left sub-interval
+            interval thisSubIntRight = interval(inf(rootVec[0]), Sup(thisInt));
+            cout << "right interval: " << thisSubIntRight << endl; 
+            diffArea = getL1error(fhat, thisSubIntRight, Deg, TOL, Weight, Mean
+      , Sigma);
+            totalArea += diffArea;
+          }
+        } // end of rootVec.size() == 1
+
+        // if there is more than 1 root
+        else {
+          cout << "let's have a look at all the roots:" << endl;
+          for (size_t i = 0; i < rootVec.size(); i++) {
+            cout << rootVec[i] << endl;
+          }
+
+          //first check if the first root is at the boundary
+          if ( abs(Inf(thisInt) - inf(rootVec[0])) < 1e-16 ) {
+            cout << "there's a root at the leftmost boundary:" << endl;
+            interval thisSubIntFirst = interval(Inf(thisInt), sup(rootVec[1]));
+            cout << "0-th interval:" << thisSubIntFirst << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntFirst, Deg, TOL,
+      Weight, Mean, Sigma);
+            totalArea += diffArea;
+            
+            // now iterate through each root (except the first and last) and 
+            // get the sub-itnervals
+            cout << "iterating through each root" << endl;
+            for (size_t i = 0; i < (rootVec.size() - 1); i++) {
+              // check that this is a unique root
+              cout << "checking that this is a unique root" << endl;
+              // not the best way but temporarily...
+              bool uniq = subset(abs(rootVec[i] - rootVec[i+1]), intervalw(0, 1
+      e-10));
+              if ( uniq ) { i++; }
+              else {
+                cout << "the " << i+1 << "-th root is: " << rootVec[i+1] << 
+      endl;
+                if ( (i+2) > rootVec.size() ) { // already no more roots
+                  interval thisSubInt = interval(inf(rootVec[i+1]), Sup(thisInt
+      ));
+                  cout << i+1 << "-th interval: " << thisSubInt << endl;
+                  interval diffArea = getL1error(fhat, thisSubInt, Deg, TOL, 
+      Weight, Mean, Sigma);
+                  totalArea += diffArea;
+                }
+                else { //there are still more roots
+                  interval thisSubInt = interval(inf(rootVec[i+1]), sup(rootVec
+      [i+2]));
+                  cout << i+1 << "-th interval: " << thisSubInt << endl;
+                  interval diffArea = getL1error(fhat, thisSubInt, Deg, TOL, 
+      Weight, Mean, Sigma);
+                  totalArea += diffArea;
+                }
+              }
+            } // end of iterate through each root (excep the first and last)
+            
+            // now check if the last root is at the boundary
+            if ( abs(Sup(thisInt) - sup(rootVec[rootVec.size()-1])) < 1e-16 ) {
+              cout << "there's a root at the rightmost boundary:" << endl;
+              interval thisSubIntLast = interval(inf(rootVec[rootVec.size()-2])
+      , Sup(thisInt));
+              cout << "last interval: " << thisSubIntLast << endl; 
+              interval diffArea = getL1error(fhat, thisSubIntLast, Deg, TOL, 
+      Weight, Mean, Sigma);
+              totalArea += diffArea;
+            }
+            else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(rootVec[rootVec.size()-1]), 
+      Sup(thisInt));
+              cout << "last interval: " << thisSubIntLast << endl; 
+              interval diffArea = getL1error(fhat, thisSubIntLast, Deg, TOL, 
+      Weight, Mean, Sigma);
+              totalArea += diffArea;
+            } 
+          } // end of if first root is the boundary
+          else {
+          //if it is not the boundary, make the first sub-interval
+            interval thisSubIntFirst = interval(Inf(thisInt), sup(rootVec[0]));
+            cout << "0-th interval: " << thisSubIntFirst << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntFirst, Deg, TOL, 
+      Weight, Mean, Sigma);
+            totalArea += diffArea;
+            
+            // now iterate through each root (except the first and last) and 
+            // get the sub-itnervals
+            cout << "iterating through each root" << endl;
+            for (size_t i = 0; i < (rootVec.size() - 1); i++) {
+              // check that this is a unique root
+              cout << "checking that this is a unique root" << endl;
+              // not the best way but temporarily...
+              bool uniq = subset(abs(rootVec[i] - rootVec[i+1]), intervalw(0, 1
+      e-10));
+              if ( uniq ) { i++; }
+              else {
+                cout << "the " << i+1 << "-th root is: " << rootVec[i+1] << 
+      endl;
+                if ( (i+2) > rootVec.size() ) { // already no more roots
+                  interval thisSubInt = interval(inf(rootVec[i+1]), Sup(thisInt
+      ));
+                  cout << "the " << i+1 << "-th interval: " << thisSubInt << 
+      endl;
+                  interval diffArea = getL1error(fhat, thisSubInt, Deg, TOL, 
+      Weight, Mean, Sigma);
+                  totalArea += diffArea;
+                }
+                else { //there are still more roots
+                  interval thisSubInt = interval(inf(rootVec[i+1]), sup(rootVec
+      [i+2]));
+                  cout << "the " << i+1 << "-th interval: " << thisSubInt << 
+      endl;
+                  interval diffArea = getL1error(fhat, thisSubInt, Deg, TOL, 
+      Weight, Mean, Sigma);
+                  totalArea += diffArea;
+                }
+              }
+            } // end of iterate through each root (excep the first and last)
+            
+            // now check if the last root is at the boundary
+            if ( abs(Sup(thisInt) - sup(rootVec[rootVec.size()-1])) < 1e-16 ) {
+              cout << "there's a root at the rightmost boundary:" << endl;
+              interval thisSubIntLast = interval(inf(rootVec[rootVec.size()-2])
+      , Sup(thisInt));
+              cout << "last interval: " << thisSubIntLast << endl; 
+              interval diffArea = getL1error(fhat, thisSubIntLast, Deg, TOL, 
+      Weight, Mean, Sigma);
+              totalArea += diffArea;
+            }
+            else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(rootVec[rootVec.size()-1]), 
+      Sup(thisInt));
+              cout << "last interval: " << thisSubIntLast << endl; 
+              interval diffArea = getL1error(fhat, thisSubIntLast, Deg, TOL, 
+      Weight, Mean, Sigma);
+              totalArea += diffArea;
+            } 
+          } // end of first root is not the boundary
+        } // end of rootVec.size() > 1
+      } // end of rootVec is not empty
+
+    } // end of iterating through the leaf nodes
+    
+    cout << "IAE: " << totalArea << endl;
+    } // end of successfulPQsplit
+    
+  else {
+     cerr << "did not make histogram." << endl;
+   }
+
+  // free the random number generator
+  gsl_rng_free (r);
+
+  return 0;
+}
+\end{DoxyCode}

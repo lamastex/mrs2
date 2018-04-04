@@ -1,0 +1,704 @@
+\hypertarget{classPhyloNode}{\subsection{\-Phylo\-Node \-Class \-Reference}
+\label{classPhyloNode}\index{\-Phylo\-Node@{\-Phylo\-Node}}
+}
+
+
+\-A class for nodes of a phylogenetic tree.  
+
+
+
+
+{\ttfamily \#include $<$\-Phylo\-Tree.\-hpp$>$}
+
+
+
+\-Collaboration diagram for \-Phylo\-Node\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPhyloNode_a82abba4349a6808ba134a89fae92fb7f}{\-Phylo\-Node} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classPhyloNode_ac1753eafd402a1c709bed60c2a3d04bb}{$\sim$\-Phylo\-Node} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+\hyperlink{classPhyloNode}{\-Phylo\-Node} $\ast$ \hyperlink{classPhyloNode_a960666762aaed1c4f6ddfbc2aa413892}{get\-Parent} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the parent of this node. \end{DoxyCompactList}\item 
+\hyperlink{PhyloTree_8hpp_a949af9a126c7f41a99746ced5d664690}{\-Phylo\-Ptrs} \hyperlink{classPhyloNode_ae7877c20c9db63402d07b6f82a346b21}{get\-Children} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the children of this node. \end{DoxyCompactList}\item 
+int \hyperlink{classPhyloNode_a565c9444607ed8768e9415eacb559123}{get\-Branch} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the ibranch member. \end{DoxyCompactList}\item 
+real \hyperlink{classPhyloNode_a00c2267514e0f9ca175de697a15698b3}{get\-Time} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the time member. \end{DoxyCompactList}\item 
+int \hyperlink{classPhyloNode_a7b0378a66e2acf414820eb25eddb0dcc}{get\-Label} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the label member. \end{DoxyCompactList}\item 
+int \hyperlink{classPhyloNode_a3fc253c8d09bf7d7cf1da885c1eaec4c}{get\-Seq\-No} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the seq\-\_\-no member. \end{DoxyCompactList}\item 
+string \hyperlink{classPhyloNode_af9113f5f2b37eb169e982f8b8033d3f6}{get\-Seq\-Name} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the seq\-\_\-name member. \end{DoxyCompactList}\item 
+void \hyperlink{classPhyloNode_a9744c7676674e8e988449bda24808d54}{set\-Branch} (const int branch)
+\begin{DoxyCompactList}\small\item\em \-Set the ibranch member. \end{DoxyCompactList}\item 
+void \hyperlink{classPhyloNode_ac1e882ec990671ad78dc76218aa80610}{set\-Time} (const real t)
+\begin{DoxyCompactList}\small\item\em \-Set the time member. \end{DoxyCompactList}\item 
+void \hyperlink{classPhyloNode_ab5fcae88b5e5a29c0619b2f1b85958be}{set\-Label} (const int n)
+\begin{DoxyCompactList}\small\item\em \-Set the label member. \end{DoxyCompactList}\item 
+void \hyperlink{classPhyloNode_a30b68416bbeabe566b2d17ef43ff753c}{set\-Seq\-No} (const int n)
+\begin{DoxyCompactList}\small\item\em \-Set the seq\-\_\-no member. \end{DoxyCompactList}\item 
+void \hyperlink{classPhyloNode_a30c30789517e9f40bec24c7f665c4675}{set\-Seq\-Name} (const string \&s)
+\begin{DoxyCompactList}\small\item\em \-Set the seq\-\_\-name member. \end{DoxyCompactList}\item 
+void \hyperlink{classPhyloNode_a2393043d53032824ed9de2ed0429f7d7}{set\-Parent} (\hyperlink{classPhyloNode}{\-Phylo\-Node} $\ast$newparent)
+\begin{DoxyCompactList}\small\item\em \-Set the parent of this node. \end{DoxyCompactList}\item 
+void \hyperlink{classPhyloNode_ab27e7dc7521f80f854277ac3e7254228}{add\-Child} (\hyperlink{classPhyloNode}{\-Phylo\-Node} $\ast$const child)
+\begin{DoxyCompactList}\small\item\em \-Add a child to this node. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classPhyloNode_a78e2019221cbe7a77c0b9d8715c51058}{no\-Children} () const 
+\item 
+size\-\_\-t \hyperlink{classPhyloNode_adbb02a774b9fe0125d646d96c59c9a46}{no\-Descendents} () const 
+\item 
+void \hyperlink{classPhyloNode_a11c02f207d02d5c75103a5aaf51bde0d}{print\-Node} () const 
+\begin{DoxyCompactList}\small\item\em \-Print node details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPhyloNode_af635dd062f194d1314aaa2b8d2c9d6b1}{\-Phylo\-Node} (const \hyperlink{classPhyloNode}{\-Phylo\-Node} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor is private and not implemented. \end{DoxyCompactList}\item 
+\hyperlink{classPhyloNode}{\-Phylo\-Node} \& \hyperlink{classPhyloNode_ac050dce3f4c100242c6fcd6338fb4db2}{operator=} (const \hyperlink{classPhyloNode}{\-Phylo\-Node} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator is private and not implemented. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classPhyloNode_a08d47840fd629726502a4c83ee7f97d0}{ibranch}
+\begin{DoxyCompactList}\small\item\em signifies the edge number, ie the correspondence to the dimensions of the problem \end{DoxyCompactList}\item 
+int \hyperlink{classPhyloNode_ac50e08220f3cfb519d0e21ae4dd53dd2}{seq\-\_\-no}
+\begin{DoxyCompactList}\small\item\em every leaf node should have a sequence number \end{DoxyCompactList}\item 
+real \hyperlink{classPhyloNode_a24cf3f05065a31fde05a428d0eca87cf}{time}
+\begin{DoxyCompactList}\small\item\em some nodes may be given a time in the tree file \end{DoxyCompactList}\item 
+int \hyperlink{classPhyloNode_a4abacdd01e6c36193c6372758a05debf}{label}
+\begin{DoxyCompactList}\small\item\em some nodes may be given a label in the input file \end{DoxyCompactList}\item 
+string \hyperlink{classPhyloNode_aa99afd949e72b932d9c0d89d06c2a890}{seq\-\_\-name}
+\begin{DoxyCompactList}\small\item\em sequence name for leaf notes, derived from the sequence number and sequence file \end{DoxyCompactList}\item 
+\hyperlink{classPhyloNode}{\-Phylo\-Node} $\ast$ \hyperlink{classPhyloNode_a3625b4a3634e7662fdb063b14ce21482}{parent}
+\begin{DoxyCompactList}\small\item\em container of pointers to child nodes \end{DoxyCompactList}\item 
+\hyperlink{PhyloTree_8hpp_a949af9a126c7f41a99746ced5d664690}{\-Phylo\-Ptrs} \hyperlink{classPhyloNode_ae90d7dd10164a001107371397dc036be}{child\-Nodes}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class for nodes of a phylogenetic tree. 
+
+\-Definition at line 167 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classPhyloNode_af635dd062f194d1314aaa2b8d2c9d6b1}{\index{\-Phylo\-Node@{\-Phylo\-Node}!\-Phylo\-Node@{\-Phylo\-Node}}
+\index{\-Phylo\-Node@{\-Phylo\-Node}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{\-Phylo\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Node\-::\-Phylo\-Node} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Phylo\-Node} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit, private\mbox{]}}}}\label{classPhyloNode_af635dd062f194d1314aaa2b8d2c9d6b1}
+
+
+\-Copy constructor is private and not implemented. 
+
+\-Prevents copying of the object. \hypertarget{classPhyloNode_a82abba4349a6808ba134a89fae92fb7f}{\index{\-Phylo\-Node@{\-Phylo\-Node}!\-Phylo\-Node@{\-Phylo\-Node}}
+\index{\-Phylo\-Node@{\-Phylo\-Node}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{\-Phylo\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Node\-::\-Phylo\-Node} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}\label{classPhyloNode_a82abba4349a6808ba134a89fae92fb7f}
+
+
+\-Default constructor. 
+
+
+
+\-Definition at line 192 of file \-Phylo\-Tree.\-hpp.
+
+
+\begin{DoxyCode}
+                         : ibranch(-1), seq_no(-1), time(0.0), label(0), parent
+      (NULL)
+    // vector childNodes is not initialised
+      {}
+\end{DoxyCode}
+\hypertarget{classPhyloNode_ac1753eafd402a1c709bed60c2a3d04bb}{\index{\-Phylo\-Node@{\-Phylo\-Node}!$\sim$\-Phylo\-Node@{$\sim$\-Phylo\-Node}}
+\index{$\sim$\-Phylo\-Node@{$\sim$\-Phylo\-Node}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{$\sim$\-Phylo\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Node\-::$\sim$\-Phylo\-Node} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPhyloNode_ac1753eafd402a1c709bed60c2a3d04bb}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 113 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References child\-Nodes.
+
+
+\begin{DoxyCode}
+{
+  // call DeleteObject to delete all the child nodes
+  for_each(childNodes.begin(), childNodes.end(), DeleteObject());
+
+}                   // end destructor
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classPhyloNode_ab27e7dc7521f80f854277ac3e7254228}{\index{\-Phylo\-Node@{\-Phylo\-Node}!add\-Child@{add\-Child}}
+\index{add\-Child@{add\-Child}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{add\-Child}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::add\-Child} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Phylo\-Node} $\ast$const}]{child}
+\end{DoxyParamCaption}
+)}}\label{classPhyloNode_ab27e7dc7521f80f854277ac3e7254228}
+
+
+\-Add a child to this node. 
+
+
+
+\-Definition at line 121 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References child\-Nodes, and set\-Parent().
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Decode\-Tree().
+
+
+\begin{DoxyCode}
+{
+  child->setParent(this);
+  childNodes.push_back(child);
+}
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a565c9444607ed8768e9415eacb559123}{\index{\-Phylo\-Node@{\-Phylo\-Node}!get\-Branch@{get\-Branch}}
+\index{get\-Branch@{get\-Branch}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{get\-Branch}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Phylo\-Node\-::get\-Branch} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a565c9444607ed8768e9415eacb559123}
+
+
+\-Get the ibranch member. 
+
+
+
+\-Definition at line 216 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::node\-P\-O\-T\-Hess(), \-Phylo\-Tree\-::node\-P\-O\-Tinterval(), and \-Phylo\-Tree\-::node\-P\-O\-Treal().
+
+
+\begin{DoxyCode}
+    {
+      return ibranch;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_ae7877c20c9db63402d07b6f82a346b21}{\index{\-Phylo\-Node@{\-Phylo\-Node}!get\-Children@{get\-Children}}
+\index{get\-Children@{get\-Children}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{get\-Children}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Ptrs} {\bf \-Phylo\-Node\-::get\-Children} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_ae7877c20c9db63402d07b6f82a346b21}
+
+
+\-Get the children of this node. 
+
+\-Returns a copy of the container of children. 
+
+\-Definition at line 210 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::node\-P\-O\-T\-Hess(), \-Phylo\-Tree\-::node\-P\-O\-Tinterval(), \-Phylo\-Tree\-::node\-P\-O\-Treal(), and \-Phylo\-Tree\-::\-Print\-Branch().
+
+
+\begin{DoxyCode}
+    {
+      return childNodes;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a7b0378a66e2acf414820eb25eddb0dcc}{\index{\-Phylo\-Node@{\-Phylo\-Node}!get\-Label@{get\-Label}}
+\index{get\-Label@{get\-Label}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{get\-Label}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Phylo\-Node\-::get\-Label} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a7b0378a66e2acf414820eb25eddb0dcc}
+
+
+\-Get the label member. 
+
+
+
+\-Definition at line 228 of file \-Phylo\-Tree.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return label;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a960666762aaed1c4f6ddfbc2aa413892}{\index{\-Phylo\-Node@{\-Phylo\-Node}!get\-Parent@{get\-Parent}}
+\index{get\-Parent@{get\-Parent}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{get\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Node}$\ast$ {\bf \-Phylo\-Node\-::get\-Parent} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a960666762aaed1c4f6ddfbc2aa413892}
+
+
+\-Get the parent of this node. 
+
+\-Returns a copy of the parent node pointer. 
+
+\-Definition at line 202 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Decode\-Tree().
+
+
+\begin{DoxyCode}
+    {
+      return parent;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_af9113f5f2b37eb169e982f8b8033d3f6}{\index{\-Phylo\-Node@{\-Phylo\-Node}!get\-Seq\-Name@{get\-Seq\-Name}}
+\index{get\-Seq\-Name@{get\-Seq\-Name}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{get\-Seq\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf \-Phylo\-Node\-::get\-Seq\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_af9113f5f2b37eb169e982f8b8033d3f6}
+
+
+\-Get the seq\-\_\-name member. 
+
+
+
+\-Definition at line 240 of file \-Phylo\-Tree.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return seq_name;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a3fc253c8d09bf7d7cf1da885c1eaec4c}{\index{\-Phylo\-Node@{\-Phylo\-Node}!get\-Seq\-No@{get\-Seq\-No}}
+\index{get\-Seq\-No@{get\-Seq\-No}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{get\-Seq\-No}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Phylo\-Node\-::get\-Seq\-No} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a3fc253c8d09bf7d7cf1da885c1eaec4c}
+
+
+\-Get the seq\-\_\-no member. 
+
+
+
+\-Definition at line 234 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::node\-P\-O\-T\-Hess(), \-Phylo\-Tree\-::node\-P\-O\-Tinterval(), and \-Phylo\-Tree\-::node\-P\-O\-Treal().
+
+
+\begin{DoxyCode}
+    {
+      return seq_no;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a00c2267514e0f9ca175de697a15698b3}{\index{\-Phylo\-Node@{\-Phylo\-Node}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Phylo\-Node\-::get\-Time} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a00c2267514e0f9ca175de697a15698b3}
+
+
+\-Get the time member. 
+
+
+
+\-Definition at line 222 of file \-Phylo\-Tree.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return time;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a78e2019221cbe7a77c0b9d8715c51058}{\index{\-Phylo\-Node@{\-Phylo\-Node}!no\-Children@{no\-Children}}
+\index{no\-Children@{no\-Children}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{no\-Children}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf \-Phylo\-Node\-::no\-Children} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classPhyloNode_a78e2019221cbe7a77c0b9d8715c51058}
+
+
+\-Definition at line 127 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References child\-Nodes.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::fill\-Prob\-Hess\-J\-C69(), \-Phylo\-Tree\-::fill\-Prob\-Interval\-J\-C69(), \-Phylo\-Tree\-::fill\-Prob\-Real\-C\-F\-N(), \-Phylo\-Tree\-::fill\-Prob\-Real\-J\-C69(), \-Phylo\-Tree\-::node\-P\-O\-T\-Hess(), \-Phylo\-Tree\-::node\-P\-O\-Tinterval(), and \-Phylo\-Tree\-::node\-P\-O\-Treal().
+
+
+\begin{DoxyCode}
+{
+  return childNodes.size();
+}
+\end{DoxyCode}
+\hypertarget{classPhyloNode_adbb02a774b9fe0125d646d96c59c9a46}{\index{\-Phylo\-Node@{\-Phylo\-Node}!no\-Descendents@{no\-Descendents}}
+\index{no\-Descendents@{no\-Descendents}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{no\-Descendents}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf \-Phylo\-Node\-::no\-Descendents} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classPhyloNode_adbb02a774b9fe0125d646d96c59c9a46}
+
+
+\-Definition at line 132 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References child\-Nodes.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::get\-Number\-Nodes().
+
+
+\begin{DoxyCode}
+{
+  size_t noDes = childNodes.size();
+  //iterate over each child and repeat
+  PhyloPtrs::const_iterator it;
+  //PhyloPtrsItr it;
+  for (it=childNodes.begin(); it < childNodes.end(); it++)
+  {
+    noDes += (*it)->noDescendents();
+  }
+
+  return noDes;
+}
+\end{DoxyCode}
+\hypertarget{classPhyloNode_ac050dce3f4c100242c6fcd6338fb4db2}{\index{\-Phylo\-Node@{\-Phylo\-Node}!operator=@{operator=}}
+\index{operator=@{operator=}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Node}\& \-Phylo\-Node\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Phylo\-Node} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_ac050dce3f4c100242c6fcd6338fb4db2}
+
+
+\-Copy assignment operator is private and not implemented. 
+
+\-Prevents copying of the object. \hypertarget{classPhyloNode_a11c02f207d02d5c75103a5aaf51bde0d}{\index{\-Phylo\-Node@{\-Phylo\-Node}!print\-Node@{print\-Node}}
+\index{print\-Node@{print\-Node}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{print\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::print\-Node} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classPhyloNode_a11c02f207d02d5c75103a5aaf51bde0d}
+
+
+\-Print node details. 
+
+tab delimited 
+
+\-Definition at line 146 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References ibranch, label, seq\-\_\-name, seq\-\_\-no, and time.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Print\-Branch().
+
+
+\begin{DoxyCode}
+{
+  // branch, sequence number, sequence name, time, label, newline
+  std::cout << "ibranch is \t" << ibranch << "\t" << "seq_no \t" << seq_no
+    << "\t" << "time \t" << time << "\t" << "label \t" << label  << "\t" 
+    << "name \t" << seq_name << endl;
+}
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a9744c7676674e8e988449bda24808d54}{\index{\-Phylo\-Node@{\-Phylo\-Node}!set\-Branch@{set\-Branch}}
+\index{set\-Branch@{set\-Branch}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{set\-Branch}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::set\-Branch} (
+\begin{DoxyParamCaption}
+\item[{const int}]{branch}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a9744c7676674e8e988449bda24808d54}
+
+
+\-Set the ibranch member. 
+
+
+
+\-Definition at line 246 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Decode\-Tree().
+
+
+\begin{DoxyCode}
+    {
+      ibranch = branch;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_ab5fcae88b5e5a29c0619b2f1b85958be}{\index{\-Phylo\-Node@{\-Phylo\-Node}!set\-Label@{set\-Label}}
+\index{set\-Label@{set\-Label}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{set\-Label}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::set\-Label} (
+\begin{DoxyParamCaption}
+\item[{const int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_ab5fcae88b5e5a29c0619b2f1b85958be}
+
+
+\-Set the label member. 
+
+
+
+\-Definition at line 258 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Decode\-Tree().
+
+
+\begin{DoxyCode}
+    {
+      label = n;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a2393043d53032824ed9de2ed0429f7d7}{\index{\-Phylo\-Node@{\-Phylo\-Node}!set\-Parent@{set\-Parent}}
+\index{set\-Parent@{set\-Parent}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{set\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::set\-Parent} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Phylo\-Node} $\ast$}]{newparent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a2393043d53032824ed9de2ed0429f7d7}
+
+
+\-Set the parent of this node. 
+
+
+
+\-Definition at line 276 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by add\-Child().
+
+
+\begin{DoxyCode}
+    {
+      parent = newparent;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a30c30789517e9f40bec24c7f665c4675}{\index{\-Phylo\-Node@{\-Phylo\-Node}!set\-Seq\-Name@{set\-Seq\-Name}}
+\index{set\-Seq\-Name@{set\-Seq\-Name}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{set\-Seq\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::set\-Seq\-Name} (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a30c30789517e9f40bec24c7f665c4675}
+
+
+\-Set the seq\-\_\-name member. 
+
+
+
+\-Definition at line 270 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Decode\-Tree().
+
+
+\begin{DoxyCode}
+    {
+      seq_name = s;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_a30b68416bbeabe566b2d17ef43ff753c}{\index{\-Phylo\-Node@{\-Phylo\-Node}!set\-Seq\-No@{set\-Seq\-No}}
+\index{set\-Seq\-No@{set\-Seq\-No}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{set\-Seq\-No}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::set\-Seq\-No} (
+\begin{DoxyParamCaption}
+\item[{const int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_a30b68416bbeabe566b2d17ef43ff753c}
+
+
+\-Set the seq\-\_\-no member. 
+
+
+
+\-Definition at line 264 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Decode\-Tree().
+
+
+\begin{DoxyCode}
+    {
+      seq_no = n;
+    }
+\end{DoxyCode}
+\hypertarget{classPhyloNode_ac1e882ec990671ad78dc76218aa80610}{\index{\-Phylo\-Node@{\-Phylo\-Node}!set\-Time@{set\-Time}}
+\index{set\-Time@{set\-Time}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{set\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Phylo\-Node\-::set\-Time} (
+\begin{DoxyParamCaption}
+\item[{const real}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classPhyloNode_ac1e882ec990671ad78dc76218aa80610}
+
+
+\-Set the time member. 
+
+
+
+\-Definition at line 252 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by \-Phylo\-Tree\-::\-Decode\-Tree().
+
+
+\begin{DoxyCode}
+    {
+      time = t;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classPhyloNode_ae90d7dd10164a001107371397dc036be}{\index{\-Phylo\-Node@{\-Phylo\-Node}!child\-Nodes@{child\-Nodes}}
+\index{child\-Nodes@{child\-Nodes}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{child\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Ptrs} {\bf \-Phylo\-Node\-::child\-Nodes}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_ae90d7dd10164a001107371397dc036be}
+
+
+\-Definition at line 180 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by add\-Child(), no\-Children(), no\-Descendents(), and $\sim$\-Phylo\-Node().
+
+\hypertarget{classPhyloNode_a08d47840fd629726502a4c83ee7f97d0}{\index{\-Phylo\-Node@{\-Phylo\-Node}!ibranch@{ibranch}}
+\index{ibranch@{ibranch}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{ibranch}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Phylo\-Node\-::ibranch}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_a08d47840fd629726502a4c83ee7f97d0}
+
+
+signifies the edge number, ie the correspondence to the dimensions of the problem 
+
+
+
+\-Definition at line 171 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by print\-Node().
+
+\hypertarget{classPhyloNode_a4abacdd01e6c36193c6372758a05debf}{\index{\-Phylo\-Node@{\-Phylo\-Node}!label@{label}}
+\index{label@{label}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{label}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Phylo\-Node\-::label}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_a4abacdd01e6c36193c6372758a05debf}
+
+
+some nodes may be given a label in the input file 
+
+
+
+\-Definition at line 174 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by print\-Node().
+
+\hypertarget{classPhyloNode_a3625b4a3634e7662fdb063b14ce21482}{\index{\-Phylo\-Node@{\-Phylo\-Node}!parent@{parent}}
+\index{parent@{parent}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Node}$\ast$ {\bf \-Phylo\-Node\-::parent}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_a3625b4a3634e7662fdb063b14ce21482}
+
+
+container of pointers to child nodes 
+
+
+
+\-Definition at line 179 of file \-Phylo\-Tree.\-hpp.
+
+\hypertarget{classPhyloNode_aa99afd949e72b932d9c0d89d06c2a890}{\index{\-Phylo\-Node@{\-Phylo\-Node}!seq\-\_\-name@{seq\-\_\-name}}
+\index{seq\-\_\-name@{seq\-\_\-name}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{seq\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf \-Phylo\-Node\-::seq\-\_\-name}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_aa99afd949e72b932d9c0d89d06c2a890}
+
+
+sequence name for leaf notes, derived from the sequence number and sequence file 
+
+pointer to a node as the parent (\-N\-U\-L\-L if no parent ie root) 
+
+\-Definition at line 175 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by print\-Node().
+
+\hypertarget{classPhyloNode_ac50e08220f3cfb519d0e21ae4dd53dd2}{\index{\-Phylo\-Node@{\-Phylo\-Node}!seq\-\_\-no@{seq\-\_\-no}}
+\index{seq\-\_\-no@{seq\-\_\-no}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{seq\-\_\-no}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Phylo\-Node\-::seq\-\_\-no}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_ac50e08220f3cfb519d0e21ae4dd53dd2}
+
+
+every leaf node should have a sequence number 
+
+
+
+\-Definition at line 172 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by print\-Node().
+
+\hypertarget{classPhyloNode_a24cf3f05065a31fde05a428d0eca87cf}{\index{\-Phylo\-Node@{\-Phylo\-Node}!time@{time}}
+\index{time@{time}!PhyloNode@{\-Phylo\-Node}}
+\paragraph[{time}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Phylo\-Node\-::time}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classPhyloNode_a24cf3f05065a31fde05a428d0eca87cf}
+
+
+some nodes may be given a time in the tree file 
+
+
+
+\-Definition at line 173 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\-Referenced by print\-Node().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{PhyloTree_8hpp}{\-Phylo\-Tree.\-hpp}\item 
+\hyperlink{PhyloTree_8cpp}{\-Phylo\-Tree.\-cpp}\end{DoxyCompactItemize}

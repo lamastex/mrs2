@@ -1,0 +1,122 @@
+\hypertarget{classsubpavings_1_1SplittableCheck}{\subsection{subpavings\-:\-:\-Splittable\-Check \-Class \-Reference}
+\label{classsubpavings_1_1SplittableCheck}\index{subpavings\-::\-Splittable\-Check@{subpavings\-::\-Splittable\-Check}}
+}
+
+
+\-A type that visits  \-S\-Pnodes to check if they are splittable.  
+
+
+
+
+{\ttfamily \#include $<$sp\-\_\-check\-\_\-visitor.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Splittable\-Check\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Splittable\-Check\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1SplittableCheck_a267ba85ab1520b5f70dec3d3c049d467}{\-Splittable\-Check} ()
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SplittableCheck_ab4597cc8f9818adfbf00074b5343f870}{$\sim$\-Splittable\-Check} ()
+\item 
+void \hyperlink{classsubpavings_1_1SplittableCheck_a67b0655c14ae3573fd8f9c954491c51e}{visit} (const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$const spn) const 
+\begin{DoxyCompactList}\small\item\em \-The visit operation. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1SplittableCheck_a9b48f6f958be90822fcb39b8ec053a09}{get\-Result} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the result of the visit operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1SplittableCheck_aafe6ff513102db00eac0f1e5ed07e91c}{result}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A type that visits  \-S\-Pnodes to check if they are splittable. 
+
+\-The result of the visit should be a boolean indicating whether the node should be split, according its own is\-Splittabe\-Node() method. 
+
+\-Definition at line 66 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1SplittableCheck_a267ba85ab1520b5f70dec3d3c049d467}{\index{subpavings\-::\-Splittable\-Check@{subpavings\-::\-Splittable\-Check}!\-Splittable\-Check@{\-Splittable\-Check}}
+\index{\-Splittable\-Check@{\-Splittable\-Check}!subpavings::SplittableCheck@{subpavings\-::\-Splittable\-Check}}
+\paragraph[{\-Splittable\-Check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Splittable\-Check\-::\-Splittable\-Check} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1SplittableCheck_a267ba85ab1520b5f70dec3d3c049d467}
+
+
+\-Constructor. 
+
+\hypertarget{classsubpavings_1_1SplittableCheck_ab4597cc8f9818adfbf00074b5343f870}{\index{subpavings\-::\-Splittable\-Check@{subpavings\-::\-Splittable\-Check}!$\sim$\-Splittable\-Check@{$\sim$\-Splittable\-Check}}
+\index{$\sim$\-Splittable\-Check@{$\sim$\-Splittable\-Check}!subpavings::SplittableCheck@{subpavings\-::\-Splittable\-Check}}
+\paragraph[{$\sim$\-Splittable\-Check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Splittable\-Check\-::$\sim$\-Splittable\-Check} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1SplittableCheck_ab4597cc8f9818adfbf00074b5343f870}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1SplittableCheck_a9b48f6f958be90822fcb39b8ec053a09}{\index{subpavings\-::\-Splittable\-Check@{subpavings\-::\-Splittable\-Check}!get\-Result@{get\-Result}}
+\index{get\-Result@{get\-Result}!subpavings::SplittableCheck@{subpavings\-::\-Splittable\-Check}}
+\paragraph[{get\-Result}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Splittable\-Check\-::get\-Result} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SplittableCheck_a9b48f6f958be90822fcb39b8ec053a09}
+
+
+\-Get the result of the visit operation. 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1SPCheckVisitor_a6ea58710e956211e24fe4997eed3d94f}{subpavings\-::\-S\-P\-Check\-Visitor}.
+
+\hypertarget{classsubpavings_1_1SplittableCheck_a67b0655c14ae3573fd8f9c954491c51e}{\index{subpavings\-::\-Splittable\-Check@{subpavings\-::\-Splittable\-Check}!visit@{visit}}
+\index{visit@{visit}!subpavings::SplittableCheck@{subpavings\-::\-Splittable\-Check}}
+\paragraph[{visit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Splittable\-Check\-::visit} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-Pnode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SplittableCheck_a67b0655c14ae3573fd8f9c954491c51e}
+
+
+\-The visit operation. 
+
+\-Checks the node pointed to by {\itshape spn\/} and records the result true if the node is splittable (ie if spn-\/$>$is\-Splittable\-Node()).
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em spn} & a pointer to an \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} to be visited. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true if {\itshape spn\/} is not splittable, false otherwise. 
+\end{DoxyReturn}
+
+
+\-Implements \hyperlink{classsubpavings_1_1SPCheckVisitor_ad5fd0bde6d256676290e790c6387f01a}{subpavings\-::\-S\-P\-Check\-Visitor}.
+
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1SplittableCheck_aafe6ff513102db00eac0f1e5ed07e91c}{\index{subpavings\-::\-Splittable\-Check@{subpavings\-::\-Splittable\-Check}!result@{result}}
+\index{result@{result}!subpavings::SplittableCheck@{subpavings\-::\-Splittable\-Check}}
+\paragraph[{result}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Splittable\-Check\-::result}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classsubpavings_1_1SplittableCheck_aafe6ff513102db00eac0f1e5ed07e91c}
+
+
+\-Definition at line 90 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sp__check__visitor_8hpp}{sp\-\_\-check\-\_\-visitor.\-hpp}\end{DoxyCompactItemize}

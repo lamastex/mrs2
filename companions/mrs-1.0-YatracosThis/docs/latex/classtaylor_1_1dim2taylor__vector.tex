@@ -1,0 +1,416 @@
+\hypertarget{classtaylor_1_1dim2taylor__vector}{\subsection{taylor\-:\-:dim2taylor\-\_\-vector \-Class \-Reference}
+\label{classtaylor_1_1dim2taylor__vector}\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}}
+}
+
+
+{\ttfamily \#include $<$dim2taylor.\-hpp$>$}
+
+
+
+\-Collaboration diagram for taylor\-:\-:dim2taylor\-\_\-vector\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtaylor_1_1dim2taylor__vector_ae66d5856cc67052bf2be5e47394ca885}{dim2taylor\-\_\-vector} ()
+\item 
+\hyperlink{classtaylor_1_1dim2taylor__vector_a3d44ea6f7d2982fa1699c2caa0b4e76c}{dim2taylor\-\_\-vector} (int, int, int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor__vector_a2b3e7577d753127cbdc2ab82ad2b109a}{dim2taylor\-\_\-vector} (const \hyperlink{classtaylor_1_1dim2taylor__vector}{dim2taylor\-\_\-vector} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor__vector_ab42c03cc479b30ea13e216b331f03efc}{$\sim$dim2taylor\-\_\-vector} ()
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_adddde865321f39c8a6bcd441b65bf8b9}{get\-\_\-dim} () const 
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_a6bf3acf840eac582a3a519e1ff03aa07}{get\-\_\-lb} () const 
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_a80e88fe74372830995e9384d1f56972e}{get\-\_\-ub} () const 
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_adcc746c6ea9da3e280e0c0e85b5198c5}{get\-\_\-p\-\_\-el} () const 
+\item 
+\hyperlink{classtaylor_1_1dim2taylor__vector}{dim2taylor\-\_\-vector} \& \hyperlink{classtaylor_1_1dim2taylor__vector_ac987c494c6b550d4b1c82a5c48e7f83e}{operator=} (const \hyperlink{classtaylor_1_1dim2taylor__vector}{dim2taylor\-\_\-vector} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \& \hyperlink{classtaylor_1_1dim2taylor__vector_a9eb10e5f55f3d07160b79a605aba276e}{operator\mbox{[}$\,$\mbox{]}} (int n) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_ad0142b9b4011a426806f09f16217c443}{dim}
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_a2ba35c1941839c74ae6e29477df56163}{lb}
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_a5a1d2347123e0bbc823b57a8d6f4d74c}{ub}
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_abf767a36fd0b0fc7658b018cb1a29e55}{p\-\_\-el}
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} $\ast$ \hyperlink{classtaylor_1_1dim2taylor__vector_a8637ab0d24f55f1b12f1a8f1dad4b060}{comp}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_a3a0c947d6ba6d21c0c3a138374bcc1d2}{\-Lb} (const \hyperlink{classtaylor_1_1dim2taylor__vector}{dim2taylor\-\_\-vector} \&)
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor__vector_a244dd4344cb4e7855d21074ba9547ba2}{\-Ub} (const \hyperlink{classtaylor_1_1dim2taylor__vector}{dim2taylor\-\_\-vector} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor__vector}{dim2taylor\-\_\-vector} \hyperlink{classtaylor_1_1dim2taylor__vector_a176a606e5decd07956a85715c2d84b54}{init\-\_\-var} (int order, ivector \&values)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 184 of file dim2taylor.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor__vector_ae66d5856cc67052bf2be5e47394ca885}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!dim2taylor\-\_\-vector@{dim2taylor\-\_\-vector}}
+\index{dim2taylor\-\_\-vector@{dim2taylor\-\_\-vector}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{dim2taylor\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-\_\-vector\-::dim2taylor\-\_\-vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor__vector_ae66d5856cc67052bf2be5e47394ca885}
+
+
+\-Definition at line 1523 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    dim=2;
+    lb=1;
+    ub=2;
+    p_el=1;
+    comp = new dim2taylor[dim];   
+    for (int i=0; i<dim; i++)
+      comp[i]=dim2taylor(p_el);
+    // dim constructors of the form
+    // dim2taylor(int p_el)  are called to create a block (an array) of
+    // dim elements of type  dim2taylor.
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a3d44ea6f7d2982fa1699c2caa0b4e76c}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!dim2taylor\-\_\-vector@{dim2taylor\-\_\-vector}}
+\index{dim2taylor\-\_\-vector@{dim2taylor\-\_\-vector}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{dim2taylor\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-\_\-vector\-::dim2taylor\-\_\-vector} (
+\begin{DoxyParamCaption}
+\item[{int}]{ordnung, }
+\item[{int}]{\-Lb, }
+\item[{int}]{\-Ub}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor__vector_a3d44ea6f7d2982fa1699c2caa0b4e76c}
+
+
+\-Definition at line 1538 of file dim2taylor.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+    lb=Lb;
+    ub=Ub;
+    dim=ub-lb+1;
+    p_el=ordnung;
+    comp = new dim2taylor[dim];   
+    for (int i=0; i<dim; i++)
+      comp[i]=dim2taylor(p_el);
+    // dim constructors of the form
+    // dim2taylor(int p_el)  are called to create a block (an array) of
+    // dim elements of type  dim2taylor.
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a2b3e7577d753127cbdc2ab82ad2b109a}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!dim2taylor\-\_\-vector@{dim2taylor\-\_\-vector}}
+\index{dim2taylor\-\_\-vector@{dim2taylor\-\_\-vector}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{dim2taylor\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-\_\-vector\-::dim2taylor\-\_\-vector} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor\-\_\-vector} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor__vector_a2b3e7577d753127cbdc2ab82ad2b109a}
+
+
+\-Definition at line 1554 of file dim2taylor.\-cpp.
+
+
+
+\-References comp, dim, lb, p\-\_\-el, and ub.
+
+
+\begin{DoxyCode}
+{
+ dim=s.dim;
+ lb=s.lb;
+ ub=s.ub;
+ p_el=s.p_el;
+ comp=new dim2taylor[dim]; 
+          //Taylor order p_el and memory are handled by dim2taylor.operator=
+ for(int i=0; i<dim; i++) comp[i]=s.comp[i];
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_ab42c03cc479b30ea13e216b331f03efc}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!$\sim$dim2taylor\-\_\-vector@{$\sim$dim2taylor\-\_\-vector}}
+\index{$\sim$dim2taylor\-\_\-vector@{$\sim$dim2taylor\-\_\-vector}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{$\sim$dim2taylor\-\_\-vector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-\_\-vector\-::$\sim$dim2taylor\-\_\-vector} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor__vector_ab42c03cc479b30ea13e216b331f03efc}
+
+
+\-Definition at line 1567 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ delete[] comp;
+ comp=NULL;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor__vector_adddde865321f39c8a6bcd441b65bf8b9}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!get\-\_\-dim@{get\-\_\-dim}}
+\index{get\-\_\-dim@{get\-\_\-dim}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{get\-\_\-dim}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::get\-\_\-dim} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_adddde865321f39c8a6bcd441b65bf8b9}
+
+
+\-Definition at line 202 of file dim2taylor.\-hpp.
+
+
+\begin{DoxyCode}
+{return dim;};   // Number of elements 
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a6bf3acf840eac582a3a519e1ff03aa07}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!get\-\_\-lb@{get\-\_\-lb}}
+\index{get\-\_\-lb@{get\-\_\-lb}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{get\-\_\-lb}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::get\-\_\-lb} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a6bf3acf840eac582a3a519e1ff03aa07}
+
+
+\-Definition at line 204 of file dim2taylor.\-hpp.
+
+
+\begin{DoxyCode}
+{return lb;};    // lb index of the array
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_adcc746c6ea9da3e280e0c0e85b5198c5}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!get\-\_\-p\-\_\-el@{get\-\_\-p\-\_\-el}}
+\index{get\-\_\-p\-\_\-el@{get\-\_\-p\-\_\-el}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{get\-\_\-p\-\_\-el}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::get\-\_\-p\-\_\-el} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_adcc746c6ea9da3e280e0c0e85b5198c5}
+
+
+\-Definition at line 206 of file dim2taylor.\-hpp.
+
+
+\begin{DoxyCode}
+{return p_el;};  // p_el: Order of the
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a80e88fe74372830995e9384d1f56972e}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!get\-\_\-ub@{get\-\_\-ub}}
+\index{get\-\_\-ub@{get\-\_\-ub}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{get\-\_\-ub}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::get\-\_\-ub} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a80e88fe74372830995e9384d1f56972e}
+
+
+\-Definition at line 205 of file dim2taylor.\-hpp.
+
+
+\begin{DoxyCode}
+{return ub;};    // ub index of the array
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_ac987c494c6b550d4b1c82a5c48e7f83e}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!operator=@{operator=}}
+\index{operator=@{operator=}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor\-\_\-vector} \& taylor\-::dim2taylor\-\_\-vector\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor\-\_\-vector} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor__vector_ac987c494c6b550d4b1c82a5c48e7f83e}
+
+
+\-Definition at line 1575 of file dim2taylor.\-cpp.
+
+
+
+\-References comp, dim, lb, p\-\_\-el, and ub.
+
+
+\begin{DoxyCode}
+{
+ if(this!=&s)
+ {
+  delete[] comp;
+
+  p_el=s.p_el;
+  dim=s.dim;
+  lb=s.lb;
+  ub=s.ub;
+
+ comp=new dim2taylor[dim]; 
+          //Taylor order p_el and memory are handled by dim2taylor.operator=
+  for(int i=0; i<dim ; i++) comp[i]=s.comp[i];
+ }
+
+ return *this;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a9eb10e5f55f3d07160b79a605aba276e}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} \& taylor\-::dim2taylor\-\_\-vector\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+) const}}\label{classtaylor_1_1dim2taylor__vector_a9eb10e5f55f3d07160b79a605aba276e}
+
+
+\-Definition at line 1596 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    return comp[n-lb];  // allowed indices: n = lb,lb+1,...,ub;
+} 
+\end{DoxyCode}
+
+
+\subsubsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a176a606e5decd07956a85715c2d84b54}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!init\-\_\-var@{init\-\_\-var}}
+\index{init\-\_\-var@{init\-\_\-var}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{init\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor\-\_\-vector} {\bf init\-\_\-var} (
+\begin{DoxyParamCaption}
+\item[{int}]{order, }
+\item[{ivector \&}]{values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a176a606e5decd07956a85715c2d84b54}
+
+
+\-Definition at line 1603 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int dimension = Ub(values)-Lb(values)+1;
+
+ if(dimension != 2) 
+  {
+   cerr << "Error in dim2taylor_vector::init_var" << endl;
+   cerr << "! 2-dimensional Taylor arithmetic !" << endl; 
+   exit(1);
+  } 
+
+ dim2taylor_vector erg(order, Lb(values), Ub(values));
+
+ erg[Lb(values)] = init_var(order,1,values[Lb(values)]);
+ erg[Ub(values)] = init_var(order,2,values[Ub(values)]);
+
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a3a0c947d6ba6d21c0c3a138374bcc1d2}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!\-Lb@{\-Lb}}
+\index{\-Lb@{\-Lb}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{\-Lb}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Lb} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor\-\_\-vector} \&}]{d2tv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a3a0c947d6ba6d21c0c3a138374bcc1d2}
+
+
+\-Definition at line 1624 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  return d2tv.lb;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a244dd4344cb4e7855d21074ba9547ba2}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!\-Ub@{\-Ub}}
+\index{\-Ub@{\-Ub}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{\-Ub}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Ub} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor\-\_\-vector} \&}]{d2tv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a244dd4344cb4e7855d21074ba9547ba2}
+
+
+\-Definition at line 1629 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  return d2tv.ub;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor__vector_a8637ab0d24f55f1b12f1a8f1dad4b060}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!comp@{comp}}
+\index{comp@{comp}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{comp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor}$\ast$ {\bf taylor\-::dim2taylor\-\_\-vector\-::comp}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a8637ab0d24f55f1b12f1a8f1dad4b060}
+
+
+\-Definition at line 192 of file dim2taylor.\-hpp.
+
+
+
+\-Referenced by dim2taylor\-\_\-vector(), and operator=().
+
+\hypertarget{classtaylor_1_1dim2taylor__vector_ad0142b9b4011a426806f09f16217c443}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!dim@{dim}}
+\index{dim@{dim}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{dim}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::dim}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_ad0142b9b4011a426806f09f16217c443}
+
+
+\-Definition at line 187 of file dim2taylor.\-hpp.
+
+
+
+\-Referenced by dim2taylor\-\_\-vector(), and operator=().
+
+\hypertarget{classtaylor_1_1dim2taylor__vector_a2ba35c1941839c74ae6e29477df56163}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!lb@{lb}}
+\index{lb@{lb}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{lb}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::lb}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a2ba35c1941839c74ae6e29477df56163}
+
+
+\-Definition at line 188 of file dim2taylor.\-hpp.
+
+
+
+\-Referenced by dim2taylor\-\_\-vector(), taylor\-::\-Lb(), and operator=().
+
+\hypertarget{classtaylor_1_1dim2taylor__vector_abf767a36fd0b0fc7658b018cb1a29e55}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!p\-\_\-el@{p\-\_\-el}}
+\index{p\-\_\-el@{p\-\_\-el}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{p\-\_\-el}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::p\-\_\-el}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_abf767a36fd0b0fc7658b018cb1a29e55}
+
+
+\-Definition at line 191 of file dim2taylor.\-hpp.
+
+
+
+\-Referenced by dim2taylor\-\_\-vector(), and operator=().
+
+\hypertarget{classtaylor_1_1dim2taylor__vector_a5a1d2347123e0bbc823b57a8d6f4d74c}{\index{taylor\-::dim2taylor\-\_\-vector@{taylor\-::dim2taylor\-\_\-vector}!ub@{ub}}
+\index{ub@{ub}!taylor::dim2taylor_vector@{taylor\-::dim2taylor\-\_\-vector}}
+\paragraph[{ub}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-\_\-vector\-::ub}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1dim2taylor__vector_a5a1d2347123e0bbc823b57a8d6f4d74c}
+
+
+\-Definition at line 189 of file dim2taylor.\-hpp.
+
+
+
+\-Referenced by dim2taylor\-\_\-vector(), operator=(), and taylor\-::\-Ub().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dim2taylor_8hpp}{dim2taylor.\-hpp}\item 
+\hyperlink{dim2taylor_8cpp}{dim2taylor.\-cpp}\end{DoxyCompactItemize}

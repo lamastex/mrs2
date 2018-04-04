@@ -1,0 +1,3431 @@
+\hypertarget{classsubpavings_1_1CollatorSPnode}{\subsection{subpavings\-:\-:\-Collator\-S\-Pnode \-Class \-Reference}
+\label{classsubpavings_1_1CollatorSPnode}\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}}
+}
+
+
+\-A derived class based on \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} for creating summaries.  
+
+
+
+
+{\ttfamily \#include $<$collatorspnode.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Collator\-S\-Pnode\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Collator\-S\-Pnode\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode_a6f444e76ad6e0c65535e6278dbd775e5}{\-Collator\-S\-Pnode} ()
+\begin{DoxyCompactList}\small\item\em default constructor, \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode_a561b7d137e120403d17008ff837e0036}{\-Collator\-S\-Pnode} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode_ab4777c2f663dd1faaed8568fd0707a51}{\-Collator\-S\-Pnode} (ivector \&v, int lab, \hyperlink{namespacesubpavings_a6b4d2e61b2f0b65cacc9c9322d89bc37}{\-Vec\-Dbl} summ)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor,. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode_a4a01094e0378f8563fbbf40461d5b488}{\-Collator\-S\-Pnode} (const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} \& \hyperlink{classsubpavings_1_1CollatorSPnode_a01020423e529685b484b95a73b6432ee}{operator=} (const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_ac71288d7ccff2a3ddf1509f5b3a54930}{make\-Average\-Collation} () const 
+\item 
+\hyperlink{namespacesubpavings_a6b4d2e61b2f0b65cacc9c9322d89bc37}{\-Vec\-Dbl} \hyperlink{classsubpavings_1_1CollatorSPnode_aecf22d39cbb7289355a08cec62749800}{get\-Summary} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the summary. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1CollatorSPnode_a6470a98dd502247ca9e86582b3c422eb}{get\-Number\-Summarised} () const 
+\begin{DoxyCompactList}\small\item\em \-Get number of subpavings summarised. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \hyperlink{classsubpavings_1_1CollatorSPnode_ac0b072587e955a451fab739dcb538c37}{get\-Leaf\-Node\-Abs\-Area\-Accumulations} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the accumulations of absolute areas for leaf nodes. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \hyperlink{classsubpavings_1_1CollatorSPnode_a8c566a24d35898fb54133cf310276468}{get\-Leaf\-Node\-Summary\-Accumulations} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the accumulations of summary values for leaf nodes. \end{DoxyCompactList}\item 
+virtual std\-::ostream \& \hyperlink{classsubpavings_1_1CollatorSPnode_ab58b8d4c3a8a879930da943dbe2dd62d}{node\-Print} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output the details of a specific node. \end{DoxyCompactList}\item 
+virtual std\-::ostream \& \hyperlink{classsubpavings_1_1CollatorSPnode_ab2e1cd11ef3dd4424cf491e529ed0fd8}{leaf\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for a node in a binary tree, tab-\/delimited. \end{DoxyCompactList}\item 
+virtual std\-::ostream \& \hyperlink{classsubpavings_1_1CollatorSPnode_ad54a1befc9cff87c02237caeabe84ea5}{leaves\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for for {\bfseries all leaves} of a binary tree. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1CollatorSPnode_a0f37c9801d51df76b2acf7ea4c45e122}{leaves\-Average\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for for {\bfseries all leaves} of a binary tree. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1CollatorSPnode_af0789230e2a9612f9b0644113e318f37}{node\-Expand} (int comp)
+\begin{DoxyCompactList}\small\item\em \-Expand leaf node to make two more leaves as children and copy summary down to the children. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1CollatorSPnode_ad54fcce3c5c904f7ecf0f5042515e1a5}{node\-Expand} ()
+\begin{DoxyCompactList}\small\item\em \-Expand leaf node to make two more leaves as children and copy summary down to the children. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1CollatorSPnode_ace8192ce1536f578c73c7aa12bb49e35}{node\-Reunite} (\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$l\-Child, \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$r\-Child)
+\begin{DoxyCompactList}\small\item\em \-Try to reunite nodes to form one leaf. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1CollatorSPnode_aca275f3faaa0170c0612f368bae4acdf}{node\-Adopt\-Left} (\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$l\-Child)
+\begin{DoxyCompactList}\small\item\em \-Builds a higher level of a tree from existing nodes. \-This adopts a left child rather than attempting to reunite two children into this. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1CollatorSPnode_a324588afd881d4e695f42f4a286b33a7}{node\-Adopt\-Right} (\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$r\-Child)
+\begin{DoxyCompactList}\small\item\em \-Builds a higher level of a tree from existing nodes. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_ac1d9ea49286eb953b7bc71f89c15f8ec}{make\-Differences\-To\-Average\-Paving} () const 
+\begin{DoxyCompactList}\small\item\em \-Make a tree which holds differences of this to avg over this. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1CollatorSPnode_a700f585b2b61663330b999f459045822}{get\-Sum\-Vars\-Area\-Scalar} () const 
+\begin{DoxyCompactList}\small\item\em \-Sum of variances of a scalar value. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1CollatorSPnode_a4c623e6456d3ced424aebba699c33fd9}{get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar} () const 
+\begin{DoxyCompactList}\small\item\em \-Sum of variances of a scalar value. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1CollatorSPnode_ab32959b197c529211921f3dab4e28177}{add\-Paving} (\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Incorporate a \-Collator subpaving to this summmary. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_a48244aa234b59b624ec681eaf966cfe4}{add\-Negated\-Paving} (const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const spn, double c)
+\begin{DoxyCompactList}\small\item\em \-Incorporate negation of a \-Collator subpaving to this summmary. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1CollatorSPnode_a406e23c3f85680631bd30897fb1cfdc2}{leaves\-Accumulation\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for for {\bfseries all leaves} of a binary tree. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1CollatorSPnode_a0ea530d232bf3bb09e6cf44eeeadbfde}{leaf\-Accumulation\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for a node in a binary tree, tab-\/delimited. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1CollatorSPnode_a812d98c784af382c4a697555a7b0445f}{node\-Accumulation} () const 
+\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_acdad2b87cf5f979fb24a7aef392a5895}{leaf\-Make\-New\-Fhat} (double wt, std\-::vector$<$ double $>$ \&fhat\-New)
+\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_a236e44d75b1cf0988a014f7ae33c55b6}{leaves\-Make\-New\-Fhat} (double wt, std\-::vector$<$ double $>$ \&fhat\-New)
+\item 
+std\-::vector$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ \& \hyperlink{classsubpavings_1_1CollatorSPnode_a827a6e8b21b3c6e8e8f8e9aeca4b622b}{get\-Leaves} (std\-::vector$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ \&leaves) const 
+\item 
+std\-::vector$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ \& \hyperlink{classsubpavings_1_1CollatorSPnode_a7fa06e6f1d278157e7c5c6a9d44e2c07}{get\-All\-Nodes} (std\-::vector$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ \&all\-Nodes) const 
+\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_a0e8574a8a951a2716cbb29b8e1fbbc33}{totalise\-Summaries} ()
+\begin{DoxyCompactList}\small\item\em \-Total the summaries from this node downwards. \end{DoxyCompactList}\item 
+int \hyperlink{classsubpavings_1_1CollatorSPnode_ab374777116b7e0af8e7100f303e1f97b}{get\-Split\-Dim} () const 
+\begin{DoxyCompactList}\small\item\em \-Find the dimension a node split on. \end{DoxyCompactList}\item 
+double \hyperlink{classsubpavings_1_1CollatorSPnode_a77e75118f31767497377790cd87e3869}{get\-Total\-Summary} () const 
+\item 
+double \hyperlink{classsubpavings_1_1CollatorSPnode_a8c48fd024a9e569830168a3f301d798e}{get\-Total\-Summary\-Av} () const 
+\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \& \hyperlink{classsubpavings_1_1CollatorSPnode_a944e27bc584e24e630411e787456ffe0}{get\-L1\-Distances\-To\-Average} (\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&container) const 
+\item 
+bool \hyperlink{classsubpavings_1_1CollatorSPnode_af089a7955e0dd12ef33af3ec4bfc6627}{node\-Check\-Row\-Summary} (int theta, int k)
+\begin{DoxyCompactList}\small\item\em \-Find the node that fulfills the \-Yatracos condition by comparing the rows of the growing \-Yatracos matrix against the columns. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1CollatorSPnode_aeb5549c6c555a65ee6cf71e779873b67}{node\-Check\-Col\-Summary} (int theta, int k)
+\begin{DoxyCompactList}\small\item\em \-Find the node that fulfills the \-Yatracos condition by comparing the columns of the growing \-Yatracos matrix against the rows. \end{DoxyCompactList}\item 
+double \hyperlink{classsubpavings_1_1CollatorSPnode_a72b47c222d49deba3753259d94d730c3}{get\-Node\-Delta} (int this\-Theta, size\-\_\-t size\-Coll)
+\begin{DoxyCompactList}\small\item\em \-Get the delta value for a specific theta. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_aaf5207af98f7fac37ffe63ab3aec15b9}{get\-Yat\-Set} (std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&\-Yat\-Set\-Row, std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&\-Yat\-Set\-Col, size\-\_\-t cand1, size\-\_\-t cand2)
+\begin{DoxyCompactList}\small\item\em \-Get the \-Yatracos set for a particular pair. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1CollatorSPnode_a9509d8f49407c1b14148f80758f02646}{get\-Scheffe\-Node} (int theta1, int theta2)
+\begin{DoxyCompactList}\small\item\em \-Find the node that fulfills the \-Scheffe set, f\-\_\-theta1 $>$ f\-\_\-theta2 for candidates f\-\_\-theta1 and f\-\_\-theta2, where theta1 $<$ theta2. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_a3c3d4df6f965a2eee9b4c517eb045246}{get\-Scheffe\-Set} (std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&\-Scheffe\-Set, size\-\_\-t cand1, size\-\_\-t cand2)
+\begin{DoxyCompactList}\small\item\em \-Get the \-Scheffe set for a particular pair. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_a3b6cd985321d1ecae0a856ab881d6e62}{swap\-Collator} (\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} \&spn)
+\begin{DoxyCompactList}\small\item\em \-Swap this and another node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf \-Accessors for links between the nodes.}\par
+{\em \-These accessor methods shadow equivalent methods in the base class. \-Thus the method used is determined at compile time, not run time as would be the case if virtual methods were used. \-Because the pointers to parents and children are part of the base class definition, the methods have to cast the base class from to the derived class form in order for the pointer returned to be able to be used with derived class members.
+
+\-Note that pointers for parent, left\-Child, and right\-Child are not reference counted so there could potentially be problems with the use of returned pointers (for instance, being used to delete nodes). \-These pointers might be better implemented with boost\-::shared\-\_\-ptr . }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_aed3cb2aceae3c384eed427a404a6c8f6}{get\-Parent} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the parent of a node. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_a5e1b32d7fffa9cfc7865b384c2e89a82}{get\-Left\-Child} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the left child of a node. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_ab93823657d610d99e885317c2cf2e8f6}{get\-Right\-Child} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the right child of a node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_a66a0f1bc3a886c904f8192774b531437}{add\-Pavings} (const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const rhs)
+\begin{DoxyCompactList}\small\item\em \-Add two collator subpavings together. \end{DoxyCompactList}\item 
+static \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_a79e263c5e6b22baeb2f4e543f33f6d5e}{subtract\-Pavings} (const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const rhs, double c)
+\begin{DoxyCompactList}\small\item\em \-Subtract one collator subpavings from another together. \end{DoxyCompactList}\item 
+static \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_ae156be7c91a97c25628edc6fcf00e1f9}{\-\_\-marginalise} (const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const rhs, const std\-::vector$<$ int $>$ \&out\-Dims)
+\begin{DoxyCompactList}\small\item\em \-Make a marginalised version of a given node. \end{DoxyCompactList}\item 
+static \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1CollatorSPnode_aec7d6bcee79660a09914100f9b878611}{marginalise} (const \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const rhs, const std\-::vector$<$ int $>$ \&req\-Dims)
+\begin{DoxyCompactList}\small\item\em \-Make a marginalised version of subpaving with root node {\itshape rhs\/}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode_aa14e448dca22fa7c14de4d21c0624b26}{\-Collator\-S\-Pnode} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const spn, size\-\_\-t big\-N)
+\item 
+void \hyperlink{classsubpavings_1_1CollatorSPnode_a3ba268993642c1fd5c702966a4fd4fba}{node\-Negate} (double c)
+\begin{DoxyCompactList}\small\item\em \-Negates the summary for every node in tree rooted at this. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1CollatorSPnode_a9fe7256f1a62884e4bb8599a63abbbdf}{leaf\-Average\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for a node in a binary tree, tab-\/delimited. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_ad8f0a077ee1c4678bcd1868f3aecd605}{\-Vec\-Dot\-Prec} \& \hyperlink{classsubpavings_1_1CollatorSPnode_a5ac89a38985d8ff62ca7a29943c6734c}{get\-Leaf\-Node\-Abs\-Area\-Accumulations} (\hyperlink{namespacesubpavings_ad8f0a077ee1c4678bcd1868f3aecd605}{\-Vec\-Dot\-Prec} \&area\-Acc) const 
+\begin{DoxyCompactList}\small\item\em \-Add to the accumulation of absolute areas for leaf nodes. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1CollatorSPnode_a0afe525dbddf958078e9a8eac6ea88a3}{get\-Leaf\-Node\-Abs\-Area\-Accumulation\-Total} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the total accumulated value of absolute areas for leaf nodes. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_ad8f0a077ee1c4678bcd1868f3aecd605}{\-Vec\-Dot\-Prec} \& \hyperlink{classsubpavings_1_1CollatorSPnode_a7daf828f08626b5b83654550e5a98bee}{get\-Leaf\-Node\-Summary\-Accumulations} (\hyperlink{namespacesubpavings_ad8f0a077ee1c4678bcd1868f3aecd605}{\-Vec\-Dot\-Prec} \&summ\-Acc) const 
+\begin{DoxyCompactList}\small\item\em \-Add to accumulation of summary values for leaf nodes. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1CollatorSPnode_a66a1a3e5a8c9c81e4f3b307360c2c495}{dot\-Diff\-Paving} (\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em make this the root of a tree representing summary differences \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Static \-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{namespacesubpavings_a6b4d2e61b2f0b65cacc9c9322d89bc37}{\-Vec\-Dbl} \& \hyperlink{classsubpavings_1_1CollatorSPnode_a3a0733086ac4a95e954da0cd8f0e1dfa}{dot\-Difference\-Summary} (\hyperlink{namespacesubpavings_a6b4d2e61b2f0b65cacc9c9322d89bc37}{\-Vec\-Dbl} \&lhs\-Summary, \hyperlink{namespacesubpavings_a6b4d2e61b2f0b65cacc9c9322d89bc37}{\-Vec\-Dbl} \&rhs\-Summary)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacesubpavings_a6b4d2e61b2f0b65cacc9c9322d89bc37}{\-Vec\-Dbl} \hyperlink{classsubpavings_1_1CollatorSPnode_abecd2f87f50d84f2c3d04e6b0b15a5ec}{summary}
+\begin{DoxyCompactList}\small\item\em \-A container of summary values from the collated subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A derived class based on \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} for creating summaries. 
+
+\-Creates summaries from other nodes from the \-S\-P node family.
+
+\-The base class \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} is a node in the representation of a regular subpaving as a binary tree. \-A node represents a box (interval vector). \-S\-Pnodes are linked together to form the tree. \-The initial box of the subpaving is the box represented by the root node of the tree. \-A box which has been split will be represented as node with one or two children. \-A subpaving of \mbox{[}{\bfseries x}\mbox{]} (union of non-\/overlapping sub-\/ boxes of \mbox{[}{\bfseries x}\mbox{]}) is represented by the leaves (degenerate/ child-\/less) nodes in the tree.
+
+\-The \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} class collates data from a collection of \-S\-Pnodes or objects from classes derived from \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode}.
+
+\-An entire tree structure represents a union over each tree collated, ie the boxes of the leaves of the collated tree make a subpaving that is the union of the subpavings represented by each tree collated.
+
+\-Each node has a container structure (the summary) holding one value for each corresponding collated. 
+
+\-Definition at line 65 of file collatorspnode.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1CollatorSPnode_aa14e448dca22fa7c14de4d21c0624b26}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}}
+\index{\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{\-Collator\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Collator\-S\-Pnode\-::\-Collator\-S\-Pnode} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{spn, }
+\item[{size\-\_\-t}]{big\-N}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_aa14e448dca22fa7c14de4d21c0624b26}
+\-Private initialised constructor.
+
+\-Initialised with a pointer to an \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} and a normalising constant, eg sum of counts in each node for a histogram \-The summary becomes count /(normalising constant $\ast$ vol) for the \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode}.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em big\-N} & the normalising constant. \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 56 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Counter(), subpavings\-::\-S\-Pnode\-::get\-Dimension(), subpavings\-::\-S\-Pnode\-::get\-Label(), subpavings\-::\-S\-P\-Snode\-::get\-Left\-Child(), subpavings\-::\-S\-Pnode\-::get\-Node\-Name(), subpavings\-::\-S\-P\-Snode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+    {
+        try {
+            theBox = new ivector(spn->getBox());
+            dimension = spn->getDimension();
+            label = spn->getLabel();
+            nodeName = spn->getNodeName();
+
+            // add the summary to the vector summary
+            summary.push_back((spn->getCounter())/
+                                (1.0 * bigN * spn->nodeVolume()));
+
+            //recursion on the children
+            if (spn->hasLCwithBox()) {
+                nodeAddLeft(new CollatorSPnode(spn->getLeftChild(), bigN));
+            }
+            else leftChild=NULL;
+
+            if (spn->hasRCwithBox()) {
+                nodeAddRight(new CollatorSPnode(spn->getRightChild(), bigN));
+            }
+            else rightChild=NULL;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a6f444e76ad6e0c65535e6278dbd775e5}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}}
+\index{\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{\-Collator\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Collator\-S\-Pnode\-::\-Collator\-S\-Pnode} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a6f444e76ad6e0c65535e6278dbd775e5}
+
+
+default constructor, 
+
+
+
+\-Definition at line 358 of file collatorspnode.\-cpp.
+
+
+
+\-Referenced by \-\_\-marginalise(), add\-Negated\-Paving(), add\-Paving(), add\-Pavings(), \-Collator\-S\-Pnode(), make\-Average\-Collation(), make\-Differences\-To\-Average\-Paving(), node\-Expand(), operator=(), and subtract\-Pavings().
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a561b7d137e120403d17008ff837e0036}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}}
+\index{\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{\-Collator\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Collator\-S\-Pnode\-::\-Collator\-S\-Pnode} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a561b7d137e120403d17008ff837e0036}
+
+
+\-Initialised constructor. 
+
+\-Initialised with a pointer to an \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode}. \-The collator\-S\-P\-Snode summary information is the k/vol of the \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode}, ie effectively the height of a histogram bin formed by the box associated with that node. 
+
+\-Definition at line 362 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Counter(), subpavings\-::\-S\-Pnode\-::get\-Dimension(), subpavings\-::\-S\-Pnode\-::get\-Label(), subpavings\-::\-S\-P\-Snode\-::get\-Left\-Child(), subpavings\-::\-S\-Pnode\-::get\-Node\-Name(), subpavings\-::\-S\-P\-Snode\-::get\-Right\-Child(), subpavings\-::\-S\-P\-Snode\-::get\-Root\-Counter(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+    {
+        try {
+            theBox = new ivector(spn->getBox());
+            dimension = spn->getDimension();
+            label = spn->getLabel();
+            nodeName = spn->getNodeName();
+
+            // add the normalised count/volume to the vector summary
+
+            size_t rootCounter = spn->getRootCounter();
+
+            summary.push_back(spn->getCounter()/
+                                (rootCounter * spn->nodeVolume()));
+
+            //recursion on the children using constructor which normalises
+       counts
+            if (spn->hasLCwithBox()) {
+                nodeAddLeft(new CollatorSPnode(spn->getLeftChild(),
+                                                    rootCounter));
+            }
+            else leftChild=NULL;
+
+            if (spn->hasRCwithBox()) {
+                nodeAddRight(new CollatorSPnode(spn->getRightChild(),
+                                                    rootCounter));
+            }
+            else rightChild=NULL;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ab4777c2f663dd1faaed8568fd0707a51}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}}
+\index{\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{\-Collator\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Collator\-S\-Pnode\-::\-Collator\-S\-Pnode} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{v, }
+\item[{int}]{lab, }
+\item[{{\bf \-Vec\-Dbl}}]{summ}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ab4777c2f663dd1faaed8568fd0707a51}
+
+
+\-Initialised constructor,. 
+
+\-Initialised with a box, a label, and a vector summary, 
+
+\-Definition at line 401 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+\begin{DoxyCode}
+        : SPnode(v, lab)
+    {
+        try {
+            // copy the vector summary
+            summary = summ;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a4a01094e0378f8563fbbf40461d5b488}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}}
+\index{\-Collator\-S\-Pnode@{\-Collator\-S\-Pnode}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{\-Collator\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Collator\-S\-Pnode\-::\-Collator\-S\-Pnode} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Collator\-S\-Pnode} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a4a01094e0378f8563fbbf40461d5b488}
+
+
+\-Copy constructor. 
+
+
+
+\-Definition at line 419 of file collatorspnode.\-cpp.
+
+
+
+\-References \-Collator\-S\-Pnode(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::left\-Child, subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::right\-Child, and summary.
+
+
+\begin{DoxyCode}
+        : SPnode(*(other.theBox), other.label)
+    {
+        try {
+            summary = other.summary;
+            nodeName = other.nodeName;
+
+            //recursion on the children
+            if (other.leftChild) {
+                nodeAddLeft(new CollatorSPnode(
+                    *(other.getLeftChild())));
+            }
+            else leftChild=NULL;
+
+            if (other.rightChild) {
+                nodeAddRight(new CollatorSPnode(
+                    *(other.getRightChild())));
+            }
+            else rightChild=NULL;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ae156be7c91a97c25628edc6fcf00e1f9}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!\-\_\-marginalise@{\-\_\-marginalise}}
+\index{\-\_\-marginalise@{\-\_\-marginalise}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{\-\_\-marginalise}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::\-\_\-marginalise} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Collator\-S\-Pnode} $\ast$const}]{rhs, }
+\item[{const std\-::vector$<$ int $>$ \&}]{out\-Dims}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ae156be7c91a97c25628edc6fcf00e1f9}
+
+
+\-Make a marginalised version of a given node. 
+
+\-Private version, works recursively to marginalise from this node down.
+
+\-Marginalises to take out the given dimensions and adjust summaries so that overall sum of (node vol x accumulated summaries) is the same as for {\itshape rhs\/}.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & is the root of the node to marginalise.  is a vector of the dimensions to take out. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+root of a tree of marginalised nodes. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1503 of file collatorspnode.\-cpp.
+
+
+
+\-References add\-Pavings(), \-Collator\-S\-Pnode(), subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-Pnode\-::get\-Label(), get\-Left\-Child(), get\-Right\-Child(), get\-Split\-Dim(), get\-Summary(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), taylor\-::\-Lb(), totalise\-Summaries(), taylor\-::\-Ub(), and \-Volume().
+
+
+
+\-Referenced by marginalise().
+
+
+\begin{DoxyCode}
+    {
+    CollatorSPnode* marginal = NULL;
+    CollatorSPnode * newRC = NULL;
+    CollatorSPnode * newLC = NULL;
+        
+    try {
+      
+      if (rhs != NULL ) { // if NULL we just return NULL
+              
+        ivector box = rhs->getBox();
+        // will throw an exception if there is no box
+        int dim = VecLen(box);
+        int boxLB = Lb(box);
+        
+        int splitDim = rhs->getSplitDim();
+        
+        // deal with children first
+        if (!rhs->isLeaf()) {
+                              
+          newRC = _marginalise(rhs->getRightChild(), outDims);
+          newLC = _marginalise(rhs->getLeftChild(), outDims);
+        
+        } // end isLeaf()
+        
+        // now deal with this node itself
+        // if rhs a leaf, or did not split on any of the given dimensions
+        // make a node that contracts rhs
+        
+        // iterator to vector element:
+        std::vector<int>::const_iterator found 
+            = find (outDims.begin(), outDims.end(), splitDim);
+        
+        if (found < outDims.end()) { // split on one of the outDims
+          // so this will become the result of adding together
+          // the two new children
+          marginal = addPavings(newRC, newLC);
+          // addPavings takes copies of the nodes to be added
+          // so we need to destroy these ones
+          delete newRC;
+          newRC = NULL;
+          delete newLC;
+          newLC = NULL;
+          
+          marginal->totaliseSummaries(); 
+        }
+        else { // did not split on an outdim or is a leaf
+          // have to contract rhs and then add the children
+          VecDbl temp = rhs->getSummary();
+          int l = rhs->getLabel();
+          int newDims = dim - outDims.size();
+          // for every missing dimension
+          ivector newBox = ivector(newDims); 
+          int index = Lb(newBox);
+          int oldindex = boxLB;
+          
+          for (; oldindex <= Ub(box); oldindex++) {
+            std::vector<int>::const_iterator fit 
+            = find (outDims.begin(), outDims.end(), (oldindex - boxLB + 1));
+            if (!(fit < outDims.end())) { // keep this one
+              newBox[index] = box[oldindex];
+              index++;
+              
+            }
+          }
+          
+          double missingVol = Volume(box)/Volume(newBox);
+          
+          transform(temp.begin(), temp.end(), temp.begin(), 
+          std::bind1st(multiplies<double>(), missingVol) );
+          
+          marginal = new CollatorSPnode(newBox, rhs->getLabel(), temp);
+          marginal->totaliseSummaries(); 
+                    
+          if (!rhs->isLeaf()) {
+            marginal->nodeAddRight(newRC);
+            marginal->nodeAddLeft(newLC);
+          }
+          newRC = NULL;
+          newLC = NULL;
+          
+          } // finished else
+      } // end if not NULL
+      
+      // clean up assuming no problems so far
+      if (newRC != NULL) {
+        try {
+          delete newRC;
+        }
+        catch (exception& ee) {} // catch and swallow
+      }
+      if (newLC != NULL) {
+        try {
+          delete newLC;
+        }
+        catch (exception& ee) {} // catch and swallow
+      }
+      
+      return marginal;
+      
+        } // end try
+        catch (exception& e) {
+            
+            
+            if (newRC != NULL) {
+        try {
+          delete newRC;
+        }
+        catch (exception& ee) {} // catch and swallow
+      }
+      if (newLC != NULL) {
+        try {
+          delete newLC;
+        }
+        catch (exception& ee) {} // catch and swallow
+      }
+      if (marginal != NULL) {
+        try {
+          delete marginal;
+        }
+        catch (exception& ee) {} // catch and swallow
+      }
+            
+            const char* msg = e.what();
+            throw SPnodeException("Error in _marginalise:\n " + std::string(msg
+      ));
+        }
+      
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a48244aa234b59b624ec681eaf966cfe4}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!add\-Negated\-Paving@{add\-Negated\-Paving}}
+\index{add\-Negated\-Paving@{add\-Negated\-Paving}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{add\-Negated\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::add\-Negated\-Paving} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Collator\-S\-Pnode} $\ast$const}]{spn, }
+\item[{double}]{c}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a48244aa234b59b624ec681eaf966cfe4}
+
+
+\-Incorporate negation of a \-Collator subpaving to this summmary. 
+
+\-Adjusts the tree rooted at this node for the tree being added. \-The tree rooted at this node will expand if necessary to have at least all the leaves of the tree of the tree being added. \-The summary for this node will increase to include the negation of the summary of the node being added.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em spn} & pointer to the \-Collator subpaving to be incorporated into the summary. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{\-Note}
+that the contents of the \-Collator subpaving added will be altered\-: it is assumed that the \-Collator subpaving to be added is a temporary object made and passed in with a wrapper class 
+\end{DoxyNote}
+
+
+\-Definition at line 1323 of file collatorspnode.\-cpp.
+
+
+
+\-References add\-Paving(), \-Collator\-S\-Pnode(), and node\-Negate().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-Negation\-To\-Collation(), and subtract\-Pavings().
+
+
+\begin{DoxyCode}
+    {
+        SPSnode* temp = NULL;
+
+        try {
+            CollatorSPnode* temp = new CollatorSPnode (*spn);
+
+            // negate the node passed in
+            temp->nodeNegate(c);
+
+            addPaving(temp);
+
+            delete temp;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory in addNegatedPaving" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ab32959b197c529211921f3dab4e28177}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!add\-Paving@{add\-Paving}}
+\index{add\-Paving@{add\-Paving}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{add\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Collator\-S\-Pnode\-::add\-Paving} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Collator\-S\-Pnode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_ab32959b197c529211921f3dab4e28177}
+
+
+\-Incorporate a \-Collator subpaving to this summmary. 
+
+\-Adjusts the tree rooted at this node for the tree being added. \-The tree rooted at this node will expand if necessary to have at least all the leaves of the tree of the tree being added. \-The summary for this node will increase to include the summary of the node being added.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em spn} & pointer to the \-Collator subpaving to be incorporated into the summary. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true if the paving could be added, false otherwise. 
+\end{DoxyReturn}
+\begin{DoxyNote}{\-Note}
+that the contents of the \-Collator subpaving added will be altered\-: it is assumed that the \-Collator subpaving to be added is a temporary object made and passed in from a wrapper class 
+\end{DoxyNote}
+
+
+\-Definition at line 1211 of file collatorspnode.\-cpp.
+
+
+
+\-References add\-Paving(), \-Collator\-S\-Pnode(), subpavings\-::\-S\-Pnode\-::dimension, subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-Pnode\-::get\-Label(), get\-Left\-Child(), get\-Right\-Child(), get\-Summary(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), subpavings\-::\-S\-Pnode\-::label, taylor\-::\-Lb(), subpavings\-::\-S\-Pnode\-::left\-Child, subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), node\-Expand(), subpavings\-::\-S\-Pnode\-::right\-Child, summary, subpavings\-::\-S\-Pnode\-::the\-Box, and taylor\-::\-Ub().
+
+
+
+\-Referenced by add\-Negated\-Paving(), add\-Paving(), add\-Pavings(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-To\-Collation(), and subpavings\-::\-Adaptive\-Histogram\-Collator\-::operator+=().
+
+
+\begin{DoxyCode}
+    {
+
+        bool retValue = false;
+        bool done = false;  // indicator for done adding
+
+        try {
+
+            if (spn == NULL) {
+                done = true;
+
+            }
+
+            // if the boxes are not the same we can't do anything
+            if (!done && (theBox != NULL) && (*theBox != spn->getBox())) {
+                throw SPnodeException("Boxes do not match");
+            }
+
+            // if this has no box yet it has not incorporated anything
+            // and so we just use spn to construct this
+            if (!done && (theBox == NULL)) {
+
+                ivector v = spn->getBox();
+
+                theBox = new ivector(v);
+                dimension = Ub(v) - Lb(v) + 1;
+                label = spn->getLabel();
+
+                summary = spn->summary;
+
+                //recursion on the children
+                if (spn->leftChild) {
+                    nodeAddLeft(new CollatorSPnode(
+                        *(spn->getLeftChild())));
+
+                }
+                else leftChild=NULL;
+
+                if (spn->rightChild) {
+                    nodeAddRight(new CollatorSPnode(
+                        *(spn->getRightChild())));
+                 }
+                else rightChild=NULL;
+
+                done = true;
+                retValue = true;
+
+            } // end if theBox==NULL
+
+            // do the rest only if done is not true
+
+            // if this is a leaf and the paving to be added is a leaf,
+            // this just sucks in the counter from spn
+            if (!done && !done && isLeaf() && spn->isLeaf()) {
+
+                VecDbl temp = spn->getSummary();
+                summary.insert(summary.end(), temp.begin(),temp.end());
+                done = true;
+                retValue = true;
+
+            }
+
+            // else not done and not both leaves,
+            // if this is not a leaf or the paving to be added
+            // is not a leaf, we may need to split
+            // and we will need to recurse further
+            else if (!done && (!isLeaf() || !(spn->isLeaf()))) {
+
+                // if this is leaf and spn not we need to split this
+                if (isLeaf()) { // so spn can't be a leaf
+
+                    nodeExpand();
+                }
+
+                // if spn is leaf and this is not we need to split spn
+                // THIS WILL CHANGE the CollatorSPnode pointed to by spn
+
+                if (spn->isLeaf()) { // so this can't be a leaf
+
+                    spn->nodeExpand();
+
+                }
+
+                // put in the data
+                VecDbl temp = spn->getSummary();
+                    summary.insert(summary.end(), temp.begin(),temp.end());
+
+                // if they are were neither leaves originally
+                // we go straight on to recursing with the children
+                // otherwise expansions above are followed by recursion
+
+                // recurse with children
+                retValue = getLeftChild()->addPaving(spn->getLeftChild());
+                retValue = getRightChild()->addPaving(spn->getRightChild());
+
+            } // end of dealing with case where at least one is not a leaf
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory in addPaving" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+        return retValue;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a66a0f1bc3a886c904f8192774b531437}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!add\-Pavings@{add\-Pavings}}
+\index{add\-Pavings@{add\-Pavings}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{add\-Pavings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::add\-Pavings} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Collator\-S\-Pnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-Collator\-S\-Pnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a66a0f1bc3a886c904f8192774b531437}
+
+
+\-Add two collator subpavings together. 
+
+\-Collator returned has summary with contents of both operands' summaries.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em lhs} & pointer to the root of one collator to be added. \\
+\hline
+{\em lhs} & pointer to the root of the other collator to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+a pointer to the root of a new collator subpaving where the summmary is the combined summary of the operands (lhs first, then rhs). 
+\end{DoxyReturn}
+
+
+\-Definition at line 912 of file collatorspnode.\-cpp.
+
+
+
+\-References add\-Paving(), \-Collator\-S\-Pnode(), and subpavings\-::\-S\-Pnode\-::get\-Box().
+
+
+
+\-Referenced by \-\_\-marginalise(), and subpavings\-::\-Adaptive\-Histogram\-Collator\-::operator+().
+
+
+\begin{DoxyCode}
+    {
+        CollatorSPnode* newCollator = NULL;
+        CollatorSPnode* temp = NULL;
+
+        bool done = false;
+
+        try {
+
+            if (lhs == NULL && rhs == NULL) done = true; // return null
+
+            // if exactly one is null we can return a copy of the non-null one
+            if (!done && lhs == NULL && rhs != NULL) {
+
+                newCollator = new CollatorSPnode(*rhs);
+                done = true;
+
+            }
+            if (!done && lhs != NULL && rhs == NULL) {
+
+                newCollator = new CollatorSPnode(*lhs);
+                done = true;
+            }
+            // both not null
+            if (!done && lhs != NULL && rhs != NULL) {
+
+                if ((lhs->getBox() != NULL) &&
+                                (lhs->getBox() != rhs->getBox())) {
+                    throw SPnodeException("Boxes do not match");
+                }
+
+                newCollator = new CollatorSPnode(*lhs);
+                temp = new CollatorSPnode(*rhs);
+
+                newCollator->addPaving(temp);
+                delete temp;
+                temp = NULL;
+            }
+        }
+        catch (bad_alloc& ba) {
+            if (newCollator != NULL) {
+                delete newCollator;
+                newCollator = NULL;
+            }
+            if (temp != NULL) {
+                delete temp;
+                temp = NULL;
+            }
+            std::cerr << "Error allocating memory in addPavings" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+        catch (exception& e) {
+            if (newCollator != NULL) {
+                delete newCollator;
+                newCollator = NULL;
+            }
+            if (temp != NULL) {
+                delete temp;
+                temp = NULL;
+            }
+            throw;
+        }
+
+        return newCollator;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a3a0733086ac4a95e954da0cd8f0e1dfa}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!dot\-Difference\-Summary@{dot\-Difference\-Summary}}
+\index{dot\-Difference\-Summary@{dot\-Difference\-Summary}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{dot\-Difference\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-Dbl} \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::dot\-Difference\-Summary} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Vec\-Dbl} \&}]{lhs\-Summary, }
+\item[{{\bf \-Vec\-Dbl} \&}]{rhs\-Summary}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a3a0733086ac4a95e954da0cd8f0e1dfa}
+\-Replace lhs data with the the dot difference of lhs and rhs data.
+
+\-If lhs\-Summary is originally $<$h1..hn$>$ and rhs\-Summary is $<$\-H1..\-Hm$>$ then the lhs\-Summary becomes $<$h1-\/\-H1, .. \-Hn-\/\-H1, .. , hn-\/\-H1, .. ,\-Hn-\/\-Hm$>$ 
+
+\-Definition at line 140 of file collatorspnode.\-cpp.
+
+
+\begin{DoxyCode}
+    {
+    // replace lhs data with the the dot difference of lhs and rhs data
+        VecDbl originalSummary = lhsSummary;
+        lhsSummary.clear();
+        VecDblIt it;
+        VecDblIt sit;
+        for (sit = rhsSummary.begin(); sit < rhsSummary.end(); sit++) {
+            for (it = originalSummary.begin(); it < originalSummary.end();
+                                                        it++) {
+                lhsSummary.push_back(*it - *sit); // push back the diff
+            }
+        }
+        return lhsSummary;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a66a1a3e5a8c9c81e4f3b307360c2c495}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!dot\-Diff\-Paving@{dot\-Diff\-Paving}}
+\index{dot\-Diff\-Paving@{dot\-Diff\-Paving}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{dot\-Diff\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Collator\-S\-Pnode\-::dot\-Diff\-Paving} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Collator\-S\-Pnode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a66a1a3e5a8c9c81e4f3b307360c2c495}
+
+
+make this the root of a tree representing summary differences 
+
+\-The tree will be the union of this tree and the spn tree \-The summary is the element-\/by-\/element difference between this's summary and the spn's summary. ie if this node has summary $<$h1..hn$>$ and spn's equivalent node summary is $<$\-H1..\-Hm$>$ then this's summary becomes $<$h1-\/\-H1, .. \-Hn-\/\-H1, .. , hn-\/\-H1, .. ,\-Hn-\/\-Hm$>$ 
+
+\-Definition at line 244 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-Pnode\-::get\-Label(), get\-Left\-Child(), get\-Right\-Child(), get\-Summary(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), subpavings\-::is\-Leaf(), taylor\-::\-Lb(), subpavings\-::\-S\-Pnode\-::left\-Child, node\-Expand(), subpavings\-::\-S\-Pnode\-::right\-Child, summary, and taylor\-::\-Ub().
+
+
+
+\-Referenced by make\-Differences\-To\-Average\-Paving().
+
+
+\begin{DoxyCode}
+    {
+
+        bool retValue = false;
+        bool done = false;  // indicator for done adding
+
+        try {
+
+            if (spn == NULL) {
+                done = true;
+
+            }
+
+            // if the boxes are not the same we can't do anything
+            if (!done && (theBox != NULL) && (*theBox != spn->getBox())) {
+                throw SPnodeException("Boxes do not match");
+            }
+
+            // if this has no box yet it has not incorporated anything
+            // and so we just use spn to construct this
+            if (!done && (theBox == NULL)) {
+
+                ivector v = spn->getBox();
+
+                theBox = new ivector(v);
+                dimension = Ub(v) - Lb(v) + 1;
+                label = spn->getLabel();
+
+                summary = spn->summary;
+
+                //recursion on the children
+                if (spn->leftChild) {
+                    nodeAddLeft(new CollatorSPnode(
+                        *(spn->getLeftChild())));
+
+                }
+                else leftChild=NULL;
+
+                if (spn->rightChild) {
+                    nodeAddRight(new CollatorSPnode(
+                        *(spn->getRightChild())));
+                 }
+                else rightChild=NULL;
+
+                done = true;
+                retValue = true;
+
+            } // end if theBox==NULL
+
+            // do the rest only if done is not true
+
+            // if this is a leaf and the paving to be added is a leaf
+            // this summary becomes the dot difference of the summaries
+            if (!done && !done && isLeaf() && spn->isLeaf()) {
+
+                // make this summary into the dot difference of this summary
+                // and spn summary
+                VecDbl spnSummary = spn->getSummary();
+                summary = dotDifferenceSummary(summary, spnSummary);
+            }
+
+            // else not done and not both leaves,
+            // if this is not a leaf or the paving to be added
+            // is not a leaf, we may need to split
+            // and we will need to recurse further
+            else if (!done && (!isLeaf() || !(spn->isLeaf()))) {
+
+                // if this is leaf and spn not we need to split this
+                if (isLeaf()) { // so spn can't be a leaf
+
+                    nodeExpand();
+                }
+
+                // if spn is leaf and this is not we need to split spn
+                // THIS WILL CHANGE the CollatorSPnode pointed to by spn
+
+                if (spn->isLeaf()) { // so this can't be a leaf
+
+                    spn->nodeExpand();
+                }
+
+                // make this summary into the dot difference of this summary
+                // and spn summary
+                VecDbl spnSummary = spn->getSummary();
+                summary = dotDifferenceSummary(summary, spnSummary);
+
+
+                // if they are were neither leaves originally
+                // we go straight on to recursing with the children
+                // otherwise expansions above are followed by recursion
+
+                // recurse with children
+                retValue = getLeftChild()->dotDiffPaving(
+                        spn->getLeftChild());
+                retValue = getRightChild()->dotDiffPaving(
+                        spn->getRightChild());
+
+            } // end of dealing with case where at least one is not a leaf
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory in dotDiffPaving" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+        return retValue;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a7fa06e6f1d278157e7c5c6a9d44e2c07}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-All\-Nodes@{get\-All\-Nodes}}
+\index{get\-All\-Nodes@{get\-All\-Nodes}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-All\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-All\-Nodes} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ \&}]{all\-Nodes}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a7fa06e6f1d278157e7c5c6a9d44e2c07}
+return a reference to a container of node pointers. 
+
+\-Definition at line 1461 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-All\-Nodes(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::is\-Empty().
+
+
+
+\-Referenced by get\-All\-Nodes().
+
+
+\begin{DoxyCode}
+    {
+        if (!isEmpty()) { // this is not empty
+      //if (!hasLCwithBox() && !hasRCwithBox()) { // this is a leaf
+            // arrgh horrible - cast away const if this node is a leaf
+        //cout << nodeName << endl;
+            allNodes.push_back(const_cast<CollatorSPnode*>(this));
+        }
+      
+      //if children, recurse on the children
+        if (hasLCwithBox()) {
+            getLeftChild()->getAllNodes(allNodes);
+        }
+
+        if (hasRCwithBox()) {
+            getRightChild()->getAllNodes(allNodes);
+        }       
+        return allNodes;
+   }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a944e27bc584e24e630411e787456ffe0}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-L1\-Distances\-To\-Average@{get\-L1\-Distances\-To\-Average}}
+\index{get\-L1\-Distances\-To\-Average@{get\-L1\-Distances\-To\-Average}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-L1\-Distances\-To\-Average}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-L1\-Distances\-To\-Average} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Vec} \&}]{container}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a944e27bc584e24e630411e787456ffe0}
+
+
+\-Definition at line 1765 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Leaf\-Node\-Abs\-Area\-Accumulations(), make\-Differences\-To\-Average\-Paving(), and summary.
+
+
+\begin{DoxyCode}
+  {
+        CollatorSPnode* differences = NULL;
+        
+        // take this collation
+        try {
+            // make a tree of differences between this and average over this
+            differences = makeDifferencesToAveragePaving();
+      
+            size_t n = summary.size();
+            dotprecision emptyDP(0.0);
+            VecDotPrec areaAcc(n, emptyDP); // n copies of empty dot prec
+
+            areaAcc = differences->getLeafNodeAbsAreaAccumulations(areaAcc);
+      // one L1 distance-to-average summary, in the form of a dot precision,
+       for 
+      // each histogram 
+
+      RealVec temp(n);
+      temp.swap(container); // clear container and minimize memory
+      
+      VecDotPrecIt it;
+            for (int i = 0; i < n; ++i) {
+        // put rounded L1 diff into the container
+        container.at(i) = rnd( areaAcc.at(i) ); // round to nearest
+            }
+
+            delete differences;
+            differences = NULL;
+      
+      return container;
+        }
+        catch (exception& e) {
+            if (NULL != differences) {
+                delete differences;
+                differences = NULL;
+            }
+            throw;
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a5ac89a38985d8ff62ca7a29943c6734c}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Leaf\-Node\-Abs\-Area\-Accumulations@{get\-Leaf\-Node\-Abs\-Area\-Accumulations}}
+\index{get\-Leaf\-Node\-Abs\-Area\-Accumulations@{get\-Leaf\-Node\-Abs\-Area\-Accumulations}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Leaf\-Node\-Abs\-Area\-Accumulations}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-Dot\-Prec} \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Leaf\-Node\-Abs\-Area\-Accumulations} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Vec\-Dot\-Prec} \&}]{area\-Acc}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a5ac89a38985d8ff62ca7a29943c6734c}
+
+
+\-Add to the accumulation of absolute areas for leaf nodes. 
+
+\-If this node is a leaf, add its accumulation of summary areas to the overall accumulation. \-Area for a value s in the summary is s $\ast$ volume of node. 
+
+\-Definition at line 160 of file collatorspnode.\-cpp.
+
+
+
+\-Referenced by get\-L1\-Distances\-To\-Average(), and get\-Sum\-Vars\-Area\-Scalar().
+
+
+\begin{DoxyCode}
+    {
+        if (getLeftChild()!=NULL) {
+            areaAcc = getLeftChild()->getLeafNodeAbsAreaAccumulations(areaAcc);
+        }
+        if (getRightChild()!=NULL) {
+            areaAcc = getRightChild()->getLeafNodeAbsAreaAccumulations(areaAcc)
+      ;
+        }
+        if (getLeftChild()==NULL && getRightChild()==NULL) {
+
+            double vol = nodeVolume();
+
+            VecDblIt it = summary.begin();
+            VecDotPrecIt dpit;
+
+            for (dpit = areaAcc.begin(); dpit < areaAcc.end(); dpit++) {
+
+                cxsc::accumulate((*dpit), abs(*it), vol);
+
+                it++;
+            }
+        }
+
+        return areaAcc;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ac0b072587e955a451fab739dcb538c37}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Leaf\-Node\-Abs\-Area\-Accumulations@{get\-Leaf\-Node\-Abs\-Area\-Accumulations}}
+\index{get\-Leaf\-Node\-Abs\-Area\-Accumulations@{get\-Leaf\-Node\-Abs\-Area\-Accumulations}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Leaf\-Node\-Abs\-Area\-Accumulations}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Leaf\-Node\-Abs\-Area\-Accumulations} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_ac0b072587e955a451fab739dcb538c37}
+
+
+\-Get the accumulations of absolute areas for leaf nodes. 
+
+\-Area for a value s in a summary is s $\ast$ volume of node. \-Areas for a leaf node are the areas for each subpaving collated by that node. \-Accumulated areas over all the leaf nodes are, for each subpaving collated, the accumulated areas for that subpaving over all the leaf nodes.
+
+\begin{DoxyReturn}{\-Returns}
+container of the accumulated leaf areas for all collated subpavings, in the same order as the subpavings are in the collator. 
+\end{DoxyReturn}
+
+
+\-Definition at line 571 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+\begin{DoxyCode}
+    {
+        size_t n = summary.size();
+        dotprecision emptyDP(0.0);
+        VecDotPrec areaAcc(n, emptyDP); // n copies of empty dot prec
+
+        areaAcc = getLeafNodeAbsAreaAccumulations(areaAcc);
+        RealVec retvalues;
+
+        VecDotPrecIt it;
+        for (it = areaAcc.begin(); it < areaAcc.end(); it++) {
+            retvalues.push_back(rnd(*it)); // round to nearest
+        }
+
+        return retvalues;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a0afe525dbddf958078e9a8eac6ea88a3}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Leaf\-Node\-Abs\-Area\-Accumulation\-Total@{get\-Leaf\-Node\-Abs\-Area\-Accumulation\-Total}}
+\index{get\-Leaf\-Node\-Abs\-Area\-Accumulation\-Total@{get\-Leaf\-Node\-Abs\-Area\-Accumulation\-Total}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Leaf\-Node\-Abs\-Area\-Accumulation\-Total}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Leaf\-Node\-Abs\-Area\-Accumulation\-Total} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a0afe525dbddf958078e9a8eac6ea88a3}
+
+
+\-Get the total accumulated value of absolute areas for leaf nodes. 
+
+\-Area for a value s in a summary is s $\ast$ volume of node. \-Areas for a leaf node are the areas for each subpaving collated by that node. \-Accumulated areas over all the leaf nodes are, for each subpaving collated, the accumulated areas for that subpaving over all the leaf nodes.
+
+\begin{DoxyReturn}{\-Returns}
+total of accumulated areas of leaf nodes as a real. 
+\end{DoxyReturn}
+
+
+\-Definition at line 188 of file collatorspnode.\-cpp.
+
+
+\begin{DoxyCode}
+    {
+        size_t n = summary.size();
+        dotprecision emptyDP(0.0);
+        VecDotPrec areaAcc(n, emptyDP); // n copies of empty dot prec
+    dotprecision tot(0.0);
+    
+        areaAcc = getLeafNodeAbsAreaAccumulations(areaAcc);
+        RealVec retvalues;
+
+    VecDotPrecIt it;
+        for (it = areaAcc.begin(); it < areaAcc.end(); it++) {
+            tot += *it; 
+        }
+
+        return rnd(tot); // round to nearest;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a7daf828f08626b5b83654550e5a98bee}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Leaf\-Node\-Summary\-Accumulations@{get\-Leaf\-Node\-Summary\-Accumulations}}
+\index{get\-Leaf\-Node\-Summary\-Accumulations@{get\-Leaf\-Node\-Summary\-Accumulations}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Leaf\-Node\-Summary\-Accumulations}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-Dot\-Prec} \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Leaf\-Node\-Summary\-Accumulations} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Vec\-Dot\-Prec} \&}]{summ\-Acc}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a7daf828f08626b5b83654550e5a98bee}
+
+
+\-Add to accumulation of summary values for leaf nodes. 
+
+\-If this node is a leaf, add its summary values to the overall accumulation. \-If a value in the summary for a particular collated subpaving, s, s is added to the accumulation for that subpaving. 
+
+\-Definition at line 209 of file collatorspnode.\-cpp.
+
+
+
+\-Referenced by get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar().
+
+
+\begin{DoxyCode}
+    {
+        if (getLeftChild()!=NULL) {
+            summAcc =
+                getLeftChild()->getLeafNodeSummaryAccumulations(summAcc);
+        }
+        if (getRightChild()!=NULL) {
+            summAcc =
+                getRightChild()->getLeafNodeSummaryAccumulations(summAcc);
+        }
+        if (getLeftChild()==NULL && getRightChild()==NULL) {
+
+            VecDblIt it = summary.begin();
+            VecDotPrecIt dpit;
+
+            for (dpit = summAcc.begin(); dpit < summAcc.end(); dpit++) {
+                cxsc::accumulate((*dpit), (*it), 1.0);
+                it++;
+            }
+        }
+
+        return summAcc;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a8c566a24d35898fb54133cf310276468}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Leaf\-Node\-Summary\-Accumulations@{get\-Leaf\-Node\-Summary\-Accumulations}}
+\index{get\-Leaf\-Node\-Summary\-Accumulations@{get\-Leaf\-Node\-Summary\-Accumulations}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Leaf\-Node\-Summary\-Accumulations}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Leaf\-Node\-Summary\-Accumulations} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a8c566a24d35898fb54133cf310276468}
+
+
+\-Get the accumulations of summary values for leaf nodes. 
+
+\begin{DoxyReturn}{\-Returns}
+container of the accumulated summary values for all collated subpavings, in the same order as the subpavings are in the collator. 
+\end{DoxyReturn}
+
+
+\-Definition at line 589 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar().
+
+
+\begin{DoxyCode}
+    {
+        size_t n = summary.size();
+        dotprecision emptyDP(0.0);
+        VecDotPrec areaAcc(n, emptyDP); // n copies of empty dot prec
+
+        areaAcc = getLeafNodeSummaryAccumulations(areaAcc);
+        RealVec retvalues;
+
+        VecDotPrecIt it;
+        for (it = areaAcc.begin(); it < areaAcc.end(); it++) {
+            retvalues.push_back(rnd(*it)); // round to nearest
+        }
+
+        return retvalues;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a827a6e8b21b3c6e8e8f8e9aeca4b622b}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Leaves@{get\-Leaves}}
+\index{get\-Leaves@{get\-Leaves}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Leaves}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Leaves} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ \&}]{leaves}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a827a6e8b21b3c6e8e8f8e9aeca4b622b}
+return a reference to a container of node pointers. 
+
+\-Definition at line 1440 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Leaves(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box().
+
+
+
+\-Referenced by get\-Leaves().
+
+
+\begin{DoxyCode}
+    {
+        //if children, recurse on the children
+        if (hasLCwithBox()) {
+            getLeftChild()->getLeaves(leaves);
+        }
+
+        if (hasRCwithBox()) {
+            getRightChild()->getLeaves(leaves);
+        }
+
+        if (!hasLCwithBox() && !hasRCwithBox()) { // this is a leaf
+            // arrgh horrible - cast away const if this node is a leaf
+            leaves.push_back(const_cast<CollatorSPnode*>(this));
+        }
+        return leaves;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a5e1b32d7fffa9cfc7865b384c2e89a82}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Left\-Child@{get\-Left\-Child}}
+\index{get\-Left\-Child@{get\-Left\-Child}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Left\-Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Left\-Child} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a5e1b32d7fffa9cfc7865b384c2e89a82}
+
+
+\-Accessor for the left child of a node. 
+
+\-Returns a copy of the pointer to left\-Child node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_a2ae7370c24e6c51a99c8bd29b2ffcec3}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 553 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::left\-Child.
+
+
+
+\-Referenced by \-\_\-marginalise(), add\-Paving(), \-Collator\-S\-Pnode(), dot\-Diff\-Paving(), get\-All\-Nodes(), get\-Leaves(), get\-Scheffe\-Set(), get\-Yat\-Set(), leaves\-Accumulation\-Output\-Tabs(), leaves\-Average\-Output\-Tabs(), leaves\-Make\-New\-Fhat(), leaves\-Output\-Tabs(), make\-Average\-Collation(), node\-Expand(), operator=(), and totalise\-Summaries().
+
+
+\begin{DoxyCode}
+    { return (CollatorSPnode*) leftChild; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a72b47c222d49deba3753259d94d730c3}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Node\-Delta@{get\-Node\-Delta}}
+\index{get\-Node\-Delta@{get\-Node\-Delta}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Node\-Delta}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Node\-Delta} (
+\begin{DoxyParamCaption}
+\item[{int}]{this\-Theta, }
+\item[{size\-\_\-t}]{size\-Coll}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a72b47c222d49deba3753259d94d730c3}
+
+
+\-Get the delta value for a specific theta. 
+
+\-Get the delta value for a specific theta. 
+\begin{DoxyParams}{\-Parameters}
+{\em k} & split number in the set 0\-:(theta-\/1) \\
+\hline
+{\em theta} & the current split number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the delta value 
+\end{DoxyReturn}
+
+
+\-Definition at line 1833 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::node\-Volume(), and summary.
+
+
+\begin{DoxyCode}
+   { 
+     //cout << "get delta for " << nodeName << endl;
+     // get empirical measure of the training data
+     double muTrain = summary[thisTheta] * nodeVolume();
+     //cout << "summary: " << summary[thisTheta] << "\t muTrain: " << muTrain
+       << endl;
+      
+     // get empirical measure of the validation data      
+     double muValid = summary[sizeColl-1] * nodeVolume();
+    //cout << "summary: " << summary[sizeColl-1] << "\t muValid: " << muValid
+       << endl;
+
+     double delta= muTrain - muValid;
+    //cout << "Delta: " << delta << endl; 
+
+     return delta; 
+
+   } // end of function getNodeDelta
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a6470a98dd502247ca9e86582b3c422eb}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Number\-Summarised@{get\-Number\-Summarised}}
+\index{get\-Number\-Summarised@{get\-Number\-Summarised}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Number\-Summarised}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Number\-Summarised} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a6470a98dd502247ca9e86582b3c422eb}
+
+
+\-Get number of subpavings summarised. 
+
+
+
+\-Definition at line 566 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+\begin{DoxyCode}
+    { return summary.size(); }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_aed3cb2aceae3c384eed427a404a6c8f6}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Parent@{get\-Parent}}
+\index{get\-Parent@{get\-Parent}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Parent} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_aed3cb2aceae3c384eed427a404a6c8f6}
+
+
+\-Accessor for the parent of a node. 
+
+\-Returns a copy of the pointer to parent node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_ad25db2635b9fa09515a3cb75f4a7ccef}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 548 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::parent.
+
+
+\begin{DoxyCode}
+    { return (CollatorSPnode*) parent; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ab93823657d610d99e885317c2cf2e8f6}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Right\-Child@{get\-Right\-Child}}
+\index{get\-Right\-Child@{get\-Right\-Child}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Right\-Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Right\-Child} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_ab93823657d610d99e885317c2cf2e8f6}
+
+
+\-Accessor for the right child of a node. 
+
+\-Returns a copy of the pointer to right\-Child node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_a9477b1cfe157f5730a5514c944953689}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 558 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::right\-Child.
+
+
+
+\-Referenced by \-\_\-marginalise(), add\-Paving(), \-Collator\-S\-Pnode(), dot\-Diff\-Paving(), get\-All\-Nodes(), get\-Leaves(), get\-Scheffe\-Set(), get\-Split\-Dim(), get\-Yat\-Set(), leaves\-Accumulation\-Output\-Tabs(), leaves\-Average\-Output\-Tabs(), leaves\-Make\-New\-Fhat(), leaves\-Output\-Tabs(), make\-Average\-Collation(), node\-Expand(), operator=(), and totalise\-Summaries().
+
+
+\begin{DoxyCode}
+    { return (CollatorSPnode*) rightChild; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a9509d8f49407c1b14148f80758f02646}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Scheffe\-Node@{get\-Scheffe\-Node}}
+\index{get\-Scheffe\-Node@{get\-Scheffe\-Node}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Scheffe\-Node}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Scheffe\-Node} (
+\begin{DoxyParamCaption}
+\item[{int}]{theta1, }
+\item[{int}]{theta2}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a9509d8f49407c1b14148f80758f02646}
+
+
+\-Find the node that fulfills the \-Scheffe set, f\-\_\-theta1 $>$ f\-\_\-theta2 for candidates f\-\_\-theta1 and f\-\_\-theta2, where theta1 $<$ theta2. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em theta1} & position of candidate f\-\_\-theta1 \\
+\hline
+{\em theta2} & position of candidate f\-\_\-theta2 \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 1809 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by get\-Scheffe\-Set().
+
+
+\begin{DoxyCode}
+   { 
+     //cout.precision(20);
+     //cout << "Checking for Scheffe set at node: " << getNodeName() << endl;
+     //cout << "Theta1: " << theta1 << "\t" << "Theta2: " << theta2 << endl;   
+        
+     //cout << summary[theta1] << "\t" << summary[theta2] << endl;
+     
+    //check that this is an ordered pair theta1 < theta2
+    if (theta1 < theta2) {
+      if ((summary[theta1] > summary[theta2])) {
+          //cout << getNodeName() << " is an element of the Scheffe set.****"
+       << endl;
+          return true;          
+      } 
+      else { return false; }
+    }
+    else {
+      cerr << "theta1 must be less than theta2." << endl;
+      exit(0);
+    }
+   }    
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a3c3d4df6f965a2eee9b4c517eb045246}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Scheffe\-Set@{get\-Scheffe\-Set}}
+\index{get\-Scheffe\-Set@{get\-Scheffe\-Set}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Scheffe\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Scheffe\-Set} (
+\begin{DoxyParamCaption}
+\item[{std\-::set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&}]{\-Scheffe\-Set, }
+\item[{size\-\_\-t}]{cand1, }
+\item[{size\-\_\-t}]{cand2}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a3c3d4df6f965a2eee9b4c517eb045246}
+
+
+\-Get the \-Scheffe set for a particular pair. 
+
+
+
+\-Definition at line 1918 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), get\-Scheffe\-Node(), get\-Scheffe\-Set(), subpavings\-::\-S\-Pnode\-::is\-Empty(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+
+\-Referenced by get\-Scheffe\-Set().
+
+
+\begin{DoxyCode}
+  {
+    //iterate through the leaves in both candidate histograms to get the 
+    //Yatracos set
+     if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+        bool ind = getScheffeNode(cand1, cand2);
+          // insert the node YatSet if return true
+      if (ind) { 
+        ScheffeSet.insert(&(*this));
+      }
+    }
+      
+     //recurse on the children
+     if (getLeftChild()!=NULL) {
+           getLeftChild()->getScheffeSet(ScheffeSet, cand1, cand2);
+     }
+     if (getRightChild()!=NULL) {
+           getRightChild()->getScheffeSet(ScheffeSet, cand1, cand2);
+     }
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ab374777116b7e0af8e7100f303e1f97b}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Split\-Dim@{get\-Split\-Dim}}
+\index{get\-Split\-Dim@{get\-Split\-Dim}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Split\-Dim}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Split\-Dim} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ab374777116b7e0af8e7100f303e1f97b}
+
+
+\-Find the dimension a node split on. 
+
+split dimension is -\/1 if node has not split.
+
+\begin{DoxyReturn}{\-Returns}
+dimension this node split on if it is not a leaf, -\/1 it if is a leaf. 
+\end{DoxyReturn}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_ad04e240d9152c1a927c2ec280aa29371}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 1698 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), and taylor\-::\-Lb().
+
+
+
+\-Referenced by \-\_\-marginalise().
+
+
+\begin{DoxyCode}
+    {
+        
+    try {
+      
+      int splitDim = -1;  
+      
+      if ( !isLeaf() ) {
+      
+        ivector box = getBox();
+        int dim = VecLen(box);
+        int boxLB = Lb(box);
+          
+        ivector boxChild = getRightChild()->getBox();
+                    
+        int index = 0;
+        int boxChildLB = Lb(boxChild);
+        while (splitDim < 1 && index < dim) {
+          if ((Inf(box[boxLB + index]) 
+              != Inf(boxChild[boxChildLB + index]))
+            ||
+            (Sup(box[boxLB + index]) != 
+              Sup(boxChild[boxChildLB + index]))) {
+                // found splitDim
+                splitDim = boxLB + index;
+          }
+          index ++;
+        } // end while
+              
+        if (splitDim < 0) {
+          throw SPnodeException("Cannot find split dimension");
+        }
+      } // end isLeaf
+                
+      return splitDim;
+      
+        } // end try
+        catch (exception& e) {
+            
+            const char* msg = e.what();
+            throw SPnodeException("Error in findParentSplitDim:\n " + 
+      std::string(msg));
+        }
+      
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_aecf22d39cbb7289355a08cec62749800}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Summary@{get\-Summary}}
+\index{get\-Summary@{get\-Summary}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-Dbl} {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Summary} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_aecf22d39cbb7289355a08cec62749800}
+
+
+\-Accessor for the summary. 
+
+
+
+\-Definition at line 562 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by \-\_\-marginalise(), add\-Paving(), and dot\-Diff\-Paving().
+
+
+\begin{DoxyCode}
+    { return summary; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a700f585b2b61663330b999f459045822}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Sum\-Vars\-Area\-Scalar@{get\-Sum\-Vars\-Area\-Scalar}}
+\index{get\-Sum\-Vars\-Area\-Scalar@{get\-Sum\-Vars\-Area\-Scalar}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Sum\-Vars\-Area\-Scalar}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Sum\-Vars\-Area\-Scalar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a700f585b2b61663330b999f459045822}
+
+
+\-Sum of variances of a scalar value. 
+
+\-The variance for this scalar value is squared sum of 'area' of difference.
+
+\-Gives the sum of the variances over the collation where the variance of one of the collated subpaving trees is taken as the square of the sum of the 'areas' of difference between that collated subpaving tree and the average subpaving tree over the collation, where 'area' is absolute value of summary value $\ast$ node volume.
+
+\begin{DoxyReturn}{\-Returns}
+the sum of variances over all the collated subpaving trees. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1100 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Leaf\-Node\-Abs\-Area\-Accumulations(), make\-Differences\-To\-Average\-Paving(), and summary.
+
+
+\begin{DoxyCode}
+    {
+        CollatorSPnode* differences = NULL;
+        dotprecision accSquares(0.0);
+
+        // take this collation
+        try {
+            // make a tree of differences between this and average over this
+            differences = makeDifferencesToAveragePaving();
+
+            size_t n = summary.size(); //also the number of collations? 
+            dotprecision emptyDP(0.0);
+            VecDotPrec areaAcc(n, emptyDP); // n copies of empty dot prec
+
+            areaAcc = differences->getLeafNodeAbsAreaAccumulations(areaAcc);
+
+            VecDotPrecIt it;
+            for (it = areaAcc.begin(); it < areaAcc.end(); it++) {
+          // add rnd(*it) times rnd(*it) to accSquares
+                cxsc::accumulate(accSquares, rnd(*it), rnd(*it)); // round to
+       nearest
+            }
+
+            delete differences;
+            differences = NULL;
+        }
+        catch (bad_alloc& ba) {
+            if (NULL != differences) {
+                delete differences;
+                differences = NULL;
+            }
+            string oldmsg(ba.what());
+            string msg = "Error allocating memory summing variances.";
+            msg += " Orginal error: " + oldmsg;
+            throw SPnodeException(msg);
+        }
+        catch (exception& e) {
+            if (NULL != differences) {
+                delete differences;
+                differences = NULL;
+            }
+            throw;
+        }
+
+        // return sum of squared sum of areas of difference
+        return rnd(accSquares); // CXSC round nearest
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a4c623e6456d3ced424aebba699c33fd9}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar@{get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar}}
+\index{get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar@{get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a4c623e6456d3ced424aebba699c33fd9}
+
+
+\-Sum of variances of a scalar value. 
+
+\-This scalar value is the total summary values.
+
+\-Gives the sum of the variances over the collation where the variance of one of the collated subpaving trees is taken as the square of the difference between the total summary values for that tree and the total summary values for the average tree across the collation.
+
+\begin{DoxyReturn}{\-Returns}
+the sum of variances over all the collated subpaving trees. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1151 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Leaf\-Node\-Summary\-Accumulations(), make\-Average\-Collation(), and summary.
+
+
+\begin{DoxyCode}
+    {
+        CollatorSPnode* average = NULL;
+        dotprecision accSqrdDiffSumSummary(0.0);
+
+        // take this collation
+        try {
+            // make a tree of the averages
+            average = makeAverageCollation();
+
+            size_t n = summary.size();
+            dotprecision emptyDP(0.0);
+            VecDotPrec summAcc(n, emptyDP); // n copies of empty dot prec
+
+            // the accumulated summaries for this collation
+            summAcc = getLeafNodeSummaryAccumulations(summAcc);
+
+            VecDotPrec avAcc(1, emptyDP); // only 1 value in av summaries
+            avAcc = average->getLeafNodeSummaryAccumulations(avAcc);
+
+            VecDotPrecIt it;
+            for (it = summAcc.begin(); it < summAcc.end(); it++) {
+
+                real diffsumsummary = rnd((*it)) - rnd(avAcc[0]); // rnd
+       nearest
+                cxsc::accumulate(accSqrdDiffSumSummary, diffsumsummary,
+                                                diffsumsummary); // acc squares
+            }
+
+            delete average;
+            average = NULL;
+        }
+        catch (bad_alloc& ba) {
+            if (NULL != average) {
+                delete average;
+                average = NULL;
+            }
+            string oldmsg(ba.what());
+            string msg = "Error allocating memory summing variances.";
+            msg += " Orginal error: " + oldmsg;
+            throw SPnodeException(msg);
+        }
+        catch (exception& e) {
+            if (NULL != average) {
+                delete average;
+                average = NULL;
+            }
+            throw;
+        }
+
+        // return sum of squared sum of areas of difference
+        return rnd(accSqrdDiffSumSummary); // CXSC round nearest
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a77e75118f31767497377790cd87e3869}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Total\-Summary@{get\-Total\-Summary}}
+\index{get\-Total\-Summary@{get\-Total\-Summary}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Total\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Total\-Summary} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a77e75118f31767497377790cd87e3869}
+\-Get the total of the summary in this. 
+
+\-Definition at line 1744 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by subpavings\-::node\-Comp\-Total\-Summary(), and totalise\-Summaries().
+
+
+\begin{DoxyCode}
+    {
+    double summ = 0;
+    summ = accumulate(summary.begin(), summary.end(), summ);
+
+    return summ;
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a8c48fd024a9e569830168a3f301d798e}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Total\-Summary\-Av@{get\-Total\-Summary\-Av}}
+\index{get\-Total\-Summary\-Av@{get\-Total\-Summary\-Av}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Total\-Summary\-Av}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Total\-Summary\-Av} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a8c48fd024a9e569830168a3f301d798e}
+\-Get the total of the summary in this. 
+
+\-Definition at line 1753 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by subpavings\-::node\-Comp\-Total\-Summary\-Av().
+
+
+\begin{DoxyCode}
+    {
+    double summ = 0;
+    summ = accumulate(summary.begin(), summary.end(), summ)/(summary.size()*1.0
+      );
+
+    return summ;
+   }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_aaf5207af98f7fac37ffe63ab3aec15b9}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!get\-Yat\-Set@{get\-Yat\-Set}}
+\index{get\-Yat\-Set@{get\-Yat\-Set}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{get\-Yat\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::get\-Yat\-Set} (
+\begin{DoxyParamCaption}
+\item[{std\-::set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&}]{\-Yat\-Set\-Row, }
+\item[{std\-::set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&}]{\-Yat\-Set\-Col, }
+\item[{size\-\_\-t}]{cand1, }
+\item[{size\-\_\-t}]{cand2}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_aaf5207af98f7fac37ffe63ab3aec15b9}
+
+
+\-Get the \-Yatracos set for a particular pair. 
+
+
+
+\-Definition at line 1885 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), get\-Yat\-Set(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), node\-Check\-Col\-Summary(), and node\-Check\-Row\-Summary().
+
+
+
+\-Referenced by get\-Yat\-Set().
+
+
+\begin{DoxyCode}
+{
+  //iterate through the leaves in both candidate histograms to get the 
+  //Yatracos set
+   if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+      bool rowInd = nodeCheckRowSummary(cand1, cand2);
+      bool colInd = nodeCheckColSummary(cand1, cand2);
+      // insert the node YatSet if return true
+    if (rowInd) { 
+      //cout << "inserting " << getNodeName() << " into YatSetRow" << endl; 
+      YatSetRow.insert(&(*this));
+    }
+    if (colInd) { 
+      //cout << "inserting " << getNodeName() << " into YatSetCol" << endl; 
+      YatSetCol.insert(&(*this));
+    }
+   }
+ 
+   //recurse on the children
+   if (getLeftChild()!=NULL) {
+         getLeftChild()->getYatSet(YatSetRow, YatSetCol, cand1, cand2);
+   }
+   if (getRightChild()!=NULL) {
+         getRightChild()->getYatSet(YatSetRow, YatSetCol, cand1, cand2);
+   }
+} // end of getYatset
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a0ea530d232bf3bb09e6cf44eeeadbfde}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaf\-Accumulation\-Output\-Tabs@{leaf\-Accumulation\-Output\-Tabs}}
+\index{leaf\-Accumulation\-Output\-Tabs@{leaf\-Accumulation\-Output\-Tabs}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaf\-Accumulation\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaf\-Accumulation\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a0ea530d232bf3bb09e6cf44eeeadbfde}
+
+
+\-Output for a node in a binary tree, tab-\/delimited. 
+
+\-Output intended for a txt file, in numeric form only. \-Outputs the accumulated sum of the summary for the node, ie the summary added together.
+
+\-Replaces the format that that the cxsc\-:\-:$<$$<$ operator produces for interval vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data. \-The format for an n-\/dimensional interval vector with m elements in the summary is
+
+label \mbox{[}tab\mbox{]} volume \mbox{[}tab\mbox{]} empirical measure \mbox{[}tab\mbox{]} sum(summary\mbox{[}1\mbox{]}... summary\mbox{[}m\mbox{]}) \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}1\mbox{]}.\mbox{[}tab\mbox{]} . . \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}n\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}n\mbox{]} 
+
+\-Definition at line 1348 of file collatorspnode.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), node\-Accumulation(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::node\-Volume(), subpavings\-::\-S\-Pnode\-::the\-Box, and taylor\-::\-Ub().
+
+
+
+\-Referenced by leaves\-Accumulation\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+
+        if(theBox != NULL) { // do nothing if there is no box
+            ivector thisBox = *theBox; // copy theBox
+            // output the nodeName, nodeVolume
+          os << nodeName;
+          double vol = nodeVolume();
+            os << "\t" << vol;
+           // followed by the sum of the summary        
+        os << "\t" << nodeAccumulation();
+
+            // followed by intervals making up box using Inf & Sup
+            // ie unlike cxsc output, there is no [  ] around them
+            for (int i= Lb(thisBox); i <= Ub(thisBox) ; i++) {
+                os << "\t" << Inf(thisBox[i])
+                   << "\t" << Sup(thisBox[i]);
+            }
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a9fe7256f1a62884e4bb8599a63abbbdf}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaf\-Average\-Output\-Tabs@{leaf\-Average\-Output\-Tabs}}
+\index{leaf\-Average\-Output\-Tabs@{leaf\-Average\-Output\-Tabs}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaf\-Average\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaf\-Average\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a9fe7256f1a62884e4bb8599a63abbbdf}
+
+
+\-Output for a node in a binary tree, tab-\/delimited. 
+
+\-Output intended for a txt file, in numeric form only. \-Outputs the average over the summary.
+
+\-Replaces the format that that the cxsc\-:\-:$<$$<$ operator produces for interval vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data. \-The format for an n-\/dimensional interval vector is
+
+node\-Name \mbox{[}tab\mbox{]} volume \mbox{[}tabl\mbox{]} average summary \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}1\mbox{]}.\mbox{[}tab\mbox{]} . . \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}n\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}n\mbox{]} 
+
+\-Definition at line 107 of file collatorspnode.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by leaves\-Average\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+        if(theBox != NULL) { // do nothing if there is no box
+
+            ivector thisBox = *theBox; // copy theBox
+
+            double summ = 0;
+            VecDblIt it;
+
+            summ = accumulate(summary.begin(), summary.end(), summ);
+
+            double vol = nodeVolume();
+            double av =  summ/(1.0*summary.size());
+
+            // output the nodeName, nodeVolume
+            os << nodeName;
+            os << "\t" << vol;
+            // followed by the average
+            os << "\t" << av;
+
+            // followed by intervals making up box using Inf & Sup
+            // ie unlike cxsc output, there is no [  ] around them
+            for (int i= Lb(thisBox); i <= Ub(thisBox) ; i++) {
+
+                os << "\t" << Inf(thisBox[i])
+                    << "\t" << Sup(thisBox[i]);
+            }
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_acdad2b87cf5f979fb24a7aef392a5895}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaf\-Make\-New\-Fhat@{leaf\-Make\-New\-Fhat}}
+\index{leaf\-Make\-New\-Fhat@{leaf\-Make\-New\-Fhat}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaf\-Make\-New\-Fhat}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaf\-Make\-New\-Fhat} (
+\begin{DoxyParamCaption}
+\item[{double}]{wt, }
+\item[{std\-::vector$<$ double $>$ \&}]{fhat\-New}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_acdad2b87cf5f979fb24a7aef392a5895}
+\-Change the current summary in the leaf node by adding mass 
+
+\-Definition at line 1408 of file collatorspnode.\-cpp.
+
+
+
+\-References summary, and subpavings\-::\-S\-Pnode\-::the\-Box.
+
+
+
+\-Referenced by leaves\-Make\-New\-Fhat().
+
+
+\begin{DoxyCode}
+{
+   if(theBox != NULL) { // do nothing if there is no box
+      double summ = 0;
+      VecDblIt it;
+      summ = accumulate(summary.begin(), summary.end(), summ);
+      double av =  summ/(1.0*summary.size());          
+    fhatNew.push_back((1-wt)*av + wt);
+  } 
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ab2e1cd11ef3dd4424cf491e529ed0fd8}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaf\-Output\-Tabs@{leaf\-Output\-Tabs}}
+\index{leaf\-Output\-Tabs@{leaf\-Output\-Tabs}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaf\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaf\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ab2e1cd11ef3dd4424cf491e529ed0fd8}
+
+
+\-Output for a node in a binary tree, tab-\/delimited. 
+
+\-Output intended for a txt file, in numeric form only. \-Outputs summary for the node.
+
+\-Replaces the format that that the cxsc\-:\-:$<$$<$ operator produces for interval vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data. \-The format for an n-\/dimensional interval vector with m elements in the summary is
+
+label \mbox{[}tab\mbox{]} volume \mbox{[}tab\mbox{]} summary\mbox{[}1\mbox{]} \mbox{[}tab\mbox{]} ... summary\mbox{[}m\mbox{]} \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}1\mbox{]}.\mbox{[}tab\mbox{]} . . \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}n\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}n\mbox{]} 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_a0f2381175b37224a185eedbe9601d814}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 607 of file collatorspnode.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::node\-Volume(), summary, subpavings\-::\-S\-Pnode\-::the\-Box, and taylor\-::\-Ub().
+
+
+
+\-Referenced by leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+
+        if(theBox != NULL) { // do nothing if there is no box
+
+            ivector thisBox = *theBox; // copy theBox
+
+            // output the nodeName, nodeVolume
+            os << nodeName;
+            double vol = nodeVolume();
+            os << "\t" << vol;
+            // followed by the summary
+            VecDblIt it;
+            for (it = summary.begin(); it< summary.end(); it++) {
+                os << "\t" << (*it);
+            }
+            // followed by intervals making up box using Inf & Sup
+            // ie unlike cxsc output, there is no [  ] around them
+            for (int i= Lb(thisBox); i <= Ub(thisBox) ; i++) {
+
+                os << "\t" << Inf(thisBox[i])
+                    << "\t" << Sup(thisBox[i]);
+            }
+
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a406e23c3f85680631bd30897fb1cfdc2}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaves\-Accumulation\-Output\-Tabs@{leaves\-Accumulation\-Output\-Tabs}}
+\index{leaves\-Accumulation\-Output\-Tabs@{leaves\-Accumulation\-Output\-Tabs}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaves\-Accumulation\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaves\-Accumulation\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a406e23c3f85680631bd30897fb1cfdc2}
+
+
+\-Output for for {\bfseries all leaves} of a binary tree. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Recursively uses \hyperlink{classsubpavings_1_1CollatorSPnode_a0ea530d232bf3bb09e6cf44eeeadbfde}{leaf\-Accumulation\-Output\-Tabs()} to output information for each leaf node. \-Outputs a accumulated summary for each leaf node, ie the sum of the summary. 
+
+\-Definition at line 1385 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), leaf\-Accumulation\-Output\-Tabs(), and leaves\-Accumulation\-Output\-Tabs().
+
+
+
+\-Referenced by leaves\-Accumulation\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+     {
+         // uses  member function leafAccumulationOutputTabs for nodes
+         if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+             leafAccumulationOutputTabs(os);
+             return (os << "\n");
+ 
+         }
+ 
+             //recurse on the children
+         if (getLeftChild()!=NULL) {
+             getLeftChild()->leavesAccumulationOutputTabs(os);
+         }
+ 
+         if (getRightChild()!=NULL) {
+             getRightChild()->leavesAccumulationOutputTabs(os);
+         }
+ 
+     }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a0f37c9801d51df76b2acf7ea4c45e122}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaves\-Average\-Output\-Tabs@{leaves\-Average\-Output\-Tabs}}
+\index{leaves\-Average\-Output\-Tabs@{leaves\-Average\-Output\-Tabs}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaves\-Average\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaves\-Average\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a0f37c9801d51df76b2acf7ea4c45e122}
+
+
+\-Output for for {\bfseries all leaves} of a binary tree. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Recursively uses \hyperlink{classsubpavings_1_1CollatorSPnode_a9fe7256f1a62884e4bb8599a63abbbdf}{leaf\-Average\-Output\-Tabs()} to output information for each leaf node. \-Outputs the average over the summary for each leaf. 
+
+\-Definition at line 659 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), leaf\-Average\-Output\-Tabs(), and leaves\-Average\-Output\-Tabs().
+
+
+
+\-Referenced by leaves\-Average\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+        // uses  member function leafAverageOutputTabs for node output
+        if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+            leafAverageOutputTabs(os);
+            return (os << "\n");
+        }
+            //recurse on the children
+        if (getLeftChild()!=NULL) {
+            getLeftChild()->leavesAverageOutputTabs(os);
+        }
+        if (getRightChild()!=NULL) {
+            getRightChild()->leavesAverageOutputTabs(os);
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a236e44d75b1cf0988a014f7ae33c55b6}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaves\-Make\-New\-Fhat@{leaves\-Make\-New\-Fhat}}
+\index{leaves\-Make\-New\-Fhat@{leaves\-Make\-New\-Fhat}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaves\-Make\-New\-Fhat}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaves\-Make\-New\-Fhat} (
+\begin{DoxyParamCaption}
+\item[{double}]{wt, }
+\item[{std\-::vector$<$ double $>$ \&}]{fhat\-New}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a236e44d75b1cf0988a014f7ae33c55b6}
+\-Change the current summary in the leaf nodes by adding mass 
+
+\-Definition at line 1420 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), leaf\-Make\-New\-Fhat(), and leaves\-Make\-New\-Fhat().
+
+
+
+\-Referenced by leaves\-Make\-New\-Fhat().
+
+
+\begin{DoxyCode}
+{
+   // uses  member function leafMakeNewFhat for nodes
+   if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+      leafMakeNewFhat(wt, fhatNew);       
+   }
+ 
+   //recurse on the children
+   if (getLeftChild()!=NULL) {
+      getLeftChild()->leavesMakeNewFhat(wt, fhatNew);
+   }
+ 
+  if (getRightChild()!=NULL) {
+      getRightChild()->leavesMakeNewFhat(wt, fhatNew);
+   }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ad54a1befc9cff87c02237caeabe84ea5}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!leaves\-Output\-Tabs@{leaves\-Output\-Tabs}}
+\index{leaves\-Output\-Tabs@{leaves\-Output\-Tabs}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{leaves\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::leaves\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ad54a1befc9cff87c02237caeabe84ea5}
+
+
+\-Output for for {\bfseries all leaves} of a binary tree. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Recursively uses \hyperlink{classsubpavings_1_1CollatorSPnode_ab2e1cd11ef3dd4424cf491e529ed0fd8}{leaf\-Output\-Tabs()} to output summary information for each leaf node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_a3663133a2c9f0fce79f3f551c1d163de}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 637 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), leaf\-Output\-Tabs(), and leaves\-Output\-Tabs().
+
+
+
+\-Referenced by leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+         if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+            leafOutputTabs(os);
+            return (os << "\n");
+
+        }
+
+            //recurse on the children
+        if (getLeftChild()!=NULL) {
+            getLeftChild()->leavesOutputTabs(os);
+        }
+
+        if (getRightChild()!=NULL) {
+            getRightChild()->leavesOutputTabs(os);
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ac71288d7ccff2a3ddf1509f5b3a54930}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!make\-Average\-Collation@{make\-Average\-Collation}}
+\index{make\-Average\-Collation@{make\-Average\-Collation}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{make\-Average\-Collation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::make\-Average\-Collation} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_ac71288d7ccff2a3ddf1509f5b3a54930}
+make a \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} which represents an average. 
+
+\-Definition at line 504 of file collatorspnode.\-cpp.
+
+
+
+\-References \-Collator\-S\-Pnode(), subpavings\-::\-S\-Pnode\-::get\-Box(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::label, subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::set\-Node\-Name(), and summary.
+
+
+
+\-Referenced by get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar(), and make\-Differences\-To\-Average\-Paving().
+
+
+\begin{DoxyCode}
+    {
+        CollatorSPnode* newnode = NULL;
+
+        try {
+            VecDbl newsumm;
+            double summ = 0;
+            VecDblIt it;
+            // should change this to use for_each
+            summ = accumulate(summary.begin(), summary.end(), summ);
+
+            newsumm.push_back(
+                summ/(1.0*(summary).size()));
+
+            ivector v = getBox();
+
+            // make the new node
+            newnode = new CollatorSPnode(v, label, newsumm);
+            newnode->setNodeName(nodeName); // set name to this node name
+
+            //recursion on the children
+            if (hasLCwithBox()) {
+                newnode->nodeAddLeft(getLeftChild()->makeAverageCollation());
+            }
+
+            if (hasRCwithBox()) {
+                newnode->nodeAddRight(getRightChild()->makeAverageCollation());
+            }
+        }
+
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+        return newnode;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ac1d9ea49286eb953b7bc71f89c15f8ec}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!make\-Differences\-To\-Average\-Paving@{make\-Differences\-To\-Average\-Paving}}
+\index{make\-Differences\-To\-Average\-Paving@{make\-Differences\-To\-Average\-Paving}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{make\-Differences\-To\-Average\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::make\-Differences\-To\-Average\-Paving} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_ac1d9ea49286eb953b7bc71f89c15f8ec}
+
+
+\-Make a tree which holds differences of this to avg over this. 
+
+\-The tree has the same structure as this tree and the summary values are the difference between the summary values for this and the average summary value over the summary for this ie if this has summary $<$h1..hn$>$ and the mean is h. then then the new summary becomes $<$h1-\/h., .. \-Hn-\/h.$>$ 
+
+\-Definition at line 1048 of file collatorspnode.\-cpp.
+
+
+
+\-References \-Collator\-S\-Pnode(), dot\-Diff\-Paving(), and make\-Average\-Collation().
+
+
+
+\-Referenced by get\-L1\-Distances\-To\-Average(), and get\-Sum\-Vars\-Area\-Scalar().
+
+
+\begin{DoxyCode}
+    {
+        CollatorSPnode* newCollator = NULL;
+        CollatorSPnode* avg = NULL;
+
+        try {
+
+            avg = makeAverageCollation(); // must delete at end!
+
+            newCollator = new CollatorSPnode(*this);
+
+            newCollator->dotDiffPaving(avg);
+
+            delete avg;
+            avg = NULL;
+        }
+        catch (bad_alloc& ba) {
+            if (newCollator != NULL) {
+                delete newCollator;
+                newCollator = NULL;
+            }
+            if (avg != NULL) {
+                delete avg;
+                avg = NULL;
+            }
+            std::cerr
+                << "Error allocating memory in makeDifferencesToAveragePavings"
+                << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+        catch (exception& e) {
+            if (newCollator != NULL) {
+                delete newCollator;
+                newCollator = NULL;
+            }
+            if (avg != NULL) {
+                delete avg;
+                avg = NULL;
+            }
+            throw;
+        }
+
+        return newCollator;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_aec7d6bcee79660a09914100f9b878611}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!marginalise@{marginalise}}
+\index{marginalise@{marginalise}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{marginalise}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::marginalise} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Collator\-S\-Pnode} $\ast$const}]{rhs, }
+\item[{const std\-::vector$<$ int $>$ \&}]{req\-Dims}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_aec7d6bcee79660a09914100f9b878611}
+
+
+\-Make a marginalised version of subpaving with root node {\itshape rhs\/}. 
+
+\-Marginalises to take out the given dimensions and adjust summaries so that overall sum of (node vol x accumulated summaries) is the same as for {\itshape rhs\/}.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & is the root of the node to marginalise.  is a vector of the dimensions to include in marginal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+root of a tree of marginalised nodes. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+{\itshape rhs\/} must be non-\/\-N\-U\-L\-L. 
+
+{\itshape req\-Dims\/} must be compatible with current dimensions. 
+\end{DoxyPrecond}
+\begin{DoxyNote}{\-Note}
+allowed dimensions start at 1, ie dimensions to marginalise on can include 1, 2, ... \#dimensions of  
+\end{DoxyNote}
+\begin{DoxyPostcond}{\-Postcondition}
+returned tree will have one summary value for each node and have sum of (node vol x accumulated summaries) = that for {\itshape rhs\/}. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 1636 of file collatorspnode.\-cpp.
+
+
+
+\-References \-\_\-marginalise(), subpavings\-::\-S\-Pnode\-::get\-Box(), taylor\-::\-Lb(), subpavings\-::\-S\-Pnode\-::recursive\-Rename(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Collator\-::marginalise().
+
+
+\begin{DoxyCode}
+    {
+    CollatorSPnode * marginal = NULL;
+    
+    try { // throw exception if it is NULL or if dimensions incompatible
+      if (rhs == NULL) {
+        throw SPnodeException("Cannot marginalise null subpaving");
+      }
+      if (reqDims.empty()) {
+        throw SPnodeException("No dimensions to marginalise on");
+      }
+      
+      ivector box = rhs->getBox();
+      int dim = VecLen(box);
+      int boxLB = Lb(box);
+      int boxUB = Ub(box);
+      //each of the required dims must be there
+      std::vector<int> sorted = reqDims;
+      sort(sorted.begin(), sorted.end());
+      
+      // remove any duplicates
+      vector<int>::iterator it = unique (sorted.begin(), sorted.end());
+      sorted.resize( it - sorted.begin() );
+
+      if ( (*(sorted.begin()) < 1)) {
+        throw SPnodeException("Dimensions must be >= 1");
+      }
+      
+      if (*(sorted.rbegin()) > boxUB - boxLB + 1)  {
+        throw SPnodeException(
+          "At least one dimension too large for subpaving box");
+      }
+      // could use min and max, but we want the not-req dims anyway
+      std::vector<int> outDims;
+      
+      for (int i = 1; i <= dim; i++) {
+        if (!(find(reqDims.begin(), reqDims.end(), i) < reqDims.end())) {
+          // dim of box was not in reqDims 
+          outDims.push_back(i);
+        }
+      }
+      
+      marginal = _marginalise(rhs, outDims);
+      marginal->recursiveRename();
+      return marginal;
+    }
+    catch (exception& e) {
+      
+      if (marginal != NULL) {
+        try {
+          delete marginal;
+        }
+        catch (exception& ee) {} // catch and swallow
+      }
+      const char* msg = e.what();
+            throw SPnodeException("Error in marginalise:\n " + std::string(msg)
+      );
+    } 
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a812d98c784af382c4a697555a7b0445f}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Accumulation@{node\-Accumulation}}
+\index{node\-Accumulation@{node\-Accumulation}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Accumulation}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Accumulation} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1CollatorSPnode_a812d98c784af382c4a697555a7b0445f}
+\-Find the accumulated summary for a node.
+
+\begin{DoxyReturn}{\-Returns}
+the sum over the summary for this node. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1371 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by leaf\-Accumulation\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+      dotprecision dpSumm;    // use type dotprecision for summation  
+      dpSumm=0.0;
+    VecDblIt it;
+      // should change this to use for_each
+            for (it = summary.begin(); it< summary.end(); it++) {
+           accumulate(dpSumm, (*it), 1.0);
+            }
+        real summ = rnd(dpSumm);
+            return summ;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_aca275f3faaa0170c0612f368bae4acdf}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Adopt\-Left@{node\-Adopt\-Left}}
+\index{node\-Adopt\-Left@{node\-Adopt\-Left}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Adopt\-Left}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Adopt\-Left} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Collator\-S\-Pnode} $\ast$}]{l\-Child}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_aca275f3faaa0170c0612f368bae4acdf}
+
+
+\-Builds a higher level of a tree from existing nodes. \-This adopts a left child rather than attempting to reunite two children into this. 
+
+
+
+\-Definition at line 827 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), and summary.
+
+
+
+\-Referenced by node\-Reunite().
+
+
+\begin{DoxyCode}
+    {
+        // *this is the node which will become the parent
+
+        size_t i = 0;
+
+        size_t n = (lChild->summary).size();
+
+        if (summary.empty()) { // no summary in this box already
+            // put into this summary 0.5* the summary of the new child
+            for (i=0; i < n; i++) {
+                summary.push_back(0.5*(lChild->summary)[i]);
+            }
+        }
+        else { // has summary already
+
+            // we have to make summary for this match
+            // that of the children
+            // number of elements in this summary should = child
+            if (summary.size() != n) {
+                throw SPnodeException("Summaries do not match");
+            }
+
+            // store current summary temporarily
+            VecDbl temp_summary = summary;
+
+            summary.clear();
+
+            // put into this summary the average of
+            // the summary of the new child and the old summary
+            for (i=0; i < n; i++) {
+                summary.push_back(((lChild->summary)[i]
+                                + temp_summary[i])/2.0);
+            }
+        }
+
+        // point parent and child pointers in the right directions
+        // nodeAddLeft() checks labels, hull size, present children
+        nodeAddLeft(lChild);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a324588afd881d4e695f42f4a286b33a7}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Adopt\-Right@{node\-Adopt\-Right}}
+\index{node\-Adopt\-Right@{node\-Adopt\-Right}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Adopt\-Right}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Adopt\-Right} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Collator\-S\-Pnode} $\ast$}]{r\-Child}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a324588afd881d4e695f42f4a286b33a7}
+
+
+\-Builds a higher level of a tree from existing nodes. 
+
+\-This adopts a right child rather than attempting to reunite two children into this. 
+
+\-Definition at line 872 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), and summary.
+
+
+
+\-Referenced by node\-Reunite().
+
+
+\begin{DoxyCode}
+    {
+        // *this is the node which will become the parent
+        size_t i = 0;
+
+        size_t n = (rChild->summary).size();
+
+        if (summary.empty()) { // no summary in this box already
+            // put into this summary 0.5 * the summary of the new child
+            for (i=0; i < n; i++) {
+                summary.push_back(0.5*(rChild->summary)[i]);
+            }
+        }
+        else { // has summary already
+
+            // we have to make summary for this match
+            // that of the children
+            // number of elements in this summary should = child
+            if (summary.size() != n) {
+                throw SPnodeException("Summaries do not match");
+            }
+            // store current summary temporarily
+            VecDbl temp_summary = summary;
+
+            summary.clear();
+
+            // put into this summary the average of the summary
+            // of the new child and the old summary
+            for (i=0; i < n; i++) {
+                summary.push_back(((rChild->summary)[i]
+                                + temp_summary[i])/2.0);
+            }
+        }
+
+        // point parent and child pointers in the right directions
+        // nodeAddRight() checks labels, hull size, present children
+        nodeAddRight(rChild);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_aeb5549c6c555a65ee6cf71e779873b67}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Check\-Col\-Summary@{node\-Check\-Col\-Summary}}
+\index{node\-Check\-Col\-Summary@{node\-Check\-Col\-Summary}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Check\-Col\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Check\-Col\-Summary} (
+\begin{DoxyParamCaption}
+\item[{int}]{theta, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_aeb5549c6c555a65ee6cf71e779873b67}
+
+
+\-Find the node that fulfills the \-Yatracos condition by comparing the columns of the growing \-Yatracos matrix against the rows. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em theta} & current split number \\
+\hline
+{\em k} & split number in the set 0\-:(theta-\/1) \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 1869 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by get\-Yat\-Set().
+
+
+\begin{DoxyCode}
+   { 
+   //  cout << "checking for Yat at node: " << getNodeName() << endl;     
+    //  cout << "theta: " << theta << "\t" << "k: " << k << endl;
+    //  cout << summary[theta] << "\t" << summary[k] << endl;
+      if ((summary[k] > summary[theta])) {
+   // cout << "height at " << k << " larger than height at " << theta << endl;
+         return true;
+      }   
+    else { return false; }    
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_af089a7955e0dd12ef33af3ec4bfc6627}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Check\-Row\-Summary@{node\-Check\-Row\-Summary}}
+\index{node\-Check\-Row\-Summary@{node\-Check\-Row\-Summary}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Check\-Row\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Check\-Row\-Summary} (
+\begin{DoxyParamCaption}
+\item[{int}]{theta, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_af089a7955e0dd12ef33af3ec4bfc6627}
+
+
+\-Find the node that fulfills the \-Yatracos condition by comparing the rows of the growing \-Yatracos matrix against the columns. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em theta} & current split number \\
+\hline
+{\em k} & split number in the set 0\-:(theta-\/1) \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 1854 of file collatorspnode.\-cpp.
+
+
+
+\-References summary.
+
+
+
+\-Referenced by get\-Yat\-Set().
+
+
+\begin{DoxyCode}
+   { 
+     //cout << "checking for Yat at node: " << getNodeName() << endl;
+     //cout << "theta: " << theta << "\t" << "k: " << k << endl;     
+     //cout << summary[theta] << "\t" << summary[k] << endl;
+      
+      if ((summary[theta] > summary[k])) {
+    //cout << "height at " << theta << " larger than height at " << k << endl;
+            return true;          
+      } // end of filling up rows
+      else { return false; }
+   }   
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_af0789230e2a9612f9b0644113e318f37}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Expand@{node\-Expand}}
+\index{node\-Expand@{node\-Expand}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Expand} (
+\begin{DoxyParamCaption}
+\item[{int}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_af0789230e2a9612f9b0644113e318f37}
+
+
+\-Expand leaf node to make two more leaves as children and copy summary down to the children. 
+
+\-Equivalent to bisecting a box in a regular subpaving. \-Makes two new sibling child nodes of this one and grafts them on. 
+\begin{DoxyParams}{\-Parameters}
+{\em comp} & is the dimension on which to bisect the\-Box. \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_ac27ee8ea1399ed0121ed970c8fd51543}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 711 of file collatorspnode.\-cpp.
+
+
+
+\-References \-Collator\-S\-Pnode(), subpavings\-::\-S\-Pnode\-::get\-Box(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), subpavings\-::\-S\-Pnode\-::label, \-Lower(), subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::set\-Node\-Name(), summary, and \-Upper().
+
+
+
+\-Referenced by add\-Paving(), and dot\-Diff\-Paving().
+
+
+\begin{DoxyCode}
+    {
+        try
+        {
+            // only do something if this CollatorSPnode is a leaf
+            if (isLeaf()) {
+                // ivectors to become boxes for new children
+                ivector lC, rC;
+                // Call Lower() and Upper() to put split boxes
+                // into lC and rC respectively
+                Lower(getBox(), lC, comp);
+                Upper(getBox(), rC, comp);
+
+                // make and add the new children
+                nodeAddLeft(new CollatorSPnode(
+                    lC, label, summary));
+
+                nodeAddRight(new CollatorSPnode(
+                    rC, label, summary));
+
+                //name the new children
+                getLeftChild()->setNodeName(nodeName + "L");
+                getRightChild()->setNodeName(nodeName + "R");
+
+                // new children have summary from this
+
+            }
+        }
+
+        catch (bad_alloc&)
+        {
+            std::cerr << "Error allocating memory in "
+                << "CollatorSPnode::nodeExpand()"
+                << std::endl;
+            throw;
+        }
+
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ad54fcce3c5c904f7ecf0f5042515e1a5}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Expand@{node\-Expand}}
+\index{node\-Expand@{node\-Expand}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Expand} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ad54fcce3c5c904f7ecf0f5042515e1a5}
+
+
+\-Expand leaf node to make two more leaves as children and copy summary down to the children. 
+
+\-Finds the dimension to split on and passes to \-Node\-Expand(int comp) to carry out the bisection. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_a0540c55967e7f35843fac029b450ab55}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 753 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), and \-Max\-Diam().
+
+
+
+\-Referenced by add\-Paving().
+
+
+\begin{DoxyCode}
+    {
+        int maxdiamcomp; // variable to hold first longest dimension
+        double temp = ::MaxDiam(getBox(), maxdiamcomp);
+        nodeExpand(maxdiamcomp); // complete nodeExpand
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a3ba268993642c1fd5c702966a4fd4fba}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Negate@{node\-Negate}}
+\index{node\-Negate@{node\-Negate}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Negate}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Negate} (
+\begin{DoxyParamCaption}
+\item[{double}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a3ba268993642c1fd5c702966a4fd4fba}
+
+
+\-Negates the summary for every node in tree rooted at this. 
+
+
+
+\-Definition at line 90 of file collatorspnode.\-cpp.
+
+
+
+\-Referenced by add\-Negated\-Paving(), and subtract\-Pavings().
+
+
+\begin{DoxyCode}
+   {
+      // transform(summary.begin(), summary.end(), summary.begin(),
+      //                                negate<double>());
+      for (int i=0; i < summary.size(); i++) {  
+      double temp = c * summary[i];
+      if ( temp == -0) { temp = 0; }
+      summary[i] = temp;        
+    }
+
+        // recurse on children
+        if (hasLCwithBox()) getLeftChild()->nodeNegate(c);
+        if (hasRCwithBox()) getRightChild()->nodeNegate(c);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ab58b8d4c3a8a879930da943dbe2dd62d}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Print@{node\-Print}}
+\index{node\-Print@{node\-Print}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ab58b8d4c3a8a879930da943dbe2dd62d}
+
+
+\-Output the details of a specific node. 
+
+\-This is intended for console output or output to a mixed alpha and numeric file. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_aaf14185437d50e955c5ea938dc6e7559}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 677 of file collatorspnode.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), subpavings\-::\-S\-Pnode\-::node\-Volume(), summary, subpavings\-::\-S\-Pnode\-::the\-Box, and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+    {
+        // output for box in form:
+        // box, volume, summary data
+
+        if(theBox != NULL) { // do nothing if there is no box
+
+            ivector thisBox = *theBox; // copy theBox
+
+            os << "Box is :";
+
+            for (int i = Lb(thisBox); i <= Ub(thisBox) ; i++) {
+                // c-xsc default output for intervals
+                os << "  " << thisBox[i];   }
+
+            os << std::endl;
+            os << "Box volume is " << nodeVolume() << std::endl;
+            os << "Summary data: " ;
+
+            VecDblIt it;
+            for (it = summary.begin(); it< summary.end(); it++) {
+                os << *it << " ";
+            }
+
+            os << std::endl;
+        }
+        return os;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_ace8192ce1536f578c73c7aa12bb49e35}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!node\-Reunite@{node\-Reunite}}
+\index{node\-Reunite@{node\-Reunite}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{node\-Reunite}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::node\-Reunite} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Collator\-S\-Pnode} $\ast$}]{l\-Child, }
+\item[{{\bf \-Collator\-S\-Pnode} $\ast$}]{r\-Child}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_ace8192ce1536f578c73c7aa12bb49e35}
+
+
+\-Try to reunite nodes to form one leaf. 
+
+\-Note that the nodes provided, l\-Child and r\-Child, are not the actual children of this, they are potential children which we are trying to either totally bring into this (if there are two of them) or to graft onto this if there is only one of them. \-This is typically a new, part-\/formed node whose formation can be completed by reuniting already two already-\/formed nodes into it or by adding on one child if only one is available. node\-Reunite is used in building a tree upwards (rather than in pruning leaves of formed tree from the bottom up).
+
+\-If two potential children are provided and they are both leaves, it combines the two leaf siblings into this. \-If the potential children are not leaves or if only one potential child is provided, it grafts the potential child/children onto this as its child/children.
+
+\-Summary data associated with the children is related to the new parent.
+
+\begin{DoxyWarning}{\-Warning}
+node\-Reunite would not normally be used with \-Collator\-S\-Pnodes but is in the base class and is reimplemented to try do it appropriately for this derived class should it be needed. \-This function is untested. 
+\end{DoxyWarning}
+
+
+\-Definition at line 774 of file collatorspnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::is\-Leaf(), subpavings\-::\-S\-Pnode\-::label, node\-Adopt\-Left(), node\-Adopt\-Right(), subpavings\-::\-S\-Pnode\-::recursive\-Rename(), summary, and subpavings\-::\-S\-Pnode\-::the\-Box.
+
+
+\begin{DoxyCode}
+    {
+        // *this is the node which will become the parent
+
+        // check that the labels match and exit if not
+        if ((lChild->label != label ) || (rChild->label != label)) {
+            throw SPnodeException("Labels do not match");
+        }
+
+        // if both subpavings are leaves and hull of boxes is x
+        // discard them: *this is a leaf
+        if (lChild->isLeaf() && rChild->isLeaf()) {
+            if (*theBox != (*(lChild->theBox) |
+                            *(rChild->theBox))) {
+                throw SPnodeException("Boxes cannot be combined");
+
+            }
+            // how many elements in the left child's summary
+            size_t n = (lChild->summary).size();
+            // elements in summary for each child should be same
+            if ((rChild->summary).size() != n) {
+                throw SPnodeException("Summaries cannot be combined");
+
+            }
+
+            size_t i = 0;
+
+            // put into this summary the average of summary of children
+            for (i=0; i < n; i++) {
+                summary.push_back(((lChild->summary)[i]
+                                +(rChild->summary)[i])/2.0);
+            }
+
+            //discard the two subpavings given
+            delete lChild;
+            delete rChild;
+
+        }
+
+        else {  // at least one child is not a leaf
+            // this has to adopt them rather than reuniting them
+            nodeAdoptLeft(lChild);
+            nodeAdoptRight(rChild);
+            recursiveRename();
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a01020423e529685b484b95a73b6432ee}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!operator=@{operator=}}
+\index{operator=@{operator=}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} \& subpavings\-::\-Collator\-S\-Pnode\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Collator\-S\-Pnode} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a01020423e529685b484b95a73b6432ee}
+
+
+\-Copy assignment operator. 
+
+
+
+\-Definition at line 450 of file collatorspnode.\-cpp.
+
+
+
+\-References \-Collator\-S\-Pnode(), subpavings\-::\-S\-Pnode\-::dimension, get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::label, subpavings\-::\-S\-Pnode\-::left\-Child, subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::parent, subpavings\-::\-S\-Pnode\-::right\-Child, summary, and subpavings\-::\-S\-Pnode\-::the\-Box.
+
+
+\begin{DoxyCode}
+    {
+        try {
+
+            // delete the current children (deletes their children as well)
+            if (leftChild != NULL) {
+                delete getLeftChild();
+                leftChild = NULL;
+            }
+
+            if (rightChild != NULL) {
+                delete getRightChild();
+                rightChild = NULL;
+            }
+            // and delete the current box
+            if (theBox != NULL) {
+                delete theBox;
+                theBox = NULL;
+            }
+
+            parent=NULL;
+
+            theBox=new ivector(*rhs.theBox);
+            dimension = rhs.dimension;
+            label = rhs.label;
+            nodeName = rhs.nodeName;
+
+            summary = rhs.summary;
+
+            //recursion on the children
+            if (rhs.leftChild) {
+                nodeAddLeft(new CollatorSPnode(
+                    *(rhs.getLeftChild())));
+            }
+            else leftChild=NULL;
+
+            if (rhs.rightChild) {
+                nodeAddRight(new CollatorSPnode(
+                    *(rhs.getRightChild())));
+            }
+            else rightChild=NULL;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+        return *this;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a79e263c5e6b22baeb2f4e543f33f6d5e}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!subtract\-Pavings@{subtract\-Pavings}}
+\index{subtract\-Pavings@{subtract\-Pavings}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{subtract\-Pavings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf subpavings\-::\-Collator\-S\-Pnode\-::subtract\-Pavings} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Collator\-S\-Pnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-Collator\-S\-Pnode} $\ast$const}]{rhs, }
+\item[{double}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_a79e263c5e6b22baeb2f4e543f33f6d5e}
+
+
+\-Subtract one collator subpavings from another together. 
+
+\-Collator returned has tree which is the union of lhs and rhs trees and summary with lhs summary and negative of rhs summary values.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em lhs} & pointer to the root of one collator. \\
+\hline
+{\em lhs} & pointer to the root of the other collator to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+a pointer to the root of a new collator subpaving where the summmary is the summary of lhs and the negative values from the summary of rhs. 
+\end{DoxyReturn}
+
+
+\-Definition at line 984 of file collatorspnode.\-cpp.
+
+
+
+\-References add\-Negated\-Paving(), \-Collator\-S\-Pnode(), subpavings\-::\-S\-Pnode\-::get\-Box(), and node\-Negate().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Collator\-::operator-\/().
+
+
+\begin{DoxyCode}
+    {
+        CollatorSPnode* newCollator = NULL;
+
+        bool done = false;
+
+        try {
+
+            if (lhs == NULL && rhs == NULL) done = true; // return null
+
+            if (!done && lhs == NULL && rhs != NULL) {
+
+                newCollator = new CollatorSPnode(*rhs);
+                newCollator->nodeNegate(c);
+
+                done = true;
+
+            }
+            if (!done && lhs != NULL && rhs == NULL) {
+
+                newCollator = new CollatorSPnode(*lhs);
+                done = true;
+            }
+            // both not null
+            if (!done && lhs != NULL && rhs != NULL) {
+
+                if ((lhs->getBox() != NULL) &&
+                                (lhs->getBox() != rhs->getBox())) {
+                    throw SPnodeException("Boxes do not match");
+                }
+
+                newCollator = new CollatorSPnode(*lhs);
+                newCollator->addNegatedPaving(rhs, c);  // uses a temp copy of
+       rhs
+            }
+        }
+        catch (bad_alloc& ba) {
+            if (newCollator != NULL) {
+                delete newCollator;
+                newCollator = NULL;
+            }
+            std::cerr << "Error allocating memory in addPavings" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+        catch (exception& e) {
+            if (newCollator != NULL) {
+                delete newCollator;
+                newCollator = NULL;
+            }
+            throw;
+        }
+
+        return newCollator;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a3b6cd985321d1ecae0a856ab881d6e62}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!swap\-Collator@{swap\-Collator}}
+\index{swap\-Collator@{swap\-Collator}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{swap\-Collator}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::swap\-Collator} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Collator\-S\-Pnode} \&}]{spn}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a3b6cd985321d1ecae0a856ab881d6e62}
+
+
+\-Swap this and another node. 
+
+\-Swaps all the data members of this with the other node.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em spn} & a reference to the node to swap with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+this is identical,in terms of its data members, to spn before the swap, and spn is identical to this after the swap. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1CollatorSPnode_a0e8574a8a951a2716cbb29b8e1fbbc33}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!totalise\-Summaries@{totalise\-Summaries}}
+\index{totalise\-Summaries@{totalise\-Summaries}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{totalise\-Summaries}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Collator\-S\-Pnode\-::totalise\-Summaries} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1CollatorSPnode_a0e8574a8a951a2716cbb29b8e1fbbc33}
+
+
+\-Total the summaries from this node downwards. 
+
+\-Works recursively to make each summary into a single element 
+
+\-Definition at line 1483 of file collatorspnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), get\-Total\-Summary(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), summary, and totalise\-Summaries().
+
+
+
+\-Referenced by \-\_\-marginalise(), and totalise\-Summaries().
+
+
+\begin{DoxyCode}
+    {
+    if (summary.size() > 1) {
+      VecDbl tmp;
+      tmp.push_back(getTotalSummary());
+      summary.swap(tmp);
+    }
+    
+    //recursion on the children
+    if (hasLCwithBox()) {
+      getLeftChild()->totaliseSummaries();
+    }
+
+    if (hasRCwithBox()) {
+      getRightChild()->totaliseSummaries();
+    }
+   }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1CollatorSPnode_abecd2f87f50d84f2c3d04e6b0b15a5ec}{\index{subpavings\-::\-Collator\-S\-Pnode@{subpavings\-::\-Collator\-S\-Pnode}!summary@{summary}}
+\index{summary@{summary}!subpavings::CollatorSPnode@{subpavings\-::\-Collator\-S\-Pnode}}
+\paragraph[{summary}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-Dbl} {\bf subpavings\-::\-Collator\-S\-Pnode\-::summary}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classsubpavings_1_1CollatorSPnode_abecd2f87f50d84f2c3d04e6b0b15a5ec}
+
+
+\-A container of summary values from the collated subpavings. 
+
+
+
+\-Definition at line 73 of file collatorspnode.\-hpp.
+
+
+
+\-Referenced by add\-Paving(), \-Collator\-S\-Pnode(), dot\-Diff\-Paving(), get\-L1\-Distances\-To\-Average(), get\-Leaf\-Node\-Abs\-Area\-Accumulations(), get\-Leaf\-Node\-Summary\-Accumulations(), get\-Node\-Delta(), get\-Number\-Summarised(), get\-Scheffe\-Node(), get\-Summary(), get\-Sum\-Vars\-Area\-Scalar(), get\-Sum\-Vars\-Total\-Summarised\-Value\-Scalar(), get\-Total\-Summary(), get\-Total\-Summary\-Av(), leaf\-Make\-New\-Fhat(), leaf\-Output\-Tabs(), make\-Average\-Collation(), node\-Accumulation(), node\-Adopt\-Left(), node\-Adopt\-Right(), node\-Check\-Col\-Summary(), node\-Check\-Row\-Summary(), node\-Expand(), node\-Print(), node\-Reunite(), operator=(), and totalise\-Summaries().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{collatorspnode_8hpp}{collatorspnode.\-hpp}\item 
+\hyperlink{collatorspnode_8cpp}{collatorspnode.\-cpp}\end{DoxyCompactItemize}

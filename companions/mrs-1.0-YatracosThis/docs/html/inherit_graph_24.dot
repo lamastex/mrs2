@@ -1,0 +1,7 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="SortBox",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSortBox.shtml",tooltip="A Function Object class for a sorting criterion between one RangedLabBox and another."];
+}

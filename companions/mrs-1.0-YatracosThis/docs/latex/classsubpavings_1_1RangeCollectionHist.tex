@@ -1,0 +1,526 @@
+\hypertarget{classsubpavings_1_1RangeCollectionHist}{\subsection{subpavings\-:\-:\-Range\-Collection\-Hist \-Class \-Reference}
+\label{classsubpavings_1_1RangeCollectionHist}\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}}
+}
+
+
+{\ttfamily \#include $<$rangecollection\-\_\-hist.\-hpp$>$}
+
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Range\-Collection\-Hist\-:
+\subsubsection*{\-Public \-Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef cxsc\-::real \hyperlink{classsubpavings_1_1RangeCollectionHist_a6a5e1b431a3cf779ca098ca63e2cff3b}{\-Range\-Collection\-Hist\-Value\-Type}
+\begin{DoxyCompactList}\small\item\em \-Definition for the type for the values accessible from a range\-Collection. \end{DoxyCompactList}\item 
+typedef std\-::vector\*
+$<$ \hyperlink{classsubpavings_1_1RangeCollectionHist_a6a5e1b431a3cf779ca098ca63e2cff3b}{\-Range\-Collection\-Hist\-Value\-Type} $>$\*
+\-::const\-\_\-iterator \hyperlink{classsubpavings_1_1RangeCollectionHist_a65d6a1cb899b673b28913a7dfb572476}{\-Range\-Collection\-Hist\-Itr}
+\begin{DoxyCompactList}\small\item\em \-Definition for the type for iterating through the values in a range\-Collection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist_a1798364905b4d4db8aa0ffa922dbc169}{\-Range\-Collection\-Hist} ()
+\begin{DoxyCompactList}\small\item\em \-No-\/argument constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist_aa65c6d75a4a00028029ce18407df9c21}{\-Range\-Collection\-Hist} (const \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&range)
+\begin{DoxyCompactList}\small\item\em \-Constructor initialised with a container of values for the range\-Collection. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist_a5da6271ef9e881f17213072a05859636}{\-Range\-Collection\-Hist} (const cxsc\-::real \&r)
+\begin{DoxyCompactList}\small\item\em \-Constructor initialised with a single value for the range\-Collection. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist_af282eb9e98612d1da0eae417088d2018}{\-Range\-Collection\-Hist} (const \hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \& \hyperlink{classsubpavings_1_1RangeCollectionHist_ad06f912d9345fb484445d352e2bb7348}{operator=} (\hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist_a65d6a1cb899b673b28913a7dfb572476}{\-Range\-Collection\-Hist\-Itr} \hyperlink{classsubpavings_1_1RangeCollectionHist_adbd68fcd7515aeb084af67cbe946e162}{begin} () const 
+\begin{DoxyCompactList}\small\item\em \-Return an iterator to the start of the collection. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist_a65d6a1cb899b673b28913a7dfb572476}{\-Range\-Collection\-Hist\-Itr} \hyperlink{classsubpavings_1_1RangeCollectionHist_ab19aefc62a7559964b43e24f352063e3}{end} () const 
+\begin{DoxyCompactList}\small\item\em \-Return an iterator to the end of the collection. \end{DoxyCompactList}\item 
+std\-::size\-\_\-t \hyperlink{classsubpavings_1_1RangeCollectionHist_a1d771d4ec07fd09a078615c599dbd81c}{get\-Size} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the size of this. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1RangeCollectionHist_a49d8516732a4d2d4e7a5863a502c0fda}{is\-Empty} () const 
+\begin{DoxyCompactList}\small\item\em \-Get whether the range\-Collection is empty. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \hyperlink{classsubpavings_1_1RangeCollectionHist_abf9c11987119de78dce7b2ebf0c9b17a}{get\-Range\-Collection\-Values} () const 
+\begin{DoxyCompactList}\small\item\em \-Get a copy of the elements of this as a collection of reals. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1RangeCollectionHist_aaee124fc1435e538fc2bb8c799032c2c}{get\-Total} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the total of all the elements in this. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1RangeCollectionHist_a551fea530035f92f3a9824d107f7079f}{get\-Abs\-Total} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the total of the absolute values of all the elements in this. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1RangeCollectionHist_adb2636c4eb438e5ebbb7cd8be9088af8}{get\-Average\-Value} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the average of all the elements in this. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \hyperlink{classsubpavings_1_1RangeCollectionHist_a3829de1bc59ceff1c9ed143cb05168c2}{make\-Average\-Range\-Collection} () const 
+\begin{DoxyCompactList}\small\item\em \-Make a range\-Collection containing just the average of this. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \hyperlink{classsubpavings_1_1RangeCollectionHist_af042b4b68c09ac3b54bcb1abdd51f78c}{get\-Abs\-Diffs\-To\-Average\-Range\-Collection} () const 
+\begin{DoxyCompactList}\small\item\em \-Make a range\-Collection containing the absolute differences of each element to their average. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionHist_a7a23ebb0badaa26845d97bfdb3a26dc2}{reduce} ()
+\begin{DoxyCompactList}\small\item\em \-Reduce the range\-Collection to the sum of the present values. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionHist_a64e08d8b81255e1fb66fa7f9042f41dd}{parallel\-Add} (const \hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Add another the range\-Collection to this so that each element += parallel element in {\itshape rhs\/}. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \& \hyperlink{classsubpavings_1_1RangeCollectionHist_adb1fdd14f7484a22e77a7ceb65b4c8a1}{operator+=} (const \hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Append the contents of another range\-Collection to this. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \hyperlink{classsubpavings_1_1RangeCollectionHist_a933eb6a39c07b990b5e734f2354e0300}{operator+} (const \hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em \-Get the results of appending the contents of another range\-Collection to this. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \& \hyperlink{classsubpavings_1_1RangeCollectionHist_afc613e3d9ea05a796ad256b911b91145}{operator$\ast$=} (const cxsc\-::real \&mult)
+\begin{DoxyCompactList}\small\item\em \-Multiply every element in this by {\itshape mult\/}. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \hyperlink{classsubpavings_1_1RangeCollectionHist_ac6d582db5cdec2575db1a91c70fa7aaa}{operator$\ast$} (const cxsc\-::real \&mult) const 
+\begin{DoxyCompactList}\small\item\em \-Get the results of multipling every element in this by {\itshape mult\/}. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \& \hyperlink{classsubpavings_1_1RangeCollectionHist_a1fef83c6e3cd8095ceaced044990612c}{operator/=} (const cxsc\-::real \&div)
+\begin{DoxyCompactList}\small\item\em \-Divide every element in this by {\itshape div\/}. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \hyperlink{classsubpavings_1_1RangeCollectionHist_a93a520db202a1032ec1e1b02014c10a8}{operator/} (const cxsc\-::real \&div) const 
+\begin{DoxyCompactList}\small\item\em \-Get the results of dividing every element in this by {\itshape div\/}. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1RangeCollectionHist_ae8047b013a97315564303752a329ff45}{check\-Range\-Collection\-All\-Positive} () const 
+\begin{DoxyCompactList}\small\item\em \-Get whether the values in this are all positive. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionHist_a265fa98459a9c678e980d111922bfddd}{swap} (\hyperlink{classsubpavings_1_1RangeCollectionHist}{\-Range\-Collection\-Hist} \&other)
+\begin{DoxyCompactList}\small\item\em \-Swap the contents of this and other. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf \-Output this to an out stream with values}\par
+{\em separated by tabs.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em os} & is the stream to sent the output to. \\
+\hline
+{\em prec} & is the precision to use in the output. \\
+\hline
+\end{DoxyParams}
+}\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1RangeCollectionHist_ac34a42f1ad337dc961cda4386bcefd99}{output\-Tabs} (std\-::ostream \&os, int prec) const 
+\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1RangeCollectionHist_ac005c11b0948f40d1a334f9d462d10c6}{output\-Tabs} (std\-::ostream \&os) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf \-Output the average of this to an out stream.}\par
+{\em 
+\begin{DoxyParams}{\-Parameters}
+{\em os} & is the stream to sent the output to. \\
+\hline
+{\em prec} & is the precision to use in the output. \\
+\hline
+\end{DoxyParams}
+}\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1RangeCollectionHist_a1c9864fdfb7362224f3842631d8ce9b7}{output\-Average} (std\-::ostream \&os, int prec) const 
+\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1RangeCollectionHist_a807af4e295c8fb507e29819e05e1ac9e}{output\-Average} (std\-::ostream \&os) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Private \-Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef cxsc\-::real \hyperlink{classsubpavings_1_1RangeCollectionHist_a48c339f8bcabae3f0ecd9a0b08211e54}{\-Range\-Collection\-Hist\-Private\-Value\-Type}
+\item 
+typedef std\-::vector\*
+$<$ \hyperlink{classsubpavings_1_1RangeCollectionHist_a48c339f8bcabae3f0ecd9a0b08211e54}{\-Range\-Collection\-Hist\-Private\-Value\-Type} $>$ \hyperlink{classsubpavings_1_1RangeCollectionHist_ab3b0321ac69a063bda1c70cdb9bf00ec}{\-Range\-Collection\-Hist\-Private\-Type}
+\item 
+typedef \*
+\-Range\-Collection\-Hist\-Private\-Type\-::iterator \hyperlink{classsubpavings_1_1RangeCollectionHist_a6e8c17437030654fc20d5d341897e806}{\-Range\-Collection\-Hist\-Private\-Type\-Itr}
+\item 
+typedef \*
+\-Range\-Collection\-Hist\-Private\-Type\-::const\-\_\-iterator \hyperlink{classsubpavings_1_1RangeCollectionHist_acb2f5e2dbcc99b2efcb6bb62f010574e}{\-Range\-Collection\-Hist\-Private\-Type\-Const\-Itr}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsubpavings_1_1RangeCollectionHist_aca4bb8b2394285f14ec9af829f55d5c9}{scalar\-Mult} (const cxsc\-::real \&mult)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1RangeCollectionHist_ab3b0321ac69a063bda1c70cdb9bf00ec}{\-Range\-Collection\-Hist\-Private\-Type} \hyperlink{classsubpavings_1_1RangeCollectionHist_aba0b943c3580d4ded0a82270589c3df3}{container}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 50 of file rangecollection\-\_\-hist.\-hpp.
+
+
+
+\subsubsection{\-Member \-Typedef \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a65d6a1cb899b673b28913a7dfb572476}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist\-Itr@{\-Range\-Collection\-Hist\-Itr}}
+\index{\-Range\-Collection\-Hist\-Itr@{\-Range\-Collection\-Hist\-Itr}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist\-Itr}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<$ {\bf \-Range\-Collection\-Hist\-Value\-Type} $>$\-::const\-\_\-iterator {\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist\-Itr}}}\label{classsubpavings_1_1RangeCollectionHist_a65d6a1cb899b673b28913a7dfb572476}
+
+
+\-Definition for the type for iterating through the values in a range\-Collection. 
+
+
+
+\-Definition at line 61 of file rangecollection\-\_\-hist.\-hpp.
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_ab3b0321ac69a063bda1c70cdb9bf00ec}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist\-Private\-Type@{\-Range\-Collection\-Hist\-Private\-Type}}
+\index{\-Range\-Collection\-Hist\-Private\-Type@{\-Range\-Collection\-Hist\-Private\-Type}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist\-Private\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\-::vector$<${\bf \-Range\-Collection\-Hist\-Private\-Value\-Type}$>$ {\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist\-Private\-Type}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_ab3b0321ac69a063bda1c70cdb9bf00ec}
+
+
+\-Definition at line 205 of file rangecollection\-\_\-hist.\-hpp.
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_acb2f5e2dbcc99b2efcb6bb62f010574e}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist\-Private\-Type\-Const\-Itr@{\-Range\-Collection\-Hist\-Private\-Type\-Const\-Itr}}
+\index{\-Range\-Collection\-Hist\-Private\-Type\-Const\-Itr@{\-Range\-Collection\-Hist\-Private\-Type\-Const\-Itr}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist\-Private\-Type\-Const\-Itr}]{\setlength{\rightskip}{0pt plus 5cm}typedef \-Range\-Collection\-Hist\-Private\-Type\-::const\-\_\-iterator {\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist\-Private\-Type\-Const\-Itr}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_acb2f5e2dbcc99b2efcb6bb62f010574e}
+
+
+\-Definition at line 209 of file rangecollection\-\_\-hist.\-hpp.
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a6e8c17437030654fc20d5d341897e806}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist\-Private\-Type\-Itr@{\-Range\-Collection\-Hist\-Private\-Type\-Itr}}
+\index{\-Range\-Collection\-Hist\-Private\-Type\-Itr@{\-Range\-Collection\-Hist\-Private\-Type\-Itr}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist\-Private\-Type\-Itr}]{\setlength{\rightskip}{0pt plus 5cm}typedef \-Range\-Collection\-Hist\-Private\-Type\-::iterator {\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist\-Private\-Type\-Itr}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_a6e8c17437030654fc20d5d341897e806}
+
+
+\-Definition at line 207 of file rangecollection\-\_\-hist.\-hpp.
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a48c339f8bcabae3f0ecd9a0b08211e54}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist\-Private\-Value\-Type@{\-Range\-Collection\-Hist\-Private\-Value\-Type}}
+\index{\-Range\-Collection\-Hist\-Private\-Value\-Type@{\-Range\-Collection\-Hist\-Private\-Value\-Type}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist\-Private\-Value\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef cxsc\-::real {\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist\-Private\-Value\-Type}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_a48c339f8bcabae3f0ecd9a0b08211e54}
+
+
+\-Definition at line 203 of file rangecollection\-\_\-hist.\-hpp.
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a6a5e1b431a3cf779ca098ca63e2cff3b}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist\-Value\-Type@{\-Range\-Collection\-Hist\-Value\-Type}}
+\index{\-Range\-Collection\-Hist\-Value\-Type@{\-Range\-Collection\-Hist\-Value\-Type}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist\-Value\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef cxsc\-::real {\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist\-Value\-Type}}}\label{classsubpavings_1_1RangeCollectionHist_a6a5e1b431a3cf779ca098ca63e2cff3b}
+
+
+\-Definition for the type for the values accessible from a range\-Collection. 
+
+
+
+\-Definition at line 56 of file rangecollection\-\_\-hist.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a1798364905b4d4db8aa0ffa922dbc169}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}}
+\index{\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_a1798364905b4d4db8aa0ffa922dbc169}
+
+
+\-No-\/argument constructor. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_aa65c6d75a4a00028029ce18407df9c21}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}}
+\index{\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Real\-Vec} \&}]{range}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_aa65c6d75a4a00028029ce18407df9c21}
+
+
+\-Constructor initialised with a container of values for the range\-Collection. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a5da6271ef9e881f17213072a05859636}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}}
+\index{\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist} (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_a5da6271ef9e881f17213072a05859636}
+
+
+\-Constructor initialised with a single value for the range\-Collection. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_af282eb9e98612d1da0eae417088d2018}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}}
+\index{\-Range\-Collection\-Hist@{\-Range\-Collection\-Hist}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{\-Range\-Collection\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Range\-Collection\-Hist\-::\-Range\-Collection\-Hist} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Hist} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_af282eb9e98612d1da0eae417088d2018}
+
+
+\-Copy constructor. 
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_adbd68fcd7515aeb084af67cbe946e162}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!begin@{begin}}
+\index{begin@{begin}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist\-Itr} {\bf subpavings\-::\-Range\-Collection\-Hist\-::begin} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_adbd68fcd7515aeb084af67cbe946e162}
+
+
+\-Return an iterator to the start of the collection. 
+
+\-The idiom for iterating through all the valuse in a range\-Collection rc is\-:
+
+for (\-Range\-Collection\-Hist\-Itr it = rc.\-begin(); it $<$ rc.\-end(), ++it) \{ ... \} \hypertarget{classsubpavings_1_1RangeCollectionHist_ae8047b013a97315564303752a329ff45}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!check\-Range\-Collection\-All\-Positive@{check\-Range\-Collection\-All\-Positive}}
+\index{check\-Range\-Collection\-All\-Positive@{check\-Range\-Collection\-All\-Positive}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{check\-Range\-Collection\-All\-Positive}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Range\-Collection\-Hist\-::check\-Range\-Collection\-All\-Positive} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_ae8047b013a97315564303752a329ff45}
+
+
+\-Get whether the values in this are all positive. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_ab19aefc62a7559964b43e24f352063e3}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!end@{end}}
+\index{end@{end}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist\-Itr} {\bf subpavings\-::\-Range\-Collection\-Hist\-::end} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_ab19aefc62a7559964b43e24f352063e3}
+
+
+\-Return an iterator to the end of the collection. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_af042b4b68c09ac3b54bcb1abdd51f78c}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!get\-Abs\-Diffs\-To\-Average\-Range\-Collection@{get\-Abs\-Diffs\-To\-Average\-Range\-Collection}}
+\index{get\-Abs\-Diffs\-To\-Average\-Range\-Collection@{get\-Abs\-Diffs\-To\-Average\-Range\-Collection}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{get\-Abs\-Diffs\-To\-Average\-Range\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} {\bf subpavings\-::\-Range\-Collection\-Hist\-::get\-Abs\-Diffs\-To\-Average\-Range\-Collection} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_af042b4b68c09ac3b54bcb1abdd51f78c}
+
+
+\-Make a range\-Collection containing the absolute differences of each element to their average. 
+
+\-Throws an \hyperlink{classsubpavings_1_1UnfulfillableRequest__Error}{\-Unfulfillable\-Request\-\_\-\-Error} if this is empty. \hypertarget{classsubpavings_1_1RangeCollectionHist_a551fea530035f92f3a9824d107f7079f}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!get\-Abs\-Total@{get\-Abs\-Total}}
+\index{get\-Abs\-Total@{get\-Abs\-Total}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{get\-Abs\-Total}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Range\-Collection\-Hist\-::get\-Abs\-Total} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a551fea530035f92f3a9824d107f7079f}
+
+
+\-Get the total of the absolute values of all the elements in this. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_adb2636c4eb438e5ebbb7cd8be9088af8}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!get\-Average\-Value@{get\-Average\-Value}}
+\index{get\-Average\-Value@{get\-Average\-Value}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{get\-Average\-Value}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Range\-Collection\-Hist\-::get\-Average\-Value} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_adb2636c4eb438e5ebbb7cd8be9088af8}
+
+
+\-Get the average of all the elements in this. 
+
+\-Throws an \hyperlink{classsubpavings_1_1UnfulfillableRequest__Error}{\-Unfulfillable\-Request\-\_\-\-Error} if this is empty. \hypertarget{classsubpavings_1_1RangeCollectionHist_abf9c11987119de78dce7b2ebf0c9b17a}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!get\-Range\-Collection\-Values@{get\-Range\-Collection\-Values}}
+\index{get\-Range\-Collection\-Values@{get\-Range\-Collection\-Values}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{get\-Range\-Collection\-Values}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} {\bf subpavings\-::\-Range\-Collection\-Hist\-::get\-Range\-Collection\-Values} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_abf9c11987119de78dce7b2ebf0c9b17a}
+
+
+\-Get a copy of the elements of this as a collection of reals. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a1d771d4ec07fd09a078615c599dbd81c}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!get\-Size@{get\-Size}}
+\index{get\-Size@{get\-Size}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{get\-Size}]{\setlength{\rightskip}{0pt plus 5cm}std\-::size\-\_\-t {\bf subpavings\-::\-Range\-Collection\-Hist\-::get\-Size} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a1d771d4ec07fd09a078615c599dbd81c}
+
+
+\-Get the size of this. 
+
+\-Size is number of elements in this. \hypertarget{classsubpavings_1_1RangeCollectionHist_aaee124fc1435e538fc2bb8c799032c2c}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!get\-Total@{get\-Total}}
+\index{get\-Total@{get\-Total}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{get\-Total}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Range\-Collection\-Hist\-::get\-Total} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_aaee124fc1435e538fc2bb8c799032c2c}
+
+
+\-Get the total of all the elements in this. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a49d8516732a4d2d4e7a5863a502c0fda}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!is\-Empty@{is\-Empty}}
+\index{is\-Empty@{is\-Empty}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Range\-Collection\-Hist\-::is\-Empty} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a49d8516732a4d2d4e7a5863a502c0fda}
+
+
+\-Get whether the range\-Collection is empty. 
+
+\begin{DoxyReturn}{\-Returns}
+true if this has no elements, false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a3829de1bc59ceff1c9ed143cb05168c2}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!make\-Average\-Range\-Collection@{make\-Average\-Range\-Collection}}
+\index{make\-Average\-Range\-Collection@{make\-Average\-Range\-Collection}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{make\-Average\-Range\-Collection}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist} {\bf subpavings\-::\-Range\-Collection\-Hist\-::make\-Average\-Range\-Collection} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a3829de1bc59ceff1c9ed143cb05168c2}
+
+
+\-Make a range\-Collection containing just the average of this. 
+
+\-Throws an \hyperlink{classsubpavings_1_1UnfulfillableRequest__Error}{\-Unfulfillable\-Request\-\_\-\-Error} if this is empty. \hypertarget{classsubpavings_1_1RangeCollectionHist_ac6d582db5cdec2575db1a91c70fa7aaa}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Range\-Collection\-Hist} subpavings\-::\-Range\-Collection\-Hist\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{mult}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_ac6d582db5cdec2575db1a91c70fa7aaa}
+
+
+\-Get the results of multipling every element in this by {\itshape mult\/}. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_afc613e3d9ea05a796ad256b911b91145}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist}\& subpavings\-::\-Range\-Collection\-Hist\-::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{mult}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_afc613e3d9ea05a796ad256b911b91145}
+
+
+\-Multiply every element in this by {\itshape mult\/}. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a933eb6a39c07b990b5e734f2354e0300}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!operator+@{operator+}}
+\index{operator+@{operator+}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Range\-Collection\-Hist} subpavings\-::\-Range\-Collection\-Hist\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Hist} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a933eb6a39c07b990b5e734f2354e0300}
+
+
+\-Get the results of appending the contents of another range\-Collection to this. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_adb1fdd14f7484a22e77a7ceb65b4c8a1}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist}\& subpavings\-::\-Range\-Collection\-Hist\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Hist} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_adb1fdd14f7484a22e77a7ceb65b4c8a1}
+
+
+\-Append the contents of another range\-Collection to this. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a93a520db202a1032ec1e1b02014c10a8}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!operator/@{operator/}}
+\index{operator/@{operator/}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Range\-Collection\-Hist} subpavings\-::\-Range\-Collection\-Hist\-::operator/ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{div}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a93a520db202a1032ec1e1b02014c10a8}
+
+
+\-Get the results of dividing every element in this by {\itshape div\/}. 
+
+\-Throws a std\-::invalid\-\_\-argument exception if {\itshape div\/} == 0.\-0. \hypertarget{classsubpavings_1_1RangeCollectionHist_a1fef83c6e3cd8095ceaced044990612c}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist}\& subpavings\-::\-Range\-Collection\-Hist\-::operator/= (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{div}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_a1fef83c6e3cd8095ceaced044990612c}
+
+
+\-Divide every element in this by {\itshape div\/}. 
+
+\-Throws a std\-::invalid\-\_\-argument exception if {\itshape div\/} == 0.\-0. \hypertarget{classsubpavings_1_1RangeCollectionHist_ad06f912d9345fb484445d352e2bb7348}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!operator=@{operator=}}
+\index{operator=@{operator=}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist}\& subpavings\-::\-Range\-Collection\-Hist\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Range\-Collection\-Hist}}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_ad06f912d9345fb484445d352e2bb7348}
+
+
+\-Copy assignment operator. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a1c9864fdfb7362224f3842631d8ce9b7}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!output\-Average@{output\-Average}}
+\index{output\-Average@{output\-Average}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{output\-Average}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-Range\-Collection\-Hist\-::output\-Average} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a1c9864fdfb7362224f3842631d8ce9b7}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a807af4e295c8fb507e29819e05e1ac9e}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!output\-Average@{output\-Average}}
+\index{output\-Average@{output\-Average}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{output\-Average}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-Range\-Collection\-Hist\-::output\-Average} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_a807af4e295c8fb507e29819e05e1ac9e}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_ac34a42f1ad337dc961cda4386bcefd99}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!output\-Tabs@{output\-Tabs}}
+\index{output\-Tabs@{output\-Tabs}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-Range\-Collection\-Hist\-::output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_ac34a42f1ad337dc961cda4386bcefd99}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_ac005c11b0948f40d1a334f9d462d10c6}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!output\-Tabs@{output\-Tabs}}
+\index{output\-Tabs@{output\-Tabs}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-Range\-Collection\-Hist\-::output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1RangeCollectionHist_ac005c11b0948f40d1a334f9d462d10c6}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a64e08d8b81255e1fb66fa7f9042f41dd}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!parallel\-Add@{parallel\-Add}}
+\index{parallel\-Add@{parallel\-Add}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{parallel\-Add}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Range\-Collection\-Hist\-::parallel\-Add} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Range\-Collection\-Hist} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_a64e08d8b81255e1fb66fa7f9042f41dd}
+
+
+\-Add another the range\-Collection to this so that each element += parallel element in {\itshape rhs\/}. 
+
+\-Throws a std\-::logic\-\_\-error exception if this and {\itshape rhs\/} are different sizes. \hypertarget{classsubpavings_1_1RangeCollectionHist_a7a23ebb0badaa26845d97bfdb3a26dc2}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!reduce@{reduce}}
+\index{reduce@{reduce}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{reduce}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Range\-Collection\-Hist\-::reduce} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_a7a23ebb0badaa26845d97bfdb3a26dc2}
+
+
+\-Reduce the range\-Collection to the sum of the present values. 
+
+\hypertarget{classsubpavings_1_1RangeCollectionHist_aca4bb8b2394285f14ec9af829f55d5c9}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!scalar\-Mult@{scalar\-Mult}}
+\index{scalar\-Mult@{scalar\-Mult}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{scalar\-Mult}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Range\-Collection\-Hist\-::scalar\-Mult} (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{mult}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_aca4bb8b2394285f14ec9af829f55d5c9}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_a265fa98459a9c678e980d111922bfddd}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!swap@{swap}}
+\index{swap@{swap}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Range\-Collection\-Hist\-::swap} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Range\-Collection\-Hist} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1RangeCollectionHist_a265fa98459a9c678e980d111922bfddd}
+
+
+\-Swap the contents of this and other. 
+
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1RangeCollectionHist_aba0b943c3580d4ded0a82270589c3df3}{\index{subpavings\-::\-Range\-Collection\-Hist@{subpavings\-::\-Range\-Collection\-Hist}!container@{container}}
+\index{container@{container}!subpavings::RangeCollectionHist@{subpavings\-::\-Range\-Collection\-Hist}}
+\paragraph[{container}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Range\-Collection\-Hist\-Private\-Type} {\bf subpavings\-::\-Range\-Collection\-Hist\-::container}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1RangeCollectionHist_aba0b943c3580d4ded0a82270589c3df3}
+
+
+\-Definition at line 211 of file rangecollection\-\_\-hist.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rangecollection__hist_8hpp}{rangecollection\-\_\-hist.\-hpp}\end{DoxyCompactItemize}

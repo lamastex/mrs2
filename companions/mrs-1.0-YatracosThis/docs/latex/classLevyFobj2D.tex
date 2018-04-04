@@ -1,0 +1,167 @@
+\hypertarget{classLevyFobj2D}{\subsection{\-Levy\-Fobj2\-D \-Class \-Reference}
+\label{classLevyFobj2D}\index{\-Levy\-Fobj2\-D@{\-Levy\-Fobj2\-D}}
+}
+
+
+{\ttfamily \#include $<$\-Levy\-Fobj2\-D.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-Levy\-Fobj2\-D\-:
+
+
+\-Collaboration diagram for \-Levy\-Fobj2\-D\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLevyFobj2D_a91be21623fb5bdf9c1b5156d2f8aa336}{\-Levy\-Fobj2\-D} ()
+\begin{DoxyCompactList}\small\item\em no argument constructor \end{DoxyCompactList}\item 
+virtual cxsc\-::interval \hyperlink{classLevyFobj2D_aba9f8611a62e6b34ceff101f676deb06}{operator()} (const cxsc\-::interval \&ival1, const cxsc\-::interval \&ival2) const 
+\begin{DoxyCompactList}\small\item\em declare function for interval image of a box \end{DoxyCompactList}\item 
+virtual cxsc\-::real \hyperlink{classLevyFobj2D_a2681e5ab1e51b953ec804e1d04da9b3d}{operator()} (const cxsc\-::real \&r1, const cxsc\-::real \&r2) const 
+\begin{DoxyCompactList}\small\item\em declare function for real image of reals \end{DoxyCompactList}\item 
+\hyperlink{classLevyFobj2D_ad162dbfba13fbb393d7595659af0d04c}{$\sim$\-Levy\-Fobj2\-D} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 12 of file \-Levy\-Fobj2\-D.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classLevyFobj2D_a91be21623fb5bdf9c1b5156d2f8aa336}{\index{\-Levy\-Fobj2\-D@{\-Levy\-Fobj2\-D}!\-Levy\-Fobj2\-D@{\-Levy\-Fobj2\-D}}
+\index{\-Levy\-Fobj2\-D@{\-Levy\-Fobj2\-D}!LevyFobj2D@{\-Levy\-Fobj2\-D}}
+\paragraph[{\-Levy\-Fobj2\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Levy\-Fobj2\-D\-::\-Levy\-Fobj2\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classLevyFobj2D_a91be21623fb5bdf9c1b5156d2f8aa336}
+
+
+no argument constructor 
+
+
+
+\-Definition at line 17 of file \-Levy\-Fobj2\-D.\-hpp.
+
+
+\begin{DoxyCode}
+{};
+\end{DoxyCode}
+\hypertarget{classLevyFobj2D_ad162dbfba13fbb393d7595659af0d04c}{\index{\-Levy\-Fobj2\-D@{\-Levy\-Fobj2\-D}!$\sim$\-Levy\-Fobj2\-D@{$\sim$\-Levy\-Fobj2\-D}}
+\index{$\sim$\-Levy\-Fobj2\-D@{$\sim$\-Levy\-Fobj2\-D}!LevyFobj2D@{\-Levy\-Fobj2\-D}}
+\paragraph[{$\sim$\-Levy\-Fobj2\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Levy\-Fobj2\-D\-::$\sim$\-Levy\-Fobj2\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classLevyFobj2D_ad162dbfba13fbb393d7595659af0d04c}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 30 of file \-Levy\-Fobj2\-D.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classLevyFobj2D_aba9f8611a62e6b34ceff101f676deb06}{\index{\-Levy\-Fobj2\-D@{\-Levy\-Fobj2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!LevyFobj2D@{\-Levy\-Fobj2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-Levy\-Fobj2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::interval \&}]{ival1, }
+\item[{const cxsc\-::interval \&}]{ival2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classLevyFobj2D_aba9f8611a62e6b34ceff101f676deb06}
+
+
+declare function for interval image of a box 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj2D_a4d0e0e7b947a1657569040c8432b14e8}{subpavings\-::\-Mapped\-Fobj2\-D}.
+
+
+
+\-Definition at line 25 of file \-Levy\-Fobj2\-D.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), taylor\-::exp(), \-Global\-Max, and \-Temperature.
+
+
+\begin{DoxyCode}
+{
+    
+  interval isum(0,0);
+  interval jsum(0,0);
+    
+    for (int i = 1; i <= 5; i++)  {
+    isum = isum + i * cos((i - 1) * ival1 + (i));
+    jsum = jsum + i * cos((i + 1) * ival2 + (i));
+  }
+                    // Avoid real conversion error
+  interval hh = isum * jsum + (ival1 + Center1)*(ival1 + Center1) + (ival2 + 
+      Center2)*(ival2 + Center2);
+  hh = hh + GlobalMax;  
+  interval result = exp (-hh / Temperature);
+  return result;
+
+}
+\end{DoxyCode}
+\hypertarget{classLevyFobj2D_a2681e5ab1e51b953ec804e1d04da9b3d}{\index{\-Levy\-Fobj2\-D@{\-Levy\-Fobj2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!LevyFobj2D@{\-Levy\-Fobj2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-Levy\-Fobj2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{r1, }
+\item[{const cxsc\-::real \&}]{r2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classLevyFobj2D_a2681e5ab1e51b953ec804e1d04da9b3d}
+
+
+declare function for real image of reals 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj2D_a0832e806f6ab166276fb238dd57ac2ad}{subpavings\-::\-Mapped\-Fobj2\-D}.
+
+
+
+\-Definition at line 44 of file \-Levy\-Fobj2\-D.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), taylor\-::exp(), \-Global\-Max, and \-Temperature.
+
+
+\begin{DoxyCode}
+{
+  real isum=0;
+  real jsum = 0;
+    
+    for (int i = 1; i <= 5; i++)  {
+    isum = isum + i * cos((i - 1) * r1 + (i));
+    jsum = jsum + i * cos((i + 1) * r2 + (i));
+  }
+                    // Avoid real conversion error
+  real hh = isum * jsum + (r1 + Center1)*(r1 + Center1) + (r2 + Center2)*(r2 + 
+      Center2);
+  hh = hh + GlobalMax;  
+  real result = exp (-hh / Temperature);
+  return result;
+}
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{LevyFobj2D_8hpp}{\-Levy\-Fobj2\-D.\-hpp}\item 
+\hyperlink{LevyFobj2D_8cpp}{\-Levy\-Fobj2\-D.\-cpp}\end{DoxyCompactItemize}

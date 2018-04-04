@@ -1,0 +1,149 @@
+\hypertarget{classGaussianFobj2D}{\subsection{\-Gaussian\-Fobj2\-D \-Class \-Reference}
+\label{classGaussianFobj2D}\index{\-Gaussian\-Fobj2\-D@{\-Gaussian\-Fobj2\-D}}
+}
+
+
+{\ttfamily \#include $<$\-Gaussian\-Fobj2\-D.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-Gaussian\-Fobj2\-D\-:
+
+
+\-Collaboration diagram for \-Gaussian\-Fobj2\-D\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGaussianFobj2D_ae19d197be260773b4d96bd80c06a0acc}{\-Gaussian\-Fobj2\-D} ()
+\begin{DoxyCompactList}\small\item\em no argument constructor \end{DoxyCompactList}\item 
+virtual cxsc\-::interval \hyperlink{classGaussianFobj2D_abbdd449d3595b132842ef822a88eb07d}{operator()} (const cxsc\-::interval \&ival1, const cxsc\-::interval \&ival2) const 
+\begin{DoxyCompactList}\small\item\em declare function for interval image of a box \end{DoxyCompactList}\item 
+virtual cxsc\-::real \hyperlink{classGaussianFobj2D_a623ad551e1738a1f0ce3bac575c3b281}{operator()} (const cxsc\-::real \&r1, const cxsc\-::real \&r2) const 
+\begin{DoxyCompactList}\small\item\em declare function for real image of reals \end{DoxyCompactList}\item 
+\hyperlink{classGaussianFobj2D_a1ba171ee405c81d0f531e215ec2d9d95}{$\sim$\-Gaussian\-Fobj2\-D} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 12 of file \-Gaussian\-Fobj2\-D.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classGaussianFobj2D_ae19d197be260773b4d96bd80c06a0acc}{\index{\-Gaussian\-Fobj2\-D@{\-Gaussian\-Fobj2\-D}!\-Gaussian\-Fobj2\-D@{\-Gaussian\-Fobj2\-D}}
+\index{\-Gaussian\-Fobj2\-D@{\-Gaussian\-Fobj2\-D}!GaussianFobj2D@{\-Gaussian\-Fobj2\-D}}
+\paragraph[{\-Gaussian\-Fobj2\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Gaussian\-Fobj2\-D\-::\-Gaussian\-Fobj2\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classGaussianFobj2D_ae19d197be260773b4d96bd80c06a0acc}
+
+
+no argument constructor 
+
+
+
+\-Definition at line 17 of file \-Gaussian\-Fobj2\-D.\-hpp.
+
+
+\begin{DoxyCode}
+{};
+\end{DoxyCode}
+\hypertarget{classGaussianFobj2D_a1ba171ee405c81d0f531e215ec2d9d95}{\index{\-Gaussian\-Fobj2\-D@{\-Gaussian\-Fobj2\-D}!$\sim$\-Gaussian\-Fobj2\-D@{$\sim$\-Gaussian\-Fobj2\-D}}
+\index{$\sim$\-Gaussian\-Fobj2\-D@{$\sim$\-Gaussian\-Fobj2\-D}!GaussianFobj2D@{\-Gaussian\-Fobj2\-D}}
+\paragraph[{$\sim$\-Gaussian\-Fobj2\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Gaussian\-Fobj2\-D\-::$\sim$\-Gaussian\-Fobj2\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classGaussianFobj2D_a1ba171ee405c81d0f531e215ec2d9d95}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 30 of file \-Gaussian\-Fobj2\-D.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classGaussianFobj2D_abbdd449d3595b132842ef822a88eb07d}{\index{\-Gaussian\-Fobj2\-D@{\-Gaussian\-Fobj2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!GaussianFobj2D@{\-Gaussian\-Fobj2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-Gaussian\-Fobj2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::interval \&}]{ival1, }
+\item[{const cxsc\-::interval \&}]{ival2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classGaussianFobj2D_abbdd449d3595b132842ef822a88eb07d}
+
+
+declare function for interval image of a box 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj2D_a4d0e0e7b947a1657569040c8432b14e8}{subpavings\-::\-Mapped\-Fobj2\-D}.
+
+
+
+\-Definition at line 16 of file \-Gaussian\-Fobj2\-D.\-cpp.
+
+
+
+\-References taylor\-::exp(), and taylor\-::power().
+
+
+\begin{DoxyCode}
+{
+  real a = power(2*M_PI, 2.0/2.0);
+   interval b = -0.5 * (power(ival1,2) + power(ival2, 2));
+   interval IntPDF = 1.0/a * exp(b);
+ //cout << ival1 << "\t" << ival2 << "\t" << IntPDF << endl;
+  return IntPDF;
+}
+\end{DoxyCode}
+\hypertarget{classGaussianFobj2D_a623ad551e1738a1f0ce3bac575c3b281}{\index{\-Gaussian\-Fobj2\-D@{\-Gaussian\-Fobj2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!GaussianFobj2D@{\-Gaussian\-Fobj2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-Gaussian\-Fobj2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{r1, }
+\item[{const cxsc\-::real \&}]{r2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classGaussianFobj2D_a623ad551e1738a1f0ce3bac575c3b281}
+
+
+declare function for real image of reals 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj2D_a0832e806f6ab166276fb238dd57ac2ad}{subpavings\-::\-Mapped\-Fobj2\-D}.
+
+
+
+\-Definition at line 26 of file \-Gaussian\-Fobj2\-D.\-cpp.
+
+
+
+\-References taylor\-::exp(), and taylor\-::power().
+
+
+\begin{DoxyCode}
+{
+    real a = power(2*M_PI, 2.0/2.0);
+    real b = -0.5 * (power(r1,2) + power(r2, 2));
+    real RePDF = 1.0/a * exp(b);
+ //   cout << r1 << "\t" << r2 << "\t" << RePDF << endl;
+    return RePDF;
+}
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{GaussianFobj2D_8hpp}{\-Gaussian\-Fobj2\-D.\-hpp}\item 
+\hyperlink{GaussianFobj2D_8cpp}{\-Gaussian\-Fobj2\-D.\-cpp}\end{DoxyCompactItemize}

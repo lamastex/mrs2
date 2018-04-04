@@ -1,0 +1,27 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{subpavings::MappedFobj1D\n||+ operator()()\l+ operator()()\l+ operator()()\l+ operator()()\l+ imageMid()\l+ imageMid()\l+ ~MappedFobj1D()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node2 [label="{subpavings::MappedFobj\n||+ operator()()\l+ operator()()\l+ imageMid()\l+ getName()\l+ ~MappedFobj()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1MappedFobj.shtml"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node3 [label="{ExampleFobjOsc1D_1\n|- a\l- b\l- c\l|+ ExampleFobjOsc1D_1()\l+ ExampleFobjOsc1D_1()\l+ operator()()\l+ operator()()\l+ ~ExampleFobjOsc1D_1()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classExampleFobjOsc1D__1.shtml"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node4 [label="{ExampleFobjOsc1D_2\n|- a\l|+ ExampleFobjOsc1D_2()\l+ ExampleFobjOsc1D_2()\l+ operator()()\l+ operator()()\l+ ~ExampleFobjOsc1D_2()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classExampleFobjOsc1D__2.shtml"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node5 [label="{ExampleFobjOsc1D_3\n|- b\l|+ ExampleFobjOsc1D_3()\l+ ExampleFobjOsc1D_3()\l+ operator()()\l+ operator()()\l+ ~ExampleFobjOsc1D_3()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classExampleFobjOsc1D__3.shtml"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node6 [label="{ExampleMappedFobj1D_1\n||+ ExampleMappedFobj1D_1()\l+ operator()()\l+ operator()()\l+ ~ExampleMappedFobj1D_1()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classExampleMappedFobj1D__1.shtml"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node7 [label="{ExampleMappedFobj1D_2\n||+ ExampleMappedFobj1D_2()\l+ operator()()\l+ operator()()\l+ ~ExampleMappedFobj1D_2()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classExampleMappedFobj1D__2.shtml"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node8 [label="{ExampleMappedFobjSine\n|- f\l|+ ExampleMappedFobjSine()\l+ ExampleMappedFobjSine()\l+ operator()()\l+ operator()()\l+ ~ExampleMappedFobjSine()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classExampleMappedFobjSine.shtml"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node9 [label="{ExampleMappedFobjSineSum\n|- f\l|+ ExampleMappedFobjSineSum()\l+ ExampleMappedFobjSineSum()\l+ operator()()\l+ operator()()\l+ ~ExampleMappedFobjSineSum()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classExampleMappedFobjSineSum.shtml"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node10 [label="{FinMixFobj\n|- W\l- M\l- S\l|+ FinMixFobj()\l+ FinMixFobj()\l+ operator()()\l+ operator()()\l+ ~FinMixFobj()\l+ FinMixFobj()\l+ FinMixFobj()\l+ operator()()\l+ operator()()\l+ ~FinMixFobj()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFinMixFobj.shtml",tooltip="Declarations for MappedSPnode 1D Gaussian Mixtures function object class."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node11 [label="{GaussianFobj1D\n||+ GaussianFobj1D()\l+ operator()()\l+ operator()()\l+ ~GaussianFobj1D()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGaussianFobj1D.shtml"];
+}

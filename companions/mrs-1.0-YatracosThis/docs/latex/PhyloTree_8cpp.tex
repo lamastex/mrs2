@@ -1,0 +1,388 @@
+\hypertarget{PhyloTree_8cpp}{\subsection{\-Phylo\-Tree.\-cpp \-File \-Reference}
+\label{PhyloTree_8cpp}\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}}
+}
+
+
+\-Implementation for for a class of objects to represent \-Phylogenetic \-Trees.  
+
+
+{\ttfamily \#include \char`\"{}\-Phylo\-Tree.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{PhyloTree_8cpp_aa9345a2830ad2dc42d513ff3438b51f6}{\-Pijof\-T\-\_\-\-J\-C69\-R} (const real \&t, const int i, const int j)
+\begin{DoxyCompactList}\small\item\em \-Jukes \-Cantor formula for transition from nucleotype i to j for an unrooted tree. \end{DoxyCompactList}\item 
+interval \hyperlink{PhyloTree_8cpp_a56808e5beae03768e4d46dc72617f722}{\-Pijof\-T\-\_\-\-J\-C69\-I} (const interval \&t, const int i, const int j)
+\begin{DoxyCompactList}\small\item\em \-Jukes \-Cantor formula for transition from nucleotype i to j for an unrooted tree. \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{PhyloTree_8cpp_a2ffe000f93e3429bd11c7921fe152f53}{\-Pijof\-T\-\_\-\-J\-C69\-H} (const \-Hess\-Type \&t, const int i, const int j)
+\begin{DoxyCompactList}\small\item\em \-Jukes \-Cantor formula for transition from nucleotype i to j for an unrooted tree. \end{DoxyCompactList}\item 
+real \hyperlink{PhyloTree_8cpp_a53c51d97bba89addbb5ebd545b1fdceb}{\-Pijof\-T\-\_\-\-C\-F\-N\-R} (const real \&t, const int i, const int j)
+\begin{DoxyCompactList}\small\item\em \-C\-F\-N formula for transition from nucleotype i to j with character space 2. \end{DoxyCompactList}\item 
+interval \hyperlink{PhyloTree_8cpp_a7d42a5b4171b33c9a2eb051860d7b564}{\-Pijof\-T\-\_\-\-C\-F\-N\-R} (const interval \&t, const int i, const int j)
+\begin{DoxyCompactList}\small\item\em \-C\-F\-N formula for transition from nucleotype i to j with character space 2. \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{PhyloTree_8cpp_a5d2cf8b67d0cd86687725e3b4a0cc4c6}{\-Pijof\-T\-\_\-\-C\-F\-N\-R} (const \-Hess\-Type \&t, const int i, const int j)
+\begin{DoxyCompactList}\small\item\em \-C\-F\-N formula for transition from nucleotype i to j with character space 2. \end{DoxyCompactList}\item 
+real \hyperlink{PhyloTree_8cpp_ae36eeec3df01dff75dc04065eb5095f4}{real\-Sum} (real sum\-So\-Far, const real r)
+\begin{DoxyCompactList}\small\item\em operator const \hyperlink{classLabPnt}{\-Lab\-Pnt}\& \-X \-Utility function to sum reals \end{DoxyCompactList}\item 
+interval \hyperlink{PhyloTree_8cpp_a84ced4c363a59a5168225a9396ce2b84}{interval\-Sum} (interval sum\-So\-Far, const interval x)
+\begin{DoxyCompactList}\small\item\em operator const \hyperlink{classLabBox}{\-Lab\-Box}\& \-X \-Utility function to sum intervals \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{PhyloTree_8cpp_a62f64b7d245c1108fa85ec6509952932}{hess\-Sum} (\-Hess\-Type sum\-So\-Far, const \-Hess\-Type x)
+\begin{DoxyCompactList}\small\item\em operator const \-H\-Tvector\& \-X \-Utility function to sum \-Hess\-Types \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Implementation for for a class of objects to represent \-Phylogenetic \-Trees. 
+
+\-Definition in file \hyperlink{PhyloTree_8cpp_source}{\-Phylo\-Tree.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{PhyloTree_8cpp_a62f64b7d245c1108fa85ec6509952932}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!hess\-Sum@{hess\-Sum}}
+\index{hess\-Sum@{hess\-Sum}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{hess\-Sum}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type {\bf hess\-Sum} (
+\begin{DoxyParamCaption}
+\item[{\-Hess\-Type}]{sum\-So\-Far, }
+\item[{const \-Hess\-Type}]{x}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_a62f64b7d245c1108fa85ec6509952932}
+
+
+operator const \-H\-Tvector\& \-X \-Utility function to sum \-Hess\-Types 
+
+
+
+\-Definition at line 1073 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T\-::operator()().
+
+
+\begin{DoxyCode}
+{
+  return sumSoFar+x;
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_a84ced4c363a59a5168225a9396ce2b84}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!interval\-Sum@{interval\-Sum}}
+\index{interval\-Sum@{interval\-Sum}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{interval\-Sum}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf interval\-Sum} (
+\begin{DoxyParamCaption}
+\item[{interval}]{sum\-So\-Far, }
+\item[{const interval}]{x}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_a84ced4c363a59a5168225a9396ce2b84}
+
+
+operator const \hyperlink{classLabBox}{\-Lab\-Box}\& \-X \-Utility function to sum intervals 
+
+
+
+\-Definition at line 1067 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T\-::operator()().
+
+
+\begin{DoxyCode}
+{
+  return sumSoFar+x;
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_a53c51d97bba89addbb5ebd545b1fdceb}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!\-Pijof\-T\-\_\-\-C\-F\-N\-R@{\-Pijof\-T\-\_\-\-C\-F\-N\-R}}
+\index{\-Pijof\-T\-\_\-\-C\-F\-N\-R@{\-Pijof\-T\-\_\-\-C\-F\-N\-R}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{\-Pijof\-T\-\_\-\-C\-F\-N\-R}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Pijof\-T\-\_\-\-C\-F\-N\-R} (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{t, }
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_a53c51d97bba89addbb5ebd545b1fdceb}
+
+
+\-C\-F\-N formula for transition from nucleotype i to j with character space 2. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em t} & is branchlength as a real \\
+\hline
+{\em i} & represents a nucleoide \\
+\hline
+{\em j} & represents a nucleotide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+probability of transition from nucleotide i to j as a real 
+\end{DoxyReturn}
+
+
+\-Definition at line 74 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References taylor\-::exp().
+
+
+
+\-Referenced by \-Phylo\-Tree\-::fill\-Prob\-Real\-C\-F\-N().
+
+
+\begin{DoxyCode}
+{
+  real p;
+  p = (i==j) ? ( (0.5)+(0.5 * exp(-(1.0/2.0)*t)) ) : 
+    ( (0.5)-(0.5 * exp(-(1.0/2.0)*t)) );
+  return p;
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_a7d42a5b4171b33c9a2eb051860d7b564}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!\-Pijof\-T\-\_\-\-C\-F\-N\-R@{\-Pijof\-T\-\_\-\-C\-F\-N\-R}}
+\index{\-Pijof\-T\-\_\-\-C\-F\-N\-R@{\-Pijof\-T\-\_\-\-C\-F\-N\-R}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{\-Pijof\-T\-\_\-\-C\-F\-N\-R}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Pijof\-T\-\_\-\-C\-F\-N\-R} (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{t, }
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_a7d42a5b4171b33c9a2eb051860d7b564}
+
+
+\-C\-F\-N formula for transition from nucleotype i to j with character space 2. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em t} & is branchlength as a interval \\
+\hline
+{\em i} & represents a nucleoide \\
+\hline
+{\em j} & represents a nucleotide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+probability of transition from nucleotide i to j as a interval 
+\end{DoxyReturn}
+
+
+\-Definition at line 87 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References taylor\-::exp().
+
+
+\begin{DoxyCode}
+{
+  interval p;
+  p = (i==j) ? ( (0.5)+(0.5 * exp(-(1.0/2.0)*t)) ) : 
+    ( (0.5)-(0.5 * exp(-(1.0/2.0)*t)) );
+  return p;
+
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_a5d2cf8b67d0cd86687725e3b4a0cc4c6}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!\-Pijof\-T\-\_\-\-C\-F\-N\-R@{\-Pijof\-T\-\_\-\-C\-F\-N\-R}}
+\index{\-Pijof\-T\-\_\-\-C\-F\-N\-R@{\-Pijof\-T\-\_\-\-C\-F\-N\-R}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{\-Pijof\-T\-\_\-\-C\-F\-N\-R}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type {\bf \-Pijof\-T\-\_\-\-C\-F\-N\-R} (
+\begin{DoxyParamCaption}
+\item[{const \-Hess\-Type \&}]{t, }
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_a5d2cf8b67d0cd86687725e3b4a0cc4c6}
+
+
+\-C\-F\-N formula for transition from nucleotype i to j with character space 2. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em t} & is branchlength as a \-Hess\-Type \\
+\hline
+{\em i} & represents a nucleoide \\
+\hline
+{\em j} & represents a nucleotide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+probability of transition from nucleotide i to j as a \-Hess\-Type 
+\end{DoxyReturn}
+
+
+\-Definition at line 101 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References taylor\-::exp().
+
+
+\begin{DoxyCode}
+{
+  HessType p;
+  p = (i==j) ? ( (0.5)+(0.5 * exp(-(1.0/2.0)*t)) ) : 
+    ( (0.5)-(0.5 * exp(-(1.0/2.0)*t)) );
+  return p;
+
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_a2ffe000f93e3429bd11c7921fe152f53}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!\-Pijof\-T\-\_\-\-J\-C69\-H@{\-Pijof\-T\-\_\-\-J\-C69\-H}}
+\index{\-Pijof\-T\-\_\-\-J\-C69\-H@{\-Pijof\-T\-\_\-\-J\-C69\-H}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{\-Pijof\-T\-\_\-\-J\-C69\-H}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type {\bf \-Pijof\-T\-\_\-\-J\-C69\-H} (
+\begin{DoxyParamCaption}
+\item[{const \-Hess\-Type \&}]{t, }
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_a2ffe000f93e3429bd11c7921fe152f53}
+
+
+\-Jukes \-Cantor formula for transition from nucleotype i to j for an unrooted tree. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em t} & is branchlength as a \-Hess\-Type \\
+\hline
+{\em i} & represents a nucleoide \\
+\hline
+{\em j} & represents a nucleotide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+probability of transition from nucleotide i to j as a \-Hess\-Type 
+\end{DoxyReturn}
+
+
+\-Definition at line 61 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References taylor\-::exp().
+
+
+
+\-Referenced by \-Phylo\-Tree\-::fill\-Prob\-Hess\-J\-C69().
+
+
+\begin{DoxyCode}
+{
+  HessType p;
+  p = (i==j) ? ( (0.25)+(0.75 * exp(-(4.0/3.0)*t)) ) : 
+    ( (0.25)-(0.25 * exp(-(4.0/3.0)*t)) );
+  return p;
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_a56808e5beae03768e4d46dc72617f722}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!\-Pijof\-T\-\_\-\-J\-C69\-I@{\-Pijof\-T\-\_\-\-J\-C69\-I}}
+\index{\-Pijof\-T\-\_\-\-J\-C69\-I@{\-Pijof\-T\-\_\-\-J\-C69\-I}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{\-Pijof\-T\-\_\-\-J\-C69\-I}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Pijof\-T\-\_\-\-J\-C69\-I} (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{t, }
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_a56808e5beae03768e4d46dc72617f722}
+
+
+\-Jukes \-Cantor formula for transition from nucleotype i to j for an unrooted tree. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em t} & is branchlength as an interval \\
+\hline
+{\em i} & represents a nucleoide \\
+\hline
+{\em j} & represents a nucleotide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+probability of transition from nucleotide i to j as an interval 
+\end{DoxyReturn}
+
+
+\-Definition at line 48 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References taylor\-::exp().
+
+
+
+\-Referenced by \-Phylo\-Tree\-::fill\-Prob\-Interval\-J\-C69().
+
+
+\begin{DoxyCode}
+{
+  interval p;
+  p = (i==j) ? ( (0.25)+(0.75 * exp(-(4.0/3.0)*t)) ) : 
+    ( (0.25)-(0.25 * exp(-(4.0/3.0)*t)) );
+  return p;
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_aa9345a2830ad2dc42d513ff3438b51f6}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!\-Pijof\-T\-\_\-\-J\-C69\-R@{\-Pijof\-T\-\_\-\-J\-C69\-R}}
+\index{\-Pijof\-T\-\_\-\-J\-C69\-R@{\-Pijof\-T\-\_\-\-J\-C69\-R}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{\-Pijof\-T\-\_\-\-J\-C69\-R}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Pijof\-T\-\_\-\-J\-C69\-R} (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{t, }
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_aa9345a2830ad2dc42d513ff3438b51f6}
+
+
+\-Jukes \-Cantor formula for transition from nucleotype i to j for an unrooted tree. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em t} & is branchlength as a real \\
+\hline
+{\em i} & represents a nucleoide \\
+\hline
+{\em j} & represents a nucleotide \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+probability of transition from nucleotide i to j as a real 
+\end{DoxyReturn}
+
+
+\-Definition at line 35 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-References taylor\-::exp().
+
+
+
+\-Referenced by \-Phylo\-Tree\-::fill\-Prob\-Real\-J\-C69().
+
+
+\begin{DoxyCode}
+{
+  real p;
+  p = (i==j) ? ( (0.25)+(0.75 * exp(-(4.0/3.0)*t)) ) : 
+    ( (0.25)-(0.25 * exp(-(4.0/3.0)*t)) );
+  return p;
+}
+\end{DoxyCode}
+\hypertarget{PhyloTree_8cpp_ae36eeec3df01dff75dc04065eb5095f4}{\index{\-Phylo\-Tree.\-cpp@{\-Phylo\-Tree.\-cpp}!real\-Sum@{real\-Sum}}
+\index{real\-Sum@{real\-Sum}!PhyloTree.cpp@{\-Phylo\-Tree.\-cpp}}
+\paragraph[{real\-Sum}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf real\-Sum} (
+\begin{DoxyParamCaption}
+\item[{real}]{sum\-So\-Far, }
+\item[{const real}]{r}
+\end{DoxyParamCaption}
+)}}\label{PhyloTree_8cpp_ae36eeec3df01dff75dc04065eb5095f4}
+
+
+operator const \hyperlink{classLabPnt}{\-Lab\-Pnt}\& \-X \-Utility function to sum reals 
+
+
+
+\-Definition at line 1061 of file \-Phylo\-Tree.\-cpp.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T\-::operator()().
+
+
+\begin{DoxyCode}
+{
+  return sumSoFar+r;
+}
+\end{DoxyCode}

@@ -1,0 +1,49 @@
+\hypertarget{classsubpavings_1_1NodeCompObjMapped}{\subsection{subpavings\-:\-:\-Node\-Comp\-Obj\-Mapped \-Class \-Reference}
+\label{classsubpavings_1_1NodeCompObjMapped}\index{subpavings\-::\-Node\-Comp\-Obj\-Mapped@{subpavings\-::\-Node\-Comp\-Obj\-Mapped}}
+}
+
+
+\-A \-Virtual class providing a way to compare spnodes visited by mappedspnodes.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobjmapped.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Node\-Comp\-Obj\-Mapped\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classsubpavings_1_1NodeCompObjMapped_a4064af278e741d1b248ae961329f537c}{operator()} (const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$const rhs) const =0
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A \-Virtual class providing a way to compare spnodes visited by mappedspnodes. 
+
+\-These classes create an ordering with the 'largest' at the right, or 'end'. \-This suits the implementation of priority queues for the \-Histogram\-Wrapper, which takes nodes from the end of a multiset. 
+
+\-Definition at line 46 of file nodecompobjmapped.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1NodeCompObjMapped_a4064af278e741d1b248ae961329f537c}{\index{subpavings\-::\-Node\-Comp\-Obj\-Mapped@{subpavings\-::\-Node\-Comp\-Obj\-Mapped}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::NodeCompObjMapped@{subpavings\-::\-Node\-Comp\-Obj\-Mapped}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool subpavings\-::\-Node\-Comp\-Obj\-Mapped\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-Pnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-Pnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1NodeCompObjMapped_a4064af278e741d1b248ae961329f537c}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implemented in \hyperlink{classsubpavings_1_1CompSPArea_a0cdc7c4e83e51d70017b74e37072f0e8}{subpavings\-::\-Comp\-S\-P\-Area}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobjmapped_8hpp}{nodecompobjmapped.\-hpp}\end{DoxyCompactItemize}

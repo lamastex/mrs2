@@ -1,0 +1,62 @@
+\hypertarget{classsubpavings_1_1CompCount}{\subsection{subpavings\-:\-:\-Comp\-Count \-Class \-Reference}
+\label{classsubpavings_1_1CompCount}\index{subpavings\-::\-Comp\-Count@{subpavings\-::\-Comp\-Count}}
+}
+
+
+\-Class comparing on count of data points associated with a node.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-Count\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-Count\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompCount_a5c54d25893dc9d280a13fe91ee4af5ec}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing on count of data points associated with a node. 
+
+\-Definition at line 59 of file nodecompobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompCount_a5c54d25893dc9d280a13fe91ee4af5ec}{\index{subpavings\-::\-Comp\-Count@{subpavings\-::\-Comp\-Count}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompCount@{subpavings\-::\-Comp\-Count}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-Count\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompCount_a5c54d25893dc9d280a13fe91ee4af5ec}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{subpavings\-::\-Node\-Comp\-Obj}.
+
+
+
+\-Definition at line 61 of file nodecompobj.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Counter().
+
+
+\begin{DoxyCode}
+        { return (lhs->getCounter() < rhs->getCounter()); }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobj_8hpp}{nodecompobj.\-hpp}\end{DoxyCompactItemize}

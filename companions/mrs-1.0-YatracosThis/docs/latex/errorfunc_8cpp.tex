@@ -1,0 +1,3307 @@
+\hypertarget{errorfunc_8cpp}{\subsection{errorfunc.\-cpp \-File \-Reference}
+\label{errorfunc_8cpp}\index{errorfunc.\-cpp@{errorfunc.\-cpp}}
+}
+
+
+\-L1 error function definitions.  
+
+
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}spsnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}adaptivehistogram.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-A\-I\-Asubpaving.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$set$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$list$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$iomanip$>$}\*
+{\ttfamily \#include $<$exception$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-math.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/\-Int.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/dim2taylor.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}gsl/gsl\-\_\-matrix.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}gsl/gsl\-\_\-blas.\-h\char`\"{}}\*
+\subsubsection*{\-Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{classitaylor}{itaylor}($\ast$ \hyperlink{errorfunc_8cpp_aeac7a36a4f16518672428778c5db67dc}{pfcn} )(const \hyperlink{classitaylor}{itaylor} \&, vector$<$ double $>$ \&, vector$<$ double $>$ \&, vector$<$ double $>$ \&)
+\item 
+typedef \hyperlink{classitaylor}{itaylor}($\ast$ \hyperlink{errorfunc_8cpp_a20ba5d9759ec5f70b3772967b589ed3e}{pfcn\-Laplace} )(const \hyperlink{classitaylor}{itaylor} \&)
+\item 
+typedef \hyperlink{classitaylor}{itaylor}($\ast$ \hyperlink{errorfunc_8cpp_a48908ee3bc312005f3b46888bcc0cdd3}{pfcn\-Lognormal} )(const \hyperlink{classitaylor}{itaylor} \&)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{errorfunc_8hpp_ac90353a98ada0c22146b3ea9f0ac7a4d}{d2t} \hyperlink{errorfunc_8cpp_abd72fe76528917561a4e1a7fdf7890d9}{\-Bi\-G\-O\-P} (\hyperlink{errorfunc_8hpp_a40f7b267e7bca7091a0d4b941ebe3495}{d2tv} \-X, interval fhat)
+\begin{DoxyCompactList}\small\item\em \-I\-A\-E for the bivariate gaussian. \end{DoxyCompactList}\item 
+\hyperlink{errorfunc_8hpp_ac90353a98ada0c22146b3ea9f0ac7a4d}{d2t} \hyperlink{errorfunc_8cpp_a72f3aaf218533dc785d09b0dffacbad7}{\-Levy\-O\-P} (\hyperlink{errorfunc_8hpp_a40f7b267e7bca7091a0d4b941ebe3495}{d2tv} \-X, interval fhat)
+\begin{DoxyCompactList}\small\item\em \-I\-A\-E for the \-Levy 2\-D. \end{DoxyCompactList}\item 
+\hyperlink{errorfunc_8hpp_ac90353a98ada0c22146b3ea9f0ac7a4d}{d2t} \hyperlink{errorfunc_8cpp_a77af86554abcee2e013b9d8631ed4c5f}{\-Rosen\-O\-P} (\hyperlink{errorfunc_8hpp_a40f7b267e7bca7091a0d4b941ebe3495}{d2tv} \-X, interval fhat)
+\begin{DoxyCompactList}\small\item\em \-I\-A\-E for a \-Rosenbrock 2\-D. \end{DoxyCompactList}\item 
+double \hyperlink{errorfunc_8cpp_af969a1749ecbaf78a8656cb6b65b8c60}{\-Fin\-Mix\-P\-D\-F} (double x, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\begin{DoxyCompactList}\small\item\em \-Get the probability density function of a finite mixture r.\-v. \end{DoxyCompactList}\item 
+double \hyperlink{errorfunc_8cpp_a762104bf01c093a245dfcde680fd5edd}{\-Fin\-Mix\-C\-D\-F} (double x1, double x2, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\begin{DoxyCompactList}\small\item\em \-Get the cumulative distribution function of a finite mixture r.\-v. \end{DoxyCompactList}\item 
+double \hyperlink{errorfunc_8cpp_a0350bc07337b5abac1dca82fb195940d}{\-Fin\-Mix\-Abs} (double x, void $\ast$params)
+\begin{DoxyCompactList}\small\item\em \-Get the absolute error of a finite mixture at x. \end{DoxyCompactList}\item 
+dotprecision \hyperlink{errorfunc_8cpp_a3050c350d49593d9b2aa0b0cf58857a4}{dp\-Fin\-Mix\-I\-A\-E\-Boun} (double x1, double x2, \hyperlink{structFinMix}{\-Fin\-Mix} \&mixt)
+\begin{DoxyCompactList}\small\item\em \-Calculate the \-I\-A\-E at boundaries of a finite mixture. \end{DoxyCompactList}\item 
+void \hyperlink{errorfunc_8cpp_a9e3934b3e6ab0c312ffc4e1af23b0417}{find\-Comp} (vector$<$ double $>$ \&u, int \&intp, const int n, double $\ast$weight, int w)
+\begin{DoxyCompactList}\small\item\em \-Function to find the number of generated \-U(0,1) data that is less the weight of the components. \end{DoxyCompactList}\item 
+void \hyperlink{errorfunc_8cpp_a31f8e88e696aca2c21e65dfb42175d04}{cumsum} (vector$<$ double $>$ weight, double $\ast$w)
+\begin{DoxyCompactList}\small\item\em \-Function to get cumulative sum. \end{DoxyCompactList}\item 
+void \hyperlink{errorfunc_8cpp_a61145b8e6b4bbb68339137b4b788bc92}{make\-Regular\-Hist} (\hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&sorted\-Data, ivector the\-Box, int bwmethod)
+\begin{DoxyCompactList}\small\item\em \-Make a regular histogram (using \-Dominic's histogram.\-m file) \end{DoxyCompactList}\item 
+void \hyperlink{errorfunc_8cpp_a580064c722bc720f6dbe77e298b8f833}{make\-Regular\-Hist} (\hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&sorted\-Data, ivector the\-Box, double bw)
+\item 
+double \hyperlink{errorfunc_8cpp_aeec9912b8816ad5b3a449f80f9e5d983}{psi} (const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&rvec, double g, double r)
+\begin{DoxyCompactList}\small\item\em \-Function required for regular histogram. \end{DoxyCompactList}\item 
+double \hyperlink{errorfunc_8cpp_a64a6fd302dffeebb366383e265ea20f6}{my\-Mean} (const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&rvec)
+\begin{DoxyCompactList}\small\item\em \-Get the mean of the data (this is used when building the regular histogram) \end{DoxyCompactList}\item 
+double \hyperlink{errorfunc_8cpp_a674756d3d6aae91356b22688a849bd0f}{my\-Std} (const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&rvec)
+\begin{DoxyCompactList}\small\item\em get the standard deviation of the data (this is used when building the regular histogram) \end{DoxyCompactList}\item 
+std\-::vector$<$ double $>$ \hyperlink{errorfunc_8cpp_ae767ea3ddeac1e55d74384fe0cd42ecd}{gaussian} (std\-::vector$<$ double $>$ \&vec\-N\-P\-D, std\-::vector$<$ double $>$ \&\-X\-X, double \-S\-S)
+\begin{DoxyCompactList}\small\item\em \-Gaussian probability density function. \-Generates normal probability density values corresponding to \-X which is a vector of doubles. \end{DoxyCompactList}\item 
+real \hyperlink{errorfunc_8cpp_a538c5046923fbdee301324f35285d79c}{get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E} (size\-\_\-t n, \hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, \hyperlink{structFinMix}{\-Fin\-Mix} \&mixt)
+\item 
+interval \hyperlink{errorfunc_8cpp_a3b281b5e62f571e14e7c127af8d7e74a}{get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E} (size\-\_\-t n, \hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, \hyperlink{structFinMix}{\-Fin\-Mix} \&mixt, double tol, int deg)
+\item 
+interval \hyperlink{errorfunc_8cpp_a7edbd158ed300803fe59b38c60f90875}{get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E} (size\-\_\-t n, \hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, double tol, int deg)
+\item 
+interval \hyperlink{errorfunc_8cpp_ac2e78d0ba1f818d2e1a81b95544972d8}{get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E} (size\-\_\-t n, \hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, double tol, int deg)
+\item 
+real \hyperlink{errorfunc_8cpp_a63593212e4bbb8cbe660d8bf3209f4b4}{get\-Reg\-Hist\-Unif\-I\-A\-E} (\hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&my\-Part, size\-\_\-t n, double weight, std\-::vector$<$ int $>$ holes\-Loc)
+\item 
+void \hyperlink{errorfunc_8cpp_aad70f5031a514e5cc5799cda7e878258}{output\-Reg\-Hist\-To\-Txt} (\hyperlink{structRegHist}{\-Reg\-Hist} \&my\-Reg\-Hist, std\-::string \&s)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a9b001c0caead3a0c05ed60872773d535}{\-F} (const \hyperlink{classintervalw}{intervalw} \&x, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a118fce03849bd0483b3b66ae6df14365}{\-D\-F} (const \hyperlink{classintervalw}{intervalw} \&x, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_abcd464084d71d1ca5caf89793fa1d050}{\-N} (const \hyperlink{classintervalw}{intervalw} \&x, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S, double fhat)
+\item 
+void \hyperlink{errorfunc_8cpp_ac2e7de1da18a8a42ff1752b888026284}{find\-Root} (const \hyperlink{classintervalw}{intervalw} \&domain, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S, double fhat, vector$<$ \hyperlink{classintervalw}{intervalw} $>$ \&root\-Vec)
+\item 
+void \hyperlink{errorfunc_8cpp_a4a991d5ab1bd0a117e02af6f83369bab}{bisect} (const \hyperlink{classintervalw}{intervalw} \&x, const double \&\-T\-O\-L, double \&fhat, vector$<$ \hyperlink{classintervalw}{intervalw} $>$ \&root\-Vec, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+interval \hyperlink{errorfunc_8cpp_ad7abf0d6b473ad78b1737a9e972395c2}{riemann\-Term} (\hyperlink{errorfunc_8hpp_aeac7a36a4f16518672428778c5db67dc}{pfcn} \hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, interval \-X, int \-Deg, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+interval \hyperlink{errorfunc_8cpp_aa0f25ae1a698fab2a49e83283c2b0dd1}{integrate} (\hyperlink{errorfunc_8hpp_aeac7a36a4f16518672428778c5db67dc}{pfcn} \hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, interval \-X, int \-Deg, double \-Tol, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+interval \hyperlink{errorfunc_8cpp_a2fbcb5575d9958b3d4168369e3425258}{get\-L1error} (double fhat, interval \&this\-Int, int \-Deg, double \-T\-O\-L, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+\hyperlink{classia__ad}{ia\-\_\-ad} \hyperlink{errorfunc_8cpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f} (const \hyperlink{classintervalw}{intervalw} \&x, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{errorfunc_8cpp_ae473bc19e57e3781680652a61018aa79}{integrand} (const \hyperlink{classitaylor}{itaylor} \&x, vector$<$ double $>$ \&\-W, vector$<$ double $>$ \&\-M, vector$<$ double $>$ \&\-S)
+\item 
+\hyperlink{classia__ad}{ia\-\_\-ad} \hyperlink{errorfunc_8cpp_a5c072ddf22efaed3c1dc612f42290f30}{\-Laplace\-P\-D\-F} (const \hyperlink{classintervalw}{intervalw} \&x)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{errorfunc_8cpp_a113114b7f2ac4e8e3c7900ab491eaf1b}{\-Laplace\-Integrand} (const \hyperlink{classitaylor}{itaylor} \&x)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a83cb93d97adbc26d2b6731e89725b7d6}{\-Laplace\-F} (const \hyperlink{classintervalw}{intervalw} \&x)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a1df0b848b1e7ebd2de5866266df70ceb}{\-Laplace\-D\-F} (const \hyperlink{classintervalw}{intervalw} \&x)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a64a77490c542f82e7ae00ab525f3efe1}{\-Laplace\-Newton} (const \hyperlink{classintervalw}{intervalw} \&x, double fhat)
+\item 
+void \hyperlink{errorfunc_8cpp_a6c2d3ad910df045a1fa44cb3fd190bbe}{\-Laplacefind\-Root} (const \hyperlink{classintervalw}{intervalw} \&domain, double fhat, vector$<$ \hyperlink{classintervalw}{intervalw} $>$ \&root\-Vec)
+\item 
+void \hyperlink{errorfunc_8cpp_a4de668d5d847a753a9a4baf05c7d8d52}{\-Laplace\-Bisect} (const \hyperlink{classintervalw}{intervalw} \&x, const double \&\-T\-O\-L, double \&fhat, vector$<$ \hyperlink{classintervalw}{intervalw} $>$ \&root\-Vec)
+\item 
+interval \hyperlink{errorfunc_8cpp_acaee4b1f2fbef568e6c87428028de1c1}{\-Laplace\-Riemann\-Term} (\hyperlink{errorfunc_8hpp_a20ba5d9759ec5f70b3772967b589ed3e}{pfcn\-Laplace} \hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, interval \-X, int \-Deg)
+\item 
+interval \hyperlink{errorfunc_8cpp_ae9e1f8084e10ac335146e7849cc23fbd}{\-Laplace\-Integrate} (\hyperlink{errorfunc_8hpp_a20ba5d9759ec5f70b3772967b589ed3e}{pfcn\-Laplace} \hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, interval \-X, int \-Deg, double \-Tol)
+\item 
+interval \hyperlink{errorfunc_8cpp_a76a4c9e6350419472c3285481c1690e2}{\-Laplace\-Get\-L1error} (double fhat, interval \&this\-Int, int \-Deg, double \-T\-O\-L)
+\item 
+\hyperlink{classia__ad}{ia\-\_\-ad} \hyperlink{errorfunc_8cpp_a6640f4518f5a29d2caa7dd15c3d05be0}{\-Lognormal\-P\-D\-F} (const \hyperlink{classintervalw}{intervalw} \&x)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{errorfunc_8cpp_aacb93c77ab57e8ed2b6a1c581e60db5d}{\-Lognormal\-Integrand} (const \hyperlink{classitaylor}{itaylor} \&x)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a256e19e7647e7510144ff8e3064b07c1}{\-Lognormal\-F} (const \hyperlink{classintervalw}{intervalw} \&x)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a45238105e02452f020b01a332fee8913}{\-Lognormal\-D\-F} (const \hyperlink{classintervalw}{intervalw} \&x)
+\item 
+\hyperlink{classintervalw}{intervalw} \hyperlink{errorfunc_8cpp_a2ad23089c1ee547e199a0e481a973f02}{\-Lognormal\-Newton} (const \hyperlink{classintervalw}{intervalw} \&x, double fhat)
+\item 
+void \hyperlink{errorfunc_8cpp_a75c63219b8792609e96391a851a5306e}{\-Lognormalfind\-Root} (const \hyperlink{classintervalw}{intervalw} \&domain, double fhat, vector$<$ \hyperlink{classintervalw}{intervalw} $>$ \&root\-Vec)
+\item 
+void \hyperlink{errorfunc_8cpp_a9722cc78b34593d877ec8cbbb22ac9f2}{\-Lognormal\-Bisect} (const \hyperlink{classintervalw}{intervalw} \&x, const double \&\-T\-O\-L, double \&fhat, vector$<$ \hyperlink{classintervalw}{intervalw} $>$ \&root\-Vec)
+\item 
+interval \hyperlink{errorfunc_8cpp_a41284dca34be2cdf1f056da340d15ea1}{\-Lognormal\-Riemann\-Term} (\hyperlink{errorfunc_8hpp_a20ba5d9759ec5f70b3772967b589ed3e}{pfcn\-Laplace} \hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, interval \-X, int \-Deg)
+\item 
+interval \hyperlink{errorfunc_8cpp_af9a4802a471fb3809209d48e33864b6d}{\-Lognormal\-Integrate} (\hyperlink{errorfunc_8hpp_a48908ee3bc312005f3b46888bcc0cdd3}{pfcn\-Lognormal} \hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, interval \-X, int \-Deg, double \-Tol)
+\item 
+interval \hyperlink{errorfunc_8cpp_ac99ece8c6ec9b7be0d2eec8911aff71a}{\-Lognormal\-Get\-L1error} (double fhat, interval \&this\-Int, int \-Deg, double \-T\-O\-L)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-L1 error function definitions. 
+
+\-Definition in file \hyperlink{errorfunc_8cpp_source}{errorfunc.\-cpp}.
+
+
+
+\subsubsection{\-Typedef \-Documentation}
+\hypertarget{errorfunc_8cpp_aeac7a36a4f16518672428778c5db67dc}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!pfcn@{pfcn}}
+\index{pfcn@{pfcn}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{pfcn}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf itaylor}($\ast$ {\bf pfcn})(const {\bf itaylor} \&, vector$<$ double $>$ \&, vector$<$ double $>$ \&, vector$<$ double $>$ \&)}}\label{errorfunc_8cpp_aeac7a36a4f16518672428778c5db67dc}
+
+
+\-Definition at line 1549 of file errorfunc.\-cpp.
+
+\hypertarget{errorfunc_8cpp_a20ba5d9759ec5f70b3772967b589ed3e}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!pfcn\-Laplace@{pfcn\-Laplace}}
+\index{pfcn\-Laplace@{pfcn\-Laplace}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{pfcn\-Laplace}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf itaylor}($\ast$ {\bf pfcn\-Laplace})(const {\bf itaylor} \&)}}\label{errorfunc_8cpp_a20ba5d9759ec5f70b3772967b589ed3e}
+
+
+\-Definition at line 1618 of file errorfunc.\-cpp.
+
+\hypertarget{errorfunc_8cpp_a48908ee3bc312005f3b46888bcc0cdd3}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!pfcn\-Lognormal@{pfcn\-Lognormal}}
+\index{pfcn\-Lognormal@{pfcn\-Lognormal}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{pfcn\-Lognormal}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf itaylor}($\ast$ {\bf pfcn\-Lognormal})(const {\bf itaylor} \&)}}\label{errorfunc_8cpp_a48908ee3bc312005f3b46888bcc0cdd3}
+
+
+\-Definition at line 1819 of file errorfunc.\-cpp.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{errorfunc_8cpp_abd72fe76528917561a4e1a7fdf7890d9}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Bi\-G\-O\-P@{\-Bi\-G\-O\-P}}
+\index{\-Bi\-G\-O\-P@{\-Bi\-G\-O\-P}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Bi\-G\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf d2t} {\bf \-Bi\-G\-O\-P} (
+\begin{DoxyParamCaption}
+\item[{{\bf d2tv}}]{\-X, }
+\item[{interval}]{fhat}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_abd72fe76528917561a4e1a7fdf7890d9}
+
+
+\-I\-A\-E for the bivariate gaussian. 
+
+\-The integral of the absolute error for a bivariate gaussian. 
+
+\-Definition at line 59 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), f(), taylor\-::init\-\_\-const(), taylor\-::sqr(), and taylor\-::sqrt().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-I\-A\-E(), and subpavings\-::\-Adaptive\-Histogram\-::get\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+  //cout << "Calling BiGOP: " << endl;
+   // Parameters specific to the Bivariate Gaussian target
+  real rsigma_x = 1.0;
+  real rsigma_y = 1.0;
+  real rrho = 0;
+  d2t f = taylor::init_const(X[1].order(),interval(0.0));
+  real det = 1.0/(2*M_PI*rsigma_x*rsigma_y*sqrt(1-sqr(rrho)));
+  f = sqr(X[1]/rsigma_x) + sqr(X[2]/rsigma_y) - 
+            (2*rrho*X[1]*X[2])/(rsigma_x*rsigma_y);
+  f = det * exp (-((1.0/2*(1-sqr(rrho))) * f));
+  
+  d2t result = taylor::init_const(X[1].order(),interval(0.0));
+
+  //split the integrand to get positive values only (absolute values) 
+  if ( (Sup(f[0][0]) < Inf(fhat)) ) {   
+    result = fhat - f;
+    //cout << "fhat - f: " << result[0][0] << "\n" << endl;
+  }  
+  else if ((Sup(f[0][0]) > Inf(fhat))) { 
+     result = f - fhat; 
+    //cout << "f-fhat: " << result[0][0] << "\n" << endl;
+  }   
+  return result;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a4a991d5ab1bd0a117e02af6f83369bab}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!bisect@{bisect}}
+\index{bisect@{bisect}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{bisect}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf bisect} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{const double \&}]{\-T\-O\-L, }
+\item[{double \&}]{fhat, }
+\item[{vector$<$ {\bf intervalw} $>$ \&}]{root\-Vec, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a4a991d5ab1bd0a117e02af6f83369bab}
+
+
+\-Definition at line 1432 of file errorfunc.\-cpp.
+
+
+
+\-References bisect(), \-D\-F(), \-F(), and find\-Root().
+
+
+
+\-Referenced by bisect(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), get\-Fin\-Mix\-Interval\-True\-Delta(), get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E(), and main().
+
+
+\begin{DoxyCode}
+{
+  //cout << "root finding routine: " << endl;
+  //cout << x << "\t" << F(x, W, M, S)  << "\t" << DF(x, W, M, S) << endl;
+
+  //if the function is twice differentiable?
+  if ( !subset(0.0, DF(x, W, M, S)) ) {
+    //cout << "Sending " << x << " to the Newton operator..." << endl;
+    findRoot(x, W, M, S, fhat, rootVec);
+  }
+  
+  else {
+   // if the function is not differentiable
+    if ( subset(fhat, F(x, W, M, S)) ) {
+      //cout << diam(x) << "\t" << TOL << endl;
+      if ( diam(x) < TOL ) {
+        //cout << x << " may contain roots. " << endl;
+        rootVec.push_back(x); //keep the roots in a container
+      }
+      else {
+        bisect(intervalw(inf(x), mid(x)), TOL, fhat, rootVec, W, M, S);
+        bisect(intervalw(mid(x), sup(x)), TOL, fhat, rootVec, W, M, S);
+      }
+    }
+  }
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a31f8e88e696aca2c21e65dfb42175d04}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!cumsum@{cumsum}}
+\index{cumsum@{cumsum}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{cumsum}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf cumsum} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{weight, }
+\item[{double $\ast$}]{w}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a31f8e88e696aca2c21e65dfb42175d04}
+
+
+\-Function to get cumulative sum. 
+
+
+
+\-Definition at line 256 of file errorfunc.\-cpp.
+
+
+\begin{DoxyCode}
+                                              {
+  double cum =0;
+  for (size_t j = 0; j < weight.size(); j++) {
+    cum += weight[j];
+    *w++ = cum;
+  }
+} // end of function cumsum()
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a118fce03849bd0483b3b66ae6df14365}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-D\-F@{\-D\-F}}
+\index{\-D\-F@{\-D\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-D\-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a118fce03849bd0483b3b66ae6df14365}
+
+
+\-Definition at line 1390 of file errorfunc.\-cpp.
+
+
+
+\-References f().
+
+
+
+\-Referenced by bisect(), and \-N().
+
+
+\begin{DoxyCode}
+{ return deriv(f(x, W, M, S)); }
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a3050c350d49593d9b2aa0b0cf58857a4}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!dp\-Fin\-Mix\-I\-A\-E\-Boun@{dp\-Fin\-Mix\-I\-A\-E\-Boun}}
+\index{dp\-Fin\-Mix\-I\-A\-E\-Boun@{dp\-Fin\-Mix\-I\-A\-E\-Boun}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{dp\-Fin\-Mix\-I\-A\-E\-Boun}]{\setlength{\rightskip}{0pt plus 5cm}dotprecision {\bf dp\-Fin\-Mix\-I\-A\-E\-Boun} (
+\begin{DoxyParamCaption}
+\item[{double}]{x1, }
+\item[{double}]{x2, }
+\item[{{\bf \-Fin\-Mix} \&}]{mixt}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a3050c350d49593d9b2aa0b0cf58857a4}
+
+
+\-Calculate the \-I\-A\-E at boundaries of a finite mixture. 
+
+get the integrated absolute of a finite mixture at the boundaries 
+
+\-Definition at line 200 of file errorfunc.\-cpp.
+
+
+
+\-References dp\-Fin\-Mix\-I\-A\-E\-Boun(), taylor\-::erf(), \-Fin\-Mix\-::\-M, \-Fin\-Mix\-::\-S, taylor\-::sqrt(), and \-Fin\-Mix\-::\-W.
+
+
+
+\-Referenced by dp\-Fin\-Mix\-I\-A\-E\-Boun(), and main().
+
+
+\begin{DoxyCode}
+{ 
+  dotprecision dpFinMixIAEBoun;
+  dpFinMixIAEBoun = 0.0;
+  double Ncomp = (mixt.W).size();
+  double cdfLeft = 0.0;
+  double cdfRight = 0.0;
+  int c;
+
+  for (c=0; c < Ncomp; c++) {
+    cdfLeft += mixt.W[c]*0.5*(1 + erf((x1-mixt.M[c])/mixt.S[c]/sqrt(2)));
+    cdfRight += 1-mixt.W[c]*0.5*(1 + erf((x2-mixt.M[c])/mixt.S[c]/sqrt(2)));
+  }
+
+  accumulate(dpFinMixIAEBoun, cdfLeft, 1.0);
+  accumulate(dpFinMixIAEBoun, cdfRight, 1.0);
+
+  return dpFinMixIAEBoun;
+} 
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a9b001c0caead3a0c05ed60872773d535}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-F@{\-F}}
+\index{\-F@{\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a9b001c0caead3a0c05ed60872773d535}
+
+
+\-Definition at line 1386 of file errorfunc.\-cpp.
+
+
+
+\-References f().
+
+
+
+\-Referenced by bisect(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E(), main(), \-N(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), and subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch().
+
+
+\begin{DoxyCode}
+{ return value(f(x, W, M, S)); }
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!f@{f}}
+\index{f@{f}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{f}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ia\-\_\-ad} {\bf f} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_aacb77b1211a6ca2e2beff1811cf9ecf4}
+
+
+\-Definition at line 1529 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::pow(), taylor\-::sqrt(), and ia\-\_\-ad\-::variable().
+
+
+
+\-Referenced by taylor\-::acos(), taylor\-::acosh(), taylor\-::acot(), taylor\-::acoth(), taylor\-::asin(), taylor\-::asinh(), taylor\-::atan(), taylor\-::atanh(), \-Bi\-G\-O\-P(), taylor\-::cot(), taylor\-::coth(), \-D\-F(), subpavings\-::\-Evaluate(), \-Evaluate(), \-F(), subpavings\-::\-Adaptive\-Histogram\-::get\-Unif\-I\-A\-E(), \-G\-Opt\-Max(), \-G\-Opt\-Min(), \-Levy\-O\-P(), taylor\-::ln(), taylor\-::lnp1(), main(), riemann\-Term(), \-Rosenbrock(), \-Rosen\-O\-P(), taylor\-::sqrtp1m1(), taylor\-::tan(), and taylor\-::tanh().
+
+
+\begin{DoxyCode}
+{
+  ia_ad PDF(ia_ad::variable(x));
+
+  intervalw startPDF(0,0);
+  PDF = startPDF;
+  
+  size_t Ncomp = W.size();
+  for (size_t c=0; c < Ncomp; c++){
+    //cout << c << "-th component:" << W[c] << "\t" << M[c] << "\t" << S[c] <<
+       endl;
+    intervalw z = pow((x-M[c])/S[c], 2);
+    intervalw expPart = intervalw(exp(-0.5*sup(z)), exp(-0.5*inf(z)));
+    PDF = PDF + expPart*(W[c]/(S[c]*sqrt(2*M_PI)));
+  }
+  //cout << "Domain: " << x << "\t PDF: " << PDF << endl;
+
+  return PDF;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a9e3934b3e6ab0c312ffc4e1af23b0417}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!find\-Comp@{find\-Comp}}
+\index{find\-Comp@{find\-Comp}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{find\-Comp}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf find\-Comp} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$ \&}]{u, }
+\item[{int \&}]{intp, }
+\item[{const int}]{n, }
+\item[{double $\ast$}]{weight, }
+\item[{int}]{w}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a9e3934b3e6ab0c312ffc4e1af23b0417}
+
+
+\-Function to find the number of generated \-U(0,1) data that is less the weight of the components. 
+
+\-Find the number of generated \-U(0,1) data that is less the weight of the components. 
+\begin{DoxyParams}{\-Parameters}
+{\em u} & is an array that holds \-U(0,1) rv. \\
+\hline
+{\em intp} & is always 0 \\
+\hline
+{\em n} & is the total number of data points \\
+\hline
+{\em weight} & is the weights of the mixture \\
+\hline
+{\em w} & is the weight component that we want to find the number of members of \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 223 of file errorfunc.\-cpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), and main().
+
+
+\begin{DoxyCode}
+{     
+  // set up an array that checks whether a U(0,1) r.v. is a member of that 
+  // component or not. '1' if true; '0' if false.
+  //vector<int> u_one(n);
+  
+  int j;
+  // check if the U(0,1) r.v. is a member of the component or not.
+  if (w==0) {
+    for (j=0; j<n; j++) {
+      if (u[j] <= *(weight + w))
+      { intp++; }
+      //cout<<u_one[j1]<<endl;
+    }
+  }
+  else {
+  //cout << "Checking for members between " << *(WeightCumPtr + m-1) << 
+  //" and " << *(WeightCumPtr + m) << endl;
+    for (j=0; j<n; j++) {
+      bool a = (u[j] > (*(weight + w-1)));
+      bool b = ( u[j] <= (*(weight + w)));
+      if (a==1 && b==1) { intp++; }
+      //cout<<u_one[j]<<endl;
+    }
+  }
+
+  // count how many '1's are there in u_rv. This is the number of members 
+  //in component m.
+  //intp = (int) count(u_one, u_one+n, 1);
+} //end find_comp()
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_ac2e7de1da18a8a42ff1752b888026284}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!find\-Root@{find\-Root}}
+\index{find\-Root@{find\-Root}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{find\-Root}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf find\-Root} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{domain, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S, }
+\item[{double}]{fhat, }
+\item[{vector$<$ {\bf intervalw} $>$ \&}]{root\-Vec}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_ac2e7de1da18a8a42ff1752b888026284}
+
+
+\-Definition at line 1404 of file errorfunc.\-cpp.
+
+
+
+\-References \-N().
+
+
+
+\-Referenced by bisect().
+
+
+\begin{DoxyCode}
+{
+  //cout << "finding root at " << domain << " for " << fhat << endl;
+  
+  intervalw newX       = domain;
+  intervalw oldX       = domain + 1;
+  bool     rootUnique = false;
+  bool     rootExists = true;
+
+  while( (newX != oldX) && rootExists ) {
+    oldX = newX;
+    if( !intersect(newX, N(oldX, W, M, S, fhat), oldX) ) 
+      rootExists = false;
+    if ( subset(newX, oldX) ) 
+      rootUnique = true;
+  }
+  if ( rootExists ) {
+    cout << newX;
+    rootVec.push_back(newX);
+    if ( rootUnique )
+      cout << " contains a unique root." << endl;
+    else
+      cout << " may contain a simple root." << endl;
+  } 
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a0350bc07337b5abac1dca82fb195940d}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Fin\-Mix\-Abs@{\-Fin\-Mix\-Abs}}
+\index{\-Fin\-Mix\-Abs@{\-Fin\-Mix\-Abs}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Fin\-Mix\-Abs}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-Abs} (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{void $\ast$}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{errorfunc_8cpp_a0350bc07337b5abac1dca82fb195940d}
+
+
+\-Get the absolute error of a finite mixture at x. 
+
+get the integrated absolute of a finite mixture of boxes in the root box 
+
+\-Definition at line 191 of file errorfunc.\-cpp.
+
+
+
+\-Referenced by \-Fin\-Mix\-Abs(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E(), and main().
+
+
+\begin{DoxyCode}
+{
+FinMix mixt = *(FinMix *) params;
+double FinMixAbs = fabs(mixt.fhat - FinMixPDF(x, mixt.W, mixt.M, mixt.S));
+return FinMixAbs;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a762104bf01c093a245dfcde680fd5edd}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Fin\-Mix\-C\-D\-F@{\-Fin\-Mix\-C\-D\-F}}
+\index{\-Fin\-Mix\-C\-D\-F@{\-Fin\-Mix\-C\-D\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Fin\-Mix\-C\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-C\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{std\-::vector$<$ double $>$ \&}]{\-W, }
+\item[{std\-::vector$<$ double $>$ \&}]{\-M, }
+\item[{std\-::vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a762104bf01c093a245dfcde680fd5edd}
+
+
+\-Get the cumulative distribution function of a finite mixture r.\-v. 
+
+get the \-C\-D\-F of a finite mixture 
+
+\-Definition at line 176 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::erf(), and taylor\-::sqrt().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+double Ncomp = W.size();
+double CDF = 0;
+for (int c=0; c < Ncomp; c++){
+CDF += 0.5*(1 + erf((x2-M[c])/S[c]/sqrt(2))) -
+       0.5*(1 + erf((x1-M[c])/S[c]/sqrt(2)));
+//cout << "CDF is: " << CDF << endl;
+}
+return CDF;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_af969a1749ecbaf78a8656cb6b65b8c60}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Fin\-Mix\-P\-D\-F@{\-Fin\-Mix\-P\-D\-F}}
+\index{\-Fin\-Mix\-P\-D\-F@{\-Fin\-Mix\-P\-D\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Fin\-Mix\-P\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-P\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{std\-::vector$<$ double $>$ \&}]{\-W, }
+\item[{std\-::vector$<$ double $>$ \&}]{\-M, }
+\item[{std\-::vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_af969a1749ecbaf78a8656cb6b65b8c60}
+
+
+\-Get the probability density function of a finite mixture r.\-v. 
+
+\-A finite mixture distribution is the sum of c gaussian components. \-Its \-P\-D\-F (\-C\-D\-F) is obtained by summing the \-P\-D\-Fs (\-C\-D\-F) of each component. \-The integrated absolute error is calculated using a quadrature routine from the \-G\-S\-L library. 
+\begin{DoxyParams}{\-Parameters}
+{\em x} & is the data point at which we take the \-P\-D\-F (\-C\-D\-F). \\
+\hline
+{\em x1} & (only for the \-I\-A\-E at the boundary) is the infimum of the root box. \\
+\hline
+{\em x2} & (only for the \-I\-A\-E at the boundary) is the supremum of the root box. \\
+\hline
+{\em \-W} & is a vector of the weights of each component. \\
+\hline
+{\em \-M} & is a vector of the means of each component. \\
+\hline
+{\em \-S} & is a vector of the standard deviations of each component. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the integrated absolute error. get the \-P\-D\-F of a finite mixture 
+\end{DoxyReturn}
+
+
+\-Definition at line 162 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::pow(), and taylor\-::sqrt().
+
+
+
+\-Referenced by \-Fin\-Mix\-Abs().
+
+
+\begin{DoxyCode}
+{
+int Ncomp = W.size();
+double PDF = 0;
+  for (int c=0; c < Ncomp; c++){
+    double z = pow((x-M[c])/S[c], 2);
+    PDF += W[c]*exp(-0.5*z)/(S[c]*sqrt(2*M_PI));
+  }  
+return PDF;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_ae767ea3ddeac1e55d74384fe0cd42ecd}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!gaussian@{gaussian}}
+\index{gaussian@{gaussian}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{gaussian}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ {\bf gaussian} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$ \&}]{vec\-N\-P\-D, }
+\item[{std\-::vector$<$ double $>$ \&}]{\-X\-X, }
+\item[{double}]{\-S\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_ae767ea3ddeac1e55d74384fe0cd42ecd}
+
+
+\-Gaussian probability density function. \-Generates normal probability density values corresponding to \-X which is a vector of doubles. 
+
+\-Gaussian probability density function. 
+
+\-Definition at line 668 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), and taylor\-::sqrt().
+
+
+
+\-Referenced by psi().
+
+
+\begin{DoxyCode}
+{
+  vector<double>::iterator vecIt;
+  
+  for (vecIt = XX.begin(); vecIt < XX.end(); vecIt++){
+    double X = *vecIt;
+      vecNPD.push_back(exp(-(X*X)/(2*SS*SS))/(sqrt(2*M_PI)*SS));
+  }
+
+ return vecNPD;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a2fbcb5575d9958b3d4168369e3425258}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!get\-L1error@{get\-L1error}}
+\index{get\-L1error@{get\-L1error}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{get\-L1error}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf get\-L1error} (
+\begin{DoxyParamCaption}
+\item[{double}]{fhat, }
+\item[{interval \&}]{this\-Int, }
+\item[{int}]{\-Deg, }
+\item[{double}]{\-T\-O\-L, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a2fbcb5575d9958b3d4168369e3425258}
+
+
+\-Definition at line 1504 of file errorfunc.\-cpp.
+
+
+
+\-References integrand(), and integrate().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), get\-Fin\-Mix\-Interval\-True\-Delta(), get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E(), and main().
+
+
+\begin{DoxyCode}
+{
+  //cout << "==========get L1 error for " << thisInt <<  endl;
+  //hard-code this temporarily
+  double Tol = 0.0000001;
+  //cout << Tol << endl;
+  
+  //get the area of the histogram at this interval
+  real histArea = diam(thisInt) * fhat;
+
+  //integrate the function at this sub-interval
+  interval fArea = integrate(integrand, thisInt, Deg, Tol, W, M, S);
+
+  //cout << "get the differences " << endl;
+  //get the differences of the areas
+  interval diffArea = abs(abs(fArea) - histArea);
+  //cout << "fArea: " << fArea << "\t" << "\t histArea: " << histArea << endl;
+  //cout << diffArea << endl;
+
+  return diffArea;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a538c5046923fbdee301324f35285d79c}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E@{get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E}}
+\index{get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E@{get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{{\bf \-Fin\-Mix} \&}]{mixt}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a538c5046923fbdee301324f35285d79c}
+\-Get the \-I\-A\-E for a finite mixture distribution for regular histograms 
+
+\-Definition at line 683 of file errorfunc.\-cpp.
+
+
+
+\-References dp\-I\-A\-E, dp\-I\-A\-E\-Boun, \-F(), \-Fin\-Mix\-::fhat, \-Fin\-Mix\-Abs(), \-Reg\-Hist\-::heights, \-Reg\-Hist\-::\-Lower\-Boxes, \-Nbin, and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+\begin{DoxyCode}
+{
+//----------------get the IAE-----------------------------------------------
+dotprecision dpIAE, dpIAEBoun;
+dpIAE = 0.0;
+int Nbin=(myRegHist.UpperBoxes).size();
+
+gsl_integration_workspace * w = gsl_integration_workspace_alloc(1000);
+double result = 0.0;
+double error;
+gsl_function F;
+
+F.function = &FinMixAbs;
+F.params =  &mixt;
+
+for (int j=0; j< Nbin; j++){
+  mixt.fhat = myRegHist.heights[j];
+  double xupp = _double(myRegHist.UpperBoxes[j]);
+  double xlow = _double(myRegHist.LowerBoxes[j]);
+  gsl_integration_qags(&F, xlow, xupp, 0, 1e-7, 1000, w, &result, &error);
+  accumulate(dpIAE, result, 1.0);
+}
+
+/*
+// Accounting for the boundaries
+ivector theBoxVec;
+interval boxes;
+//upper bound
+theBoxVec = myRegHist.theBoxes[Nbin-1];
+boxes = theBoxVec[1];
+double xupp1 = _double(Sup(boxes));
+//lower bound
+theBoxVec = myRegHist.theBoxes[0];
+boxes = theBoxVec[1];
+double xlow1 = _double(Inf(boxes));
+dpIAEBoun = dpFinMixIAEBoun(xlow1, xupp1, mixt);
+dpIAE += dpIAEBoun;
+*/
+
+// cast dot precision to real
+real FinMixIAE = rnd(dpIAE);
+
+// free the workspace
+gsl_integration_workspace_free (w);
+
+return FinMixIAE;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a3b281b5e62f571e14e7c127af8d7e74a}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E@{get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E}}
+\index{get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E@{get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{{\bf \-Fin\-Mix} \&}]{mixt, }
+\item[{double}]{tol, }
+\item[{int}]{deg}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a3b281b5e62f571e14e7c127af8d7e74a}
+\-Get the \-I\-A\-E for a finite mixture distribution for regular histograms 
+
+\-Definition at line 733 of file errorfunc.\-cpp.
+
+
+
+\-References bisect(), get\-L1error(), \-Reg\-Hist\-::heights, \-Reg\-Hist\-::\-Lower\-Boxes, \-Fin\-Mix\-::\-M, \-Nbin, \-Fin\-Mix\-::\-S, \-Reg\-Hist\-::\-Upper\-Boxes, and \-Fin\-Mix\-::\-W.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  interval totalArea(0.0);
+  size_t Nbin = myRegHist.heights.size();
+  
+  for (size_t j=0; j< Nbin; j++){
+    double fhat = myRegHist.heights[j];
+    double xupp = _double(myRegHist.UpperBoxes[j]);
+    double xlow = _double(myRegHist.LowerBoxes[j]);
+    
+    //a container for the roots at this leaf node
+    vector<intervalw> rootVec;
+
+    //---------find the root at this domain
+    // make an intervalw object using thisBox
+    intervalw thisIntW(xlow, xupp);
+    interval thisInt(xlow, xupp);
+
+    // find the root
+    //cout << "finding roots at this node " << thisInt << endl;
+    bisect(thisIntW, tol, fhat, rootVec, mixt.W, mixt.M, mixt.S); 
+
+    //---------find the area at this domain and take the absolute value
+    //if rootVec is empty, there are no roots - so we can integrate over
+    //this domain
+    if ((rootVec.size() == 0)) { 
+      //cout << "no roots at " << thisInt << endl;
+      //get the L1 error
+      interval diffArea = getL1error(fhat, thisInt, deg, tol, mixt.W, mixt.M, 
+      mixt.S);
+      //add to totalArea
+      totalArea += diffArea;
+    } //end of rootVec is empty
+
+    else { //if rootVec is not empty
+      vector<intervalw> uniqueRootVec;
+      // make the elements in vector unique
+      for (int i = 0; i < (rootVec.size()); i++) {
+        //cout << "root " << i << ": " << rootVec[i] << endl;
+        //first insert into uniqueRootVec
+        uniqueRootVec.push_back(rootVec[i]);
+        //cout << i-1 << "\t" << i << "\t" << i+1 << endl;
+        //now check for uniqueness
+        if (((i-1) >= 0) && (i < rootVec.size())) {
+          //cout << rootVec[i] << "\t" << rootVec[i-1] << endl;
+          bool uniq = (subset(abs(rootVec[i] - rootVec[i-1]), intervalw(0, 1e-1
+      0)));
+          if ( uniq ) { 
+            //cout << "this root has a duplicate" << endl;
+            uniqueRootVec.pop_back(); }
+        }
+      }
+      //cout << "==There are " << uniqueRootVec.size() << " unique root(s)=="
+       << endl;
+      
+      // if there's only 1 root
+      if (uniqueRootVec.size() == 1) {
+        //cout << "there is only one root.." << endl;
+        // is the root at the left or right boundary?
+        if ( (abs(Inf(thisInt) - inf(rootVec[0])) < 1e-10) || 
+            (abs(Sup(thisInt) - inf(rootVec[0])) < 1e-10) ) {
+          //cout << "there's a root at the left/right boundary:" << rootVec[0]
+       << endl;
+          interval diffArea = getL1error(fhat, thisInt, deg, tol, mixt.W, mixt.M
+      , mixt.S);
+          totalArea += diffArea;
+        }
+        else { // the root is not at the boundaries
+          //cout << "no root at the boundaries" << endl;
+          //get the left sub-interval
+          interval thisSubIntLeft = interval(Inf(thisInt), sup(uniqueRootVec[0]
+      ));
+          //cout << "left interval: " << thisSubIntLeft << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntLeft, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          //get the right sub-interval
+          //get the left sub-interval
+          interval thisSubIntRight = interval(inf(uniqueRootVec[0]), Sup(
+      thisInt));
+          //cout << "right interval: " << thisSubIntRight << endl; 
+          diffArea = getL1error(fhat, thisSubIntRight, deg, tol, mixt.W, mixt.M
+      , mixt.S);
+          totalArea += diffArea;
+        }
+      } // end of rootVec.size() == 1
+
+        // if there is more than 1 root
+      else {
+        //cout << "let's have a look at all the roots:" << endl;
+        //for (size_t i = 0; i < uniqueRootVec.size(); i++) {
+          //cout << uniqueRootVec[i] << endl;
+        //}
+
+        //first check if the first root is at the boundary
+        //cout << "check boundaries: " << Inf(thisInt) << "\t" <<
+       inf(rootVec[0]) << endl;
+        if ( abs(Inf(thisInt) - inf(uniqueRootVec[0])) < 1e-10 ) {
+          //cout << "there's a root at the leftmost boundary:" << endl;
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(uniqueRootVec[1
+      ]));
+          //cout << "0-th interval:" << thisSubIntFirst << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntFirst, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            //cout << "the " << i+1 << "-th root is: " << rootVec[i+1] << endl;
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << i+1 << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (excep the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,deg, tol, mixt.W
+      , mixt.M, mixt.S);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast, deg, tol, mixt
+      .W, mixt.M, mixt.S);
+            totalArea += diffArea;
+          } 
+        } // end of if first root is the boundary
+        
+        else {
+          //cout << "root not at boundary" << endl;
+          //if it is not the boundary, make the first sub-interval
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(rootVec[0]));
+          //cout << "0-th interval: " << thisSubIntFirst << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntFirst, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              //cout << inf(rootVec[i]) << "\t" << Sup(thisInt) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << "the " << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt,  deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              //cout << inf(rootVec[i]) << "\t" << sup(rootVec[i+1]) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << "the " << i+1 << "-th interval: " << thisSubInt <<
+       endl;
+              interval diffArea = getL1error(fhat, thisSubInt,  deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (except the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,  deg, tol, 
+      mixt.W, mixt.M, mixt.S);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,  deg, tol, 
+      mixt.W, mixt.M, mixt.S);
+            totalArea += diffArea;
+          } 
+        } // end of first root is not the boundary
+      } // end of rootVec.size() > 1
+    } // end of rootVec is not empty
+
+  } // end of iterating through the leaf nodes
+  
+  //cout << "IAE: " << totalArea << endl;
+  return totalArea;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a7edbd158ed300803fe59b38c60f90875}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E@{get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E}}
+\index{get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E@{get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{double}]{tol, }
+\item[{int}]{deg}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a7edbd158ed300803fe59b38c60f90875}
+\-Get the \-I\-A\-E for a laplace distribution for regular histograms 
+
+\-Definition at line 917 of file errorfunc.\-cpp.
+
+
+
+\-References \-Reg\-Hist\-::heights, \-Laplace\-Bisect(), \-Laplace\-Get\-L1error(), \-Reg\-Hist\-::\-Lower\-Boxes, \-Nbin, and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  interval totalArea(0.0);
+  size_t Nbin = myRegHist.heights.size();
+  
+  for (size_t j=0; j< Nbin; j++){
+    double fhat = myRegHist.heights[j];
+    double xupp = _double(myRegHist.UpperBoxes[j]);
+    double xlow = _double(myRegHist.LowerBoxes[j]);
+    
+    //a container for the roots at this leaf node
+    vector<intervalw> rootVec;
+
+    //---------find the root at this domain
+    // make an intervalw object using thisBox
+    intervalw thisIntW(xlow, xupp);
+    interval thisInt(xlow, xupp);
+
+    // find the root
+    //cout << "finding roots at this node " << thisInt << endl;
+    LaplaceBisect(thisIntW, tol, fhat, rootVec); 
+
+    //---------find the area at this domain and take the absolute value
+    //if rootVec is empty, there are no roots - so we can integrate over
+    //this domain
+    if ((rootVec.size() == 0)) { 
+      //cout << "no roots at " << thisInt << endl;
+      //get the L1 error
+      interval diffArea = LaplaceGetL1error(fhat, thisInt, deg, tol);
+      //add to totalArea
+      totalArea += diffArea;
+    } //end of rootVec is empty
+
+    else { //if rootVec is not empty
+      vector<intervalw> uniqueRootVec;
+      // make the elements in vector unique
+      for (int i = 0; i < (rootVec.size()); i++) {
+        //cout << "root " << i << ": " << rootVec[i] << endl;
+        //first insert into uniqueRootVec
+        uniqueRootVec.push_back(rootVec[i]);
+        //cout << i-1 << "\t" << i << "\t" << i+1 << endl;
+        //now check for uniqueness
+        if (((i-1) >= 0) && (i < rootVec.size())) {
+          //cout << rootVec[i] << "\t" << rootVec[i-1] << endl;
+          bool uniq = (subset(abs(rootVec[i] - rootVec[i-1]), intervalw(0, 1e-1
+      0)));
+          if ( uniq ) { 
+            //cout << "this root has a duplicate" << endl;
+            uniqueRootVec.pop_back(); }
+        }
+      }
+      //cout << "==There are " << uniqueRootVec.size() << " unique root(s)=="
+       << endl;
+      
+      // if there's only 1 root
+      if (uniqueRootVec.size() == 1) {
+        //cout << "there is only one root.." << endl;
+        // is the root at the left or right boundary?
+        if ( (abs(Inf(thisInt) - inf(rootVec[0])) < 1e-10) || 
+            (abs(Sup(thisInt) - inf(rootVec[0])) < 1e-10) ) {
+          //cout << "there's a root at the left/right boundary:" << rootVec[0]
+       << endl;
+          interval diffArea = LaplaceGetL1error(fhat, thisInt, deg, tol);
+          totalArea += diffArea;
+        }
+        else { // the root is not at the boundaries
+          //cout << "no root at the boundaries" << endl;
+          //get the left sub-interval
+          interval thisSubIntLeft = interval(Inf(thisInt), sup(uniqueRootVec[0]
+      ));
+          //cout << "left interval: " << thisSubIntLeft << endl; 
+          interval diffArea = LaplaceGetL1error(fhat, thisSubIntLeft, deg, tol)
+      ;
+          totalArea += diffArea;
+          
+          //get the right sub-interval
+          //get the left sub-interval
+          interval thisSubIntRight = interval(inf(uniqueRootVec[0]), Sup(
+      thisInt));
+          //cout << "right interval: " << thisSubIntRight << endl; 
+          diffArea = LaplaceGetL1error(fhat, thisSubIntRight, deg, tol);
+          totalArea += diffArea;
+        }
+      } // end of rootVec.size() == 1
+
+        // if there is more than 1 root
+      else {
+        //cout << "let's have a look at all the roots:" << endl;
+        //for (size_t i = 0; i < uniqueRootVec.size(); i++) {
+          //cout << uniqueRootVec[i] << endl;
+        //}
+
+        //first check if the first root is at the boundary
+        //cout << "check boundaries: " << Inf(thisInt) << "\t" <<
+       inf(rootVec[0]) << endl;
+        if ( abs(Inf(thisInt) - inf(uniqueRootVec[0])) < 1e-10 ) {
+          //cout << "there's a root at the leftmost boundary:" << endl;
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(uniqueRootVec[1
+      ]));
+          //cout << "0-th interval:" << thisSubIntFirst << endl; 
+          interval diffArea = LaplaceGetL1error(fhat, thisSubIntFirst, deg, tol
+      );
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            //cout << "the " << i+1 << "-th root is: " << rootVec[i+1] << endl;
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = LaplaceGetL1error(fhat, thisSubInt, deg, tol)
+      ;
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << i+1 << "-th interval: " << thisSubInt << endl;
+              interval diffArea = LaplaceGetL1error(fhat, thisSubInt, deg, tol)
+      ;
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (excep the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = LaplaceGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = LaplaceGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          } 
+        } // end of if first root is the boundary
+        
+        else {
+          //cout << "root not at boundary" << endl;
+          //if it is not the boundary, make the first sub-interval
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(rootVec[0]));
+          //cout << "0-th interval: " << thisSubIntFirst << endl; 
+          interval diffArea = LaplaceGetL1error(fhat, thisSubIntFirst, deg, tol
+      );
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              //cout << inf(rootVec[i]) << "\t" << Sup(thisInt) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << "the " << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = LaplaceGetL1error(fhat, thisSubInt, deg, tol)
+      ;
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              //cout << inf(rootVec[i]) << "\t" << sup(rootVec[i+1]) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << "the " << i+1 << "-th interval: " << thisSubInt <<
+       endl;
+              interval diffArea = LaplaceGetL1error(fhat, thisSubInt, deg, tol)
+      ;
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (except the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = LaplaceGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = LaplaceGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          } 
+        } // end of first root is not the boundary
+      } // end of rootVec.size() > 1
+    } // end of rootVec is not empty
+
+  } // end of iterating through the leaf nodes
+  
+  //cout << "IAE: " << totalArea << endl;
+  return totalArea;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_ac2e78d0ba1f818d2e1a81b95544972d8}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E@{get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E}}
+\index{get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E@{get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{double}]{tol, }
+\item[{int}]{deg}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_ac2e78d0ba1f818d2e1a81b95544972d8}
+\-Get the \-I\-A\-E for a lognormal distribution for regular histograms 
+
+\-Definition at line 1101 of file errorfunc.\-cpp.
+
+
+
+\-References \-Reg\-Hist\-::heights, \-Lognormal\-Bisect(), \-Lognormal\-Get\-L1error(), \-Reg\-Hist\-::\-Lower\-Boxes, \-Nbin, and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  interval totalArea(0.0);
+  size_t Nbin = myRegHist.heights.size();
+  
+  for (size_t j=0; j< Nbin; j++){
+    double fhat = myRegHist.heights[j];
+    double xupp = _double(myRegHist.UpperBoxes[j]);
+    double xlow = _double(myRegHist.LowerBoxes[j]);
+    
+    //a container for the roots at this leaf node
+    vector<intervalw> rootVec;
+
+    //---------find the root at this domain
+    // make an intervalw object using thisBox
+    intervalw thisIntW(xlow, xupp);
+    interval thisInt(xlow, xupp);
+
+    // find the root
+    //cout << "finding roots at this node " << thisInt << endl;
+    LognormalBisect(thisIntW, tol, fhat, rootVec); 
+
+    //---------find the area at this domain and take the absolute value
+    //if rootVec is empty, there are no roots - so we can integrate over
+    //this domain
+    if ((rootVec.size() == 0)) { 
+      //cout << "no roots at " << thisInt << endl;
+      //get the L1 error
+      interval diffArea = LognormalGetL1error(fhat, thisInt, deg, tol);
+      //add to totalArea
+      totalArea += diffArea;
+    } //end of rootVec is empty
+
+    else { //if rootVec is not empty
+      vector<intervalw> uniqueRootVec;
+      // make the elements in vector unique
+      for (int i = 0; i < (rootVec.size()); i++) {
+        //cout << "root " << i << ": " << rootVec[i] << endl;
+        //first insert into uniqueRootVec
+        uniqueRootVec.push_back(rootVec[i]);
+      //cout << i-1 << "\t" << i << "\t" << i+1 << endl;
+        //now check for uniqueness
+        if (((i-1) >= 0) && (i < rootVec.size())) {
+          //cout << rootVec[i] << "\t" << rootVec[i-1] << endl;
+          bool uniq = (subset(abs(rootVec[i] - rootVec[i-1]), intervalw(0, 1e-1
+      0)));
+          if ( uniq ) { 
+            //cout << "this root has a duplicate" << endl;
+            uniqueRootVec.pop_back(); }
+        }
+      }
+      //cout << "==There are " << uniqueRootVec.size() << " unique root(s)=="
+       << endl;
+      
+      // if there's only 1 root
+      if (uniqueRootVec.size() == 1) {
+        //cout << "there is only one root.." << endl;
+        // is the root at the left or right boundary?
+        if ( (abs(Inf(thisInt) - inf(rootVec[0])) < 1e-10) || 
+            (abs(Sup(thisInt) - inf(rootVec[0])) < 1e-10) ) {
+          //cout << "there's a root at the left/right boundary:" << rootVec[0]
+       << endl;
+          interval diffArea = LognormalGetL1error(fhat, thisInt, deg, tol);
+          totalArea += diffArea;
+        }
+        else { // the root is not at the boundaries
+          //cout << "no root at the boundaries" << endl;
+          //get the left sub-interval
+          interval thisSubIntLeft = interval(Inf(thisInt), sup(uniqueRootVec[0]
+      ));
+          //cout << "left interval: " << thisSubIntLeft << endl; 
+          interval diffArea = LognormalGetL1error(fhat, thisSubIntLeft, deg, 
+      tol);
+          totalArea += diffArea;
+          
+          //get the right sub-interval
+          //get the left sub-interval
+          interval thisSubIntRight = interval(inf(uniqueRootVec[0]), Sup(
+      thisInt));
+          //cout << "right interval: " << thisSubIntRight << endl; 
+          diffArea = LognormalGetL1error(fhat, thisSubIntRight, deg, tol);
+          totalArea += diffArea;
+        }
+      } // end of rootVec.size() == 1
+
+        // if there is more than 1 root
+      else {
+        //cout << "let's have a look at all the roots:" << endl;
+        //for (size_t i = 0; i < uniqueRootVec.size(); i++) {
+          //cout << uniqueRootVec[i] << endl;
+        //}
+
+        //first check if the first root is at the boundary
+        //cout << "check boundaries: " << Inf(thisInt) << "\t" <<
+       inf(rootVec[0]) << endl;
+        if ( abs(Inf(thisInt) - inf(uniqueRootVec[0])) < 1e-10 ) {
+          //cout << "there's a root at the leftmost boundary:" << endl;
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(uniqueRootVec[1
+      ]));
+          //cout << "0-th interval:" << thisSubIntFirst << endl; 
+          interval diffArea = LognormalGetL1error(fhat, thisSubIntFirst, deg, 
+      tol);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            //cout << "the " << i+1 << "-th root is: " << rootVec[i+1] << endl;
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = LognormalGetL1error(fhat, thisSubInt, deg, 
+      tol);
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << i+1 << "-th interval: " << thisSubInt << endl;
+              interval diffArea = LognormalGetL1error(fhat, thisSubInt, deg, 
+      tol);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (excep the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = LognormalGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea =LognormalGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          } 
+        } // end of if first root is the boundary
+        
+        else {
+          //cout << "root not at boundary" << endl;
+          //if it is not the boundary, make the first sub-interval
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(rootVec[0]));
+          //cout << "0-th interval: " << thisSubIntFirst << endl; 
+          interval diffArea = LognormalGetL1error(fhat, thisSubIntFirst, deg, 
+      tol);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              //cout << inf(rootVec[i]) << "\t" << Sup(thisInt) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << "the " << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea =LognormalGetL1error(fhat, thisSubInt, deg, tol
+      );
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              //cout << inf(rootVec[i]) << "\t" << sup(rootVec[i+1]) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << "the " << i+1 << "-th interval: " << thisSubInt <<
+       endl;
+              interval diffArea = LognormalGetL1error(fhat, thisSubInt, deg, 
+      tol);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (except the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea =LognormalGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = LognormalGetL1error(fhat, thisSubIntLast, deg, 
+      tol);
+            totalArea += diffArea;
+          } 
+        } // end of first root is not the boundary
+      } // end of rootVec.size() > 1
+    } // end of rootVec is not empty
+
+  } // end of iterating through the leaf nodes
+  
+  //cout << "IAE: " << totalArea << endl;
+  return totalArea;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a63593212e4bbb8cbe660d8bf3209f4b4}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!get\-Reg\-Hist\-Unif\-I\-A\-E@{get\-Reg\-Hist\-Unif\-I\-A\-E}}
+\index{get\-Reg\-Hist\-Unif\-I\-A\-E@{get\-Reg\-Hist\-Unif\-I\-A\-E}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{get\-Reg\-Hist\-Unif\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf get\-Reg\-Hist\-Unif\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{{\bf \-Adaptive\-Histogram} \&}]{my\-Part, }
+\item[{size\-\_\-t}]{n, }
+\item[{double}]{weight, }
+\item[{std\-::vector$<$ int $>$}]{holes\-Loc}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a63593212e4bbb8cbe660d8bf3209f4b4}
+\-Get the \-I\-A\-E for a uniform mixture distribution for regular histograms 
+
+\-Definition at line 1286 of file errorfunc.\-cpp.
+
+
+
+\-References dp\-I\-A\-E, \-Reg\-Hist\-::heights, \-Intersection(), \-Reg\-Hist\-::\-Lower\-Boxes, \-Nbin, \-Reg\-Hist\-::\-Upper\-Boxes, and \-Volume().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  //-------setting up containers-------------------------------
+   dotprecision dpIAE;    // use type dotprecision for summation  
+   dpIAE=0.0;
+
+   // get the true height, rueF of the corresponding box in myPart
+  SPSnodePtrs trueLeaves;
+  SPSnodePtrsItr trueIt;
+  (myPart).getSubPaving()->getLeaves(trueLeaves);
+
+  ivector temp; //for the intersections
+  
+   //go through all the leaves in the regular histogram
+  int Nbin=(myRegHist.UpperBoxes).size();
+
+   
+   for(int i = 0; i < Nbin; i++) {
+    // get the height of this leaf
+      double fhat = myRegHist.heights[i];
+    
+    //make this box into an ivector
+    interval iBox(myRegHist.LowerBoxes[i], myRegHist.UpperBoxes[i]);
+    ivector thisBox(1);
+    thisBox[1] = iBox;
+    
+    //cout << "====checking " << thisBox << endl;
+      //cout << "fhat for box " << ":" << fhat << endl;
+
+    size_t L = 0;
+    for (trueIt = trueLeaves.begin(); trueIt < trueLeaves.end(); trueIt++) {
+      //cout << "----True leaf: " << (*trueIt)->getBox() << "\t" << endl;
+      ivector trueBox = (*trueIt)->getBox();
+
+      double trueF;
+      if (  holesLoc[L] == 0 ) { trueF = 0; }
+      else { trueF = weight/((*trueIt)->nodeVolume()); }
+      //cout << "pdf: " << trueF << "------" << endl;
+      
+      // if this is contained in trueBox
+      if ( thisBox <= trueBox || thisBox == trueBox ) {
+        //use the volume of this
+        real r = Volume(thisBox)*(fhat - trueF);
+        //cout << "r: " << r << "\t" << abs(r) << endl;
+        accumulate(dpIAE, abs(r), 1.0);
+        //can move on to next leaf rather than iterating thru all trueBoxes
+        //think about this later
+      } //end of if this box is in trueBox
+      
+      // if this contains trueBox
+      else if ( trueBox <= thisBox) {
+        //use the volume of trueBox
+        real r = ((*trueIt)->nodeVolume())*(fhat - trueF);
+        //cout << "r: " << r << "\t" << abs(r) << endl;
+        accumulate(dpIAE, abs(r), 1.0);
+      } //end of if trueBox is in this box
+      
+      // if this is partially contained in trueBox 
+      else if   (Intersection(temp, thisBox, trueBox)) {
+        if (Inf(temp) != Sup(temp)){
+          double volume = Volume(temp);
+          real r = volume*(fhat - trueF);
+          //cout << "r: " << r << "\t" << abs(r) << endl;
+          accumulate(dpIAE, abs(r), 1.0);
+        }
+      }
+      L++;
+    } // end of going through trueBoxes
+  } // end of going through thisBoxes
+  
+    
+    
+   //cast dotprecision to real
+   real unifIAE = rnd(dpIAE);
+  return unifIAE;                
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_ae473bc19e57e3781680652a61018aa79}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!integrand@{integrand}}
+\index{integrand@{integrand}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{integrand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf integrand} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_ae473bc19e57e3781680652a61018aa79}
+
+
+\-Definition at line 1551 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::sqrt(), and itaylor\-::variable().
+
+
+
+\-Referenced by get\-L1error().
+
+
+\begin{DoxyCode}
+{ 
+  
+  itaylor PDF(itaylor::variable(interval(0,0), orderOf(x)));
+  //cout << "-------initializing variable PDF: ---------" << PDF << endl;
+
+  //cout << "x: " << x[0] << endl;
+  size_t Ncomp = W.size();
+  for (size_t c=0; c < Ncomp; c++){
+    //cout << c << "-th component: " << W[c] << "\t" << M[c] << "\t" << S[c] <<
+       endl;
+
+    itaylor z1 = (x-M[c])/S[c]; 
+    //when inf is negative and sup is positive - split into two parts 
+    if (Inf(z1[0]) < 0 && Sup(z1[0]) > 0) {  
+      //cout << "===========" << endl;
+      //cout << z1[0] << endl;
+      itaylor z = z1*z1;
+      //cout << z[0] << endl;
+      Inf(z[0]) = 0;
+      //cout << z[0] << endl;
+      PDF = PDF + exp(-0.5*z)*(W[c]/(S[c]*sqrt(2*M_PI)));
+    }  
+    else {
+      itaylor z = z1*z1;
+      //cout << "z: " << z[0] << endl;
+      itaylor expPart = exp(-0.5*z);
+      //cout << "exp part:" << expPart[0] << endl;
+      PDF = PDF + expPart*(W[c]/(S[c]*sqrt(2*M_PI)));
+    }
+  }
+  //cout << "Domain: " << x[0] << "\t PDF: " << PDF[0] << endl;
+  
+  return PDF;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_aa0f25ae1a698fab2a49e83283c2b0dd1}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!integrate@{integrate}}
+\index{integrate@{integrate}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{integrate}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf integrate} (
+\begin{DoxyParamCaption}
+\item[{{\bf pfcn}}]{f, }
+\item[{interval}]{\-X, }
+\item[{int}]{\-Deg, }
+\item[{double}]{\-Tol, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_aa0f25ae1a698fab2a49e83283c2b0dd1}
+
+
+\-Definition at line 1485 of file errorfunc.\-cpp.
+
+
+
+\-References integrate(), and riemann\-Term().
+
+
+
+\-Referenced by get\-L1error(), and integrate().
+
+
+\begin{DoxyCode}
+{
+  //cout << "-------integrating over the domain -------------" << X << endl;
+  //cout << "get  riemann term of " << X << endl;
+  interval sum = riemannTerm(f, X, Deg, W, M, S);
+  //cout << "sum: " << sum << "\t diam(sum):" << diam(sum) << "\t Tol: " << Tol
+       <<  endl;
+  
+  if ( diam(sum) <= Tol ) {
+    //cout << "Domain: " << X << "\t Sum: " << sum << endl;
+    return sum;
+  }
+  else {  
+    //cout << "*****diam(sum) > tol: inf(x), mid(x) + mid(x), sup(x)*****" <<
+       endl;
+    return integrate(f, interval(Inf(X), mid(X)), Deg, Tol/2, W, M, S) + \
+        integrate(f, interval(mid(X), Sup(X)), Deg, Tol/2, W, M, S);
+  }
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a4de668d5d847a753a9a4baf05c7d8d52}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-Bisect@{\-Laplace\-Bisect}}
+\index{\-Laplace\-Bisect@{\-Laplace\-Bisect}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-Bisect}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Laplace\-Bisect} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{const double \&}]{\-T\-O\-L, }
+\item[{double \&}]{fhat, }
+\item[{vector$<$ {\bf intervalw} $>$ \&}]{root\-Vec}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a4de668d5d847a753a9a4baf05c7d8d52}
+
+
+\-Definition at line 1692 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-Bisect(), \-Laplace\-D\-F(), \-Laplace\-F(), and \-Laplacefind\-Root().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::get\-Laplace\-Interval\-I\-A\-E(), get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E(), and \-Laplace\-Bisect().
+
+
+\begin{DoxyCode}
+{
+  //cout << "===========root finding routine at domain: " << x <<  endl;
+  //cout << LaplacePDF(x) << endl;
+  //cout << "gsl: " << gsl_ran_laplace_pdf(inf(x), 1) << "\t" << 
+       gsl_ran_laplace_pdf(sup(x), 1) << endl;
+  //cout << x << "\t" << LaplaceF(x)  << "\t" << LaplaceDF(x) << endl;
+
+  //if the function is twice differentiable?
+  if ( !subset(0.0, LaplaceDF(x)) ) {
+    cout << "Sending " << x << " to the Newton operator..." << endl;
+    LaplacefindRoot(x, fhat, rootVec);
+    cerr << "check this!" << endl;
+    exit(0);
+  }
+  
+  else {
+   // if the function is not differentiable
+    //cout << "------------compare fhats" << endl;
+    //cout.precision(10);
+    //cout << intervalw(fhat) << "\t" << LaplaceF(x) << endl;
+    //cout << ( fhat <= sup(LaplaceF(x)) ) << endl;
+    
+    if ( subset(intervalw(fhat), LaplaceF(x)) ) {
+      //cout << "check tolerance: " << endl;
+      //cout << diam(x) << "\t" << TOL << endl;
+      if ( diam(x) < TOL ) {
+        //cout << diam(x) << "\t" << TOL << endl;
+        //cout << x << " may contain roots. " << endl;
+        rootVec.push_back(x); //keep the roots in a container
+      }
+      else {
+        //cout << "bisect: " << endl;
+        //cout << "left" << endl;
+        LaplaceBisect(intervalw(inf(x), mid(x)), TOL, fhat, rootVec);
+        //cout << "right" << endl;
+        LaplaceBisect(intervalw(mid(x), sup(x)), TOL, fhat, rootVec);
+      }
+    }
+    //else { cout << "fhat not here. " << endl; }
+  }
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a1df0b848b1e7ebd2de5866266df70ceb}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-D\-F@{\-Laplace\-D\-F}}
+\index{\-Laplace\-D\-F@{\-Laplace\-D\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-Laplace\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a1df0b848b1e7ebd2de5866266df70ceb}
+
+
+\-Definition at line 1652 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-P\-D\-F().
+
+
+
+\-Referenced by \-Laplace\-Bisect(), and \-Laplace\-Newton().
+
+
+\begin{DoxyCode}
+{ return deriv(LaplacePDF(x)); }
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a83cb93d97adbc26d2b6731e89725b7d6}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-F@{\-Laplace\-F}}
+\index{\-Laplace\-F@{\-Laplace\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-Laplace\-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a83cb93d97adbc26d2b6731e89725b7d6}
+
+
+\-Definition at line 1648 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-P\-D\-F().
+
+
+
+\-Referenced by \-Laplace\-Bisect(), and \-Laplace\-Newton().
+
+
+\begin{DoxyCode}
+{ return value(LaplacePDF(x)); }
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a6c2d3ad910df045a1fa44cb3fd190bbe}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplacefind\-Root@{\-Laplacefind\-Root}}
+\index{\-Laplacefind\-Root@{\-Laplacefind\-Root}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplacefind\-Root}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Laplacefind\-Root} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{domain, }
+\item[{double}]{fhat, }
+\item[{vector$<$ {\bf intervalw} $>$ \&}]{root\-Vec}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a6c2d3ad910df045a1fa44cb3fd190bbe}
+
+
+\-Definition at line 1665 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-Newton().
+
+
+
+\-Referenced by \-Laplace\-Bisect().
+
+
+\begin{DoxyCode}
+{
+  //cout << "finding root at " << domain << " for " << fhat << endl;
+ 
+  intervalw newX       = domain;
+  intervalw oldX       = domain + 1;
+  bool     rootUnique = false;
+  bool     rootExists = true;
+
+  while( (newX != oldX) && rootExists ) {
+    oldX = newX;
+    if( !intersect(newX, LaplaceNewton(oldX, fhat), oldX) ) 
+      rootExists = false;
+    if ( subset(newX, oldX) ) 
+      rootUnique = true;
+  }
+  if ( rootExists ) {
+    cout << newX;
+    rootVec.push_back(newX);
+    if ( rootUnique )
+      cout << " contains a unique root." << endl;
+    else
+      cout << " may contain a simple root." << endl;
+  } 
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a76a4c9e6350419472c3285481c1690e2}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-Get\-L1error@{\-Laplace\-Get\-L1error}}
+\index{\-Laplace\-Get\-L1error@{\-Laplace\-Get\-L1error}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-Get\-L1error}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Laplace\-Get\-L1error} (
+\begin{DoxyParamCaption}
+\item[{double}]{fhat, }
+\item[{interval \&}]{this\-Int, }
+\item[{int}]{\-Deg, }
+\item[{double}]{\-T\-O\-L}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a76a4c9e6350419472c3285481c1690e2}
+
+
+\-Definition at line 1777 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-Integrand(), and \-Laplace\-Integrate().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::get\-Laplace\-Interval\-I\-A\-E(), and get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+//  cout << "==========get L1 error for " << thisInt <<  endl;
+  //hard-code this temporarily
+  double Tol = 0.0000001;
+  //cout << Tol << endl;
+  
+  //get the area of the histogram at this interval
+  real histArea = diam(thisInt) * fhat;
+
+  //integrate the function at this sub-interval
+  interval fArea = LaplaceIntegrate(LaplaceIntegrand, thisInt, Deg, Tol);
+  //cout << "integrate: " << fArea << endl;
+
+  //cout << "get the differences " << endl;
+  //get the differences of the areas
+  //double up = gsl_cdf_laplace_P(_double(Sup(thisInt)), 1);
+  //double low = gsl_cdf_laplace_P(_double(Inf(thisInt)), 1);
+  //cout << "gsl: " << up-low << endl;
+  interval diffArea = abs(abs(fArea) - histArea);
+  //cout << "fArea: " << fArea << "\t" << diam(thisInt) << 
+  //"\t fhat:" << fhat << "\t histArea: " << histArea << endl;
+  //cout << diffArea << endl;
+
+  return diffArea;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a113114b7f2ac4e8e3c7900ab491eaf1b}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-Integrand@{\-Laplace\-Integrand}}
+\index{\-Laplace\-Integrand@{\-Laplace\-Integrand}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-Integrand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf \-Laplace\-Integrand} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a113114b7f2ac4e8e3c7900ab491eaf1b}
+
+
+\-Definition at line 1620 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), and itaylor\-::variable().
+
+
+
+\-Referenced by \-Laplace\-Get\-L1error(), and \-Laplace\-Riemann\-Term().
+
+
+\begin{DoxyCode}
+{ 
+  //cout << "-------Integrand: ---------" << x[0] << "\t";
+  itaylor PDF(itaylor::variable(interval(0,0), orderOf(x)));
+
+  if ( Sup(x[0]) < 0.0 ) {
+    PDF = 0.5*exp(-(-x));
+  }
+  else if ( Inf(x[0]) >= 0.0 ) { 
+    PDF = 0.5*exp(-(x));
+  }
+  // 0 is inside the interval x
+  else { 
+    //cout << gsl_ran_laplace_pdf(_double(Inf(x[0])), 1) << "\t" <<
+       gsl_ran_laplace_pdf(_double(Sup(x[0])), 1) << endl;
+    if ( abs(Inf(x[0])) >= Sup(x[0]) ) {
+      PDF = 0.5*exp(x);
+    }
+    else {
+      PDF = 0.5*exp(-x);
+    }
+  }
+  
+  //cout << "PDF: " << PDF[0] << endl;
+  return PDF;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_ae9e1f8084e10ac335146e7849cc23fbd}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-Integrate@{\-Laplace\-Integrate}}
+\index{\-Laplace\-Integrate@{\-Laplace\-Integrate}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-Integrate}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Laplace\-Integrate} (
+\begin{DoxyParamCaption}
+\item[{{\bf pfcn\-Laplace}}]{f, }
+\item[{interval}]{\-X, }
+\item[{int}]{\-Deg, }
+\item[{double}]{\-Tol}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_ae9e1f8084e10ac335146e7849cc23fbd}
+
+
+\-Definition at line 1758 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-Riemann\-Term().
+
+
+
+\-Referenced by \-Laplace\-Get\-L1error().
+
+
+\begin{DoxyCode}
+{
+  //cout << "-------integrating over the domain -------------" << X << endl;
+  //cout << "get  riemann term of " << X << endl;
+  interval sum = LaplaceRiemannTerm(f, X, Deg);
+  //cout << "sum: " << sum << "\t diam(sum):" << diam(sum) << "\t Tol: " << Tol
+       <<  endl;
+  
+  if ( diam(sum) <= Tol ) {
+    //cout << "Domain: " << X << "\t Sum: " << sum << endl;
+    return sum;
+  }
+  else {  
+    //cout << "*****diam(sum) > tol: inf(x), mid(x) + mid(x), sup(x)*****" <<
+       endl;
+    //cout << "sum: " << sum << "\t Tol: " << Tol << endl;
+    return LaplaceIntegrate(f, interval(Inf(X), mid(X)), Deg, Tol/2) + \
+        LaplaceIntegrate(f, interval(mid(X), Sup(X)), Deg, Tol/2);
+  }
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a64a77490c542f82e7ae00ab525f3efe1}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-Newton@{\-Laplace\-Newton}}
+\index{\-Laplace\-Newton@{\-Laplace\-Newton}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-Newton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-Laplace\-Newton} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{double}]{fhat}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a64a77490c542f82e7ae00ab525f3efe1}
+
+
+\-Definition at line 1658 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-D\-F(), and \-Laplace\-F().
+
+
+
+\-Referenced by \-Laplacefind\-Root().
+
+
+\begin{DoxyCode}
+{
+  intervalw midX(mid(x));
+  return midX - LaplaceF(midX)/LaplaceDF(x);
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a5c072ddf22efaed3c1dc612f42290f30}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-P\-D\-F@{\-Laplace\-P\-D\-F}}
+\index{\-Laplace\-P\-D\-F@{\-Laplace\-P\-D\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-P\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ia\-\_\-ad} {\bf \-Laplace\-P\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a5c072ddf22efaed3c1dc612f42290f30}
+
+
+\-Definition at line 1589 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), and ia\-\_\-ad\-::variable().
+
+
+
+\-Referenced by \-Laplace\-D\-F(), and \-Laplace\-F().
+
+
+\begin{DoxyCode}
+{
+  ia_ad PDF(ia_ad::variable(x));
+
+  //strictly negative cases
+  if ( sup(x) < 0.0 ) {
+    PDF = 0.5*intervalw(exp(inf(x)), exp(sup(x)));
+  }
+  //strictly positive
+  else if ( inf(x) >= 0.0 ) {
+    PDF = 0.5*intervalw(exp(-sup(x)), exp(-inf(x)));
+  }
+  // 0 is inside the interval x
+  else {
+     // this is a symmetric density
+     if ( fabs(inf(x)) >= sup(x) ) {
+      PDF = 0.5*intervalw(exp(inf(x)), exp(0));
+     }
+     else { 
+       PDF = 0.5*intervalw(exp(-sup(x)), exp(0));
+     }
+  }
+  
+  //cout << "Domain: " << x << "PDF: " << PDF << endl;
+
+  return PDF;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_acaee4b1f2fbef568e6c87428028de1c1}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Laplace\-Riemann\-Term@{\-Laplace\-Riemann\-Term}}
+\index{\-Laplace\-Riemann\-Term@{\-Laplace\-Riemann\-Term}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Laplace\-Riemann\-Term}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Laplace\-Riemann\-Term} (
+\begin{DoxyParamCaption}
+\item[{{\bf pfcn\-Laplace}}]{f, }
+\item[{interval}]{\-X, }
+\item[{int}]{\-Deg}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_acaee4b1f2fbef568e6c87428028de1c1}
+
+
+\-Definition at line 1736 of file errorfunc.\-cpp.
+
+
+
+\-References \-Laplace\-Integrand(), taylor\-::pow(), and itaylor\-::variable().
+
+
+
+\-Referenced by \-Laplace\-Integrate().
+
+
+\begin{DoxyCode}
+                                                                {
+  
+  interval Mid = interval(mid(X));
+
+  // Taylor series...
+  // cout << "taylor series:" << endl;
+  itaylor fx  = LaplaceIntegrand(itaylor::variable(Mid, Deg));
+  interval sum = fx[0]*(diam(X))/2;
+  for (int k = 2; k <= Deg; k += 2) 
+   { sum += fx[k]*pow((diam(X))/2, k + 1)/(k + 1); }
+
+  // Remainder term...
+  // cout << "remainder term: " << endl;
+  itaylor Fx  = LaplaceIntegrand(itaylor::variable(X, Deg));
+  //cout << "Fx: " << Fx << endl;
+  interval eps = abs(Fx[Deg] - fx[Deg]); 
+  //cout << "eps: " << eps << endl;
+  sum += interval(-1.0*Sup(eps), Sup(eps))*pow((diam(X))/2, Deg + 1)/(Deg + 1);
+       
+
+  return 2*sum;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a72f3aaf218533dc785d09b0dffacbad7}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Levy\-O\-P@{\-Levy\-O\-P}}
+\index{\-Levy\-O\-P@{\-Levy\-O\-P}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Levy\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf d2t} {\bf \-Levy\-O\-P} (
+\begin{DoxyParamCaption}
+\item[{{\bf d2tv}}]{\-X, }
+\item[{interval}]{fhat}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a72f3aaf218533dc785d09b0dffacbad7}
+
+
+\-I\-A\-E for the \-Levy 2\-D. 
+
+\-The integral of the absolute error for a \-Levy 2\-D. 
+
+\-Definition at line 88 of file errorfunc.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), taylor\-::exp(), f(), \-Global\-Max, taylor\-::init\-\_\-const(), taylor\-::sqr(), and \-Temperature.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-I\-A\-E(), and subpavings\-::\-Adaptive\-Histogram\-::get\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+  //cout << "Calling LevyOP: " << endl;
+  // Parameters specific to the Levy target 
+  real Temperature = 40.0;
+  real Center1 = 1.42513; 
+  real Center2 = 0.80032; 
+  real GlobalMax = 176.14;
+  
+  d2t isum = taylor::init_const(X[1].order(),interval(0.0));
+  d2t jsum = taylor::init_const(X[1].order(),interval(0.0));
+
+  for (int i = 1; i <= 5; i++)
+  {
+    isum = isum + i * cos ((i - 1) * X[1] + (i));
+    jsum = jsum + i * cos ((i + 1) * X[2] + (i));
+  }
+                    // Avoid real conversion error
+  d2t hh = isum * jsum + sqr (X[1] + Center1) +
+    sqr (X[2] + Center2);
+  hh = hh + GlobalMax;  
+  // TEMPERATURE = 1, 4, 40, 400, 4000
+  d2t f = exp (-hh / Temperature);
+
+  //integrand  
+  d2t result = taylor::init_const(X[1].order(),interval(0.0));
+  //split the integrand to get positive values only (absolute values) 
+  if ( (Sup(f[0][0]) < Inf(fhat)) ) {   
+    result = fhat - f;
+    //cout << "fhat - f: " << result[0][0] << "\n" << endl;
+  }  
+  else if ((Sup(f[0][0]) > Inf(fhat))) { 
+     result = f - fhat; 
+    //cout << "f-fhat: " << result[0][0] << "\n" << endl;
+  }   
+  
+  return result;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a9722cc78b34593d877ec8cbbb22ac9f2}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-Bisect@{\-Lognormal\-Bisect}}
+\index{\-Lognormal\-Bisect@{\-Lognormal\-Bisect}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-Bisect}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Lognormal\-Bisect} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{const double \&}]{\-T\-O\-L, }
+\item[{double \&}]{fhat, }
+\item[{vector$<$ {\bf intervalw} $>$ \&}]{root\-Vec}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a9722cc78b34593d877ec8cbbb22ac9f2}
+
+
+\-Definition at line 1878 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-Bisect(), \-Lognormal\-D\-F(), \-Lognormal\-F(), and \-Lognormalfind\-Root().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::get\-Lognormal\-Interval\-I\-A\-E(), get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E(), and \-Lognormal\-Bisect().
+
+
+\begin{DoxyCode}
+{
+  //cout << "===========root finding routine at domain: " << x <<  endl;
+  //cout << x << "\t" << LaplaceF(x)  << "\t" << LognormalDF(x) << endl;
+
+  //if the function is twice differentiable?
+  if ( !subset(0.0, LognormalDF(x)) ) {
+    cout << "Sending " << x << " to the Newton operator..." << endl;
+    LognormalfindRoot(x, fhat, rootVec);
+    cerr << "check this!" << endl;
+    exit(1);
+  }
+  
+  else {
+   // if the function is not differentiable
+  //  cout << "------------compare fhats" << endl;
+//    cout.precision(10);
+  //  cout << intervalw(fhat) << "\t" << LaplaceF(x) << endl;
+    //cout << ( fhat <= sup(LaplaceF(x)) ) << endl;
+    
+    if ( subset(intervalw(fhat), LognormalF(x)) ) {
+    //  cout << "check tolerance: " << endl;
+  //    cout << diam(x) << "\t" << TOL << endl;
+      if ( diam(x) < TOL ) {
+        //cout << diam(x) << "\t" << TOL << endl;
+        //cout << x << " may contain roots. " << endl;
+        rootVec.push_back(x); //keep the roots in a container
+      }
+      else {
+    //    cout << "bisect: " << endl;
+    //    cout << "left" << endl;
+        LognormalBisect(intervalw(inf(x), mid(x)), TOL, fhat, rootVec);
+      //  cout << "right" << endl;
+        LognormalBisect(intervalw(mid(x), sup(x)), TOL, fhat, rootVec);
+      }
+    }
+    //else { cout << "fhat not here. " << endl; }
+  }
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a45238105e02452f020b01a332fee8913}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-D\-F@{\-Lognormal\-D\-F}}
+\index{\-Lognormal\-D\-F@{\-Lognormal\-D\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-Lognormal\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a45238105e02452f020b01a332fee8913}
+
+
+\-Definition at line 1839 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-P\-D\-F().
+
+
+
+\-Referenced by \-Lognormal\-Bisect(), and \-Lognormal\-Newton().
+
+
+\begin{DoxyCode}
+{ return deriv(LognormalPDF(x)); }
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a256e19e7647e7510144ff8e3064b07c1}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-F@{\-Lognormal\-F}}
+\index{\-Lognormal\-F@{\-Lognormal\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-Lognormal\-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a256e19e7647e7510144ff8e3064b07c1}
+
+
+\-Definition at line 1835 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-P\-D\-F().
+
+
+
+\-Referenced by \-Lognormal\-Bisect(), and \-Lognormal\-Newton().
+
+
+\begin{DoxyCode}
+{ return value(LognormalPDF(x)); }
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a75c63219b8792609e96391a851a5306e}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormalfind\-Root@{\-Lognormalfind\-Root}}
+\index{\-Lognormalfind\-Root@{\-Lognormalfind\-Root}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormalfind\-Root}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Lognormalfind\-Root} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{domain, }
+\item[{double}]{fhat, }
+\item[{vector$<$ {\bf intervalw} $>$ \&}]{root\-Vec}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a75c63219b8792609e96391a851a5306e}
+
+
+\-Definition at line 1851 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-Newton().
+
+
+
+\-Referenced by \-Lognormal\-Bisect().
+
+
+\begin{DoxyCode}
+{
+  cout << "finding root at " << domain << " for " << fhat << endl;
+ 
+  intervalw newX       = domain;
+  intervalw oldX       = domain + 1;
+  bool     rootUnique = false;
+  bool     rootExists = true;
+
+  while( (newX != oldX) && rootExists ) {
+    oldX = newX;
+    if( !intersect(newX, LognormalNewton(oldX, fhat), oldX) ) 
+      rootExists = false;
+    if ( subset(newX, oldX) ) 
+      rootUnique = true;
+  }
+  if ( rootExists ) {
+    cout << newX;
+    rootVec.push_back(newX);
+    if ( rootUnique )
+      cout << " contains a unique root." << endl;
+    else
+      cout << " may contain a simple root." << endl;
+  } 
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_ac99ece8c6ec9b7be0d2eec8911aff71a}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-Get\-L1error@{\-Lognormal\-Get\-L1error}}
+\index{\-Lognormal\-Get\-L1error@{\-Lognormal\-Get\-L1error}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-Get\-L1error}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Lognormal\-Get\-L1error} (
+\begin{DoxyParamCaption}
+\item[{double}]{fhat, }
+\item[{interval \&}]{this\-Int, }
+\item[{int}]{\-Deg, }
+\item[{double}]{\-T\-O\-L}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_ac99ece8c6ec9b7be0d2eec8911aff71a}
+
+
+\-Definition at line 1960 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-Integrand(), and \-Lognormal\-Integrate().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::get\-Lognormal\-Interval\-I\-A\-E(), and get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+  //cout << "==========get L1 error for " << thisInt <<  endl;
+  //cout.precision(10);
+  
+  //hard-code this temporarily
+  double Tol = 0.0000001;
+  //cout << Tol << endl;
+  
+  //get the area of the histogram at this interval
+  real histArea = diam(thisInt) * fhat;
+
+  //integrate the function at this sub-interval
+  interval fArea = LognormalIntegrate(LognormalIntegrand, thisInt, Deg, Tol);
+  //cout << "integrate: " << fArea << endl;
+
+  //cout << "get the differences " << endl;
+  //get the differences of the areas
+  //double up = gsl_cdf_lognormal_P(_double(Sup(thisInt)), 0, 1);
+  //double low = gsl_cdf_lognormal_P(_double(Inf(thisInt)), 0, 1);
+  //cout << "gsl: " << up-low << endl;
+  interval diffArea = abs(abs(fArea) - histArea);
+  //cout << "fArea: " << fArea << "\t" << diam(thisInt) << 
+  //"\t fhat:" << fhat << "\t histArea: " << histArea << endl;
+  //cout << diffArea << endl;
+
+  return diffArea;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_aacb93c77ab57e8ed2b6a1c581e60db5d}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-Integrand@{\-Lognormal\-Integrand}}
+\index{\-Lognormal\-Integrand@{\-Lognormal\-Integrand}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-Integrand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf \-Lognormal\-Integrand} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_aacb93c77ab57e8ed2b6a1c581e60db5d}
+
+
+\-Definition at line 1821 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::sqrt(), and itaylor\-::variable().
+
+
+
+\-Referenced by \-Lognormal\-Get\-L1error(), and \-Lognormal\-Riemann\-Term().
+
+
+\begin{DoxyCode}
+{ 
+  //cout << "-------Integrand: ---------" << endl;
+  itaylor PDF(itaylor::variable(interval(0,0), orderOf(x)));
+  
+  PDF = 1/x*1/sqrt(2*M_PI)*exp(-0.5*log(x)*log(x));
+
+  //cout << PDF[0] << endl;
+  
+  return PDF;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_af9a4802a471fb3809209d48e33864b6d}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-Integrate@{\-Lognormal\-Integrate}}
+\index{\-Lognormal\-Integrate@{\-Lognormal\-Integrate}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-Integrate}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Lognormal\-Integrate} (
+\begin{DoxyParamCaption}
+\item[{{\bf pfcn\-Lognormal}}]{f, }
+\item[{interval}]{\-X, }
+\item[{int}]{\-Deg, }
+\item[{double}]{\-Tol}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_af9a4802a471fb3809209d48e33864b6d}
+
+
+\-Definition at line 1942 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-Riemann\-Term().
+
+
+
+\-Referenced by \-Lognormal\-Get\-L1error().
+
+
+\begin{DoxyCode}
+{
+  //cout << "-------integrating over the domain -------------" << X << endl;
+  //cout << "get  riemann term of " << X << endl;
+  interval sum = LognormalRiemannTerm(f, X, Deg);
+  //cout << "sum: " << sum << "\t diam(sum):" << diam(sum) << "\t Tol: " << Tol
+       <<  endl;
+  
+  if ( diam(sum) <= Tol ) {
+    //cout << "Domain: " << X << "\t Sum: " << sum << endl;
+    return sum;
+  }
+  else {  
+    //cout << "*****diam(sum) > tol: inf(x), mid(x) + mid(x), sup(x)*****" <<
+       endl;
+    return LognormalIntegrate(f, interval(Inf(X), mid(X)), Deg, Tol/2) + \
+        LognormalIntegrate(f, interval(mid(X), Sup(X)), Deg, Tol/2);
+  }
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a2ad23089c1ee547e199a0e481a973f02}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-Newton@{\-Lognormal\-Newton}}
+\index{\-Lognormal\-Newton@{\-Lognormal\-Newton}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-Newton}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-Lognormal\-Newton} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{double}]{fhat}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a2ad23089c1ee547e199a0e481a973f02}
+
+
+\-Definition at line 1844 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-D\-F(), and \-Lognormal\-F().
+
+
+
+\-Referenced by \-Lognormalfind\-Root().
+
+
+\begin{DoxyCode}
+{
+  intervalw midX(mid(x));
+  return midX - LognormalF(midX)/LognormalDF(x);
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a6640f4518f5a29d2caa7dd15c3d05be0}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-P\-D\-F@{\-Lognormal\-P\-D\-F}}
+\index{\-Lognormal\-P\-D\-F@{\-Lognormal\-P\-D\-F}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-P\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ia\-\_\-ad} {\bf \-Lognormal\-P\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a6640f4518f5a29d2caa7dd15c3d05be0}
+
+
+\-Definition at line 1807 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::sqrt(), and ia\-\_\-ad\-::variable().
+
+
+
+\-Referenced by \-Lognormal\-D\-F(), and \-Lognormal\-F().
+
+
+\begin{DoxyCode}
+{
+  ia_ad PDF(ia_ad::variable(x));
+  
+  PDF = 1/x*1/sqrt(2*M_PI)*exp(-0.5*log(x)*log(x));
+  
+  return PDF;
+  
+  //cout << "Domain: " << x << "PDF: " << PDF << endl;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a41284dca34be2cdf1f056da340d15ea1}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Lognormal\-Riemann\-Term@{\-Lognormal\-Riemann\-Term}}
+\index{\-Lognormal\-Riemann\-Term@{\-Lognormal\-Riemann\-Term}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Lognormal\-Riemann\-Term}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Lognormal\-Riemann\-Term} (
+\begin{DoxyParamCaption}
+\item[{{\bf pfcn\-Laplace}}]{f, }
+\item[{interval}]{\-X, }
+\item[{int}]{\-Deg}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a41284dca34be2cdf1f056da340d15ea1}
+
+
+\-Definition at line 1920 of file errorfunc.\-cpp.
+
+
+
+\-References \-Lognormal\-Integrand(), taylor\-::pow(), and itaylor\-::variable().
+
+
+
+\-Referenced by \-Lognormal\-Integrate().
+
+
+\begin{DoxyCode}
+                                                                  {
+  
+  interval Mid = interval(mid(X));
+
+  // Taylor series...
+  // cout << "taylor series:" << endl;
+  itaylor fx  = LognormalIntegrand(itaylor::variable(Mid, Deg));
+  interval sum = fx[0]*(diam(X))/2;
+  for (int k = 2; k <= Deg; k += 2) 
+   { sum += fx[k]*pow((diam(X))/2, k + 1)/(k + 1); }
+
+  // Remainder term...
+  // cout << "remainder term: " << endl;
+  itaylor Fx  = LognormalIntegrand(itaylor::variable(X, Deg));
+  //cout << "Fx: " << Fx << endl;
+  interval eps = abs(Fx[Deg] - fx[Deg]); 
+  //cout << "eps: " << eps << endl;
+  sum += interval(-1.0*Sup(eps), Sup(eps))*pow((diam(X))/2, Deg + 1)/(Deg + 1);
+       
+
+  return 2*sum;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a61145b8e6b4bbb68339137b4b788bc92}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!make\-Regular\-Hist@{make\-Regular\-Hist}}
+\index{make\-Regular\-Hist@{make\-Regular\-Hist}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{make\-Regular\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf make\-Regular\-Hist} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{const {\bf \-R\-Vec\-Data} \&}]{rvec, }
+\item[{ivector}]{the\-Box, }
+\item[{int}]{bwmethod}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a61145b8e6b4bbb68339137b4b788bc92}
+
+
+\-Make a regular histogram (using \-Dominic's histogram.\-m file) 
+
+\-Make a regular histogram, i.\-e. histogram of equal width. \-Only for one-\/dimensional data. 
+
+\-Definition at line 272 of file errorfunc.\-cpp.
+
+
+
+\-References \-Reg\-Hist\-::binwidth, \-Reg\-Hist\-::heights, \-Reg\-Hist\-::\-Lower\-Boxes, my\-Std(), taylor\-::pow(), psi(), and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  // vector for heights
+  vector<double> heights;
+
+  size_t n = sortedData.size();
+  //cout << "there are " << n << " points." << endl;
+
+  // determine the bandwidth
+  double n3 = pow(n, -1.0/3.0); 
+  double n5 = pow(n, -0.2); 
+  double n7 = pow(n, -1.0/7.0);
+  //cout << "n3: " << n3 << "\tn5: " << n5 << "\tn7: " << n7 << endl;
+
+  /*
+  // put the data into a list to sort the data
+  RVecDataCItr rvecIt;
+  list<rvector> rvecList;
+  list<rvector>::iterator rvecListIt;
+  for (rvecIt = rvec.begin(); rvecIt < rvec.end(); rvecIt++){
+    rvector thisrv(1);
+    thisrv = *rvecIt;
+    rvecList.push_back(thisrv);
+  }
+  rvecList.sort(); //sort the data
+  RVecData sortedData; // put back into vector
+  for (rvecListIt = rvecList.begin(); rvecListIt != rvecList.end();
+       rvecListIt++)
+  { 
+    rvector thisrv(1);
+    thisrv = *rvecListIt;
+    sortedData.push_back(thisrv);
+  }
+  */
+  
+  // get the interquartile range
+  int upperQ = ceil(0.75*n);  //upper quartile
+  int lowerQ = ceil(0.25*n);  //lower quartile
+  double upperQx = _double((sortedData[upperQ-1])[1]);
+  double lowerQx = _double((sortedData[lowerQ-1])[1]);
+  double xiq = upperQx - lowerQx; // interquartile range
+
+  double xsd = myStd(sortedData);
+  // determine which sigma to use
+  double sigma;
+  if (xiq == 0) { sigma = xsd; }
+  else { sigma = min(xsd, (xiq/1.349)); }
+
+  // determine which bandwidth method to use
+  double bw = 0.0;
+  
+  cout << "determine which bandwidth method to use:" << endl;
+  // Scott if bwmethod == 0
+  if (bwmethod == 0) { bw = 3.4908 * sigma * n3; } 
+  // Wand's one stage if bwmethod == 1 
+  else if (bwmethod == 1) {
+    double g11 = 1.3041 * sigma * n5;
+    bw  = 1.8171 * pow(-psi(sortedData, g11, 2), (-1.0/3.0)) * n3;
+  }
+  // Wand's two stage if bwmethod == 2
+  else if (bwmethod == 2) {
+    double g22 = 1.2407 * sigma * n7;
+    double g21 = 0.9558 * pow((psi(sortedData,g22,4)),(-0.2)) * n5; 
+    bw  = 1.8171 * pow((-psi(sortedData,g21,2)),(-1.0/3.0)) * n3;
+  }
+
+  // Determine bin origin
+  //cout << "determine the bin origin" << endl;
+  rvector xmin = sortedData[0]; //the minimum value;
+  rvector xmax = sortedData[n-1]; //the maximum value
+  double xrange =  _double(xmax[1]) - _double(xmin[1]); // range of data  
+  int nbin  = ceil(xrange/ bw); // number of bins
+  real xoffset = _real((nbin * bw - xrange) / 2); // offset
+  rvector xlow = Inf(theBox);
+  rvector xupp = Sup(theBox);
+  real bbeg = max(xlow[1], xmin[1] - xoffset); // bin origin
+  real bend = min(xupp[1], xmax[1] + xoffset); // bin end
+  real bwR = (bend - bbeg) / (nbin*1.0); // binwidth
+  myRegHist.binwidth = bwR;
+
+  cout << "there are " << nbin << " bins" << endl;
+  int J = 0;
+  for (int i = 0; i < nbin; i++) {
+    // bin edges
+    myRegHist.LowerBoxes.push_back(bbeg + bwR*i);
+    myRegHist.UpperBoxes.push_back(bbeg + bwR*(i+1));
+
+    //cout << "getting the counts:" << endl;
+    size_t P = 0;
+    for (size_t j = J; j < n; j++) {
+      rvector thisrv(1);
+      thisrv = sortedData[j];
+      if (thisrv[1] >= (bbeg + bwR*i) && thisrv[1] < (bbeg + bwR*(i+1)) ) {
+        P += 1; // Count frequencies:
+      }
+      else { J = j+1; break; }
+    }
+    myRegHist.heights.push_back((P*1.0)/(n*1.0*_double(bwR)));  //height  
+  }
+}  
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a580064c722bc720f6dbe77e298b8f833}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!make\-Regular\-Hist@{make\-Regular\-Hist}}
+\index{make\-Regular\-Hist@{make\-Regular\-Hist}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{make\-Regular\-Hist}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf make\-Regular\-Hist} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{const {\bf \-R\-Vec\-Data} \&}]{sorted\-Data, }
+\item[{ivector}]{the\-Box, }
+\item[{double}]{bw}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a580064c722bc720f6dbe77e298b8f833}
+
+
+\-Definition at line 373 of file errorfunc.\-cpp.
+
+
+
+\-References \-Reg\-Hist\-::binwidth, \-Reg\-Hist\-::heights, \-Reg\-Hist\-::\-Lower\-Boxes, my\-Std(), and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+\begin{DoxyCode}
+{
+  // vector for heights
+  vector<double> heights;
+
+  size_t n = sortedData.size();
+  //cout << "there are " << n << " points." << endl;
+
+  /*
+  // put the data into a list to sort the data
+  RVecDataCItr rvecIt;
+  list<rvector> rvecList;
+  list<rvector>::iterator rvecListIt;
+  for (rvecIt = rvec.begin(); rvecIt < rvec.end(); rvecIt++){
+    rvector thisrv(1);
+    thisrv = *rvecIt;
+    rvecList.push_back(thisrv);
+  }
+  rvecList.sort(); //sort the data
+  RVecData sortedData; // put back into vector
+  for (rvecListIt = rvecList.begin(); rvecListIt != rvecList.end();
+       rvecListIt++)
+  { 
+    rvector thisrv(1);
+    thisrv = *rvecListIt;
+    sortedData.push_back(thisrv);
+  } */
+
+  // get the interquartile range
+  int upperQ = ceil(0.75*n);  //upper quartile
+  int lowerQ = ceil(0.25*n);  //lower quartile
+  double upperQx = _double((sortedData[upperQ-1])[1]);
+  double lowerQx = _double((sortedData[lowerQ-1])[1]);
+  double xiq = upperQx - lowerQx; // interquartile range
+
+  // determine which sigma to use
+  double xsd = myStd(sortedData); // standard deviation
+  double sigma;
+  if (xiq == 0) { sigma = xsd; }
+  else { sigma = min(xsd, (xiq/1.349)); }
+
+  // Determine bin origin
+  //cout << "determine the bin origin" << endl;
+  rvector xmin = sortedData[0]; //the minimum value;
+  rvector xmax = sortedData[n-1]; //the maximum value
+  double xrange =  _double(xmax[1]) - _double(xmin[1]); // range of data  
+  int nbin  = ceil(xrange/ bw); // number of bins
+  real xoffset = _real((nbin * bw - xrange) / 2); // offset
+  rvector xlow = Inf(theBox);
+  rvector xupp = Sup(theBox);
+  real bbeg = max(xlow[1], xmin[1] - xoffset); // bin origin
+  real bend = min(xupp[1], xmax[1] + xoffset); // bin end
+  real bwR = (bend - bbeg) / (nbin*1.0); // binwidth
+  myRegHist.binwidth = bwR;
+
+  int J = 0;
+  for (int i = 0; i < nbin; i++) {
+    // bin edges
+    myRegHist.LowerBoxes.push_back(bbeg + bwR*i);
+    myRegHist.UpperBoxes.push_back(bbeg + bwR*(i+1));
+
+    //cout << "getting the counts:" << endl;
+    size_t P = 0;
+    for (size_t j = J; j < n; j++) {
+      rvector thisrv(1);
+      thisrv = sortedData[j];           
+      if (thisrv[1] >= (bbeg + bwR*i) && thisrv[1] < (bbeg + bwR*(i+1)) ) {
+        P += 1; // Count frequencies:
+      }
+      else { J = j+1; break; }
+    }
+    myRegHist.heights.push_back((P*1.0)/(n*1.0*_double(bwR)));  //height  
+  }
+}  
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a64a6fd302dffeebb366383e265ea20f6}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!my\-Mean@{my\-Mean}}
+\index{my\-Mean@{my\-Mean}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{my\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf my\-Mean} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-R\-Vec\-Data} \&}]{rvec}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a64a6fd302dffeebb366383e265ea20f6}
+
+
+\-Get the mean of the data (this is used when building the regular histogram) 
+
+\-Get mean of \-R\-Vec\-Data 
+
+\-Definition at line 634 of file errorfunc.\-cpp.
+
+
+
+\-Referenced by my\-Std().
+
+
+\begin{DoxyCode}
+{
+  //cout << "getmean" << endl;
+  size_t n = rvec.size(); // number of points
+  // get the sum
+  double mySum = 0;
+  for (int i=0; i < n; i++){
+    rvector thisrv = rvec[i];
+    mySum += _double(thisrv[1]);
+  }
+   double theMean = mySum/n;
+  
+  return theMean; 
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a674756d3d6aae91356b22688a849bd0f}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!my\-Std@{my\-Std}}
+\index{my\-Std@{my\-Std}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{my\-Std}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf my\-Std} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-R\-Vec\-Data} \&}]{rvec}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a674756d3d6aae91356b22688a849bd0f}
+
+
+get the standard deviation of the data (this is used when building the regular histogram) 
+
+\-Get standard deviation of \-R\-Vec\-Data 
+
+\-Definition at line 651 of file errorfunc.\-cpp.
+
+
+
+\-References my\-Mean(), taylor\-::pow(), and taylor\-::sqrt().
+
+
+
+\-Referenced by main(), and make\-Regular\-Hist().
+
+
+\begin{DoxyCode}
+{
+  //cout << "get std dev" << endl;
+  size_t n = rvec.size(); // number of points
+  double theMean = myMean(rvec);
+  // get the sum of squares of the deviation
+  double mySquaredSum = 0;
+  for (int i=0; i < n; i++){
+    rvector thisrv = rvec[i];
+    mySquaredSum += pow(_double(thisrv[1]) - theMean, 2);
+  }
+  double theStd = sqrt(mySquaredSum/(n-1));
+  return theStd; 
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_abcd464084d71d1ca5caf89793fa1d050}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-N@{\-N}}
+\index{\-N@{\-N}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-N}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intervalw} {\bf \-N} (
+\begin{DoxyParamCaption}
+\item[{const {\bf intervalw} \&}]{x, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S, }
+\item[{double}]{fhat}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_abcd464084d71d1ca5caf89793fa1d050}
+
+
+\-Definition at line 1396 of file errorfunc.\-cpp.
+
+
+
+\-References \-D\-F(), and \-F().
+
+
+
+\-Referenced by find\-Root(), subpavings\-::\-Adaptive\-Histogram\-::get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample(), and subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-Interval\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+  intervalw midX(mid(x));
+  return midX - F(midX, W, M, S)/DF(x, W, M, S);
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_aad70f5031a514e5cc5799cda7e878258}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!output\-Reg\-Hist\-To\-Txt@{output\-Reg\-Hist\-To\-Txt}}
+\index{output\-Reg\-Hist\-To\-Txt@{output\-Reg\-Hist\-To\-Txt}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{output\-Reg\-Hist\-To\-Txt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output\-Reg\-Hist\-To\-Txt} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Reg\-Hist} \&}]{my\-Reg\-Hist, }
+\item[{std\-::string \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_aad70f5031a514e5cc5799cda7e878258}
+\-Output the regular histogram to .txt file 
+
+\-Definition at line 1366 of file errorfunc.\-cpp.
+
+
+
+\-References \-Reg\-Hist\-::heights, \-Reg\-Hist\-::\-Lower\-Boxes, and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  int prec = 5; // precision for output
+  ofstream os(s.c_str()); 
+  //output the nodeVolume, height, boxes
+  for (size_t i = 0; i < myRegHist.UpperBoxes.size(); i++) {
+    os << myRegHist.heights[i];
+    streamsize oldPrec = os.precision();
+    os << setprecision(prec);
+    // intervals of box using Inf and Sup
+    os << "\t" << myRegHist.LowerBoxes[i];
+    os << "\t" << myRegHist.UpperBoxes[i];
+    os << setprecision(oldPrec);
+    os << endl;
+  }
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_aeec9912b8816ad5b3a449f80f9e5d983}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!psi@{psi}}
+\index{psi@{psi}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{psi}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf psi} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-R\-Vec\-Data} \&}]{rvec, }
+\item[{double}]{g, }
+\item[{double}]{r}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_aeec9912b8816ad5b3a449f80f9e5d983}
+
+
+\-Function required for regular histogram. 
+
+\-Get psi (this is used when building the regular histogram). \-Reference\-: \-Wand \-M.\-P. (1997), \char`\"{}\-Data-\/based choice of histogram bin width\char`\"{}, \-American \-Statistician 51, 59-\/64\-: \-Equations (2.\-2), (4.\-1)-\/(4.\-4). 
+
+\-Definition at line 450 of file errorfunc.\-cpp.
+
+
+
+\-References gaussian(), and taylor\-::pow().
+
+
+
+\-Referenced by make\-Regular\-Hist().
+
+
+\begin{DoxyCode}
+{
+  // value to be returned by this function
+  double myPsi = 0;
+  
+  //sample size
+  int n = rvec.size();
+  
+  //put the sample into a vector<double>
+  //cout << "data in rvector type:" << endl;
+  //vector<double> theData;
+  for (int i=0; i < n; i++){
+    rvector thisrv = rvec[i];
+  //  cout << thisrv[1] << "\t";
+  }
+//  cout << "\n" << endl;
+  
+  //data-based value
+  double c = pow((double(n)),(-2)) * pow(g,(-r-1));
+   //cout << "C: " << c << endl;
+  
+   if (n < 1000) {       
+      vector<double> XX, XX2;
+      
+      for (int i = 0; i < n; i++) {
+        rvector rv1 = rvec[i];
+        for (int j=0; j < n; j++) {
+          rvector rv2 = rvec[j];    
+          XX.push_back((_double(rv2[1])-_double(rv1[1]))/g);      
+          XX2.push_back(pow((_double(rv2[1])-_double(rv1[1]))/g, 2));
+        }     
+      }
+    
+    // get the normal probability density values corresponding to X
+    vector<double> vecNPD;
+    vecNPD = gaussian(vecNPD, XX, 1);
+   
+    if (r == 2) {
+       for (int i = 0; i < XX2.size(); i++) {
+        myPsi += (XX2[i]-1)*vecNPD[i];
+      }
+      
+      myPsi *= c;
+    //  cout << "r=" << r << "\tmyPsi: " << myPsi << endl; 
+    } // end of r==2
+    
+    
+    else if (r == 4) {
+      for (int i = 0; i < XX2.size(); i++) {
+         double XX4 = XX2[i] * XX2[i];
+        myPsi += (XX4 - 6*XX2[i] + 3) * vecNPD[i];
+      }     
+      myPsi *= c;
+    //  cout << "r=" << r << "\tmyPsi: " << myPsi << endl; 
+    }
+    
+    else if (r == 6) {
+      for (int i = 0; i < XX2.size(); i++) {
+         double XX4 = XX2[i] * XX2[i];
+        double XX6 = XX4 * XX2[i];
+        myPsi += (XX6 - 15*XX4 + 45*XX2[i] - 15) * vecNPD[i];
+      }     
+      myPsi *= c;
+    //  cout << "r=" << r << "\tmyPsi: " << myPsi << endl; 
+    }
+    
+    else {
+      cout << "Error: Input r for Function PSI must be 2, 4 or 6." << endl;
+    }
+  
+  } // end of if n < 1000
+  
+  else { // n >= 1000   
+    rvector xmin = rvec[0]; //the minimum value;
+    rvector xmax = rvec[n-1]; //the maximum value
+    int m = 500; 
+    rvector d =  (xmax(1) - xmin(1)) / (m - 1);
+    
+    /*
+    rmatrix Data(n, 1);
+    rmatrix Ones(n, 1);
+    for (int i = 0; i < n; i++) {
+      Data[i+1][1] = (rvec[i][1] - xmin[1])/d[1];
+      Ones[i+1][1] = 1;
+    }*/
+
+    cout << "get c" << endl;
+    vector<rvector> C; 
+    for (int j = 0; j < m; j++) {
+
+      rvector indC(1);
+      indC[1] = 0;
+
+      /*rmatrix J(n, 1);
+      for (int i = 0; i < n; i++) {
+        J[i+1][1] = -j + 2;
+      }*/
+
+      //else { //cout << ((Ones - abs(Data + J)) >= 0) << endl; } 
+      for (int i=0; i < n; i++) {
+        rvector newX(1);
+        rvector thisrv = rvec[i];
+        newX[1] = thisrv[1] - xmin[1]; 
+        indC[1] += max((1 - abs((newX[1] / d[1]) - j + 1 + 1)), 0);
+      }
+        C.push_back(indC);
+      //}
+    }
+
+    cout << "get cc" << endl;
+    vector<rvector> CC;
+    for (int i = 0; i < C.size(); i++) {
+      for (int j=0; j < C.size(); j++) {
+        rvector thisrv(1);
+        thisrv[1] = C[j]*C[i];
+        CC.push_back(thisrv);
+      }
+    }
+    
+    cout << "get jj and jj2" << endl;
+    vector<double> JJ, JJ2;     
+    for (int i = 0; i < m; i++) {
+      rvector rv1(1);
+      rv1[1] = i;
+      for (int j=0; j < m; j++) {
+        rvector rv2(1);
+        rv2[1] = j;   
+        JJ.push_back(_double(d[1])*( _double(rv2[1]) - _double(rv1[1]))/g);     
+        JJ2.push_back(pow(_double(d[1])*(_double(rv2[1]) - _double(rv1[1]))/g, 
+      2));
+        //cout << "JJ: " << _double(d[1])*( _double(rv2[1]) -
+       _double(rv1[1]))/g << endl;
+      }     
+    }
+    
+    cout << "get gaussian" << endl;
+    vector<double> vecJJNPD;
+    vecJJNPD = gaussian(vecJJNPD, JJ,1);
+  
+    cout << "get cphi " << endl;
+    vector<double> CPhi;
+     for (int i = 0; i < vecJJNPD.size(); i++) {
+      rvector thisrv(1);
+      thisrv = CC[i];
+      CPhi.push_back(_double(thisrv[1])*vecJJNPD[i]);
+    }
+      
+    cout << "get psi " << endl;
+    if  (r == 2) {       
+      for (int i = 0; i < JJ2.size(); i++) {        
+        myPsi += ( JJ2[i] - 1) * CPhi[i];
+      }     
+      myPsi *= c;
+  //    cout << "r=" << r << "\tmyPsi: " << myPsi << endl; 
+    } // end of if r = 2
+     
+    else if (r == 4) {      
+      for (int i = 0; i < JJ2.size(); i++) {
+        double JJ4 = JJ2[i] * JJ2[i];
+        myPsi += (JJ4 - 6*JJ2[i] + 3) * CPhi[i];
+      }     
+      myPsi *= c;
+  //    cout << "r=" << r << "\tmyPsi: " << myPsi << endl; 
+    } // end of r = 4
+     
+    else if (r == 6) {
+      for (int i = 0; i < JJ2.size(); i++) {
+        double JJ4 = JJ2[i] * JJ2[i];
+        double JJ6 = JJ4 * JJ2[i];
+        myPsi += (JJ6 - 15*JJ4 + 45*JJ2[i] - 15) * CPhi[i];
+      }     
+      myPsi *= c;
+    //  cout << "r=" << r << "\tmyPsi: " << myPsi << endl; 
+    } // end of r =6 
+    
+    else {
+        cout << "Error: Input r for Function PSI must be 2, 4 or 6." << endl;
+      }    
+   } // end of n >= 1000    
+    
+    return myPsi;
+  } // end of function psi
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_ad7abf0d6b473ad78b1737a9e972395c2}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!riemann\-Term@{riemann\-Term}}
+\index{riemann\-Term@{riemann\-Term}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{riemann\-Term}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf riemann\-Term} (
+\begin{DoxyParamCaption}
+\item[{{\bf pfcn}}]{f, }
+\item[{interval}]{\-X, }
+\item[{int}]{\-Deg, }
+\item[{vector$<$ double $>$ \&}]{\-W, }
+\item[{vector$<$ double $>$ \&}]{\-M, }
+\item[{vector$<$ double $>$ \&}]{\-S}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_ad7abf0d6b473ad78b1737a9e972395c2}
+
+
+\-Definition at line 1462 of file errorfunc.\-cpp.
+
+
+
+\-References f(), taylor\-::pow(), and itaylor\-::variable().
+
+
+
+\-Referenced by integrate().
+
+
+\begin{DoxyCode}
+                                              {
+  
+  interval Mid = interval(mid(X));
+
+  // Taylor series...
+  // cout << "taylor series:" << endl;
+  itaylor fx  = f(itaylor::variable(Mid, Deg), W, M, S);
+  interval sum = fx[0]*(diam(X))/2;
+  for (int k = 2; k <= Deg; k += 2) 
+   { sum += fx[k]*pow((diam(X))/2, k + 1)/(k + 1); }
+
+  // Remainder term...
+  // cout << "remainder term: " << endl;
+  itaylor Fx  = f(itaylor::variable(X, Deg), W, M, S);
+  //cout << "Fx: " << Fx << endl;
+  interval eps = abs(Fx[Deg] - fx[Deg]); 
+  //cout << "eps: " << eps << endl;
+  sum += interval(-1.0*Sup(eps), Sup(eps))*pow((diam(X))/2, Deg + 1)/(Deg + 1);
+       
+
+  return 2*sum;
+}
+\end{DoxyCode}
+\hypertarget{errorfunc_8cpp_a77af86554abcee2e013b9d8631ed4c5f}{\index{errorfunc.\-cpp@{errorfunc.\-cpp}!\-Rosen\-O\-P@{\-Rosen\-O\-P}}
+\index{\-Rosen\-O\-P@{\-Rosen\-O\-P}!errorfunc.cpp@{errorfunc.\-cpp}}
+\paragraph[{\-Rosen\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf d2t} {\bf \-Rosen\-O\-P} (
+\begin{DoxyParamCaption}
+\item[{{\bf d2tv}}]{\-X, }
+\item[{interval}]{fhat}
+\end{DoxyParamCaption}
+)}}\label{errorfunc_8cpp_a77af86554abcee2e013b9d8631ed4c5f}
+
+
+\-I\-A\-E for a \-Rosenbrock 2\-D. 
+
+\-The integral of the absolute error for a \-Rosenbrock 2\-D. 
+
+\-Definition at line 129 of file errorfunc.\-cpp.
+
+
+
+\-References taylor\-::exp(), f(), \-Height, taylor\-::init\-\_\-const(), taylor\-::sqr(), and \-Tinverse.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-I\-A\-E(), and subpavings\-::\-Adaptive\-Histogram\-::get\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+  //cout << "Calling RosenOP: " << endl;
+  // Parameters specific to the Rosenbrock 2D target 
+  real Tinverse = 1.0;
+  real Height = 100.0;
+  
+  d2t f = taylor::init_const(X[1].order(),interval(0.0));
+  for (int i = 1; i < 2; i++) //2nd term should be size_k
+    {
+      f = f + (Height * sqr(X[i+1] - sqr(X[i])) +
+        sqr(X[i] - 1.0));
+    }
+  f = exp (-(Tinverse * f));
+
+  //integrand  
+  d2t result = taylor::init_const(X[1].order(),interval(0.0));
+  //split the integrand to get positive values only (absolute values) 
+  if ( (Sup(f[0][0]) < Inf(fhat)) ) {   
+    result = fhat - f;
+    //cout << "fhat - f: " << result[0][0] << "\n" << endl;
+  }  
+  else if ((Sup(f[0][0]) > Inf(fhat))) { 
+     result = f - fhat; 
+    //cout << "f-fhat: " << result[0][0] << "\n" << endl;
+  }   
+  return result;
+}
+\end{DoxyCode}

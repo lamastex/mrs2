@@ -1,0 +1,350 @@
+\hypertarget{classFShiryaev1D}{\subsection{\-F\-Shiryaev1\-D \-Class \-Reference}
+\label{classFShiryaev1D}\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}}
+}
+
+
+one-\/dimensional \-Shiryaev density as a function object class  
+
+
+
+
+{\ttfamily \#include $<$\-F\-Shiryaev1\-D.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-Shiryaev1\-D\-:
+
+
+\-Collaboration diagram for \-F\-Shiryaev1\-D\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFShiryaev1D_a777dc6438cdc40a0c93dedfc491900f3}{\-F\-Shiryaev1\-D} (real \hyperlink{classFShiryaev1D_a6ad03231ef56eaa821a14088c28e5301}{aa}, real \hyperlink{classFShiryaev1D_a60d3bffaae43ec10e8204ba1bed5f708}{cc}, real \hyperlink{LevyFobj2D_8cpp_ae28a2599911ae746bc33211d3ea52aaf}{\-Domain\-Limit}, bool \-Log\-Pi, int \-Prior)
+\item 
+interval \hyperlink{classFShiryaev1D_a8e4ea007da7c37a1491f56fe663b7437}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+real \hyperlink{classFShiryaev1D_af6742131d4d7acf6327d757a112b35ee}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFShiryaev1D_a18052485756b302b7ac397355f6fc48c}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box \end{DoxyCompactList}\item 
+int \hyperlink{classFShiryaev1D_a3012ae56329e3f2e9bf34cec1db2aceb}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFShiryaev1D_a893357913c92294604f237dcb1117a6c}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{classFShiryaev1D_a6ad03231ef56eaa821a14088c28e5301}{aa}
+\item 
+real \hyperlink{classFShiryaev1D_a60d3bffaae43ec10e8204ba1bed5f708}{cc}
+\item 
+interval \hyperlink{classFShiryaev1D_a66f8360cc03dd1361ceb124fc15c0d91}{\-A\-A}
+\item 
+interval \hyperlink{classFShiryaev1D_a4da3224ab754db6253a91b2f50c48bd7}{\-C\-C}
+\item 
+int \hyperlink{classFShiryaev1D_a883a026ce025e27ad577d7119aec3d5b}{n\-\_\-interval\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFShiryaev1D_a509bc24aebc78394aeb8181620fa6c72}{n\-\_\-real\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+one-\/dimensional \-Shiryaev density as a function object class 
+
+\-Definition at line 34 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFShiryaev1D_a777dc6438cdc40a0c93dedfc491900f3}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}}
+\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{\-F\-Shiryaev1\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Shiryaev1\-D\-::\-F\-Shiryaev1\-D} (
+\begin{DoxyParamCaption}
+\item[{real}]{aa, }
+\item[{real}]{cc, }
+\item[{real}]{\-Domain\-Limit, }
+\item[{bool}]{\-Log\-Pi, }
+\item[{int}]{\-Prior}
+\end{DoxyParamCaption}
+)}}\label{classFShiryaev1D_a777dc6438cdc40a0c93dedfc491900f3}
+
+
+\-Definition at line 46 of file \-F\-Shiryaev1\-D.\-cpp.
+
+
+
+\-References aa, \-A\-A, \-Lab\-Box\-::\-Box, cc, \-C\-C, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, \-Fobj\-::\-Prior\-Type, and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+:
+aa (A),
+cc(E)
+{
+  setUsingLogDensity (LogPi);
+  PriorType = Prior;
+  if(PriorType!=0)
+  {
+    cerr << "Only uniform prior defined here... Reset to Uniform Prior\n";
+    PriorType=0;
+  }
+  AA = _interval (aa);
+  CC = _interval(cc);
+  ivector domain (1, 1);
+  LabBox Ldomain;
+  domain[1] = interval (0.0000000000001, DomainLimit);
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  LabDomainList.push_back (Ldomain);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFShiryaev1D_a3012ae56329e3f2e9bf34cec1db2aceb}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Shiryaev1\-D\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFShiryaev1D_a3012ae56329e3f2e9bf34cec1db2aceb}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 50 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-References n\-\_\-interval\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_interval_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFShiryaev1D_a893357913c92294604f237dcb1117a6c}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Shiryaev1\-D\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFShiryaev1D_a893357913c92294604f237dcb1117a6c}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 55 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-References n\-\_\-real\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_real_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFShiryaev1D_a18052485756b302b7ac397355f6fc48c}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-Shiryaev1\-D\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFShiryaev1D_a18052485756b302b7ac397355f6fc48c}
+
+
+a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box 
+
+get the default volume (\-Lebesgue) of a labeled box
+
+derived classes inherit interface and default behavior see \mbox{[}\-Item 34,\-P.\-166, \-Meyers, \-Effective \-C++\mbox{]}
+
+an inline definition of the pure virtual function for default \-Lebesgue measure (volume) of a labeled box 
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 48 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+\begin{DoxyCode}
+{return Fobj::LabBoxVolume(LB);}
+\end{DoxyCode}
+\hypertarget{classFShiryaev1D_a8e4ea007da7c37a1491f56fe663b7437}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-Shiryaev1\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFShiryaev1D_a8e4ea007da7c37a1491f56fe663b7437}
+
+
+a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} 
+
+\-Derived classes inherit interface only see \mbox{[}\-Item 34,\-P.\-162, \-Meyers, \-Effective \-C++\mbox{]} 
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 70 of file \-F\-Shiryaev1\-D.\-cpp.
+
+
+
+\-References \-A\-A, \-B\-B, \-Lab\-Box\-::\-Box, \-C\-C, taylor\-::exp(), taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-interval\-\_\-calls, \-P\-I, taylor\-::pow(), taylor\-::sin(), taylor\-::tan(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_interval_calls++;
+  ivector Box = X.Box;
+                    //, z=Ub(Box);
+  size_t a = Lb (Box);
+  //interval Nc = pow(AA, 1.0/BB) / GAMMA1PLUS1OVERBB;
+  interval aXtoL = AA * pow (Box[a], BB);
+  //interval result = 
+  // Nc * exp(- aXtoL) * (1.0 + (CC * sin( aXtoL * tan( BB * PI) )));
+  interval result =
+    exp (-aXtoL) * (1.0 + (CC * sin (aXtoL * tan (BB * PI))));
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+\hypertarget{classFShiryaev1D_af6742131d4d7acf6327d757a112b35ee}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-Shiryaev1\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-L\-P}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFShiryaev1D_af6742131d4d7acf6327d757a112b35ee}
+
+
+a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 87 of file \-F\-Shiryaev1\-D.\-cpp.
+
+
+
+\-References aa, bb, cc, taylor\-::exp(), taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-real\-\_\-calls, \-Pi, \-Lab\-Pnt\-::\-Pnt, taylor\-::pow(), taylor\-::sin(), taylor\-::tan(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_real_calls++;
+  rvector Pnt = X.Pnt;
+                    //, z=Ub(Pnt);
+  size_t a = Lb (Pnt);
+  //real Nc = pow(aa, 1.0/bb) / Gamma1plus1overbb;
+  real aXtoL = aa * pow (Pnt[a], bb);
+  //real result = Nc * exp(- aXtoL) * 
+  //              (1.0 + (cc * sin( aXtoL * tan( bb * Pi) )));
+  real result =
+    exp (-aXtoL) * (1.0 + (cc * sin (aXtoL * tan (bb * Pi))));
+  //assert( result < 1.0 );
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFShiryaev1D_a6ad03231ef56eaa821a14088c28e5301}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!aa@{aa}}
+\index{aa@{aa}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{aa}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Shiryaev1\-D\-::aa}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFShiryaev1D_a6ad03231ef56eaa821a14088c28e5301}
+
+
+\-Definition at line 36 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-Referenced by \-F\-Shiryaev1\-D(), and operator()().
+
+\hypertarget{classFShiryaev1D_a66f8360cc03dd1361ceb124fc15c0d91}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!\-A\-A@{\-A\-A}}
+\index{\-A\-A@{\-A\-A}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{\-A\-A}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-F\-Shiryaev1\-D\-::\-A\-A}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFShiryaev1D_a66f8360cc03dd1361ceb124fc15c0d91}
+
+
+\-Definition at line 38 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-Referenced by \-F\-Shiryaev1\-D(), and operator()().
+
+\hypertarget{classFShiryaev1D_a60d3bffaae43ec10e8204ba1bed5f708}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!cc@{cc}}
+\index{cc@{cc}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{cc}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Shiryaev1\-D\-::cc}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFShiryaev1D_a60d3bffaae43ec10e8204ba1bed5f708}
+
+
+\-Definition at line 37 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-Referenced by \-F\-Shiryaev1\-D(), and operator()().
+
+\hypertarget{classFShiryaev1D_a4da3224ab754db6253a91b2f50c48bd7}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!\-C\-C@{\-C\-C}}
+\index{\-C\-C@{\-C\-C}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-F\-Shiryaev1\-D\-::\-C\-C}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFShiryaev1D_a4da3224ab754db6253a91b2f50c48bd7}
+
+
+\-Definition at line 39 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-Referenced by \-F\-Shiryaev1\-D(), and operator()().
+
+\hypertarget{classFShiryaev1D_a883a026ce025e27ad577d7119aec3d5b}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Shiryaev1\-D\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFShiryaev1D_a883a026ce025e27ad577d7119aec3d5b}
+
+
+\-Track number of interval function calls. 
+
+
+
+\-Definition at line 41 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-Referenced by get\-\_\-interval\-\_\-calls(), and operator()().
+
+\hypertarget{classFShiryaev1D_a509bc24aebc78394aeb8181620fa6c72}{\index{\-F\-Shiryaev1\-D@{\-F\-Shiryaev1\-D}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FShiryaev1D@{\-F\-Shiryaev1\-D}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Shiryaev1\-D\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFShiryaev1D_a509bc24aebc78394aeb8181620fa6c72}
+
+
+\-Track number of real function calls. 
+
+
+
+\-Definition at line 43 of file \-F\-Shiryaev1\-D.\-hpp.
+
+
+
+\-Referenced by get\-\_\-real\-\_\-calls(), and operator()().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FShiryaev1D_8hpp}{\-F\-Shiryaev1\-D.\-hpp}\item 
+\hyperlink{FShiryaev1D_8cpp}{\-F\-Shiryaev1\-D.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,264 @@
+\hypertarget{ImageSetDiff_8cpp}{\subsection{\-Image\-Set\-Diff.\-cpp \-File \-Reference}
+\label{ImageSetDiff_8cpp}\index{\-Image\-Set\-Diff.\-cpp@{\-Image\-Set\-Diff.\-cpp}}
+}
+
+
+\-Image \-Set \-Differences example.  
+
+
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}spnodeall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Image\-Set\-Diff.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ImageSetDiff_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\item 
+bool \hyperlink{ImageSetDiff_8cpp_ab26ccdeacd30f342d9c257010f58fb1d}{get\-Paving\-And\-Name} (string folder, string line, \hyperlink{namespacesubpavings_ad64ec5e254ada5d913b9f7b46dcddc49}{\-S\-Pnode\-Ptrs} \&roots, vector$<$ string $>$ \&names)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Image \-Set \-Differences example. 
+
+\-Definition in file \hyperlink{ImageSetDiff_8cpp_source}{\-Image\-Set\-Diff.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{ImageSetDiff_8cpp_ab26ccdeacd30f342d9c257010f58fb1d}{\index{\-Image\-Set\-Diff.\-cpp@{\-Image\-Set\-Diff.\-cpp}!get\-Paving\-And\-Name@{get\-Paving\-And\-Name}}
+\index{get\-Paving\-And\-Name@{get\-Paving\-And\-Name}!ImageSetDiff.cpp@{\-Image\-Set\-Diff.\-cpp}}
+\paragraph[{get\-Paving\-And\-Name}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf get\-Paving\-And\-Name} (
+\begin{DoxyParamCaption}
+\item[{string}]{folder, }
+\item[{string}]{line, }
+\item[{{\bf \-S\-Pnode\-Ptrs} \&}]{roots, }
+\item[{vector$<$ string $>$ \&}]{names}
+\end{DoxyParamCaption}
+)}}\label{ImageSetDiff_8cpp_ab26ccdeacd30f342d9c257010f58fb1d}
+
+
+\-Definition at line 203 of file \-Image\-Set\-Diff.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+    bool success = false;
+    string spaces = " \t";
+
+    size_t firstNonSpace = line.find_first_not_of(spaces);
+    if (firstNonSpace != string::npos) {
+
+        size_t firstSpace = line.find_first_of(spaces, firstNonSpace);
+        // get the filename
+        string fname = line.substr(firstNonSpace, firstSpace-firstNonSpace);
+        // try to make the paving
+        string fullfilename = folder + fname;
+        SPnode* spn = SPnode::vtkPaving(fullfilename);
+
+        if (spn != NULL) {
+            // put the root into the vector of roots
+            roots.push_back(spn);
+            success = true;
+            // try to get the file name as well
+            string rootName = "";
+            if (firstSpace != string::npos) {
+                size_t nextNonSpace =
+                    line.find_first_not_of(spaces, firstSpace);
+                    if (nextNonSpace != string::npos) {
+                        size_t nextSpace =
+                            line.find_first_of(spaces, nextNonSpace);
+                        rootName = line.substr(nextNonSpace,
+                                        nextSpace-nextNonSpace);
+                    }
+            }
+            names.push_back(rootName);
+        }
+    }
+    return success;
+}
+\end{DoxyCode}
+\hypertarget{ImageSetDiff_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Image\-Set\-Diff.\-cpp@{\-Image\-Set\-Diff.\-cpp}!main@{main}}
+\index{main@{main}!ImageSetDiff.cpp@{\-Image\-Set\-Diff.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ImageSetDiff_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 38 of file \-Image\-Set\-Diff.\-cpp.
+
+
+
+\-References get\-Paving\-And\-Name(), and subpavings\-::sp\-Volume().
+
+
+\begin{DoxyCode}
+{
+
+    // read a file of filenames and make a subpaving for each file
+    string folder = "../h0.2vtk/";
+    string filename = "h0.2vtk_files.txt";
+    //set up the file and read input line by line
+    // we need to convert the string argument to a c-string for ifstream
+    string fullfilename = folder+filename;
+    ifstream dataFile(fullfilename.c_str());
+
+    size_t files = 0; // how many files read in
+
+    SPnodePtrs vtkRoots;    // a container for pointers to the root nodes
+    vector<string> vtkNames; // a container for the names
+
+    string line;
+
+    if (dataFile.is_open()) {
+        // count the lines in the file
+        while (dataFile.good() )
+        {
+            getline (dataFile,line);
+            files++;  // count number of lines in the file
+        }
+        files--;
+
+        vtkRoots.reserve(files);
+        vtkNames.reserve(files);
+
+        dataFile.clear(); // reset the flags on the file
+        dataFile.seekg(0, ios::beg); // and put file pointer to start
+
+        // starting from the beginning again, get the filename and name
+        bool success = true;
+        // stops if any root node is not added to the container
+        while (dataFile.good() && success)
+        {
+            getline (dataFile,line);
+            // fill in the container of root node pointers and names
+            success = getPavingAndName(folder, line, vtkRoots, vtkNames);
+        }
+
+
+        if (files == vtkRoots.size()) {
+            cout << "Have read in " << files << " files" << endl;
+            cout << "Starting to compute differences matrix ..." << endl;
+            // Make a matrix of comparisons between the suppavings.
+            // If matrix is indexed with i for the rows, j for the columns
+            // element at (i,j) is a vector summarising the differences
+            // between image i and j which I have done here as 3 elements:
+            // <intersection i&J volume, vol of diff i-j, vol of diff j-i>
+            // and the matrix is almost symmetric except that element at (j,i)
+            // is <intersection i&j volume, vol of diff j-i, vol of diff i-j>
+
+            // But to save space, only actually hold the bottom diagonal half
+            // of the matrix and don't include the diagonal itself.
+            // This reduces what we have to hold from nxn to n(n-1)/2
+            // and means that the difference between elements i and j, i!=j,
+            // is at position [i(1+1)/2 + j] in the vector
+
+            vector< vector<double> > differencesMatrix;
+            differencesMatrix.reserve(files*(files-1)/2);
+            size_t toStore = 3; // elements to store for each difference
+
+            for (int i = 1; i < files; i++) {
+                for (int j = 0; j < i; j++) {
+                    //cout << " i = " << i << ", j = " << j << endl;
+                    vector<double> theseDifferences;
+                    theseDifferences.reserve(toStore);
+
+                    SPnode* inter = SPnode::spLeafBoxIntersection(vtkRoots[i],
+                        vtkRoots[j]);
+                    double vol_inter = 0;
+                    if (inter != NULL) vol_inter = spVolume(inter);
+
+                    SPnode* diff_i_j = SPnode::spLeafBoxDifference(vtkRoots[i],
+                        vtkRoots[j]);
+                    double vol_diff_i_j = 0;
+                    if (diff_i_j != NULL) vol_diff_i_j = spVolume(diff_i_j);
+
+                    SPnode* diff_j_i = SPnode::spLeafBoxDifference(vtkRoots[j],
+                        vtkRoots[i]);
+                    double vol_diff_j_i = 0;
+                    if (diff_j_i != NULL) vol_diff_j_i = spVolume(diff_j_i);
+
+                    theseDifferences.push_back(vol_inter);
+                    theseDifferences.push_back(vol_diff_i_j);
+                    theseDifferences.push_back(vol_diff_j_i);
+                    differencesMatrix[(i*(i-1))/2 + j] = theseDifferences;
+
+                    delete(inter);
+                    delete(diff_i_j);
+                    delete(diff_j_i);
+                }
+            }
+            cout << "Finished differences matrix, starting output ..." << endl;
+
+            string header = "i \t j \t i&j \t diff i\\j \t diff j\\i \n";
+            string filename = "ImageSetDiffOutput.txt";
+            ofstream os;
+            os.open(filename.c_str()); // don't append
+            if (os.is_open()) {
+                os << header;
+                os.close();
+            }
+            else {
+                std::cout << "Error: could not open file named "
+                    << filename << std::endl << std::endl;
+            }
+            // print out 'matrix' to file
+            os.open(filename.c_str(), ios::app); // append to file
+            if (os.is_open()) {
+                for (int i = 1; i < files; i++) {
+                    for (int j = 0; j < i; j++) {
+                        vector<double> thisDiff
+                                        = differencesMatrix[(i*(i-1))/2 + j];
+                        //convert values to a string
+                        std::ostringstream stm;
+                        stm << i << "\t" << j << "\t" << thisDiff[0] << "\t"
+                                << thisDiff[1] << "\t" << thisDiff[2] << "\n";
+
+                        os << stm.str();
+                    }
+                }
+            }
+            else {
+                std::cout << "Error: could not open file named "
+                    << filename << std::endl << std::endl;
+            }
+            os.close();
+            cout << "Finished output - look for file " << filename << endl;
+
+        }
+
+        else cout << vtkRoots.size() << " read in: expected "
+                    << files << " files" << endl;
+
+
+    }
+
+    else
+    {
+        std::cout << "Error in main: "
+            << "Unable to open file " << fullfilename << std::endl;
+    }
+  /*
+            // To realize a file output of the SubPaving Sc
+            ofstream os("newtree.txt");            // Filename
+            newTree->leavesOutputTabs(os);             // Image SubPaving
+       itself
+            delete(newTree);
+  */
+
+    // delete the pavings
+    SPnodePtrsItr dit;
+    for (dit = vtkRoots.begin(); dit < vtkRoots.end(); dit++) {
+       delete(*dit);
+    }
+        return 0;
+} // end of image set differences program
+\end{DoxyCode}

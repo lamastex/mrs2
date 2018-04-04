@@ -1,0 +1,517 @@
+\hypertarget{MappedSPSamplingTest_8cpp}{\subsection{\-Mapped\-S\-P\-Sampling\-Test.\-cpp \-File \-Reference}
+\label{MappedSPSamplingTest_8cpp}\index{\-Mapped\-S\-P\-Sampling\-Test.\-cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}}
+}
+
+
+\-Mapped\-S\-Pnode example for \-Gaussian objects main.  
+
+
+{\ttfamily \#include \char`\"{}\-Rosen\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Rosen\-Fobj10\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj1\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj9\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj10\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj100\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnodevisitor\-\_\-expand.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-C\-M\-C\-G\-Rtools.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$cassert$>$}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}auto\-\_\-tools.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLexicoSorting}{\-Lexico\-Sorting$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{MappedSPSamplingTest_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\-M\-Y\-D\-E\-B\-U\-G}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MappedSPSamplingTest_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+void \hyperlink{MappedSPSamplingTest_8cpp_a2ebd3788007a04909c0805d18f7cc302}{get\-All\-Weights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ double $>$ \&\-Weights\-Vector, vector$<$ interval $>$ \&\-Weights\-Int)
+\item 
+void \hyperlink{MappedSPSamplingTest_8cpp_a071c6769f9c807ff0719ce7470b94a86}{get\-Height\-And\-Box} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ ivector $>$ \&\-Box\-Vector, vector$<$ real $>$ \&\-Heights\-Vector)
+\item 
+void \hyperlink{MappedSPSamplingTest_8cpp_aaccdd027128215abfb51d30ca3bfc190}{norm\-Heights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, double total\-Area, vector$<$ \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ real $>$ $>$ \&height\-Norm)
+\item 
+int \hyperlink{MappedSPSamplingTest_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Mapped\-S\-Pnode example for \-Gaussian objects main. 
+
+\-Definition in file \hyperlink{MappedSPSamplingTest_8cpp_source}{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}.
+
+
+
+\subsubsection{\-Define \-Documentation}
+\hypertarget{MappedSPSamplingTest_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\index{\-Mapped\-S\-P\-Sampling\-Test.\-cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}!\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}}
+\index{\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}!MappedSPSamplingTest.cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}}
+\paragraph[{\-M\-Y\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-Y\-D\-E\-B\-U\-G}}}\label{MappedSPSamplingTest_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}
+
+
+\-Definition at line 41 of file \-Mapped\-S\-P\-Sampling\-Test.\-cpp.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MappedSPSamplingTest_8cpp_a2ebd3788007a04909c0805d18f7cc302}{\index{\-Mapped\-S\-P\-Sampling\-Test.\-cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}!get\-All\-Weights@{get\-All\-Weights}}
+\index{get\-All\-Weights@{get\-All\-Weights}!MappedSPSamplingTest.cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}}
+\paragraph[{get\-All\-Weights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-All\-Weights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ double $>$ \&}]{\-Weights\-Vector, }
+\item[{vector$<$ interval $>$ \&}]{\-Weights\-Int}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingTest_8cpp_a2ebd3788007a04909c0805d18f7cc302}
+
+
+\-Definition at line 84 of file \-Mapped\-S\-P\-Sampling\-Test.\-cpp.
+
+
+
+\-References get\-All\-Weights(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Weights(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     //get the weights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getWeights(WeightsVector, WeightsInt, thisNodePtr->nodeVolume(
+      ));
+  }
+
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getAllWeights(thisNodePtr->getLeftChild(), WeightsVector, WeightsInt);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getAllWeights(thisNodePtr->getRightChild(), WeightsVector, WeightsInt);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingTest_8cpp_a071c6769f9c807ff0719ce7470b94a86}{\index{\-Mapped\-S\-P\-Sampling\-Test.\-cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}!get\-Height\-And\-Box@{get\-Height\-And\-Box}}
+\index{get\-Height\-And\-Box@{get\-Height\-And\-Box}!MappedSPSamplingTest.cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}}
+\paragraph[{get\-Height\-And\-Box}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-Height\-And\-Box} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ ivector $>$ \&}]{\-Box\-Vector, }
+\item[{vector$<$ real $>$ \&}]{\-Heights\-Vector}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingTest_8cpp_a071c6769f9c807ff0719ce7470b94a86}
+
+
+\-Definition at line 104 of file \-Mapped\-S\-P\-Sampling\-Test.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Height(), get\-Height\-And\-Box(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     //push back this box into the BoxVector
+     BoxVector.push_back(thisNodePtr->getBox());
+     
+     //get the heights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getHeight(HeightsVector);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getHeightAndBox(thisNodePtr->getLeftChild(), BoxVector, HeightsVector);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getHeightAndBox(thisNodePtr->getRightChild(), BoxVector, HeightsVector);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingTest_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Mapped\-S\-P\-Sampling\-Test.\-cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}!main@{main}}
+\index{main@{main}!MappedSPSamplingTest.cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingTest_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 147 of file \-Mapped\-S\-P\-Sampling\-Test.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), \-Draw\-Unif\-Box(), get\-All\-Weights(), get\-Height\-And\-Box(), norm\-Heights(), output(), and taylor\-::pow().
+
+
+\begin{DoxyCode}
+{
+  //========user-defined parameters====================//
+  size_t n=atoi(argv[1]);  // number of datapoints to generate for each
+       histogram
+  int d = atoi(argv[2]); // dimensions
+  size_t numHist = atoi(argv[3]); // number of repetitions for simulation
+       purposes
+  
+  //  for generating samples from MappedSPnode 
+  // ensure max leaves is < 1E6 or something reasonable
+  size_t maxLeaves = atoi(argv[4]);
+  
+  // for the MCMC run
+  int maxLoops = atoi(argv[5]); // maximum changes of state from initial state
+       to try
+  int samplesNeeded = atoi(argv[6]); // how many samples do we want (ie once
+       chains have burned in)
+  int thinout = atoi(argv[7]); // sample every thinout state, ie thinout-1
+       states between samples
+  
+  real tolerance = atof(argv[8]);
+  cxsc::real tol(tolerance); //tolerance for automated burn in criteria
+  
+  size_t minPoints = atoi(argv[9]); 
+
+  int dataSeed = atoi(argv[10]);
+  
+  double maxLeaf = atof(argv[11]);
+  
+  // should really do more checks on parameters, but just check thinout here
+  if (thinout < 1 ) {
+    throw std::invalid_argument("Invalid thinout argument");
+  }
+
+  // use the cxsc manipulators for changing printing of cxsc::reals to console
+  int prec = 15;
+  cout << cxsc::SaveOpt;
+  cout << cxsc::Variable;
+  cout << cxsc::SetPrecision(prec+2, prec);
+
+  //string formatting
+  ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(10);
+
+  //=========set up to estimate the function==============================// 
+  // Function object
+//  GaussianFobj1D realF;
+//  GaussianFobj2D realF;
+   GaussianFobj9D realF;
+//   GaussianFobj10D realF;
+  //RosenFobj2D realF;
+  //RosenFobj10D realF;
+
+  //make a root box
+  ivector pavingBox(d);
+//  interval pavingInterval(-3,3);
+//  interval pavingInterval(-10,10);
+  interval pavingInterval(-6.5,7.5);
+  for(int k=1; k <= d; k++) pavingBox[k] = pavingInterval;
+  
+   RealMappedSPnode nodeEst(pavingBox); // make a MappedSPnode object
+    // estimate the function
+   MappedSPnodeVisitorExpand expander(realF, 0);
+   
+   vector<real> epsVec;
+   
+   //RealMappedSPnode nodeEst1(pavingBox);
+   //nodeEst1.accept(expander);
+   
+   nodeEst.priorityAccept(expander, maxLeaves, epsVec);
+
+  string avgL1FileName = "Eps";
+  avgL1FileName += ".txt";
+  oss.open(avgL1FileName.c_str());
+    for (size_t i = 0; i < epsVec.size(); i++) { 
+      //cout << epsVec[i] << endl;
+      oss << epsVec[i] << "\n";
+    }
+    oss << flush;
+    oss.close();
+
+   cout << "Estimate function has " << nodeEst.getNumLeaves() << " leaf nodes."
+       << endl;
+   
+   //RealMappedSPnode nodeEst1;
+   //nodeEst1 = nodeEst;
+   
+   //RealMappedSPnode diff = nodeEst1 - nodeEst;
+   
+   //output to .txt  
+  //tring thefilename = "Est.txt";
+  //utput(thefilename, nodeEst);
+
+  //=======================================================================//
+  
+  //==================Get the weights of the boxes=========================//
+   cout << "Getting boxes and weights:" << endl;
+    vector<ivector> BoxVector;
+   vector<real> HeightsVector;
+   RealMappedSPnode* nodePtr;
+   nodePtr = &nodeEst;
+   vector<double>* WeightsVectorPtr;
+   WeightsVectorPtr = new vector<double>;
+   vector<interval>* WeightsIntPtr;
+   WeightsIntPtr = new vector<interval>;
+   
+   // iterate through the leaf nodes to get boxes and heights and weights
+   getHeightAndBox(nodePtr, BoxVector, HeightsVector);
+   getAllWeights(nodePtr, *WeightsVectorPtr, *WeightsIntPtr);
+   
+   //now put elements of WeightsVector into an array of doubles
+   size_t sizeWeight =(*WeightsVectorPtr).size();
+   //check that number of boxes < 10^6
+   if (sizeWeight > pow(10,7)) { 
+      cerr << "Too many boxes (" << sizeWeight << ")." << endl;
+      exit(1);
+   }
+
+  // normalize using heights
+  interval areaInt = interval(0);
+   //normalize the heights so that the function integrates to 1
+   for (size_t i = 0; i < sizeWeight; i++) {
+    areaInt = areaInt + (*WeightsIntPtr)[i];
+    
+    //cout << (*WeightsVectorPtr)[i] << "\t" << (*WeightsIntPtr)[i] << endl;
+   }
+  cout << "Total area: " << mid(areaInt) << endl; 
+   
+   double totalArea = _double(mid(areaInt));
+   
+   // very important - normalize the heights in nodeEst
+   vector< RangeCollectionClass<real> >* heightNorm = new vector<
+       RangeCollectionClass<real> >;
+   normHeights(nodePtr, totalArea, *heightNorm);
+   nodeEst.allocateRanges(*heightNorm, 0);
+   string filename = "EstFunctionAfterNormalized.txt";
+   output(filename, nodeEst);
+   
+   //need to check that the weights equal to 1
+   double densityCheck = 0.0;
+    //convert vector to array
+   double WeightsArray[sizeWeight];
+   for (size_t i = 0; i < sizeWeight; i++) {
+      WeightsArray[i] = (*WeightsVectorPtr)[i];
+      densityCheck += (*WeightsVectorPtr)[i]/totalArea;
+   }
+   
+  cout << "Total area after normalizing: " << densityCheck << endl;
+  /*
+  if ( (densityCheck != 1.0) ) {
+    cout << densityCheck << endl; 
+    cerr << "Function does not integrate to 1. Need to normalize." << endl; 
+    exit(0); 
+  }
+  */
+  
+   //return to the system the memory that was pointed to by WeightsVectorPtr
+   // and heightNorm
+   delete WeightsVectorPtr;
+   delete heightNorm;
+   
+    //now get the lookup table returned from gsl_ran_discrete_preproc
+   //i.e. the box indices with their weights
+   gsl_ran_discrete_t* gslpdfstruct;
+   gslpdfstruct = gsl_ran_discrete_preproc(sizeWeight, WeightsArray);
+   //===================end of getting box weights=======================//
+
+  //===========preliminaries before simulations========================//
+  // set up a random number generator to draw from weighted boxes
+  const gsl_rng_type * T;
+  gsl_rng * r;
+
+  //create a generator chosen by the environment variable GSL_RNG_TYPE
+  gsl_rng_env_setup();
+  T = gsl_rng_default;
+  r = gsl_rng_alloc (T);
+  // set a seed for the data
+  
+  //===========end of setting up preliminaries=======================//
+
+  for (int k = 1; k <= numHist; k++) {
+    cout << "Data set " << k << endl; 
+    dataSeed = k; 
+  
+    gsl_rng_set(r, dataSeed);
+
+  //-------------generate data--------------------------------------//
+  //now sample n data points from boxes given by the proposed indices
+  cout << "Sample data points using weighted boxes:" << endl;
+  RVecData theData;   // a container for all the points generated
+  // make a simulated data set
+  // data sampled as weighted-uniform-mixtures
+  for (size_t i = 0; i < n; i++) {
+    rvector thisrv(d);
+    size_t proposedIndex = gsl_ran_discrete(r, gslpdfstruct);
+    //int proposed_index = static_cast<int>(gsl_ran_discrete(r, gslpdfstruct));
+    thisrv = DrawUnifBox(r, BoxVector[proposedIndex]);
+    // put points generated into container
+    theData.push_back(thisrv);
+  }  // data  should be in theData
+  
+  cout << (theData).size() << " points generated" << endl;
+  
+  string dataFileName = "MappedData";
+  ostringstream stm;
+  stm << dataSeed;
+  dataFileName += stm.str(); 
+  dataFileName += ".txt";
+  
+  oss.open(dataFileName.c_str());
+  for (size_t i = 0; i < n; i++) { 
+    for (size_t j = 1; j <= d; j++) {
+      //cout << (theData)[i][j] << "\t"; 
+      oss << (theData)[i][j] << "\t";
+    }
+    oss << "\n";
+    //cout << "\n";
+  }
+  oss << flush;
+  oss.close();
+  
+  cout << "Mapped data written to  " << dataFileName << endl;
+
+  //=================generate Gaussian data========================
+
+  cout << "Generating Gaussian data: " << endl;
+  
+  const gsl_rng_type * T1;
+  gsl_rng * r1;
+  gsl_rng_env_setup();
+  T1 = gsl_rng_default;
+  r1 = gsl_rng_alloc (T1);
+  gsl_rng_set(r1, dataSeed);
+
+  RVecData actualData;
+  
+  for (size_t i = 0; i < n; i++) {
+    rvector thisrv(d);
+    for (size_t j = 1; j <= d; j++) {
+      double z = gsl_ran_gaussian(r1, 1.0); // generate a normal r.v.
+      thisrv[j] = _real(z);
+    }
+    //cout << thisrv << endl;
+    actualData.push_back(thisrv);
+  }
+
+  cout << (actualData).size() << " points generated" << endl;
+  
+  dataFileName = "ActualData";
+  dataFileName += stm.str(); 
+  dataFileName += ".txt"; 
+  oss.open(dataFileName.c_str());
+  for (size_t i = 0; i < n; i++) { 
+    for (size_t j = 1; j <= d; j++) {
+        //cout << (actualData)[i][j] << "\t";
+        oss << (actualData)[i][j] << "\t";
+    }
+    oss << "\n";
+    //cout << "\n";
+  }
+  oss << flush;
+  oss.close();
+
+  cout << "Actual data written to  " << dataFileName << endl;
+  
+  }
+  
+  gsl_rng_free(r);
+  //gsl_rng_free(r1);
+  gsl_ran_discrete_free (gslpdfstruct);
+  
+  return(0);
+  
+} // end of MCMC test program
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingTest_8cpp_aaccdd027128215abfb51d30ca3bfc190}{\index{\-Mapped\-S\-P\-Sampling\-Test.\-cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}!norm\-Heights@{norm\-Heights}}
+\index{norm\-Heights@{norm\-Heights}!MappedSPSamplingTest.cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}}
+\paragraph[{norm\-Heights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf norm\-Heights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{double}]{total\-Area, }
+\item[{vector$<$ {\bf \-Range\-Collection\-Class}$<$ real $>$ $>$ \&}]{height\-Norm}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingTest_8cpp_aaccdd027128215abfb51d30ca3bfc190}
+
+
+\-Definition at line 126 of file \-Mapped\-S\-P\-Sampling\-Test.\-cpp.
+
+
+
+\-References subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), norm\-Heights(), and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::norm\-Node\-Height().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) ) { // this is non-empty
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     real newHeight = myContainer.normNodeHeight(totalArea);
+     
+     RangeCollectionClass<real> height(newHeight);
+    heightNorm.push_back(height);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    normHeights(thisNodePtr->getLeftChild(), totalArea, heightNorm);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    normHeights(thisNodePtr->getRightChild(), totalArea, heightNorm);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingTest_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Mapped\-S\-P\-Sampling\-Test.\-cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}!output@{output}}
+\index{output@{output}!MappedSPSamplingTest.cpp@{\-Mapped\-S\-P\-Sampling\-Test.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingTest_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 67 of file \-Mapped\-S\-P\-Sampling\-Test.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+   // To generate a file output
+   ofstream os(filename.c_str());         // Filename, c-string version
+   if (os.is_open()) {
+      node.leavesOutputTabs(os); // the output
+      std::cout << "The output of the estimated function"
+               << " has been written to " << filename << std::endl << std::endl
+      ;
+         os.close();
+      }
+   else {
+      std::cerr << "Error: could not open file named "
+         << filename << std::endl << std::endl;
+   }
+}
+\end{DoxyCode}

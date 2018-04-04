@@ -1,0 +1,1623 @@
+\hypertarget{classFPhyloPOT}{\subsection{\-F\-Phylo\-P\-O\-T \-Class \-Reference}
+\label{classFPhyloPOT}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}
+}
+
+
+\-A class to create a function object for trans-\/dimensional phylogenetic likelihood by post-\/order traversal.  
+
+
+
+
+{\ttfamily \#include $<$\-F\-Phylo\-P\-O\-T.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-Phylo\-P\-O\-T\-:
+
+
+\-Collaboration diagram for \-F\-Phylo\-P\-O\-T\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFPhyloPOT_a4e454a840e146021548eb181cb4a0c46}{\-F\-Phylo\-P\-O\-T} (int ts, interval \-Domain, bool \-Log\-Pi, int \-Prior)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classFPhyloPOT_afe2d7cca8b4c06e2c3e7c7dcc94e9826}{$\sim$\-F\-Phylo\-P\-O\-T} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+interval \hyperlink{classFPhyloPOT_a4d0a6125142aba97d718b11d8b8fc909}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&lb) const 
+\begin{DoxyCompactList}\small\item\em interval function object \end{DoxyCompactList}\item 
+real \hyperlink{classFPhyloPOT_afdf1491ae76809442d33e224b4607102}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&lp) const 
+\begin{DoxyCompactList}\small\item\em real function object \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{classFPhyloPOT_a8a259ba9d2704e586dc2dcea268dc8e8}{operator()} (const \-H\-Tvector \&x, const int label=0) const 
+\begin{DoxyCompactList}\small\item\em \-Hess\-Type function object. \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFPhyloPOT_a580e93411b4a2dd881f4854481a8aeef}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em \-Volume of rooted tree boxes inherited. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_af1164c3a4f529f5b4af38d18c79f7b47}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_a439b0be63da661a8e7c945c986874c8c}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_a13940c79064027cec1a2934afde0dbd7}{get\-No\-Trees} ()
+\begin{DoxyCompactList}\small\item\em \-Get the number of trees. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{classFPhyloPOT_a9b09c98520545b9c87c6993bf3c5f274aa74faf83373edcdf48ff35922dc009e2}{max\-Char\-In\-Seq\-Name} =  20
+ \}
+\begin{DoxyCompactList}\small\item\em \-The maximum allowable characters in a sequence name in the sequence file. \end{DoxyCompactList}\item 
+enum \{ \hyperlink{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24acff34dde110707699080ef23caaabf95}{\-Two\-Taxa\-Top} =  1, 
+\hyperlink{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24aecb40e300dc7b334d1e553e9f5ef029f}{\-Three\-Taxa\-Top} =  1, 
+\hyperlink{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24a414a29fd7f08137ceac0820da0431afe}{\-Four\-Taxa\-Top} =  3, 
+\hyperlink{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24ae0b78a85ed15c5205a7afe0e3737a768}{\-Five\-Taxa\-Top} =  15
+ \}
+\begin{DoxyCompactList}\small\item\em \-How many topologies (unrooted) there are for 2, 3, 4, and 5 taxa. \end{DoxyCompactList}\item 
+enum \{ \hyperlink{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a3834f2c28027281be1d9fa2644e1bc31}{\-Two\-Taxa\-Dim} =  2, 
+\hyperlink{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a37c5e4e34fbb63dde0bf8139fd5ebb1e}{\-Three\-Taxa\-Dim} =  3, 
+\hyperlink{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a2eac51ac06777dcfec7cdb6185cfee60}{\-Four\-Taxa\-Dim} =  5, 
+\hyperlink{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8aa0ac7e30da8e23825246d366dec5c401}{\-Five\-Taxa\-Dim} =  7
+ \}
+\begin{DoxyCompactList}\small\item\em \-How many dimensions there are for 2, 3, 4 and 5 taxa (unrooted trees). \end{DoxyCompactList}\item 
+enum \{ \hyperlink{classFPhyloPOT_af26457fdad1313b54245b464a08d2978ac4fc80c8577bb33e7bea00fad159e2ea}{\-Character\-Space} =  4
+ \}
+\begin{DoxyCompactList}\small\item\em \-Size of the character space for this model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classFPhyloPOT_a02e78c307455acbbaa53b0482d4a8b0c}{\-Read\-Sequence} (const string \&s)
+\begin{DoxyCompactList}\small\item\em \-Reads sequences from a txt file. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_a7fbfb801cd7d80b8148500c9f0b07216}{\-Find\-Pattern} (void)
+\begin{DoxyCompactList}\small\item\em \-Finds patterns in sequences read in and fills in datamembers in \-Seq\-Data struct. \end{DoxyCompactList}\item 
+void \hyperlink{classFPhyloPOT_a7c075a1b4511f691106e7c5c823a5e78}{\-Print\-Sequence} () const 
+\begin{DoxyCompactList}\small\item\em \-Print the summmary of results of \hyperlink{classFPhyloPOT_a02e78c307455acbbaa53b0482d4a8b0c}{\-Read\-Sequence()} and \hyperlink{classFPhyloPOT_a7fbfb801cd7d80b8148500c9f0b07216}{\-Find\-Pattern()} \end{DoxyCompactList}\item 
+void \hyperlink{classFPhyloPOT_a7c1b63e0429cce2c72eaabf284eb5e43}{\-Read\-Trees} (const string \&s)
+\begin{DoxyCompactList}\small\item\em \-Makes trees from a tree file. \end{DoxyCompactList}\item 
+void \hyperlink{classFPhyloPOT_aaa8c6c8230611cf1f7029be0d00e352c}{\-Print\-Topology\-Trees} ()
+\begin{DoxyCompactList}\small\item\em \-Prints all the trees to console output. \end{DoxyCompactList}\item 
+void \hyperlink{classFPhyloPOT_ac126a3c0fbba14c07054ef35c9b6e858}{destroy\-Roots} () const 
+\begin{DoxyCompactList}\small\item\em \-Destroys the trees (dynamic memory), used by destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Static \-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classFPhyloPOT_a829e5b3cc0e80764cd3dac23c06cf06e}{\-Char2\-Code} (char ch)
+\begin{DoxyCompactList}\small\item\em \-Convert nucleotide characters to integers, for coding. \end{DoxyCompactList}\item 
+static char \hyperlink{classFPhyloPOT_a0926a4e893aeb2f2bd50b67ad97b7c3c}{\-Code2\-Char} (int c)
+\begin{DoxyCompactList}\small\item\em \-Convert coded nucleotide integers back to characters. \end{DoxyCompactList}\item 
+static void \hyperlink{classFPhyloPOT_a899c716603960c6abf8983f8392ef3d5}{\-Check\-Read\-Line} (ifstream \&ifs, string \&line)
+\begin{DoxyCompactList}\small\item\em \-A function to check and read a line from a file. \end{DoxyCompactList}\item 
+static void \hyperlink{classFPhyloPOT_a95285cf2a875065f9c80190fc5db9178}{\-File\-Input\-Error} (ifstream \&ifs, const string \&msg)
+\begin{DoxyCompactList}\small\item\em \-A function to deal with an error found in a sequence input file. \end{DoxyCompactList}\item 
+static void \hyperlink{classFPhyloPOT_aa8490107b21f3b7efe2fa3bbfc8c6b1c}{\-Reformat\-Sequence} (string \&line)
+\begin{DoxyCompactList}\small\item\em \-Reformats sequences read in to make them easy to analyse for patterns. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classFPhyloPOT_a84a8fb3afb2b975331062752d414723a}{tree\-\_\-space}
+\begin{DoxyCompactList}\small\item\em \-The model space or number of taxa. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_aef4d908d355efec47e284d3845d74b73}{n\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em \-The number of edges in an unrooted tree. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_af68e59b4d63e18f0b82864b101fd29d2}{topologies}
+\begin{DoxyCompactList}\small\item\em \-The number of unrooted topology trees given the model space. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_ab30590c070d95d5d5d7966cb386db7d6}{tree\-\_\-nodes}
+\begin{DoxyCompactList}\small\item\em \-The number of nodes in an unrooted tree given the number of taxa. \end{DoxyCompactList}\item 
+struct \hyperlink{structDATA}{\-D\-A\-T\-A} \hyperlink{classFPhyloPOT_aa80ced607ed41f02bcd56b6f08fbd1ff}{\-Seq\-Data}
+\begin{DoxyCompactList}\small\item\em \-A struct for the sequence data read in. \end{DoxyCompactList}\item 
+\hyperlink{PhyloTree_8hpp_a7924aedff3cf2bea3ffccb7b9f59f970}{\-Phylo\-Tree\-Ptrs} \hyperlink{classFPhyloPOT_a99124f9f8855b0aebcccd20804ef9cde}{tree\-Roots}
+\begin{DoxyCompactList}\small\item\em \-A container of pointers to \-Phylo\-Trees. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_a6121e3100ec3c00f522f15e1feae0070}{n\-\_\-interval\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFPhyloPOT_a4e705aece25b8ee32d67aa6ab50cd9ec}{n\-\_\-real\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class to create a function object for trans-\/dimensional phylogenetic likelihood by post-\/order traversal. 
+
+\-Uses \-Jukes \-Cantor model, ie 4 nucleotides.
+
+\-This class creates a representation of the unrooted tree(s) or topology appropriate for the number of taxa using the class \hyperlink{classPhyloNode}{\-Phylo\-Node}.
+
+\-Note that at present the class is only set up to deal with unrooted trees, ie the number of dimensions (branches) is determined solely by the number of taxa (tree space).
+
+\-The likelihood as a real or interval or \-Hess\-Type, under a particular topology, is calculated by post-\/order traversal of the tree for that topology.
+
+\-Tree structures are read in from a file. \-Likelihoods are based on \-D\-N\-A sequence data read into the function object constructor. 
+
+\-Definition at line 102 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\subsubsection{\-Member \-Enumeration \-Documentation}
+\hypertarget{classFPhyloPOT_a9b09c98520545b9c87c6993bf3c5f274}{\paragraph[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a9b09c98520545b9c87c6993bf3c5f274}
+
+
+\-The maximum allowable characters in a sequence name in the sequence file. 
+
+\begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{max\-Char\-In\-Seq\-Name@{max\-Char\-In\-Seq\-Name}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!max\-Char\-In\-Seq\-Name@{max\-Char\-In\-Seq\-Name}}\item[{\em 
+\hypertarget{classFPhyloPOT_a9b09c98520545b9c87c6993bf3c5f274aa74faf83373edcdf48ff35922dc009e2}{max\-Char\-In\-Seq\-Name}\label{classFPhyloPOT_a9b09c98520545b9c87c6993bf3c5f274aa74faf83373edcdf48ff35922dc009e2}
+}]\end{description}
+\end{Desc}
+
+
+
+\-Definition at line 110 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+\begin{DoxyCode}
+{maxCharInSeqName = 20};
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24}{\paragraph[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24}
+
+
+\-How many topologies (unrooted) there are for 2, 3, 4, and 5 taxa. 
+
+\begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{\-Two\-Taxa\-Top@{\-Two\-Taxa\-Top}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Two\-Taxa\-Top@{\-Two\-Taxa\-Top}}\item[{\em 
+\hypertarget{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24acff34dde110707699080ef23caaabf95}{\-Two\-Taxa\-Top}\label{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24acff34dde110707699080ef23caaabf95}
+}]\index{\-Three\-Taxa\-Top@{\-Three\-Taxa\-Top}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Three\-Taxa\-Top@{\-Three\-Taxa\-Top}}\item[{\em 
+\hypertarget{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24aecb40e300dc7b334d1e553e9f5ef029f}{\-Three\-Taxa\-Top}\label{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24aecb40e300dc7b334d1e553e9f5ef029f}
+}]\index{\-Four\-Taxa\-Top@{\-Four\-Taxa\-Top}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Four\-Taxa\-Top@{\-Four\-Taxa\-Top}}\item[{\em 
+\hypertarget{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24a414a29fd7f08137ceac0820da0431afe}{\-Four\-Taxa\-Top}\label{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24a414a29fd7f08137ceac0820da0431afe}
+}]\index{\-Five\-Taxa\-Top@{\-Five\-Taxa\-Top}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Five\-Taxa\-Top@{\-Five\-Taxa\-Top}}\item[{\em 
+\hypertarget{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24ae0b78a85ed15c5205a7afe0e3737a768}{\-Five\-Taxa\-Top}\label{classFPhyloPOT_a41644607ab4dda406006b7899c60eb24ae0b78a85ed15c5205a7afe0e3737a768}
+}]\end{description}
+\end{Desc}
+
+
+
+\-Definition at line 113 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+\begin{DoxyCode}
+{TwoTaxaTop = 1, ThreeTaxaTop = 1, FourTaxaTop = 3, FiveTaxaTop = 15};
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8}{\paragraph[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8}
+
+
+\-How many dimensions there are for 2, 3, 4 and 5 taxa (unrooted trees). 
+
+\begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{\-Two\-Taxa\-Dim@{\-Two\-Taxa\-Dim}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Two\-Taxa\-Dim@{\-Two\-Taxa\-Dim}}\item[{\em 
+\hypertarget{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a3834f2c28027281be1d9fa2644e1bc31}{\-Two\-Taxa\-Dim}\label{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a3834f2c28027281be1d9fa2644e1bc31}
+}]\index{\-Three\-Taxa\-Dim@{\-Three\-Taxa\-Dim}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Three\-Taxa\-Dim@{\-Three\-Taxa\-Dim}}\item[{\em 
+\hypertarget{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a37c5e4e34fbb63dde0bf8139fd5ebb1e}{\-Three\-Taxa\-Dim}\label{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a37c5e4e34fbb63dde0bf8139fd5ebb1e}
+}]\index{\-Four\-Taxa\-Dim@{\-Four\-Taxa\-Dim}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Four\-Taxa\-Dim@{\-Four\-Taxa\-Dim}}\item[{\em 
+\hypertarget{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a2eac51ac06777dcfec7cdb6185cfee60}{\-Four\-Taxa\-Dim}\label{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8a2eac51ac06777dcfec7cdb6185cfee60}
+}]\index{\-Five\-Taxa\-Dim@{\-Five\-Taxa\-Dim}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Five\-Taxa\-Dim@{\-Five\-Taxa\-Dim}}\item[{\em 
+\hypertarget{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8aa0ac7e30da8e23825246d366dec5c401}{\-Five\-Taxa\-Dim}\label{classFPhyloPOT_a83a3e9f1c4025fc20c102ed2b819f9b8aa0ac7e30da8e23825246d366dec5c401}
+}]\end{description}
+\end{Desc}
+
+
+
+\-Definition at line 116 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+\begin{DoxyCode}
+{TwoTaxaDim = 2, ThreeTaxaDim= 3, FourTaxaDim = 5, FiveTaxaDim = 7};
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_af26457fdad1313b54245b464a08d2978}{\paragraph[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_af26457fdad1313b54245b464a08d2978}
+
+
+\-Size of the character space for this model. 
+
+\begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{\-Character\-Space@{\-Character\-Space}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Character\-Space@{\-Character\-Space}}\item[{\em 
+\hypertarget{classFPhyloPOT_af26457fdad1313b54245b464a08d2978ac4fc80c8577bb33e7bea00fad159e2ea}{\-Character\-Space}\label{classFPhyloPOT_af26457fdad1313b54245b464a08d2978ac4fc80c8577bb33e7bea00fad159e2ea}
+}]\end{description}
+\end{Desc}
+
+
+
+\-Definition at line 119 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+\begin{DoxyCode}
+{CharacterSpace = 4};
+\end{DoxyCode}
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFPhyloPOT_a4e454a840e146021548eb181cb4a0c46}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}}
+\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-F\-Phylo\-P\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Phylo\-P\-O\-T\-::\-F\-Phylo\-P\-O\-T} (
+\begin{DoxyParamCaption}
+\item[{int}]{ts, }
+\item[{interval}]{\-Domain, }
+\item[{bool}]{\-Log\-Pi, }
+\item[{int}]{\-Prior}
+\end{DoxyParamCaption}
+)}}\label{classFPhyloPOT_a4e454a840e146021548eb181cb4a0c46}
+
+
+\-Constructor. 
+
+
+
+\-Definition at line 30 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Find\-Pattern(), \-Five\-Taxa\-Dim, \-Five\-Taxa\-Top, \-Four\-Taxa\-Dim, \-Four\-Taxa\-Top, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, n\-\_\-dimensions, \-Print\-Sequence(), \-Print\-Topology\-Trees(), \-Fobj\-::\-Prior\-Type, \-Read\-Sequence(), \-Read\-Trees(), \-Fobj\-::set\-Using\-Log\-Density(), \-Three\-Taxa\-Dim, \-Three\-Taxa\-Top, topologies, tree\-\_\-nodes, tree\-\_\-space, \-Two\-Taxa\-Dim, and \-Two\-Taxa\-Top.
+
+
+\begin{DoxyCode}
+                                                                  :
+tree_space(ts), n_interval_calls (0), n_real_calls(0)
+{
+  // an Fobj function, sets the Fobj member UsingLogDensity
+  setUsingLogDensity (LogPi);
+  PriorType = Prior;// PriorType is an inherited member from Fobj
+
+  // file names for the tree and the sequences files
+  string treeFileName;
+  string seqFileName;
+
+  switch (tree_space)
+  {
+
+    // use just one treefile with multiple lines, one line for each topology
+
+    /* need to refer to tree sequence file with full path
+     * from mrs/trunk/examples so that it works with Gopt examples
+     */
+
+    case 2:         // 2 taxa tree
+                    // Human-Neandertal data in Sainudiin and York, AMB, 2009
+                    // Illustrates identifibality of the sum of two branches
+                    // Similar to the 2 taxa example in Sainudiin, Ph.D., 2005,
+                    // and that in Sainudiin and Yoshida, 2005
+      topologies = TwoTaxaTop;
+      n_dimensions = TwoTaxaDim;
+      treeFileName = "../../targets/TreesSeqns/testtree2";
+      seqFileName = "../../targets/TreesSeqns/testseq2";
+      break;
+      /*
+      // another GOpt example with minimal sufficient sequence patterns
+      // Human-Neandertal-Chimp Example Sainudiin and York, AMB, 2009
+    case 3:         // 3 taxa tree (This is truly unrooted Tree as 
+                    // opposed to the constrained unrooted tree in
+                    // Sainudiin and York, AMB, 2009.)
+      topologies = ThreeTaxaTop;
+      n_dimensions = ThreeTaxaDim;
+      treeFileName = "../../targets/TreesSeqns/testtree3";
+      seqFileName = "../../targets/TreesSeqns/testseq3";
+      break;
+      */
+    case 3: // 3 taxa tree Brown et al, 1982 example
+            // Used in Yang 2000, Sainudiin, Ph.D., 2005, 
+            // Sainudiin and Yoshida, 2005,
+            // Sainudiin and York, AMB, 2009
+      topologies = ThreeTaxaTop;
+      n_dimensions = ThreeTaxaDim;
+      treeFileName = "../../targets/TreesSeqns/testtree3";
+      seqFileName = "../../targets/TreesSeqns/testseq3Brown"; 
+      break;
+      
+    case 4:         // 4 taxa tree
+      topologies = FourTaxaTop;
+      n_dimensions = FourTaxaDim;
+      treeFileName = "../../targets/TreesSeqns/testtree4";
+      seqFileName = "../../targets/TreesSeqns/testseq4";
+      break;
+
+    case 5:         // 5 taxa tree -- way too long in this implementation
+      topologies = FiveTaxaTop;
+      n_dimensions = FiveTaxaDim;
+      treeFileName = "../../targets/TreesSeqns/testtree5";
+      seqFileName = "../../targets/TreesSeqns/testseq5";
+      break;
+
+    default:
+
+      std::cerr<< "Does NOT contain 2, 3, 4 or 5 taxa";
+      exit(1);
+
+  }                 // end switch
+
+  // for each topology
+  // set up a labelled box of n_dimensions and put into the LabDomainList
+  // LabDomainList is an inherited member from Fobj
+  for (int j=0; j < topologies; j++)
+  {
+
+    LabBox Ldomain;
+    ivector domain (1, n_dimensions);
+    for (int i = 1; i <= n_dimensions; i++)
+    {
+      domain[i] = Domain;
+    }
+
+    Ldomain.L = j;
+    Ldomain.Box = domain;
+
+    LabDomainList.push_back(Ldomain);
+  }
+
+  // number of nodes is number of dimensions + 1;
+  tree_nodes = n_dimensions + 1;
+
+  //reads in the sequence file and initializes SeqData
+  ReadSequence(seqFileName);
+
+  //finds patterns and initializes them in SeqData.Baseseq
+  FindPattern();
+
+  PrintSequence();
+
+  // read the tree file, which should have one line for each topology
+  // and tries to make a tree from each line
+  // trees made are pushed back into treeRoots
+  ReadTrees(treeFileName);
+
+  // print out the trees, one for each topology
+  PrintTopologyTrees();
+
+}                   // end constructor
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_afe2d7cca8b4c06e2c3e7c7dcc94e9826}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!$\sim$\-F\-Phylo\-P\-O\-T@{$\sim$\-F\-Phylo\-P\-O\-T}}
+\index{$\sim$\-F\-Phylo\-P\-O\-T@{$\sim$\-F\-Phylo\-P\-O\-T}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{$\sim$\-F\-Phylo\-P\-O\-T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Phylo\-P\-O\-T\-::$\sim$\-F\-Phylo\-P\-O\-T} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFPhyloPOT_afe2d7cca8b4c06e2c3e7c7dcc94e9826}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 144 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References destroy\-Roots().
+
+
+\begin{DoxyCode}
+{
+  destroyRoots();   // makes sure the newed tree roots are destroyed
+
+}                   // end destructor
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFPhyloPOT_a829e5b3cc0e80764cd3dac23c06cf06e}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Char2\-Code@{\-Char2\-Code}}
+\index{\-Char2\-Code@{\-Char2\-Code}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Char2\-Code}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::\-Char2\-Code} (
+\begin{DoxyParamCaption}
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classFPhyloPOT_a829e5b3cc0e80764cd3dac23c06cf06e}
+
+
+\-Convert nucleotide characters to integers, for coding. 
+
+
+
+\-Definition at line 375 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-Referenced by \-Find\-Pattern().
+
+
+\begin{DoxyCode}
+{
+                    //change to lower case
+  char c = tolower(ch);
+  int retValue = 0;
+  switch (c)
+  {
+    case 't':
+      retValue = 0;
+      break;
+    case 'c':
+      retValue = 1;
+      break;
+    case 'a':
+      retValue = 2;
+      break;
+    case 'g':
+      retValue = 3;
+      break;
+    default:
+      std::cerr<< "Contains non-nucleotide symbol " << c << "!" << std::endl;
+      exit(1);
+
+  }                 // end swtich
+
+  return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a899c716603960c6abf8983f8392ef3d5}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Check\-Read\-Line@{\-Check\-Read\-Line}}
+\index{\-Check\-Read\-Line@{\-Check\-Read\-Line}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Check\-Read\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-F\-Phylo\-P\-O\-T\-::\-Check\-Read\-Line} (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{ifs, }
+\item[{string \&}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classFPhyloPOT_a899c716603960c6abf8983f8392ef3d5}
+
+
+\-A function to check and read a line from a file. 
+
+
+
+\-Definition at line 429 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-File\-Input\-Error().
+
+
+
+\-Referenced by \-Read\-Sequence().
+
+
+\begin{DoxyCode}
+{
+  if(!ifs.fail() && !ifs.bad())
+  {
+    getline(ifs, line);
+  }
+  else
+  {
+    FileInputError(ifs, " Error reading from file ");
+  }
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a0926a4e893aeb2f2bd50b67ad97b7c3c}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Code2\-Char@{\-Code2\-Char}}
+\index{\-Code2\-Char@{\-Code2\-Char}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Code2\-Char}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf \-F\-Phylo\-P\-O\-T\-::\-Code2\-Char} (
+\begin{DoxyParamCaption}
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classFPhyloPOT_a0926a4e893aeb2f2bd50b67ad97b7c3c}
+
+
+\-Convert coded nucleotide integers back to characters. 
+
+
+
+\-Definition at line 403 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  char retValue = 'x';
+
+  switch (c)
+  {
+    case 0:
+      retValue = 't';
+      break;
+    case 1:
+      retValue = 'c';
+      break;
+    case 2:
+      retValue = 'a';
+      break;
+    case 3:
+      retValue = 'g';
+      break;
+    default:
+      std::cerr<< "Contains non-nucleotide symbol " << c << "!" << std::endl;
+      exit(1);
+  }                 // end switch
+
+  return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_ac126a3c0fbba14c07054ef35c9b6e858}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!destroy\-Roots@{destroy\-Roots}}
+\index{destroy\-Roots@{destroy\-Roots}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{destroy\-Roots}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-F\-Phylo\-P\-O\-T\-::destroy\-Roots} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_ac126a3c0fbba14c07054ef35c9b6e858}
+
+
+\-Destroys the trees (dynamic memory), used by destructor. 
+
+
+
+\-Definition at line 150 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References tree\-Roots.
+
+
+
+\-Referenced by \-Read\-Trees(), and $\sim$\-F\-Phylo\-P\-O\-T().
+
+
+\begin{DoxyCode}
+{
+  // call DeleteObject to delete all the newed tree roots
+  for_each(treeRoots.begin(), treeRoots.end(), DeleteObject());
+  // and clear the container of pointers as well
+  treeRoots.clear();
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a95285cf2a875065f9c80190fc5db9178}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-File\-Input\-Error@{\-File\-Input\-Error}}
+\index{\-File\-Input\-Error@{\-File\-Input\-Error}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-File\-Input\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-F\-Phylo\-P\-O\-T\-::\-File\-Input\-Error} (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{ifs, }
+\item[{const string \&}]{msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classFPhyloPOT_a95285cf2a875065f9c80190fc5db9178}
+
+
+\-A function to deal with an error found in a sequence input file. 
+
+
+
+\-Definition at line 441 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-Referenced by \-Check\-Read\-Line(), and \-Read\-Sequence().
+
+
+\begin{DoxyCode}
+{
+  std::cerr << msg << endl;
+  ifs.close();
+  exit(-1);
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a7fbfb801cd7d80b8148500c9f0b07216}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Find\-Pattern@{\-Find\-Pattern}}
+\index{\-Find\-Pattern@{\-Find\-Pattern}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Find\-Pattern}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::\-Find\-Pattern} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a7fbfb801cd7d80b8148500c9f0b07216}
+
+
+\-Finds patterns in sequences read in and fills in datamembers in \-Seq\-Data struct. 
+
+
+
+\-Definition at line 592 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-D\-A\-T\-A\-::base\-Sequences, \-D\-A\-T\-A\-::\-B\-No\-\_\-pattern, \-D\-A\-T\-A\-::\-B\-Pattern\-Counts, \-D\-A\-T\-A\-::\-B\-Patterns, \-Char2\-Code(), \-D\-A\-T\-A\-::\-No\-\_\-seq, \-D\-A\-T\-A\-::raw\-Sequences, \-D\-A\-T\-A\-::\-Seq\-\_\-length, and \-Seq\-Data.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T().
+
+
+\begin{DoxyCode}
+{
+  int i, j;
+
+  // make sure the vectors for sequences anlysis are clear
+  (SeqData.baseSequences).clear();
+  //  this destructs all the component vectors if any
+  (SeqData.BPatternCounts).clear();
+
+  (SeqData.BPatterns).clear();
+
+  SeqData.BNo_pattern = 0;
+
+  // multiple sequence alignment sets
+  vector<string> msaSets;
+
+  // form the msaSets
+  for (i = 0; i < SeqData.Seq_length; i++)
+  {
+    // make a string from the ith element of the first sequences's data
+    string s(1, ((SeqData.rawSequences)[0])[i]);
+    for (j = 1; j<SeqData.No_seq; j++)
+    {
+      char add = ((SeqData.rawSequences)[j])[i];
+      s+=add;       // add on the equivalent character from the other sequences
+    }
+    msaSets.push_back(s);
+  }
+
+  // should now have SeqData.Seq_length strings in msaSets
+
+                    // sort the msaSets
+  sort (msaSets.begin(), msaSets.end());
+
+  vector<string>::iterator sit;
+
+  int patternsFound = 0;
+
+  sit = msaSets.begin();
+  // vector<int> BPatternCounts;
+
+  int seqPos = 0;   // to keep track of where we are in the sequence
+
+  // while we have not found all the patterns
+  while (seqPos < SeqData.Seq_length)
+  {
+    string found = *sit;
+
+    SeqData.BNo_pattern++;
+    (SeqData.BPatterns).push_back(found);
+
+    int thisCount = 0;
+
+    // move to the next non matching set  this works 
+    // because msaSets is is sorted
+    while (*sit==found && (seqPos < SeqData.Seq_length-1))
+    {
+      thisCount++;
+      seqPos++;
+      sit++;
+    }
+
+    // move to the next non matching set  this works 
+    //bbecause msaSets is is sorted
+    if (*sit==found && (seqPos = SeqData.Seq_length -1))
+    {
+      thisCount++;
+      seqPos++;
+    }
+
+    (SeqData.BPatternCounts).push_back(thisCount);
+    patternsFound += thisCount;
+
+    string::iterator it;
+    vector<int> tempvec;
+
+    // put the found sequence in coded form into baseSequences
+    for (it = found.begin(); it< found.end(); it++)
+    {
+      //char c = *it;
+      //int code = Char2Code(c);
+      tempvec.push_back(Char2Code(*it));
+    }
+
+    (SeqData.baseSequences).push_back(tempvec);
+
+  }                 // return to the top of the loop
+
+  return (0);
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_af1164c3a4f529f5b4af38d18c79f7b47}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFPhyloPOT_af1164c3a4f529f5b4af38d18c79f7b47}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 230 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return n_interval_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a439b0be63da661a8e7c945c986874c8c}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFPhyloPOT_a439b0be63da661a8e7c945c986874c8c}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 236 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return n_real_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a13940c79064027cec1a2934afde0dbd7}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!get\-No\-Trees@{get\-No\-Trees}}
+\index{get\-No\-Trees@{get\-No\-Trees}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{get\-No\-Trees}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::get\-No\-Trees} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFPhyloPOT_a13940c79064027cec1a2934afde0dbd7}
+
+
+\-Get the number of trees. 
+
+
+
+\-Definition at line 242 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+    {
+      return static_cast<int>(treeRoots.size());
+    }
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a580e93411b4a2dd881f4854481a8aeef}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-Phylo\-P\-O\-T\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFPhyloPOT_a580e93411b4a2dd881f4854481a8aeef}
+
+
+\-Volume of rooted tree boxes inherited. 
+
+
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 224 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-References \-Fobj\-::\-Lab\-Box\-Volume().
+
+
+\begin{DoxyCode}
+    {
+      return Fobj::LabBoxVolume(LB);
+    }
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a4d0a6125142aba97d718b11d8b8fc909}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!operator()@{operator()}}
+\index{operator()@{operator()}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-Phylo\-P\-O\-T\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{lb}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFPhyloPOT_a4d0a6125142aba97d718b11d8b8fc909}
+
+
+interval function object 
+
+
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 162 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-D\-A\-T\-A\-::base\-Sequences, \-D\-A\-T\-A\-::\-B\-No\-\_\-pattern, \-Lab\-Box\-::\-Box, \-D\-A\-T\-A\-::\-B\-Pattern\-Counts, \-Character\-Space, \-Phylo\-Tree\-::fill\-Prob\-Interval\-J\-C69(), interval\-Sum(), \-Lab\-Box\-::\-L, taylor\-::ln(), n\-\_\-interval\-\_\-calls, \-Seq\-Data, and tree\-Roots.
+
+
+\begin{DoxyCode}
+{
+                    // no patterns or no treeRoots
+  if(SeqData.BNo_pattern == 0 || treeRoots.empty())
+  {
+    cerr << "Function object contains either no patterns OR no trees" 
+         << std::endl;
+    exit(1);
+  }
+
+  ivector x(lb.Box);// the box we should be dealing with
+
+  // identify which tree in the topology space from the label of the box
+                    // labels run 0, 1, 2, etc
+  int boxLabel = lb.L;
+  if(boxLabel >= static_cast<int>(treeRoots.size()))
+  {
+    std::cerr << "Label on point " << boxLabel <<
+      " greater outside bounds of available trees ("
+      << treeRoots.size() << ")" << std::endl;
+    exit(1);
+  }
+  PhyloTree* thisTree = treeRoots[boxLabel];
+
+                    // for return value, to accumulate the likelihood we seek
+  interval lkl(0.0, 0.0);
+
+  // for each pattern in the pattern counts
+  for (int pattern_i = 0; pattern_i < SeqData.BNo_pattern; pattern_i++)
+  {
+
+                    // set up a container for nucleotype probabilities
+    IntervalProbs iNucProb;
+    // use fillProbIntervalJC69 to fill this in for the pattern_ith member of 
+    // the baseSequences so that it will have one member for each character in 
+    // the CharacterSpace, each being
+    // the probability of that character at the root node
+    iNucProb = 
+      thisTree->fillProbIntervalJC69(x, ((SeqData.baseSequences)[pattern_i]), 
+                                     iNucProb);
+
+    // check we have got the right number of probabilities back
+    if(iNucProb.size() != static_cast<size_t>(CharacterSpace))
+    {
+      std::cerr << "Error, number of nucleotide probabilities "
+                << "less than character space" << std::endl;
+      exit(1);
+    }
+
+    interval prob(0.0, 0.0);
+    interval initialvalue(0.0, 0.0);
+    // combine the nucleotide probabilities
+    // sum with the intervalSum function
+    prob = std::accumulate(iNucProb.begin(), iNucProb.end(), 
+                           initialvalue, intervalSum);
+
+    // eg ln of (prob mult by 0.25 for JC69 4-character set)
+    prob = ln(prob/CharacterSpace);
+
+    // add to the likelihood
+    lkl = lkl + prob * (SeqData.BPatternCounts)[pattern_i];
+  }
+
+  // increment the number of interval() calls in the function object
+  n_interval_calls++;
+
+  return lkl;
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_afdf1491ae76809442d33e224b4607102}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!operator()@{operator()}}
+\index{operator()@{operator()}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-Phylo\-P\-O\-T\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{lp}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFPhyloPOT_afdf1491ae76809442d33e224b4607102}
+
+
+real function object 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 233 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-D\-A\-T\-A\-::base\-Sequences, \-D\-A\-T\-A\-::\-B\-No\-\_\-pattern, \-D\-A\-T\-A\-::\-B\-Pattern\-Counts, \-Character\-Space, \-Phylo\-Tree\-::fill\-Prob\-Real\-J\-C69(), \-Lab\-Pnt\-::\-L, taylor\-::ln(), n\-\_\-real\-\_\-calls, \-Lab\-Pnt\-::\-Pnt, real\-Sum(), \-Seq\-Data, and tree\-Roots.
+
+
+\begin{DoxyCode}
+{
+                    // no patterns or no treeRoots
+  if(SeqData.BNo_pattern == 0 || treeRoots.empty())
+  {
+    cerr << "Function object contains either no patterns OR no trees" 
+         << std::endl;
+    exit(1);
+  }
+
+  rvector x(lp.Pnt);// the point we should be dealing with
+
+  // identify which tree in the topology space from the label of the point
+                    // labels run 0, 1, 2, etc
+  int ptLabel = lp.L;
+  if(ptLabel >= static_cast<int>(treeRoots.size()))
+  {
+    std::cerr << "Label on point " << ptLabel <<
+      " greater outside bounds of available trees ("
+      << treeRoots.size() << ")" << std::endl;
+    exit(1);
+  }
+  PhyloTree* thisTree = treeRoots[ptLabel];
+
+  real lkl(0.0);    // for return value, to accumulate the likelihood we seek
+
+  // for each pattern in the pattern counts
+  for (int pattern_i = 0; pattern_i < SeqData.BNo_pattern; pattern_i++)
+  {
+
+                    // set up a container for nucleotype probabilities
+    RealProbs rNucProb;
+    // use fillProbRealJC69 to fill this in for the pattern_ith member of the 
+    // baseSequences so that it will have one member for each character in the 
+    // CharacterSpace, each being the probability of that character at the root
+       
+    // node
+    rNucProb = 
+      thisTree->fillProbRealJC69(x, ((SeqData.baseSequences)[pattern_i]), 
+                                 rNucProb);
+
+    // check we have got the right number of probabilities back
+    if(rNucProb.size() != static_cast<size_t>(CharacterSpace))
+    {
+      std::cerr << "Error, number of nucleotide probabilities "
+                << "less than character space" << std::endl;
+      exit(1);
+    }
+
+    real prob(0.0);
+
+    // combine the nucleotide probabilities
+                    // sum with the realSum function
+    prob = std::accumulate(rNucProb.begin(), rNucProb.end(), 
+                           static_cast<real>(0.0), realSum);
+
+    // eg ln of (prob mult by 0.25 for JC69 4-character set)
+    prob = ln(prob/CharacterSpace);
+
+    // add to the likelihood
+    lkl = lkl + prob * (SeqData.BPatternCounts)[pattern_i];
+  }
+
+  // increment the number of real() calls in the function object
+  n_real_calls++;   
+
+  return lkl;
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a8a259ba9d2704e586dc2dcea268dc8e8}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!operator()@{operator()}}
+\index{operator()@{operator()}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type \-F\-Phylo\-P\-O\-T\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const \-H\-Tvector \&}]{x, }
+\item[{const int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFPhyloPOT_a8a259ba9d2704e586dc2dcea268dc8e8}
+
+
+\-Hess\-Type function object. 
+
+
+
+\-Reimplemented from \hyperlink{classFobj_abe7df6a2da2b1d26915b41128d7693fe}{\-Fobj}.
+
+
+
+\-Definition at line 305 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-D\-A\-T\-A\-::base\-Sequences, \-D\-A\-T\-A\-::\-B\-No\-\_\-pattern, \-D\-A\-T\-A\-::\-B\-Pattern\-Counts, \-Character\-Space, \-Phylo\-Tree\-::fill\-Prob\-Hess\-J\-C69(), hess\-Sum(), taylor\-::ln(), \-Seq\-Data, and tree\-Roots.
+
+
+\begin{DoxyCode}
+{
+
+                    // no patterns or no treeRoots
+  if(SeqData.BNo_pattern == 0 || treeRoots.empty())
+  {
+    cerr << "Function object contains either no patterns OR no trees" 
+         << std::endl;
+    exit(1);
+  }
+
+  // check the label is in our label set
+  if (label >= static_cast<int>(treeRoots.size()))
+  {
+    std::cerr << "Tree label " << label
+      << " does not identify a tree for this function object" << std::endl;
+    exit(1);
+  }
+
+  // We do global optimisation for the tree labelled with label
+  PhyloTree* thisTree = treeRoots[label];
+
+  int d = x.Dim();
+  HessType lkl(d);
+  lkl = 0.0;        // for return value, to accumulate the likelihood we seek
+
+  // for each pattern in the pattern counts
+  for (int pattern_i = 0; pattern_i < SeqData.BNo_pattern; pattern_i++)
+  {
+
+    // set up a container for nucleotype probabilities
+    HessProbs hNucProb;
+    // use fillProbHessJC69 to fill this in for the pattern_ith member of the 
+    // baseSequences so that it will have one member for each character in the 
+    // CharacterSpace, each being
+    // the probability of that character at the root node
+    hNucProb = 
+      thisTree->fillProbHessJC69(x, ((SeqData.baseSequences)[pattern_i]), 
+                                 hNucProb);
+
+    // check we have got the right number of probabilities back
+    if(hNucProb.size() != static_cast<size_t>(CharacterSpace))
+    {
+      std::cerr << "Error, number of nucleotide probabilities less than " 
+                << "character space" << std::endl;
+      exit(1);
+    }
+
+    HessType prob(d);
+    prob = 0.0;
+    HessType initialvalue(d);
+    initialvalue = 0.0;
+
+    // combine the nucleotide probabilities
+                    // sum with the hessSum function
+    prob = std::accumulate(hNucProb.begin(), hNucProb.end(), 
+                           initialvalue, hessSum);
+
+    // eg ln of (prob mult by 0.25 for JC69 4-character set)
+    prob = ln(prob/CharacterSpace);
+
+    // add to the likelihood
+    lkl = lkl + prob * (SeqData.BPatternCounts)[pattern_i];
+  }
+
+  return lkl;
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a7c075a1b4511f691106e7c5c823a5e78}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Print\-Sequence@{\-Print\-Sequence}}
+\index{\-Print\-Sequence@{\-Print\-Sequence}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Print\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-F\-Phylo\-P\-O\-T\-::\-Print\-Sequence} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a7c075a1b4511f691106e7c5c823a5e78}
+
+
+\-Print the summmary of results of \hyperlink{classFPhyloPOT_a02e78c307455acbbaa53b0482d4a8b0c}{\-Read\-Sequence()} and \hyperlink{classFPhyloPOT_a7fbfb801cd7d80b8148500c9f0b07216}{\-Find\-Pattern()} 
+
+
+
+\-Definition at line 683 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-D\-A\-T\-A\-::base\-Sequences, \-D\-A\-T\-A\-::\-B\-No\-\_\-pattern, \-D\-A\-T\-A\-::\-B\-Pattern\-Counts, \-D\-A\-T\-A\-::\-B\-Patterns, \-D\-A\-T\-A\-::\-No\-\_\-seq, and \-Seq\-Data.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T().
+
+
+\begin{DoxyCode}
+{
+  vector<int>::iterator it;
+
+  //printing sequence patterns
+  std::cout << std::endl;
+  std::cout << "For the " << SeqData.No_seq << " sequences, there are " <<
+    SeqData.BNo_pattern << " patterns " << std::endl;
+
+  std::cout << std::endl;
+  std::cout << "The pattern counts are:" << std::endl;
+  for (int i = 0; i < SeqData.BNo_pattern; i++)
+  {
+    std::cout << (SeqData.BPatternCounts)[i] << std::endl;
+  }
+
+  std::cout << std::endl;
+  //printing the nucleotide code patterns
+  std::cout << "The patterns in code are:" << std::endl;
+  for (int i = 0; i < SeqData.BNo_pattern; i++)
+  {
+    vector<int> tempvec = (SeqData.baseSequences)[i];
+    for (it = tempvec.begin(); it < tempvec.end(); it++)
+    {
+      std::cout << *it;
+    }
+    std::cout << std::endl;
+  }
+
+  std::cout << std::endl;
+  //printing the nucleotide patterns
+  std::cout << "The patterns in nucleotides are:" << std::endl;
+  for (int i = 0; i < SeqData.BNo_pattern; i++)
+  {
+    std::cout << (SeqData.BPatterns)[i] << std::endl;
+  }
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_aaa8c6c8230611cf1f7029be0d00e352c}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Print\-Topology\-Trees@{\-Print\-Topology\-Trees}}
+\index{\-Print\-Topology\-Trees@{\-Print\-Topology\-Trees}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Print\-Topology\-Trees}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-F\-Phylo\-P\-O\-T\-::\-Print\-Topology\-Trees} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_aaa8c6c8230611cf1f7029be0d00e352c}
+
+
+\-Prints all the trees to console output. 
+
+
+
+\-Definition at line 815 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References n\-\_\-dimensions, tree\-\_\-nodes, and tree\-Roots.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T().
+
+
+\begin{DoxyCode}
+{
+
+  //describe the generic tree
+  std::cout << endl;
+  std::cout << "The trees will have " << tree_nodes
+    << " nodes and " << n_dimensions << " edges" << std::endl << std::endl;
+
+  PhyloTreePtrsItr it;
+  int i = 0;
+
+  //for each tree in treeRoots
+  for (it = treeRoots.begin(); it < treeRoots.end(); it++)
+  {
+
+    std::cout << "Tree number " << i << " is:" <<std::endl;
+    (*it)->PrintTree();
+    std::cout << std::endl << std::endl;
+    i++;
+  }
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a02e78c307455acbbaa53b0482d4a8b0c}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Read\-Sequence@{\-Read\-Sequence}}
+\index{\-Read\-Sequence@{\-Read\-Sequence}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Read\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::\-Read\-Sequence} (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a02e78c307455acbbaa53b0482d4a8b0c}
+
+
+\-Reads sequences from a txt file. 
+
+
+
+\-Definition at line 481 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-Check\-Read\-Line(), \-File\-Input\-Error(), max\-Char\-In\-Seq\-Name, \-D\-A\-T\-A\-::\-No\-\_\-seq, \-D\-A\-T\-A\-::raw\-Sequences, \-Reformat\-Sequence(), \-D\-A\-T\-A\-::\-Seq\-\_\-length, \-Seq\-Data, \-D\-A\-T\-A\-::seq\-Names, and taylor\-::sin().
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T().
+
+
+\begin{DoxyCode}
+{
+  // reset
+  SeqData.No_seq = 0;
+  SeqData.Seq_length = 0;
+  // make sure the sequence name and sequence containers are empty
+  (SeqData.seqNames).clear();
+  (SeqData.rawSequences).clear();
+
+                    // make and open an ifstream object
+  ifstream seqFile(s.c_str());
+
+  int i;            // for counters
+
+  string line;      // for a line read in
+
+  // read the first line
+  CheckReadLine(seqFile, line);
+
+                    // convert to a stream
+  istringstream sin(line);
+  // the first line which should be the number of sequences 
+  // and the sequence length
+
+                    // extraction operator on a stream
+  sin >> SeqData.No_seq >> SeqData.Seq_length;
+
+  //  check we read two positive two integers from the first line
+  if ((SeqData.No_seq <= 0) || SeqData.Seq_length <= 0)
+  {
+    FileInputError(seqFile, "Check your sequence data file first line");
+  }
+
+  // for each of the expected number of sequences
+  // if there are more sequences they will not be read
+  // and if there are less the program will give error message and exit
+  // it would be easy to have a more flexible format without having to 
+  // pre-specify number of sequences and length
+  for (i = 0; i < SeqData.No_seq; i++)
+  {
+    if (!seqFile.eof())
+    {
+      //get the next line in the file, which should be a sequence name
+      CheckReadLine(seqFile, line);
+
+      // check line has some characters and less than 
+      // maxCharInSeqName characters
+      if (line.empty() || line.size() > maxCharInSeqName)
+      {
+        FileInputError(seqFile, 
+                       "Check sequence file: expected a sequence name");
+      }
+      else          // line is okay
+      {
+        (SeqData.seqNames).push_back(line);
+      }
+    }
+    else
+    {
+      FileInputError(seqFile, 
+      "Check sequence file: found less than expected number of sequence names")
+      ;
+    }
+
+    if (!seqFile.eof())
+    {
+      //get the next line in the file, which should be a sequence
+      CheckReadLine(seqFile, line);
+
+      // check line has some characters
+      if (line.empty())
+      {
+        FileInputError(seqFile, "Check sequence file: expected a sequence");
+      }
+      else          // line is okay
+      {
+
+        //check the line
+
+                    // reformats the sequence line
+        ReformatSequence(line);
+        // and put it into the container of sequences
+
+        if(line.size() == static_cast<unsigned int>(SeqData.Seq_length))
+        {
+          // copy the string into vector of chars and copy this 
+          // into the rawSequences
+          vector<char> tempCharVec(line.begin(), line.end());
+          (SeqData.rawSequences).push_back(tempCharVec);
+        }
+
+        else
+        {
+          FileInputError(seqFile, 
+                    "Check sequence file: a sequence is shorter than expected")
+      ;
+        }
+      }
+    }
+    else
+    {
+      FileInputError(seqFile, 
+           "Check sequence file: found less than expected number of sequences")
+      ;
+    }
+
+  }                 // end of loop reading sequences and sequence names
+
+  seqFile.close();
+
+  return (0);
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_a7c1b63e0429cce2c72eaabf284eb5e43}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Read\-Trees@{\-Read\-Trees}}
+\index{\-Read\-Trees@{\-Read\-Trees}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Read\-Trees}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-F\-Phylo\-P\-O\-T\-::\-Read\-Trees} (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a7c1b63e0429cce2c72eaabf284eb5e43}
+
+
+\-Makes trees from a tree file. 
+
+\-Reads in lines from the file, tries to construct a tree with each on, puts trees into tree\-Roots 
+\begin{DoxyParams}{\-Parameters}
+{\em s} & the name of the tree file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+tree\-Roots should be contain one pointer to a tree for every line in the tree file 
+\end{DoxyPostcond}
+
+
+\-Definition at line 724 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-Character\-Space, destroy\-Roots(), \-Phylo\-Tree\-::get\-Number\-Nodes(), \-Seq\-Data, \-D\-A\-T\-A\-::seq\-Names, topologies, tree\-\_\-nodes, and tree\-Roots.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T().
+
+
+\begin{DoxyCode}
+{
+                    // a container for treeLines read in
+  vector<string> treeLines;
+
+  // we have treefile with multiple lines, one line for each topology
+  // read the file and store each line
+                    // make and open an ifstream object
+  ifstream treeFile(s.c_str());
+
+  // get each line and push back into treeLines container
+  while(treeFile.good())
+  {
+    string line;
+    getline(treeFile, line);
+
+    // erase trailing white space
+    string whitespaces (" \t\f\v\n\r");
+    size_t found;
+
+    found=line.find_last_not_of(whitespaces);
+    if (found!=string::npos)
+    {
+                    // erase everything from found onwards
+      line.erase(found+1);
+      treeLines.push_back(line);
+    }
+    else
+    {
+      line.clear(); // str is all whitespace
+      std::cerr << "Line in treefile is all whitespace" << std::endl;
+    }
+  }
+
+  treeFile.close(); // finished with the treeFile
+
+                    // count the lines read in
+  size_t countLines = treeLines.size();
+
+  // checks on the treefile lines read in
+  if (countLines == 0)
+  {
+    std::cerr << "Error in tree file: no trees read in" << std::endl << 
+      std::endl;
+    exit(1);
+  }
+  if (countLines!=static_cast<size_t>(topologies))
+  {
+    std::cerr << "Error in tree file: number of lines for trees is not the "
+              << "expected number of topologies " << topologies 
+              << std::endl << std::endl;
+    exit(1);
+  }
+
+  // should now have topologies lines read in 
+  // (eg topologies = 1 for 3 taxa case, 3 for 4 taxa, etc)
+
+  // for each line, ie each topology, set up a new tree for this topology
+  for (size_t i = 0; i < static_cast<size_t>(topologies); i++)
+  {
+
+    PhyloTree* newtree;
+
+    try
+    {
+      // use PhyloTree constructor with the 
+      // line, sequence names, and character space
+      newtree = new PhyloTree(CharacterSpace, treeLines[i], SeqData.seqNames);
+    }
+
+    catch (bad_alloc&)
+    {
+      std::cout << "Error allocating memory in ReadTrees" << std::endl;
+    }
+
+    // we expect to find the tree_nodes number of nodes
+    if (static_cast<int>((newtree->getNumberNodes())) != tree_nodes)
+    {
+      // error in tree file
+
+      string msg = "Error in tree file, please check the number of nodes";
+      delete newtree;
+      destroyRoots();
+      exit(1);
+    }
+
+                    // pushes a copy of the newtree pointer into treeRoots;
+    treeRoots.push_back(newtree);
+  }
+  // we now have treeRoots full of pointers to PhyloTrees
+}
+\end{DoxyCode}
+\hypertarget{classFPhyloPOT_aa8490107b21f3b7efe2fa3bbfc8c6b1c}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Reformat\-Sequence@{\-Reformat\-Sequence}}
+\index{\-Reformat\-Sequence@{\-Reformat\-Sequence}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Reformat\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-F\-Phylo\-P\-O\-T\-::\-Reformat\-Sequence} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{line}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classFPhyloPOT_aa8490107b21f3b7efe2fa3bbfc8c6b1c}
+
+
+\-Reformats sequences read in to make them easy to analyse for patterns. 
+
+
+
+\-Definition at line 450 of file \-F\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-Referenced by \-Read\-Sequence().
+
+
+\begin{DoxyCode}
+{
+
+  size_t pos;
+
+  string toErase(" \r\t\0");
+  string toReplace("u");
+
+  // erase unwanted characters
+  pos = line.find_first_of(toErase);
+  while (pos!=string::npos)
+  {
+    line.erase(pos);
+    pos = line.find_first_of(toErase, pos);
+  }
+
+  //turn it all to lower case
+  std::transform(line.begin(), line.end(), line.begin(), ::tolower);
+
+  // if a character is 'u', replace by 't'
+  pos = line.find_first_of(toReplace);
+  while (pos!= string::npos)
+  {
+    line.replace(pos, 1, "t");
+    pos = line.find_first_of(toReplace, pos+1);
+  }
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFPhyloPOT_aef4d908d355efec47e284d3845d74b73}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!n\-\_\-dimensions@{n\-\_\-dimensions}}
+\index{n\-\_\-dimensions@{n\-\_\-dimensions}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{n\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::n\-\_\-dimensions}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_aef4d908d355efec47e284d3845d74b73}
+
+
+\-The number of edges in an unrooted tree. 
+
+
+
+\-Definition at line 135 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T(), and \-Print\-Topology\-Trees().
+
+\hypertarget{classFPhyloPOT_a6121e3100ec3c00f522f15e1feae0070}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFPhyloPOT_a6121e3100ec3c00f522f15e1feae0070}
+
+
+\-Track number of interval function calls. 
+
+
+
+\-Definition at line 153 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFPhyloPOT_a4e705aece25b8ee32d67aa6ab50cd9ec}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFPhyloPOT_a4e705aece25b8ee32d67aa6ab50cd9ec}
+
+
+\-Track number of real function calls. 
+
+
+
+\-Definition at line 156 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFPhyloPOT_aa80ced607ed41f02bcd56b6f08fbd1ff}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!\-Seq\-Data@{\-Seq\-Data}}
+\index{\-Seq\-Data@{\-Seq\-Data}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{\-Seq\-Data}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-D\-A\-T\-A} {\bf \-F\-Phylo\-P\-O\-T\-::\-Seq\-Data}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_aa80ced607ed41f02bcd56b6f08fbd1ff}
+
+
+\-A struct for the sequence data read in. 
+
+
+
+\-Definition at line 144 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by \-Find\-Pattern(), operator()(), \-Print\-Sequence(), \-Read\-Sequence(), and \-Read\-Trees().
+
+\hypertarget{classFPhyloPOT_af68e59b4d63e18f0b82864b101fd29d2}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!topologies@{topologies}}
+\index{topologies@{topologies}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{topologies}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::topologies}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_af68e59b4d63e18f0b82864b101fd29d2}
+
+
+\-The number of unrooted topology trees given the model space. 
+
+
+
+\-Definition at line 138 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T(), and \-Read\-Trees().
+
+\hypertarget{classFPhyloPOT_ab30590c070d95d5d5d7966cb386db7d6}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!tree\-\_\-nodes@{tree\-\_\-nodes}}
+\index{tree\-\_\-nodes@{tree\-\_\-nodes}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{tree\-\_\-nodes}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::tree\-\_\-nodes}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_ab30590c070d95d5d5d7966cb386db7d6}
+
+
+\-The number of nodes in an unrooted tree given the number of taxa. 
+
+
+
+\-Definition at line 141 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T(), \-Print\-Topology\-Trees(), and \-Read\-Trees().
+
+\hypertarget{classFPhyloPOT_a84a8fb3afb2b975331062752d414723a}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!tree\-\_\-space@{tree\-\_\-space}}
+\index{tree\-\_\-space@{tree\-\_\-space}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{tree\-\_\-space}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Phylo\-P\-O\-T\-::tree\-\_\-space}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFPhyloPOT_a84a8fb3afb2b975331062752d414723a}
+
+
+\-The model space or number of taxa. 
+
+
+
+\-Definition at line 132 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by \-F\-Phylo\-P\-O\-T().
+
+\hypertarget{classFPhyloPOT_a99124f9f8855b0aebcccd20804ef9cde}{\index{\-F\-Phylo\-P\-O\-T@{\-F\-Phylo\-P\-O\-T}!tree\-Roots@{tree\-Roots}}
+\index{tree\-Roots@{tree\-Roots}!FPhyloPOT@{\-F\-Phylo\-P\-O\-T}}
+\paragraph[{tree\-Roots}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Phylo\-Tree\-Ptrs} {\bf \-F\-Phylo\-P\-O\-T\-::tree\-Roots}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFPhyloPOT_a99124f9f8855b0aebcccd20804ef9cde}
+
+
+\-A container of pointers to \-Phylo\-Trees. 
+
+
+
+\-Definition at line 147 of file \-F\-Phylo\-P\-O\-T.\-hpp.
+
+
+
+\-Referenced by destroy\-Roots(), operator()(), \-Print\-Topology\-Trees(), and \-Read\-Trees().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FPhyloPOT_8hpp}{\-F\-Phylo\-P\-O\-T.\-hpp}\item 
+\hyperlink{FPhyloPOT_8cpp}{\-F\-Phylo\-P\-O\-T.\-cpp}\end{DoxyCompactItemize}

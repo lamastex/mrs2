@@ -1,0 +1,291 @@
+\hypertarget{classISSample}{\subsection{\-I\-S\-Sample \-Class \-Reference}
+\label{classISSample}\index{\-I\-S\-Sample@{\-I\-S\-Sample}}
+}
+
+
+\-A class for the status of an \-Importance \-Sampler.  
+
+
+
+
+{\ttfamily \#include $<$\-Small\-Classes.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{classISSample_ab2913a50ee258c5b55d91202ac35ff00}{\-Integral\-Estimate} (vector$<$ real $>$ \&\-Integral\-Ests)
+\item 
+vector$<$ rvector $>$ \hyperlink{classISSample_a67d18d57af02d5adc0025eeb025db972}{\-Mean} ()
+\begin{DoxyCompactList}\small\item\em \-Sample mean of lableled points. \end{DoxyCompactList}\item 
+void \hyperlink{classISSample_a38b62082187bfa35faa6564b0ce874f7}{\-Print\-Means} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Print labeled means. \end{DoxyCompactList}\item 
+void \hyperlink{classISSample_ae167a6228819ab69bfd4868b455733fd}{\-Print} (ostream \&out)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{classISSample_a83dec86101f85594fee6ed9f55954445}{\-Ntopologies}
+\begin{DoxyCompactList}\small\item\em \-Number of topologies or model labels. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classISSample_a7aeb58094643516127d1df6fe71fec3c}{\-Label\-Set}
+\begin{DoxyCompactList}\small\item\em \-The set of unique integer labels in \-Lab\-Domain\-List. \end{DoxyCompactList}\item 
+real \hyperlink{classISSample_a72e8c06106f7b47f432f2fcbf9bc80bd}{\-Envelope\-Integral}
+\begin{DoxyCompactList}\small\item\em \-The integral of the envelope function. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classWLabPnt}{\-W\-Lab\-Pnt} $>$ \hyperlink{classISSample_a07b1930fbb119b2561e1ad4fdd760e0f}{\-Samples}
+\begin{DoxyCompactList}\small\item\em vector of weighted labeled points -\/-\/ our labeled point-\/valued particles \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class for the status of an \-Importance \-Sampler. 
+
+\-Definition at line 365 of file \-Small\-Classes.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classISSample_ab2913a50ee258c5b55d91202ac35ff00}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Integral\-Estimate@{\-Integral\-Estimate}}
+\index{\-Integral\-Estimate@{\-Integral\-Estimate}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Integral\-Estimate}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-I\-S\-Sample\-::\-Integral\-Estimate} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ real $>$ \&}]{\-Integral\-Ests}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classISSample_ab2913a50ee258c5b55d91202ac35ff00}
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000011}{\-Todo}]\-Needs \-Label\-Set specifics like \hyperlink{classISSample_a67d18d57af02d5adc0025eeb025db972}{\-Mean()} \end{DoxyRefDesc}
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000012}{\-Todo}]replace with gsl\-\_\-mean like computations due to their diff eqns form or \-Kahan \-Summations \end{DoxyRefDesc}
+
+
+\-Definition at line 381 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Ntopologies, and \-Samples.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+    {
+      vector<WLabPnt>::const_iterator it = Samples.begin();
+      real wsum = it->Wt;
+      for(; it != Samples.end(); it++)
+      {
+        int label = it->L;
+        real weight = it->Wt;
+        IntegralEsts[label] += weight;
+        wsum += weight;
+      }
+      for(int i=0; i<Ntopologies; i++)
+      {
+        IntegralEsts[i] /= (real)(int)Samples.size(); 
+      }
+      return wsum/(real)(int)Samples.size();
+    }
+\end{DoxyCode}
+\hypertarget{classISSample_a67d18d57af02d5adc0025eeb025db972}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Mean@{\-Mean}}
+\index{\-Mean@{\-Mean}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$rvector$>$ {\bf \-I\-S\-Sample\-::\-Mean} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classISSample_a67d18d57af02d5adc0025eeb025db972}
+
+
+\-Sample mean of lableled points. 
+
+\-Flag for \-I\-F a label has been encountered in the samples
+
+number of distinct labels in the samples
+
+sum of distinct labels in the samples
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000013}{\-Todo}]\-Either replace with gsl\-\_\-mean like computations due to their diff eqns form or \-Kahan \-Summations \-Function \-Obj using std\-::transform or \-Dot\-Accum in c-\/xsc \end{DoxyRefDesc}
+
+
+\-Definition at line 403 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Label\-Set, \-Ntopologies, and \-Samples.
+
+
+
+\-Referenced by main(), and \-Print\-Means().
+
+
+\begin{DoxyCode}
+    {
+      cout << "   Number of labels or topologies = " << Ntopologies << endl;
+      vector<int>::const_iterator itINTV = 
+        max_element(LabelSet.begin(),LabelSet.end());
+      int MaxLabelNum = *itINTV;
+      
+      vector<bool> first(MaxLabelNum+1, true);
+                    
+      vector<real> w_sums(MaxLabelNum+1, 0);
+                    
+      vector<rvector> sums(MaxLabelNum+1);
+      vector<WLabPnt>::const_iterator it = Samples.begin();
+      for(; it != Samples.end(); it++)
+      {
+        int label = it->L;
+        if(first[label])
+        {
+          sums[label] = rvector(it->Pnt);
+          sums[label] *= it->Wt;
+          w_sums[label] = it->Wt;
+          first[label] = false;
+        }
+        else
+        {
+          sums[label] += it->Wt*it->Pnt;
+          w_sums[label] += it->Wt;
+        }
+      }
+      for(int i=0; i<Ntopologies; i++)
+      {
+        if(w_sums[LabelSet[i]] > 0){ sums[LabelSet[i]] /= w_sums[LabelSet[i]]; 
+      }
+        cout << "label: " << LabelSet[i] << "  weight: " 
+             << w_sums[LabelSet[i]] << endl << "mean: " << sums[LabelSet[i]] 
+             << endl;
+      }
+      return sums;
+    }
+\end{DoxyCode}
+\hypertarget{classISSample_ae167a6228819ab69bfd4868b455733fd}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Print@{\-Print}}
+\index{\-Print@{\-Print}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-S\-Sample\-::\-Print} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classISSample_ae167a6228819ab69bfd4868b455733fd}
+
+
+\-Definition at line 462 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References taylor\-::\-Lb(), \-Samples, and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+    {
+      vector<WLabPnt>::const_iterator it = Samples.begin();
+                    // it->Print(out); }
+      for(; it!=Samples.end(); it++)
+      {
+        out << it->Wt << "     " << it->L; 
+        for(int i=Lb(it->Pnt); i<=Ub(it->Pnt); i++){ out << " " << it->Pnt[i]; 
+      }
+        out << endl;
+      }
+      return;
+    }
+\end{DoxyCode}
+\hypertarget{classISSample_a38b62082187bfa35faa6564b0ce874f7}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Print\-Means@{\-Print\-Means}}
+\index{\-Print\-Means@{\-Print\-Means}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Print\-Means}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-I\-S\-Sample\-::\-Print\-Means} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classISSample_a38b62082187bfa35faa6564b0ce874f7}
+
+
+\-Print labeled means. 
+
+
+
+\-Definition at line 450 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Label\-Set, \-Mean(), and \-Ntopologies.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+    {
+      vector<rvector> means = Mean();
+      vector<rvector>::const_iterator it;
+      for(int i=0; i<Ntopologies; i++)
+      {
+        out << "label: " << LabelSet[i] << "   mean: " 
+            << means[LabelSet[i]] << endl;
+      }
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classISSample_a72e8c06106f7b47f432f2fcbf9bc80bd}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Envelope\-Integral@{\-Envelope\-Integral}}
+\index{\-Envelope\-Integral@{\-Envelope\-Integral}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Envelope\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-I\-S\-Sample\-::\-Envelope\-Integral}}}\label{classISSample_a72e8c06106f7b47f432f2fcbf9bc80bd}
+
+
+\-The integral of the envelope function. 
+
+
+
+\-Definition at line 375 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi().
+
+\hypertarget{classISSample_a7aeb58094643516127d1df6fe71fec3c}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Label\-Set@{\-Label\-Set}}
+\index{\-Label\-Set@{\-Label\-Set}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Label\-Set}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf \-I\-S\-Sample\-::\-Label\-Set}}}\label{classISSample_a7aeb58094643516127d1df6fe71fec3c}
+
+
+\-The set of unique integer labels in \-Lab\-Domain\-List. 
+
+
+
+\-Definition at line 372 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-Mean(), and \-Print\-Means().
+
+\hypertarget{classISSample_a83dec86101f85594fee6ed9f55954445}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Ntopologies@{\-Ntopologies}}
+\index{\-Ntopologies@{\-Ntopologies}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Ntopologies}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf \-I\-S\-Sample\-::\-Ntopologies}}}\label{classISSample_a83dec86101f85594fee6ed9f55954445}
+
+
+\-Number of topologies or model labels. 
+
+
+
+\-Definition at line 369 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), \-Integral\-Estimate(), \-Mean(), and \-Print\-Means().
+
+\hypertarget{classISSample_a07b1930fbb119b2561e1ad4fdd760e0f}{\index{\-I\-S\-Sample@{\-I\-S\-Sample}!\-Samples@{\-Samples}}
+\index{\-Samples@{\-Samples}!ISSample@{\-I\-S\-Sample}}
+\paragraph[{\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-W\-Lab\-Pnt}$>$ {\bf \-I\-S\-Sample\-::\-Samples}}}\label{classISSample_a07b1930fbb119b2561e1ad4fdd760e0f}
+
+
+vector of weighted labeled points -\/-\/ our labeled point-\/valued particles 
+
+
+
+\-Definition at line 378 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), \-Integral\-Estimate(), \-Mean(), and \-Print().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SmallClasses_8hpp}{\-Small\-Classes.\-hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,28 @@
+var classPhyloTree =
+[
+    [ "PhyloTree", "classPhyloTree.shtml#a34906f6c4db42266e9f0ccb3057d2cb9", null ],
+    [ "PhyloTree", "classPhyloTree.shtml#ab6e00efe0c10f4a93d34e7d027489ac6", null ],
+    [ "PhyloTree", "classPhyloTree.shtml#a0b54fc5ece14eeec6f28945306d070fd", null ],
+    [ "PhyloTree", "classPhyloTree.shtml#a70200f6baa49702caa47c79d59d92a39", null ],
+    [ "~PhyloTree", "classPhyloTree.shtml#a4a4c3d1b60f3bba1fe813a0ada4de498", null ],
+    [ "DecodeTree", "classPhyloTree.shtml#a7b301daf15291d5520dc122d3be3578e", null ],
+    [ "fillProbHessJC69", "classPhyloTree.shtml#a0b7e1230aa0c30b38a2778b0281a5183", null ],
+    [ "fillProbIntervalJC69", "classPhyloTree.shtml#ae1efe7ad349b169e80116a959553e37a", null ],
+    [ "fillProbRealCFN", "classPhyloTree.shtml#a29c5f4195d70604d82ac900a97e05d1a", null ],
+    [ "fillProbRealJC69", "classPhyloTree.shtml#ac490ccd50ba543a3f58f70e79d5c7c24", null ],
+    [ "findLabel", "classPhyloTree.shtml#ae6923fc35a5687504975d460a9769a55", null ],
+    [ "findSeqNo", "classPhyloTree.shtml#abd9309bd022690e7532c1d4903d7898f", null ],
+    [ "findTime", "classPhyloTree.shtml#a91962e00d6d81f2186e2290ce61bf7f1", null ],
+    [ "getNumberBranches", "classPhyloTree.shtml#ae7557f8269350a3ee6ba18f9bd63b7e6", null ],
+    [ "getNumberNodes", "classPhyloTree.shtml#a0d1f91c11b0b4dd5091f44d0f4dda0c7", null ],
+    [ "getRoot", "classPhyloTree.shtml#a5ede1337d40e3e211e83d9f009b062f9", null ],
+    [ "nodePOTHess", "classPhyloTree.shtml#aec23a8f03330ad66e6ff1af4c886798e", null ],
+    [ "nodePOTinterval", "classPhyloTree.shtml#a1cb66ffcb92baaeafadd12babc01feba", null ],
+    [ "nodePOTreal", "classPhyloTree.shtml#ae7b8d3e72818ebe9eea94906acf541f1", null ],
+    [ "operator=", "classPhyloTree.shtml#af53d4860d55732c183934881fda283c3", null ],
+    [ "PrintBranch", "classPhyloTree.shtml#a3e9c22f8a721a840c84f67e2136b8d30", null ],
+    [ "PrintTree", "classPhyloTree.shtml#ac593ca7be08c1b02b1b9e4d5229363bd", null ],
+    [ "TreeFileErrorExit", "classPhyloTree.shtml#aed4d7f60f27bef63636280e6a76ed962", null ],
+    [ "CharacterSpace", "classPhyloTree.shtml#a2411ce76565644f8253f15840863a05a", null ],
+    [ "root", "classPhyloTree.shtml#a38c3253751a7ed9ffacb0978106f8173", null ]
+];

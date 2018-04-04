@@ -1,0 +1,62 @@
+\hypertarget{classsubpavings_1_1CompVol}{\subsection{subpavings\-:\-:\-Comp\-Vol \-Class \-Reference}
+\label{classsubpavings_1_1CompVol}\index{subpavings\-::\-Comp\-Vol@{subpavings\-::\-Comp\-Vol}}
+}
+
+
+\-Class comparing on volume of box of node.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-Vol\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-Vol\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompVol_a6536133bf17bcc1c37b5e6f15fa6d175}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing on volume of box of node. 
+
+\-Definition at line 68 of file nodecompobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompVol_a6536133bf17bcc1c37b5e6f15fa6d175}{\index{subpavings\-::\-Comp\-Vol@{subpavings\-::\-Comp\-Vol}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompVol@{subpavings\-::\-Comp\-Vol}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-Vol\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompVol_a6536133bf17bcc1c37b5e6f15fa6d175}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{subpavings\-::\-Node\-Comp\-Obj}.
+
+
+
+\-Definition at line 70 of file nodecompobj.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+        { return (lhs->nodeVolume() < rhs->nodeVolume()); }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobj_8hpp}{nodecompobj.\-hpp}\end{DoxyCompactItemize}

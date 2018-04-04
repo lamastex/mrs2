@@ -1,0 +1,318 @@
+\hypertarget{GeneralScheffe_8cpp}{\subsection{\-General\-Scheffe.\-cpp \-File \-Reference}
+\label{GeneralScheffe_8cpp}\index{\-General\-Scheffe.\-cpp@{\-General\-Scheffe.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$limits$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{GeneralScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition in file \hyperlink{GeneralScheffe_8cpp_source}{\-General\-Scheffe.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{GeneralScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-General\-Scheffe.\-cpp@{\-General\-Scheffe.\-cpp}!main@{main}}
+\index{main@{main}!GeneralScheffe.cpp@{\-General\-Scheffe.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{GeneralScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 42 of file \-General\-Scheffe.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-To\-Collation(), \-Draw\-Unif\-Box(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Hist\-Scheffe\-Set(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Hist\-Scheffe\-Winner(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Hist\-Yat\-Set(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Leaf\-Levels\-String(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs(), and subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+  if ( argc != 4 ) {
+    cerr << "Syntax: UnifScheffe n dataSeed simNum" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   int d = 1; // dimensions
+   long int dataSeed = atoi(argv[2]); //seed for generating data
+   size_t simNum = atoi(argv[3]); //which data set 
+  
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(10);
+   std::ostringstream stm;
+  stm << simNum;
+  
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+   const gsl_rng_type * T;
+   gsl_rng * r;             
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+   gsl_rng_set(r, dataSeed);
+
+   //data generating partition
+   ivector pavingBox(d);
+   interval pavingInterval(0,1);
+   for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+   // data sampled as uniform mixture over leaves of sub-paving myPart
+   //make an Adaptive Histogram object with a specified box
+   AdaptiveHistogram myPart(pavingBox);
+   AdaptiveHistogram myHist(pavingBox);
+   
+   double rootBoxVol = (myPart.getSubPaving())->nodeVolume();
+   // a container for the boxes
+   vector<ivector> Pboxes;
+
+  string mixShape = "3, 4, 4, 2, 2, 3, 3"; 
+  myPart.splitToShape(mixShape);// uniform mixture   
+
+  string mixShape2 = "
+      5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6,5,5,6,7,8,9,10,10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"; 
+  AdaptiveHistogram myPart2(pavingBox);
+  myPart2.splitToShape(mixShape2);
+
+  myPart.splitToShape(mixShape);// uniform mixture   
+   SPSnodePtrs trueLeaves; // set up empty container for leaf node pointers
+   SPSnodePtrsItr it;
+   myPart.getSubPaving()->getLeaves(trueLeaves); // fill the container
+   
+   // container is filled by reading leaves off tree from left to right
+   for(it = trueLeaves.begin(); it < trueLeaves.end(); it++) {
+      Pboxes.push_back((*it)->getBox());
+  }
+  size_t PartSize = Pboxes.size();
+
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << simNum << "..." << endl;
+   // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+   RVecData theData;   
+   RVecData validData;
+   for (int i = 0; i < n; i++) {
+        rvector thisrv(d);
+        size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+        //cout << RndBoxNum << "\t" << Pboxes[RndBoxNum] << endl;
+        thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);         
+      
+      if ( i < int(n/3) ) { validData.push_back(thisrv); }
+      else { theData.push_back(thisrv); }
+   }  // data  should be in theData
+   
+  cout << n - int(n/3) << " training data and " << int(n/3) << " validation
+       data" << endl;
+  //===============finish generating data============================//
+
+  //==================Hold-out MDE===========================================
+  cout << "========================================================" << endl;
+  cout << "Run hold out estimation..." << endl;
+
+  //=========insert data into an AdaptiveHistogramValidation object=========//
+  // stopping criteria 
+  bool stopCrit = false; // to remove this?
+
+  //maximum number of leaf nodes allowed
+  int holdOutCount = int(n/3);
+  int trainCount = n-holdOutCount; 
+  cout << n-holdOutCount << " training data and " 
+      << holdOutCount << " validation data inserted." << endl; 
+  //size_t maxLeafNodes = int(trainCount/log(trainCount*(2*d+1))); //
+       temporarily
+  size_t maxLeafNodes = 50;
+  //cout << "max leaf nodes: " << maxLeafNodes << endl;
+
+  // indicators
+   bool successfulInsertion1 = false;
+   bool successfulInsertion2 = false;
+   
+   bool successfulPQSplit1 = false;
+   bool successfulPQSplit2 = false;
+     
+
+  //container for scheffe tournament candidates
+  vector<AdaptiveHistogram> optHist;
+  SplitNever sn;
+  myHist.insertFromRVec(theData, NOLOG);
+  optHist.push_back(myHist);
+    
+  myPart.insertFromRVec(theData, NOLOG);
+  optHist.push_back(myPart);
+  
+  myPart2.insertFromRVec(theData, NOLOG);
+  optHist.push_back(myPart2);
+  
+  
+  cout << "==================Start the Scheffe tournament=======" << endl;
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  vector<real> TrueDelta;
+  
+  cout << optHist.size() << endl;
+  
+  // now run the tournament (pairwise)
+  for (size_t i = 0; i < optHist.size(); i++) {
+    for (size_t j = 0; j < optHist.size(); j++) {
+      if ( i!=j && i < j ) {
+          cout << "=========" << i << " vs " << j << "==========" << endl;
+
+          //set up a vector the scheffe set
+          vector< vector< set<CollatorSPnode*, less<CollatorSPnode*> > > > 
+      vecScheffeSetVec;
+
+          //set up vectors for tournament winners
+          vector< vector<int> > vecWinnerVec;
+          vector< vector<double> > vecDeltaWinnerVec;
+
+          
+          //add into the collator
+          AdaptiveHistogramCollator coll1;
+          coll1.addToCollation(optHist[i]);
+          coll1.addToCollation(optHist[j]);
+          
+          //add the validation data into the collator
+          string thisShape = coll1.getLeafLevelsString();
+          //cout << thisShape << endl;
+          AdaptiveHistogram validHist(pavingBox);
+          validHist.splitToShape(thisShape);
+          validHist.insertFromRVec(validData, NOLOG);
+          coll1.addToCollation(validHist);
+
+          coll1.outputToTxtTabs("Coll.txt");
+
+          cout << "Get the Scheffe Set: " << endl;
+          coll1.getHistScheffeSet(vecScheffeSetVec);
+
+          cout << "Get the winners for each ordered pair: " << endl; 
+          coll1.getHistScheffeWinner(vecScheffeSetVec, vecWinnerVec, 
+      vecDeltaWinnerVec);
+        
+
+          cout << "Get the Yatracos set for theorem checks: " << endl;
+          vector< vector< set<CollatorSPnode*, less<CollatorSPnode*> > > > 
+      vecYatSetVec;
+          coll1.getHistYatSet(vecYatSetVec);
+        
+        //=======output ST results  to .txt files
+        vector< vector<double> >::iterator it1; vector<double>::iterator it2;
+        vector< vector<int> >::iterator it11; vector<int>::iterator it22;
+        ostringstream stm1, stm2;
+        string fileNameWinner = "STWinner";
+        stm1 << i;
+        stm2 << j;
+        fileNameWinner += stm1.str();
+        fileNameWinner += stm2.str();
+        fileNameWinner += ".txt";  
+        os.open(fileNameWinner.c_str());        
+        for (it11 = vecWinnerVec.begin(); it11 < vecWinnerVec.end(); it11++){ 
+          for (it22 = (*it11).begin(); it22 < (*it11).end(); it22++){
+          os << (*it22) << "\t";
+          }
+          os << "\n";
+        }          
+        os << flush;
+        os.close();
+        std::cout << "Winners for each theta output to " 
+            << fileNameWinner << "." << endl; 
+      
+      }
+    }
+  }
+
+  //================scheffe tournament for all the 8 candidates
+  cout << "Scheffe tounrmanet for all candidates: " << endl;
+  AdaptiveHistogramCollator coll;
+
+  //set up a vector the scheffe set
+  vector< vector< set<CollatorSPnode*, less<CollatorSPnode*> > > > 
+      vecScheffeSetVec;
+  vector<real> IAEMDE;
+  //set up vectors for tournament winners
+  vector< vector<int> > vecWinnerVec;
+  vector< vector<double> > vecDeltaWinnerVec;
+  for (size_t i = 0; i < optHist.size(); i++) {
+    coll.addToCollation(optHist[i]);
+  }
+  
+  string thisShape = coll.getLeafLevelsString();
+  AdaptiveHistogram validHist(pavingBox);
+  validHist.splitToShape(thisShape);
+  validHist.insertFromRVec(validData, NOLOG);
+  coll.addToCollation(validHist);
+
+  cout << "Get the Scheffe Set: " << endl;
+  coll.getHistScheffeSet(vecScheffeSetVec);
+
+  cout << "Get the winners for each ordered pair: " << endl; 
+  coll.getHistScheffeWinner(vecScheffeSetVec, vecWinnerVec, vecDeltaWinnerVec);
+
+  cout << "Get the Yatracos set for theorem checks: " << endl;
+  vector< vector< set<CollatorSPnode*, less<CollatorSPnode*> > > > vecYatSetVec
+      ;
+  coll.getHistYatSet(vecYatSetVec);
+  
+    //=======output ST results  to .txt files
+    vector< vector<double> >::iterator it1; vector<double>::iterator it2;
+    vector< vector<int> >::iterator it11; vector<int>::iterator it22;
+    ostringstream stm1, stm2;
+    string fileNameWinner = "STWinnerAll.txt";  
+    os.open(fileNameWinner.c_str());
+    for (it11 = vecWinnerVec.begin(); it11 < vecWinnerVec.end(); it11++){ 
+      for (it22 = (*it11).begin(); it22 < (*it11).end(); it22++){
+      os << (*it22) << "\t";
+      }
+      os << "\n";
+    }          
+    os << flush;
+    os.close();
+    std::cout << "Winners for each theta output to " 
+        << fileNameWinner << "." << endl; 
+
+
+/*
+ofstream os1;
+string fileNameDeltaWinner = "STDeltaWinner";
+fileNameDeltaWinner += ".txt";  
+os.open(fileNameDeltaWinner.c_str());
+for (it1 = vecDeltaWinnerVec.begin(); it1 < vecDeltaWinnerVec.end(); it1++){ 
+  for (it2 = (*it1).begin(); it2 < (*it1).end(); it2++){
+  os << (*it2) << "\t";
+  }
+  os << "\n";
+}          
+os << flush;
+os.close();
+std::cout << "DeltaWinner for each theta output to " 
+    << fileNameDeltaWinner << "." << endl; 
+*/ 
+//} // end of if successfulPQSplit
+//========end of Scheffe tournament=====================//
+
+// free the random number generator
+gsl_rng_free(r);
+
+return 0;
+}
+\end{DoxyCode}

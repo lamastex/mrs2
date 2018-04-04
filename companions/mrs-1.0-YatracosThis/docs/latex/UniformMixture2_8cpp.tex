@@ -1,0 +1,403 @@
+\hypertarget{UniformMixture2_8cpp}{\subsection{\-Uniform\-Mixture2.\-cpp \-File \-Reference}
+\label{UniformMixture2_8cpp}\index{\-Uniform\-Mixture2.\-cpp@{\-Uniform\-Mixture2.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{UniformMixture2_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{UniformMixture2_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Uniform\-Mixture2.\-cpp@{\-Uniform\-Mixture2.\-cpp}!main@{main}}
+\index{main@{main}!UniformMixture2.cpp@{\-Uniform\-Mixture2.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{UniformMixture2_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 41 of file \-Uniform\-Mixture2.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Box(), subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::get\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-S\-Pnode\-::node\-Volume(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split\-With\-Switches(), and subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+   //===================== user-inputs======================================//
+  if ( argc != 6) {
+    cerr << "Syntax: UniformMixture n d dataSeed mixShape simNum" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   int d = atoi(argv[2]); // dimensions
+   long int dataSeed = atoi(argv[3]); //seed for generating data
+   int shape = atoi(argv[4]); //which mixture to use
+   int simNum = atoi(argv[5]); //which data set 
+
+  
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(5);
+   std::ostringstream stm;
+  stm << simNum;
+   //=================set up for data generation===============================
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+   const gsl_rng_type * T;
+   gsl_rng * r;             
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+   gsl_rng_set(r, dataSeed);
+
+   //data generating partition
+   ivector pavingBox(d);
+   interval pavingInterval(0,1);
+   for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+   // data sampled as uniform mixture over leaves of sub-paving myPart
+   //make an Adaptive Histogram object with a specified box
+   AdaptiveHistogram myPart(pavingBox);
+   double rootBoxVol = (myPart.getSubPaving())->nodeVolume();
+   // a container for the boxes
+   vector<ivector> Pboxes;
+   size_t PartSize;
+
+   // mixture shape
+   string mixShape;
+   vector<int> holesLoc;
+   
+  if (shape == 1) { 
+    mixShape = "1,1"; 
+    holesLoc.push_back(1);
+    holesLoc.push_back(1);
+  }
+  else if (shape == 2) {
+    mixShape = "3, 4, 4, 2, 2, 3, 3";
+    for (int i = 0; i < 7; i++) { holesLoc.push_back(1);} 
+  }
+  else if (shape ==3) { 
+    mixShape = "3, 4, 4, 2, 2, 3, 3"; 
+    for (int i = 0; i < 7; i++) { holesLoc.push_back(1);}
+    holesLoc[1]=0;
+    holesLoc[3]=0;
+    holesLoc[5]=0;
+  } 
+  else if (shape==4) {
+    mixShape = "
+      5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6,5,5,6,7,8,9,10,10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"; 
+    for (int i = 0; i < 63 ; i++) { holesLoc.push_back(1);}
+    holesLoc[6]=0;
+    holesLoc[8]=0;
+    holesLoc[10]=0;
+    holesLoc[17]=0;
+    holesLoc[20]=0;
+    holesLoc[24]=0;
+    holesLoc[34]=0;
+    holesLoc[40]=0;
+    holesLoc[44]=0;
+    holesLoc[47]=0;
+    holesLoc[51]=0;
+    holesLoc[55]=0;
+    holesLoc[59]=0;
+    holesLoc[62]=0;
+  }       
+
+  myPart.splitToShape(mixShape);// uniform mixture   
+   SPSnodePtrs trueLeaves; // set up empty container for leaf node pointers
+   myPart.getSubPaving()->getLeaves(trueLeaves); // fill the container
+   
+   // container is filled by reading leaves off tree from left to right
+   for(int i = 0; i < holesLoc.size(); i++) {
+    if (holesLoc[i] == 1) {
+      Pboxes.push_back(trueLeaves[i]->getBox());
+    }
+  }
+  PartSize = Pboxes.size();
+  // get weight of mixture components
+  double weight = 1.0/(1.0*PartSize);  
+
+
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << simNum << "..." << endl;
+   // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+   RVecData theData;   
+   for (int i = 0; i < n; i++) {
+        rvector thisrv(d);
+        size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+        //cout << RndBoxNum << "\t" << Pboxes[RndBoxNum] << endl;
+        thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);         
+      //cout << thisrv << endl;
+        theData.push_back(thisrv);
+   }  // data  should be in theData
+   
+//==============run an exhaustive SEB PQ==================================//
+  cout << "\n========================================================" << endl;
+  cout << "Run exhaustive PQ..." << endl;
+
+  bool holdAllStats = true;
+  
+  // comparison objects
+  CompMeanMass compMeanMass;
+  CompCovarMass compCovarMass;
+  CompHellingerDist1DMass compHDMass;
+  CompHellingerDist1DMassDiam compHDMassDiam;
+
+  //mean mass remove empty box
+  bool successfulInsertion1 = false;
+  bool successfulPQSplit1 = false;
+  
+  //covar mass remove empty box
+  bool successfulInsertion2 = false;
+  bool successfulPQSplit2 = false;
+  
+  //hellinger distance * mass remove empty box
+  bool successfulInsertion3 = false;
+  bool successfulPQSplit3 = false;
+  
+  //hellinger distance * mass * maxdiam remove empty box
+  bool successfulInsertion4 = false;
+  bool successfulPQSplit4 = false;
+
+  // containers for output needed
+  vector<real> IAEOpt;
+  vector<int> NumLeafNodesOpt;
+  
+  real IAE1=100.0;
+  int NumLeafNodes1;
+  AdaptiveHistogram optHist1;
+  vector<double> Times1;
+
+  real IAE2=100.0;
+  int NumLeafNodes2;
+  AdaptiveHistogram optHist2;
+  vector<double> Times2;
+
+  real IAE3=100.0;
+  int NumLeafNodes3;
+  AdaptiveHistogram optHist3;
+   vector<double> Times3;
+   
+  real IAE4=100.0;
+  int NumLeafNodes4;
+  AdaptiveHistogram optHist4;
+  vector<double> Times4;
+
+  //size_t maxLeafNodes = int(n/log(n*(2*d+1))); // temporarily
+  size_t maxLeafNodes = n;
+  //cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+
+  //do exhaustive PQ for steps of n*0.1
+  for (int i = 1; i <= 20; i++) {
+  
+    AdaptiveHistogram myHist1(pavingBox, holdAllStats); 
+    successfulInsertion1= myHist1.insertFromRVec(theData);
+    rootBoxVol = (myHist1.getSubPaving()->nodeVolume());
+    pavingBox = (myHist1.getSubPaving()->getBox());
+    
+    AdaptiveHistogram myHist2(pavingBox, holdAllStats); 
+    successfulInsertion2= myHist2.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist3(pavingBox, holdAllStats); 
+    successfulInsertion3= myHist3.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist4(pavingBox, holdAllStats); 
+    successfulInsertion4= myHist4.insertFromRVec(theData);
+    
+    if (successfulInsertion1 && successfulInsertion2 && successfulInsertion3
+      && successfulInsertion4) {
+
+      int finalK = int(i*0.05*n);
+      cout << "Max k: " << finalK << endl;
+      // split until number of leaves is at most minVal
+      CritLargestCount_LTE critCount(finalK);
+      size_t minPQPoints = 0; // minimum of one data point in each box
+
+      
+      // we want to check the timings for this
+      clock_t start, end;
+      double timing; 
+      
+      start  = clock(); // and keep the time
+      cout << "Comparing mean mass remove empty: " << endl;
+      successfulPQSplit1 = myHist1.prioritySplitWithSwitches(compMeanMass,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times1.push_back(timing);
+      
+      start  = clock(); // and keep the time
+      cout << "Comparing covar mass remove empty box " << endl;
+      successfulPQSplit2 = myHist2.prioritySplitWithSwitches(compCovarMass,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times2.push_back(timing);
+      
+      start  = clock(); // and keep the time
+      cout << "Comparing hellinger distance with mass remove empty box" << endl
+      ;
+      successfulPQSplit3 = myHist3.prioritySplitWithSwitches(compHDMass,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times3.push_back(timing);
+      
+      start  = clock(); // and keep the time
+      cout << "Comparing hellinger distance with mass and maxdiam and remove
+       empty box" << endl;
+      successfulPQSplit4 = myHist4.prioritySplitWithSwitches(compHDMassDiam,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times4.push_back(timing);
+
+
+      if (successfulPQSplit1 && successfulPQSplit2 && successfulPQSplit3
+        && successfulPQSplit4) {
+        
+          //get the IAE
+        cout << "Get IAE: " << endl;
+        real midIAE1 = myHist1.getUnifIAE(myPart, weight, holesLoc);
+        if ( midIAE1 < IAE1 ) {
+          cout << midIAE1 << "\t" << IAE1 << endl;
+          IAE1 = midIAE1;
+          cout << "this histogram has " << myHist1.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist1 = myHist1;
+        }
+
+        //get the IAE
+        real midIAE2 = myHist2.getUnifIAE(myPart, weight, holesLoc);
+        if ( midIAE2 < IAE2 ) {
+          cout << midIAE2 << "\t" << IAE2 << endl;
+          IAE2 = midIAE2;
+          cout << "this histogram has " << myHist2.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist2 = myHist2;
+        }
+
+        real midIAE3 = myHist3.getUnifIAE(myPart, weight, holesLoc);
+        if ( midIAE3 < IAE3 ) {
+          cout << midIAE3 << "\t" << IAE3 << endl;
+          IAE3 = midIAE3;
+          cout << "this histogram has " << myHist3.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist3 = myHist3;
+        }
+
+        
+        //get the IAE
+        real midIAE4 = myHist4.getUnifIAE(myPart, weight, holesLoc);
+        if ( midIAE4 < IAE4 ) {
+          cout << midIAE4 << "\t" << IAE4 << endl;
+          IAE4 = midIAE4;
+          cout << "this histogram has " << myHist4.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist4 = myHist4;
+        }
+
+      } // end of if(successfulPQSplit)
+    }// end of if(successfulInsertion)
+  } // end of iterating through different kn's
+
+  if (successfulPQSplit1 && successfulInsertion1 && successfulPQSplit2 && 
+      successfulInsertion2 && successfulPQSplit3 && successfulInsertion3
+      && successfulPQSplit4 && successfulInsertion4) {
+        
+        // keep the optimal IAEs
+    IAEOpt.push_back(IAE1); 
+    IAEOpt.push_back(IAE2);
+    IAEOpt.push_back(IAE3);
+    IAEOpt.push_back(IAE4);
+    
+    // keep the number of leaf nodes from the optimal histograms
+    NumLeafNodesOpt.push_back(optHist1.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist2.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist3.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist4.getRootLeaves());
+      
+    // output the optimal histograms
+    std::ostringstream stm;
+    stm << simNum;
+    // create a name for the file to output
+    string fileName;
+    fileName = "HistMeanMass";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist1.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistCovarMass";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist2.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistHellingerMass";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist3.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistHellingerMassDiam";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist4.outputToTxtTabs(fileName);
+
+    // output IAE, number of leaf nodes, times to file
+    string PQFileName = "UnifExhaustivePQOutputStats";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < IAEOpt.size(); i++) {
+      oss << IAEOpt[i] << "\t";
+      oss << NumLeafNodesOpt[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes output to " 
+        << PQFileName << endl;
+        
+    PQFileName = "UnifExhaustivePQOutputStatsTimes";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < Times1.size(); i++) {
+      oss << Times1[i] << "\t";
+      oss << Times2[i] << "\t";
+      oss << Times3[i] << "\t";
+      oss << Times4[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "Times output to " 
+        << PQFileName << endl;
+  } // end of successes
+
+//=================end of exhaustive PQ=================================// 
+
+// free the random number generator
+gsl_rng_free(r);
+
+return 0;
+}
+\end{DoxyCode}

@@ -1,0 +1,112 @@
+\hypertarget{classLabPnt}{\subsection{\-Lab\-Pnt \-Class \-Reference}
+\label{classLabPnt}\index{\-Lab\-Pnt@{\-Lab\-Pnt}}
+}
+
+
+\-A labeled point class.  
+
+
+
+
+{\ttfamily \#include $<$\-Small\-Classes.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-Lab\-Pnt\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classLabPnt_ac3062583331b0ca4591047cc79a0c3af}{\-Print} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em print \-Pnt of the labeled point \hyperlink{classLabPnt}{\-Lab\-Pnt} to an output file stream out \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+rvector \hyperlink{classLabPnt_a57c17e6672679825de3ba13b7486d276}{\-Pnt}
+\begin{DoxyCompactList}\small\item\em specifies the point as cxsc\-::rvector \-Pnt of the labeled point \hyperlink{classLabPnt}{\-Lab\-Pnt} \end{DoxyCompactList}\item 
+int \hyperlink{classLabPnt_ac63f9c6a9263427b84e7f576a122ae44}{\-L}
+\begin{DoxyCompactList}\small\item\em specifies the label \-L of the labeled point \hyperlink{classLabPnt}{\-Lab\-Pnt} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A labeled point class. 
+
+\-Definition at line 29 of file \-Small\-Classes.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classLabPnt_ac3062583331b0ca4591047cc79a0c3af}{\index{\-Lab\-Pnt@{\-Lab\-Pnt}!\-Print@{\-Print}}
+\index{\-Print@{\-Print}!LabPnt@{\-Lab\-Pnt}}
+\paragraph[{\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Lab\-Pnt\-::\-Print} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classLabPnt_ac3062583331b0ca4591047cc79a0c3af}
+
+
+print \-Pnt of the labeled point \hyperlink{classLabPnt}{\-Lab\-Pnt} to an output file stream out 
+
+
+
+\-Reimplemented in \hyperlink{classWLabPnt_a8c511a61a9524e2db1c3fa58b1d37293}{\-W\-Lab\-Pnt}.
+
+
+
+\-Definition at line 37 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-L, taylor\-::\-Lb(), \-Pnt, and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once().
+
+
+\begin{DoxyCode}
+    {
+      out << L; for(int i=Lb(Pnt); i<=Ub(Pnt); i++)
+      {
+        out << " " << Pnt[i];
+      }
+      out << endl; return;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classLabPnt_ac63f9c6a9263427b84e7f576a122ae44}{\index{\-Lab\-Pnt@{\-Lab\-Pnt}!\-L@{\-L}}
+\index{\-L@{\-L}!LabPnt@{\-Lab\-Pnt}}
+\paragraph[{\-L}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Lab\-Pnt\-::\-L}}}\label{classLabPnt_ac63f9c6a9263427b84e7f576a122ae44}
+
+
+specifies the label \-L of the labeled point \hyperlink{classLabPnt}{\-Lab\-Pnt} 
+
+
+
+\-Definition at line 35 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), subpavings\-::label\-Data\-From\-Filter(), main(), \-F\-C\-F\-N3\-Rooted\-::operator()(), \-F\-C\-F\-N3\-::operator()(), \-F\-Phylo\-P\-O\-T\-::operator()(), \-Print(), \-W\-Lab\-Pnt\-::\-Print(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once(), and \-M\-R\-Sampler\-::update\-Umax().
+
+\hypertarget{classLabPnt_a57c17e6672679825de3ba13b7486d276}{\index{\-Lab\-Pnt@{\-Lab\-Pnt}!\-Pnt@{\-Pnt}}
+\index{\-Pnt@{\-Pnt}!LabPnt@{\-Lab\-Pnt}}
+\paragraph[{\-Pnt}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf \-Lab\-Pnt\-::\-Pnt}}}\label{classLabPnt_a57c17e6672679825de3ba13b7486d276}
+
+
+specifies the point as cxsc\-::rvector \-Pnt of the labeled point \hyperlink{classLabPnt}{\-Lab\-Pnt} 
+
+
+
+\-Definition at line 33 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), subpavings\-::label\-Data\-From\-Filter(), main(), \-F\-Witches\-Hat\-::operator()(), \-F\-Shiryaev1\-D\-::operator()(), \-F\-C\-F\-N3\-Star\-::operator()(), \-F\-Cesaro\-Bell\-No\-::operator()(), \-F\-Levy2\-D\-::operator()(), \-F\-Rosenbrock\-::operator()(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::operator()(), \-F\-C\-F\-N3\-Un\-Rooted\-::operator()(), \-F\-C\-F\-N3\-Rooted\-::operator()(), \-F\-C\-F\-N3\-::operator()(), \-F\-Phylo\-P\-O\-T\-::operator()(), \-Print(), \-W\-Lab\-Pnt\-::\-Print(), \-Fobj\-::\-Prior\-Density(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once(), and \-M\-R\-Sampler\-::update\-Umax().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SmallClasses_8hpp}{\-Small\-Classes.\-hpp}\end{DoxyCompactItemize}

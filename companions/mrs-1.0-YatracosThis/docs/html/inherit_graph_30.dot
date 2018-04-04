@@ -1,0 +1,41 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="subpavings::HistEvalObj",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1HistEvalObj.shtml",tooltip="A Virtual class providing a way to stop histogram changes."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node2 [label="subpavings::CritAICChange_GTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritAICChange__GTE.shtml",tooltip="Class for testing the change in AIC score from splitting."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node3 [label="subpavings::CritAICChangeOrLargestCount_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritAICChangeOrLargestCount__LTE.shtml",tooltip="Class for testing change in AIC or largest count from splitting."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node4 [label="subpavings::CritAICChangeOrLeaves_GTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritAICChangeOrLeaves__GTE.shtml",tooltip="Class for testing change in AIC or number leaves from splitting."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node5 [label="subpavings::CritAICMergeChange_GTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritAICMergeChange__GTE.shtml",tooltip="Class for testing the change in AIC score from merging."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node6 [label="subpavings::CritAICMergeChangeOrLeaves_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritAICMergeChangeOrLeaves__LTE.shtml",tooltip="Class for testing change in AIC or number leaves from merging."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node7 [label="subpavings::CritCOPERRChange_GTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritCOPERRChange__GTE.shtml",tooltip="Class for testing the change in COPERR score from splitting."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node8 [label="subpavings::CritCOPERRChangeOrLargestCount_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritCOPERRChangeOrLargestCount__LTE.shtml",tooltip="Class for testing change in COPERR or largest count from splitting."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node9 [label="subpavings::CritCOPERRChangeOrLeaves_GTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritCOPERRChangeOrLeaves__GTE.shtml",tooltip="Class for testing change in COPERR or number leaves from splitting."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node10 [label="subpavings::CritCOPERRMergeChange_GTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritCOPERRMergeChange__GTE.shtml",tooltip="Class for testing the change in COPERR score from merging."];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node11 [label="subpavings::CritCOPERRMergeChangeOrLeaves_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritCOPERRMergeChangeOrLeaves__LTE.shtml",tooltip="Class for testing change in COPERR or number leaves from merging."];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node12 [label="subpavings::CritLargestCount_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritLargestCount__LTE.shtml",tooltip="Class for testing the count of the node with the largest count in histogram&#39;s subpaving."];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node13 [label="subpavings::CritLargestVol_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritLargestVol__LTE.shtml",tooltip="Class for testing the volume of the box with the largest volume in the histogram&#39;s subpaving..."];
+  Node1 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node14 [label="subpavings::CritLeaves_GTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritLeaves__GTE.shtml",tooltip="Class for testing the number of bins of a histogram."];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node15 [label="subpavings::CritLeaves_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritLeaves__LTE.shtml",tooltip="Class for testing the number of bins of a histogram."];
+  Node1 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node16 [label="subpavings::CritSmallestCount_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritSmallestCount__LTE.shtml",tooltip="Class for testing the count of the node with the smallest count in histogram&#39;s subpaving."];
+  Node1 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node17 [label="subpavings::CritSmallestVol_LTE",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritSmallestVol__LTE.shtml",tooltip="Class for testing the volume of the box with the smallest volume in the histogram&#39;s subpaving..."];
+  Node1 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="FreeSans"];
+  Node18 [label="subpavings::CritStopAll",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CritStopAll.shtml",tooltip="Class to bale out of priority queue splitting."];
+}

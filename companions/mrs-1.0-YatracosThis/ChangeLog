@@ -1,0 +1,22 @@
+MRS Release 0.1.2 ChangeLog
+-----------------------------
+In the following we summarize the major changes to the MRS library
+since release MRS 0.1 (released 15.12.2005):
+
+** Upgraded to latest autotools (libtool-2.2.6, autoconf-2.63, automake-1.10.2)
+
+** Maintainance Release due to newer compiler versions
+
+** Sub-pavings from "Applied Interval Analysis", by Jaulin, Kieffer, 
+   Didrit and Walter; Springer, 2001 have been reimplemented in C-XSC with 
+   a BUG in their Contains routine fixed (see BUGS/Contains.png)
+
+** A more general class for sub-pavings added
+
+** Various example targets added
+
+** uniform and exponential priors in Moore rejegtion samplers
+
+** Trans-dimensional Moore rejection samplers
+
+** basic adaptive histograms based on sub-pavings

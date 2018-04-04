@@ -1,0 +1,260 @@
+\hypertarget{FiniteMixtureRegHist_8cpp}{\subsection{\-Finite\-Mixture\-Reg\-Hist.\-cpp \-File \-Reference}
+\label{FiniteMixtureRegHist_8cpp}\index{\-Finite\-Mixture\-Reg\-Hist.\-cpp@{\-Finite\-Mixture\-Reg\-Hist.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{FiniteMixtureRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition in file \hyperlink{FiniteMixtureRegHist_8cpp_source}{\-Finite\-Mixture\-Reg\-Hist.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{FiniteMixtureRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Finite\-Mixture\-Reg\-Hist.\-cpp@{\-Finite\-Mixture\-Reg\-Hist.\-cpp}!main@{main}}
+\index{main@{main}!FiniteMixtureRegHist.cpp@{\-Finite\-Mixture\-Reg\-Hist.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{FiniteMixtureRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 41 of file \-Finite\-Mixture\-Reg\-Hist.\-cpp.
+
+
+
+\-References subpavings\-::count\-Lines\-In\-Txt(), find\-Comp(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), \-Reg\-Hist\-::heights, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), \-Reg\-Hist\-::\-Lower\-Boxes, \-Fin\-Mix\-::\-M, make\-Regular\-Hist(), \-Fin\-Mix\-::\-S, taylor\-::sqrt(), \-Reg\-Hist\-::\-Upper\-Boxes, and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+  if ( argc != 5 ) {
+    cerr << "Syntax: FiniteMixture n dataSeed mix nBins" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   long int dataSeed = atoi(argv[2]); //seed for generating data
+   int mix = atoi(argv[3]); //which mixture to use
+   int nBins = atoi(argv[4]); //number of bins in the regular histogram
+
+   
+   double Tol = 1e-15; // tolerance for root finding and integration routines
+  cout << "Tolerance is: " << Tol << endl;
+  int Deg = 2; // Degree of Taylor series.
+  
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(5);
+
+  //==============get distribution parameters==========================//
+   // read input from mix*.txt
+   string mixfileName;
+   mixfileName = "MixtureFiles/mix";
+  std::ostringstream stmMix;
+  stmMix << mix;
+  mixfileName += stmMix.str();
+  mixfileName += ".txt";
+
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  // create vectors for Weight, Mean, Variance
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+
+  cout << "Reading in parameters of mixture " << mix << endl;
+  ifstream file; // create file for input
+  file.open(mixfileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << mixfileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+  
+  //put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+  //=========================end of setting up parameter===================//
+
+  // ========prepare to generate some data for the tests ================//
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    gsl_rng_set(r, dataSeed);
+
+   //set up a random number generator for gaussian rvs
+     const gsl_rng_type * T1;
+     gsl_rng * r1;
+     gsl_rng_env_setup();
+     T1 = gsl_rng_default;
+     r1 = gsl_rng_alloc (T1);
+     gsl_rng_set(r1, dataSeed);
+     
+  //Generate n U(0,1) r.v. and determine component membership.
+  double a=0, b=1;
+  vector<double> u;
+  int j;
+  for (j = 0; j < n; j++) {
+      u.push_back(gsl_ran_flat(r, a, b));
+  }
+
+  // number of components
+  const int comp = countLinesInTxt(mixfileName) - 1;
+  cout << "There are " << comp << " components in this mixture." << endl;
+
+  // get cumulative sum of the weights
+  double WeightCum[comp];
+  //initialize the array
+  WeightCum[0] = Weight[0]; 
+  cout << WeightCum[0] << endl;
+   for (int j = 1; j < comp; j++) {
+    WeightCum[j] = WeightCum[j-1] + Weight[j];
+  }
+
+  //Create mixture data using component densities that are normal.
+  cout<<"Creating mixture data..." <<endl; 
+  RVecData theData; // a container to keep the data
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << "..." << endl;
+    //find the number of members generated from each component.
+    for (j = 0; j < comp; j++) {  
+      int ind=0;
+      cout << "get the component: " << endl;
+      findComp(u, ind, n, WeightCum, j);
+      cout<<"Component " << j << " has " << ind << " members." <<endl;
+      //now generate the data
+      for (int k =0; k < ind; k++) {
+        rvector thisrv(1);
+        double z = gsl_ran_gaussian(r1, Sigma[j]); // generate a normal r.v.
+        thisrv[1] =Mean[j]+z; // transform the r.v. 
+        theData.push_back(thisrv);
+      }
+    }
+
+  //===============finish generating data============================//
+
+  //==============Regular histogram==================================//
+  cout << "sort data for reg hist" << endl; 
+  //sort the data first
+  // put the data into a list to sort the data
+  RVecDataCItr rvecIt;
+  list<rvector> rvecList;
+  list<rvector>::iterator rvecListIt;
+  for (rvecIt = theData.begin(); rvecIt < theData.end(); rvecIt++){
+    rvector thisrv(1);
+    thisrv = *rvecIt;
+    rvecList.push_back(thisrv);
+  }
+  rvecList.sort(); //sort the data
+  RVecData sortedData; // put back into vector
+  for (rvecListIt = rvecList.begin(); rvecListIt != rvecList.end(); rvecListIt+
+      +)
+  { 
+    rvector thisrv(1);
+    thisrv = *rvecListIt;
+    sortedData.push_back(thisrv);
+  }
+
+  //get the root box
+  AdaptiveHistogram myHist;
+  myHist.insertFromRVec(theData);
+  ivector pavingBox = (myHist.getSubPaving())->getBox();
+  double rootBoxVol = (myHist.getSubPaving())->nodeVolume();
+
+  //make the regular histogram
+  double bw = rootBoxVol/(nBins*1.0);
+  cout << "Making a regular histogram with " << nBins << " bins." << endl;
+  RegHist myRegHist;
+  makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+
+  //output histogram data to .txt file
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  string outputFileName;// for output file
+  outputFileName = "FinMix";
+  ostringstream stm;
+  stm << mix;
+  outputFileName += stm.str();
+  outputFileName += "RegHistOpt.txt";
+  os.open(outputFileName.c_str());
+  for (int i = 0; i < myRegHist.heights.size(); i++) {
+    os << myRegHist.LowerBoxes[i] << "\t" << myRegHist.UpperBoxes[i] << "\t" <<
+       myRegHist.heights[i] << endl;
+  }
+  os << flush;
+  os.close();
+  
+  std::cout << "Regular histogram output to " << outputFileName << endl;
+
+  // now make the regular histograms with the standarad bandwidths
+  for (int bw = 0; bw < 3; bw++) {
+    cout << "Method " << bw << endl;
+    RegHist myRegHist;
+    makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+    
+    outputFileName = "FinMix";
+    outputFileName += stm.str();
+    outputFileName += "RegHistBW";
+    ostringstream stm1;
+    stm1 << bw;
+    outputFileName += stm1.str();
+    outputFileName += ".txt";
+    os.open(outputFileName.c_str());
+    for (int i = 0; i < myRegHist.heights.size(); i++) {
+      os << myRegHist.LowerBoxes[i] << "\t" << myRegHist.UpperBoxes[i] << "\t" 
+      << myRegHist.heights[i] << endl;
+    }
+    os << flush;
+    os.close();
+    std::cout << "Regular histogram output to " << outputFileName << endl;
+    
+  }
+
+// free the random number generator
+gsl_rng_free(r);
+gsl_rng_free(r1);
+
+return 0;
+}
+\end{DoxyCode}

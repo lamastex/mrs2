@@ -1,0 +1,3075 @@
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator}{\subsection{subpavings\-:\-:\-Adaptive\-Histogram\-Collator \-Class \-Reference}
+\label{classsubpavings_1_1AdaptiveHistogramCollator}\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+}
+
+
+\-A wrapper or manager for a \-Collator\-S\-P\-Snode.  
+
+
+
+
+{\ttfamily \#include $<$adaptivehistogramcollator.\-hpp$>$}
+
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Adaptive\-Histogram\-Collator\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a0f1938c3bdc24026c034be889fd2bfe6}{\-Adaptive\-Histogram\-Collator} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a51aba61f8db338d32c2fa5a4de9648f6}{\-Adaptive\-Histogram\-Collator} (const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&adh)
+\begin{DoxyCompactList}\small\item\em initialised constructor. \-Initialised with an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aca2fcef56fc73925701375fa0e551d8b}{\-Adaptive\-Histogram\-Collator} (const \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \& \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a812e5e60dd3d233274738d823c9010b2}{operator=} (const \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a487740c9ae8d812861ff7847718924ff}{$\sim$\-Adaptive\-Histogram\-Collator} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a25deb4940f2a4df6ea84ad6ffe5090d3}{operator+} (const \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \&rhs) const 
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \& \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_ab1c2f300d93647faa0ca12e52b6405f0}{operator+=} (const \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \&rhs)
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aa7ed65f2fced9b8e9e727876e84661c5}{operator-\/} (const \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \&rhs) const 
+\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_ac7545dd3425c4570bd9e0fde17ad9294}{get\-Sub\-Paving} () const 
+\begin{DoxyCompactList}\small\item\em \-Return a pointer to the \-Collator\-P\-Snode this manages. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a0437fe89f5ca716f729c7406ca218d3e}{make\-Average} () const 
+\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_ade34068ac64cc1bd36781350b28a4486}{add\-To\-Collation} (const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&adh)
+\begin{DoxyCompactList}\small\item\em \-Add an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object to the data collation. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aa6e9f2b8750f087a86ac72fe6e1487a9}{add\-Negation\-To\-Collation} (const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&adh, double c)
+\begin{DoxyCompactList}\small\item\em \-Add the negation of an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object to data collation. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a4aeff90166d5791306cddff68289cd22}{collate\-From\-R\-Vec\-Split\-Now} (size\-\_\-t samplesize, size\-\_\-t number\-Samples, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} rv, ivector paving\-Box, const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test)
+\begin{DoxyCompactList}\small\item\em \-Collate samples from container of rvectors, immediate splitting. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aa529397618b12232af3dc816957a5180}{collate\-From\-R\-Vec\-Split\-P\-Q} (size\-\_\-t samplesize, size\-\_\-t number\-Samples, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} rv, ivector paving\-Box, const \hyperlink{classsubpavings_1_1NodeCompObj}{\-Node\-Comp\-Obj} \&comp\-Test, const \hyperlink{classsubpavings_1_1HistEvalObj}{\-Hist\-Eval\-Obj} \&he, size\-\_\-t min\-Child\-Points, double min\-Vol\-B)
+\begin{DoxyCompactList}\small\item\em \-Collate samples from container of rvectors, priority queue split. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a2e8d1edcfe594020e1dfa8135dd20f9d}{collate\-From\-R\-S\-Sample\-Split\-Now} (size\-\_\-t samplesize, size\-\_\-t number\-Samples, const \hyperlink{classRSSample}{\-R\-S\-Sample} rss, ivector paving\-Box, const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test, int label=0)
+\begin{DoxyCompactList}\small\item\em \-Collate samples from an \hyperlink{classRSSample}{\-R\-S\-Sample} object, immediate splitting. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a3ba2c0211c575d8564050292e2b00640}{collate\-From\-R\-S\-Sample\-Split\-P\-Q} (size\-\_\-t samplesize, size\-\_\-t number\-Samples, const \hyperlink{classRSSample}{\-R\-S\-Sample} rss, ivector paving\-Box, const \hyperlink{classsubpavings_1_1NodeCompObj}{\-Node\-Comp\-Obj} \&comp\-Test, const \hyperlink{classsubpavings_1_1HistEvalObj}{\-Hist\-Eval\-Obj} \&he, size\-\_\-t min\-Child\-Points, double min\-Vol\-B, int label=0)
+\begin{DoxyCompactList}\small\item\em \-Collate samples from \hyperlink{classRSSample}{\-R\-S\-Sample} object, priority queue splitting. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a37b31db56cc701fdd997eafb59bda4f5}{get\-Number\-Collated} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the number of \-Adaptive \-Histogram objects collated. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a421a5769038047a2a9867235e8fd95a1}{get\-Num\-Leaves} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of leaf nodes. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a130fc9b9b02214769aece5969de0d8fc}{output\-Graph\-Dot} () const 
+\begin{DoxyCompactList}\small\item\em \-Make a .dot graph file from collated histogram structure. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a514f2ebc1857e531b629f0ff3508b04b}{output\-Average\-To\-Txt\-Tabs} (const std\-::string \&s, bool confirm=false) const 
+\begin{DoxyCompactList}\small\item\em \-Output average normalised histogram over collation to a txt file. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aab47793e8362245a28a7ec3090da5352}{output\-To\-Txt\-Tabs} (const std\-::string \&s, bool confirm=false) const 
+\begin{DoxyCompactList}\small\item\em \-Output the collated information to a txt file. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aa477e8c6da033d93b212076630d3eec0}{public\-Output\-Log} (const std\-::string \&s, const int i) const 
+\begin{DoxyCompactList}\small\item\em \-Add current state of collation to a log file. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a4fab24a598b5d30ff259e71d29e2aebd}{output\-Accumulation\-To\-Txt\-Tabs} (const std\-::string \&s) const 
+\begin{DoxyCompactList}\small\item\em \-Output the accumulated data over the collation to a txt file. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_afd34a4c6b449b8f870b6414e7a1c9ef5}{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample} (\hyperlink{classRSSample}{\-R\-S\-Sample} \&lab\-Sampled\-Data, double dx, double wt)
+\begin{DoxyCompactList}\small\item\em \-Get the estimated log likelihood from \hyperlink{classRSSample}{\-R\-S\-Sample}. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a2c32c30f302a52df863a05f852dd7ea8}{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample} (\hyperlink{classRSSample}{\-R\-S\-Sample} \&lab\-Sampled\-Data, double dx, double wt, double \-Weight\-Hist, std\-::map$<$ rvector, double, std\-::less$<$ rvector $>$ $>$ \&\-Weights\-P\-M)
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a2f8ce51da9658ebc8a10a7823366d8ab}{marginalise} (const std\-::vector$<$ int $>$ \&req\-Dims) const 
+\begin{DoxyCompactList}\small\item\em \-Make a marginalised version of this histogram collator. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a2f477d16af1646398813009e1dabe2c2}{find\-Density\-Region} (double cov, double weight\-P\-M, vector$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ \&cov\-Nodes, string cov\-File\-Name)
+\begin{DoxyCompactList}\small\item\em \-Find the coverage value for boxes. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a2a2da27e64f75b4080d6a967544872e0}{get\-Leaf\-Levels\-String} () const 
+\begin{DoxyCompactList}\small\item\em get leaf levels string \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a46980f85ee8842fc66fd5e2db8aab12e}{get\-Sum\-Variance\-Area\-Scalar} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the sum of the variances for an area-\/related scalar summary. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aefbffc32c2919a65a8a8f67b74416766}{get\-Sample\-Variance\-Area\-Scalar} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the sample variance for an area-\/related scalar summary. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_af968e5158500b2413e4c4075cdcd15b2}{get\-Sum\-Variance\-Total\-Height\-Scalar} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the sum of the variances for scalar summary total height. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a0a561a7f838b46985865c6fea1593829}{get\-Sample\-Variance\-Total\-Height\-Scalar} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the sample variance for scalar summary total height. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a123342d0bc1e6b05ef6c8ed32eb3cff7}{make\-Differences\-To\-Average} () const 
+\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \& \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a2b77dad7572df40d94ed62868834f3ae}{get\-L1\-Distances\-To\-Average} (\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&container) const 
+\end{DoxyCompactItemize}
+\begin{Indent}{\bf \-Get the \-I\-A\-E of a distribution}\par
+{\em \-Get the integrated absolute error of the specified distribution. \begin{DoxyReturn}{\-Returns}
+the integrated absolute error for this realization 
+\end{DoxyReturn}
+}\begin{DoxyCompactItemize}
+\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a46870c2d282efef091dfb1b3477aba4f}{get\-Unif\-I\-A\-E} (\hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&my\-Part, std\-::vector$<$ int $>$ holes\-Loc, double weight)
+\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_ad9bbae8e4f70d6c40684ab60038807bc}{get\-Unif\-I\-A\-E} ()
+\item 
+cxsc\-::interval \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a2173c80c47c7758c67e5f014f92893e3}{get\-Fin\-Mix\-Interval\-I\-A\-E} (\hyperlink{structFinMix}{\-Fin\-Mix} \&mixt, double tol, int deg)
+\item 
+cxsc\-::interval \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a878b3126be081b4551a802de5d7863b3}{get\-Laplace\-Interval\-I\-A\-E} (double tol, int deg)
+\item 
+cxsc\-::interval \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a85c00aa2a7bdff2b4796c62d052e1447}{get\-Lognormal\-Interval\-I\-A\-E} (double tol, int deg)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf \-Get the \-Scheffe \-Tournament \-Winner}\par
+{\em \-Get the \-I\-A\-E between an \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} and a \hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode}.
+
+\-Exhaustive and bisection search. 
+\begin{DoxyParams}{\-Parameters}
+{\em list\-Scheffe\-Set} & the list of set of pointers to sets of \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode } (pointers to the leaf boxes) \\
+\hline
+{\em vec\-Scheffe\-Set} & the current vector of pointers to sets of \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode } (pointers to the leaf boxes) \\
+\hline
+{\em vec\-Winner\-Vec} & the updated vector of vectors of tournament winners \\
+\hline
+{\em vec\-Delta\-Winner\-Vec} & the updated vector of vectors of delta of winners \\
+\hline
+\end{DoxyParams}
+}\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_af9464148c1e5161940b6d6f3c5b2f965}{get\-Hist\-Scheffe\-Set} (std\-::vector$<$ std\-::vector$<$ std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ $>$ \&vec\-Scheffe\-Set\-Vec)
+\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a60443f6dfa512a30c4b8fb0ee96072b9}{get\-Hist\-Yat\-Set} (std\-::vector$<$ std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ \&vec\-Yat\-Set)
+\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_ae4dd25063cc945058665a4b0a3150c89}{get\-Hist\-Scheffe\-Winner} (std\-::vector$<$ std\-::vector$<$ std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ $>$ \&vec\-Scheffe\-Set\-Vec, std\-::vector$<$ std\-::vector$<$ int $>$ $>$ \&vec\-Winner\-Vec, std\-::vector$<$ std\-::vector$<$ double $>$ $>$ \&vec\-Delta\-Winner\-Vec)
+\item 
+double \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a79cc72c5021db50aa53b13f12f8fd234}{get\-Nodes\-Delta} (std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&\-Yat\-Set, int this\-Theta, size\-\_\-t size\-Coll)
+\begin{DoxyCompactList}\small\item\em \-Returns the \-I\-A\-E between an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object and a \hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode}. \end{DoxyCompactList}\item 
+double \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a9ad5434670b0c8d57c7c3b9a7b9d006e}{get\-Nodes\-Max\-Delta} (vector$<$ set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ \&vec\-Yat\-Set, int this\-Theta)
+\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_af45e40508aa9d729f5923787c3717a40}{get\-Min\-Dist\-Est} (vector$<$ double $>$ \&max\-Delta, vector$<$ set$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$, less$<$ \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ \&vec\-Yat\-Set)
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aa088409e6777f2364f4e096faf309e56}{\-Adaptive\-Histogram\-Collator} (\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$spn)
+\begin{DoxyCompactList}\small\item\em \-Private initialised constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a31596539864bb359dbe1246fdebf3cb6}{collate\-From\-R\-Vec} (size\-\_\-t samplesize, size\-\_\-t number\-Samples, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} rv, ivector paving\-Box, int ind\-Immed\-Split, const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test, const \hyperlink{classsubpavings_1_1NodeCompObj}{\-Node\-Comp\-Obj} \&comp\-Test, const \hyperlink{classsubpavings_1_1HistEvalObj}{\-Hist\-Eval\-Obj} \&he, size\-\_\-t min\-Child\-Points, double min\-Vol\-B)
+\begin{DoxyCompactList}\small\item\em \-Private method for making a collation histogram from \-R\-Vec\-Data. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_ae83b213dd864bca295dd85fd1f63dbaa}{collate\-From\-R\-S\-Sample} (size\-\_\-t samplesize, size\-\_\-t number\-Samples, const \hyperlink{classRSSample}{\-R\-S\-Sample} rss, ivector paving\-Box, int ind\-Immed\-Split, const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test, const \hyperlink{classsubpavings_1_1NodeCompObj}{\-Node\-Comp\-Obj} \&comp\-Test, const \hyperlink{classsubpavings_1_1HistEvalObj}{\-Hist\-Eval\-Obj} \&he, size\-\_\-t min\-Child\-Points, double min\-Vol\-B, int label)
+\begin{DoxyCompactList}\small\item\em \-Private method for making a collation histogram from \hyperlink{classRSSample}{\-R\-S\-Sample}. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_aad6e5e6bd009ca64209c471c55a8d43e}{output\-Log} (const std\-::string \&s, const int i) const 
+\begin{DoxyCompactList}\small\item\em \-Add current state of collation to a log file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator_a5ae0bb810e0f19142964b9508f799b60}{root\-Collator}
+\begin{DoxyCompactList}\small\item\em \-Pointer to the root \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A wrapper or manager for a \-Collator\-S\-P\-Snode. 
+
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} class objects manage \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode } objects for the purpose of collating information from a number of \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} objects.
+
+\-The \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator}'s \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} tree represents the subpaving that is the union of all the subpavings associated with each \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} in the collation. \-Each node in the tree has a data member which is a container structure holding one value for each collated histogram. \-For a collation of histograms the container holds the {\bfseries normalised height}, for each collated histogram, of the histogram bin represented by the box of that node.
+
+(\-The normalised height associated with a bin which is represented by the box of a leaf node of a tree managed by an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object is the number of data points associated with that bin divided by (the total number of data points in the histogram x the volume of the bin). \-Thus the areas (heights x volumes) of the bins sum to 1.
+
+\-Since the tree represents the union of the subpavings associated with each \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} in the collation, the collation tree will have at least as many and usually more bins than any of the collated histograms.
+
+\-Each collated histogram will be represented in the summaries in the order in which it was added to the collation. \-Eg, the heights of the bins of the first histogram to be collated will be first (index \mbox{[}1\mbox{]}) in the summary container.
+
+\-If the collated \-Adaptive\-Histograms have been properly formed and added to the collation, the sum, over all the leaf nodes of the collation, of the volume of the box of the leaf node multiplied by the values of the leaf node summary corresponding a particular collated histogram will be 1 for each collated histogram. 
+
+\-Definition at line 71 of file adaptivehistogramcollator.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aa088409e6777f2364f4e096faf309e56}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}}
+\index{\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{\-Adaptive\-Histogram\-Collator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator\-::\-Adaptive\-Histogram\-Collator} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Collator\-S\-Pnode} $\ast$}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit, private\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aa088409e6777f2364f4e096faf309e56}
+
+
+\-Private initialised constructor. 
+
+\-Initialised with pointer to subpaving. 
+
+\-Definition at line 71 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    if (NULL == spn) {
+        throw HistException("Null CollatorSPnode pointer in constructor");
+    }
+    rootCollator = spn;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a0f1938c3bdc24026c034be889fd2bfe6}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}}
+\index{\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{\-Adaptive\-Histogram\-Collator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator\-::\-Adaptive\-Histogram\-Collator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a0f1938c3bdc24026c034be889fd2bfe6}
+
+
+\-Default constructor. 
+
+
+
+\-Definition at line 240 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    try {
+        rootCollator = new CollatorSPnode();
+    }
+    catch (bad_alloc& ba) {
+        string msg(ba.what());
+        std::cerr << "Error allocating memory in constructor: original error "
+                            << msg << std::endl;
+        throw HistException(msg);
+    }
+
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a51aba61f8db338d32c2fa5a4de9648f6}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}}
+\index{\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{\-Adaptive\-Histogram\-Collator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator\-::\-Adaptive\-Histogram\-Collator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram} \&}]{adh}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a51aba61f8db338d32c2fa5a4de9648f6}
+
+
+initialised constructor. \-Initialised with an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object. 
+
+
+
+\-Definition at line 256 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving().
+
+
+\begin{DoxyCode}
+{
+    try {
+        rootCollator = new CollatorSPnode(adh.getSubPaving());
+    }
+    catch (bad_alloc& ba) {
+        string msg(ba.what());
+        std::cerr << "Error allocating memory in constructor: original error "
+                            << msg << std::endl;
+        throw HistException(msg);
+    }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aca2fcef56fc73925701375fa0e551d8b}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}}
+\index{\-Adaptive\-Histogram\-Collator@{\-Adaptive\-Histogram\-Collator}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{\-Adaptive\-Histogram\-Collator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator\-::\-Adaptive\-Histogram\-Collator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram\-Collator} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aca2fcef56fc73925701375fa0e551d8b}
+
+
+\-Copy constructor. 
+
+
+
+\-Definition at line 272 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References root\-Collator, and subpavings\-::\-S\-Pnode\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    try {
+        rootCollator = new CollatorSPnode(*(other.rootCollator));
+    }
+    catch (bad_alloc& ba) {
+        string msg(ba.what());
+        std::cerr << "Error allocating memory in constructor: original error "
+                                            << msg << std:: endl;
+        throw HistException("Memory allocation error in constructor: " + msg);
+    }
+    catch (SPnodeException& spe) {
+        string msg(spe.what());
+        std::cerr << "SPnodeExcepton in constructor: original error "
+                                            << msg << std::endl;
+        throw HistException("SPnodeException in constructor: " + msg);
+    }
+    catch (exception& e) {
+        string msg(e.what());
+        std::cerr << "Error in constructor: original error "
+                                            << msg << std::endl;
+        throw HistException("Error in constructor: " + msg);
+    }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a487740c9ae8d812861ff7847718924ff}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!$\sim$\-Adaptive\-Histogram\-Collator@{$\sim$\-Adaptive\-Histogram\-Collator}}
+\index{$\sim$\-Adaptive\-Histogram\-Collator@{$\sim$\-Adaptive\-Histogram\-Collator}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{$\sim$\-Adaptive\-Histogram\-Collator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator\-::$\sim$\-Adaptive\-Histogram\-Collator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a487740c9ae8d812861ff7847718924ff}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 336 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{ delete rootCollator; }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aa6e9f2b8750f087a86ac72fe6e1487a9}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!add\-Negation\-To\-Collation@{add\-Negation\-To\-Collation}}
+\index{add\-Negation\-To\-Collation@{add\-Negation\-To\-Collation}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{add\-Negation\-To\-Collation}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::add\-Negation\-To\-Collation} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram} \&}]{adh, }
+\item[{double}]{c}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aa6e9f2b8750f087a86ac72fe6e1487a9}
+
+
+\-Add the negation of an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object to data collation. 
+
+\-Attempts to add an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object into the collation of \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} information.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em adh} & the \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} to be negated and included in the collation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+\-This will include negated summary data from the adh. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 564 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Collator\-S\-Pnode\-::add\-Negated\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    try {
+        // make the AdaptiveHistogram into a new CollatorSPnode
+        CollatorSPnode toNeg(adh.getSubPaving());
+       // put the negation of the new CollatorSPnode into the collation
+       // note that addNegatedPaving will alter toNeg, but that is okay because
+       // toNeg is a temporary object created and deleted in this procedure
+        rootCollator->addNegatedPaving(&toNeg, c);
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory adding negation to collation. ";
+        msg += "Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error adding negation to collation. ";
+        msg += "Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException adding negation to collation. ";
+        msg += "Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error adding negation to collation. ";
+        msg += "Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_ade34068ac64cc1bd36781350b28a4486}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!add\-To\-Collation@{add\-To\-Collation}}
+\index{add\-To\-Collation@{add\-To\-Collation}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{add\-To\-Collation}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::add\-To\-Collation} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram} \&}]{adh}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_ade34068ac64cc1bd36781350b28a4486}
+
+
+\-Add an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object to the data collation. 
+
+\-Attempts to add an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object into the collation of \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} information.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em adh} & the \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} to be included in the collation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+\-This will include summary data from the adh. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 521 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Collator\-S\-Pnode\-::add\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), main(), and subpavings\-::\-Adaptive\-Histogram\-::\-M\-C\-M\-C().
+
+
+\begin{DoxyCode}
+{
+    try {
+        // get the subpaving out of adh to form a new CollatorSPnode
+        CollatorSPnode toAdd(adh.getSubPaving());
+        // add the new CollatorSPnode into the collation
+        // note that addPaving will alter toAdd, but that is okay because
+        // toAdd is a temporary object created and deleted in this procedure
+
+        //rootCollator->addPaving(&toAdd);
+
+        bool successfullyAdded = rootCollator->addPaving(&toAdd);
+        if (!successfullyAdded) { // addition returned false
+            std::cout << "Nothing added - check console output "
+                << "for error messages" << std::endl;
+        }
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory adding to collation.  Orginal
+       error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error adding to collation.  Orginal error: 
+      " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException adding to collation.  Orginal error: " + 
+      oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error adding to collation.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_ae83b213dd864bca295dd85fd1f63dbaa}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!collate\-From\-R\-S\-Sample@{collate\-From\-R\-S\-Sample}}
+\index{collate\-From\-R\-S\-Sample@{collate\-From\-R\-S\-Sample}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{collate\-From\-R\-S\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Adaptive\-Histogram\-Collator\-::collate\-From\-R\-S\-Sample} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{samplesize, }
+\item[{size\-\_\-t}]{number\-Samples, }
+\item[{const {\bf \-R\-S\-Sample}}]{rss, }
+\item[{ivector}]{paving\-Box, }
+\item[{int}]{ind\-Immed\-Split, }
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test, }
+\item[{const {\bf \-Node\-Comp\-Obj} \&}]{comp\-Test, }
+\item[{const {\bf \-Hist\-Eval\-Obj} \&}]{he, }
+\item[{size\-\_\-t}]{min\-Child\-Points, }
+\item[{double}]{min\-Vol\-B, }
+\item[{int}]{label}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_ae83b213dd864bca295dd85fd1f63dbaa}
+
+
+\-Private method for making a collation histogram from \hyperlink{classRSSample}{\-R\-S\-Sample}. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em samplesize} & is the number of datapoints in each sample to draw. \\
+\hline
+{\em number\-Samples} & is the number samples to draw (number of histograms to make and include in this collator). \\
+\hline
+{\em rss} & is the \hyperlink{classRSSample}{\-R\-S\-Sample} object to draw samples from. \\
+\hline
+{\em paving\-Box} & is the box to be used as the root box for all histograms \\
+\hline
+{\em ind\-Immed\-Split} & is an indicator for immediate splitting, =1 if we split as data comes (no priority queue) =0 otherwise (priority queue splitting). \\
+\hline
+{\em bool\-Test} & is a reference to an object providing a function operator determining whether to split a node when a data point arrives. \\
+\hline
+{\em comp\-Test} & is an instance of a class providing a function for comparing spsnodes, to order the nodes to prioitise splitting. \\
+\hline
+{\em he} & is an instance of a class which provides a function to control when to stop splitting. \\
+\hline
+{\em min\-Child\-Points} & is the minimum number of points any prospective child must have for a leaf node to be splittable. \\
+\hline
+{\em min\-Vol\-B} & is a multiplier applied to (log n)$^\wedge$2/n to give the the minimum volume for a splittable node. \-A node with volume $<$ min\-Vol\-B(log n)$^\wedge$2/n is not splittable. \-Important with \-A\-I\-C or \-C\-O\-P\-E\-R\-R. \\
+\hline
+{\em label} & is the label for the labeled points in the rss sample which we want to draw our samples from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true if the collation process successful, false otherwise. 
+\end{DoxyReturn}
+
+
+\-Definition at line 184 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::get\-Rvectors\-From\-R\-S\-Sample().
+
+
+\begin{DoxyCode}
+{
+    // container to put the rvectors into
+    RVecData allData;
+
+    //get the container of rvectors
+    //use getRvectorsFromRSSample to put rvectors from labeled points in
+    // rss.Samples into allData where the labeled point label matches label
+    size_t numberFound = getRvectorsFromRSSample(allData, rss, label);
+
+    bool cancontinue = (numberFound > 0);
+    // cancontinue will be false if there was a problem getting data points
+    // if cancontinue is true data should contain at least some data points
+
+    bool retValue = false;
+
+    if (cancontinue) {
+
+        // use the RVec method to complete the process of histogram
+        // creation and averaging
+        retValue = collateFromRVec(samplesize, numberSamples, allData,
+                                pavingBox, indImmedSplit, boolTest,
+                                compTest, he, minChildPoints, minVolB);
+    }
+
+    return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a2e8d1edcfe594020e1dfa8135dd20f9d}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!collate\-From\-R\-S\-Sample\-Split\-Now@{collate\-From\-R\-S\-Sample\-Split\-Now}}
+\index{collate\-From\-R\-S\-Sample\-Split\-Now@{collate\-From\-R\-S\-Sample\-Split\-Now}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{collate\-From\-R\-S\-Sample\-Split\-Now}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Adaptive\-Histogram\-Collator\-::collate\-From\-R\-S\-Sample\-Split\-Now} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{samplesize, }
+\item[{size\-\_\-t}]{number\-Samples, }
+\item[{const {\bf \-R\-S\-Sample}}]{rss, }
+\item[{ivector}]{paving\-Box, }
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test, }
+\item[{int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a2e8d1edcfe594020e1dfa8135dd20f9d}
+
+
+\-Collate samples from an \hyperlink{classRSSample}{\-R\-S\-Sample} object, immediate splitting. 
+
+\-A method to find the average histogram from a specified number of samples of specifed size from a given \hyperlink{classRSSample}{\-R\-S\-Sample} object.
+
+\-Sampling from the \hyperlink{classRSSample}{\-R\-S\-Sample} object's samples for each histogram is with replacement and different samples can are drawn independently\-: one data point in the \hyperlink{classRSSample}{\-R\-S\-Sample} object's samples can be included in more than one histogram and more than once in any one histogram.
+
+\-Splitting takes place immediately as the data is inserted.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em samplesize} & is the size of each sample. \\
+\hline
+{\em number\-Samples} & is the number of samples to draw. \\
+\hline
+{\em rss} & is the \hyperlink{classRSSample}{\-R\-S\-Sample} object to draw samples from. \\
+\hline
+{\em paving\-Box} & is the box to use for all subpaving created. \\
+\hline
+{\em bool\-Test} & is a reference to an object providing a function operator determining whether to split a node when a data point arrives. \\
+\hline
+{\em label} & is the label of the labeled points in the \hyperlink{classRSSample}{\-R\-S\-Sample} object which we want to use to take samples from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-True if data was found and collation created. 
+\end{DoxyReturn}
+
+
+\-Definition at line 694 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    bool retValue = false;
+
+    try {
+
+        int indImmedSplit = 1; // immediate splitting
+
+        CompNothing compTest; // dummy comparison test
+        CritStopAll he; // dummy stopping function object
+        size_t minPoints = 0; // dummy minPoints
+        double minVolB = 0.0; // dummy minVolB
+
+        retValue = collateFromRSSample(samplesize, numberSamples, rss,
+                                    pavingBox, indImmedSplit, boolTest,
+                                    compTest, he, minPoints, minVolB, label);
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory averaging.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error averaging.  Orginal error: " + oldmsg
+      ;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+
+    return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a3ba2c0211c575d8564050292e2b00640}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!collate\-From\-R\-S\-Sample\-Split\-P\-Q@{collate\-From\-R\-S\-Sample\-Split\-P\-Q}}
+\index{collate\-From\-R\-S\-Sample\-Split\-P\-Q@{collate\-From\-R\-S\-Sample\-Split\-P\-Q}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{collate\-From\-R\-S\-Sample\-Split\-P\-Q}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Adaptive\-Histogram\-Collator\-::collate\-From\-R\-S\-Sample\-Split\-P\-Q} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{samplesize, }
+\item[{size\-\_\-t}]{number\-Samples, }
+\item[{const {\bf \-R\-S\-Sample}}]{rss, }
+\item[{ivector}]{paving\-Box, }
+\item[{const {\bf \-Node\-Comp\-Obj} \&}]{comp\-Test, }
+\item[{const {\bf \-Hist\-Eval\-Obj} \&}]{he, }
+\item[{size\-\_\-t}]{min\-Child\-Points, }
+\item[{double}]{min\-Vol\-B, }
+\item[{int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a3ba2c0211c575d8564050292e2b00640}
+
+
+\-Collate samples from \hyperlink{classRSSample}{\-R\-S\-Sample} object, priority queue splitting. 
+
+\-A method to find the average histogram from a specified number of samples of specifed size from a given \hyperlink{classRSSample}{\-R\-S\-Sample} object.
+
+\-Sampling from the \hyperlink{classRSSample}{\-R\-S\-Sample} object's samples for each histogram is with replacement and different samples can are drawn independently\-: one data point in the \hyperlink{classRSSample}{\-R\-S\-Sample} object's samples can be included in more than one histogram and more than once in any one histogram.
+
+\-The histograms are created with priority queue splitting once data is initially inserted into the root box of each histogram.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em samplesize} & is the size of each sample. \\
+\hline
+{\em number\-Samples} & is the number of samples to draw. \\
+\hline
+{\em rss} & is the \hyperlink{classRSSample}{\-R\-S\-Sample} object to draw samples from. \\
+\hline
+{\em paving\-Box} & is the box to use for all subpaving created. \\
+\hline
+{\em comp\-Test} & is an instance of a class providing a function for comparing spsnodes, to order the nodes to prioitise splitting. \\
+\hline
+{\em he} & is an instance of a class which provides a function to control when to stop splitting. \\
+\hline
+{\em min\-Child\-Points} & is the minimum number of points any prospective child must have for a leaf node to be splittable. \\
+\hline
+{\em min\-Vol\-B} & is a multiplier applied to (log n)$^\wedge$2/n to give the the minimum volume for a splittable node. \-A node with volume $<$ min\-Vol\-B(log n)$^\wedge$2/n is not splittable. \-Important with \-A\-I\-C or \-C\-O\-P\-E\-R\-R. \\
+\hline
+{\em label} & is the label of the labeled points in the \hyperlink{classRSSample}{\-R\-S\-Sample} object which we want to use to take samples from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-True if data was found and collation created. 
+\end{DoxyReturn}
+
+
+\-Definition at line 740 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+    bool retValue = false;
+
+    try {
+        int indImmedSplit = 0; // pq rather than immediate splitting
+
+        SplitNever sn; // dummy
+
+        retValue = collateFromRSSample(samplesize, numberSamples, rss,
+                                    pavingBox, indImmedSplit, sn,
+                                    compTest, he, minChildPoints, minVolB, 
+      label);
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory averaging.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error averaging.  Orginal error: " + oldmsg
+      ;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+
+    return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a31596539864bb359dbe1246fdebf3cb6}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!collate\-From\-R\-Vec@{collate\-From\-R\-Vec}}
+\index{collate\-From\-R\-Vec@{collate\-From\-R\-Vec}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{collate\-From\-R\-Vec}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Adaptive\-Histogram\-Collator\-::collate\-From\-R\-Vec} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{samplesize, }
+\item[{size\-\_\-t}]{number\-Samples, }
+\item[{const {\bf \-R\-Vec\-Data}}]{rv, }
+\item[{ivector}]{paving\-Box, }
+\item[{int}]{ind\-Immed\-Split, }
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test, }
+\item[{const {\bf \-Node\-Comp\-Obj} \&}]{comp\-Test, }
+\item[{const {\bf \-Hist\-Eval\-Obj} \&}]{he, }
+\item[{size\-\_\-t}]{min\-Child\-Points, }
+\item[{double}]{min\-Vol\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a31596539864bb359dbe1246fdebf3cb6}
+
+
+\-Private method for making a collation histogram from \-R\-Vec\-Data. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em samplesize} & is the number of datapoints in each sample to draw. \\
+\hline
+{\em number\-Samples} & is the number samples to draw (number of histograms to make and include in this collator). \\
+\hline
+{\em rv} & is the container of rvectors to draw samples from. \\
+\hline
+{\em paving\-Box} & is the box to be used as the root box for all histograms \\
+\hline
+{\em ind\-Immed\-Split} & is an indicator for immediate splitting, =1 if we split as data comes (no priority queue) =0 otherwise (priority queue splitting). \\
+\hline
+{\em bool\-Test} & is a reference to an object providing a function operator determining whether to split a node when a data point arrives. \\
+\hline
+{\em comp\-Test} & is an instance of a class providing a function for comparing spsnodes, to order the nodes to prioitise splitting. \\
+\hline
+{\em he} & is an instance of a class which provides a function to control when to stop splitting. \\
+\hline
+{\em min\-Child\-Points} & is the minimum number of points any prospective child must have for a leaf node to be splittable. \\
+\hline
+{\em min\-Vol\-B} & is a multiplier applied to (log n)$^\wedge$2/n to give the the minimum volume for a splittable node. \-A node with volume $<$ min\-Vol\-B(log n)$^\wedge$2/n is not splittable. \-Important with \-A\-I\-C or \-C\-O\-P\-E\-R\-R. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true if the collation process successful, false otherwise. 
+\end{DoxyReturn}
+
+
+\-Definition at line 80 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-::insert\-Sample\-From\-R\-Vec(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), and subpavings\-::\-Adaptive\-Histogram\-::priority\-Split().
+
+
+\begin{DoxyCode}
+{
+
+    bool retValue = false;
+    gsl_rng * rgsl = NULL;
+
+    try {
+
+        size_t countIn = 0; // track the number of histograms made and added
+
+        // set up a random number sampler
+        const gsl_rng_type * tgsl;
+
+        // set the library variables *gsl_rng_default and
+        // gsl_rng_default_seed to default environmental vars
+        gsl_rng_env_setup();
+
+        tgsl = gsl_rng_default; // make tgsl the default type
+        rgsl = gsl_rng_alloc (tgsl); // set up with default seed
+
+        std::string fileName; // a name for the files to use
+
+
+        // for loop to generate histograms and add to collation
+        for (size_t j=1; j<=numberSamples; j++) {
+
+            bool successfulInsertion; // recognise successes
+
+            // make an Adaptive Histogram object with a specified box
+            AdaptiveHistogram myHist(pavingBox);
+
+            if (indImmedSplit == 1) { // doing immediate splitting
+
+                successfulInsertion = myHist.insertSampleFromRVec(samplesize,
+                    rgsl, rv, boolTest);
+            }
+
+            if (indImmedSplit == 0) { // doing priority queue splitting
+
+                successfulInsertion = myHist.insertSampleFromRVec(samplesize,
+                    rgsl, rv);
+
+                bool successfulPQSplit;
+
+                if (successfulInsertion) {
+
+                    successfulPQSplit = myHist.prioritySplit(compTest, he,
+                                                    NOLOG, minChildPoints, 
+      minVolB);
+                }
+
+                successfulInsertion = successfulInsertion && successfulPQSplit;
+
+            }
+
+            // only do more if some data was fed in
+            if(successfulInsertion) {
+
+                // create a name for the file to output
+                fileName = "Hist";
+                //convert j to a string
+                std::ostringstream stm2;
+                stm2 << j;
+                // add the stringed j to the filename
+                fileName += stm2.str();
+                fileName += ".txt"; // and finish the filename
+
+
+                // To realize a file output
+                myHist.outputToTxtTabs(fileName);
+
+                // add the histogram to the collection represented by this
+                addToCollation(myHist);
+
+                countIn++; // increment the counter
+            }
+        } // end of for loop creating histograms
+
+        if (countIn == numberSamples) {
+
+            retValue = true;
+        }
+        else { // did not add required number of histograms
+            std::cerr << "Problem in collateFromRVec(): check "
+                    << "console for error reports " << std::endl;
+        }
+        // free the random number generator
+        gsl_rng_free (rgsl);
+
+    }
+    catch (exception&) {
+        if (NULL != rgsl) // free the random number generator
+            gsl_rng_free (rgsl);
+        throw;
+    }
+
+    return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a4aeff90166d5791306cddff68289cd22}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!collate\-From\-R\-Vec\-Split\-Now@{collate\-From\-R\-Vec\-Split\-Now}}
+\index{collate\-From\-R\-Vec\-Split\-Now@{collate\-From\-R\-Vec\-Split\-Now}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{collate\-From\-R\-Vec\-Split\-Now}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Adaptive\-Histogram\-Collator\-::collate\-From\-R\-Vec\-Split\-Now} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{samplesize, }
+\item[{size\-\_\-t}]{number\-Samples, }
+\item[{const {\bf \-R\-Vec\-Data}}]{rv, }
+\item[{ivector}]{paving\-Box, }
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a4aeff90166d5791306cddff68289cd22}
+
+
+\-Collate samples from container of rvectors, immediate splitting. 
+
+\-A method to find the collated histograms from a specified number of samples of specifed size from a given container of rvectors.
+
+\-Sampling from the container for each histogram is with replacement and different samples can are drawn independently\-: one data point in the container can be included in more than one histogram and more than once in any one histogram.
+
+\-Splitting takes place immediately as the data is inserted.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em samplesize} & is the size of each sample. \\
+\hline
+{\em number\-Samples} & is the number of samples to draw. \\
+\hline
+{\em rv} & is the container of rvectors to draw samples from. \\
+\hline
+{\em paving\-Box} & is the box to use for all subpaving created. \\
+\hline
+{\em bool\-Test} & is a reference to an object providing a function operator determining whether to split a node when a data point arrives. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-True if data was found and the collation created. 
+\end{DoxyReturn}
+
+
+\-Definition at line 604 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    bool retValue = false;
+
+    try {
+        int indImmedSplit = 1; // immediate splitting
+
+        CompNothing compTest; // dummy comparison test
+        CritStopAll he; // dummy stopping function object
+        size_t minPoints = 0; // dummy minPoints
+        double minVolB = 0.0; // dummy minVolB
+
+
+        retValue = collateFromRVec(samplesize, numberSamples, rv,
+                                    pavingBox, indImmedSplit, boolTest,
+                                    compTest, he, minPoints, minVolB);
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory averaging.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error averaging.  Orginal error: " + oldmsg
+      ;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+
+    return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aa529397618b12232af3dc816957a5180}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!collate\-From\-R\-Vec\-Split\-P\-Q@{collate\-From\-R\-Vec\-Split\-P\-Q}}
+\index{collate\-From\-R\-Vec\-Split\-P\-Q@{collate\-From\-R\-Vec\-Split\-P\-Q}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{collate\-From\-R\-Vec\-Split\-P\-Q}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Adaptive\-Histogram\-Collator\-::collate\-From\-R\-Vec\-Split\-P\-Q} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{samplesize, }
+\item[{size\-\_\-t}]{number\-Samples, }
+\item[{const {\bf \-R\-Vec\-Data}}]{rv, }
+\item[{ivector}]{paving\-Box, }
+\item[{const {\bf \-Node\-Comp\-Obj} \&}]{comp\-Test, }
+\item[{const {\bf \-Hist\-Eval\-Obj} \&}]{he, }
+\item[{size\-\_\-t}]{min\-Child\-Points, }
+\item[{double}]{min\-Vol\-B}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aa529397618b12232af3dc816957a5180}
+
+
+\-Collate samples from container of rvectors, priority queue split. 
+
+\-A method to find the collated histograms from a specified number of samples of specifed size from a given container of rvectors.
+
+\-Sampling from the container's samples for each histogram is with replacement and different samples can are drawn independently\-: one data point in the container's samples can be included in more than one histogram and more than once in any one histogram.
+
+\-The histograms are created with priority queue splitting once data is initially inserted into the root box of each histogram.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em samplesize} & is the size of each sample. \\
+\hline
+{\em number\-Samples} & is the number of samples to draw. \\
+\hline
+{\em rv} & is the container of rvectors to draw samples from. \\
+\hline
+{\em paving\-Box} & is the box to use for all subpaving created. \\
+\hline
+{\em comp\-Test} & is an instance of a class providing a function for comparing spsnodes, to order the nodes to prioitise splitting. \\
+\hline
+{\em he} & is an instance of a class which provides a function to control when to stop splitting. \\
+\hline
+{\em min\-Child\-Points} & is the minimum number of points any prospective child must have for a leaf node to be splittable. \\
+\hline
+{\em min\-Vol\-B} & is a multiplier applied to (log n)$^\wedge$2/n to give the the minimum volume for a splittable node. \-A node with volume $<$ min\-Vol\-B(log n)$^\wedge$2/n is not splittable. \-Important with \-A\-I\-C or \-C\-O\-P\-E\-R\-R. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-True if data was found and average created. 
+\end{DoxyReturn}
+
+
+\-Definition at line 650 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    bool retValue = false;
+
+    try {
+
+        int indImmedSplit = 0; // pq rather than immediate splitting
+
+        SplitNever sn; // dummy
+
+        retValue = collateFromRVec(samplesize, numberSamples, rv,
+                                    pavingBox, indImmedSplit, sn,
+                                    compTest, he, minChildPoints, minVolB);
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory averaging.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error averaging.  Orginal error: " + oldmsg
+      ;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error averaging.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+
+    return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a2f477d16af1646398813009e1dabe2c2}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!find\-Density\-Region@{find\-Density\-Region}}
+\index{find\-Density\-Region@{find\-Density\-Region}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{find\-Density\-Region}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::find\-Density\-Region} (
+\begin{DoxyParamCaption}
+\item[{double}]{cov, }
+\item[{double}]{weight\-P\-M, }
+\item[{vector$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ \&}]{cov\-Nodes, }
+\item[{string}]{cov\-File\-Name}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a2f477d16af1646398813009e1dabe2c2}
+
+
+\-Find the coverage value for boxes. 
+
+
+
+\-Definition at line 987 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), subpavings\-::node\-Comp\-Total\-Summary\-Av(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), and main().
+
+
+\begin{DoxyCode}
+{
+  try {
+      
+      if ( (cov - weightPM) <= 0) {
+        cout << cov << " percent of the mass are already covered by the point
+       masses" << endl;
+      }
+      else {
+      
+        // put the leaves into a vector and sort it, smallest to largest
+        vector<CollatorSPnode*> leaves;
+        getSubPaving()->getLeaves(leaves);
+        CompHeight compheight;  
+        //sort according to average height
+        sort(leaves.begin(), leaves.end(), nodeCompTotalSummaryAv);
+      
+        //start iterating from the largest
+        vector<CollatorSPnode*>::reverse_iterator rit = leaves.rbegin();
+        bool found = FALSE; //found the boxes that gives cov density region
+        
+        dotprecision totalCov;
+        totalCov = 0.0;
+        
+        while (!found && rit < leaves.rend()) {
+          // double check this:
+          // height is box counts/box vol
+          // ie count is unnormalised vol of an individual element of histogram
+          // box vol * height == box vol * (count / box vol) == count
+        
+          //accumulate the summary * box vol
+          accumulate(totalCov, (*rit)->getTotalSummaryAv()*(*rit)->nodeVolume()
+      , 1); 
+
+          //push back the node that fulfill the condition totalCov <= cov 
+          //into the container covNodes
+          if (totalCov <= (cov - weightPM) ) { 
+            covNodes.push_back((*rit)); 
+          } 
+          
+          // check that totalCov is at most cov
+          if (totalCov >= (cov - weightPM) ) { found = TRUE; } // break out of
+       loop
+          ++rit;        
+        } // end while 
+      
+      //output covNodes to .txt 
+        ofstream os;
+        os.open(covFileName.c_str());   
+        vector<CollatorSPnode*>::iterator vit;
+        for (vit = covNodes.begin(); vit < covNodes.end(); vit++) {
+          ivector thisBox = (*vit)->getBox(); // copy theBox         
+          double vol = (*vit)->nodeVolume();
+          // output the nodeName, nodeVolume
+          os << (*vit)->getNodeName();
+          os << "\t" << vol;
+          // followed by the average
+          os << "\t" << (*vit)->getTotalSummaryAv();
+          // followed by intervals making up box using Inf & Sup
+          // ie unlike cxsc output, there is no [  ] around them
+          for (int i= Lb(thisBox); i <= Ub(thisBox) ; i++) {
+             os << "\t" << Inf(thisBox[i]) << "\t" << Sup(thisBox[i]);
+          }
+          os << endl;
+        }
+        os << flush;
+        os.close();
+      } 
+    } // end of try     
+  catch (exception& e) {
+    throw HistException(
+    "Error in AdaptiveHistogramCollation::coverage :\n"
+    + string( e.what() ) );
+  }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_afd34a4c6b449b8f870b6414e7a1c9ef5}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample@{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample}}
+\index{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample@{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-R\-S\-Sample} \&}]{lab\-Sampled\-Data, }
+\item[{double}]{dx, }
+\item[{double}]{wt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_afd34a4c6b449b8f870b6414e7a1c9ef5}
+
+
+\-Get the estimated log likelihood from \hyperlink{classRSSample}{\-R\-S\-Sample}. 
+
+
+
+\-Definition at line 454 of file adaptivehistogramcollator.\-hpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto().
+
+
+\begin{DoxyCode}
+  { double WeightHist = 1.0;
+    std::map<rvector, double, std::less<rvector> > WeightsPM;
+    return getEstLogLikelihoodFromRSSample(labSampledData,
+                    dx, wt, WeightHist, WeightsPM); }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a2c32c30f302a52df863a05f852dd7ea8}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample@{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample}}
+\index{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample@{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Adaptive\-Histogram\-Collator\-::get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-R\-S\-Sample} \&}]{lab\-Sampled\-Data, }
+\item[{double}]{dx, }
+\item[{double}]{wt, }
+\item[{double}]{\-Weight\-Hist, }
+\item[{std\-::map$<$ rvector, double, std\-::less$<$ rvector $>$ $>$ \&}]{\-Weights\-P\-M}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a2c32c30f302a52df863a05f852dd7ea8}
+\-Distribution-\/free \-Likelihood \-Estimation 
+
+\-Definition at line 904 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::node\-Contains(), subpavings\-::\-O\-N\-\_\-\-P\-A\-R\-E\-N\-T, and \-R\-S\-Sample\-::\-Samples.
+
+
+\begin{DoxyCode}
+{
+  if (NULL != rootCollator) {     
+    // container to store heights
+    vector<double> fhatNew;         
+      // make new fhat by adding some mass
+      // maybe can update the summary instead of outputting as vector of
+      // doubles
+    rootCollator->leavesMakeNewFhat(wt, fhatNew);
+
+    // get pointers to the leaf nodes
+    vector<CollatorSPnode*> leaves;
+    vector<CollatorSPnode*>::iterator it;
+    getSubPaving()->getLeaves(leaves); 
+    vector<LabPnt>::iterator dataIt;
+
+    dotprecision dpEstLogLik;
+    dpEstLogLik = 0.0;
+    //iterated through labSampledData
+    for (dataIt = labSampledData.Samples.begin(); 
+      dataIt < labSampledData.Samples.end(); dataIt++) {
+      bool done = false;
+      while ( !done ) {
+        // start the counts for the leaves so that it corresponds to the 
+        // right fhat
+        size_t pos = 0;
+        //iterate through the leaves
+        for (it = leaves.begin(); it < leaves.end(); it++) {
+          //get the box of this leaf node
+          ivector theBox = (*it)->getBox();
+          //make a pointer to an SPSnode with the box
+          SPSnode* newNode = NULL;
+          newNode = new SPSnode(theBox, 0);
+        
+          //now check if this data is inside the box
+          if ( newNode->nodeContains((*dataIt).Pnt, ON_PARENT) ) {  
+            
+            //if data is a point mass in current simulated dataset from theta
+            if ( (*dataIt).L == 0 && WeightsPM[(*dataIt).Pnt] != 0 ) {       
+              accumulate(dpEstLogLik, 
+              log(WeightsPM[(*dataIt).Pnt] + dx*WeightHist*fhatNew[pos]), 1);       
+            }
+            
+            //if data is a point mass but not in current simulated dataset from
+       theta
+            else if ( (*dataIt).L == 0 && WeightsPM[(*dataIt).Pnt] == 0 ) {     
+       
+              accumulate(dpEstLogLik, log(dx*WeightHist*fhatNew[pos]), 1);        
+            } 
+
+            //if data is unique
+            else {
+              accumulate(dpEstLogLik, log(dx*WeightHist*fhatNew[pos]), 1);
+            }
+            
+            done = true; //so that don't have to iterate through ALL the leaves
+                      //just for this data
+            break;
+          }
+          pos++; // increment position
+          delete newNode; //free memory
+        } // end of iterating though leaves
+      } // end of while loop 
+      
+    } // end of going through the data
+      
+    real estLogLik = rnd(dpEstLogLik);
+    return estLogLik;
+  } // end of if NULL != rootCollator
+  else { cerr << "Empty collator" << endl; exit(1); }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a2173c80c47c7758c67e5f014f92893e3}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Fin\-Mix\-Interval\-I\-A\-E@{get\-Fin\-Mix\-Interval\-I\-A\-E}}
+\index{get\-Fin\-Mix\-Interval\-I\-A\-E@{get\-Fin\-Mix\-Interval\-I\-A\-E}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Fin\-Mix\-Interval\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::interval {\bf \-Adaptive\-Histogram\-Collator\-::get\-Fin\-Mix\-Interval\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Fin\-Mix} \&}]{mixt, }
+\item[{double}]{tol, }
+\item[{int}]{deg}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a2173c80c47c7758c67e5f014f92893e3}
+\-Get the \-I\-A\-E for a finite gaussian mixture distribution using interval techniques. 
+
+\-Definition at line 1391 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References bisect(), get\-L1error(), \-Fin\-Mix\-::\-M, \-Fin\-Mix\-::\-S, and \-Fin\-Mix\-::\-W.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto().
+
+
+\begin{DoxyCode}
+{
+  interval totalArea(0.0); //initialize
+  
+  // need to iterate through the leaves
+  vector<CollatorSPnode*> leaves; // set up empty container for leaf node
+       pointers
+  vector<CollatorSPnode*>::iterator it; // and an iterator over the container
+  getSubPaving()->getLeaves(leaves); // fill the container
+  
+  // container is filled by reading leaves off tree from left to right
+  for(it = leaves.begin(); it < leaves.end(); it++) {
+    //cout << "-----------------" << endl;
+    //a container for the roots at this leaf node
+    vector<intervalw> rootVec;
+    
+    //get the height in this leaf node
+    double fhat = ((*it)->getSummary())[0];
+    //get the box of this leaf node
+    ivector thisBox = (*it)->getBox();
+    //cout << (*it)->getBox() << endl;
+    
+    //---------find the root at this domain
+    // make an intervalw object using thisBox
+    rvector lb = Inf(thisBox);
+    rvector ub = Sup(thisBox);
+    intervalw thisIntW(_double(lb[1]), _double(ub[1]));
+    interval thisInt(_double(lb[1]), _double(ub[1]));
+    
+    // find the root
+    //cout << "finding roots at this node " << thisInt << endl;
+    bisect(thisIntW, tol, fhat, rootVec, mixt.W, mixt.M, mixt.S); 
+
+    //---------find the area at this domain and take the absolute value
+    //if rootVec is empty, there are no roots - so we can integrate over
+    //this domain
+    if ((rootVec.size() == 0)) { 
+      //cout << "no roots at " << thisInt << endl;
+      //get the L1 error
+      interval diffArea = getL1error(fhat, thisInt, deg, tol, mixt.W, mixt.M, 
+      mixt.S);
+      //add to totalArea
+      totalArea += diffArea;
+    } //end of rootVec is empty
+
+    else { //if rootVec is not empty
+      vector<intervalw> uniqueRootVec;
+      // make the elements in vector unique
+      for (int i = 0; i < (rootVec.size()); i++) {
+        //cout << "root " << i << ": " << rootVec[i] << endl;
+        //first insert into uniqueRootVec
+        uniqueRootVec.push_back(rootVec[i]);
+        //cout << i-1 << "\t" << i << "\t" << i+1 << endl;
+        //now check for uniqueness
+        if (((i-1) >= 0) && (i < rootVec.size())) {
+          //cout << rootVec[i] << "\t" << rootVec[i-1] << endl;
+          bool uniq = (subset(abs(rootVec[i] - rootVec[i-1]), intervalw(0, 1e-1
+      0)));
+          if ( uniq ) { 
+            //cout << "this root has a duplicate" << endl;
+            uniqueRootVec.pop_back(); }
+        }
+      }
+      //cout << "==There are " << uniqueRootVec.size() << " unique root(s)=="
+       << endl;
+
+      // if there's only 1 root
+      if (uniqueRootVec.size() == 1) {
+        //cout << "there is only one root.." << endl;
+        // is the root at the left or right boundary?
+        if ( (abs(Inf(thisInt) - inf(rootVec[0])) < 1e-10) || 
+            (abs(Sup(thisInt) - inf(rootVec[0])) < 1e-10) ) {
+          //cout << "there's a root at the left/right boundary:" << rootVec[0]
+       << endl;
+          interval diffArea = getL1error(fhat, thisInt, deg, tol, mixt.W, mixt.M
+      , mixt.S);
+          totalArea += diffArea;
+        }
+        else { // the root is not at the boundaries
+          //cout << "no root at the boundaries" << endl;
+          //get the left sub-interval
+          interval thisSubIntLeft = interval(Inf(thisInt), sup(uniqueRootVec[0]
+      ));
+          //cout << "left interval: " << thisSubIntLeft << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntLeft, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          //get the right sub-interval
+          //get the left sub-interval
+          interval thisSubIntRight = interval(inf(uniqueRootVec[0]), Sup(
+      thisInt));
+          //cout << "right interval: " << thisSubIntRight << endl; 
+          diffArea = getL1error(fhat, thisSubIntRight, deg, tol, mixt.W, mixt.M
+      , mixt.S);
+          totalArea += diffArea;
+        }
+      } // end of rootVec.size() == 1
+
+        // if there is more than 1 root
+      else {
+        //cout << "let's have a look at all the roots:" << endl;
+        //for (size_t i = 0; i < uniqueRootVec.size(); i++) {
+          //cout << uniqueRootVec[i] << endl;
+        //}
+
+        //first check if the first root is at the boundary
+        //cout << "check boundaries: " << Inf(thisInt) << "\t" <<
+       inf(rootVec[0]) << endl;
+        if ( abs(Inf(thisInt) - inf(uniqueRootVec[0])) < 1e-10 ) {
+          //cout << "there's a root at the leftmost boundary:" << endl;
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(uniqueRootVec[1
+      ]));
+          //cout << "0-th interval:" << thisSubIntFirst << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntFirst, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            //cout << "the " << i+1 << "-th root is: " << rootVec[i+1] << endl;
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << i+1 << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (excep the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,deg, tol, mixt.W
+      , mixt.M, mixt.S);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast, deg, tol, mixt
+      .W, mixt.M, mixt.S);
+            totalArea += diffArea;
+          } 
+        } // end of if first root is the boundary
+        
+        else {
+          //cout << "root not at boundary" << endl;
+          //if it is not the boundary, make the first sub-interval
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(rootVec[0]));
+          //cout << "0-th interval: " << thisSubIntFirst << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntFirst, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              //cout << inf(rootVec[i]) << "\t" << Sup(thisInt) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << "the " << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt,  deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              //cout << inf(rootVec[i]) << "\t" << sup(rootVec[i+1]) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << "the " << i+1 << "-th interval: " << thisSubInt <<
+       endl;
+              interval diffArea = getL1error(fhat, thisSubInt,  deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (except the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,  deg, tol, 
+      mixt.W, mixt.M, mixt.S);
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,  deg, tol, 
+      mixt.W, mixt.M, mixt.S);
+            totalArea += diffArea;
+          } 
+        } // end of first root is not the boundary
+      } // end of rootVec.size() > 1
+    } // end of rootVec is not empty
+
+  } // end of iterating through the leaf nodes
+  
+  //cout << "IAE: " << totalArea << endl;
+  return totalArea;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_af9464148c1e5161940b6d6f3c5b2f965}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Hist\-Scheffe\-Set@{get\-Hist\-Scheffe\-Set}}
+\index{get\-Hist\-Scheffe\-Set@{get\-Hist\-Scheffe\-Set}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Hist\-Scheffe\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::get\-Hist\-Scheffe\-Set} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::vector$<$ std\-::set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ $>$ \&}]{vec\-Scheffe\-Set\-Vec}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_af9464148c1e5161940b6d6f3c5b2f965}
+\-Get the \-Scheffe set from subpavings 
+
+\-Definition at line 1658 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+   //=============end of setting up
+       containers================================// 
+  int numAdd = getNumberCollated()-1; // the number of histograms collated
+       including the 0-th histogram
+  //cout << "getNumberCollated: " << numAdd << endl;
+  size_t theta = numAdd-1; // the current number of splits
+
+    //============begin pairwise
+       comparisons===================================//
+    for (size_t k=0; k < numAdd; k++) {
+    vector< set<CollatorSPnode*, less<CollatorSPnode*> > > vecScheffeSet;
+      for (size_t j = 1; j < numAdd; j++) {
+      if ( (k != j) && (k < j) ) {
+        set<CollatorSPnode*, less < CollatorSPnode* > > currentScheffeSet;
+        cout << "k= " << k << "\t" << "theta = " << j << endl;
+        getSubPaving()->getScheffeSet(currentScheffeSet, k, j);
+        //if (currentScheffeSet.empty()) { cout << "nothing here" << endl; }
+        vecScheffeSet.push_back(currentScheffeSet);
+      }
+    }
+    vecScheffeSetVec.push_back(vecScheffeSet);
+  } // end of pairwise comparisons
+} // end of function getHistScheffeSet
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_ae4dd25063cc945058665a4b0a3150c89}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Hist\-Scheffe\-Winner@{get\-Hist\-Scheffe\-Winner}}
+\index{get\-Hist\-Scheffe\-Winner@{get\-Hist\-Scheffe\-Winner}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Hist\-Scheffe\-Winner}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::get\-Hist\-Scheffe\-Winner} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::vector$<$ std\-::set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ $>$ \&}]{vec\-Scheffe\-Set\-Vec, }
+\item[{std\-::vector$<$ std\-::vector$<$ int $>$ $>$ \&}]{vec\-Winner\-Vec, }
+\item[{std\-::vector$<$ std\-::vector$<$ double $>$ $>$ \&}]{vec\-Delta\-Winner\-Vec}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_ae4dd25063cc945058665a4b0a3150c89}
+
+
+\-Definition at line 1683 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{ 
+  size_t sizeColl = getNumberCollated();
+  // go through each ordered pair to get the winner
+  for (size_t i = 0; i < vecScheffeSetVec.size(); i++) {
+    
+    vector<int> WinnerVec(vecScheffeSetVec[i].size());
+    vector<double> DeltaVec;
+
+    for (size_t j = 0; j < vecScheffeSetVec[i].size(); j++) {
+
+      if ( vecScheffeSetVec[i][j].empty() ) {
+        //size_t cand1 = i;
+        //size_t cand2 = j+i+1;
+        WinnerVec[j] = (-1);
+        DeltaVec.push_back(-1*(numeric_limits<double>::infinity()));
+        //cout << "no scheffe set at position " << i << "\t" << j << endl;
+        //cout << "========" << endl;
+      } 
+    
+      else {
+        //cout << "scheffe at position " << i << "\t" << j << endl;
+        size_t cand1 = i;
+        size_t cand2 = j+i+1;
+        cout << cand1 << "\t" << cand2 << endl;
+
+        //cout << "----------get delta for " << cand1 << endl;
+        double deltaI = getNodesDelta(vecScheffeSetVec[i][j], cand1, sizeColl);
+        //cout << "---------get delta for " << cand2 << endl;
+        double deltaJ = getNodesDelta(vecScheffeSetVec[i][j], cand2, sizeColl);
+
+        // perform competition
+        if ( deltaI < deltaJ ) {
+          //cout << cand1 << "\t" << deltaI << "\n" << cand2 << "\t" << deltaJ
+       << endl;
+          cout << "Winner is: " << cand1 << endl;
+          // winner is i
+          WinnerVec[j] = (1);
+          DeltaVec.push_back(deltaI);
+        }
+        else { // deltaTheta >= delta 
+          //cout << cand1 << "\t" << deltaI << "\n" << cand2 << "\t" << deltaJ
+       << endl;
+          cout << "Winner is: " << cand2 << endl;
+          WinnerVec[j] = (0);
+          DeltaVec.push_back(deltaJ);
+        }  // end
+      } // end of set not empty
+    } // end of going through j
+    vecWinnerVec.push_back(WinnerVec);
+    vecDeltaWinnerVec.push_back(DeltaVec);
+  } // end of going through vecScheffeSet
+
+} // end of getHistScheffeWinner
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a60443f6dfa512a30c4b8fb0ee96072b9}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Hist\-Yat\-Set@{get\-Hist\-Yat\-Set}}
+\index{get\-Hist\-Yat\-Set@{get\-Hist\-Yat\-Set}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Hist\-Yat\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::get\-Hist\-Yat\-Set} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ \&}]{vec\-Yat\-Set}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a60443f6dfa512a30c4b8fb0ee96072b9}
+
+
+\-Definition at line 1740 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+   //=============end of setting up
+       containers================================// 
+  int numAdd = getNumberCollated()-1; // the number of histograms collated
+       including the 0-th histogram
+  // but not the last histogram as it is the validatino histogram
+  //============begin pairwise comparisons===================================//
+  for (size_t k= 0; k < numAdd; k++) {
+    // get A_ij
+      for (size_t j = 0; j < numAdd; j++) {
+      if ( (k != j) && (k<j) ) {
+        set<CollatorSPnode*, less < CollatorSPnode* > > RowSet;
+        set<CollatorSPnode*, less < CollatorSPnode* > > ColSet;
+        //cout << "k= " << k << "\t" << "theta = " << j << endl;
+        getSubPaving()->getYatSet(RowSet, ColSet, k, j);
+        vecYatSet.push_back(RowSet);
+        vecYatSet.push_back(ColSet);
+      }
+    }
+  } // end of pairwise comparisons
+} // end of function getHistScheffeSet
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a2b77dad7572df40d94ed62868834f3ae}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-L1\-Distances\-To\-Average@{get\-L1\-Distances\-To\-Average}}
+\index{get\-L1\-Distances\-To\-Average@{get\-L1\-Distances\-To\-Average}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-L1\-Distances\-To\-Average}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} \& {\bf \-Adaptive\-Histogram\-Collator\-::get\-L1\-Distances\-To\-Average} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Vec} \&}]{container}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a2b77dad7572df40d94ed62868834f3ae}
+
+
+\-Definition at line 1245 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  try {
+    if (NULL == getSubPaving()) {
+        string msg = "Cannot get L1 distances for this: rootCollator is NULL";
+        throw HistException(msg);
+    }
+
+    container = getSubPaving()->getL1DistancesToAverage(container);
+     
+    return container;
+
+    }
+    
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = string("Error in
+       AdaptiveHistogramCollator::getL1DistancesToAverage.")
+        +  string("Orginal error: ") + oldmsg;
+        throw HistException(msg);
+    }
+
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a878b3126be081b4551a802de5d7863b3}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Laplace\-Interval\-I\-A\-E@{get\-Laplace\-Interval\-I\-A\-E}}
+\index{get\-Laplace\-Interval\-I\-A\-E@{get\-Laplace\-Interval\-I\-A\-E}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Laplace\-Interval\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::interval {\bf subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Laplace\-Interval\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{double}]{tol, }
+\item[{int}]{deg}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a878b3126be081b4551a802de5d7863b3}
+\-Get the \-I\-A\-E for a laplace distribution with mu=0 and b=1 using interval techniques. \hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a2a2da27e64f75b4080d6a967544872e0}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Leaf\-Levels\-String@{get\-Leaf\-Levels\-String}}
+\index{get\-Leaf\-Levels\-String@{get\-Leaf\-Levels\-String}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Leaf\-Levels\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Adaptive\-Histogram\-Collator\-::get\-Leaf\-Levels\-String} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a2a2da27e64f75b4080d6a967544872e0}
+
+
+get leaf levels string 
+
+
+
+\-Definition at line 1063 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+    string retValue = "";
+    if (NULL != rootCollator)
+        retValue = rootCollator->getLeafNodeLevelsString();
+
+    return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a85c00aa2a7bdff2b4796c62d052e1447}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Lognormal\-Interval\-I\-A\-E@{get\-Lognormal\-Interval\-I\-A\-E}}
+\index{get\-Lognormal\-Interval\-I\-A\-E@{get\-Lognormal\-Interval\-I\-A\-E}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Lognormal\-Interval\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::interval {\bf subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Lognormal\-Interval\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{double}]{tol, }
+\item[{int}]{deg}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a85c00aa2a7bdff2b4796c62d052e1447}
+\-Get the \-I\-A\-E for a laplace distribution with mu=0 and b=1 using interval techniques. \hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_af45e40508aa9d729f5923787c3717a40}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Min\-Dist\-Est@{get\-Min\-Dist\-Est}}
+\index{get\-Min\-Dist\-Est@{get\-Min\-Dist\-Est}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Min\-Dist\-Est}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::get\-Min\-Dist\-Est} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$ \&}]{max\-Delta, }
+\item[{vector$<$ set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ \&}]{vec\-Yat\-Set}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_af45e40508aa9d729f5923787c3717a40}
+
+
+\-Definition at line 1762 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  //get the yatracos class for ALL the candidates
+  getHistYatSet(vecYatSet); 
+  
+  //get the maximum delta at each "theta" - here theta refers to the position
+       of the
+  //candidate in the collator
+  for (int i = 0; i < getNumberCollated(); i++) {
+    //get the maximum delta at this candidate
+    double deltaMax = getNodesMaxDelta(vecYatSet, i);
+    maxDelta.push_back(deltaMax);
+  }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a79cc72c5021db50aa53b13f12f8fd234}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Nodes\-Delta@{get\-Nodes\-Delta}}
+\index{get\-Nodes\-Delta@{get\-Nodes\-Delta}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Nodes\-Delta}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Adaptive\-Histogram\-Collator\-::get\-Nodes\-Delta} (
+\begin{DoxyParamCaption}
+\item[{std\-::set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ \&}]{\-Yat\-Set, }
+\item[{int}]{this\-Theta, }
+\item[{size\-\_\-t}]{size\-Coll}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a79cc72c5021db50aa53b13f12f8fd234}
+
+
+\-Returns the \-I\-A\-E between an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object and a \hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode}. 
+
+
+
+\-Definition at line 1631 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  // iterator for Yatracos set
+  set<CollatorSPnode*, less<CollatorSPnode*> >::iterator YatSetIt;  
+
+  //gloria - think about dotprecision summation
+  
+  //initialization
+  double delta = 0;
+  //dotprecision deltaDP = 0;
+  
+  //go through each node in this set to get delta
+  for (YatSetIt = YatSet.begin(); YatSetIt != YatSet.end(); YatSetIt++) {
+    //cout << (*YatSetIt)->getNodeName() << endl;
+    //cout << "union " << endl;
+    delta += (*YatSetIt)->getNodeDelta(thisTheta, sizeColl);
+    //accumulate(deltaDP, (*YatSetIt)->getNodeDelta(k, thisTheta), 1.0);
+   }
+   //cout << "end of union" << endl;
+
+  // take the absolute value of the sums
+  //cout << "Delta: " << fabs(delta) << endl;
+  return fabs(delta);
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a9ad5434670b0c8d57c7c3b9a7b9d006e}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Nodes\-Max\-Delta@{get\-Nodes\-Max\-Delta}}
+\index{get\-Nodes\-Max\-Delta@{get\-Nodes\-Max\-Delta}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Nodes\-Max\-Delta}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Adaptive\-Histogram\-Collator\-::get\-Nodes\-Max\-Delta} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ set$<$ {\bf \-Collator\-S\-Pnode} $\ast$, less$<$ {\bf \-Collator\-S\-Pnode} $\ast$ $>$ $>$ $>$ \&}]{vec\-Yat\-Set, }
+\item[{int}]{this\-Theta}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a9ad5434670b0c8d57c7c3b9a7b9d006e}
+
+
+\-Definition at line 1778 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  // iterators  
+  vector< set<CollatorSPnode*, less<CollatorSPnode*> > >::iterator YatSetIt;  
+
+  double DeltaMax = 0;
+  //dotprecision deltaDP = 0;
+  set<CollatorSPnode*, less<CollatorSPnode*> > YatSet;
+  
+  //go through each node in this set to get delta
+  for (YatSetIt = vecYatSet.begin(); YatSetIt < vecYatSet.end(); YatSetIt++){
+    double delta = getNodesDelta((*YatSetIt), thisTheta, getNumberCollated());
+    //accumulate(deltaDP, (*YatSetIt)->getNodeDelta(k, thisTheta), 1.0);
+    delta = fabs(delta);
+    DeltaMax = (delta > DeltaMax) ? delta : DeltaMax; 
+    //cout << "DeltaMax: " << DeltaMax << endl;
+  }
+
+  // take the absolute value of the sums
+  return fabs(DeltaMax);
+  
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a37b31db56cc701fdd997eafb59bda4f5}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Number\-Collated@{get\-Number\-Collated}}
+\index{get\-Number\-Collated@{get\-Number\-Collated}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Number\-Collated}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf \-Adaptive\-Histogram\-Collator\-::get\-Number\-Collated} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a37b31db56cc701fdd997eafb59bda4f5}
+
+
+\-Get the number of \-Adaptive \-Histogram objects collated. 
+
+
+
+\-Definition at line 798 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), and main().
+
+
+\begin{DoxyCode}
+{ return rootCollator->getNumberSummarised(); }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a421a5769038047a2a9867235e8fd95a1}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Num\-Leaves@{get\-Num\-Leaves}}
+\index{get\-Num\-Leaves@{get\-Num\-Leaves}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Num\-Leaves}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf \-Adaptive\-Histogram\-Collator\-::get\-Num\-Leaves} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a421a5769038047a2a9867235e8fd95a1}
+
+
+\-Get number of leaf nodes. 
+
+
+
+\-Definition at line 817 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto().
+
+
+\begin{DoxyCode}
+{
+  vector<CollatorSPnode*> leaves;
+  getSubPaving()->getLeaves(leaves); 
+
+  return leaves.size();
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aefbffc32c2919a65a8a8f67b74416766}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Sample\-Variance\-Area\-Scalar@{get\-Sample\-Variance\-Area\-Scalar}}
+\index{get\-Sample\-Variance\-Area\-Scalar@{get\-Sample\-Variance\-Area\-Scalar}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Sample\-Variance\-Area\-Scalar}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Adaptive\-Histogram\-Collator\-::get\-Sample\-Variance\-Area\-Scalar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aefbffc32c2919a65a8a8f67b74416766}
+
+
+\-Get the sample variance for an area-\/related scalar summary. 
+
+\-Treats the collation as representing a sample of histograms.
+
+\-The scalar summary is defined so that the variance for a histogram in the sample is the square of the sum of the areas of difference between a histogram sample and the average histogram over the sample.
+
+'\-Area', for a particular box, is the height of the bin multiplied by the box volume.
+
+\-The sample variance is\-: (sum of the variances over each histogram collated)/(number collated -\/ 1).
+
+\-The sample variance is only defined in the number collated is $>$ 1.
+
+\begin{DoxyReturn}{\-Returns}
+\-The sample variance of the area-\/related scalar summary over the sample held in the collation. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1130 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    real sumVars = getSumVarianceAreaScalar();
+    size_t numberColl = getNumberCollated();
+
+    if (numberColl < 2) {
+        throw HistException("Cannot do sample variance for sample size < 2");
+    }
+
+    return sumVars/(1.0*(numberColl - 1));
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a0a561a7f838b46985865c6fea1593829}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Sample\-Variance\-Total\-Height\-Scalar@{get\-Sample\-Variance\-Total\-Height\-Scalar}}
+\index{get\-Sample\-Variance\-Total\-Height\-Scalar@{get\-Sample\-Variance\-Total\-Height\-Scalar}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Sample\-Variance\-Total\-Height\-Scalar}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Adaptive\-Histogram\-Collator\-::get\-Sample\-Variance\-Total\-Height\-Scalar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a0a561a7f838b46985865c6fea1593829}
+
+
+\-Get the sample variance for scalar summary total height. 
+
+\-Treats the collation as representing a sample of histograms.
+
+\-The scalar summary is the sum of the heights of the bins over the histogram.
+
+\-The sample variance is\-: (sum of the variances over each histogram collated)/(number collated -\/ 1).
+
+\-The sample variance is only defined in the number collated is $>$ 1.
+
+\begin{DoxyReturn}{\-Returns}
+\-The sample variance of the total height scalar summary over the sample held in the collation. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1202 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    real sumVars = getSumVarianceTotalHeightScalar();
+    size_t numberColl = getNumberCollated();
+
+    if (numberColl < 2) {
+        throw HistException("Cannot do sample variance for sample size < 2");
+    }
+
+    return sumVars/(1.0*(numberColl - 1));
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_ac7545dd3425c4570bd9e0fde17ad9294}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Sub\-Paving@{get\-Sub\-Paving}}
+\index{get\-Sub\-Paving@{get\-Sub\-Paving}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Sub\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode} $\ast$ {\bf \-Adaptive\-Histogram\-Collator\-::get\-Sub\-Paving} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_ac7545dd3425c4570bd9e0fde17ad9294}
+
+
+\-Return a pointer to the \-Collator\-P\-Snode this manages. 
+
+
+
+\-Definition at line 465 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by operator+=(), and subpavings\-::operator$<$$<$().
+
+
+\begin{DoxyCode}
+{return rootCollator;} // boost::shared_ptr might be better
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a46980f85ee8842fc66fd5e2db8aab12e}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Sum\-Variance\-Area\-Scalar@{get\-Sum\-Variance\-Area\-Scalar}}
+\index{get\-Sum\-Variance\-Area\-Scalar@{get\-Sum\-Variance\-Area\-Scalar}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Sum\-Variance\-Area\-Scalar}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Adaptive\-Histogram\-Collator\-::get\-Sum\-Variance\-Area\-Scalar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a46980f85ee8842fc66fd5e2db8aab12e}
+
+
+\-Get the sum of the variances for an area-\/related scalar summary. 
+
+\-Treats the collation as representing a sample of histograms.
+
+\-The scalar summary is defined so that the variance for a histogram in the sample is the square of the sum of the areas of difference between a histogram sample and the average histogram over the sample.
+
+'\-Area', for a particular box, is the height of the bin multiplied by the box volume.
+
+\begin{DoxyReturn}{\-Returns}
+\-The sum of the variances of the area-\/related scalar summary over each histogram collated. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1076 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+    if (NULL == getSubPaving()) {
+            string msg = "Cannot get variances for this: rootCollator is NULL";
+            throw HistException(msg);
+    }
+
+    //variances only makes sense if all values in the summary are positive
+    VecDbl mySummary = getSubPaving()->getSummary();
+    VecDblIt it = find_if(mySummary.begin(), mySummary.end(),
+                                        bind2nd(less<double>(), 0.0));
+    if (it < mySummary.end()) {
+            string msg = "Cannot get variances: collation contains negatives";
+            throw HistException(msg);
+    }
+
+    real sumVars = 0.0;
+    // take this collation
+    try {
+        sumVars = getSubPaving()->getSumVarsAreaScalar();
+        //cout << "sumVars: " << sumVars << endl;
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory summing variances.  Orginal
+       error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error summing variances.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException summing variances.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error summing variances.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    return sumVars;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_af968e5158500b2413e4c4075cdcd15b2}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Sum\-Variance\-Total\-Height\-Scalar@{get\-Sum\-Variance\-Total\-Height\-Scalar}}
+\index{get\-Sum\-Variance\-Total\-Height\-Scalar@{get\-Sum\-Variance\-Total\-Height\-Scalar}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Sum\-Variance\-Total\-Height\-Scalar}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Adaptive\-Histogram\-Collator\-::get\-Sum\-Variance\-Total\-Height\-Scalar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_af968e5158500b2413e4c4075cdcd15b2}
+
+
+\-Get the sum of the variances for scalar summary total height. 
+
+\-Treats the collation as representing a sample of histograms.
+
+\-The scalar summary is the sum of the heights of the bins over the histogram.
+
+\begin{DoxyReturn}{\-Returns}
+\-The sum of the variances of the total height scalar summary over each histogram collated. 
+\end{DoxyReturn}
+
+
+\-Definition at line 1146 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+    if (NULL == getSubPaving()) {
+            string msg = "Cannot get variances for this: rootCollator is NULL";
+            throw HistException(msg);
+    }
+
+    //variances only make sense if all values in the summary are positive
+    VecDbl mySummary = getSubPaving()->getSummary();
+
+    VecDblIt it = find_if(mySummary.begin(), mySummary.end(),
+                                            bind2nd(less<double>(), 0.0));
+    if (it < mySummary.end()) {
+            string msg = "Cannot get variances: collation contains negatives";
+            throw HistException(msg);
+    }
+
+    real sumVars = 0.0;
+
+    // take this collation
+    try {
+        sumVars = getSubPaving()->getSumVarsTotalSummarisedValueScalar();
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory summing variances.  Orginal
+       error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error summing variances.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException summing variances.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error summing variances.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+
+    return sumVars;
+
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a46870c2d282efef091dfb1b3477aba4f}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Unif\-I\-A\-E@{get\-Unif\-I\-A\-E}}
+\index{get\-Unif\-I\-A\-E@{get\-Unif\-I\-A\-E}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Unif\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Adaptive\-Histogram\-Collator\-::get\-Unif\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Adaptive\-Histogram} \&}]{my\-Part, }
+\item[{std\-::vector$<$ int $>$}]{holes\-Loc, }
+\item[{double}]{weight}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a46870c2d282efef091dfb1b3477aba4f}
+\-Get the \-I\-A\-E for a uniform (mixture) distribution.
+
+\-Get the \-I\-A\-E for a uniform mixture. 
+
+\-Definition at line 1271 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References dp\-I\-A\-E, \-Intersection(), and \-Volume().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto().
+
+
+\begin{DoxyCode}
+{                                               
+   // get the true height, f of the corresponding box in myPart
+  SPSnodePtrs trueLeaves;
+  SPSnodePtrsItr trueIt;
+  //AdaptiveHistogram * adhPtr;
+  //adhPtr = &myPart;
+  (myPart).getSubPaving()->getLeaves(trueLeaves);
+
+  // setting up containers for the leaves
+  vector<CollatorSPnode*> leaves; // set up empty container for leaf node
+       pointers
+  vector<CollatorSPnode*>::iterator it; // and an iterator over the container
+  (*this).getSubPaving()->getLeaves(leaves); // fill the container
+
+  double trueF; //true density
+  ivector temp;
+  
+   dotprecision dpIAE;    // use type dotprecision for summation  
+   dpIAE=0.0;
+
+  
+  //go through all the leaves in this
+  for(it = leaves.begin(); it < leaves.end(); it++) {
+    ivector thisBox = (*it)->getBox();
+    //cout << "====checking " << (*it)->getBox() << endl;
+      
+    // get the height of this leaf
+    double fhat = (*it)->getSummary()[0]; //hopefully this is a robust way to
+                              //get the needed value
+    
+    //cout << "fhat for box " << ":" << fhat << endl;
+
+    size_t L = 0;
+    for (trueIt = trueLeaves.begin(); trueIt < trueLeaves.end(); trueIt++) {
+      //cout << "----True leaf: " << (*trueIt)->getBox() << "\t" << endl;
+      ivector trueBox = (*trueIt)->getBox();
+
+      if (  holesLoc[L] == 0 ) { trueF = 0; }
+      else { trueF = weight/((*trueIt)->nodeVolume()); }
+      //cout << "pdf: " << trueF << "------" << endl;
+      
+      // if this is contained in trueBox
+      if ( (*it)->getBox() <= (*trueIt)->getBox() || (*it)->getBox() == 
+      (*trueIt)->getBox() ) {
+        //use the volume of this
+        real r = ((*it)->nodeVolume())*(fhat - trueF);
+        //cout << "r: " << r << "\t" << abs(r) << endl;
+        accumulate(dpIAE, abs(r), 1.0);
+        //can move on to next leaf rather than iterating thru all trueBoxes
+        //think about this later
+      } //end of if this box is in trueBox
+      
+      // if this contains trueBox
+      else if ((*trueIt)->getBox() <= (*it)->getBox()) {
+        //use the volume of trueBox
+        real r = ((*trueIt)->nodeVolume())*(fhat - trueF);
+        //cout << "r: " << r << "\t" << abs(r) << endl;
+        accumulate(dpIAE, abs(r), 1.0);
+      } //end of if trueBox is in this box
+      
+      // if this is partially contained in trueBox 
+      else if   (Intersection(temp, thisBox, trueBox)) {
+        if (Inf(temp) != Sup(temp)){
+          double volume = Volume(temp);
+          real r = volume*(fhat - trueF);
+          //cout << "r: " << r << "\t" << abs(r) << endl;
+          accumulate(dpIAE, abs(r), 1.0);
+        }
+      }
+      L++;
+    } // end of going through trueBoxes
+  } // end of going through thisBoxes
+  
+   //cast dotprecision to real
+   real unifIAE = rnd(dpIAE);
+  return unifIAE;                             
+
+} //end of function getUnifIAE()
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_ad9bbae8e4f70d6c40684ab60038807bc}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!get\-Unif\-I\-A\-E@{get\-Unif\-I\-A\-E}}
+\index{get\-Unif\-I\-A\-E@{get\-Unif\-I\-A\-E}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{get\-Unif\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Adaptive\-Histogram\-Collator\-::get\-Unif\-I\-A\-E} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_ad9bbae8e4f70d6c40684ab60038807bc}
+\-Get the \-I\-A\-E for the standard uniform distribution. \-Note\-: later could add arguments for specific boundaries.
+
+\-Get the \-I\-A\-E for a standard uniform distribution. 
+
+\-Definition at line 1352 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References dp\-I\-A\-E.
+
+
+\begin{DoxyCode}
+{
+  // setting up containers for the leaves
+  vector<CollatorSPnode*> leaves; // set up empty container for leaf node
+       pointers
+  vector<CollatorSPnode*>::iterator it; // and an iterator over the container
+  (*this).getSubPaving()->getLeaves(leaves); // fill the container
+
+   dotprecision dpIAE;    // use type dotprecision for summation  
+   dpIAE=0.0;
+   //go through all the leaves in this
+   for(it = leaves.begin(); it < leaves.end(); it++) {
+      // get the height of this leaf
+      // the height is contained in the first position of the summary vector
+      // so we need to access the vector
+      double fhat = (*it)->getSummary()[0]; //hopefully this is a robust way to
+                              //get the needed value
+    // cout << "fhat for box " << (*it)->getNodeName() << ":" << fhat << endl;
+
+    //now calculate the IAE
+      if ((1 - fhat) < 0.0){
+      real r = ((*it)->nodeVolume())*(fhat - 1);
+      //cout << "r: " << r << endl;
+      accumulate(dpIAE, r, 1.0);
+    }
+
+    else if ((1 - fhat) > 0.0){
+      real r = ((*it)->nodeVolume())*(1 - fhat);
+      //cout << "r: " << r << endl;
+      accumulate(dpIAE, r, 1.0);
+    }
+  } // end of going through all the leaves in this
+
+   //cast dotprecision to real
+   real unifIAE = rnd(dpIAE);
+  return unifIAE;
+} //end of function getUnifIAE()
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a0437fe89f5ca716f729c7406ca218d3e}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!make\-Average@{make\-Average}}
+\index{make\-Average@{make\-Average}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{make\-Average}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} {\bf \-Adaptive\-Histogram\-Collator\-::make\-Average} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a0437fe89f5ca716f729c7406ca218d3e}
+\-An \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} which is the average over this collation.
+
+\-Makes and returns an \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} which is the average over the collation of histograms represented by this. \-The tree managed by the average has structure exactly the same as the tree managed by this and one value in the summary for each node where that value is the average of the summary of the corresponding node in this.
+
+\-This method can only be performed on summaries which do not include negated 
+
+\-Definition at line 470 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References root\-Collator, subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), and main().
+
+
+\begin{DoxyCode}
+{
+    if (NULL == rootCollator) {
+            string msg = "Cannot average this: rootCollator is NULL";
+            throw HistException(msg);
+    }
+
+    //average only makes sense if all values in the summary are positive
+    VecDbl mySummary = rootCollator->getSummary();
+
+    VecDblIt it = find_if(mySummary.begin(), mySummary.end(),
+                    bind2nd(less<double>(), 0.0));
+    if (it < mySummary.end()) {
+            string msg = "Cannot average this: the collation contains negatives
+      ";
+            throw HistException(msg);
+    }
+
+    AdaptiveHistogramCollator newCollator;
+    try {
+        newCollator.rootCollator = (getSubPaving())->makeAverageCollation();
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory making average.  Orginal error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error making average.  Orginal error: " + 
+      oldmsg;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException making average.  Orginal error: " + 
+      oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error making average.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+
+
+    return newCollator;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a123342d0bc1e6b05ef6c8ed32eb3cff7}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!make\-Differences\-To\-Average@{make\-Differences\-To\-Average}}
+\index{make\-Differences\-To\-Average@{make\-Differences\-To\-Average}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{make\-Differences\-To\-Average}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} {\bf \-Adaptive\-Histogram\-Collator\-::make\-Differences\-To\-Average} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a123342d0bc1e6b05ef6c8ed32eb3cff7}
+
+
+\-Definition at line 1217 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References root\-Collator.
+
+
+\begin{DoxyCode}
+{
+  try {
+    if (NULL == getSubPaving()) {
+        string msg = "Cannot make differences to average for this: rootCollator
+       is NULL";
+        throw HistException(msg);
+    }
+
+    AdaptiveHistogramCollator newCollator;
+    
+        newCollator.rootCollator = (getSubPaving())->
+      makeDifferencesToAveragePaving();
+    
+    return newCollator;
+
+    }
+    
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = string("Error in
+       AdaptiveHistogramCollator::getL1DistancesToAverage.")
+        +  string("Orginal error: ") + oldmsg;
+        throw HistException(msg);
+    }
+} //end of function makeDifferencesToAverage()
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a2f8ce51da9658ebc8a10a7823366d8ab}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!marginalise@{marginalise}}
+\index{marginalise@{marginalise}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{marginalise}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} {\bf \-Adaptive\-Histogram\-Collator\-::marginalise} (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ int $>$ \&}]{req\-Dims}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a2f8ce51da9658ebc8a10a7823366d8ab}
+
+
+\-Make a marginalised version of this histogram collator. 
+
+\-Marginalises to take out the unwanted dimensions and adjust summaries so that overall sum of (node vol x accumulated summaries) is the same as for this.
+
+is a vector of the dimensions to include in marginal. \begin{DoxyReturn}{\-Returns}
+\-An \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} managing a subpaving which is the marginalised version of the subpaving managed by this. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+{\itshape req\-Dims\/} must be compatible with current dimensions. 
+\end{DoxyPrecond}
+\begin{DoxyNote}{\-Note}
+allowed dimensions start at 1, ie dimensions to marginalise on can include 1, 2, ... \#dimensions of this. 
+\end{DoxyNote}
+\begin{DoxyPostcond}{\-Postcondition}
+returned histogram will have one summary value for each node and have sum of (node vol x accumulated summaries) = that for this. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 978 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Collator\-S\-Pnode\-::marginalise().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  // take the root of the other and marginalise it
+  return AdaptiveHistogramCollator(CollatorSPnode::marginalise(getSubPaving(),
+  reqDims));
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a25deb4940f2a4df6ea84ad6ffe5090d3}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!operator+@{operator+}}
+\index{operator+@{operator+}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} \-Adaptive\-Histogram\-Collator\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram\-Collator} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a25deb4940f2a4df6ea84ad6ffe5090d3}
+\-Addition operator.
+
+\-Addition gives a histogram collator managing a tree which represents a subpaving which is the union of the subpavings represented by the operand collators. \-The summary for each node in the tree contains all the values from the summaries of the corresponding nodes in the trees managed by the operand \-Adaptive\-Histogram\-Collators. 
+
+\-Definition at line 340 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Collator\-S\-Pnode\-::add\-Pavings(), subpavings\-::\-S\-Pnode\-::get\-Box(), taylor\-::\-Lb(), root\-Collator, taylor\-::\-Ub(), and subpavings\-::\-S\-Pnode\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    if ((NULL != rootCollator) && (NULL != rhs.rootCollator) &&
+    ((Ub(rootCollator->getBox()) != Ub(rhs.rootCollator->getBox()))
+    || (Lb(rootCollator->getBox()) != Lb(rhs.rootCollator->getBox()))))
+        throw HistException("Added histogram collators have unequal dimensions"
+      );
+
+    CollatorSPnode* newnode = NULL;
+
+    try {
+
+        newnode =
+            CollatorSPnode::addPavings(rootCollator, rhs.rootCollator);
+    }
+    catch (bad_alloc& ba) {
+        string msg(ba.what());
+        std::cerr << "Error allocating memory in addition: original error "
+                                    << msg << std::endl;
+        throw HistException("Memory allocation error in addition: " + msg);
+    }
+    catch (SPnodeException& spe) {
+        string msg(spe.what());
+        std::cerr << "SPnodeExcepton in addition: original error "
+                                            << msg << std::endl;
+        throw HistException("SPnodeException in addition: " + msg);
+    }
+    catch (exception& e) {
+        string msg(e.what());
+        std::cerr << "Error in addition: original error "
+                                            << msg << std::endl;
+        throw HistException("Error in addition: " + msg);
+    }
+
+
+    AdaptiveHistogramCollator newCollatorHist(newnode);
+
+    return newCollatorHist;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_ab1c2f300d93647faa0ca12e52b6405f0}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} \& \-Adaptive\-Histogram\-Collator\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram\-Collator} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_ab1c2f300d93647faa0ca12e52b6405f0}
+\-Incremental or inplace addition operator.
+
+\-Addition gives this histogram collator an expaned tree which represents a subpaving which is the union of the subpavings represented by the this's original tree and the tree represented by the rhs collator. \-The summary for each node in the expandd tree contains all the values from the summaries of the original nodes and the summaries of the corresponding nodes in the tree managed by the rhs collator. 
+
+\-Definition at line 381 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Collator\-S\-Pnode\-::add\-Paving(), get\-Sub\-Paving(), subpavings\-::\-S\-Pnode\-Exception\-::what(), and subpavings\-::\-Hist\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    try {
+        // get the subpaving out of rhs to form a new CollatorSPnode
+        CollatorSPnode toAdd(*rhs.getSubPaving());
+        // add the new CollatorSPnode into the collation
+        // note that addPaving will alter toAdd, but that is okay because
+        // toAdd is a temporary object created and deleted in this procedure
+        rootCollator->addPaving(&toAdd);
+    }
+
+
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory adding to collation.  Orginal
+       error: "
+                                            + oldmsg;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error adding to collation.  Orginal error: 
+      " + oldmsg;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException adding to collation.  Orginal error: " + 
+      oldmsg;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error adding to collation.  Orginal error: " + oldmsg;
+        throw HistException(msg);
+    }
+    return *this;
+
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aa7ed65f2fced9b8e9e727876e84661c5}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} \-Adaptive\-Histogram\-Collator\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram\-Collator} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aa7ed65f2fced9b8e9e727876e84661c5}
+\-Subtraction operator.
+
+\-Subtraction gives a histogram collator managing a tree which represents a subpaving which is the union of the subpavings represented by the operand collators. \-The summary for each node in the tree contains all the values from the summary of the corresponding node in the trees managed by the left hand side operand and the negation of the values from the summary of the corresponding node in the trees managed by the right hand side operand. 
+
+\-Definition at line 422 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), taylor\-::\-Lb(), root\-Collator, subpavings\-::\-Collator\-S\-Pnode\-::subtract\-Pavings(), taylor\-::\-Ub(), and subpavings\-::\-S\-Pnode\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    if ((NULL != rootCollator) && (NULL != rhs.rootCollator) &&
+    ((Ub(rootCollator->getBox()) != Ub(rhs.rootCollator->getBox()))
+    || (Lb(rootCollator->getBox()) != Lb(rhs.rootCollator->getBox()))))
+        throw HistException("Histogram collators have unequal dimensions");
+
+    CollatorSPnode* newnode = NULL;
+
+    try {
+
+        double c = -1.0;
+        newnode =
+            CollatorSPnode::subtractPavings(rootCollator, rhs.rootCollator, c);
+    }
+    catch (bad_alloc& ba) {
+        string msg(ba.what());
+        std::cerr << "Error allocating memory in subtraction: original error "
+                                    << msg << std::endl;
+        throw HistException("Memory allocation error in subtraction: " + msg);
+    }
+    catch (SPnodeException& spe) {
+        string msg(spe.what());
+        std::cerr << "SPnodeExcepton in subtraction: original error "
+                                            << msg << std::endl;
+        throw HistException("SPnodeException in subtraction: " + msg);
+    }
+    catch (exception& e) {
+        string msg(e.what());
+        std::cerr << "Error in subtraction: original error "
+                                            << msg << std::endl;
+        throw HistException("Error in subtraction: " + msg);
+    }
+
+
+    AdaptiveHistogramCollator newCollatorHist(newnode);
+
+    return newCollatorHist;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a812e5e60dd3d233274738d823c9010b2}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!operator=@{operator=}}
+\index{operator=@{operator=}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} \& \-Adaptive\-Histogram\-Collator\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram\-Collator} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a812e5e60dd3d233274738d823c9010b2}
+
+
+\-Copy assignment operator. 
+
+
+
+\-Definition at line 299 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References root\-Collator, and subpavings\-::\-S\-Pnode\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    try {
+
+        // we have to make sure we delete the current paving
+        if (NULL != rootCollator) {
+            delete rootCollator;
+            rootCollator = NULL;
+        }
+
+        if (NULL != rhs.rootCollator)
+            rootCollator = new CollatorSPnode(*(rhs.rootCollator));
+    }
+    catch (bad_alloc& ba) {
+        string msg(ba.what());
+        std::cerr << "Error allocating memory in assignment: original error "
+                            << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string msg(spe.what());
+        std::cerr << "SPnodeExcepton in assignment: original error "
+                                            << msg << std::endl;
+        throw HistException("SPnodeException in assignment: " + msg);
+    }
+    catch (exception& e) {
+        string msg(e.what());
+        std::cerr << "Error in assignment: original error "
+                                            << msg << std::endl;
+        throw HistException("Error in assignment: " + msg);
+    }
+
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a4fab24a598b5d30ff259e71d29e2aebd}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!output\-Accumulation\-To\-Txt\-Tabs@{output\-Accumulation\-To\-Txt\-Tabs}}
+\index{output\-Accumulation\-To\-Txt\-Tabs@{output\-Accumulation\-To\-Txt\-Tabs}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{output\-Accumulation\-To\-Txt\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::output\-Accumulation\-To\-Txt\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a4fab24a598b5d30ff259e71d29e2aebd}
+
+
+\-Output the accumulated data over the collation to a txt file. 
+
+\-Output tab delimited data on the average to a text file. \-Outputs the accumulation over the collation of data summarised in this.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & the name of the file to send the output to. \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 877 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-Exception\-::what().
+
+
+\begin{DoxyCode}
+{
+    try {
+         if (NULL != rootCollator) {
+
+            // To generate a file output of the AdaptiveHistogramVCollator
+       object
+            ofstream os(s.c_str());         // Filename, c-string version
+
+            if (NULL != rootCollator) {
+                rootCollator->leavesAccumulationOutputTabs(os);
+                std::cout << "The output of the accumulated AdaptiveHistograms 
+      "
+                    << "has been written to " << s << std::endl << std::endl;
+            }
+            else {
+                std::cout << "Sorry, nothing is in collation to accumulate"
+                    << std::endl;
+            }
+        }
+    }
+    catch (SPnodeException& e) {
+        std::cout << "Problem acccumulating: " << e.what() << std::endl;
+    }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a514f2ebc1857e531b629f0ff3508b04b}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!output\-Average\-To\-Txt\-Tabs@{output\-Average\-To\-Txt\-Tabs}}
+\index{output\-Average\-To\-Txt\-Tabs@{output\-Average\-To\-Txt\-Tabs}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{output\-Average\-To\-Txt\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::output\-Average\-To\-Txt\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{bool}]{confirm = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a514f2ebc1857e531b629f0ff3508b04b}
+
+
+\-Output average normalised histogram over collation to a txt file. 
+
+\-This method does not make the average histogram directly but, for each leaf node in the collated tree, calculates and outputs the average of the summary associated with that leaf node.
+
+\-Output tab delimited data on the average to a text file. \-Outputs the normalised average histogram bins and heights.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & the name of the file to send the output to. \\
+\hline
+{\em confirm} & is a boolean controlling whether confirmation goes to console output (defaults to false). \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 827 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), main(), and subpavings\-::\-Adaptive\-Histogram\-::\-M\-C\-M\-C().
+
+
+\begin{DoxyCode}
+{
+    try {
+
+        if (NULL != rootCollator) {
+
+            //average only makes sense if all values in the summary are
+       positive
+            VecDbl mySummary = rootCollator->getSummary();
+
+            VecDblIt it = find_if(mySummary.begin(), mySummary.end(),
+                                                bind2nd(less<double>(), 0.0));
+            if (it < mySummary.end()) {
+                    string msg = "Cannot average this: the collation contains
+       negatives";
+                    std::cerr << "\n" << msg << "\n" << std::endl;
+            }
+            else {
+
+                // To generate a file output of the AdaptiveHistogramCollator
+       object
+                ofstream os(s.c_str());         // Filename, c-string version
+
+                if (NULL != rootCollator) {
+                    rootCollator->leavesAverageOutputTabs(os);
+                    if (confirm)
+                        std::cout << "The output of the average
+       AdaptiveHistogram has been "
+                            << "written to " << s << std::endl << std::endl;
+                }
+                else {
+                    std::cerr << "Sorry, nothing is in collation to average"
+                        << std::endl;
+                }
+            }
+        }
+    }
+
+    catch (exception& e) {
+        std::cerr << "Problem averaging: " << e.what() << std::endl;
+    }
+
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a130fc9b9b02214769aece5969de0d8fc}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!output\-Graph\-Dot@{output\-Graph\-Dot}}
+\index{output\-Graph\-Dot@{output\-Graph\-Dot}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{output\-Graph\-Dot}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Adaptive\-Histogram\-Collator\-::output\-Graph\-Dot} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a130fc9b9b02214769aece5969de0d8fc}
+
+
+\-Make a .dot graph file from collated histogram structure. 
+
+\-Makes a simple .dot graph from the histogram using node names and the .png image for this graph.
+
+\begin{DoxyPrecond}{\-Precondition}
+a constructed histogram 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+a .dot file and a .png in the same directory as the program creating it was run in. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 783 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+
+
+    if (NULL == rootCollator) {
+
+        throw HistException("No root paving for graph output");
+    }
+
+    bool success = rootCollator->outputGraphDot();
+
+    return success;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aad6e5e6bd009ca64209c471c55a8d43e}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!output\-Log@{output\-Log}}
+\index{output\-Log@{output\-Log}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{output\-Log}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::output\-Log} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{const int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aad6e5e6bd009ca64209c471c55a8d43e}
+
+
+\-Add current state of collation to a log file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & is the name of the file to log to. \\
+\hline
+{\em i} & is a number representing the index of this state in a sequence. \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 218 of file adaptivehistogramcollator.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    // To add output of the AdaptiveHistogramCollator object to file
+    ofstream os(s.c_str(), ios::app);         // append
+    if (os.is_open()) {
+        os << std::endl;
+        os << "Pass " << i << std::endl; // numbering
+        getSubPaving()->leavesOutputTabs(os); // the output
+        os.close();
+    }
+    else {
+        std::cerr << "Error: could not open file named "
+            << s << std::endl << std::endl;
+    }
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aab47793e8362245a28a7ec3090da5352}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!output\-To\-Txt\-Tabs@{output\-To\-Txt\-Tabs}}
+\index{output\-To\-Txt\-Tabs@{output\-To\-Txt\-Tabs}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{output\-To\-Txt\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{bool}]{confirm = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aab47793e8362245a28a7ec3090da5352}
+
+
+\-Output the collated information to a txt file. 
+
+\-Output tab delimited data on the collation to a text file.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & the name of the file to send the output to. \\
+\hline
+{\em confirm} & is a boolean controlling whether confirmation goes to console output (defaults to false). \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 802 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), main(), and subpavings\-::\-Adaptive\-Histogram\-::\-M\-C\-M\-C().
+
+
+\begin{DoxyCode}
+{
+    // To generate a file output of the AdaptiveHistogramCollator object
+    ofstream os(s.c_str());         // Filename, c-string version
+
+    rootCollator->leavesOutputTabs(os);
+    if (confirm)
+        std::cout << "The output of the AdaptiveHistogramCollator has been "
+            << "written to " << s << std::endl << std::endl;
+
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_aa477e8c6da033d93b212076630d3eec0}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!public\-Output\-Log@{public\-Output\-Log}}
+\index{public\-Output\-Log@{public\-Output\-Log}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{public\-Output\-Log}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Adaptive\-Histogram\-Collator\-::public\-Output\-Log} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{const int}]{i}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1AdaptiveHistogramCollator_aa477e8c6da033d93b212076630d3eec0}
+
+
+\-Add current state of collation to a log file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & is the name of the file to log to. \\
+\hline
+{\em i} & is a number representing the index of this state in a sequence. \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 868 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), and main().
+
+
+\begin{DoxyCode}
+{
+    // use the private version
+    outputLog(s, i);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1AdaptiveHistogramCollator_a5ae0bb810e0f19142964b9508f799b60}{\index{subpavings\-::\-Adaptive\-Histogram\-Collator@{subpavings\-::\-Adaptive\-Histogram\-Collator}!root\-Collator@{root\-Collator}}
+\index{root\-Collator@{root\-Collator}!subpavings::AdaptiveHistogramCollator@{subpavings\-::\-Adaptive\-Histogram\-Collator}}
+\paragraph[{root\-Collator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Collator\-S\-Pnode}$\ast$ {\bf subpavings\-::\-Adaptive\-Histogram\-Collator\-::root\-Collator}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1AdaptiveHistogramCollator_a5ae0bb810e0f19142964b9508f799b60}
+
+
+\-Pointer to the root \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode}. 
+
+\-A \-Collator\-S\-P\-Snode is a binary tree representation of information from a number of subpavings.
+
+\-The summary information held by the \hyperlink{classsubpavings_1_1CollatorSPnode}{\-Collator\-S\-Pnode} for an \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} is the count/(total count in tree $\ast$ volume), ie the normalised histogram height for a bin corresponding the box of that \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode}. 
+
+\-Definition at line 89 of file adaptivehistogramcollator.\-hpp.
+
+
+
+\-Referenced by \-Adaptive\-Histogram\-Collator(), make\-Average(), make\-Differences\-To\-Average(), operator+(), operator-\/(), and operator=().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{adaptivehistogramcollator_8hpp}{adaptivehistogramcollator.\-hpp}\item 
+\hyperlink{adaptivehistogramcollator_8cpp}{adaptivehistogramcollator.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,419 @@
+\hypertarget{classFRosenbrock}{\subsection{\-F\-Rosenbrock \-Class \-Reference}
+\label{classFRosenbrock}\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}}
+}
+
+
+n-\/dimensional \-Rosenbrock density as a function object class  
+
+
+
+
+{\ttfamily \#include $<$\-F\-Rosenbrock.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-Rosenbrock\-:
+
+
+\-Collaboration diagram for \-F\-Rosenbrock\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFRosenbrock_a98f8543097e580a8013c04fe2451ba80}{\-F\-Rosenbrock} (int n\-\_\-dimensions, real \-T, real \-H, real \hyperlink{LevyFobj2D_8cpp_ae28a2599911ae746bc33211d3ea52aaf}{\-Domain\-Limit}, bool \-Log\-Pi)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+interval \hyperlink{classFRosenbrock_a31adc48845c9b35628d57497cff8666c}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em interval operator() \end{DoxyCompactList}\item 
+real \hyperlink{classFRosenbrock_aa626842acb0907225aa493f048996535}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em real operator() \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{classFRosenbrock_a47652c3d90874911897f9601f7003e8f}{operator()} (const \-H\-Tvector \&x, const int label=0) const 
+\begin{DoxyCompactList}\small\item\em \-Hess\-Type operator() \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFRosenbrock_ac6cdd39b087bbb77561eb8dd0e427ce9}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em get volume of a labeled box \end{DoxyCompactList}\item 
+int \hyperlink{classFRosenbrock_a6ca09c94fc6597d64474a87af8ffc59d}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFRosenbrock_ab1f708734168295d5120388e9a25d767}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classFRosenbrock_a3f272a55285032eee5564b0f76e9d173}{num\-\_\-dim}
+\item 
+real \hyperlink{classFRosenbrock_a3c530d7ceef6d4fd854ab755a70c786e}{\-Tinverse}
+\item 
+real \hyperlink{classFRosenbrock_a2436ec0b9bb9efae5c029842ff6fd17e}{\-Height}
+\begin{DoxyCompactList}\small\item\em \-Track number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFRosenbrock_acedba3d3f792270d8b4f13a517b8d5d6}{n\-\_\-interval\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of real function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFRosenbrock_a65918b19b6ee08ea197bc021c2b6ea5e}{n\-\_\-real\-\_\-calls}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+n-\/dimensional \-Rosenbrock density as a function object class 
+
+\-Definition at line 51 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFRosenbrock_a98f8543097e580a8013c04fe2451ba80}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!\-F\-Rosenbrock@{\-F\-Rosenbrock}}
+\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{\-F\-Rosenbrock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Rosenbrock\-::\-F\-Rosenbrock} (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-\_\-dimensions, }
+\item[{real}]{\-T, }
+\item[{real}]{\-H, }
+\item[{real}]{\-Domain\-Limit, }
+\item[{bool}]{\-Log\-Pi}
+\end{DoxyParamCaption}
+)}}\label{classFRosenbrock_a98f8543097e580a8013c04fe2451ba80}
+
+
+\-Constructor. 
+
+
+
+\-Definition at line 29 of file \-F\-Rosenbrock.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, n\-\_\-interval\-\_\-calls, n\-\_\-real\-\_\-calls, \-Fobj\-::\-Prior\-Type, and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+                                     :num_dim (n_dimensions), Tinverse (T),
+Height (H)
+{
+  n_interval_calls = 0;
+  n_real_calls = 0;
+
+  setUsingLogDensity (LogPi);
+  PriorType = 0;// Uniform PriorType is an inherited member from Fobj
+
+  // set up the domain
+  ivector domain (1, n_dimensions);
+  LabBox  Ldomain;
+  for (int i = 1; i <= n_dimensions; i++)
+  {
+    domain[i] = interval (-DomainLimit, DomainLimit);
+  }
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  //LabDomainList is a data member of the base Fobj class
+  LabDomainList.push_back (Ldomain);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFRosenbrock_a6ca09c94fc6597d64474a87af8ffc59d}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Rosenbrock\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFRosenbrock_a6ca09c94fc6597d64474a87af8ffc59d}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 83 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+    {
+      return n_interval_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFRosenbrock_ab1f708734168295d5120388e9a25d767}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Rosenbrock\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFRosenbrock_ab1f708734168295d5120388e9a25d767}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 89 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+    {
+      return n_real_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFRosenbrock_ac6cdd39b087bbb77561eb8dd0e427ce9}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-Rosenbrock\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFRosenbrock_ac6cdd39b087bbb77561eb8dd0e427ce9}
+
+
+get volume of a labeled box 
+
+
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 77 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-References \-Fobj\-::\-Lab\-Box\-Volume().
+
+
+\begin{DoxyCode}
+    {
+      return Fobj::LabBoxVolume(LB);
+    }
+\end{DoxyCode}
+\hypertarget{classFRosenbrock_a31adc48845c9b35628d57497cff8666c}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!operator()@{operator()}}
+\index{operator()@{operator()}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-Rosenbrock\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFRosenbrock_a31adc48845c9b35628d57497cff8666c}
+
+
+interval operator() 
+
+
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 53 of file \-F\-Rosenbrock.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, taylor\-::exp(), \-Height, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-interval\-\_\-calls, num\-\_\-dim, taylor\-::sqr(), \-Tinverse, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_interval_calls++;
+
+  int i, a = Lb (X.Box), z = Ub (X.Box);
+
+  interval result = _interval (0.0);
+
+  if (num_dim == 1)
+  {
+    result = (Height * sqr (1.0 - sqr (X.Box[a])) + sqr (X.Box[a] - 1.0));
+  }
+  else
+  {
+    for (i = a + 1; i <= z; i++)
+    {
+      result = result + (Height * sqr (X.Box[i] - sqr (X.Box[i - 1])) +
+        sqr (X.Box[i - 1] - 1.0));
+    }
+  }
+
+  result = exp (-(Tinverse * result));
+  //if(Sup(result) < 0.0) Sup(result) = 0.0;
+  //if(Inf(result) < 0.0) Inf(result) = 0.0;
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+\hypertarget{classFRosenbrock_aa626842acb0907225aa493f048996535}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!operator()@{operator()}}
+\index{operator()@{operator()}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-Rosenbrock\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFRosenbrock_aa626842acb0907225aa493f048996535}
+
+
+real operator() 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 81 of file \-F\-Rosenbrock.\-cpp.
+
+
+
+\-References taylor\-::exp(), \-Height, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-real\-\_\-calls, num\-\_\-dim, \-Lab\-Pnt\-::\-Pnt, taylor\-::sqr(), \-Tinverse, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_real_calls++;
+
+  int i, a = Lb (X.Pnt), z = Ub (X.Pnt);
+
+  real result = 0.0;
+
+  if (num_dim == 1)
+  {
+    result = (Height * sqr (1.0 - sqr (X.Pnt[a])) + sqr (X.Pnt[a] - 1.0));
+  }
+  else
+  {
+    for (i = a + 1; i <= z; i++)
+    {
+      result = result + (Height * sqr (X.Pnt[i] - sqr (X.Pnt[i - 1])) +
+        sqr (X.Pnt[i - 1] - 1.0));
+    }
+  }
+
+  result = exp (-(Tinverse * result));
+  //if(result < 0.0) result = 0.0;
+  //if(result < 0.0) result = 0.0;
+  return (UsingLogDensity) ? ln (result) : result;
+
+}
+\end{DoxyCode}
+\hypertarget{classFRosenbrock_a47652c3d90874911897f9601f7003e8f}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!operator()@{operator()}}
+\index{operator()@{operator()}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type \-F\-Rosenbrock\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const \-H\-Tvector \&}]{x, }
+\item[{const int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFRosenbrock_a47652c3d90874911897f9601f7003e8f}
+
+
+\-Hess\-Type operator() 
+
+
+
+\-Reimplemented from \hyperlink{classFobj_abe7df6a2da2b1d26915b41128d7693fe}{\-Fobj}.
+
+
+
+\-Definition at line 111 of file \-F\-Rosenbrock.\-cpp.
+
+
+
+\-References taylor\-::exp(), \-Height, taylor\-::ln(), num\-\_\-dim, taylor\-::sqr(), \-Tinverse, and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+
+  HessType hh(num_dim);
+  hh = 0.0;
+
+  if (num_dim == 1)
+  {
+    hh = (Height * sqr (1.0 - sqr (x[1])) + sqr (x[1] - 1.0));
+  }
+  else
+  {
+    for (int i = 2; i <= num_dim; i++)
+    {
+      hh = hh + (Height * sqr (x[i] - sqr (x[i-1])) +
+        sqr (x[i - 1] - 1.0));
+    }
+  }
+
+  hh = exp (-(Tinverse * hh));
+
+  return (UsingLogDensity) ? ln (hh) : hh;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFRosenbrock_a2436ec0b9bb9efae5c029842ff6fd17e}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!\-Height@{\-Height}}
+\index{\-Height@{\-Height}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{\-Height}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Rosenbrock\-::\-Height}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFRosenbrock_a2436ec0b9bb9efae5c029842ff6fd17e}
+
+
+\-Track number of interval function calls. 
+
+
+
+\-Definition at line 58 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFRosenbrock_acedba3d3f792270d8b4f13a517b8d5d6}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Rosenbrock\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFRosenbrock_acedba3d3f792270d8b4f13a517b8d5d6}
+
+
+\-Track number of real function calls. 
+
+
+
+\-Definition at line 60 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-Referenced by \-F\-Rosenbrock(), and operator()().
+
+\hypertarget{classFRosenbrock_a65918b19b6ee08ea197bc021c2b6ea5e}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Rosenbrock\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFRosenbrock_a65918b19b6ee08ea197bc021c2b6ea5e}
+
+
+\-Definition at line 61 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-Referenced by \-F\-Rosenbrock(), and operator()().
+
+\hypertarget{classFRosenbrock_a3f272a55285032eee5564b0f76e9d173}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!num\-\_\-dim@{num\-\_\-dim}}
+\index{num\-\_\-dim@{num\-\_\-dim}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{num\-\_\-dim}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Rosenbrock\-::num\-\_\-dim}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFRosenbrock_a3f272a55285032eee5564b0f76e9d173}
+
+
+\-Definition at line 54 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFRosenbrock_a3c530d7ceef6d4fd854ab755a70c786e}{\index{\-F\-Rosenbrock@{\-F\-Rosenbrock}!\-Tinverse@{\-Tinverse}}
+\index{\-Tinverse@{\-Tinverse}!FRosenbrock@{\-F\-Rosenbrock}}
+\paragraph[{\-Tinverse}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Rosenbrock\-::\-Tinverse}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFRosenbrock_a3c530d7ceef6d4fd854ab755a70c786e}
+
+
+\-Definition at line 55 of file \-F\-Rosenbrock.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FRosenbrock_8hpp}{\-F\-Rosenbrock.\-hpp}\item 
+\hyperlink{FRosenbrock_8cpp}{\-F\-Rosenbrock.\-cpp}\end{DoxyCompactItemize}

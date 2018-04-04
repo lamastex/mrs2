@@ -1,0 +1,112 @@
+\hypertarget{classSortBox}{\subsection{\-Sort\-Box \-Class \-Reference}
+\label{classSortBox}\index{\-Sort\-Box@{\-Sort\-Box}}
+}
+
+
+\-A \-Function \-Object class for a sorting criterion between one \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box} and another.  
+
+
+
+
+{\ttfamily \#include $<$\-Small\-Classes.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSortBox_ab3269a31ecf0c23162eb1ea11b007d31}{\-Sort\-Box} (bool \-Log\-Pi=false)
+\begin{DoxyCompactList}\small\item\em \-Comparison operator. \end{DoxyCompactList}\item 
+bool \hyperlink{classSortBox_ae1b1f1b6857d51efac4b49789ec442d4}{operator()} (const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box} \&\-P1, const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box} \&\-P2) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classSortBox_a3abbd28beba68a39e80544412e7adc46}{\-Using\-Log\-Density}
+\begin{DoxyCompactList}\small\item\em \-Boolean flag for the natural logarithmic scale for the function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A \-Function \-Object class for a sorting criterion between one \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box} and another. 
+
+\-Determines a total order between two \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box} es on the basis of the magnitude of the diameter of the interval enclosure of the integral of the function over the labeled box of each \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}. \-Thus, \hyperlink{classSortBox}{\-Sort\-Box} is a type that we use as a template argument for an associative container \-Ranged\-Lab\-Box\-Set, a type of \-S\-T\-L-\/bsed set. \-Read for e.\-g. \-Josuttis1999 p. 178, p. 294 for details.
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000008}{\-Todo}]\-Read \-Josuttis1999 \-Sec 8.\-1.\-2 to extend and intervene the automatic sorting criterion via \-Function \-Objects with more than one internal state at the same time \mbox{[}perhaps also try defining different sorting criterion of the same data type as in p. 178 '\-As a constructor parameter' with e.\-g. in \-P. 191\mbox{]}. \-Perhaps incorporate alternative sorting criterion into \hyperlink{classSortBox}{\-Sort\-Box}. \-Older ideas for total order between \-Ranged\-Lab\-Boxes include\-: class \-Sort\-By\-Box\-R\-E\-Diam \{ // sort by diameter of range enclosure public\-: bool operator() ( const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P1, const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P2 ) const \{ return ( diam(\-P1.\-Box\-R\-E) $<$= diam(\-P2.\-Box\-R\-E) ); \} \}; and class \-Sort\-By\-Box\-Vol \{ // sort by volume of subdomain box public\-: bool operator() ( const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P1, const \hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box}\& \-P2 ) const \{ return ( (\-P1.\-Box\-Vol) $<$= (\-P2.\-Box\-Vol) ); \} \}; \end{DoxyRefDesc}
+
+
+\-Definition at line 192 of file \-Small\-Classes.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classSortBox_ab3269a31ecf0c23162eb1ea11b007d31}{\index{\-Sort\-Box@{\-Sort\-Box}!\-Sort\-Box@{\-Sort\-Box}}
+\index{\-Sort\-Box@{\-Sort\-Box}!SortBox@{\-Sort\-Box}}
+\paragraph[{\-Sort\-Box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Sort\-Box\-::\-Sort\-Box} (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-Log\-Pi = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classSortBox_ab3269a31ecf0c23162eb1ea11b007d31}
+
+
+\-Comparison operator. 
+
+
+
+\-Definition at line 202 of file \-Small\-Classes.\-hpp.
+
+
+\begin{DoxyCode}
+:UsingLogDensity(LogPi){}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classSortBox_ae1b1f1b6857d51efac4b49789ec442d4}{\index{\-Sort\-Box@{\-Sort\-Box}!operator()@{operator()}}
+\index{operator()@{operator()}!SortBox@{\-Sort\-Box}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Sort\-Box\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Ranged\-Lab\-Box} \&}]{\-P1, }
+\item[{const {\bf \-Ranged\-Lab\-Box} \&}]{\-P2}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classSortBox_ae1b1f1b6857d51efac4b49789ec442d4}
+
+
+\-Definition at line 203 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Ranged\-Lab\-Box\-::\-Box\-Prior\-Integral, \-Ranged\-Lab\-Box\-::\-Box\-R\-E, taylor\-::exp(), taylor\-::ln(), and \-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+    {
+      //  cout << diam(P1.BoxRE) << " " << P1.BoxVol << " " 
+      //       << diam(P2.BoxRE) << " " << P2.BoxVol << endl;
+      return (UsingLogDensity)?
+      (ln(P1.BoxPriorIntegral)+Sup(P1.BoxRE)+ln(1.0 - exp(-diam(P1.BoxRE))) >=
+       ln(P2.BoxPriorIntegral)+Sup(P2.BoxRE)+ln(1.0 - exp(-diam(P2.BoxRE))) ):
+      (diam(P1.BoxRE)*P1.BoxPriorIntegral>=diam(P2.BoxRE)*P2.BoxPriorIntegral);
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classSortBox_a3abbd28beba68a39e80544412e7adc46}{\index{\-Sort\-Box@{\-Sort\-Box}!\-Using\-Log\-Density@{\-Using\-Log\-Density}}
+\index{\-Using\-Log\-Density@{\-Using\-Log\-Density}!SortBox@{\-Sort\-Box}}
+\paragraph[{\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Sort\-Box\-::\-Using\-Log\-Density}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classSortBox_a3abbd28beba68a39e80544412e7adc46}
+
+
+\-Boolean flag for the natural logarithmic scale for the function. 
+
+\-Works when target function is a positive density (up to a normalizing constant). 
+
+\-Definition at line 199 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SmallClasses_8hpp}{\-Small\-Classes.\-hpp}\end{DoxyCompactItemize}

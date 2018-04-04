@@ -1,0 +1,16 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{FShiryaev1D_Lkl_aa_fromData\n|- Data\l- cc\l- CC\l- n_interval_calls\l- n_real_calls\l|+ FShiryaev1D_Lkl_aa_fromData()\l+ operator()()\l+ operator()()\l+ LabBoxVolume()\l+ get_interval_calls()\l+ get_real_calls()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node2 [label="{Fobj\n|# UsingLogDensity\l# LabDomainList\l# LabDomainPriorIntegralList\l# PriorType\l|+ get_interval_calls()\l+ get_real_calls()\l+ LabBoxVolume()\l+ operator()()\l+ operator()()\l+ ~Fobj()\l+ operator()()\l+ LabBoxPriorIntegral()\l+ SetupLabDomainPriorIntegralList()\l+ DrawFromBoxPrior()\land 7 more...}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFobj.shtml",tooltip="An abstract class for target function objects."];
+  Node3 -> Node2 [color="grey25",fontsize="10",style="solid",label=" LabDomainPriorIntegralList" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node3 [label="{std::vector\< real \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node4 -> Node3 [dir="back",color="orange",fontsize="10",style="solid",label=" \< real \>" ,fontname="FreeSans"];
+  Node4 [label="{std::vector\< T \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node5 -> Node4 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node5 [label="{T\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node1 [color="grey25",fontsize="10",style="solid",label=" Data" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node6 [label="{RSSample\n|+ Nprop\l+ Ntopologies\l+ LabelSet\l+ n_Dim_Max\l+ EnvelopeIntegral\l+ Samples\l|+ IntegralEstimate()\l+ Mean()\l+ PrintMeans()\l+ Print()\l+ getSample()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRSSample.shtml",tooltip="A class for the status of a Rejection Sampler."];
+}

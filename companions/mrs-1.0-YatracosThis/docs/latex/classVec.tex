@@ -1,0 +1,513 @@
+\hypertarget{classVec}{\subsection{\-Vec \-Class \-Reference}
+\label{classVec}\index{\-Vec@{\-Vec}}
+}
+
+
+{\ttfamily \#include $<$\-Vec.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVec_aefd6dd5ca241f55cdc5548e4c02dc187}{\-Vec} ()
+\begin{DoxyCompactList}\small\item\em no argument constructor \end{DoxyCompactList}\item 
+\hyperlink{classVec_a857ab87f43484ae8581f021bc2dea0eb}{\-Vec} (double uu, double vv, double ww)
+\begin{DoxyCompactList}\small\item\em parameterised constructor \end{DoxyCompactList}\item 
+\hyperlink{classVec_ac252c18437696a2fda6b7427116741a9}{\-Vec} (const \hyperlink{classVec}{\-Vec} \&other)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classVec}{\-Vec} \& \hyperlink{classVec_a2432e72a4c830d7ae40d36fe843f8fa0}{operator=} (const \hyperlink{classVec}{\-Vec} \&rhs)
+\item 
+\hyperlink{classVec}{\-Vec} \& \hyperlink{classVec_aa5147cd7b8bbfde4d9cfe50c5ef06d0e}{operator+=} (const \hyperlink{classVec}{\-Vec} \&rhs)
+\item 
+\hyperlink{classVec}{\-Vec} \hyperlink{classVec_a5f46f2a53419e8c985511601643f87ad}{operator+} (const \hyperlink{classVec}{\-Vec} \&rhs) const 
+\item 
+\hyperlink{classVec}{\-Vec} \& \hyperlink{classVec_adce31c56c9f71357dfea84f44e461d0c}{operator-\/=} (const \hyperlink{classVec}{\-Vec} \&rhs)
+\item 
+\hyperlink{classVec}{\-Vec} \hyperlink{classVec_ae7a06f3161cbc8921dace94a0ecb0bfb}{operator-\/} (const \hyperlink{classVec}{\-Vec} \&rhs) const 
+\item 
+\hyperlink{classVec}{\-Vec} \& \hyperlink{classVec_a92804048dd925bba0d301dd93a28bd8f}{operator$\ast$=} (const \hyperlink{classVec}{\-Vec} \&rhs)
+\item 
+\hyperlink{classVec}{\-Vec} \hyperlink{classVec_ab630eb05f7f84ac9ccbb3fbce5e30e62}{operator$\ast$} (const \hyperlink{classVec}{\-Vec} \&rhs) const 
+\item 
+bool \hyperlink{classVec_a490ee432f3b43cce76d59e8d1aa6c66f}{operator==} (const \hyperlink{classVec}{\-Vec} \&rhs) const 
+\item 
+bool \hyperlink{classVec_a6c7f02ea2f4ae67c36f0aeb1ac97d027}{operator!=} (const \hyperlink{classVec}{\-Vec} \&rhs) const 
+\item 
+bool \hyperlink{classVec_a48553775073fb23a0427db27b7d9e5cf}{operator$>$} (const \hyperlink{classVec}{\-Vec} \&rhs) const 
+\item 
+bool \hyperlink{classVec_ac3708104626d0d23e6643d960185deb7}{operator$<$} (const \hyperlink{classVec}{\-Vec} \&rhs) const 
+\item 
+void \hyperlink{classVec_ae7b64d21bc832137b2c2bb1e8c30c0b2}{print} (std\-::ostream \&os) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classVec_af5ed89da3d66bddb87c55c1d9d70baa4}{normalise} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classVec_a463e55879d386da7c31644446a9aba13}{u}
+\item 
+double \hyperlink{classVec_a171bde0822311dc8f9ec69e1e90ba2ff}{v}
+\item 
+double \hyperlink{classVec_a4e475b48393d5d8f6e1837e2007454b8}{w}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{classVec_ad50f5245c27f0120ffe35834b5bd28d4}{operator$<$$<$} (std\-::ostream \&\hyperlink{MappedSPSamplingTest_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output}, const \hyperlink{classVec}{\-Vec} \&c)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 12 of file \-Vec.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classVec_aefd6dd5ca241f55cdc5548e4c02dc187}{\index{\-Vec@{\-Vec}!\-Vec@{\-Vec}}
+\index{\-Vec@{\-Vec}!Vec@{\-Vec}}
+\paragraph[{\-Vec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-::\-Vec} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classVec_aefd6dd5ca241f55cdc5548e4c02dc187}
+
+
+no argument constructor 
+
+
+
+\-Definition at line 26 of file \-Vec.\-cpp.
+
+
+
+\-Referenced by operator$\ast$(), operator+(), and operator-\/().
+
+
+\begin{DoxyCode}
+: u(0.0), v (0.0), w (0.0) {}
+\end{DoxyCode}
+\hypertarget{classVec_a857ab87f43484ae8581f021bc2dea0eb}{\index{\-Vec@{\-Vec}!\-Vec@{\-Vec}}
+\index{\-Vec@{\-Vec}!Vec@{\-Vec}}
+\paragraph[{\-Vec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-::\-Vec} (
+\begin{DoxyParamCaption}
+\item[{double}]{uu, }
+\item[{double}]{vv, }
+\item[{double}]{ww}
+\end{DoxyParamCaption}
+)}}\label{classVec_a857ab87f43484ae8581f021bc2dea0eb}
+
+
+parameterised constructor 
+
+
+
+\-Definition at line 28 of file \-Vec.\-cpp.
+
+
+
+\-References normalise().
+
+
+\begin{DoxyCode}
+                : u(uu), v (vv), w (ww)
+{
+    normalise();
+}
+\end{DoxyCode}
+\hypertarget{classVec_ac252c18437696a2fda6b7427116741a9}{\index{\-Vec@{\-Vec}!\-Vec@{\-Vec}}
+\index{\-Vec@{\-Vec}!Vec@{\-Vec}}
+\paragraph[{\-Vec}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-::\-Vec} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classVec_ac252c18437696a2fda6b7427116741a9}
+
+
+copy constructor 
+
+
+
+\-Definition at line 34 of file \-Vec.\-cpp.
+
+
+\begin{DoxyCode}
+                : u(other.u), v (other.v), w (other.w) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classVec_af5ed89da3d66bddb87c55c1d9d70baa4}{\index{\-Vec@{\-Vec}!normalise@{normalise}}
+\index{normalise@{normalise}!Vec@{\-Vec}}
+\paragraph[{normalise}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Vec\-::normalise} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classVec_af5ed89da3d66bddb87c55c1d9d70baa4}
+
+
+\-Definition at line 15 of file \-Vec.\-cpp.
+
+
+
+\-References taylor\-::pow(), u, v, and w.
+
+
+
+\-Referenced by operator$\ast$=(), operator+=(), operator-\/=(), operator=(), and \-Vec().
+
+
+\begin{DoxyCode}
+{
+
+    double length = pow(u*u + v*v + w*w, 0.5);
+    if (length > 0.0) {
+        u /= length;
+        v /= length;
+        w /= length;
+    }
+}
+\end{DoxyCode}
+\hypertarget{classVec_a6c7f02ea2f4ae67c36f0aeb1ac97d027}{\index{\-Vec@{\-Vec}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Vec@{\-Vec}}
+\paragraph[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Vec\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classVec_a6c7f02ea2f4ae67c36f0aeb1ac97d027}
+
+
+\-Definition at line 100 of file \-Vec.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    return (*this < rhs) || !(*this > rhs);
+}
+\end{DoxyCode}
+\hypertarget{classVec_ab630eb05f7f84ac9ccbb3fbce5e30e62}{\index{\-Vec@{\-Vec}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vec@{\-Vec}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec} \-Vec\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classVec_ab630eb05f7f84ac9ccbb3fbce5e30e62}
+
+
+\-Definition at line 89 of file \-Vec.\-cpp.
+
+
+
+\-References \-Vec().
+
+
+\begin{DoxyCode}
+{
+    return Vec(*this) *= rhs;
+
+}
+\end{DoxyCode}
+\hypertarget{classVec_a92804048dd925bba0d301dd93a28bd8f}{\index{\-Vec@{\-Vec}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Vec@{\-Vec}}
+\paragraph[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec} \& \-Vec\-::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classVec_a92804048dd925bba0d301dd93a28bd8f}
+
+
+\-Definition at line 79 of file \-Vec.\-cpp.
+
+
+
+\-References normalise(), u, v, and w.
+
+
+\begin{DoxyCode}
+{
+    u = v * rhs.w - w * rhs.v;
+    v = w * rhs.u - u * rhs.w;
+    w = u * rhs.v - v * rhs.u;
+    normalise();
+
+    return *this;
+}
+\end{DoxyCode}
+\hypertarget{classVec_a5f46f2a53419e8c985511601643f87ad}{\index{\-Vec@{\-Vec}!operator+@{operator+}}
+\index{operator+@{operator+}!Vec@{\-Vec}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec} \-Vec\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classVec_a5f46f2a53419e8c985511601643f87ad}
+
+
+\-Definition at line 57 of file \-Vec.\-cpp.
+
+
+
+\-References \-Vec().
+
+
+\begin{DoxyCode}
+{
+    return Vec(*this) += rhs;
+
+}
+\end{DoxyCode}
+\hypertarget{classVec_aa5147cd7b8bbfde4d9cfe50c5ef06d0e}{\index{\-Vec@{\-Vec}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vec@{\-Vec}}
+\paragraph[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec} \& \-Vec\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classVec_aa5147cd7b8bbfde4d9cfe50c5ef06d0e}
+
+
+\-Definition at line 47 of file \-Vec.\-cpp.
+
+
+
+\-References normalise(), u, v, and w.
+
+
+\begin{DoxyCode}
+{
+    u += rhs.u;
+    v += rhs.v;
+    w += rhs.w;
+    normalise();
+
+    return *this;
+}
+\end{DoxyCode}
+\hypertarget{classVec_ae7a06f3161cbc8921dace94a0ecb0bfb}{\index{\-Vec@{\-Vec}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vec@{\-Vec}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec} \-Vec\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classVec_ae7a06f3161cbc8921dace94a0ecb0bfb}
+
+
+\-Definition at line 73 of file \-Vec.\-cpp.
+
+
+
+\-References \-Vec().
+
+
+\begin{DoxyCode}
+{
+    return Vec(*this) -= rhs;
+
+}
+\end{DoxyCode}
+\hypertarget{classVec_adce31c56c9f71357dfea84f44e461d0c}{\index{\-Vec@{\-Vec}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Vec@{\-Vec}}
+\paragraph[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec} \& \-Vec\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classVec_adce31c56c9f71357dfea84f44e461d0c}
+
+
+\-Definition at line 63 of file \-Vec.\-cpp.
+
+
+
+\-References normalise(), u, v, and w.
+
+
+\begin{DoxyCode}
+{
+    u -= rhs.u;
+    v -= rhs.v;
+    w -= rhs.w;
+    normalise();
+
+    return *this;
+}
+\end{DoxyCode}
+\hypertarget{classVec_ac3708104626d0d23e6643d960185deb7}{\index{\-Vec@{\-Vec}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Vec@{\-Vec}}
+\paragraph[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Vec\-::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classVec_ac3708104626d0d23e6643d960185deb7}
+
+
+\-Definition at line 111 of file \-Vec.\-cpp.
+
+
+
+\-References u, v, and w.
+
+
+\begin{DoxyCode}
+{
+     return ((u + v + w) > (rhs.u + rhs.v + rhs.w));
+}
+\end{DoxyCode}
+\hypertarget{classVec_a2432e72a4c830d7ae40d36fe843f8fa0}{\index{\-Vec@{\-Vec}!operator=@{operator=}}
+\index{operator=@{operator=}!Vec@{\-Vec}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec} \& \-Vec\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classVec_a2432e72a4c830d7ae40d36fe843f8fa0}
+
+
+\-Definition at line 37 of file \-Vec.\-cpp.
+
+
+
+\-References normalise(), u, v, and w.
+
+
+\begin{DoxyCode}
+{
+    u = rhs.u;
+    v = rhs.v;
+    w = rhs.w;
+    normalise();
+
+    return *this;
+}
+\end{DoxyCode}
+\hypertarget{classVec_a490ee432f3b43cce76d59e8d1aa6c66f}{\index{\-Vec@{\-Vec}!operator==@{operator==}}
+\index{operator==@{operator==}!Vec@{\-Vec}}
+\paragraph[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Vec\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classVec_a490ee432f3b43cce76d59e8d1aa6c66f}
+
+
+\-Definition at line 95 of file \-Vec.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    return !(*this < rhs) && !(*this > rhs);
+}
+\end{DoxyCode}
+\hypertarget{classVec_a48553775073fb23a0427db27b7d9e5cf}{\index{\-Vec@{\-Vec}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Vec@{\-Vec}}
+\paragraph[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}bool \-Vec\-::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classVec_a48553775073fb23a0427db27b7d9e5cf}
+
+
+\-Definition at line 105 of file \-Vec.\-cpp.
+
+
+
+\-References u, v, and w.
+
+
+\begin{DoxyCode}
+{
+    return ((u + v + w) < (rhs.u + rhs.v + rhs.w));
+
+}
+\end{DoxyCode}
+\hypertarget{classVec_ae7b64d21bc832137b2c2bb1e8c30c0b2}{\index{\-Vec@{\-Vec}!print@{print}}
+\index{print@{print}!Vec@{\-Vec}}
+\paragraph[{print}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Vec\-::print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const}}\label{classVec_ae7b64d21bc832137b2c2bb1e8c30c0b2}
+
+
+\-Definition at line 116 of file \-Vec.\-cpp.
+
+
+
+\-References u, v, and w.
+
+
+
+\-Referenced by operator$<$$<$().
+
+
+\begin{DoxyCode}
+{
+
+    os << u << '\t' << v << '\t' << w;
+
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classVec_ad50f5245c27f0120ffe35834b5bd28d4}{\index{\-Vec@{\-Vec}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vec@{\-Vec}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{output, }
+\item[{const {\bf \-Vec} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classVec_ad50f5245c27f0120ffe35834b5bd28d4}
+
+
+\-Definition at line 125 of file \-Vec.\-cpp.
+
+
+\begin{DoxyCode}
+{
+
+    c.print(os);
+
+    return os;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classVec_a463e55879d386da7c31644446a9aba13}{\index{\-Vec@{\-Vec}!u@{u}}
+\index{u@{u}!Vec@{\-Vec}}
+\paragraph[{u}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Vec\-::u}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classVec_a463e55879d386da7c31644446a9aba13}
+
+
+\-Definition at line 18 of file \-Vec.\-hpp.
+
+
+
+\-Referenced by normalise(), operator$\ast$=(), operator+=(), operator-\/=(), operator$<$(), operator=(), operator$>$(), and print().
+
+\hypertarget{classVec_a171bde0822311dc8f9ec69e1e90ba2ff}{\index{\-Vec@{\-Vec}!v@{v}}
+\index{v@{v}!Vec@{\-Vec}}
+\paragraph[{v}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Vec\-::v}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classVec_a171bde0822311dc8f9ec69e1e90ba2ff}
+
+
+\-Definition at line 19 of file \-Vec.\-hpp.
+
+
+
+\-Referenced by normalise(), operator$\ast$=(), operator+=(), operator-\/=(), operator$<$(), operator=(), operator$>$(), and print().
+
+\hypertarget{classVec_a4e475b48393d5d8f6e1837e2007454b8}{\index{\-Vec@{\-Vec}!w@{w}}
+\index{w@{w}!Vec@{\-Vec}}
+\paragraph[{w}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Vec\-::w}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classVec_a4e475b48393d5d8f6e1837e2007454b8}
+
+
+\-Definition at line 20 of file \-Vec.\-hpp.
+
+
+
+\-Referenced by normalise(), operator$\ast$=(), operator+=(), operator-\/=(), operator$<$(), operator=(), operator$>$(), and print().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Vec_8hpp}{\-Vec.\-hpp}\item 
+\hyperlink{Vec_8cpp}{\-Vec.\-cpp}\end{DoxyCompactItemize}

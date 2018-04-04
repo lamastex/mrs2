@@ -1,0 +1,367 @@
+\hypertarget{classRSSample}{\subsection{\-R\-S\-Sample \-Class \-Reference}
+\label{classRSSample}\index{\-R\-S\-Sample@{\-R\-S\-Sample}}
+}
+
+
+\-A class for the status of a \-Rejection \-Sampler.  
+
+
+
+
+{\ttfamily \#include $<$\-Small\-Classes.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{classRSSample_a9537562ed9b4bc945e4c92b2237732a8}{\-Integral\-Estimate} ()
+\begin{DoxyCompactList}\small\item\em \-A real estimate of the integral of the function over the domain. \end{DoxyCompactList}\item 
+vector$<$ rvector $>$ \hyperlink{classRSSample_a6e553a95e36dbecd6f0491bf71c6a761}{\-Mean} ()
+\begin{DoxyCompactList}\small\item\em \-Arithmetic mean of the sampled labeled points in a label-\/specific way. \end{DoxyCompactList}\item 
+void \hyperlink{classRSSample_a9a5acffe7b2445f5cf588b0f34256993}{\-Print\-Means} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Print label-\/specific sample means from \hyperlink{classRSSample_a6e553a95e36dbecd6f0491bf71c6a761}{\-Mean()}. \end{DoxyCompactList}\item 
+void \hyperlink{classRSSample_ae38d39be1ed34d9a06df7f3d76ab2962}{\-Print} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Print sampled labeled points in \-Samples as a matrix with \-T\-A\-B padding. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classLabPnt}{\-Lab\-Pnt} $>$ \hyperlink{classRSSample_a3966506ff75f99c21ffef23f6ca490f4}{get\-Sample} ()
+\begin{DoxyCompactList}\small\item\em \-Return a copy of the \-Samples of sampled labeled points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{classRSSample_ada252846a5f08bfad0ceb6debd2054b8}{\-Nprop}
+\begin{DoxyCompactList}\small\item\em \-Number of draws from proposal distribution. \end{DoxyCompactList}\item 
+long \hyperlink{classRSSample_aaef16832fe9e088f8d99019ae024ecd4}{\-Ntopologies}
+\begin{DoxyCompactList}\small\item\em \-Number of labels or topologies. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classRSSample_a1a4bb7b0764f4d82e6db5eb24ce86d34}{\-Label\-Set}
+\begin{DoxyCompactList}\small\item\em \-The set of unique integer labels in \-Lab\-Domain\-List. \end{DoxyCompactList}\item 
+int \hyperlink{classRSSample_a7aff363040b93e76f56f58db43b68894}{n\-\_\-\-Dim\-\_\-\-Max}
+\begin{DoxyCompactList}\small\item\em \-The maximum dimension of the labeled boxes in \-Lab\-Domain\-List. \end{DoxyCompactList}\item 
+real \hyperlink{classRSSample_aa3f52ce941256fc7d6cf71347fdfa67c}{\-Envelope\-Integral}
+\begin{DoxyCompactList}\small\item\em \-The envelope integral as a cxsc\-::real. \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classLabPnt}{\-Lab\-Pnt} $>$ \hyperlink{classRSSample_a16622505cb282b5ebe608479fc026c12}{\-Samples}
+\begin{DoxyCompactList}\small\item\em \-An \-S\-T\-L vector container to store accepted samples of labeled points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class for the status of a \-Rejection \-Sampler. 
+
+\-Definition at line 221 of file \-Small\-Classes.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classRSSample_a3966506ff75f99c21ffef23f6ca490f4}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!get\-Sample@{get\-Sample}}
+\index{get\-Sample@{get\-Sample}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{get\-Sample}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Lab\-Pnt}$>$ {\bf \-R\-S\-Sample\-::get\-Sample} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRSSample_a3966506ff75f99c21ffef23f6ca490f4}
+
+
+\-Return a copy of the \-Samples of sampled labeled points. 
+
+
+
+\-Definition at line 357 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Samples.
+
+
+\begin{DoxyCode}
+    {
+      return Samples;
+    }
+\end{DoxyCode}
+\hypertarget{classRSSample_a9537562ed9b4bc945e4c92b2237732a8}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Integral\-Estimate@{\-Integral\-Estimate}}
+\index{\-Integral\-Estimate@{\-Integral\-Estimate}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Integral\-Estimate}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-R\-S\-Sample\-::\-Integral\-Estimate} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRSSample_a9537562ed9b4bc945e4c92b2237732a8}
+
+
+\-A real estimate of the integral of the function over the domain. 
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000009}{\-Todo}]\-Needs \-Label\-Set specifics like \hyperlink{classRSSample_a6e553a95e36dbecd6f0491bf71c6a761}{\-Mean()} \end{DoxyRefDesc}
+
+
+\-Definition at line 245 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Envelope\-Integral, \-Nprop, and \-Samples.
+
+
+
+\-Referenced by main(), and \-Produce\-M\-R\-Samples().
+
+
+\begin{DoxyCode}
+    { 
+      return EnvelopeIntegral*real(int(Samples.size()))/real(Nprop);
+    }
+\end{DoxyCode}
+\hypertarget{classRSSample_a6e553a95e36dbecd6f0491bf71c6a761}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Mean@{\-Mean}}
+\index{\-Mean@{\-Mean}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$rvector$>$ {\bf \-R\-S\-Sample\-::\-Mean} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRSSample_a6e553a95e36dbecd6f0491bf71c6a761}
+
+
+\-Arithmetic mean of the sampled labeled points in a label-\/specific way. 
+
+\-Flag for \-I\-F a label has been encountered in the samples
+
+number of distinct labels in the samples
+
+sum of distinct labels in the samples
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000010}{\-Todo}]\-Either replace with gsl\-\_\-mean like computations due to their diff eqns form or \-Kahan \-Summations \-Function \-Obj using std\-::transform or \-Dot\-Accum in c-\/xsc \end{DoxyRefDesc}
+
+
+\-Definition at line 260 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Label\-Set, \-Ntopologies, \-Samples, and taylor\-::sqrt().
+
+
+
+\-Referenced by main(), \-Print\-Means(), and \-Produce\-M\-R\-Samples().
+
+
+\begin{DoxyCode}
+    {
+      cout << "   Number of labels or topologies = " << Ntopologies << endl;
+      vector<int>::const_iterator itINTV = 
+        max_element(LabelSet.begin(),LabelSet.end());
+      int MaxLabelNum = *itINTV;
+      
+      vector<bool> first(MaxLabelNum+1, true);
+      
+      vector<long> L_sums(MaxLabelNum+1, 0);
+                    
+      vector<rvector> sums(MaxLabelNum+1);
+      vector<LabPnt>::const_iterator it = Samples.begin();
+      for(; it != Samples.end(); it++)
+      {
+        int label = it->L;
+        if(first[label])
+        {
+          sums[label] = rvector(it->Pnt);
+          L_sums[label] = 1;
+          first[label] = false;
+        }
+        else
+        {
+          sums[label] += it->Pnt;
+          L_sums[label] += 1;
+        }
+      }
+      for(int i=0; i<Ntopologies; i++)
+      {
+        if(L_sums[LabelSet[i]] > 0)
+        { 
+          sums[LabelSet[i]] /= (real)L_sums[LabelSet[i]];
+        }
+        real SampleSizeR = (real)(long)Samples.size();
+        real propR = (real)L_sums[LabelSet[i]]/SampleSizeR;
+        real propRUp = propR;
+        interval propI = interval(propR);
+        if (propR==0.0) propI=interval(1.0/SampleSizeR);
+        cout << "label: " << LabelSet[i] << "  proportion: " 
+             << propR << endl;
+        cout << "Standard Error: " 
+             << sqrt((propI*(1.0-propI))/SampleSizeR) << endl;
+             
+        if(L_sums[LabelSet[i]]>0){ 
+          cout << "Labelled Mean:" << endl;
+          cout << sums[LabelSet[i]] << endl;
+        }
+        else {
+          cout << "Labelled Mean:" << endl;
+          cout << "no samples" << endl;
+        }
+      }
+      return sums;
+    }
+\end{DoxyCode}
+\hypertarget{classRSSample_ae38d39be1ed34d9a06df7f3d76ab2962}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Print@{\-Print}}
+\index{\-Print@{\-Print}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-R\-S\-Sample\-::\-Print} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRSSample_ae38d39be1ed34d9a06df7f3d76ab2962}
+
+
+\-Print sampled labeled points in \-Samples as a matrix with \-T\-A\-B padding. 
+
+
+
+\-Definition at line 336 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References taylor\-::\-Lb(), n\-\_\-\-Dim\-\_\-\-Max, \-Samples, and taylor\-::\-Ub().
+
+
+
+\-Referenced by main(), and \-Produce\-M\-R\-Samples().
+
+
+\begin{DoxyCode}
+    {
+      vector<LabPnt>::const_iterator it = Samples.begin();
+      for(; it!=Samples.end(); it++)
+      {
+        out << it->L;
+        int Current_Dim=Ub(it->Pnt)-Lb(it->Pnt)+1;
+        for(int i=Lb(it->Pnt); i<=Ub(it->Pnt); i++)
+        {
+          out << '\t' << (it->Pnt[i]);
+        }
+        if(n_Dim_Max > Current_Dim) 
+        {
+          for(int i=Current_Dim+1; i<=n_Dim_Max; i++) out << '\t';
+        }
+        out << endl;
+      }
+      return;
+    }
+\end{DoxyCode}
+\hypertarget{classRSSample_a9a5acffe7b2445f5cf588b0f34256993}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Print\-Means@{\-Print\-Means}}
+\index{\-Print\-Means@{\-Print\-Means}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Print\-Means}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-R\-S\-Sample\-::\-Print\-Means} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRSSample_a9a5acffe7b2445f5cf588b0f34256993}
+
+
+\-Print label-\/specific sample means from \hyperlink{classRSSample_a6e553a95e36dbecd6f0491bf71c6a761}{\-Mean()}. 
+
+
+
+\-Definition at line 324 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Label\-Set, and \-Mean().
+
+
+\begin{DoxyCode}
+    {
+      vector<rvector> means = Mean();
+      vector<rvector>::const_iterator it;
+      for(size_t i=0; i<means.size(); i++)
+      {
+        out << "label: " << LabelSet[i] << "   mean: " 
+            << means[LabelSet[i]] << endl;
+      }
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classRSSample_aa3f52ce941256fc7d6cf71347fdfa67c}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Envelope\-Integral@{\-Envelope\-Integral}}
+\index{\-Envelope\-Integral@{\-Envelope\-Integral}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Envelope\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-R\-S\-Sample\-::\-Envelope\-Integral}}}\label{classRSSample_aa3f52ce941256fc7d6cf71347fdfa67c}
+
+
+\-The envelope integral as a cxsc\-::real. 
+
+
+
+\-Definition at line 238 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-Integral\-Estimate(), main(), \-Produce\-M\-R\-Samples(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many().
+
+\hypertarget{classRSSample_a1a4bb7b0764f4d82e6db5eb24ce86d34}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Label\-Set@{\-Label\-Set}}
+\index{\-Label\-Set@{\-Label\-Set}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Label\-Set}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf \-R\-S\-Sample\-::\-Label\-Set}}}\label{classRSSample_a1a4bb7b0764f4d82e6db5eb24ce86d34}
+
+
+\-The set of unique integer labels in \-Lab\-Domain\-List. 
+
+
+
+\-Definition at line 232 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-Mean(), \-Print\-Means(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many().
+
+\hypertarget{classRSSample_a7aff363040b93e76f56f58db43b68894}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!n\-\_\-\-Dim\-\_\-\-Max@{n\-\_\-\-Dim\-\_\-\-Max}}
+\index{n\-\_\-\-Dim\-\_\-\-Max@{n\-\_\-\-Dim\-\_\-\-Max}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{n\-\_\-\-Dim\-\_\-\-Max}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-R\-S\-Sample\-::n\-\_\-\-Dim\-\_\-\-Max}}}\label{classRSSample_a7aff363040b93e76f56f58db43b68894}
+
+
+\-The maximum dimension of the labeled boxes in \-Lab\-Domain\-List. 
+
+
+
+\-Definition at line 235 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-Print(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many().
+
+\hypertarget{classRSSample_ada252846a5f08bfad0ceb6debd2054b8}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Nprop@{\-Nprop}}
+\index{\-Nprop@{\-Nprop}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Nprop}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf \-R\-S\-Sample\-::\-Nprop}}}\label{classRSSample_ada252846a5f08bfad0ceb6debd2054b8}
+
+
+\-Number of draws from proposal distribution. 
+
+
+
+\-Definition at line 226 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-Integral\-Estimate(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many().
+
+\hypertarget{classRSSample_aaef16832fe9e088f8d99019ae024ecd4}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Ntopologies@{\-Ntopologies}}
+\index{\-Ntopologies@{\-Ntopologies}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Ntopologies}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf \-R\-S\-Sample\-::\-Ntopologies}}}\label{classRSSample_aaef16832fe9e088f8d99019ae024ecd4}
+
+
+\-Number of labels or topologies. 
+
+
+
+\-Definition at line 229 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-Mean(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many().
+
+\hypertarget{classRSSample_a16622505cb282b5ebe608479fc026c12}{\index{\-R\-S\-Sample@{\-R\-S\-Sample}!\-Samples@{\-Samples}}
+\index{\-Samples@{\-Samples}!RSSample@{\-R\-S\-Sample}}
+\paragraph[{\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Lab\-Pnt}$>$ {\bf \-R\-S\-Sample\-::\-Samples}}}\label{classRSSample_a16622505cb282b5ebe608479fc026c12}
+
+
+\-An \-S\-T\-L vector container to store accepted samples of labeled points. 
+
+
+
+\-Definition at line 241 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Est\-Log\-Likelihood\-From\-R\-S\-Sample(), subpavings\-::get\-Rvectors\-From\-R\-S\-Sample(), get\-Sample(), \-Integral\-Estimate(), subpavings\-::label\-Data\-From\-Filter(), main(), \-Mean(), \-F\-Shiryaev1\-D\-\_\-\-Lkl\-\_\-aa\-\_\-from\-Data\-::operator()(), \-Print(), \-Produce\-M\-R\-Samples(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SmallClasses_8hpp}{\-Small\-Classes.\-hpp}\end{DoxyCompactItemize}

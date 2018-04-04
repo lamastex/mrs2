@@ -1,0 +1,223 @@
+\hypertarget{Quadrature_8cpp}{\subsection{\-Quadrature.\-cpp \-File \-Reference}
+\label{Quadrature_8cpp}\index{\-Quadrature.\-cpp@{\-Quadrature.\-cpp}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-math.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-monte.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-monte\-\_\-plain.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-monte\-\_\-miser.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-monte\-\_\-vegas.\-h$>$}\*
+{\ttfamily \#include $<$iostream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{Quadrature_8cpp_a5d8d739082df35fdba55d410ef394b44}{\-Rosenbrock} (double $\ast$k, size\-\_\-t dim, void $\ast$params)
+\item 
+double \hyperlink{Quadrature_8cpp_ab4532dd177083e8a5a8622a982a5ebfc}{\-Levy} (double $\ast$k, size\-\_\-t dim, void $\ast$params)
+\item 
+void \hyperlink{Quadrature_8cpp_a1dda2cc239ef14ab1793a43f9f1201a7}{display\-\_\-results} (double result, double error)
+\item 
+int \hyperlink{Quadrature_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Quadrature_8cpp_a1dda2cc239ef14ab1793a43f9f1201a7}{\index{\-Quadrature.\-cpp@{\-Quadrature.\-cpp}!display\-\_\-results@{display\-\_\-results}}
+\index{display\-\_\-results@{display\-\_\-results}!Quadrature.cpp@{\-Quadrature.\-cpp}}
+\paragraph[{display\-\_\-results}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf display\-\_\-results} (
+\begin{DoxyParamCaption}
+\item[{double}]{result, }
+\item[{double}]{error}
+\end{DoxyParamCaption}
+)}}\label{Quadrature_8cpp_a1dda2cc239ef14ab1793a43f9f1201a7}
+
+
+\-Definition at line 70 of file \-Quadrature.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+     {
+       printf ("result = % .6f\n", result);
+       printf ("sigma  = % .6f\n", error);
+     }
+\end{DoxyCode}
+\hypertarget{Quadrature_8cpp_ab4532dd177083e8a5a8622a982a5ebfc}{\index{\-Quadrature.\-cpp@{\-Quadrature.\-cpp}!\-Levy@{\-Levy}}
+\index{\-Levy@{\-Levy}!Quadrature.cpp@{\-Quadrature.\-cpp}}
+\paragraph[{\-Levy}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Levy} (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{k, }
+\item[{size\-\_\-t}]{dim, }
+\item[{void $\ast$}]{params}
+\end{DoxyParamCaption}
+)}}\label{Quadrature_8cpp_ab4532dd177083e8a5a8622a982a5ebfc}
+
+
+\-Definition at line 40 of file \-Quadrature.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), taylor\-::exp(), \-Global\-Max, taylor\-::pow(), and \-Temperature.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+                                          {   
+       //Parameters specific to the Levy target
+        double Temperature = 40.0;
+        double Center1 = 1.42513;
+        double Center2 = 0.80032;
+        double GlobalMax = 176.14;
+
+  double x = k[0];
+  double y = k[1];
+double isum, jsum, hh;
+  isum = 0.0;
+  jsum = 0.0;
+
+  for (int i = 1; i <= 5; i++)
+  {
+    isum = isum + double (i) * cos (double (i - 1) *x + double (i));
+    jsum = jsum + double (i) * cos (double (i + 1) *y + double (i));
+  }
+  // Avoid real conversion error
+  hh = isum * jsum + pow((x + Center1),2) +
+       pow((y + Center2),2);
+  hh += GlobalMax;
+
+  // TEMPERATURE = 1, 4, 40, 400, 4000
+  double result = exp (-hh / Temperature);
+
+return result;
+}
+\end{DoxyCode}
+\hypertarget{Quadrature_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Quadrature.\-cpp@{\-Quadrature.\-cpp}!main@{main}}
+\index{main@{main}!Quadrature.cpp@{\-Quadrature.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{Quadrature_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 77 of file \-Quadrature.\-cpp.
+
+
+
+\-References display\-\_\-results(), \-Levy(), and \-Rosenbrock().
+
+
+\begin{DoxyCode}
+     {
+       
+      double x1 = atof(argv[1]);
+      double x2 = atof(argv[2]);
+      double y1 = atof(argv[3]);
+      double y2 = atof(argv[4]);
+      double dim = 2;
+       double resRosen, errRosen, resLevy, errLevy;
+     
+       double xl[2] = {x1, y1}; 
+       double xu[2] = {x2, y2};
+     
+       const gsl_rng_type *T;
+       gsl_rng *r;
+     
+       gsl_monte_function G1 =  { &Rosenbrock, 2, 0 };
+       gsl_monte_function G2 = { &Levy, 2, 0 };
+
+       size_t calls = 10000000;
+     
+       gsl_rng_env_setup ();
+     
+       T = gsl_rng_default;
+       r = gsl_rng_alloc (T);
+     
+
+       {
+         gsl_monte_plain_state *s = gsl_monte_plain_alloc (2);
+         gsl_monte_plain_integrate (&G1, xl, xu, 2, calls, r, s, 
+                                    &resRosen, &errRosen);
+         gsl_monte_plain_integrate (&G2, xl, xu, 2, calls, r, s, &resLevy, &
+      errLevy);
+         gsl_monte_plain_free (s);
+         cout << "plain Rosen" << endl;   
+         display_results (resRosen, errRosen);
+         cout << "\n" << endl;
+         cout << "plain Levy" << endl;
+         display_results (resLevy, errLevy);
+         cout << "\n" << endl;
+       }
+
+     
+       {
+         gsl_monte_miser_state *s = gsl_monte_miser_alloc (2);
+         gsl_monte_miser_integrate (&G1, xl, xu, 2, calls, r, s,
+                                   &resRosen, &errRosen);
+         gsl_monte_miser_integrate (&G2, xl, xu, 2, calls, r, s, &resLevy, &
+      errLevy);
+         gsl_monte_miser_free (s);
+         cout << "miser Rosen" << endl;
+         display_results (resRosen, errRosen);
+         cout << "\n" << endl;
+         cout << "miser Levy" << endl;
+         display_results (resLevy, errLevy);
+       }
+     
+     
+       gsl_rng_free (r);
+     
+       return 0;
+     }
+\end{DoxyCode}
+\hypertarget{Quadrature_8cpp_a5d8d739082df35fdba55d410ef394b44}{\index{\-Quadrature.\-cpp@{\-Quadrature.\-cpp}!\-Rosenbrock@{\-Rosenbrock}}
+\index{\-Rosenbrock@{\-Rosenbrock}!Quadrature.cpp@{\-Quadrature.\-cpp}}
+\paragraph[{\-Rosenbrock}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Rosenbrock} (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{k, }
+\item[{size\-\_\-t}]{dim, }
+\item[{void $\ast$}]{params}
+\end{DoxyParamCaption}
+)}}\label{Quadrature_8cpp_a5d8d739082df35fdba55d410ef394b44}
+
+
+\-Definition at line 15 of file \-Quadrature.\-cpp.
+
+
+
+\-References taylor\-::exp(), \-Height, taylor\-::pow(), and \-Tinverse.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+// Parameters specific to the Rosenbrock target
+double Tinverse = 1.0;
+double Height = 100.0;
+// Domain
+//double x = k[0];
+//double y = k[1];
+double result=0.0;
+//double size_k; //size of array k
+
+    for (int i = 0; i < 1; i++) //2nd term should be size_k
+    {
+      result = result + (Height * pow((k[i+1] - pow(k[i],2)) ,2) +
+        pow((k[i] - 1.0), 2));
+    }
+
+result = exp (-(Tinverse * result));
+
+return result; 
+}
+\end{DoxyCode}

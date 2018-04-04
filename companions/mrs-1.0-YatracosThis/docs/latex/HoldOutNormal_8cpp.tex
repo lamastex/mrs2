@@ -1,0 +1,211 @@
+\hypertarget{HoldOutNormal_8cpp}{\subsection{\-Hold\-Out\-Normal.\-cpp \-File \-Reference}
+\label{HoldOutNormal_8cpp}\index{\-Hold\-Out\-Normal.\-cpp@{\-Hold\-Out\-Normal.\-cpp}}
+}
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$set$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-cdf.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{HoldOutNormal_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{HoldOutNormal_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Hold\-Out\-Normal.\-cpp@{\-Hold\-Out\-Normal.\-cpp}!main@{main}}
+\index{main@{main}!HoldOutNormal.cpp@{\-Hold\-Out\-Normal.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{HoldOutNormal_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 42 of file \-Hold\-Out\-Normal.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::get\-Number\-Collated(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::insert\-From\-R\-Vec\-For\-Hold\-Out(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::output\-To\-Txt\-Tabs(), and taylor\-::pow().
+
+
+\begin{DoxyCode}
+{
+    //==============set formatting for input to
+       oss=============================
+    ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(5);
+    //
+      ==========================================================================
+    
+    //============set up a random number generator for
+       rvs======================
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    long s = time (NULL) * getpid();
+    gsl_rng_set(r, s);
+    //
+      ==========================================================================
+
+    //
+      ===============initializations============================================
+    int d = 1;  // dimensions
+    int n = atoi(argv[1]); // total points from random number generator
+    int m = n/3 ; // number of points to hold out
+    
+    //define what distribution is used.
+    int distr = 2; 
+    int mix = 1;
+    //
+      ==========================================================================
+     
+    // Note to gloria: remember to set this up to generate different finite
+       mixtures
+    // and also able to read into insertRVecForHoldOut
+    //==============generate
+       data=============================================== 
+    RVecData theData; // container for data
+    for (int i = 1; i <= n; i++) {
+        rvector thisrv(d);
+        for (int i = 1; i <=d; i++) {
+          thisrv[i] = gsl_ran_gaussian(r, 1);
+    //      cout << thisrv[i] << endl;
+        }
+        theData.push_back(thisrv);    // put into big container
+    }
+    cout << "Sample size = " << theData.size() << endl;
+   //
+      ===========================================================================
+
+   //==============start
+       priorityStageSplit=====================================
+    // indicators
+    bool successfulInsertion = false;
+    bool successfulPQSplit = false;
+  
+    //make an Adaptive Histogram object
+    AdaptiveHistogramValidation myHist;
+  
+    //maximum number of points in each leaf box        
+    int finalK = 1;
+    SplitOnK splitK(finalK);
+    SplitNever sn;
+       
+    // now split with priority queue
+    // Stopping Criteria: critCount
+    CompCountVal nodeCompCount;
+    CritLargestCount_LTEV critCount(finalK);
+    cout << "========================================================" << endl;
+    cout << "Running hold out estimation for a normal distribution..." << endl;
+    cout << "Max k is: " << finalK << endl; 
+    cout << "Performing hold-out estimation: " << endl;
+   
+    // Put the data from the container into the histogram  
+    // Note: number of points to be hold out is by brute force at the moment.
+       Consider putting in as argument.
+    int holdOutCount = int(n*1.0/(3*1.0));
+    successfulInsertion = myHist.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+    //successfulInsertion = myHist.insertFromRVecForHoldOut(theData, splitK,
+       NOLOG);
+ 
+    /*   // optional output for counters in leaf boxes
+        cout << myHist.getSubPaving() << endl;
+  SPSVnodePtrs leaves; // set up empty container for leaf node pointers
+  SPSVnodePtrsItr it; // and an iterator over the container
+  myHist.getSubPaving()->getLeaves(leaves); // fill the container
+  // container is filled by reading leaves off tree from left to right
+  // a container for the counts
+  IntVec counts;  // IntVec is a typedef for vector<int>
+                            // the iterator is typedefed as IntVecItr
+          for(it = leaves.begin(); it < leaves.end(); it++) {
+        // remember that it points to a pointer, so *it is still a ptr
+            // get the counts in all the leaves
+        cout << "Counter \t VCounter\n" << (*it)->getCounter() << "\t\t" << (*
+      it)->getVcounter() << endl;
+      }
+  */  // end of optional output
+   
+   
+   if (successfulInsertion) { // if data successfully inserted       
+       //create an AdaptiveHistogramCollator object
+       AdaptiveHistogramVCollator coll;
+    
+       //start the clock
+       clock_t start, end;
+       start = clock();
+       
+       //start the hold out estimation
+       //tolerance for stopping criteria
+       long double tol = pow(10.0, -2);
+       coll=myHist.priorityStageSplit(nodeCompCount, critCount,                   
+      NOLOG, 0, 0.0, tol, distr, mix);
+
+       //output time taken
+       end = clock();
+       double timing;
+       timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+       cout << "Computing time : " << timing << " s."<< endl;
+ 
+      //cout << coll << endl;
+      int numberCollated = coll.getNumberCollated();
+      cout << numberCollated << " histograms collated." << endl;
+      
+      //output the collator to a .txt file
+      coll.outputToTxtTabs("CollatorHistogram.txt"); 
+  } // remember to remove this curly bracket 
+  /*  
+   //
+      ===========================================================================
+   
+   //===================make regular
+       histograms================================= 
+   //get the root box made using the data
+  ivector pavingBox = coll.getRootBox();   
+  cout << "\n Make regular histogram: " << endl;
+  RegHist myRegHist;
+  myRegHist = makeRegularHist(theData, pavingBox);
+  
+   //cout << "get the IAE of the regular histogram: " << endl;
+  real regHistIAE;
+  regHistIAE = getRegHistFinMixIAE(mix, n, myRegHist.theBoxes, 
+                                   myRegHist.heights, myRegHist.binwidth);
+                        
+  //output IAE to .txt file------------------
+  ofstream os;         // ofstream object
+   os << scientific;  // set formatting for input to oss
+   os.precision(5);
+  
+  string outputFileName;// for output file
+  outputFileName = "IAERegHist.txt";
+  os.open(outputFileName.c_str());
+  os << regHistIAE << endl;
+  os << flush;
+  os.close();
+  std::cout << "IAE output to " << outputFileName << endl;
+  
+  
+  } // end of successful insertion                      
+    
+  
+  //free the rng
+  gsl_rng_free(r);
+  */
+return 0;
+}
+\end{DoxyCode}

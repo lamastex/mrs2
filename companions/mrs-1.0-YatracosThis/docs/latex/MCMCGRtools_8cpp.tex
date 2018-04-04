@@ -1,0 +1,148 @@
+\hypertarget{MCMCGRtools_8cpp}{\subsection{\-M\-C\-M\-C\-G\-Rtools.\-cpp \-File \-Reference}
+\label{MCMCGRtools_8cpp}\index{\-M\-C\-M\-C\-G\-Rtools.\-cpp@{\-M\-C\-M\-C\-G\-Rtools.\-cpp}}
+}
+
+
+\-Tools for testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C with the \-Gelman-\/\-Rubin convergence diagnostics (automated) \-Jenny's version.  
+
+
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include \char`\"{}\-M\-C\-M\-C\-G\-Rtools.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}sptools.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MCMCGRtools_8cpp_a32af99153a16e8c03195b10d3fcb6a9c}{output\-To\-File\-Vertical} (std\-::vector$<$ \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} $\ast$ $>$ \&data\-Ptrs, std\-::vector$<$ std\-::string $>$ \&col\-Names, std\-::string \&filename, int prec)
+\item 
+std\-::vector$<$ \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} $\ast$ $>$ \& \hyperlink{MCMCGRtools_8cpp_aeab60d2a0ee499db048aa1ea334582c9}{add\-Data\-Ptrs} (std\-::vector$<$ \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} $\ast$ $>$ \&container, std\-::vector$<$ \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} $>$ \&to\-Add)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Tools for testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C with the \-Gelman-\/\-Rubin convergence diagnostics (automated) \-Jenny's version. 
+
+\-Definition in file \hyperlink{MCMCGRtools_8cpp_source}{\-M\-C\-M\-C\-G\-Rtools.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MCMCGRtools_8cpp_aeab60d2a0ee499db048aa1ea334582c9}{\index{\-M\-C\-M\-C\-G\-Rtools.\-cpp@{\-M\-C\-M\-C\-G\-Rtools.\-cpp}!add\-Data\-Ptrs@{add\-Data\-Ptrs}}
+\index{add\-Data\-Ptrs@{add\-Data\-Ptrs}!MCMCGRtools.cpp@{\-M\-C\-M\-C\-G\-Rtools.\-cpp}}
+\paragraph[{add\-Data\-Ptrs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf \-Real\-Vec}$\ast$ $>$\& {\bf add\-Data\-Ptrs} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Real\-Vec} $\ast$ $>$ \&}]{container, }
+\item[{std\-::vector$<$ {\bf \-Real\-Vec} $>$ \&}]{to\-Add}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRtools_8cpp_aeab60d2a0ee499db048aa1ea334582c9}
+
+
+\-Definition at line 113 of file \-M\-C\-M\-C\-G\-Rtools.\-cpp.
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto().
+
+
+\begin{DoxyCode}
+{
+  for (std::vector < RealVec >::iterator it = toAdd.begin();
+          it < toAdd.end();
+          ++it) {
+    
+    container.push_back( &(*it) );
+            
+  }
+  
+  return container;
+
+}
+\end{DoxyCode}
+\hypertarget{MCMCGRtools_8cpp_a32af99153a16e8c03195b10d3fcb6a9c}{\index{\-M\-C\-M\-C\-G\-Rtools.\-cpp@{\-M\-C\-M\-C\-G\-Rtools.\-cpp}!output\-To\-File\-Vertical@{output\-To\-File\-Vertical}}
+\index{output\-To\-File\-Vertical@{output\-To\-File\-Vertical}!MCMCGRtools.cpp@{\-M\-C\-M\-C\-G\-Rtools.\-cpp}}
+\paragraph[{output\-To\-File\-Vertical}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output\-To\-File\-Vertical} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Real\-Vec} $\ast$ $>$ \&}]{data\-Ptrs, }
+\item[{std\-::vector$<$ std\-::string $>$ \&}]{col\-Names, }
+\item[{std\-::string \&}]{filename, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRtools_8cpp_a32af99153a16e8c03195b10d3fcb6a9c}
+
+
+\-Definition at line 47 of file \-M\-C\-M\-C\-G\-Rtools.\-cpp.
+
+
+
+\-References subpavings\-::output\-File\-Start().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto().
+
+
+\begin{DoxyCode}
+{
+  
+  size_t n = colNames.size();
+  if (n != dataPtrs.size()) {
+    throw std::length_error("Size of colNames does not match size of dataPtrs")
+      ;
+  }
+  
+  outputFileStart(filename);
+  
+  std::ofstream os;
+  
+  os.open(filename.c_str(), ios::app);         // append
+  
+
+  if (os.is_open()) {
+    
+    // use cxsc manipulators to set the precision for output
+    os << cxsc::Variable;
+    os << cxsc::SetPrecision(prec+2, prec);
+    
+    // colNames
+    os << "line\t";
+    ostream_iterator< std::string > out_s_it (os,"\t");
+    copy ( colNames.begin(), colNames.end(), out_s_it );
+    os << std::endl;
+    
+    // data
+    /* find the longest inner vector, and 
+     * make a vector of iterators to the beginning of each inner vector */
+    size_t longest = 0;
+    std::vector < RealVecItr > dataIterators;
+    for (std::vector < RealVec* >::iterator it = dataPtrs.begin();
+        it < dataPtrs.end(); ++it) {
+      dataIterators.push_back( (*it)->begin() );
+      if ((*it)->size() > longest) longest = (*it)->size();
+    }
+    // use this to output the data
+    for (size_t j = 0; j < longest; ++j) {
+      os << j+1;
+      for (size_t i = 0; i < n; ++i) {
+        if ( dataIterators[i] < dataPtrs[i]->end() ) {
+          os << "\t" << (*dataIterators[i]);
+          dataIterators[i]++;
+        }
+        else {
+          os << "\t"; // not sure about this - may not be a good idea?
+        }
+        
+      }
+      // if it is not the last row, newline
+      if ( j < longest - 1) os << std::endl;
+    }
+    
+    os.close();
+  }
+  else {
+    std::cerr << "Error: could not open file named "
+    << filename << std::endl << std::endl;
+  }
+  
+}
+\end{DoxyCode}

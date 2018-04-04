@@ -1,0 +1,149 @@
+\hypertarget{AHABCObsMCMCLeaves_8cpp}{\subsection{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp \-File \-Reference}
+\label{AHABCObsMCMCLeaves_8cpp}\index{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp@{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp}}
+}
+{\ttfamily \#include $<$iomanip$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-C\-M\-C\-G\-Rtools.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$cassert$>$}\*
+\subsubsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{AHABCObsMCMCLeaves_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\-M\-Y\-D\-E\-B\-U\-G}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{AHABCObsMCMCLeaves_8cpp_a0263b55ed3691eb49251cd058f57ddfb}{do\-M\-C\-M\-C\-G\-R\-Auto} (string dir\-Name, string sim\-Data\-Files, string obs\-Data\-File, double wt, double dx, int max\-Loops, int samples\-Needed, int thinout, cxsc\-::real tol, int min\-Points)
+\item 
+int \hyperlink{AHABCObsMCMCLeaves_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Define \-Documentation}
+\hypertarget{AHABCObsMCMCLeaves_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\index{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp@{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp}!\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}}
+\index{\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}!AHABCObsMCMCLeaves.cpp@{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp}}
+\paragraph[{\-M\-Y\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-Y\-D\-E\-B\-U\-G}}}\label{AHABCObsMCMCLeaves_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}
+
+
+\-Definition at line 45 of file \-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{AHABCObsMCMCLeaves_8cpp_a0263b55ed3691eb49251cd058f57ddfb}{\index{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp@{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp}!do\-M\-C\-M\-C\-G\-R\-Auto@{do\-M\-C\-M\-C\-G\-R\-Auto}}
+\index{do\-M\-C\-M\-C\-G\-R\-Auto@{do\-M\-C\-M\-C\-G\-R\-Auto}!AHABCObsMCMCLeaves.cpp@{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp}}
+\paragraph[{do\-M\-C\-M\-C\-G\-R\-Auto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} {\bf do\-M\-C\-M\-C\-G\-R\-Auto} (
+\begin{DoxyParamCaption}
+\item[{string}]{dir\-Name, }
+\item[{string}]{sim\-Data\-Files, }
+\item[{string}]{obs\-Data\-File, }
+\item[{double}]{wt, }
+\item[{double}]{dx, }
+\item[{int}]{max\-Loops, }
+\item[{int}]{samples\-Needed, }
+\item[{int}]{thinout, }
+\item[{cxsc\-::real}]{tol, }
+\item[{int}]{min\-Points}
+\end{DoxyParamCaption}
+)}}\label{AHABCObsMCMCLeaves_8cpp_a0263b55ed3691eb49251cd058f57ddfb}
+\hypertarget{AHABCObsMCMCLeaves_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp@{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp}!main@{main}}
+\index{main@{main}!AHABCObsMCMCLeaves.cpp@{\-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{AHABCObsMCMCLeaves_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 62 of file \-A\-H\-A\-B\-C\-Obs\-M\-C\-M\-C\-Leaves.\-cpp.
+
+
+
+\-References do\-M\-C\-M\-C\-G\-R\-Auto(), subpavings\-::output\-File\-Start(), and subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs().
+
+
+\begin{DoxyCode}
+{
+  //--------------input parameters for AHABC--------------------------------//
+   //directory to store files in
+  string dirName = argv[1];
+
+  // names of files
+  string simDataFiles = argv[2]; // this is a row vector of filenames
+   string obsDataFile = argv[3];
+
+  //parameters for log-likelihood estimation
+  double wt = atof(argv[4]); //mass to ensure positive density 
+                     //everywhere in domain
+  double dx = atof(argv[5]); //1 for non-atomic densities
+
+   //--------------end of input parameters----------------------------------//
+
+  //========user-defined parameters for MCMC====================//
+  int maxLoops = atoi(argv[6]); // maximum changes of state from initial state
+       to try
+  int samplesNeeded = atoi(argv[7]); // how many samples do we want (ie once
+       chains have burned in)
+  int thinout = atoi(argv[8]); // sample every thinout state, ie thinout-1
+       states between samples
+  
+  /* note that all chains will be sampled in parallel, once burnin has
+       happened,
+   * eg if we want 100 samples and have 4 chains and thinout 5, then we will
+       sample
+   * the last state from each chain as soon as convergence has been achieved 
+   * (and thus get 4 samples), and then wait 5-1 = 4 states, and on the 5th,
+       again 
+   * sample from all 4 chains (assuming that convergence is still okay), etc
+       etc
+   * so it will take 1 + (100-4)/4*5 = 1 + 25*5 = 1 + 120 = 121 states from
+       burnin inclusive
+   * of the burnin state itself to get the full sample */
+
+  double tol = atof(argv[9]); //tolerance for automated burn in criteria
+  int minPoints = atoi(argv[10]); //minPoints
+
+  //========Hardcoded parameters====================================//
+  //int maxLoops = 5000; // maximum changes of state from initial state to try
+  //int samplesNeeded = 10; // how many samples do we want (ie once chains have
+       burned in)
+  //int thinout = 5; // sample every thinout state, ie thinout-1 states between
+       samples
+  //cxsc::real tol(0.1); //tolerance for automated burn in criteria
+  
+  // should really do more checks on parameters, but just check thinout here
+  if (thinout < 1 ) {
+    throw std::invalid_argument("Invalid thinout argument");
+  }
+  //===========done with working on parameters==========================//
+  
+  try {
+    AdaptiveHistogramCollator avg = doMCMCGRAuto(dirName, simDataFiles,
+        obsDataFile, wt, dx,
+        maxLoops, samplesNeeded, thinout, tol, minPoints);
+
+    std::string samplesCollAverageFilename = dirName;
+    samplesCollAverageFilename += "AveragedSamplesFromMCMCGRAuto.txt";
+    outputFileStart(samplesCollAverageFilename);
+  
+    avg.outputToTxtTabs(samplesCollAverageFilename);
+    
+    return 0;
+  }
+  catch (std::runtime_error& e) {
+    cout << "\nFailed doMCMCGRAuto: original error:\n" 
+      << std::string(e.what()) << "\n" << endl;
+  }
+} 
+\end{DoxyCode}

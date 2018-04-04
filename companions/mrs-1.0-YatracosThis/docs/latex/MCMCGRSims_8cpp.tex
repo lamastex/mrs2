@@ -1,0 +1,177 @@
+\hypertarget{MCMCGRSims_8cpp}{\subsection{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp \-File \-Reference}
+\label{MCMCGRSims_8cpp}\index{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}}
+}
+
+
+\-Testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C with the \-Gelman-\/\-Rubin convergence diagnostics -\/ with automatic start to sampling once burnin has happened, using an initial hurdle of the leaves diagnostic.  
+
+
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}auto\-\_\-tools.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$cassert$>$}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+\subsubsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{MCMCGRSims_8cpp_a993cc54e976049730d2d7e277344f6ae}{\-M\-Y\-D\-E\-B\-U\-G\-\_\-\-O\-U\-T\-P\-U\-T}
+\item 
+\#define \hyperlink{MCMCGRSims_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\-M\-Y\-D\-E\-B\-U\-G}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{MCMCGRSims_8cpp_afc7ebaf7e6015cf2b35785092acef5bd}{do\-M\-C\-M\-C\-G\-R\-Auto} (size\-\_\-t n, int d, int mix, int max\-Loops, int samples\-Needed, int thinout, cxsc\-::real tol\-\_\-leaves, cxsc\-::real tol\-\_\-\-L1, int rhat\-Flag\-Counter\-Threshold, int start\-With\-Full\-Checks=0)
+\item 
+int \hyperlink{MCMCGRSims_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C with the \-Gelman-\/\-Rubin convergence diagnostics -\/ with automatic start to sampling once burnin has happened, using an initial hurdle of the leaves diagnostic. \-Jenny's version 
+
+\-Definition in file \hyperlink{MCMCGRSims_8cpp_source}{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}.
+
+
+
+\subsubsection{\-Define \-Documentation}
+\hypertarget{MCMCGRSims_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\index{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}!\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}}
+\index{\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}!MCMCGRSims.cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}}
+\paragraph[{\-M\-Y\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-Y\-D\-E\-B\-U\-G}}}\label{MCMCGRSims_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}
+
+
+\-Definition at line 50 of file \-M\-C\-M\-C\-G\-R\-Sims.\-cpp.
+
+\hypertarget{MCMCGRSims_8cpp_a993cc54e976049730d2d7e277344f6ae}{\index{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}!\-M\-Y\-D\-E\-B\-U\-G\-\_\-\-O\-U\-T\-P\-U\-T@{\-M\-Y\-D\-E\-B\-U\-G\-\_\-\-O\-U\-T\-P\-U\-T}}
+\index{\-M\-Y\-D\-E\-B\-U\-G\-\_\-\-O\-U\-T\-P\-U\-T@{\-M\-Y\-D\-E\-B\-U\-G\-\_\-\-O\-U\-T\-P\-U\-T}!MCMCGRSims.cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}}
+\paragraph[{\-M\-Y\-D\-E\-B\-U\-G\-\_\-\-O\-U\-T\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-Y\-D\-E\-B\-U\-G\-\_\-\-O\-U\-T\-P\-U\-T}}}\label{MCMCGRSims_8cpp_a993cc54e976049730d2d7e277344f6ae}
+
+
+\-Definition at line 48 of file \-M\-C\-M\-C\-G\-R\-Sims.\-cpp.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MCMCGRSims_8cpp_afc7ebaf7e6015cf2b35785092acef5bd}{\index{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}!do\-M\-C\-M\-C\-G\-R\-Auto@{do\-M\-C\-M\-C\-G\-R\-Auto}}
+\index{do\-M\-C\-M\-C\-G\-R\-Auto@{do\-M\-C\-M\-C\-G\-R\-Auto}!MCMCGRSims.cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}}
+\paragraph[{do\-M\-C\-M\-C\-G\-R\-Auto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} {\bf do\-M\-C\-M\-C\-G\-R\-Auto} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{int}]{d, }
+\item[{int}]{mix, }
+\item[{int}]{max\-Loops, }
+\item[{int}]{samples\-Needed, }
+\item[{int}]{thinout, }
+\item[{cxsc\-::real}]{tol\-\_\-leaves, }
+\item[{cxsc\-::real}]{tol\-\_\-\-L1, }
+\item[{int}]{rhat\-Flag\-Counter\-Threshold, }
+\item[{int}]{start\-With\-Full\-Checks = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRSims_8cpp_afc7ebaf7e6015cf2b35785092acef5bd}
+\hypertarget{MCMCGRSims_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}!main@{main}}
+\index{main@{main}!MCMCGRSims.cpp@{\-M\-C\-M\-C\-G\-R\-Sims.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRSims_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 73 of file \-M\-C\-M\-C\-G\-R\-Sims.\-cpp.
+
+
+
+\-References do\-M\-C\-M\-C\-G\-R\-Auto(), subpavings\-::output\-File\-Start(), and subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs().
+
+
+\begin{DoxyCode}
+{
+  //========user-defined parameters====================//
+  /*
+  size_t n=atoi(argv[1]);  // number of datapoints to generate for each
+       histogram
+  int d = atoi(argv[2]); // dimensions
+  int mix = atoi(argv[3]); //mix
+  
+  int maxloops = atoi(argv[4]); // maximum changes of state from initial state
+       to try
+  int samplesNeeded = atoi(argv[5]); // how many samples do we want (ie once
+       chains have burned in)
+  int thinout = atoi(argv[6]); // sample every thinout state, ie thinout-1
+       states between samples
+  */
+  /* note that all chains will be sampled in parallel, once burnin has
+       happened,
+   * eg if we want 100 samples and have 4 chains and thinout 5, then we will
+       sample
+   * the last state from each chain as soon as convergence has been achieved 
+   * (and thus get 4 samples), and then wait 5-1 = 4 states, and on the 5th,
+       again 
+   * sample from all 4 chains (assuming that convergence is still okay), etc
+       etc
+   * so it will take 1 + (100-4)/4*5 = 1 + 25*5 = 1 + 120 = 121 states from
+       burnin inclusive
+   * of the burnin state itself to get the full sample */
+  
+  /*
+  double tol_L1 = atof(argv[7]); //tolerance for automated burn in criteria
+  */
+  
+  size_t n=100;  // number of datapoints to generate for each histogram
+  /* Logging level is set to TXT at the moment */
+  
+  int d = 2; // dimensions
+  int mix = 1; //mix
+  
+  int maxLoops = 5000; // maximum changes of state from initial state to try
+  int samplesNeeded = 10; // how many samples do we want (ie once chains have
+       burned in)
+  int thinout = 5; // sample every thinout state, ie thinout-1 states between
+       samples
+  
+  cxsc::real tol_leaves(0.1); //tolerance for automated burn in criteria for
+       leaves
+  cxsc::real tol_L1(0.1); //tolerance for automated burn in criteria for L1
+
+  int rhatFlagCounterThreshold = 2;   /* how many of the scalar values must
+       have
+                      * diagnostic within limits for sampling to start?
+                      * usually this would probably be the number
+                      * of scalar values being used? */
+  int startWithFullChecks = 0; /* indicator for whether we bypass the first
+       hurdle
+                (the leaves convergence) and go straight to monitoring for 
+                actual burnin*/
+  
+  // should really do more checks on parameters, but just check thinout here
+  if (thinout < 1 ) {
+    throw std::invalid_argument("Invalid thinout argument");
+  }
+  
+  try {
+    AdaptiveHistogramCollator avg = doMCMCGRAuto(n, d,  mix, 
+        maxLoops, samplesNeeded, thinout, tol_leaves, tol_L1,
+        rhatFlagCounterThreshold, startWithFullChecks);
+
+    std::string samplesCollAverageFilename = "AveragedSamplesFromMCMCGRAuto.txt
+      ";
+    outputFileStart(samplesCollAverageFilename);
+  
+    avg.outputToTxtTabs(samplesCollAverageFilename);
+    
+    return 0;
+  }
+  catch (std::runtime_error& e) {
+    cout << "\nFailed doMCMCGRAuto: original error:\n" 
+      << std::string(e.what()) << "\n" << endl;
+  }
+    
+  
+}   
+\end{DoxyCode}

@@ -1,0 +1,149 @@
+\hypertarget{MCMCGRSims_2SeedGen_8cpp}{\subsection{\-Seed\-Gen.\-cpp \-File \-Reference}
+\label{MCMCGRSims_2SeedGen_8cpp}\index{\-Seed\-Gen.\-cpp@{\-Seed\-Gen.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-cdf.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-integration.\-h$>$}\*
+{\ttfamily \#include $<$cmath$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{MCMCGRSims_2SeedGen_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MCMCGRSims_2SeedGen_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-M\-C\-M\-C\-G\-R\-Sims/\-Seed\-Gen.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims/\-Seed\-Gen.\-cpp}!main@{main}}
+\index{main@{main}!MCMCGRSims/SeedGen.cpp@{\-M\-C\-M\-C\-G\-R\-Sims/\-Seed\-Gen.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRSims_2SeedGen_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 46 of file \-M\-C\-M\-C\-G\-R\-Sims/\-Seed\-Gen.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), and subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+   //=======================================================================//
+  //---set up parameters for data---------------------------------
+   size_t n=atoi(argv[1]);  // number to generate
+   int H = atoi(argv[2]); // number of simulations
+   int d = atoi(argv[3]); // dimensions
+  int mix = atoi(argv[4]); //mix
+   
+  //read in seed 
+  //string seedFile = "Seed.txt";
+  //long s;
+  
+//  ifstream infile(seedFile.c_str());
+//  while ( !infile.eof() ) {infile >>s;}
+  //------- prepare to generate some data for the tests -----------
+   //set up a random number generator for bivariate gaussian rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+      vector<long> seed_vector;
+   long s = time (NULL) * getpid();
+      gsl_rng_set(r, s);
+     seed_vector.push_back(s);
+    //---------string formatting-----------------------------------------
+   string outputFileName;// for output file
+    ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(10);
+   //=======================================================================//
+  
+    //=================Setting up parameters for the distribution============//
+    //data generating partition
+    ivector pavingBox(d);
+    interval pavingInterval(0,1);
+    for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+    // data sampled as uniform mixture over leaves of sub-paving myPart
+    //make an Adaptive Histogram object with a specified box
+    AdaptiveHistogram myPart(pavingBox);
+    // a container for the boxes
+    vector<ivector> Pboxes;
+    //mixture shape
+   string mixShape;
+   if (mix == 1) {mixShape = "1,1"; }// this is the basic uniform
+   else if (mix == 2) { mixShape = "1,2,2"; }
+   else if (mix==3) { mixShape = "2,3,4,4,3,4,4,2"; }   
+   else if (mix==4) {mixShape = "
+      5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6,5,5,6,7,8,9
+      ,10,10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"; }   
+  
+   myPart.splitToShape(mixShape);// uniform mixture     
+    SPSnodePtrs Pleaves; // set up empty container for leaf node pointers
+    SPSnodePtrsItr it; // and an iterator over the container
+    myPart.getSubPaving()->getLeaves(Pleaves); // fill the container
+    // container is filled by reading leaves off tree from left to right
+    for(it = Pleaves.begin(); it < Pleaves.end(); it++) {
+        Pboxes.push_back((*it)->getBox());
+    }
+   size_t PartSize = Pboxes.size();
+  //=======================================================================//
+   
+   //=========================Generate data=================================// 
+        
+
+  
+  for (int h=1; h<=H; h++){
+    
+    cout << "Generating data: " << endl;
+      // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+      //create a generator chosen by the environment variable GSL_RNG_TYPE
+    
+    
+    RVecData theData;   
+      for (int i = 0; i < n; i++) {
+      rvector thisrv(d);
+         size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+         for(int i=1; i <= d; i++) {
+        thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);              
+      }
+         // put points generated into container
+         theData.push_back(thisrv);
+    //  cout << thisrv << endl;
+      }
+  } // end of loop for histograms
+  
+  
+  // free the random number generator
+     gsl_rng_free (r);
+    
+     outputFileName = "Seed.txt";
+      //read into file
+    oss.open(outputFileName.c_str());
+    for (size_t i = 0; i < seed_vector.size(); i++){
+      oss << seed_vector[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+  
+      return 0;
+
+} // end of Uniform MIAE program
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+\hypertarget{Int_8h}{\subsection{\-Int.\-h \-File \-Reference}
+\label{Int_8h}\index{\-Int.\-h@{\-Int.\-h}}
+}
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$cstdlib$>$}\*
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$stack$>$}\*
+{\ttfamily \#include \char`\"{}rmath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ivector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imatrix.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}itaylor.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dim2taylor.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+interval \hyperlink{Int_8h_a0de7ac342c4093f00c8fd6b899e54d87}{integrate\-With\-Splitting} (\hyperlink{classtaylor_1_1dim2taylor}{taylor\-::dim2taylor}($\ast$\hyperlink{errorfunc_8hpp_ae473bc19e57e3781680652a61018aa79}{integrand})(\hyperlink{classtaylor_1_1dim2taylor__vector}{taylor\-::dim2taylor\-\_\-vector}), const ivector \&domain, int order, real tol)
+\item 
+interval \hyperlink{Int_8h_ade324a096946d18fa25ddb0d376aaedb}{integrate} (\hyperlink{classtaylor_1_1dim2taylor}{taylor\-::dim2taylor}($\ast$\hyperlink{errorfunc_8hpp_ae473bc19e57e3781680652a61018aa79}{integrand})(\hyperlink{classtaylor_1_1dim2taylor__vector}{taylor\-::dim2taylor\-\_\-vector}), ivector \&domain, int order)
+\item 
+interval \hyperlink{Int_8h_aed1944ebc5f06db3c14c69d4b29dc765}{integrate\-With\-Splitting} (\hyperlink{classtaylor_1_1dim2taylor}{taylor\-::dim2taylor}($\ast$\hyperlink{errorfunc_8hpp_ae473bc19e57e3781680652a61018aa79}{integrand})(\hyperlink{classtaylor_1_1dim2taylor__vector}{taylor\-::dim2taylor\-\_\-vector}, interval), interval fhat, const ivector \&domain, int order, real tol)
+\item 
+interval \hyperlink{Int_8h_a7fc07253fd3c6b7fb6104122a13683a3}{integrate} (\hyperlink{classtaylor_1_1dim2taylor}{taylor\-::dim2taylor}($\ast$\hyperlink{errorfunc_8hpp_ae473bc19e57e3781680652a61018aa79}{integrand})(\hyperlink{classtaylor_1_1dim2taylor__vector}{taylor\-::dim2taylor\-\_\-vector}, interval), interval fhat, ivector \&domain, int order)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Int_8h_ade324a096946d18fa25ddb0d376aaedb}{\index{\-Int.\-h@{\-Int.\-h}!integrate@{integrate}}
+\index{integrate@{integrate}!Int.h@{\-Int.\-h}}
+\paragraph[{integrate}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf integrate} (
+\begin{DoxyParamCaption}
+\item[{{\bf taylor\-::dim2taylor}($\ast$)({\bf taylor\-::dim2taylor\-\_\-vector})}]{integrand, }
+\item[{ivector \&}]{domain, }
+\item[{int}]{order}
+\end{DoxyParamCaption}
+)}}\label{Int_8h_ade324a096946d18fa25ddb0d376aaedb}
+\hypertarget{Int_8h_a7fc07253fd3c6b7fb6104122a13683a3}{\index{\-Int.\-h@{\-Int.\-h}!integrate@{integrate}}
+\index{integrate@{integrate}!Int.h@{\-Int.\-h}}
+\paragraph[{integrate}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf integrate} (
+\begin{DoxyParamCaption}
+\item[{{\bf taylor\-::dim2taylor}($\ast$)({\bf taylor\-::dim2taylor\-\_\-vector}, interval)}]{integrand, }
+\item[{interval}]{fhat, }
+\item[{ivector \&}]{domain, }
+\item[{int}]{order}
+\end{DoxyParamCaption}
+)}}\label{Int_8h_a7fc07253fd3c6b7fb6104122a13683a3}
+\hypertarget{Int_8h_a0de7ac342c4093f00c8fd6b899e54d87}{\index{\-Int.\-h@{\-Int.\-h}!integrate\-With\-Splitting@{integrate\-With\-Splitting}}
+\index{integrate\-With\-Splitting@{integrate\-With\-Splitting}!Int.h@{\-Int.\-h}}
+\paragraph[{integrate\-With\-Splitting}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf integrate\-With\-Splitting} (
+\begin{DoxyParamCaption}
+\item[{{\bf taylor\-::dim2taylor}($\ast$)({\bf taylor\-::dim2taylor\-\_\-vector})}]{integrand, }
+\item[{const ivector \&}]{domain, }
+\item[{int}]{order, }
+\item[{real}]{tol}
+\end{DoxyParamCaption}
+)}}\label{Int_8h_a0de7ac342c4093f00c8fd6b899e54d87}
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get2\-D\-I\-A\-E(), and subpavings\-::\-Adaptive\-Histogram\-::get2\-D\-I\-A\-E().
+
+\hypertarget{Int_8h_aed1944ebc5f06db3c14c69d4b29dc765}{\index{\-Int.\-h@{\-Int.\-h}!integrate\-With\-Splitting@{integrate\-With\-Splitting}}
+\index{integrate\-With\-Splitting@{integrate\-With\-Splitting}!Int.h@{\-Int.\-h}}
+\paragraph[{integrate\-With\-Splitting}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf integrate\-With\-Splitting} (
+\begin{DoxyParamCaption}
+\item[{{\bf taylor\-::dim2taylor}($\ast$)({\bf taylor\-::dim2taylor\-\_\-vector}, interval)}]{integrand, }
+\item[{interval}]{fhat, }
+\item[{const ivector \&}]{domain, }
+\item[{int}]{order, }
+\item[{real}]{tol}
+\end{DoxyParamCaption}
+)}}\label{Int_8h_aed1944ebc5f06db3c14c69d4b29dc765}

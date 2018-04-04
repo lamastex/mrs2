@@ -1,0 +1,523 @@
+\hypertarget{classFCFN3UnRooted}{\subsection{\-F\-C\-F\-N3\-Un\-Rooted \-Class \-Reference}
+\label{classFCFN3UnRooted}\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+}
+
+
+3-\/dimensional \-Cavender-\/\-Farris-\/\-Neyman (\-C\-F\-N) model likelihood as a function object class  
+
+
+
+
+{\ttfamily \#include $<$\-F\-C\-F\-N3.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-C\-F\-N3\-Un\-Rooted\-:
+
+
+\-Collaboration diagram for \-F\-C\-F\-N3\-Un\-Rooted\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFCFN3UnRooted_a5f4f860f6a018258d428ac99b745b909}{\-F\-C\-F\-N3\-Un\-Rooted} (int \hyperlink{classFCFN3UnRooted_a52b3db1c0464e43eb76fd9c2f85f3adb}{\-Cxxx}, int \hyperlink{classFCFN3UnRooted_a9ef322fbaba733780643eb3f748c61e8}{\-Cxxy}, int \hyperlink{classFCFN3UnRooted_a8a1912c84680898ee998bfcc8e59cab2}{\-Cyxx}, int \hyperlink{classFCFN3UnRooted_aee129a305aebfe530f9025bdc5a64c22}{\-Cxyx}, interval \-Domain, bool \-Log\-Pi, int \-Prior)
+\begin{DoxyCompactList}\small\item\em \-A constructor. \end{DoxyCompactList}\item 
+interval \hyperlink{classFCFN3UnRooted_abaaaa5afcbd3a3c9baa2c6afb58bb5d6}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em interval function object \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3UnRooted_a598796f5e3db2e01ad871ab84833a1fb}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em real function object \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFCFN3UnRooted_aae39656be045741eddc3590529aec2b6}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\item 
+int \hyperlink{classFCFN3UnRooted_a8cd2bfdf21a3f8a8109dce3a80833b98}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3UnRooted_a56cccac7570877578c6337183c2153d3}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classFCFN3UnRooted_a52b3db1c0464e43eb76fd9c2f85f3adb}{\-Cxxx}
+\begin{DoxyCompactList}\small\item\em \-Count of sites with pattern xxx (minimal suffcient stats) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3UnRooted_a9ef322fbaba733780643eb3f748c61e8}{\-Cxxy}
+\begin{DoxyCompactList}\small\item\em \-Count of sites with pattern xxy (minimal suffcient stats) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3UnRooted_a8a1912c84680898ee998bfcc8e59cab2}{\-Cyxx}
+\begin{DoxyCompactList}\small\item\em \-Count of sites with pattern yxx (minimal suffcient stats) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3UnRooted_aee129a305aebfe530f9025bdc5a64c22}{\-Cxyx}
+\begin{DoxyCompactList}\small\item\em \-Count of sites with pattern xyx (minimal suffcient stats) \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3UnRooted_aa1b615a046f2277b3df566a3bc7bd1f0}{fxxx}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern xxx, \-Cxxx/\-Tot\-Sites. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3UnRooted_ad171363b9f0e86aab5c0116fb4b6c838}{fxxy}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern xxy, \-Cxxy/\-Tot\-Sites. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3UnRooted_a283443b3c043b8859da0a3c2e24c5263}{fyxx}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern yxx, \-Cyxx/\-Tot\-Sites. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3UnRooted_ac0c6bbacb2839de940a5e1b4989444ec}{fxyx}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern xyx, \-Cxyx/\-Tot\-Sites. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3UnRooted_afa33271d74b5e545e53a451ca05c803c}{n\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em \-Dimensions of the labelled \-Domain,. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3UnRooted_a4492c09788dbf6de2b0e3b37a279ed4c}{\-Tot\-Sites}
+\begin{DoxyCompactList}\small\item\em \-Total number of sites. \end{DoxyCompactList}\item 
+interval \hyperlink{classFCFN3UnRooted_a9afbe62a91bedfa9cde81086b4e5a0de}{\-Positive\-Prob\-Interval}
+\item 
+int \hyperlink{classFCFN3UnRooted_a901a8fc0d1aaf9ce8d74898a493aef25}{n\-\_\-interval\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3UnRooted_a69e7833eae34928dfa2c7506238df7ad}{n\-\_\-real\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+3-\/dimensional \-Cavender-\/\-Farris-\/\-Neyman (\-C\-F\-N) model likelihood as a function object class 
+
+\-Definition at line 78 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFCFN3UnRooted_a5f4f860f6a018258d428ac99b745b909}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-F\-C\-F\-N3\-Un\-Rooted}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-F\-C\-F\-N3\-Un\-Rooted} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-Countxxx, }
+\item[{int}]{\-Countxxy, }
+\item[{int}]{\-Countyxx, }
+\item[{int}]{\-Countxyx, }
+\item[{interval}]{\-Domain, }
+\item[{bool}]{\-Log\-Pi, }
+\item[{int}]{\-Prior}
+\end{DoxyParamCaption}
+)}}\label{classFCFN3UnRooted_a5f4f860f6a018258d428ac99b745b909}
+
+
+\-A constructor. 
+
+constructor for the likelihood of the branchlengths under \-C\-F\-N model for an unrooted 3 taxa tree \-Sampling domain is a cube with sides given by the interval \-Domain 
+
+\-Definition at line 120 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Cxxx, \-Cxxy, \-Cxyx, \-Cyxx, fxxx, fxxy, fxyx, fyxx, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, n\-\_\-dimensions, n\-\_\-interval\-\_\-calls, n\-\_\-real\-\_\-calls, \-Positive\-Prob\-Interval, \-Fobj\-::\-Prior\-Type, and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+:
+Cxxx (Countxxx), Cxxy (Countxxy), Cyxx (Countyxx), Cxyx (Countxyx)
+{
+  n_interval_calls = 0;
+  n_real_calls = 0;
+  setUsingLogDensity (LogPi);
+  PriorType = Prior;
+  // TotSites = real(Cxxx + Cxxy + Cyxx + Cxyx);
+  Inf(PositiveProbInterval)=1e-100;
+  Sup(PositiveProbInterval)=1.0;
+  fxxx = real(Cxxx);// /TotSites;
+  fxxy = real(Cxxy);// /TotSites;
+  fyxx = real(Cyxx);// /TotSites;
+  fxyx = real(Cxyx);// /TotSites;
+  n_dimensions=3;
+  ivector domain (1, n_dimensions);
+  LabBox Ldomain;   
+  for (int i = 1; i <= n_dimensions; i++)
+  {
+    domain[i] = Domain;
+  }
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  LabDomainList.push_back (Ldomain);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFCFN3UnRooted_a8cd2bfdf21a3f8a8109dce3a80833b98}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3UnRooted_a8cd2bfdf21a3f8a8109dce3a80833b98}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 116 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-References n\-\_\-interval\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_interval_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFCFN3UnRooted_a56cccac7570877578c6337183c2153d3}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3UnRooted_a56cccac7570877578c6337183c2153d3}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 121 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-References n\-\_\-real\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_real_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFCFN3UnRooted_aae39656be045741eddc3590529aec2b6}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3UnRooted_aae39656be045741eddc3590529aec2b6}
+\-Volume of rooted tree boxes is implemented here and \-N\-O\-T inherited from \hyperlink{classFobj}{\-Fobj} 
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 114 of file \-F\-C\-F\-N3.\-hpp.
+
+
+\begin{DoxyCode}
+{return Fobj::LabBoxVolume(LB);}
+\end{DoxyCode}
+\hypertarget{classFCFN3UnRooted_abaaaa5afcbd3a3c9baa2c6afb58bb5d6}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!operator()@{operator()}}
+\index{operator()@{operator()}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-C\-F\-N3\-Un\-Rooted\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCFN3UnRooted_abaaaa5afcbd3a3c9baa2c6afb58bb5d6}
+
+
+interval function object 
+
+
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 151 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, taylor\-::exp(), fxxx, fxxy, fxyx, fyxx, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-interval\-\_\-calls, \-Positive\-Prob\-Interval, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_interval_calls++;
+  #ifdef TESTDIMS
+  if (Ub(X.Box) != 3 || Lb(X.Box) != 1)
+  {
+    cout << "dimensions !=3 OR start-index != 1. exiting. " 
+         << endl; exit (EXIT_FAILURE);
+  }
+  #endif
+  interval em2t1plust2 = exp(-2.0*(X.Box[1]+X.Box[2]));
+  interval em2t2plust3 = exp(-2.0*(X.Box[2]+X.Box[3]));
+  interval em2t1plust3 = exp(-2.0*(X.Box[1]+X.Box[3]));
+
+  interval lxxx = ((1.0 + em2t1plust2 + em2t2plust3 + em2t1plust3) / 8.0);
+  interval lxxy = ((1.0 + em2t1plust2 - em2t2plust3 - em2t1plust3) / 8.0);
+  interval lyxx = ((1.0 - em2t1plust2 + em2t2plust3 - em2t1plust3) / 8.0);
+  interval lxyx = ((1.0 - em2t1plust2 - em2t2plust3 + em2t1plust3) / 8.0);
+
+  if(Inf(lxxx)<=0.0) lxxx = lxxx & PositiveProbInterval;
+  if(Inf(lxxy)<=0.0) lxxy = lxxy & PositiveProbInterval;
+  if(Inf(lyxx)<=0.0) lyxx = lyxx & PositiveProbInterval;
+  if(Inf(lxyx)<=0.0) lxyx = lxyx & PositiveProbInterval;
+
+  //cout << lxxx << lxxy << lyxx << lxyx << endl; getchar();
+  interval result = fxxx*ln(lxxx) + fxxy*ln(lxxy) + fyxx*ln(lyxx) + 
+                    fxyx*ln(lxyx) ;
+  // result = (TotSites*result);
+  //result = exp(TotSites*result);
+  //cout << X.Box[a] << '\t' << result << '\n'; getchar();
+  /* //forcing probability intersections 
+  if (Sup (result) < 0.0)
+  Sup (result) = 0.0;
+  if (Inf (result) < 0.0)
+  Inf (result) = 0.0;
+  */
+  //return (UsingLogDensity) ? ln(result) : (result);
+  return (UsingLogDensity) ? (result) : exp(result);
+}
+\end{DoxyCode}
+\hypertarget{classFCFN3UnRooted_a598796f5e3db2e01ad871ab84833a1fb}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!operator()@{operator()}}
+\index{operator()@{operator()}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-C\-F\-N3\-Un\-Rooted\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCFN3UnRooted_a598796f5e3db2e01ad871ab84833a1fb}
+
+
+real function object 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 193 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References taylor\-::exp(), fxxx, fxxy, fxyx, fyxx, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-real\-\_\-calls, \-Lab\-Pnt\-::\-Pnt, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_real_calls++;
+  #ifdef TESTDIMS
+  if (Ub(X.Pnt) != 3 || Lb(X.Pnt) != 1)
+  {
+    cout << "dimensions !=3 OR start-index != 1. exiting. " << endl;
+    exit (EXIT_FAILURE);
+  }
+  #endif
+  real em2t1plust2 = exp(-2.0*(X.Pnt[1]+X.Pnt[2]));
+  real em2t2plust3 = exp(-2.0*(X.Pnt[2]+X.Pnt[3]));
+  real em2t1plust3 = exp(-2.0*(X.Pnt[1]+X.Pnt[3]));
+
+  real lxxx = (1.0 + em2t1plust2 + em2t2plust3 + em2t1plust3) / 8.0;
+  real lxxy = (1.0 + em2t1plust2 - em2t2plust3 - em2t1plust3) / 8.0;
+  real lyxx = (1.0 - em2t1plust2 + em2t2plust3 - em2t1plust3) / 8.0;
+  real lxyx = (1.0 - em2t1plust2 - em2t2plust3 + em2t1plust3) / 8.0;
+
+  real result = fxxx*ln(lxxx) + fxxy*ln(lxxy) + fyxx*ln(lyxx) + fxyx*ln(lxyx) ;
+  // result = (TotSites*result);
+  //result = exp(TotSites*result);
+  //cout << X.Box[a] << '\t' << result << '\n'; getchar();
+
+  /* //forcing probability intersections
+  if (Sup (result) < 0.0)
+  Sup (result) = 0.0;
+  if (Inf (result) < 0.0)
+  Inf (result) = 0.0;
+  */
+  //return (UsingLogDensity) ? ln(result) : (result);
+  return (UsingLogDensity) ? (result) : exp(result);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFCFN3UnRooted_a52b3db1c0464e43eb76fd9c2f85f3adb}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-Cxxx@{\-Cxxx}}
+\index{\-Cxxx@{\-Cxxx}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-Cxxx}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-Cxxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_a52b3db1c0464e43eb76fd9c2f85f3adb}
+
+
+\-Count of sites with pattern xxx (minimal suffcient stats) 
+
+
+
+\-Definition at line 80 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted().
+
+\hypertarget{classFCFN3UnRooted_a9ef322fbaba733780643eb3f748c61e8}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-Cxxy@{\-Cxxy}}
+\index{\-Cxxy@{\-Cxxy}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-Cxxy}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-Cxxy}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_a9ef322fbaba733780643eb3f748c61e8}
+
+
+\-Count of sites with pattern xxy (minimal suffcient stats) 
+
+
+
+\-Definition at line 81 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted().
+
+\hypertarget{classFCFN3UnRooted_aee129a305aebfe530f9025bdc5a64c22}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-Cxyx@{\-Cxyx}}
+\index{\-Cxyx@{\-Cxyx}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-Cxyx}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-Cxyx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_aee129a305aebfe530f9025bdc5a64c22}
+
+
+\-Count of sites with pattern xyx (minimal suffcient stats) 
+
+
+
+\-Definition at line 83 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted().
+
+\hypertarget{classFCFN3UnRooted_a8a1912c84680898ee998bfcc8e59cab2}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-Cyxx@{\-Cyxx}}
+\index{\-Cyxx@{\-Cyxx}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-Cyxx}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-Cyxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_a8a1912c84680898ee998bfcc8e59cab2}
+
+
+\-Count of sites with pattern yxx (minimal suffcient stats) 
+
+
+
+\-Definition at line 82 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted().
+
+\hypertarget{classFCFN3UnRooted_aa1b615a046f2277b3df566a3bc7bd1f0}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!fxxx@{fxxx}}
+\index{fxxx@{fxxx}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{fxxx}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::fxxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_aa1b615a046f2277b3df566a3bc7bd1f0}
+
+
+\-Fraction of sites with pattern xxx, \-Cxxx/\-Tot\-Sites. 
+
+
+
+\-Definition at line 84 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted(), and operator()().
+
+\hypertarget{classFCFN3UnRooted_ad171363b9f0e86aab5c0116fb4b6c838}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!fxxy@{fxxy}}
+\index{fxxy@{fxxy}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{fxxy}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::fxxy}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_ad171363b9f0e86aab5c0116fb4b6c838}
+
+
+\-Fraction of sites with pattern xxy, \-Cxxy/\-Tot\-Sites. 
+
+
+
+\-Definition at line 85 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted(), and operator()().
+
+\hypertarget{classFCFN3UnRooted_ac0c6bbacb2839de940a5e1b4989444ec}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!fxyx@{fxyx}}
+\index{fxyx@{fxyx}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{fxyx}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::fxyx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_ac0c6bbacb2839de940a5e1b4989444ec}
+
+
+\-Fraction of sites with pattern xyx, \-Cxyx/\-Tot\-Sites. 
+
+
+
+\-Definition at line 87 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted(), and operator()().
+
+\hypertarget{classFCFN3UnRooted_a283443b3c043b8859da0a3c2e24c5263}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!fyxx@{fyxx}}
+\index{fyxx@{fyxx}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{fyxx}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::fyxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_a283443b3c043b8859da0a3c2e24c5263}
+
+
+\-Fraction of sites with pattern yxx, \-Cyxx/\-Tot\-Sites. 
+
+
+
+\-Definition at line 86 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted(), and operator()().
+
+\hypertarget{classFCFN3UnRooted_afa33271d74b5e545e53a451ca05c803c}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!n\-\_\-dimensions@{n\-\_\-dimensions}}
+\index{n\-\_\-dimensions@{n\-\_\-dimensions}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{n\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::n\-\_\-dimensions}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_afa33271d74b5e545e53a451ca05c803c}
+
+
+\-Dimensions of the labelled \-Domain,. 
+
+ie, number of distinct branch lengths that have this topology label. 
+
+\-Definition at line 93 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted().
+
+\hypertarget{classFCFN3UnRooted_a901a8fc0d1aaf9ce8d74898a493aef25}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCFN3UnRooted_a901a8fc0d1aaf9ce8d74898a493aef25}
+
+
+\-Track number of interval function calls. 
+
+
+
+\-Definition at line 98 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted(), get\-\_\-interval\-\_\-calls(), and operator()().
+
+\hypertarget{classFCFN3UnRooted_a69e7833eae34928dfa2c7506238df7ad}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCFN3UnRooted_a69e7833eae34928dfa2c7506238df7ad}
+
+
+\-Track number of real function calls. 
+
+
+
+\-Definition at line 100 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted(), get\-\_\-real\-\_\-calls(), and operator()().
+
+\hypertarget{classFCFN3UnRooted_a9afbe62a91bedfa9cde81086b4e5a0de}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-Positive\-Prob\-Interval@{\-Positive\-Prob\-Interval}}
+\index{\-Positive\-Prob\-Interval@{\-Positive\-Prob\-Interval}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-Positive\-Prob\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-Positive\-Prob\-Interval}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_a9afbe62a91bedfa9cde81086b4e5a0de}
+
+
+\-Definition at line 96 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Un\-Rooted(), and operator()().
+
+\hypertarget{classFCFN3UnRooted_a4492c09788dbf6de2b0e3b37a279ed4c}{\index{\-F\-C\-F\-N3\-Un\-Rooted@{\-F\-C\-F\-N3\-Un\-Rooted}!\-Tot\-Sites@{\-Tot\-Sites}}
+\index{\-Tot\-Sites@{\-Tot\-Sites}!FCFN3UnRooted@{\-F\-C\-F\-N3\-Un\-Rooted}}
+\paragraph[{\-Tot\-Sites}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-Un\-Rooted\-::\-Tot\-Sites}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3UnRooted_a4492c09788dbf6de2b0e3b37a279ed4c}
+
+
+\-Total number of sites. 
+
+
+
+\-Definition at line 95 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FCFN3_8hpp}{\-F\-C\-F\-N3.\-hpp}\item 
+\hyperlink{FCFN3_8cpp}{\-F\-C\-F\-N3.\-cpp}\end{DoxyCompactItemize}

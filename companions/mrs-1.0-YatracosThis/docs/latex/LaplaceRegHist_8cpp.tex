@@ -1,0 +1,155 @@
+\hypertarget{LaplaceRegHist_8cpp}{\subsection{\-Laplace\-Reg\-Hist.\-cpp \-File \-Reference}
+\label{LaplaceRegHist_8cpp}\index{\-Laplace\-Reg\-Hist.\-cpp@{\-Laplace\-Reg\-Hist.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{LaplaceRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{LaplaceRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Laplace\-Reg\-Hist.\-cpp@{\-Laplace\-Reg\-Hist.\-cpp}!main@{main}}
+\index{main@{main}!LaplaceRegHist.cpp@{\-Laplace\-Reg\-Hist.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{LaplaceRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 41 of file \-Laplace\-Reg\-Hist.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), \-Reg\-Hist\-::heights, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), \-Reg\-Hist\-::\-Lower\-Boxes, make\-Regular\-Hist(), and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+\begin{DoxyCode}
+{
+    //===================== user-inputs======================================//
+  if ( argc != 4 ) {
+    cerr << "Syntax: Laplace n dataSeed nBins" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   long int dataSeed = atoi(argv[2]); //seed for generating data
+   int nBins = atoi(argv[3]); //which data set 
+   int d = 1;
+  
+ 
+   //=================set up for data generation===============================
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+   const gsl_rng_type * T;
+   gsl_rng * r;             
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+   gsl_rng_set(r, dataSeed);
+
+
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << "..." << endl;
+   RVecData theData;   
+   
+   for (int i = 0; i < n; i++) {
+       rvector thisrv(1);
+       thisrv[1] = gsl_ran_laplace(r, 1);
+     // cout << thisrv << endl;
+        theData.push_back(thisrv);
+   }  // data  should be in theData
+
+
+  //==============Regular histogram==================================//
+  cout << "sort data for reg hist" << endl; 
+  //sort the data first
+  // put the data into a list to sort the data
+  RVecDataCItr rvecIt;
+  list<rvector> rvecList;
+  list<rvector>::iterator rvecListIt;
+  for (rvecIt = theData.begin(); rvecIt < theData.end(); rvecIt++){
+    rvector thisrv(1);
+    thisrv = *rvecIt;
+    rvecList.push_back(thisrv);
+  }
+  rvecList.sort(); //sort the data
+  RVecData sortedData; // put back into vector
+  for (rvecListIt = rvecList.begin(); rvecListIt != rvecList.end(); rvecListIt+
+      +)
+  { 
+    rvector thisrv(1);
+    thisrv = *rvecListIt;
+    sortedData.push_back(thisrv);
+  }
+
+  //get the root box
+  AdaptiveHistogram myHist;
+  myHist.insertFromRVec(theData);
+  ivector pavingBox = (myHist.getSubPaving())->getBox();
+  double rootBoxVol = (myHist.getSubPaving())->nodeVolume();
+
+  //make the regular histogram
+  double bw = rootBoxVol/(nBins*1.0);
+  cout << "Making a regular histogram with " << nBins << " bins." << endl;
+  RegHist myRegHist;
+  makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+
+  //output histogram data to .txt file
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  string outputFileName;// for output file
+  outputFileName = "Laplace";
+  outputFileName += "RegHistOpt.txt";
+  os.open(outputFileName.c_str());
+  for (int i = 0; i < myRegHist.heights.size(); i++) {
+    os << myRegHist.LowerBoxes[i] << "\t" << myRegHist.UpperBoxes[i] << "\t" <<
+       myRegHist.heights[i] << endl;
+  }
+  os << flush;
+  os.close();
+  
+  std::cout << "Regular histogram output to " << outputFileName << endl;
+
+  // now make the regular histograms with the standarad bandwidths
+  for (int bw = 0; bw < 3; bw++) {
+    cout << "Method " << bw << endl;
+    RegHist myRegHist;
+    makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+    
+    outputFileName = "Laplace";
+    outputFileName += "RegHistBW";
+    ostringstream stm1;
+    stm1 << bw;
+    outputFileName += stm1.str();
+    outputFileName += ".txt";
+    os.open(outputFileName.c_str());
+    for (int i = 0; i < myRegHist.heights.size(); i++) {
+      os << myRegHist.LowerBoxes[i] << "\t" << myRegHist.UpperBoxes[i] << "\t" 
+      << myRegHist.heights[i] << endl;
+    }
+    os << flush;
+    os.close();
+    std::cout << "Regular histogram output to " << outputFileName << endl;
+    
+  }
+
+// free the random number generator
+gsl_rng_free(r);
+
+return 0;
+}
+\end{DoxyCode}

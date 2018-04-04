@@ -1,0 +1,609 @@
+\hypertarget{UniformMixture_8cpp}{\subsection{\-Uniform\-Mixture.\-cpp \-File \-Reference}
+\label{UniformMixture_8cpp}\index{\-Uniform\-Mixture.\-cpp@{\-Uniform\-Mixture.\-cpp}}
+}
+
+
+\-Get the \-L1-\/error of uniform mixture for\-: 1. \-Exhaustive \-P\-Q 2. \-M\-D\-E 3. \-Regular \-Histogram.  
+
+
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{UniformMixture_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Get the \-L1-\/error of uniform mixture for\-: 1. \-Exhaustive \-P\-Q 2. \-M\-D\-E 3. \-Regular \-Histogram. 
+
+\-Definition in file \hyperlink{UniformMixture_8cpp_source}{\-Uniform\-Mixture.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{UniformMixture_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Uniform\-Mixture.\-cpp@{\-Uniform\-Mixture.\-cpp}!main@{main}}
+\index{main@{main}!UniformMixture.cpp@{\-Uniform\-Mixture.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{UniformMixture_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 41 of file \-Uniform\-Mixture.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Box(), f(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), get\-Reg\-Hist\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::get\-Unif\-I\-A\-E(), \-Reg\-Hist\-::heights, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::insert\-From\-R\-Vec\-For\-Hold\-Out(), taylor\-::\-Lb(), make\-Regular\-Hist(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split\-With\-Total\-Var(), subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape(), taylor\-::sqrt(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+   //===================== user-inputs======================================//
+  if ( argc != 8 ) {
+    cerr << "Syntax: UniformMixture n d dataSeed mixShape simNum maxCheck
+       StopVal" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   int d = atoi(argv[2]); // dimensions
+   long int dataSeed = atoi(argv[3]); //seed for generating data
+   int shape = atoi(argv[4]); //which mixture to use
+   int simNum = atoi(argv[5]); //which data set 
+   double alpha = 0.95; //to compute the coverage
+   size_t maxCheck = atoi(argv[6]); //stopping criteria for MDE
+   int StopVal = atoi(argv[7]); //stopping criteria for total variation
+  
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(5);
+   std::ostringstream stm;
+  stm << simNum;
+   //=================set up for data generation===============================
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+   const gsl_rng_type * T;
+   gsl_rng * r;             
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+   gsl_rng_set(r, dataSeed);
+
+   //data generating partition
+   ivector pavingBox(d);
+   interval pavingInterval(0,1);
+   for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+   // data sampled as uniform mixture over leaves of sub-paving myPart
+   //make an Adaptive Histogram object with a specified box
+   AdaptiveHistogram myPart(pavingBox);
+   double rootBoxVol = (myPart.getSubPaving())->nodeVolume();
+   // a container for the boxes
+   vector<ivector> Pboxes;
+   size_t PartSize;
+
+   // mixture shape
+   string mixShape;
+  if (shape == 1) { mixShape = "1,1"; }
+  else if (shape ==2) { mixShape = "3,4,4,2,2,3,3"; } 
+  else if (shape==3) {
+    mixShape = "
+      5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6,5,5,6,7,8,9,10,10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"; }    
+  else if (shape==4) { mixShape = "3, 3, 2, 3, 3, 2"; }   
+  myPart.splitToShape(mixShape);// uniform mixture   
+   SPSnodePtrs trueLeaves; // set up empty container for leaf node pointers
+   SPSnodePtrsItr trueIt; // and an iterator over the container
+   myPart.getSubPaving()->getLeaves(trueLeaves); // fill the container
+   // container is filled by reading leaves off tree from left to right
+   for(trueIt = trueLeaves.begin(); trueIt < trueLeaves.end(); trueIt++) {
+      Pboxes.push_back((*trueIt)->getBox());
+   }
+  PartSize = Pboxes.size();
+  // get weight of mixture components
+  double weight = 1.0/(1.0*PartSize); 
+
+
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << simNum << "..." << endl;
+   // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+   RVecData theData;   
+   for (int i = 0; i < n; i++) {
+        rvector thisrv(d);
+        size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+        //cout << RndBoxNum << "\t" << Pboxes[RndBoxNum] << endl;
+        thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);         
+     // cout << thisrv << endl;
+        theData.push_back(thisrv);
+   }  // data  should be in theData
+   
+
+  //==============run an exhaustive SEB PQ==================================//
+  cout << "\n========================================================" << endl;
+  cout << "Run exhaustive PQ..." << endl;
+  bool successfulInsertion = false;
+  bool successfulPQSplit = false;
+
+  //containers for output needed
+   vector<real> IAE;
+   vector<int> NumLeafNodes;
+   vector<double> TotalVarDist;
+   vector<double> Coverage;
+   vector<double> Times;
+   
+  //do exhaustive PQ for steps of n*0.1
+  // set up function objects for a priority split
+  CompCount compCount;
+  for (int i = 1; i <= 20; i++) {
+    //make a pointer to an AdaptiveHistogram object
+    bool holdAllStats = true;
+    AdaptiveHistogram myHist(pavingBox, holdAllStats); 
+    successfulInsertion= myHist.insertFromRVec(theData);
+    
+    if (successfulInsertion) {
+      int finalK = int(i*0.005*n);
+      cout << "Max k: " << finalK << endl;
+      // split until number of leaves is at most minVal
+      CritLargestCount_LTE critCount(finalK);
+      size_t minPQPoints = 0; // minimum of one data point in each box
+
+      size_t maxLeafNodes = n;
+      //cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+      
+      // we want to check the timings for this
+      clock_t start, end;
+      double timing; 
+      
+      // do the priority split
+      start  = clock(); // and keep the time
+      successfulPQSplit = myHist.prioritySplit(compCount,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times.push_back(timing);
+
+      if (successfulPQSplit) {
+        
+        //optional - output the histogram
+        // create a name for the file to output
+            string fileName;
+            fileName = "Hist";
+            std::ostringstream stm2;
+            stm2 << finalK;
+            fileName += stm2.str();
+            fileName += ".txt"; // and finish the filename
+            myHist.outputToTxtTabs(fileName);
+            
+        SPSnodePtrs leaves;
+        SPSnodePtrsItr leavesIt;
+        (myHist.getSubPaving())->getLeaves(leaves);
+
+        //get the IAE
+        IAE.push_back(myHist.getUnifIAE(myPart, weight));
+
+        //get the number of leaves
+        NumLeafNodes.push_back(leaves.size());
+        double FUnif = 1.0/leaves.size()*1.0;
+        //cout << "Number of leaf nodes: " << leaves.size() << "\t fUnif: " <<
+       FUnif << endl;
+
+        //initialize totalvariationdistance
+        double totalVarDist = 0.0;
+
+        //initialize the coverage
+        size_t yesCovOne = 0;
+
+        //iterate through the leaf nodes
+        for (leavesIt = leaves.begin(); leavesIt < leaves.end(); leavesIt++) {
+    
+          cout << "Hellinger Distance: " << endl;
+          (*leavesIt)->getHellingerDist();
+          
+          double leafVol = (*leavesIt)->nodeVolume();
+          //get the total variation distance
+          //calculate \mu_n - \mu
+               double fhat = ((*leavesIt)->getCounter())/leafVol/n;
+               //cout << fhat << "\t" << leafVol << "\t" << FUnif << "\t";
+               double diffMu = fabs(fhat*leafVol - FUnif);
+          totalVarDist += diffMu;
+          //out << "previous: " << totalVarDist << "\t current: " << diffMu <<
+       endl;
+          //totalVarDist = (diffMu > totalVarDist) ? diffMu : totalVarDist; 
+          //cout << "after comparison: " << totalVarDist << endl;
+
+          //get the 95% coverage
+          // c - see SAGE worksheet for this - Wasserman's Varied Bound
+          double c = gsl_cdf_ugaussian_Qinv(alpha/2*leafVol)*sqrt(rootBoxVol/
+      leafVol)/2/sqrt(n);
+
+          // get lower and upper bounds
+          double Lb = pow(fmax(sqrt(fhat)-c, 0), 2); // lower bound
+          double Ub = pow(sqrt(fhat) + c, 2); // upper bound
+
+          //get the true density of the uniform mixture
+          double f = 0;
+          for (trueIt = trueLeaves.begin(); trueIt < trueLeaves.end(); trueIt++
+      ) {
+            if ( (*leavesIt)->getBox() <= (*trueIt)->getBox() || (*leavesIt)->
+      getBox() == (*trueIt)->getBox() ) {
+              f = weight/((*trueIt)->nodeVolume());
+            } //end of if this box is in trueBox
+            else if ((*trueIt)->getBox() <= (*leavesIt)->getBox() || 
+      (*leavesIt)->getBox() <= (*trueIt)->getBox()) {
+              f = weight/((*trueIt)->nodeVolume());
+            } //end of if trueBox is in this box
+          } // end of going through all trueBoxes
+          
+          // see SAGE worksheet for this
+          // f*leafVol/leafVol = f
+          if ( f >= Lb && f <= Ub) { yesCovOne += 1;}
+
+        } // end of iterating through the leaves
+
+        //keep the total variation distance
+        //cout << "final: " << totalVarDist << endl;
+        TotalVarDist.push_back(totalVarDist);
+
+        //keep the coverage
+        //cout << yesCovOne*1.0/(leaves.size()*1.0)*100 << 
+        //    "% of the bins are the inside envelope." << endl;
+        Coverage.push_back(yesCovOne*1.0/(leaves.size()*1.0));
+      } // end of if(successfulPQSplit)
+    }// end of if(successfulInsertion)
+  } // end of iterating through different kn's
+
+  if (successfulPQSplit && successfulInsertion) {
+    // output IAE, number of leaf nodes, totalvardist, coverage to file
+    std::ostringstream stm;
+    stm << simNum;
+    string PQFileName = "UnifExhaustivePQOutput";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < Coverage.size(); i++) {
+      oss << IAE[i] << "\t";
+      oss << NumLeafNodes[i] << "\t";
+      oss << TotalVarDist[i] << "\t";
+      oss << Coverage[i] << "\t";
+      oss << Times[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes, total variation distance, coverage and
+       times output to " 
+        << PQFileName << endl;
+  }
+//=================end of exhaustive PQ=================================// 
+
+//===using total variation to determine best histogram and a stopping rule=//
+
+  cout << "\n========================================================" << endl;
+  cout << "Run PQ with total variation..." << endl;
+
+  //containers to store needed output
+  vector<real> IAETotal;
+  vector<int> CoverageTotal;
+  vector<int> NumLeafNodesTotal;
+  vector<double> TotalVarDistTotal;
+  double timing; 
+  
+  successfulInsertion = false;
+  successfulPQSplit = false;
+
+  vector<AdaptiveHistogram> HistAtValley;
+  
+  AdaptiveHistogram myHistTot(pavingBox); 
+  successfulInsertion= myHistTot.insertFromRVec(theData);
+
+  if (successfulInsertion) {
+    int finalK = 1;
+    cout << "Max k: " << finalK << endl;
+    
+    size_t maxLeafNodes = int(n/log(n*(2*d+1))); // temporarily
+    cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+
+    CritLargestCount_LTE critCount(finalK);
+    size_t minPQPoints = 0; // minimum of one data point in each box
+ 
+    // we want to check the timings for this
+    clock_t start, end;
+
+    // do the priority split
+    start  = clock(); // and keep the time
+    successfulPQSplit = myHistTot.prioritySplitWithTotalVar(compCount,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, StopVal, 
+           HistAtValley, simNum); // no logging
+    end = clock();
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+
+    if (successfulPQSplit) {
+      //iterate through the "best" histograms to get the MIAE
+      vector<AdaptiveHistogram>::iterator it;
+      for (it = HistAtValley.begin(); it < HistAtValley.end(); it++) {
+        SPSnodePtrs leaves;
+        SPSnodePtrsItr leavesIt;
+        ((*it).getSubPaving())->getLeaves(leaves);
+
+        //get the IAE
+        IAETotal.push_back((*it).getUnifIAE(myPart, weight));
+
+        //get the number of leaves
+        NumLeafNodesTotal.push_back(leaves.size());
+        double FUnif = 1.0/leaves.size()*1.0;
+        cout << "Number of leaf nodes: " << leaves.size() << "\t fUnif: " << 
+      FUnif << endl;
+
+        //initialize the coverage
+        size_t yesCovOne = 0;
+        
+        //initialize the total variation distance
+        double totalVarDist = 0.0;
+
+        //iterate through the leaf nodes
+        for (leavesIt = leaves.begin(); leavesIt < leaves.end(); leavesIt++) {
+          double leafVol = (*leavesIt)->nodeVolume();
+               double fhat = ((*leavesIt)->getCounter())/leafVol/n;
+               //cout << fhat << "\t" << leafVol << "\t" << FUnif << "\t";
+               double diffMu = fabs(fhat*leafVol - FUnif);
+          totalVarDist += diffMu;
+          //cout << "previous: " << totalVarDist << "\t current: " << diffMu <<
+       endl;
+          //totalVarDist = (diffMu > totalVarDist) ? diffMu : totalVarDist; 
+          //cout << "after comparison: " << totalVarDist << endl;
+          
+          //get the 95% coverage
+          // c - see SAGE worksheet for this - Wasserman's Varied Bound
+          double c = gsl_cdf_ugaussian_Qinv(alpha/2*leafVol)*sqrt(rootBoxVol/
+      leafVol)/2/sqrt(n);
+
+          // get lower and upper bounds
+          double Lb = pow(fmax(sqrt(fhat)-c, 0), 2); // lower bound
+          double Ub = pow(sqrt(fhat) + c, 2); // upper bound
+
+          //get the true density of the uniform mixture
+          double f = 0;
+          for (trueIt = trueLeaves.begin(); trueIt < trueLeaves.end(); trueIt++
+      ) {
+            if ( (*leavesIt)->getBox() <= (*trueIt)->getBox() || (*leavesIt)->
+      getBox() == (*trueIt)->getBox() ) {
+              f = weight/((*trueIt)->nodeVolume());
+            } //end of if this box is in trueBox
+            else if ((*trueIt)->getBox() <= (*leavesIt)->getBox() || 
+      (*leavesIt)->getBox() <= (*trueIt)->getBox()) {
+              f = weight/((*trueIt)->nodeVolume());
+            } //end of if trueBox is in this box
+          } // end of going through all trueBoxes
+          
+          // see SAGE worksheet for this
+          if ( f >= Lb && f <= Ub) { yesCovOne += 1;}
+        } // end of iterating through the leaves
+
+        //keep the total variation distance
+        TotalVarDistTotal.push_back(totalVarDist);
+
+        //keep the coverage
+        //cout << yesCovOne*1.0/(leaves.size()*1.0)*100 << 
+        //    "% of the bins are the inside envelope." << endl;
+        CoverageTotal.push_back(yesCovOne*1.0/(leaves.size()*1.0));
+      } // end of iterating through the "best" histograms
+    } // end of successfulPQSplit
+  } // end of successfulInsertion
+
+  if (successfulPQSplit && successfulInsertion) {
+    // output IAE, number of leaf nodes, totalvardist, coverage to file
+    string PQFileName = "UnifTotalVariationPQOutput";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < CoverageTotal.size(); i++) {
+      oss << IAETotal[i] << "\t";
+      oss << NumLeafNodesTotal[i] << "\t";
+      oss << TotalVarDistTotal[i] << "\t";
+      oss << CoverageTotal[i] << endl;
+    }
+    oss << timing << endl;
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes, total variation distance, coverage and
+       times output to " 
+        << PQFileName << endl;
+  }
+//=================end of total variation with stopping
+       rule=================================// 
+
+//==================Hold-out MDE===========================================//
+  cout << "========================================================" << endl;
+  cout << "Run hold out estimation..." << endl;
+
+  //=========insert data into an AdaptiveHistogramValidation object=========//
+  // indicators
+   successfulInsertion = false;
+   
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal(pavingBox);
+  int holdOutCount = int(n*0.3);
+  SplitNever sn;   
+  successfulInsertion = myHistVal.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  cout << n-holdOutCount << " training data and " 
+      << holdOutCount << " validation data inserted." << endl; 
+
+  //containers for output needed
+  vector<real> IAEV;
+  vector<int> NumLeafNodesV;
+  vector<double> TotalVarDistV;
+  vector<double> CoverageV;
+  vector<AdaptiveHistogramValidation> HistsKept;
+  
+  if (successfulInsertion) { // if data successfully inserted       
+    CompCountVal nodeCompCount;
+    int finalK = 1;
+    CritLargestCount_LTEV critCount(finalK);
+
+    //start the hold out estimation
+    //with stopping criteria
+    bool stopCrit = false;
+    cout << "------Running MDEAll with stopping criteria-----------" << endl;
+    int method = 2; // MDE
+
+    //maximum number of leaf nodes allowed 
+    int trainCount = n-holdOutCount;
+    size_t maxLeafNodes = int(trainCount/log(trainCount*(2*d+1))); //
+       temporarily
+
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit = myHistVal.prioritySplitAndEstimate(nodeCompCount, 
+      critCount, NOLOG, 
+                           0, 0.0, stopCrit, myPart, method, simNum, 
+                           maxLeafNodes, maxCheck, HistsKept);
+      end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    
+    if (successfulPQSplit) {
+      // get the final histograms
+      vector<AdaptiveHistogramValidation>::iterator it;
+      for (it = HistsKept.begin(); it < HistsKept.end(); it++) {
+        SPSVnodePtrs leaves;
+        SPSVnodePtrsItr leavesIt;
+        ((*it).getSubPaving())->getLeaves(leaves);
+
+        //get the IAE
+        IAEV.push_back((*it).getUnifIAE(myPart));
+
+        //get the number of leaves
+        NumLeafNodesV.push_back(leaves.size());
+        double FUnif = 1.0/leaves.size()*1.0;
+        //cout << "Number of leaf nodes: " << leaves.size() << "\t fUnif: " <<
+       FUnif << endl;
+
+        //initialize the coverage
+        size_t yesCovOne = 0;
+        
+        //initialize the total variation distance
+        double totalVarDist = 0.0;
+
+        //iterate through the leaf nodes
+        for (leavesIt = leaves.begin(); leavesIt < leaves.end(); leavesIt++) {
+          double leafVol = (*leavesIt)->nodeVolume();
+               double fhat = ((*leavesIt)->getCounter())/leafVol/(n-
+      holdOutCount);
+               //cout << fhat << "\t" << leafVol << "\t" << FUnif << "\t";
+               double diffMu = fabs(fhat*leafVol - FUnif);
+          totalVarDist += diffMu;
+          //cout << "previous: " << totalVarDist << "\t current: " << diffMu <<
+       endl;
+          //totalVarDist = (diffMu > totalVarDist) ? diffMu : totalVarDist; 
+          //cout << "after comparison: " << totalVarDist << endl;
+          
+          //get the 95% coverage
+          // c - see SAGE worksheet for this - Wasserman's Varied Bound
+          double c = gsl_cdf_ugaussian_Qinv(alpha/2*leafVol)*sqrt(rootBoxVol/
+      leafVol)/2/sqrt(n);
+
+          // get lower and upper bounds
+          double Lb = pow(fmax(sqrt(fhat)-c, 0), 2); // lower bound
+          double Ub = pow(sqrt(fhat) + c, 2); // upper bound
+
+          //get the true density of the uniform mixture
+          double f = 0;
+          for (trueIt = trueLeaves.begin(); trueIt < trueLeaves.end(); trueIt++
+      ) {
+            if ( (*leavesIt)->getBox() <= (*trueIt)->getBox() || (*leavesIt)->
+      getBox() == (*trueIt)->getBox() ) {
+              f = weight/((*trueIt)->nodeVolume());
+            } //end of if this box is in trueBox
+            else if ((*trueIt)->getBox() <= (*leavesIt)->getBox() || 
+      (*leavesIt)->getBox() <= (*trueIt)->getBox()) {
+              f = weight/((*trueIt)->nodeVolume());
+            } //end of if trueBox is in this box
+          } // end of going through all trueBoxes
+          
+          // see SAGE worksheet for this
+          if ( f >= Lb && f <= Ub) { yesCovOne += 1;}
+        } // end of iterating through the leaves
+
+        //keep the total variation distance
+        TotalVarDistV.push_back(totalVarDist);
+
+        //keep the coverage
+        //cout << yesCovOne*1.0/(leaves.size()*1.0)*100 << 
+        //    "% of the bins are the inside envelope." << endl;
+        CoverageV.push_back(yesCovOne*1.0/(leaves.size()*1.0));
+      } // end of iterating through the "best" histograms
+    } // end of successfulPQSplit
+  } // end of successfulInsertion
+
+  if (successfulPQSplit && successfulInsertion) {
+    // output IAE, number of leaf nodes, totalvardist, coverage to file
+    std::ostringstream stm;
+    stm << simNum;
+    string PQFileName = "UnifMDEPQOutput";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < CoverageV.size(); i++) {
+      oss << IAEV[i] << "\t";
+      oss << NumLeafNodesV[i] << "\t";
+      oss << TotalVarDistV[i] << "\t";
+      oss << CoverageV[i] << endl;
+    }
+    oss << timing << endl;
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes, total variation distance, coverage and
+       times output to " 
+        << PQFileName << endl;
+  }
+//====================end of MDE===================================//
+
+//==============Regular histogram==================================//
+   
+   if ( d== 1 ) {
+   cout << "===========Making regular histograms using the different rules==" <
+      < endl;
+   
+   vector<real> regHistIAE;
+   vector<int> nBins;
+   for (int bw = 0; bw < 3; bw++) {
+    cout << "Method " << bw << endl;
+    RegHist myRegHist;
+    makeRegularHist(myRegHist, theData, pavingBox, bw);
+    nBins.push_back(myRegHist.heights.size());
+    regHistIAE.push_back(getRegHistUnifIAE(myRegHist, myPart, n, weight));
+  }
+
+  //output IAE to .txt file------------------
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  string outputFileName;// for output file
+  outputFileName = "UnifIAERegHist";
+  outputFileName += stm.str();
+  outputFileName += ".txt";
+  os.open(outputFileName.c_str());
+  for (size_t bw = 0; bw < 3; bw++) {
+    os << regHistIAE[bw] << "\t" << nBins[bw] << endl;
+  }
+  os << flush;
+  os.close();
+  
+  std::cout << "IAE output to " << outputFileName << endl;
+  }
+  
+  return 0;
+} // end of uniform mixture test program
+\end{DoxyCode}

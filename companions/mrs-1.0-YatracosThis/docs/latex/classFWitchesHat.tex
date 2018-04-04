@@ -1,0 +1,425 @@
+\hypertarget{classFWitchesHat}{\subsection{\-F\-Witches\-Hat \-Class \-Reference}
+\label{classFWitchesHat}\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}}
+}
+
+
+n-\/dimensional witch's hat density as a function object class  
+
+
+
+
+{\ttfamily \#include $<$\-F\-Witches\-Hat.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-Witches\-Hat\-:
+
+
+\-Collaboration diagram for \-F\-Witches\-Hat\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFWitchesHat_aab1cf526334362a4902d3a724190f038}{\-F\-Witches\-Hat} (int n\-\_\-dimensions, real \-P\-Mean, real \-P\-Radius, real \-P\-Weight, real \-U\-Weight, real \hyperlink{LevyFobj2D_8cpp_ae28a2599911ae746bc33211d3ea52aaf}{\-Domain\-Limit}, bool \-Log\-Pi, int \-Prior)
+\item 
+interval \hyperlink{classFWitchesHat_a11734772d7dea57df5ff72ebbfd3e272}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+real \hyperlink{classFWitchesHat_a027d78c3e9e90da19370cb50d8b43b46}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFWitchesHat_a4549cc1c30758e673f050e9b30eae67e}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box \end{DoxyCompactList}\item 
+int \hyperlink{classFWitchesHat_ac5039f4bf8564b17e2c5c3fcbd10ddfd}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFWitchesHat_a601c966b9479f0d500f677ab1756347f}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{classFWitchesHat_aad2c11957a2edf796a2728f2b0bf838e}{\-Peak\-Mean}
+\item 
+real \hyperlink{classFWitchesHat_a94abd4eea4b5e4623446a2688bd8c849}{\-Peak\-Radius}
+\item 
+real \hyperlink{classFWitchesHat_a6bc557f3f9e39384c3273551d599120c}{\-Peak\-Weight}
+\item 
+real \hyperlink{classFWitchesHat_aadb3c71d235e5857a08fccb5b6a1ffef}{\-Rtod}
+\item 
+real \hyperlink{classFWitchesHat_adb3a9d40df656e50327d3c40c505fdb6}{\-Uniform\-Weight}
+\item 
+real \hyperlink{classFWitchesHat_a54f305164476a0d3f746be9bf6c48bb9}{\-Domain\-Volume}
+\item 
+int \hyperlink{classFWitchesHat_ae9af30cb2fef292d9eafe3ca42ce4b60}{n\-\_\-interval\-\_\-calls}
+\item 
+int \hyperlink{classFWitchesHat_ab91e3167c8275b9cec6aa913d55a2ea4}{n\-\_\-real\-\_\-calls}
+\item 
+real \hyperlink{classFWitchesHat_a08793da5b6fee108f85a70f9eaf67e65}{h} \mbox{[}11\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+n-\/dimensional witch's hat density as a function object class 
+
+\-Definition at line 25 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFWitchesHat_aab1cf526334362a4902d3a724190f038}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-F\-Witches\-Hat@{\-F\-Witches\-Hat}}
+\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-F\-Witches\-Hat}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Witches\-Hat\-::\-F\-Witches\-Hat} (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-\_\-dimensions, }
+\item[{real}]{\-P\-Mean, }
+\item[{real}]{\-P\-Radius, }
+\item[{real}]{\-P\-Weight, }
+\item[{real}]{\-U\-Weight, }
+\item[{real}]{\-Domain\-Limit, }
+\item[{bool}]{\-Log\-Pi, }
+\item[{int}]{\-Prior}
+\end{DoxyParamCaption}
+)}}\label{classFWitchesHat_aab1cf526334362a4902d3a724190f038}
+
+
+\-Definition at line 48 of file \-F\-Witches\-Hat.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Domain\-Limit, \-Domain\-Volume, h, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, n\-\_\-interval\-\_\-calls, n\-\_\-real\-\_\-calls, \-Peak\-Radius, \-Fobj\-::\-Prior\-Type, \-Rtod, and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+:
+PeakMean (PMean), 
+PeakRadius (PRadius), 
+PeakWeight (PWeight),
+UniformWeight (UWeight)
+{
+  //  witches hat peak is at (PeakMean, PeakMean, ... , PeakMean)
+  n_interval_calls = 0;
+  n_real_calls = 0;
+  setUsingLogDensity (LogPi);
+  h[0]=0.0; h[1]=1.0; h[2]=0.95493; h[3]=0.95493; h[4]=1.01321; h[5]=1.13986;
+  h[6]=1.35456; h[7]=1.69321; h[8]=2.21745; h[9]=3.03167; h[10]=4.31345;
+  //{0.0,1.0,0.95493,0.95493,1.01321,1.13986,1.35456,
+  //1.69321,2.21745,3.03167,4.31345};
+
+  ivector domain (1, n_dimensions);
+  LabBox Ldomain;
+  DomainVolume = 1.0;
+  Rtod = PeakRadius;
+  PriorType = Prior;
+  if(PriorType!=0)
+  {
+    cerr << "Only uniform prior defined here... Reset to Uniform Prior\n";
+    PriorType=0;
+  }
+  for (int i = 1; i <= n_dimensions; i++)
+  {
+    domain[i] = interval (-DomainLimit, DomainLimit);
+    DomainVolume *= 2.0 * DomainLimit;
+    Rtod *= PeakRadius;
+  }
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  LabDomainList.push_back (Ldomain);
+
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFWitchesHat_ac5039f4bf8564b17e2c5c3fcbd10ddfd}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Witches\-Hat\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFWitchesHat_ac5039f4bf8564b17e2c5c3fcbd10ddfd}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 42 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-References n\-\_\-interval\-\_\-calls.
+
+
+\begin{DoxyCode}
+{ return n_interval_calls; }
+\end{DoxyCode}
+\hypertarget{classFWitchesHat_a601c966b9479f0d500f677ab1756347f}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Witches\-Hat\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFWitchesHat_a601c966b9479f0d500f677ab1756347f}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 43 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-References n\-\_\-real\-\_\-calls.
+
+
+\begin{DoxyCode}
+{ return n_real_calls; }
+\end{DoxyCode}
+\hypertarget{classFWitchesHat_a4549cc1c30758e673f050e9b30eae67e}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-Witches\-Hat\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFWitchesHat_a4549cc1c30758e673f050e9b30eae67e}
+
+
+a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box 
+
+get the default volume (\-Lebesgue) of a labeled box
+
+derived classes inherit interface and default behavior see \mbox{[}\-Item 34,\-P.\-166, \-Meyers, \-Effective \-C++\mbox{]}
+
+an inline definition of the pure virtual function for default \-Lebesgue measure (volume) of a labeled box 
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 41 of file \-F\-Witches\-Hat.\-hpp.
+
+
+\begin{DoxyCode}
+{return Fobj::LabBoxVolume(LB);}
+\end{DoxyCode}
+\hypertarget{classFWitchesHat_a11734772d7dea57df5ff72ebbfd3e272}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!operator()@{operator()}}
+\index{operator()@{operator()}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-Witches\-Hat\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFWitchesHat_a11734772d7dea57df5ff72ebbfd3e272}
+
+
+a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} 
+
+\-Derived classes inherit interface only see \mbox{[}\-Item 34,\-P.\-162, \-Meyers, \-Effective \-C++\mbox{]} 
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 91 of file \-F\-Witches\-Hat.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Domain\-Volume, h, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-interval\-\_\-calls, \-Peak\-Mean, \-Peak\-Radius, \-Peak\-Weight, \-Rtod, taylor\-::sqr(), taylor\-::sqrt(), taylor\-::\-Ub(), \-Uniform\-Weight, and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_interval_calls++;
+  int i, a = Lb (X.Box), z = Ub (X.Box);
+  int ndim = 1 + z - a;
+  if (ndim > 10)
+  {
+    cout << "> 10 dimensions. exiting. " << endl;
+    exit (EXIT_FAILURE);
+  }
+  //   real DomainVolume = (2.0*DOMAINLIMIT);
+  interval r = sqr (X.Box[a] - PeakMean);
+  for (i = a + 1; i <= z; i++)
+  {
+    r += sqr (X.Box[i] - PeakMean);
+    //  DomainVolume *= (2.0*DOMAINLIMIT);
+  }
+  r = sqrt (r);
+  interval result = h[ndim] * (PeakRadius - r) / Rtod;
+
+  if (Sup (result) < 0.0)
+    Sup (result) = 0.0;
+  if (Inf (result) < 0.0)
+    Inf (result) = 0.0;
+                    // mixture of uniform and wh peak
+  result = UniformWeight / DomainVolume + PeakWeight * result;
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+\hypertarget{classFWitchesHat_a027d78c3e9e90da19370cb50d8b43b46}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!operator()@{operator()}}
+\index{operator()@{operator()}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-Witches\-Hat\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-L\-P}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFWitchesHat_a027d78c3e9e90da19370cb50d8b43b46}
+
+
+a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 122 of file \-F\-Witches\-Hat.\-cpp.
+
+
+
+\-References \-Domain\-Volume, h, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-real\-\_\-calls, \-Peak\-Mean, \-Peak\-Radius, \-Peak\-Weight, \-Lab\-Pnt\-::\-Pnt, \-Rtod, taylor\-::sqr(), taylor\-::sqrt(), taylor\-::\-Ub(), \-Uniform\-Weight, and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_real_calls++;
+  int i, a = Lb (X.Pnt), z = Ub (X.Pnt);
+  int ndim = 1 + z - a;
+  if (ndim > 10)
+  {
+    cout << "> 10 dimensions. exiting. " << endl;
+    exit (EXIT_FAILURE);
+  }
+  //  real DomainVolume = (2.0*DOMAINLIMIT);
+  real r = sqr (X.Pnt[a] - PeakMean);
+  for (i = a + 1; i <= z; i++)
+  {
+    r += sqr (X.Pnt[i] - PeakMean);
+    //  DomainVolume *= (2.0*DOMAINLIMIT);
+  }
+  r = sqrt (r);
+  real result = h[ndim] * (PeakRadius - r) / Rtod;
+
+  if (result < 0.0)
+    result = 0.0;
+  // if(result > 0.0) 
+  //   cout << "Pnt: " << X.Pnt << "  r: "  << r << "  peakhgt: " << result 
+  //        << "  Rtod: " << Rtod << endl;
+  
+  // mixture of uniform and wh peak
+  result = UniformWeight / DomainVolume + PeakWeight * result;
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFWitchesHat_a54f305164476a0d3f746be9bf6c48bb9}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-Domain\-Volume@{\-Domain\-Volume}}
+\index{\-Domain\-Volume@{\-Domain\-Volume}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-Domain\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Witches\-Hat\-::\-Domain\-Volume}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFWitchesHat_a54f305164476a0d3f746be9bf6c48bb9}
+
+
+\-Definition at line 29 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by \-F\-Witches\-Hat(), and operator()().
+
+\hypertarget{classFWitchesHat_a08793da5b6fee108f85a70f9eaf67e65}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!h@{h}}
+\index{h@{h}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{h}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Witches\-Hat\-::h}\mbox{[}11\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFWitchesHat_a08793da5b6fee108f85a70f9eaf67e65}
+
+
+\-Definition at line 32 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by \-F\-Witches\-Hat(), and operator()().
+
+\hypertarget{classFWitchesHat_ae9af30cb2fef292d9eafe3ca42ce4b60}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Witches\-Hat\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFWitchesHat_ae9af30cb2fef292d9eafe3ca42ce4b60}
+
+
+\-Definition at line 30 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by \-F\-Witches\-Hat(), get\-\_\-interval\-\_\-calls(), and operator()().
+
+\hypertarget{classFWitchesHat_ab91e3167c8275b9cec6aa913d55a2ea4}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Witches\-Hat\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFWitchesHat_ab91e3167c8275b9cec6aa913d55a2ea4}
+
+
+\-Definition at line 31 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by \-F\-Witches\-Hat(), get\-\_\-real\-\_\-calls(), and operator()().
+
+\hypertarget{classFWitchesHat_aad2c11957a2edf796a2728f2b0bf838e}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-Peak\-Mean@{\-Peak\-Mean}}
+\index{\-Peak\-Mean@{\-Peak\-Mean}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-Peak\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Witches\-Hat\-::\-Peak\-Mean}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFWitchesHat_aad2c11957a2edf796a2728f2b0bf838e}
+
+
+\-Definition at line 27 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFWitchesHat_a94abd4eea4b5e4623446a2688bd8c849}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-Peak\-Radius@{\-Peak\-Radius}}
+\index{\-Peak\-Radius@{\-Peak\-Radius}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-Peak\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Witches\-Hat\-::\-Peak\-Radius}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFWitchesHat_a94abd4eea4b5e4623446a2688bd8c849}
+
+
+\-Definition at line 27 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by \-F\-Witches\-Hat(), and operator()().
+
+\hypertarget{classFWitchesHat_a6bc557f3f9e39384c3273551d599120c}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-Peak\-Weight@{\-Peak\-Weight}}
+\index{\-Peak\-Weight@{\-Peak\-Weight}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-Peak\-Weight}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Witches\-Hat\-::\-Peak\-Weight}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFWitchesHat_a6bc557f3f9e39384c3273551d599120c}
+
+
+\-Definition at line 27 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFWitchesHat_aadb3c71d235e5857a08fccb5b6a1ffef}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-Rtod@{\-Rtod}}
+\index{\-Rtod@{\-Rtod}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-Rtod}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Witches\-Hat\-::\-Rtod}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFWitchesHat_aadb3c71d235e5857a08fccb5b6a1ffef}
+
+
+\-Definition at line 27 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by \-F\-Witches\-Hat(), and operator()().
+
+\hypertarget{classFWitchesHat_adb3a9d40df656e50327d3c40c505fdb6}{\index{\-F\-Witches\-Hat@{\-F\-Witches\-Hat}!\-Uniform\-Weight@{\-Uniform\-Weight}}
+\index{\-Uniform\-Weight@{\-Uniform\-Weight}!FWitchesHat@{\-F\-Witches\-Hat}}
+\paragraph[{\-Uniform\-Weight}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Witches\-Hat\-::\-Uniform\-Weight}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFWitchesHat_adb3a9d40df656e50327d3c40c505fdb6}
+
+
+\-Definition at line 28 of file \-F\-Witches\-Hat.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FWitchesHat_8hpp}{\-F\-Witches\-Hat.\-hpp}\item 
+\hyperlink{FWitchesHat_8cpp}{\-F\-Witches\-Hat.\-cpp}\end{DoxyCompactItemize}

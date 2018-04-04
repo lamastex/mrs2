@@ -1,0 +1,534 @@
+\hypertarget{FinMixScheffe_8cpp}{\subsection{\-Fin\-Mix\-Scheffe.\-cpp \-File \-Reference}
+\label{FinMixScheffe_8cpp}\index{\-Fin\-Mix\-Scheffe.\-cpp@{\-Fin\-Mix\-Scheffe.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$limits$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{FinMixScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{FinMixScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Fin\-Mix\-Scheffe.\-cpp@{\-Fin\-Mix\-Scheffe.\-cpp}!main@{main}}
+\index{main@{main}!FinMixScheffe.cpp@{\-Fin\-Mix\-Scheffe.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{FinMixScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 44 of file \-Fin\-Mix\-Scheffe.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::add\-To\-Collation\-With\-Val(), subpavings\-::count\-Lines\-In\-Txt(), get\-Fin\-Mix\-Interval\-True\-Delta(), subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::get\-Min\-Dist\-Est(), subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::get\-Number\-Collated(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::insert\-From\-R\-Vec\-For\-Hold\-Out(), \-Fin\-Mix\-::\-M, subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-Validation\-::output\-To\-Txt\-Tabs(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch(), \-Fin\-Mix\-::\-S, taylor\-::sqrt(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+  if ( argc != 7 ) {
+    cerr << "Syntax: FiniteMixture n dataSeed mix simNum maxCheck maxLeaves" <<
+       endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   int d = 1; // dimensions
+   long int dataSeed = atoi(argv[2]); //seed for generating data
+   int mix = atoi(argv[3]); //which mixture to use
+   size_t simNum = atoi(argv[4]); //which data set 
+   int maxCheck = atoi(argv[5]); //stopping criteria for MDE
+   size_t critLeaves = atoi(argv[6]); // maximum number of leaves
+   
+   double Tol = 1e-15; // tolerance for root finding and integration routines
+  cout << "Tolerance is: " << Tol << endl;
+  int Deg = 2; // Degree of Taylor series.
+  
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(10);
+   std::ostringstream stm;
+  stm << simNum;
+
+  //==============get distribution parameters==========================//
+   // read input from mix*.txt
+   string mixfileName;
+   mixfileName = "MixtureFiles/mix";
+  std::ostringstream stmMix;
+  stmMix << mix;
+  mixfileName += stmMix.str();
+  mixfileName += ".txt";
+
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  // create vectors for Weight, Mean, Variance
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+
+  cout << "Reading in parameters of mixture " << mix << endl;
+  ifstream file; // create file for input
+  file.open(mixfileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << mixfileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+  
+  //put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+  //=========================end of setting up parameter===================//
+
+  // ========prepare to generate some data for the tests ================//
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    gsl_rng_set(r, dataSeed);
+
+   //set up a random number generator for gaussian rvs
+     const gsl_rng_type * T1;
+     gsl_rng * r1;
+     gsl_rng_env_setup();
+     T1 = gsl_rng_default;
+     r1 = gsl_rng_alloc (T1);
+     gsl_rng_set(r1, dataSeed);
+     
+  //Generate n U(0,1) r.v. and determine component membership.
+  double a=0, b=1;
+  vector<double> u;
+  int j;
+  for (j = 0; j < n; j++) {
+      u.push_back(gsl_ran_flat(r, a, b));
+  }
+
+  // number of components
+  const int comp = countLinesInTxt(mixfileName) - 1;
+  cout << "There are " << comp << " components in this mixture." << endl;
+
+    //convert vector to array
+   double WeightsArray[comp];
+   for (size_t i = 0; i < comp; i++) {
+      WeightsArray[i] = Weight[i];
+   }
+ 
+    //now get the lookup table returned from gsl_ran_discrete_preproc
+   //i.e. the box indices with their weights
+   gsl_ran_discrete_t* gslpdfstruct;
+   gslpdfstruct = gsl_ran_discrete_preproc(comp, WeightsArray);
+
+  //Create mixture data using component densities that are normal.
+  cout<<"Creating mixture data..." <<endl; 
+  RVecData theData; // a container to keep the data
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << simNum << "..." << endl;
+
+   // make a simulated data set
+  // data sampled as weighted-uniform-mixtures
+  for (int i = 0; i < n; i++) {
+    rvector thisrv(1);
+    size_t proposedIndex = gsl_ran_discrete(r, gslpdfstruct);
+    //int proposed_index = static_cast<int>(gsl_ran_discrete(r, gslpdfstruct));
+    double z = gsl_ran_gaussian(r1, Sigma[proposedIndex]); // generate a normal
+       r.v.
+    thisrv[1] =Mean[proposedIndex]+z; // transform the r.v. 
+    theData.push_back(thisrv);
+  }
+  
+
+  ivector pavingBox;
+  double rootBoxVol;
+  bool holdAllStats = true;
+  //===============finish generating data============================//
+
+  //==================Hold-out MDE===========================================
+  cout << "========================================================" << endl;
+  cout << "Run hold out estimation..." << endl;
+
+  //=========insert data into an AdaptiveHistogramValidation object=========//
+  //containers for output needed
+  vector<real> IAEV;
+  vector<int> NumLeafNodesV;
+  vector<double> timings;
+  double timing = 0;
+  
+  // stopping criteria 
+  bool stopCrit = true; // to remove this?
+
+  //maximum number of leaf nodes allowed
+  int holdOutCount = int(n/3);
+  int trainCount = n-holdOutCount; 
+  cout << n-holdOutCount << " training data and " 
+      << holdOutCount << " validation data inserted." << endl; 
+  //size_t maxLeafNodes = int(trainCount/log(trainCount*(2*d+1))); //
+       temporarily
+  size_t maxLeafNodes = n;
+  //cout << "max leaf nodes: " << maxLeafNodes << endl;
+
+  // indicators
+   bool successfulInsertion1 = false;
+   bool successfulInsertion2 = false;
+   bool successfulInsertion3 = false;
+   bool successfulInsertion4 = false;
+   bool successfulInsertion5 = false;
+   bool successfulInsertion6 = false;
+   bool successfulInsertion7 = false;
+   bool successfulInsertion8 = false;
+   
+   
+   bool successfulPQSplit1 = false;
+   bool successfulPQSplit2 = false;
+   bool successfulPQSplit3 = false;
+   bool successfulPQSplit4 = false;
+   bool successfulPQSplit5 = false;
+   bool successfulPQSplit6 = false;
+   bool successfulPQSplit7 = false;
+   bool successfulPQSplit8 = false;
+   
+   
+   // comparison objects
+   CompCountVal compCount;
+   CompVolVal compVol;
+   CompAreaVal compArea;
+   CompMeanMassVal compMeanMass;
+   CompCovarVal compCovarMass;
+   CompHellingerDist1DMassVal compH;
+   CompHellingerDist1DMassDiamVal compHD;
+   SplitNever sn;   
+
+  int finalK = 1;
+  //CritLargestCount_LTEV critCount(finalK);
+  size_t minChildPoints = 0;
+  CritLeaves_GTEV critCount(critLeaves);
+
+  //container for scheffe tournament candidates
+  vector<AdaptiveHistogramValidation> optHist;
+
+  cout << "PQ1" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal1;
+  AdaptiveHistogramValidation optHist1;
+  int m = 1;
+  successfulInsertion1 = myHistVal1.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  if (successfulInsertion1) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit1 = myHistVal1.prioritySplitAndEstimate(compCount, 
+                        critCount, NOLOG, minChildPoints, 
+                         0.0, stopCrit, mixt, m, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist1);
+    end = clock();
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit1) { 
+      optHist1.outputToTxtTabs("HistPQ1.txt");
+      optHist.push_back(optHist1); 
+      timings.push_back(timing);
+    }
+  }
+  
+  
+  cout << "\nPQ2 " << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal2;
+  AdaptiveHistogramValidation optHist2;   
+  m=2;
+  successfulInsertion2 = myHistVal2.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  if (successfulInsertion2) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit2 = myHistVal2.prioritySplitAndEstimate(compVol, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, mixt, m, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist2);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit2) { 
+      optHist2.outputToTxtTabs("HistPQ2.txt");
+      optHist.push_back(optHist2); timings.push_back(timing); }
+  }
+  
+  cout << "\nPQ3" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal3;   
+  AdaptiveHistogramValidation optHist3;
+  successfulInsertion3 = myHistVal3.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  if (successfulInsertion3) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit3 = myHistVal3.prioritySplitAndEstimateWithSwitch(compVol,
+       
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, mixt, 3, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist3);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit3) { 
+      optHist3.outputToTxtTabs("HistPQ3.txt");
+      optHist.push_back(optHist3); timings.push_back(timing);}
+  }
+  
+  cout << "\nPQ4" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal4;
+  AdaptiveHistogramValidation optHist4;
+  successfulInsertion4 = myHistVal4.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+
+  if (successfulInsertion4) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit4 = myHistVal4.prioritySplitAndEstimateWithSwitch(compArea
+      , 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, mixt, 4, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist4);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit4) { 
+      optHist4.outputToTxtTabs("HistPQ4.txt");
+      optHist.push_back(optHist4); timings.push_back(timing);}
+  }
+  
+  
+  cout << "\nPQ5" <<  endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal5(holdAllStats);   
+  AdaptiveHistogramValidation optHist5;
+  successfulInsertion5 = myHistVal5.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  //cout << myHistVal5.getHoldAllStats() << endl;
+  //cout << myHistVal5.getSubPaving() << endl;
+  if (successfulInsertion5) {
+    clock_t start, end;
+    start = clock();
+    int m = 5;
+    successfulPQSplit5 = myHistVal5.prioritySplitAndEstimateWithSwitch(
+      compMeanMass, 
+                        critCount, NOLOG, 
+                         minChildPoints, 0.0, stopCrit, mixt, m, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist5);
+ 
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit5) { 
+      optHist5.outputToTxtTabs("HistPQ5.txt");
+      optHist.push_back(optHist5); timings.push_back(timing);
+    }
+  }
+  
+  cout << "\nPQ6" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal6(holdAllStats); 
+  AdaptiveHistogramValidation  optHist6;
+  successfulInsertion6 = myHistVal6.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  if (successfulInsertion6) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit6 = myHistVal6.prioritySplitAndEstimateWithSwitch(
+      compCovarMass, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, mixt, 6, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist6);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit6) { 
+      optHist6.outputToTxtTabs("HistPQ6.txt");
+      optHist.push_back(optHist6); timings.push_back(timing);}
+  }
+  
+  cout << "\nPQ7" << endl << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal7(holdAllStats);   
+  AdaptiveHistogramValidation optHist7;
+  
+  successfulInsertion7 = myHistVal7.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  if (successfulInsertion7) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit7 = myHistVal7.prioritySplitAndEstimateWithSwitch(compH, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, mixt, 7, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist7);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit7) { 
+      optHist7.outputToTxtTabs("HistPQ7.txt");
+      optHist.push_back(optHist7); timings.push_back(timing);}
+  }
+  
+  cout << "\nPQ8" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal8(holdAllStats);
+  AdaptiveHistogramValidation optHist8;
+  successfulInsertion8 = myHistVal8.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  if (successfulInsertion8) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit8 = myHistVal8.prioritySplitAndEstimateWithSwitch(compHD, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, mixt, 8, simNum, 
+                         maxLeafNodes, maxCheck, Tol, Deg, optHist8);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit8) { 
+      optHist8.outputToTxtTabs("HistPQ8.txt");
+      optHist.push_back(optHist8); timings.push_back(timing);}
+  }
+  
+//================start the Scheffe tournament======================//
+//  if (successfulPQSplit1 && successfulPQSplit2 && successfulPQSplit3 &&
+//    successfulPQSplit4 && successfulPQSplit5 && successfulPQSplit6 &&
+//    successfulPQSplit7 && successfulPQSplit8) {
+
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  vector<real> TrueDelta;
+  AdaptiveHistogramVCollator coll;
+  size_t agg = 0;
+  vector<real> IAEMDE;
+  vector<real> IAEMDEFull;
+
+  for (size_t i = 0; i < optHist.size(); i++) {
+    IAEMDE.push_back(mid(optHist[i].getFinMixIntervalIAE(mixt, Tol, Deg, 0)));
+    IAEMDEFull.push_back(mid(optHist[i].getFinMixIntervalIAE(mixt, Tol, Deg, 1)
+      ));
+    coll.addToCollationWithVal(optHist[i], 1, agg);
+  }
+
+  cout << "Get the Yatracos set for theorem checks: " << endl;
+  vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
+
+  vector<double> maxDelta;
+  vector<double>::iterator it;
+  clock_t start, end;
+  start = clock();
+  coll.getMinDistEst(maxDelta, vecYatSet);
+  end = clock();  
+  timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+  cout << "Computing time : " << timing << " s."<< endl;
+  timings.push_back(timing);  
+  
+  double minMaxDelta = 100;
+  real minMinIAE = 100;
+  int minPosIAE; 
+  int minPosDelta;
+  
+  for (size_t i = 0; i < coll.getNumberCollated(); i++) {
+    cout << maxDelta[i] << "\t" << IAEMDE[i] << endl;
+    if (maxDelta[i] < minMaxDelta) { minPosDelta = i+1; minMaxDelta = maxDelta[
+      i]; }
+    if (IAEMDE[i] < minMinIAE) { minPosIAE = i+1; minMinIAE = IAEMDE[i]; }
+  }
+
+  cout << "Min IAE at candidate " << minPosIAE << "\t" << IAEMDE[minPosIAE] << 
+      endl;
+  cout << "Min delta max at candidate " << minPosDelta << "\t" << IAEMDE[
+      minPosDelta] << endl;
+
+  //get the true Delta
+  vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >::iterator 
+      vecYatSetIt;
+  real trueDelta = 0.0;
+  if (!vecYatSet.empty()) {
+    for (vecYatSetIt = vecYatSet.begin(); vecYatSetIt < vecYatSet.end(); 
+      vecYatSetIt++) {
+      interval TrueDelta = getFinMixIntervalTrueDelta(mixt, Tol, Deg, *
+      vecYatSetIt);
+      real trueDeltaR = mid(TrueDelta);
+      trueDeltaR = abs(trueDeltaR);
+      //cout << trueDeltaR << "\t";
+      trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
+      //cout << trueDelta << endl; 
+    }
+    cout << "Delta over the Yatracos set: " << trueDelta << endl;
+  }
+  else { trueDelta = -1; }
+  
+  string deltaFile;
+  deltaFile = "TrueDeltaAll";
+  deltaFile += stm.str();
+  deltaFile += ".txt";
+  os.open(deltaFile.c_str());
+  os << trueDelta << endl;
+  os << flush;
+  os.close();
+
+
+  string IAEMDEFile = "IAEMDEandDeltaMax";
+  IAEMDEFile += stm.str();
+  IAEMDEFile += ".txt";
+  os.open(IAEMDEFile.c_str());
+  for (size_t i = 0; i < IAEMDE.size(); i++) {
+    os << IAEMDE[i] << "\t" << IAEMDEFull[i] << "\t"<< maxDelta[i] << endl;
+  }
+  os << flush;
+  os.close();
+
+  string TimeFile = "Times";
+  TimeFile += stm.str();
+  TimeFile += ".txt";
+  os.open(TimeFile.c_str());
+  for (size_t i = 0; i < timings.size(); i++) {
+    os << timings[i] << endl;
+  }
+  os << flush;
+  os.close();
+
+// free the random number generator
+gsl_rng_free(r);
+gsl_rng_free(r1);
+
+return 0;
+}
+\end{DoxyCode}

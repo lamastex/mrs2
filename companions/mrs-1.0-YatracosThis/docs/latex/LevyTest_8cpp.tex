@@ -1,0 +1,150 @@
+\hypertarget{LevyTest_8cpp}{\subsection{\-Levy\-Test.\-cpp \-File \-Reference}
+\label{LevyTest_8cpp}\index{\-Levy\-Test.\-cpp@{\-Levy\-Test.\-cpp}}
+}
+
+
+\-Testing \-Stats\-Sub\-Pavings \-Levy2\-D data.  
+
+
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-F\-Levy2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-R\-Sampler.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{LevyTest_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Stats\-Sub\-Pavings \-Levy2\-D data. 
+
+\-Definition in file \hyperlink{LevyTest_8cpp_source}{\-Levy\-Test.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{LevyTest_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Levy\-Test.\-cpp@{\-Levy\-Test.\-cpp}!main@{main}}
+\index{main@{main}!LevyTest.cpp@{\-Levy\-Test.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{LevyTest_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 44 of file \-Levy\-Test.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, subpavings\-::\-Adaptive\-Histogram\-Collator\-::collate\-From\-R\-S\-Sample\-Split\-P\-Q(), \-Domain\-Limit, \-Global\-Max, subpavings\-::\-Adaptive\-Histogram\-Collator\-::make\-Average(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), and \-Temperature.
+
+
+\begin{DoxyCode}
+{
+
+    // example to average 10 samples from a 2-d Levy shape
+
+    ios::sync_with_stdio (); // so iostream works with stdio
+    cout << SetPrecision (20, 15);  // Number of mantissa digits in I/O
+
+
+    int n_dimensions = 2;
+    int n_boxes = 1000;
+    int n_samples = 100000;
+    double Alb = 1.0;// partition until lower bound on Acceptance Prob.>Alb
+    unsigned theSeed = 12345;
+
+
+    bool use_f_scale = true;
+
+    cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes
+        << "  n_samples: " << n_samples << "  rng_seed = " << theSeed
+        << endl; //getchar();
+
+    //Parameters specific to the Levy target
+    real Temperature = 40.0;
+    real Center1 = 1.42513;
+    real Center2 = 0.80032;
+    real GlobalMax = 176.14;
+    real DomainLimit = 10.0;    //0.999999999999999;
+    bool UseLogPi = false; // log scale won't work naively
+
+    // make the function object
+    FLevy2D F_Levy_Temp_2D(Temperature, GlobalMax,
+                        Center1, Center2, DomainLimit, UseLogPi);
+
+    // create the sampler
+    MRSampler theSampler (F_Levy_Temp_2D, n_boxes, Alb, theSeed,
+                        (use_f_scale == 1));
+
+    // produce the samples (n_sample samples should be produced)
+    RSSample rs_sample; // object for the sample
+
+    theSampler.RejectionSampleMany (n_samples, rs_sample);
+
+
+    // make a box: the same box will be used by all histograms
+    // so should be big enough for all of them, so use the function domain
+    // set up the domain list
+    ivector pavingBox(2);
+    interval dim1(-DomainLimit, DomainLimit);
+    interval dim2(-DomainLimit, DomainLimit);
+    pavingBox[1] = dim1;
+    pavingBox[2] = dim2;
+
+    size_t samplesize = 10000; // number of samples to take from the RSSample
+
+    // the number of histograms to generate
+    size_t numSamples = 10;
+
+    // make a collation object, empty at present
+    AdaptiveHistogramCollator coll;
+
+    // set up objects for priority queue splitting
+
+    // node comparison using count of data points associated with nodes
+    CompCount compCount;
+
+    // stopping on smallest volume criteria for splittable nodes
+    double vol = 0.05;
+    CritSmallestVol_LTE critSmallestVol(vol);
+
+    /* A node is not splittable if splitting that node would give at least
+    one child with < minPoints of data associated with it.*/
+    size_t minPoints = 0;
+
+    /* minVolB is the multiplier for (log n)^2/n to determine the minumum
+    volume for a splittable node where n is total points in subpaving.
+    A node with volume < minVolB(log n)^2/n will not be splittable. */
+    double minVolB = 0.0;
+
+    // do the collation of numSamples histograms from the rssample
+    bool success = coll.collateFromRSSampleSplitPQ(samplesize, numSamples,
+                    rs_sample, pavingBox, compCount,
+                    critSmallestVol, minPoints, minVolB);
+
+    if (success) {
+    string fileName = "CollatorHistogram.txt";
+    coll.outputToTxtTabs(fileName); // output the collation to file
+
+    //  Make an average histogram
+    AdaptiveHistogramCollator avColl = coll.makeAverage();
+    fileName = "AverageHistogram.txt";     // provide a filename
+
+    avColl.outputToTxtTabs(fileName);  // output the average to file
+    }
+
+    else    cout << "Failed to create collation over histograms" << endl;
+
+    return 0;
+
+} // end of Levy test program
+\end{DoxyCode}

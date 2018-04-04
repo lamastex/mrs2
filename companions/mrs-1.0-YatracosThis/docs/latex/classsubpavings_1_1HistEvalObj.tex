@@ -1,0 +1,46 @@
+\hypertarget{classsubpavings_1_1HistEvalObj}{\subsection{subpavings\-:\-:\-Hist\-Eval\-Obj \-Class \-Reference}
+\label{classsubpavings_1_1HistEvalObj}\index{subpavings\-::\-Hist\-Eval\-Obj@{subpavings\-::\-Hist\-Eval\-Obj}}
+}
+
+
+\-A \-Virtual class providing a way to stop histogram changes.  
+
+
+
+
+{\ttfamily \#include $<$histevalobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Hist\-Eval\-Obj\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classsubpavings_1_1HistEvalObj_a56a8d23818446775d7e4ef24755425e9}{operator()} (const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} $\ast$const adh) const =0
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A \-Virtual class providing a way to stop histogram changes. 
+
+\-Definition at line 39 of file histevalobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1HistEvalObj_a56a8d23818446775d7e4ef24755425e9}{\index{subpavings\-::\-Hist\-Eval\-Obj@{subpavings\-::\-Hist\-Eval\-Obj}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::HistEvalObj@{subpavings\-::\-Hist\-Eval\-Obj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool subpavings\-::\-Hist\-Eval\-Obj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram} $\ast$const}]{adh}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1HistEvalObj_a56a8d23818446775d7e4ef24755425e9}
+return true when splitting should stop. 
+
+\-Implemented in \hyperlink{classsubpavings_1_1CritStopAll_abb2e5e76fa76aadbd77ad4108c1d9c4e}{subpavings\-::\-Crit\-Stop\-All}, \hyperlink{classsubpavings_1_1CritAICMergeChangeOrLeaves__LTE_a5f6d984852a0ee94e92f2a9f28e74953}{subpavings\-::\-Crit\-A\-I\-C\-Merge\-Change\-Or\-Leaves\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritCOPERRMergeChangeOrLeaves__LTE_a7ddbaf53665373ee069626351e40252c}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Merge\-Change\-Or\-Leaves\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritAICMergeChange__GTE_abcd88342d6ebe8ae0eac08a834ac1bc5}{subpavings\-::\-Crit\-A\-I\-C\-Merge\-Change\-\_\-\-G\-T\-E}, \hyperlink{classsubpavings_1_1CritCOPERRMergeChange__GTE_a00c06b462c0224bf90e06c130069bd13}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Merge\-Change\-\_\-\-G\-T\-E}, \hyperlink{classsubpavings_1_1CritAICChangeOrLargestCount__LTE_acf02a98ad7e8268ba30b38d4b15c45e7}{subpavings\-::\-Crit\-A\-I\-C\-Change\-Or\-Largest\-Count\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritCOPERRChangeOrLargestCount__LTE_ab43c4004ba53bd65bb94122dbdbc5c32}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Change\-Or\-Largest\-Count\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritAICChangeOrLeaves__GTE_ad41d362796c0f10185375bb5a3ce5d0b}{subpavings\-::\-Crit\-A\-I\-C\-Change\-Or\-Leaves\-\_\-\-G\-T\-E}, \hyperlink{classsubpavings_1_1CritCOPERRChangeOrLeaves__GTE_a596ce8ff433ffac12d110c1ee0a6faab}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Change\-Or\-Leaves\-\_\-\-G\-T\-E}, \hyperlink{classsubpavings_1_1CritAICChange__GTE_a39c3228add1aa1f3f6bba7148d3e0e1b}{subpavings\-::\-Crit\-A\-I\-C\-Change\-\_\-\-G\-T\-E}, \hyperlink{classsubpavings_1_1CritCOPERRChange__GTE_ad08dfb82007a802cd298e97e7264bbe9}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Change\-\_\-\-G\-T\-E}, \hyperlink{classsubpavings_1_1CritLargestVol__LTE_a47c51f066e79dc7809b07e6e7e235aee}{subpavings\-::\-Crit\-Largest\-Vol\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritSmallestVol__LTE_ab95576c1a6d7cf1f39ade29f44126212}{subpavings\-::\-Crit\-Smallest\-Vol\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritLargestCount__LTE_a5b49847102d683709b9f4dbea40ff4a8}{subpavings\-::\-Crit\-Largest\-Count\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritSmallestCount__LTE_a827ca361ea6386926931f7bb3f618797}{subpavings\-::\-Crit\-Smallest\-Count\-\_\-\-L\-T\-E}, \hyperlink{classsubpavings_1_1CritLeaves__LTE_a09d5d8f311bd0b811208e329a26514a5}{subpavings\-::\-Crit\-Leaves\-\_\-\-L\-T\-E}, and \hyperlink{classsubpavings_1_1CritLeaves__GTE_a7427f4b81f72996bd756d9f22bc8c330}{subpavings\-::\-Crit\-Leaves\-\_\-\-G\-T\-E}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histevalobj_8hpp}{histevalobj.\-hpp}\end{DoxyCompactItemize}

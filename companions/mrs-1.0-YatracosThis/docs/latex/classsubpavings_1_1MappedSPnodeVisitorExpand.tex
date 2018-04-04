@@ -1,0 +1,374 @@
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand}{\subsection{subpavings\-:\-:\-Mapped\-S\-Pnode\-Visitor\-Expand \-Class \-Reference}
+\label{classsubpavings_1_1MappedSPnodeVisitorExpand}\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+}
+
+
+{\ttfamily \#include $<$mappedspnodevisitor\-\_\-expand.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Mapped\-S\-Pnode\-Visitor\-Expand\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Mapped\-S\-Pnode\-Visitor\-Expand\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1MappedSPnodeVisitorExpand_a292481207d6456275fe92160dbcd82b0}{\-Mapped\-S\-Pnode\-Visitor\-Expand} (\hyperlink{classsubpavings_1_1MappedFobj}{\-Mapped\-Fobj} \&\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, cxsc\-::real tol)
+\item 
+virtual void \hyperlink{classsubpavings_1_1MappedSPnodeVisitorExpand_a9ca7e3ae700e79bd8656757cba68fd55}{visit} (\hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$spn)
+\item 
+virtual cxsc\-::real \hyperlink{classsubpavings_1_1MappedSPnodeVisitorExpand_aeed5572a50b11c5f5d49321093188eec}{tell\-Me} (\hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$spn)
+\item 
+virtual bool \hyperlink{classsubpavings_1_1MappedSPnodeVisitorExpand_a33088d8b066f447fe2626680a2255ec6}{priority\-Visit} (\hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$spn, size\-\_\-t crit\-Leaves, std\-::vector$<$ real $>$ \&eps)
+\item 
+virtual bool \hyperlink{classsubpavings_1_1MappedSPnodeVisitorExpand_ad1b71939066cfd6cda106d03b3ed466e}{priority\-Visit} (\hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$spn, size\-\_\-t crit\-Leaves, gsl\-\_\-rng $\ast$rgsl, std\-::vector$<$ real $>$ \&eps)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1MappedFobj}{\-Mapped\-Fobj} \& \hyperlink{classsubpavings_1_1MappedSPnodeVisitorExpand_a7c071f0df7b4dd7fd009827da8853d35}{fobj}
+\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1MappedSPnodeVisitorExpand_a77345ab08c67ee3b152e7f48795e1132}{tolerance}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 31 of file mappedspnodevisitor\-\_\-expand.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand_a292481207d6456275fe92160dbcd82b0}{\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}!\-Mapped\-S\-Pnode\-Visitor\-Expand@{\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\index{\-Mapped\-S\-Pnode\-Visitor\-Expand@{\-Mapped\-S\-Pnode\-Visitor\-Expand}!subpavings::MappedSPnodeVisitorExpand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\paragraph[{\-Mapped\-S\-Pnode\-Visitor\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Mapped\-S\-Pnode\-Visitor\-Expand\-::\-Mapped\-S\-Pnode\-Visitor\-Expand} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Mapped\-Fobj} \&}]{f, }
+\item[{cxsc\-::real}]{tol}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1MappedSPnodeVisitorExpand_a292481207d6456275fe92160dbcd82b0}
+
+
+\-Definition at line 39 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+
+\begin{DoxyCode}
+      : SPnodeVisitor(), fobj(f), tolerance(tol) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand_a33088d8b066f447fe2626680a2255ec6}{\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}!priority\-Visit@{priority\-Visit}}
+\index{priority\-Visit@{priority\-Visit}!subpavings::MappedSPnodeVisitorExpand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\paragraph[{priority\-Visit}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Mapped\-S\-Pnode\-Visitor\-Expand\-::priority\-Visit} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-Pnode} $\ast$}]{spn, }
+\item[{size\-\_\-t}]{crit\-Leaves, }
+\item[{std\-::vector$<$ real $>$ \&}]{eps}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1MappedSPnodeVisitorExpand_a33088d8b066f447fe2626680a2255ec6}
+
+
+\-Definition at line 90 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+
+\begin{DoxyCode}
+{
+   bool retValue = false;
+   gsl_rng * rgsl = NULL;
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * tgsl;
+    // set the library variables *gsl_rng_default and
+    // gsl_rng_default_seed to default environmental vars
+    gsl_rng_env_setup();
+    tgsl = gsl_rng_default; // make tgsl the default type
+    rgsl = gsl_rng_alloc (tgsl); // set up with default seed
+    retValue = priorityVisit(mspn, critLeaves, rgsl, eps);
+    gsl_rng_free (rgsl);
+   return retValue;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand_ad1b71939066cfd6cda106d03b3ed466e}{\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}!priority\-Visit@{priority\-Visit}}
+\index{priority\-Visit@{priority\-Visit}!subpavings::MappedSPnodeVisitorExpand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\paragraph[{priority\-Visit}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Mapped\-S\-Pnode\-Visitor\-Expand\-::priority\-Visit} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-Pnode} $\ast$}]{spn, }
+\item[{size\-\_\-t}]{crit\-Leaves, }
+\item[{gsl\-\_\-rng $\ast$}]{rgsl, }
+\item[{std\-::vector$<$ real $>$ \&}]{eps}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1MappedSPnodeVisitorExpand_ad1b71939066cfd6cda106d03b3ed466e}
+
+
+\-Definition at line 107 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::collect\-Range(), fobj, subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::node\-Expand(), subpavings\-::\-S\-Pnode\-::node\-Volume(), and tolerance.
+
+
+\begin{DoxyCode}
+{    
+   //cout << "Calling priority visit: " << endl;
+
+   bool cancontinue = false;
+   size_t numNodes = 0;
+   //real normConst = 0.0;
+   
+   //comparison function
+   CompSPArea compTest(fobj);
+   // a multiset for the queue (key values are not necessarily unique)
+   multiset<SPnode*, MyCompare> pq((MyCompare(compTest)));
+
+   //cout << "get fobj of box " << endl;
+   ivector box = mspn->getBox();
+   interval thisRange = fobj(box);
+   
+   //cout << "get fobj of mid point " << endl;
+   //real thisMidImage = fobj.imageMid(box);
+   //normConst = (mspn->nodeVolume() * thisMidImage);
+
+   interval RiemannDiff = (mspn->nodeVolume()) * (thisRange);
+   real MaxEps = diam(RiemannDiff);
+   //normalize MaxEps by normConst
+   interval TotEps = interval(MaxEps); 
+   real midTotEps = mid(TotEps);
+   pq.insert(mspn);
+   mspn->collectRange(*this);
+   numNodes++;
+  // this is optional (collecting midTotEps)
+   eps.push_back(midTotEps);
+   
+   cancontinue = (!pq.empty());
+   if(!cancontinue) {
+      std::cout << "No splittable leaves to split - aborting" << std::endl;
+    } 
+
+   // split until have desired number of leaf nodes
+   // we only put splittable nodes into the set, so we don't have to check
+   // that they are splittable when we take them out
+   while (cancontinue && (numNodes < critLeaves) && (midTotEps > tolerance))
+   {
+    SPnode* largest = *(pq.rbegin ()); // the last largest in the set
+    SPnode* chosenLargest;
+    
+    // find if there are any more equal to largest around
+    multiset<SPnode*, MyCompare>::iterator mit;
+    pair<multiset<SPnode*, MyCompare>::iterator,
+       multiset<SPnode*, MyCompare>::iterator> equalLargest;
+
+    equalLargest = pq.equal_range(largest); // everything that = largest
+    size_t numberLargest = pq.count(largest); // number of =largest
+
+    if (numberLargest > 1) {
+       // draw a random number in [0,1)
+       double rand = gsl_rng_uniform(rgsl);
+       real sum = 0.0;
+
+       // random selection of the =largest node to chose
+       for (mit=equalLargest.first; mit!=equalLargest.second; ++mit) {
+          sum += 1.0/(1.0*numberLargest);
+          if (rand < sum) {
+            break;
+          }
+       }
+       chosenLargest = *(mit); // the chosen largest in the set
+       pq.erase(mit);// take the iterator to chosen largest out of the set
+       numNodes--; //check if pq.size() == numNodes;
+       assert(numNodes == pq.size());
+    }
+    else {
+       chosenLargest = *(pq.rbegin ()); // the only largest
+       multiset<SPnode*, MyCompare>::iterator it = pq.end();
+       it--;
+       pq.erase(it);// take this largest out of the set
+       numNodes--; //check if pq.size() == numNodes
+       assert(numNodes == pq.size());
+    }
+
+    // split the biggest one
+    //cout << "---------------splitting " << chosenLargest->getNodeName() <<
+       "-----" << endl;
+    
+    //cout << "get fobj of box " << endl;
+    box = chosenLargest->getBox();
+    thisRange = fobj(box);
+    //thisRange = thisRange/normConst; //normalize the heights
+    RiemannDiff = (chosenLargest->nodeVolume()) * (thisRange);
+    MaxEps = diam(RiemannDiff);
+    
+    // now update TotEps
+    TotEps = TotEps - interval(MaxEps);
+    
+     // now update the normalizing constant since a node is removed
+     //thisMidImage = fobj.imageMid(box);
+     //real remNormConst = thisMidImage * (chosenLargest->nodeVolume());
+     //cout << "to remove: " << chosenLargest->getNodeName() << "\t" <<
+       remNormConst << endl;
+     //assert(normConst >= remNormConst);
+     //normConst = normConst - remNormConst;
+     
+     //now split
+    chosenLargest->nodeExpand();
+    
+    //name the new children
+    (chosenLargest->getLeftChild())->recursiveRename();
+    (chosenLargest->getLeftChild())->collectRange(*this);
+
+    (chosenLargest->getRightChild())->recursiveRename();
+    (chosenLargest->getRightChild())->collectRange(*this);
+    
+    // insert these nodes into the priority queue
+    pq.insert(chosenLargest->getLeftChild());
+    pq.insert(chosenLargest->getRightChild());
+    numNodes = numNodes+2;
+    assert(pq.size() == numNodes);
+    
+    // update normConst with the addition of the left and right child nodes
+    //normConst = normConst 
+    //    + (((chosenLargest->getLeftChild())->nodeVolume())* 
+    //       (fobj.imageMid((chosenLargest->getLeftChild())->getBox()))
+    //      );
+
+    //normConst = normConst 
+    //    + (((chosenLargest->getRightChild())->nodeVolume())* 
+    //       (fobj.imageMid((chosenLargest->getRightChild())->getBox()))
+    //      );
+
+    //normalize TotEps to the current normConst
+
+    
+    // get the epsilon for the left child node
+    //cout << "get fobj of box and mid point " << endl;
+    MaxEps = diam(((chosenLargest->getLeftChild())->nodeVolume()) * (fobj((
+      chosenLargest->getLeftChild())->getBox())));
+    TotEps = TotEps + interval(MaxEps);
+
+    // get the epsilon for the right child node
+    MaxEps = diam(((chosenLargest->getRightChild())->nodeVolume()) * (fobj((
+      chosenLargest->getRightChild())->getBox())));
+    TotEps = TotEps + interval(MaxEps);
+
+    //get the mid point
+    midTotEps = mid(TotEps);
+    //optional
+    //if (normConst != 0.0) 
+    eps.push_back(midTotEps); 
+
+    cancontinue = (!pq.empty());
+    if (!cancontinue)
+       std::cout << "Terminated splitting: no splittable nodes left"
+          << std::endl;
+  }
+    return (cancontinue);
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand_aeed5572a50b11c5f5d49321093188eec}{\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}!tell\-Me@{tell\-Me}}
+\index{tell\-Me@{tell\-Me}!subpavings::MappedSPnodeVisitorExpand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\paragraph[{tell\-Me}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Mapped\-S\-Pnode\-Visitor\-Expand\-::tell\-Me} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-Pnode} $\ast$}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1MappedSPnodeVisitorExpand_aeed5572a50b11c5f5d49321093188eec}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnodeVisitor_a8c10bef76c4e6ed1ca3e718032fdd2b3}{subpavings\-::\-S\-Pnode\-Visitor}.
+
+
+
+\-Definition at line 71 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+
+
+\-References fobj, subpavings\-::\-S\-Pnode\-::get\-Box(), and subpavings\-::\-Mapped\-Fobj\-::image\-Mid().
+
+
+\begin{DoxyCode}
+{
+  return fobj.imageMid(mspn->getBox());
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand_a9ca7e3ae700e79bd8656757cba68fd55}{\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}!visit@{visit}}
+\index{visit@{visit}!subpavings::MappedSPnodeVisitorExpand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\paragraph[{visit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Mapped\-S\-Pnode\-Visitor\-Expand\-::visit} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-Pnode} $\ast$}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1MappedSPnodeVisitorExpand_a9ca7e3ae700e79bd8656757cba68fd55}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnodeVisitor_ab66d7c252cd58fc14214315033521a80}{subpavings\-::\-S\-Pnode\-Visitor}.
+
+
+
+\-Definition at line 43 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+
+
+\-References fobj, subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-Mapped\-Fobj\-::image\-Mid(), subpavings\-::\-S\-Pnode\-::node\-Expand(), and tolerance.
+
+
+\begin{DoxyCode}
+{
+
+  //std::cout << "in visit, for " << mspn->getNodeName() << std::endl;
+
+  // check if we need to split
+  ivector box = mspn->getBox();
+  //std::cout << "this box is " << box << " and has volume " <<
+       mspn->nodeVolume() << std::endl;
+  interval thisRange = fobj(box);
+  //std::cout << "this range is " << thisRange << std::endl;
+  real thisMidImage = fobj.imageMid(box);
+  //std::cout << "this midImage is " << thisMidImage << std::endl;
+  
+  // split if so and then visit children
+  
+cout << diam(thisRange) << '\t' << thisRange << endl;
+  // wants the simple function approx using the mid image to be within epsilon
+       of the worst-case scenario
+  if (max(Sup(thisRange) - thisMidImage, thisMidImage - Inf(thisRange)) > 
+      tolerance) {
+    //std::cout << "expanding" << std::endl;
+    mspn->nodeExpand();
+
+    //visit the children
+    //std::cout << "check children" << std::endl;
+    (mspn->getLeftChild())->accept(*this);
+    (mspn->getRightChild())->accept(*this);
+  }
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand_a7c071f0df7b4dd7fd009827da8853d35}{\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}!fobj@{fobj}}
+\index{fobj@{fobj}!subpavings::MappedSPnodeVisitorExpand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\paragraph[{fobj}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Mapped\-Fobj}\& {\bf subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand\-::fobj}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1MappedSPnodeVisitorExpand_a7c071f0df7b4dd7fd009827da8853d35}
+
+
+\-Definition at line 35 of file mappedspnodevisitor\-\_\-expand.\-hpp.
+
+
+
+\-Referenced by priority\-Visit(), tell\-Me(), and visit().
+
+\hypertarget{classsubpavings_1_1MappedSPnodeVisitorExpand_a77345ab08c67ee3b152e7f48795e1132}{\index{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}!tolerance@{tolerance}}
+\index{tolerance@{tolerance}!subpavings::MappedSPnodeVisitorExpand@{subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand}}
+\paragraph[{tolerance}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Mapped\-S\-Pnode\-Visitor\-Expand\-::tolerance}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1MappedSPnodeVisitorExpand_a77345ab08c67ee3b152e7f48795e1132}
+
+
+\-Definition at line 36 of file mappedspnodevisitor\-\_\-expand.\-hpp.
+
+
+
+\-Referenced by priority\-Visit(), and visit().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mappedspnodevisitor__expand_8hpp}{mappedspnodevisitor\-\_\-expand.\-hpp}\item 
+\hyperlink{mappedspnodevisitor__expand_8cpp}{mappedspnodevisitor\-\_\-expand.\-cpp}\end{DoxyCompactItemize}

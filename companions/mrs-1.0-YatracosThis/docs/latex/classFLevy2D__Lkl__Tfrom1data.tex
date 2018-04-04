@@ -1,0 +1,238 @@
+\hypertarget{classFLevy2D__Lkl__Tfrom1data}{\subsection{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data \-Class \-Reference}
+\label{classFLevy2D__Lkl__Tfrom1data}\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+}
+
+
+{\ttfamily \#include $<$\-F\-Levy2\-D.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-:
+
+
+\-Collaboration diagram for \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFLevy2D__Lkl__Tfrom1data_af3dbaaec74847fde9ffd754e4b295278}{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data} (ivector \&\hyperlink{classFLevy2D__Lkl__Tfrom1data_a164feef005f7cd698ef7e737479376d9}{\-Data}, real \hyperlink{classFLevy2D__Lkl__Tfrom1data_a76c6284c5bb945dcbdd9e0b4e93b7159}{\-Global\-Max}, real \hyperlink{classFLevy2D__Lkl__Tfrom1data_a65a223e801a809656bd2918d3f57e449}{\-Center1}, real \hyperlink{classFLevy2D__Lkl__Tfrom1data_aeadb884eb472f4b9a7fe739dc636f924}{\-Center2}, interval \hyperlink{LevyFobj2D_8cpp_ae28a2599911ae746bc33211d3ea52aaf}{\-Domain\-Limit}, bool \-Log\-Pi)
+\item 
+interval \hyperlink{classFLevy2D__Lkl__Tfrom1data_a06a1515d0efad766651950946e4fac03}{operator()} (const interval \&\-T) const 
+\item 
+real \hyperlink{classFLevy2D__Lkl__Tfrom1data_ad420bcdc039ecc689488181c23aae0bb}{operator()} (const real \&\-T) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ivector \hyperlink{classFLevy2D__Lkl__Tfrom1data_a164feef005f7cd698ef7e737479376d9}{\-Data}
+\item 
+real \hyperlink{classFLevy2D__Lkl__Tfrom1data_a76c6284c5bb945dcbdd9e0b4e93b7159}{\-Global\-Max}
+\item 
+real \hyperlink{classFLevy2D__Lkl__Tfrom1data_a65a223e801a809656bd2918d3f57e449}{\-Center1}
+\item 
+real \hyperlink{classFLevy2D__Lkl__Tfrom1data_aeadb884eb472f4b9a7fe739dc636f924}{\-Center2}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+two-\/dimensional \-Levy likelihood as a function object class \begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000019}{\-Todo}]get rid of \hyperlink{classFobj1D}{\-Fobj1\-D} and make these inherit from \hyperlink{classFobj}{\-Fobj} as \hyperlink{classFCFN3Star}{\-F\-C\-F\-N3\-Star} \end{DoxyRefDesc}
+
+
+\-Definition at line 96 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFLevy2D__Lkl__Tfrom1data_af3dbaaec74847fde9ffd754e4b295278}{\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!FLevy2D_Lkl_Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\paragraph[{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{\-Data, }
+\item[{real}]{\-Global\-Max, }
+\item[{real}]{\-Center1, }
+\item[{real}]{\-Center2, }
+\item[{interval}]{\-Domain\-Limit, }
+\item[{bool}]{\-Log\-Pi}
+\end{DoxyParamCaption}
+)}}\label{classFLevy2D__Lkl__Tfrom1data_af3dbaaec74847fde9ffd754e4b295278}
+
+
+\-Definition at line 159 of file \-F\-Levy2\-D.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Domain\-Limit, \-Lab\-Box\-::\-L, \-Fobj1\-D\-::\-Lab\-Domain\-List, and \-Fobj1\-D\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+:
+Data (data), GlobalMax (GlbMx), Center1 (C1), Center2 (C2)
+{
+  setUsingLogDensity (LogPi);
+  //PriorType = 0;// Uniform PriorType is an inherited member from Fobj
+  //domain for the temperature parameter in the likelihood
+  ivector domain (1, 1);
+  LabBox Ldomain;
+  for (int i = 1; i <= 1; i++)
+  {
+    domain[i] = DomainLimit;
+  }
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  LabDomainList.push_back (Ldomain);
+
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFLevy2D__Lkl__Tfrom1data_a06a1515d0efad766651950946e4fac03}{\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!operator()@{operator()}}
+\index{operator()@{operator()}!FLevy2D_Lkl_Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{\-T}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFLevy2D__Lkl__Tfrom1data_a06a1515d0efad766651950946e4fac03}
+
+
+\-Implements \hyperlink{classFobj1D_ae7708006f849c35e8e1234faa1ec4140}{\-Fobj1\-D}.
+
+
+
+\-Definition at line 181 of file \-F\-Levy2\-D.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), \-Data, taylor\-::exp(), \-Global\-Max, taylor\-::\-Lb(), taylor\-::ln(), taylor\-::sqr(), taylor\-::\-Ub(), and \-Fobj1\-D\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  int a = Lb (Data), z = Ub (Data);
+  interval isum, jsum, hh;
+  isum = 0.0;
+  jsum = 0.0;
+  for (int i = 1; i <= 5; i++)
+  {
+    isum =
+      isum + double (i) * cos (double (i - 1) * Data[a] + double (i));
+    jsum =
+      jsum + double (i) * cos (double (i + 1) * Data[z] + double (i));
+  }
+                    // Avoid real con-
+  hh = isum * jsum + sqr (Data[a] + Center1) +
+                    // version error
+    sqr (Data[z] + Center2);
+  hh += GlobalMax;
+
+   // TEMPERATURE = 1, 4, 40, 400, 4000
+  interval result = exp (-hh / X);
+
+  result /= sqr (X);
+  //result /= X;
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+\hypertarget{classFLevy2D__Lkl__Tfrom1data_ad420bcdc039ecc689488181c23aae0bb}{\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!operator()@{operator()}}
+\index{operator()@{operator()}!FLevy2D_Lkl_Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{\-T}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFLevy2D__Lkl__Tfrom1data_ad420bcdc039ecc689488181c23aae0bb}
+
+
+\-Implements \hyperlink{classFobj1D_a46c44b0732f59bd8327ee929592ec5e8}{\-Fobj1\-D}.
+
+
+
+\-Definition at line 208 of file \-F\-Levy2\-D.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), \-Data, taylor\-::exp(), \-Global\-Max, taylor\-::\-Lb(), taylor\-::ln(), taylor\-::sqr(), taylor\-::\-Ub(), and \-Fobj1\-D\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  int a = Lb (Data), z = Ub (Data);
+  // here we simply take the mid-point of the data to get thin data
+  rvector realData = mid (Data);
+  real isum, jsum, hh;
+  isum = 0.0;
+  jsum = 0.0;
+  for (int i = 1; i <= 5; i++)
+  {
+    isum =
+      isum + double (i) * cos (double (i - 1) * realData[a] +
+      double (i));
+    jsum =
+      jsum + double (i) * cos (double (i + 1) * realData[z] +
+      double (i));
+  }
+
+                    // Avoid real con-
+  hh = isum * jsum + sqr (realData[a] + Center1) +
+                    // version error
+    sqr (realData[z] + Center2);
+  hh += GlobalMax;
+
+  // TEMPERATURE = 1, 4, 40, 400, 4000
+  real result = exp (-hh / X);
+  result /= sqr (X);
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFLevy2D__Lkl__Tfrom1data_a65a223e801a809656bd2918d3f57e449}{\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!\-Center1@{\-Center1}}
+\index{\-Center1@{\-Center1}!FLevy2D_Lkl_Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\paragraph[{\-Center1}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-Center1}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D__Lkl__Tfrom1data_a65a223e801a809656bd2918d3f57e449}
+
+
+\-Definition at line 99 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D__Lkl__Tfrom1data_aeadb884eb472f4b9a7fe739dc636f924}{\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!\-Center2@{\-Center2}}
+\index{\-Center2@{\-Center2}!FLevy2D_Lkl_Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\paragraph[{\-Center2}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-Center2}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D__Lkl__Tfrom1data_aeadb884eb472f4b9a7fe739dc636f924}
+
+
+\-Definition at line 99 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D__Lkl__Tfrom1data_a164feef005f7cd698ef7e737479376d9}{\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!\-Data@{\-Data}}
+\index{\-Data@{\-Data}!FLevy2D_Lkl_Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\paragraph[{\-Data}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-Data}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D__Lkl__Tfrom1data_a164feef005f7cd698ef7e737479376d9}
+
+
+\-Definition at line 98 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D__Lkl__Tfrom1data_a76c6284c5bb945dcbdd9e0b4e93b7159}{\index{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}!\-Global\-Max@{\-Global\-Max}}
+\index{\-Global\-Max@{\-Global\-Max}!FLevy2D_Lkl_Tfrom1data@{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}}
+\paragraph[{\-Global\-Max}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-Global\-Max}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D__Lkl__Tfrom1data_a76c6284c5bb945dcbdd9e0b4e93b7159}
+
+
+\-Definition at line 99 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FLevy2D_8hpp}{\-F\-Levy2\-D.\-hpp}\item 
+\hyperlink{FLevy2D_8cpp}{\-F\-Levy2\-D.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,198 @@
+\hypertarget{classFobj1D}{\subsection{\-Fobj1\-D \-Class \-Reference}
+\label{classFobj1D}\index{\-Fobj1\-D@{\-Fobj1\-D}}
+}
+
+
+abstract class for one-\/dimensional function objects  
+
+
+
+
+{\ttfamily \#include $<$\-Fobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-Fobj1\-D\-:
+
+
+\-Collaboration diagram for \-Fobj1\-D\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classFobj1D_aa878f95df9f5798d2050e113ea97dea7}{$\sim$\-Fobj1\-D} ()
+\item 
+void \hyperlink{classFobj1D_ab11d43cdd2d745e945890d95d86f015d}{set\-Using\-Log\-Density} (bool \-Log\-Pi)
+\item 
+virtual interval \hyperlink{classFobj1D_ae7708006f849c35e8e1234faa1ec4140}{operator()} (const interval \&\-L\-B) const =0
+\item 
+virtual real \hyperlink{classFobj1D_a46c44b0732f59bd8327ee929592ec5e8}{operator()} (const real \&\-L\-P) const =0
+\item 
+bool \hyperlink{classFobj1D_a7a4b486c3e3c08c1d3b2cf7dc66497f6}{get\-Using\-Log\-Density} ()
+\item 
+vector$<$ \hyperlink{classLabBox}{\-Lab\-Box} $>$ \hyperlink{classFobj1D_ab13c2a6d58d85b97bfb8c8b7e3c7cbdd}{get\-\_\-domain} () const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classFobj1D_a538b74d7dc5b9e3652c2a36950f25de9}{\-Using\-Log\-Density}
+\item 
+vector$<$ \hyperlink{classLabBox}{\-Lab\-Box} $>$ \hyperlink{classFobj1D_ad2c10838556997430a304824b745e090}{\-Lab\-Domain\-List}
+\item 
+vector$<$ real $>$ \hyperlink{classFobj1D_a37fff89dd0ffdea65e7dad2b148eb629}{\-Lab\-Domain\-Prior\-Integral\-List}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+abstract class for one-\/dimensional function objects 
+
+\-This is mainly used to speedup 1\-D targets and not supported well. 
+
+\-Definition at line 288 of file \-Fobj.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFobj1D_aa878f95df9f5798d2050e113ea97dea7}{\index{\-Fobj1\-D@{\-Fobj1\-D}!$\sim$\-Fobj1\-D@{$\sim$\-Fobj1\-D}}
+\index{$\sim$\-Fobj1\-D@{$\sim$\-Fobj1\-D}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{$\sim$\-Fobj1\-D}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf \-Fobj1\-D\-::$\sim$\-Fobj1\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFobj1D_aa878f95df9f5798d2050e113ea97dea7}
+
+
+\-Definition at line 300 of file \-Fobj.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFobj1D_ab13c2a6d58d85b97bfb8c8b7e3c7cbdd}{\index{\-Fobj1\-D@{\-Fobj1\-D}!get\-\_\-domain@{get\-\_\-domain}}
+\index{get\-\_\-domain@{get\-\_\-domain}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{get\-\_\-domain}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Lab\-Box}$>$ {\bf \-Fobj1\-D\-::get\-\_\-domain} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj1D_ab13c2a6d58d85b97bfb8c8b7e3c7cbdd}
+
+
+\-Definition at line 316 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Lab\-Domain\-List.
+
+
+\begin{DoxyCode}
+    {
+      return LabDomainList;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj1D_a7a4b486c3e3c08c1d3b2cf7dc66497f6}{\index{\-Fobj1\-D@{\-Fobj1\-D}!get\-Using\-Log\-Density@{get\-Using\-Log\-Density}}
+\index{get\-Using\-Log\-Density@{get\-Using\-Log\-Density}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{get\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Fobj1\-D\-::get\-Using\-Log\-Density} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj1D_a7a4b486c3e3c08c1d3b2cf7dc66497f6}
+
+
+\-Definition at line 311 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+    {
+      return UsingLogDensity;
+    }
+\end{DoxyCode}
+\hypertarget{classFobj1D_ae7708006f849c35e8e1234faa1ec4140}{\index{\-Fobj1\-D@{\-Fobj1\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual interval \-Fobj1\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{\-L\-B}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classFobj1D_ae7708006f849c35e8e1234faa1ec4140}
+
+
+\-Implemented in \hyperlink{classFLevy2D__Lkl__Tfrom1data_a06a1515d0efad766651950946e4fac03}{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}.
+
+\hypertarget{classFobj1D_a46c44b0732f59bd8327ee929592ec5e8}{\index{\-Fobj1\-D@{\-Fobj1\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual real \-Fobj1\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{\-L\-P}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classFobj1D_a46c44b0732f59bd8327ee929592ec5e8}
+
+
+\-Implemented in \hyperlink{classFLevy2D__Lkl__Tfrom1data_ad420bcdc039ecc689488181c23aae0bb}{\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data}.
+
+\hypertarget{classFobj1D_ab11d43cdd2d745e945890d95d86f015d}{\index{\-Fobj1\-D@{\-Fobj1\-D}!set\-Using\-Log\-Density@{set\-Using\-Log\-Density}}
+\index{set\-Using\-Log\-Density@{set\-Using\-Log\-Density}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{set\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Fobj1\-D\-::set\-Using\-Log\-Density} (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-Log\-Pi}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classFobj1D_ab11d43cdd2d745e945890d95d86f015d}
+
+
+\-Definition at line 302 of file \-Fobj.\-hpp.
+
+
+
+\-References \-Using\-Log\-Density.
+
+
+
+\-Referenced by \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data().
+
+
+\begin{DoxyCode}
+    {
+      UsingLogDensity = LogPi;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFobj1D_ad2c10838556997430a304824b745e090}{\index{\-Fobj1\-D@{\-Fobj1\-D}!\-Lab\-Domain\-List@{\-Lab\-Domain\-List}}
+\index{\-Lab\-Domain\-List@{\-Lab\-Domain\-List}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{\-Lab\-Domain\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf \-Lab\-Box}$>$ {\bf \-Fobj1\-D\-::\-Lab\-Domain\-List}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classFobj1D_ad2c10838556997430a304824b745e090}
+
+
+\-Definition at line 294 of file \-Fobj.\-hpp.
+
+
+
+\-Referenced by \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::\-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data(), and get\-\_\-domain().
+
+\hypertarget{classFobj1D_a37fff89dd0ffdea65e7dad2b148eb629}{\index{\-Fobj1\-D@{\-Fobj1\-D}!\-Lab\-Domain\-Prior\-Integral\-List@{\-Lab\-Domain\-Prior\-Integral\-List}}
+\index{\-Lab\-Domain\-Prior\-Integral\-List@{\-Lab\-Domain\-Prior\-Integral\-List}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{\-Lab\-Domain\-Prior\-Integral\-List}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$real$>$ {\bf \-Fobj1\-D\-::\-Lab\-Domain\-Prior\-Integral\-List}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classFobj1D_a37fff89dd0ffdea65e7dad2b148eb629}
+
+
+\-Definition at line 296 of file \-Fobj.\-hpp.
+
+\hypertarget{classFobj1D_a538b74d7dc5b9e3652c2a36950f25de9}{\index{\-Fobj1\-D@{\-Fobj1\-D}!\-Using\-Log\-Density@{\-Using\-Log\-Density}}
+\index{\-Using\-Log\-Density@{\-Using\-Log\-Density}!Fobj1D@{\-Fobj1\-D}}
+\paragraph[{\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Fobj1\-D\-::\-Using\-Log\-Density}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classFobj1D_a538b74d7dc5b9e3652c2a36950f25de9}
+
+
+\-Definition at line 292 of file \-Fobj.\-hpp.
+
+
+
+\-Referenced by get\-Using\-Log\-Density(), \-F\-Levy2\-D\-\_\-\-Lkl\-\_\-\-Tfrom1data\-::operator()(), and set\-Using\-Log\-Density().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Fobj_8hpp}{\-Fobj.\-hpp}\end{DoxyCompactItemize}

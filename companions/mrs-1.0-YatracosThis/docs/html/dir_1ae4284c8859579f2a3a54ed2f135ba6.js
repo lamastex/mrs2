@@ -1,0 +1,25 @@
+var dir_1ae4284c8859579f2a3a54ed2f135ba6 =
+[
+    [ "AHABC", "dir_02e143dc6794f798d823674bfec99d98.shtml", null ],
+    [ "AirTraffic", "dir_bb202fb015280759b21b2dc2734b1584.shtml", null ],
+    [ "Averaging", "dir_09b50b3ee707d8213423b57ad96e50e4.shtml", null ],
+    [ "BivGaussian", "dir_62c09be782874a5faab63a6c70f29552.shtml", null ],
+    [ "CatalanCoeff", "dir_097793839d0c50e7b5c25dbfc3a6dc35.shtml", null ],
+    [ "COPERRandAIC", "dir_57126a7cdadac2379145d2543917e955.shtml", null ],
+    [ "Coverage", "dir_6fd39caf496fe5f60b1af7c9e75fc709.shtml", null ],
+    [ "ExactInt", "dir_9eefa5e3eb4964243f500ac4edec3801.shtml", null ],
+    [ "HistReport", "dir_17e3c0619483706681511ad1b782fbc9.shtml", null ],
+    [ "HoldOut", "dir_71c3b413a662719dc33fddde3038f374.shtml", null ],
+    [ "IAECalculations", "dir_accd0dd667557ef8beb0d2c974294f64.shtml", null ],
+    [ "InsideBox", "dir_df79f98f2a9bf1b932d30c5d307746db.shtml", null ],
+    [ "IntervalArithIAE", "dir_080d5d409ed8e06c40537d9b488e43d7.shtml", null ],
+    [ "Levy", "dir_e4a668bc3cf6f55acdc96109c97cb87f.shtml", null ],
+    [ "MappedSPSampling", "dir_914b21c6f06e23f0c47fe69c9b8de3e6.shtml", null ],
+    [ "Marginalise", "dir_15a566b3f4b163bdc99d2d898c720704.shtml", null ],
+    [ "MCMC", "dir_9a24431472533ca39cf2fbe2fcbf8409.shtml", null ],
+    [ "MCMC_Trunk", "dir_867f258719efc1dc703037d9e0902d18.shtml", null ],
+    [ "MCMCGR", "dir_4f9599967f5e40dc213cc1bdcf682e2e.shtml", null ],
+    [ "MCMCGRSims", "dir_063c2024db7ec4c3ae778e46b7fca3ed.shtml", null ],
+    [ "MultiManager", "dir_ea4207bc20a0f0934af1f1d49cd0ed53.shtml", null ],
+    [ "Quadrature", "dir_7546c7d4ffa6af7f57a7686807095907.shtml", null ]
+];

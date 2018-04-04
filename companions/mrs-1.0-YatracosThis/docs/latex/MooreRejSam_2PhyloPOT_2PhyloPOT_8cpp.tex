@@ -1,0 +1,206 @@
+\hypertarget{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp}{\subsection{\-Phylo\-P\-O\-T.\-cpp \-File \-Reference}
+\label{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp}\index{\-Phylo\-P\-O\-T.\-cpp@{\-Phylo\-P\-O\-T.\-cpp}}
+}
+
+
+\-Example to use \hyperlink{classFPhyloPOT}{\-F\-Phylo\-P\-O\-T} and \hyperlink{classMRSampler}{\-M\-R\-Sampler} to produce rejection samples for trans-\/dimensional phylogenetic problems.  
+
+
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$numeric$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include \char`\"{}interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}rmath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}intvector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ivector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}rvector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imatrix.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-F\-Phylo\-P\-O\-T.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-R\-Sampler.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp_a631ece91d072eb67cffd058e11c49468}{\-Produce\-M\-R\-Samples} (\hyperlink{classFobj}{\-Fobj} \&\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, int n\-\_\-boxes, int n\-\_\-samples, double \-Alb, unsigned seed, bool use\-\_\-f\-\_\-scale)
+\item 
+int \hyperlink{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Example to use \hyperlink{classFPhyloPOT}{\-F\-Phylo\-P\-O\-T} and \hyperlink{classMRSampler}{\-M\-R\-Sampler} to produce rejection samples for trans-\/dimensional phylogenetic problems. 
+
+\-Definition in file \hyperlink{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp_source}{\-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp@{\-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp}!main@{main}}
+\index{main@{main}!MooreRejSam/PhyloPOT/PhyloPOT.cpp@{\-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 114 of file \-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-Produce\-M\-R\-Samples().
+
+
+\begin{DoxyCode}
+{
+  ios::sync_with_stdio ();  // call this function so iostream works with stdio
+  cout << SetPrecision (20, 15);  // Number of mantissa digits in I/O
+  
+  // default value
+  double Alb = 1.0;// partition until lower bound on Acceptance Prob. is > Alb
+  
+  // default value
+  int n_boxes = 500;
+  
+  // default value
+  int n_samples = 100;
+  
+  // default value
+  unsigned theSeed = 1234;
+  
+  // default value
+  bool UseLogPi = true;
+  
+  // default value
+  bool use_f_scale = true;
+  
+  // default value
+  int prior_type = 0;
+  
+  // parameters for FPhyloPOT
+  // default value
+  interval DomainCFN3(1e-10,1);
+  
+  // default value
+  int tree_space = 3; // number of taxa
+  
+  // check the input 
+  if (argc >= 2)
+  {
+    sscanf (argv[1], "%i", &tree_space);
+    if (argc >= 3) 
+      sscanf (argv[2], "%i", &n_boxes);
+    if (argc >= 4)
+      sscanf (argv[3], "%i", &n_samples);
+    if (argc >= 5) 
+      sscanf (argv[4], "%ui", &theSeed);
+    if (argc >= 6)
+      scanf (argv[5], "%i", &use_f_scale);
+    if (argc >= 7)
+      scanf (argv[6], "%i", &UseLogPi);
+    if (argc >=8)
+      scanf (argv[7], "%i", &prior_type);
+    if (argc >=9)
+      cout << "# Usage: MRS <tree_space> <n_boxes> <n_samples> <seed> "
+           << "<use_f_scale> <UseLogPi> <prior_type>; "
+           << "extra arguments ignored.\n";
+  }
+  
+  cout << "# tree_space: " << tree_space << "  n_boxes: " << n_boxes 
+       << "  n_samples: " << n_samples << "  rng_seed = " << theSeed  << endl; 
+  
+  
+  FPhyloPOT FPhylo(tree_space, DomainCFN3, UseLogPi, prior_type);
+  
+  ProduceMRSamples(FPhylo, n_boxes, n_samples, Alb, theSeed, use_f_scale);
+  
+  
+  return 0;     
+}
+\end{DoxyCode}
+\hypertarget{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp_a631ece91d072eb67cffd058e11c49468}{\index{\-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp@{\-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp}!\-Produce\-M\-R\-Samples@{\-Produce\-M\-R\-Samples}}
+\index{\-Produce\-M\-R\-Samples@{\-Produce\-M\-R\-Samples}!MooreRejSam/PhyloPOT/PhyloPOT.cpp@{\-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp}}
+\paragraph[{\-Produce\-M\-R\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Produce\-M\-R\-Samples} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Fobj} \&}]{f, }
+\item[{int}]{n\-\_\-boxes, }
+\item[{int}]{n\-\_\-samples, }
+\item[{double}]{\-Alb, }
+\item[{unsigned}]{seed, }
+\item[{bool}]{use\-\_\-f\-\_\-scale}
+\end{DoxyParamCaption}
+)}}\label{MooreRejSam_2PhyloPOT_2PhyloPOT_8cpp_a631ece91d072eb67cffd058e11c49468}
+
+
+\-Definition at line 61 of file \-Moore\-Rej\-Sam/\-Phylo\-P\-O\-T/\-Phylo\-P\-O\-T.\-cpp.
+
+
+
+\-References \-R\-S\-Sample\-::\-Envelope\-Integral, \-Fobj\-::get\-\_\-interval\-\_\-calls(), \-Fobj\-::get\-\_\-real\-\_\-calls(), \-R\-S\-Sample\-::\-Integral\-Estimate(), \-R\-S\-Sample\-::\-Mean(), \-R\-S\-Sample\-::\-Print(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), and \-R\-S\-Sample\-::\-Samples.
+
+
+\begin{DoxyCode}
+{
+    // Construct theSampler with the chosen target shape object f
+  MRSampler theSampler (f, n_boxes, Alb, seed, (use_f_scale == 1));
+  
+  //ofstream dout("PhyloPOTdomain.txt");
+  //theSampler.Output_Domain_Partition(dout);
+  
+  // To realize a file output of the RangeDomainSet
+  ofstream os("PhyloPOTOutput.txt");         // Filename
+  os << theSampler << endl;                   // 
+  cout << "The output has been written to PhyloPOTOutput.txt" << endl << endl;
+  
+  ofstream out ("MRS_PhyloPOT.samples");//file to store the i.i.d samples
+  
+  clock_t T1 = clock (), T2, T3;
+  T2 = clock ();
+  double Ptime = (double) (T2 - T1) / CLOCKS_PER_SEC;
+  
+  RSSample rs_sample;
+  
+  cout << "before Rej..SampleMany \n";
+  cout << "n_samples: " << n_samples << endl;
+  
+  theSampler.RejectionSampleMany (n_samples, rs_sample);
+  
+  cout << "after Rej..SampleMany \n";
+  
+  double IntegralEstimate = _double (rs_sample.IntegralEstimate ());
+  cout << "rs_sample IU, N, Nrs: " << rs_sample.EnvelopeIntegral << " " 
+       << rs_sample.Samples.size() << " " << rs_sample.Samples.size() << endl;
+  
+  cout << "RSSampleMany, integral est: " << IntegralEstimate << endl;
+  
+  cout << "RSSampleMany mean: \n"; rs_sample.Mean ();
+  rs_sample.Print(out);
+  
+  cout << "n interval function calls: " << f.get_interval_calls () << endl;
+  
+  cout << "n real function calls: " << f.get_real_calls () << endl;
+  
+    
+  //
+      ----------------------------------------------------------------------------
+  T3 = clock ();
+  double Stime = (double) (T3 - T2) / CLOCKS_PER_SEC;
+  cout << "# CPU Time (seconds). Partitioning: " << Ptime << "  Sampling: " 
+       << Stime << "  Total: " << (Ptime + Stime) << endl;
+  cout << "# CPU time (seconds) per estimate: " 
+       << (Ptime + Stime) / (double) (n_samples) << endl;
+  
+}
+\end{DoxyCode}

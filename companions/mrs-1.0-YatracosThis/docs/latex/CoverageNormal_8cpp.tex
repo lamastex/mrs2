@@ -1,0 +1,633 @@
+\hypertarget{CoverageNormal_8cpp}{\subsection{\-Coverage\-Normal.\-cpp \-File \-Reference}
+\label{CoverageNormal_8cpp}\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}}
+}
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-cdf.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-integration.\-h$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$cmath$>$}\*
+{\ttfamily \#include $<$boost/math/distributions/normal.\-hpp$>$}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structFinMix}{\-Fin\-Mix}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{CoverageNormal_8cpp_a9021606bd7e0ccdbdb204b596e265de0}{\-Fin\-Mix\-P\-D\-F} (double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+double \hyperlink{CoverageNormal_8cpp_ae8fb9bc2f15455a39056110b8d4032d4}{\-Fin\-Mix\-C\-D\-F} (double, double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+double \hyperlink{CoverageNormal_8cpp_ab92e3b135b92374b9442d24e210139ad}{\-Fin\-Mix\-Int1} (double, void $\ast$)
+\item 
+double \hyperlink{CoverageNormal_8cpp_afb047f418e144a9bc7d15f6bb2515e34}{\-Fin\-Mix\-Int2} (double, void $\ast$)
+\item 
+double \hyperlink{CoverageNormal_8cpp_ab91f1fa7223911ea415a2637eadb6a26}{\-Fin\-Mix\-Abs} (double, void $\ast$)
+\begin{DoxyCompactList}\small\item\em \-Get the absolute error of a finite mixture at x. \end{DoxyCompactList}\item 
+dotprecision \hyperlink{CoverageNormal_8cpp_a416f731e5ce582c3e5c503b5c2aae7b3}{dp\-Fin\-Mix\-I\-A\-E} (double, double, double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+dotprecision \hyperlink{CoverageNormal_8cpp_ac799088b059b39fe7ba90b2baeaf0208}{dp\-Fin\-Mix\-I\-A\-E\-Boun} (double, double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+int \hyperlink{CoverageNormal_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{CoverageNormal_8cpp_a416f731e5ce582c3e5c503b5c2aae7b3}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!dp\-Fin\-Mix\-I\-A\-E@{dp\-Fin\-Mix\-I\-A\-E}}
+\index{dp\-Fin\-Mix\-I\-A\-E@{dp\-Fin\-Mix\-I\-A\-E}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{dp\-Fin\-Mix\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}dotprecision {\bf dp\-Fin\-Mix\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{double}]{x1, }
+\item[{double}]{x2, }
+\item[{double}]{fhat, }
+\item[{vector$<$ double $>$}]{\-W, }
+\item[{vector$<$ double $>$}]{\-M, }
+\item[{vector$<$ double $>$}]{\-S}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageNormal_8cpp_a416f731e5ce582c3e5c503b5c2aae7b3}
+
+
+\-Definition at line 477 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References dp\-Fin\-Mix\-I\-A\-E().
+
+
+
+\-Referenced by dp\-Fin\-Mix\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+dotprecision dpFinMixIAE;
+dpFinMixIAE = 0.0;
+double result = 0.0;
+
+//accumulate(dpFinMixIAE, result, 1.0);
+
+
+return dpFinMixIAE;
+}
+\end{DoxyCode}
+\hypertarget{CoverageNormal_8cpp_ac799088b059b39fe7ba90b2baeaf0208}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!dp\-Fin\-Mix\-I\-A\-E\-Boun@{dp\-Fin\-Mix\-I\-A\-E\-Boun}}
+\index{dp\-Fin\-Mix\-I\-A\-E\-Boun@{dp\-Fin\-Mix\-I\-A\-E\-Boun}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{dp\-Fin\-Mix\-I\-A\-E\-Boun}]{\setlength{\rightskip}{0pt plus 5cm}dotprecision {\bf dp\-Fin\-Mix\-I\-A\-E\-Boun} (
+\begin{DoxyParamCaption}
+\item[{double}]{x1, }
+\item[{double}]{x2, }
+\item[{vector$<$ double $>$}]{\-W, }
+\item[{vector$<$ double $>$}]{\-M, }
+\item[{vector$<$ double $>$}]{\-S}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageNormal_8cpp_ac799088b059b39fe7ba90b2baeaf0208}
+
+
+\-Definition at line 490 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References dp\-Fin\-Mix\-I\-A\-E\-Boun().
+
+
+\begin{DoxyCode}
+{
+dotprecision dpFinMixIAEBoun;
+dpFinMixIAEBoun = 0.0;
+double Ncomp = W.size();
+double cdfLeft = 0.0;
+double cdfRight = 0.0;
+int c;
+
+for (c=0; c < Ncomp; c++)
+{
+normal component(M[c], S[c]);
+cdfLeft += W[c]*(cdf(component, x1));
+cdfRight += 1-W[c]*(cdf(component, x2));
+}
+
+accumulate(dpFinMixIAEBoun, cdfLeft, 1.0);
+accumulate(dpFinMixIAEBoun, cdfRight, 1.0);
+
+return dpFinMixIAEBoun;
+}
+\end{DoxyCode}
+\hypertarget{CoverageNormal_8cpp_ab91f1fa7223911ea415a2637eadb6a26}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!\-Fin\-Mix\-Abs@{\-Fin\-Mix\-Abs}}
+\index{\-Fin\-Mix\-Abs@{\-Fin\-Mix\-Abs}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{\-Fin\-Mix\-Abs}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-Abs} (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{void $\ast$}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageNormal_8cpp_ab91f1fa7223911ea415a2637eadb6a26}
+
+
+\-Get the absolute error of a finite mixture at x. 
+
+\-Function to get absolute error 
+
+\-Definition at line 191 of file errorfunc.\-cpp.
+
+
+
+\-References \-Fin\-Mix\-::fhat, \-Fin\-Mix\-Abs(), \-Fin\-Mix\-P\-D\-F(), \-Fin\-Mix\-::\-M, \-Fin\-Mix\-::\-S, and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+FinMix mixt = *(FinMix *) params;
+double FinMixAbs = fabs(mixt.fhat - FinMixPDF(x, mixt.W, mixt.M, mixt.S));
+return FinMixAbs;
+}
+\end{DoxyCode}
+\hypertarget{CoverageNormal_8cpp_ae8fb9bc2f15455a39056110b8d4032d4}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!\-Fin\-Mix\-C\-D\-F@{\-Fin\-Mix\-C\-D\-F}}
+\index{\-Fin\-Mix\-C\-D\-F@{\-Fin\-Mix\-C\-D\-F}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{\-Fin\-Mix\-C\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-C\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{double}]{x1, }
+\item[{double}]{x2, }
+\item[{vector$<$ double $>$}]{\-W, }
+\item[{vector$<$ double $>$}]{\-M, }
+\item[{vector$<$ double $>$}]{\-S}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageNormal_8cpp_ae8fb9bc2f15455a39056110b8d4032d4}
+\-Function to get \-C\-D\-F 
+
+\-Definition at line 447 of file \-Coverage\-Normal.\-cpp.
+
+
+\begin{DoxyCode}
+{
+double Ncomp = W.size();
+double CDF = 0;
+for (int c=0; c < Ncomp; c++)
+{
+normal component(M[c], S[c]);
+CDF += W[c]*(cdf(component, x2) - cdf(component, x1));
+//cout << "CDF is: " << CDF << endl;
+}
+return CDF;
+}
+\end{DoxyCode}
+\hypertarget{CoverageNormal_8cpp_ab92e3b135b92374b9442d24e210139ad}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!\-Fin\-Mix\-Int1@{\-Fin\-Mix\-Int1}}
+\index{\-Fin\-Mix\-Int1@{\-Fin\-Mix\-Int1}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{\-Fin\-Mix\-Int1}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-Int1} (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{void $\ast$}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageNormal_8cpp_ab92e3b135b92374b9442d24e210139ad}
+
+
+\-Definition at line 461 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References taylor\-::exp(), and \-Fin\-Mix\-Int1().
+
+
+
+\-Referenced by \-Fin\-Mix\-Int1().
+
+
+\begin{DoxyCode}
+{
+double sigma = *(double *) params;
+double FinMixInt1 =exp(-(x/sigma));
+return FinMixInt1;
+}
+\end{DoxyCode}
+\hypertarget{CoverageNormal_8cpp_afb047f418e144a9bc7d15f6bb2515e34}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!\-Fin\-Mix\-Int2@{\-Fin\-Mix\-Int2}}
+\index{\-Fin\-Mix\-Int2@{\-Fin\-Mix\-Int2}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{\-Fin\-Mix\-Int2}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-Int2} (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{void $\ast$}]{params}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageNormal_8cpp_afb047f418e144a9bc7d15f6bb2515e34}
+
+
+\-Definition at line 469 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References taylor\-::exp(), and \-Fin\-Mix\-Int2().
+
+
+
+\-Referenced by \-Fin\-Mix\-Int2().
+
+
+\begin{DoxyCode}
+{
+vector<double> MS = *(vector<double> *) params;
+double FinMixInt2 = exp(-0.5*((x-MS[0])/MS[1] + (x-MS[2])/MS[3]));
+return FinMixInt2; 
+}
+\end{DoxyCode}
+\hypertarget{CoverageNormal_8cpp_a9021606bd7e0ccdbdb204b596e265de0}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!\-Fin\-Mix\-P\-D\-F@{\-Fin\-Mix\-P\-D\-F}}
+\index{\-Fin\-Mix\-P\-D\-F@{\-Fin\-Mix\-P\-D\-F}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{\-Fin\-Mix\-P\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-P\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{vector$<$ double $>$}]{\-W, }
+\item[{vector$<$ double $>$}]{\-M, }
+\item[{vector$<$ double $>$}]{\-S}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageNormal_8cpp_a9021606bd7e0ccdbdb204b596e265de0}
+\-Function to get \-P\-D\-F 
+
+\-Definition at line 422 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::pow(), and taylor\-::sqrt().
+
+
+\begin{DoxyCode}
+{
+int Ncomp = W.size();
+
+
+double PDF = 0;
+for (int c=0; c < Ncomp; c++)
+{
+//transfer to standard normal
+double  z =  (x-M[c])/S[c];
+double term = pow((z-M[c])/S[c], 2);
+PDF += W[c]*exp(-0.5*term)/S[c]/sqrt(2*M_PI);
+}  
+return PDF;
+}
+\end{DoxyCode}
+\hypertarget{CoverageNormal_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Coverage\-Normal.\-cpp@{\-Coverage\-Normal.\-cpp}!main@{main}}
+\index{main@{main}!CoverageNormal.cpp@{\-Coverage\-Normal.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{CoverageNormal_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 85 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References subpavings\-::count\-Lines\-In\-Txt(), dp\-Fin\-Mix\-I\-A\-E\-Boun(), dp\-I\-A\-E, dp\-I\-A\-E\-Boun, \-F(), \-Fin\-Mix\-::fhat, \-Fin\-Mix\-Abs(), \-Fin\-Mix\-C\-D\-F(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::insert\-Rvectors\-From\-Txt(), taylor\-::\-Lb(), \-Fin\-Mix\-::\-M, \-Nbin, subpavings\-::\-N\-O\-L\-O\-G, taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), \-Fin\-Mix\-::\-S, subpavings\-::sp\-Leaves(), taylor\-::sqrt(), taylor\-::\-Ub(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+// user-input Kn and which dataset to use
+int mix = atoi(argv[1]);
+int D=atoi(argv[2]);
+int step=atoi(argv[3]);
+
+// Read mixture file
+string mixfileName;
+mixfileName = "MixtureFiles/mix";
+std::ostringstream stm1;
+stm1 << mix;
+mixfileName += stm1.str();
+mixfileName += ".txt";
+ifstream infile(mixfileName.c_str());
+double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+double W, M, V;
+
+// create vectors for Weight, Mean, Sigma
+vector<double> Weight;
+vector<double> Mean;
+vector<double> Sigma;
+
+while ( !infile.eof() )
+{
+infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+
+W=Weight1/Weight2;
+Weight.push_back(W);
+M=Mean1/Mean2;
+Mean.push_back(M);
+V=Var1/Var2;
+Sigma.push_back(sqrt(V));
+}
+
+Weight.pop_back();
+Mean.pop_back();
+Sigma.pop_back();
+
+// get number of components in mixture
+int Ncomp = countLinesInTxt(mixfileName) - 1;
+
+cout << "There are " << Ncomp << " components in mixture " << mix << endl;
+
+// put the parameters as data members of the structure
+FinMix mixt;
+mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+
+// Build the Histogram
+// make a box: the same box will be used by all histograms
+// so should be big enough for all of them
+    ivector pavingBox(1);
+    interval dim(-10,10);
+    pavingBox[1] = dim;
+
+
+cout << "Doing hist number " << D << endl;
+
+// create a name for the file of random variates.
+string samplesfileName;
+samplesfileName = "FinMix";
+std::ostringstream stm2;
+stm2 << D;
+samplesfileName += stm1.str();
+samplesfileName += "Data";
+samplesfileName += stm2.str();
+samplesfileName += ".txt"; // and finish the filename
+
+cout << "Reading data from file " << samplesfileName  << endl;
+int n = countLinesInTxt(samplesfileName);
+cout << "There are " << n << " random variables " << n << endl;
+
+// maxCount
+size_t maxCount = n;
+
+// set up containers
+ vector<double> timeVec;
+ vector<double>::iterator itTimeVec;
+
+ vector<dotprecision> dpIAEVec;
+ vector<dotprecision>::iterator dpIAEVecIt;
+
+ vector<int> nBoxVec;
+ vector<int>::iterator nBoxVecIt;
+
+ vector<double> covAllVec;
+ vector<double>::iterator itCovAllVec;
+
+ vector<double> diffMuVec;
+ vector<double>::iterator itDiffMuVec;
+ 
+for (int mC = 1; mC <= maxCount; mC++)
+{
+    int maxC = mC*step;
+    cout << "Maximum count is : " << maxC << endl;
+  
+   // set up parameters for prioritySplit
+   CritLargestCount_LTE critCount(maxC);
+   CompCount nodeCompCount;
+
+    // fileName to store output from histogram constructed
+    string fileName;
+    bool successfulInsertion; //for successful insertion of data from container
+    bool successfulPQSplit;
+
+        // Construct histogram
+        clock_t start, end;
+  start = clock();
+        // make an Adaptive Histogram object with a specified box
+        AdaptiveHistogram myHist(pavingBox);
+  // AdaptiveHistogram myHist;
+
+        successfulInsertion = myHist.insertRvectorsFromTxt(samplesfileName);
+
+        if (successfulInsertion) {
+        successfulPQSplit = myHist.prioritySplit(nodeCompCount, critCount, NOLOG
+      );
+        
+       end = clock();
+       double timing;
+       timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+       cout << "Computing time : " << timing << " s."<< endl;
+       timeVec.push_back(timing);
+       } // end of successfulInsertion
+ 
+       successfulInsertion = successfulInsertion && successfulPQSplit;
+  
+
+        // only do more if some data was fed in
+        if(successfulInsertion) {
+
+            // optional
+            // To realise a file output
+            // create a name for the file to output
+  //    fileName = "FinMix";
+            // convert j and k to a string
+       //     std::ostringstream stm3;
+       //     stm3 << maxC;
+            // add the stringed j to the filename
+    //        fileName += stm1.str();
+    //        fileName = "AdapHist";
+//      fileName += stm3.str();
+//            fileName += "Data";
+//            fileName += stm2.str();
+    //  fileName += "Data";
+//      fileName += stm2.str();
+//            fileName += ".txt"; // and finish the filename
+//            myHist.outputToTxtTabs(fileName);
+  
+          SPSnodePtrs leaves; // set up empty container for leaf node pointers
+          SPSnodePtrsItr it; // and an iterator over the container
+          myHist.getSubPaving()->getLeaves(leaves); // fill the container
+          // container is filled by reading leaves off tree from left to right
+
+          // a container for the counts
+          IntVec counts;  // IntVec is a typedef for vector<int>
+                            // the iterator is typedefed as IntVecItr
+          // a container for the boxes
+          vector<ivector> boxes;
+          vector<ivector>::iterator itBoxes;
+          // a container for the volumes
+          vector<double> volumes;
+          // a valarray container for the node levels, sized to fit
+          valarray<int> levels(spLeaves(myHist.getSubPaving()));
+          // a container for fhat
+          vector<double> fhat;
+          vector<double>::iterator itFhat;
+          // a container for Fstar
+          vector<double> Fstar;
+         
+          double diffMu = 0;
+
+       for(it = leaves.begin(); it < leaves.end(); it++) {
+        // remember that it points to a pointer, so *it is still a ptr
+        // get the counts in all the leaves
+        counts.push_back((*it)->getCounter());
+        // get the boxes from all the leaves
+        boxes.push_back((*it)->getBox());
+        // get the volumes of all the leaves
+        volumes.push_back((*it)->nodeVolume());
+        // get fhat for all leaves
+        fhat.push_back(((*it)->getCounter()*1.0)/((*it)->nodeVolume())/(n*1.0))
+      ;
+
+        rvector xuppVec = Sup((*it)->getBox());
+        double xupp = _double(xuppVec[1]);
+        rvector xlowVec = Inf((*it)->getBox());
+        double xlow = _double(xlowVec[1]);
+        double CDF=FinMixCDF(xlow, xupp, Weight, Mean, Sigma);
+        Fstar.push_back(CDF);
+        // calculate \mu_n - \mu
+        diffMu += fabs((*it)->getCounter()*1.0/(n*1.0) - CDF);
+       } // end of iterating through leaves
+
+      diffMuVec.push_back(diffMu);
+//---Error calculations---
+//----Integrated Absolute Error (IAE)-----
+dotprecision dpIAE, dpIAEBoun;
+dpIAE = 0.0;
+
+int Nbin=counts.size();
+cout << "There are " << Nbin << " leaves in histogram " << D << endl;
+nBoxVec.push_back(Nbin);
+
+
+gsl_integration_workspace * w = gsl_integration_workspace_alloc(1000);
+double result = 0.0;
+double error;
+gsl_function F;
+F.function = &FinMixAbs;
+F.params =  &mixt;
+
+for (int k=0; k< Nbin; k++){
+//  cout << "calculating error for bin " << j+1 << endl;
+  mixt.fhat = fhat[k];
+  rvector xuppVec = Sup(boxes[k]);
+  double xupp = _double(xuppVec[1]);
+  rvector xlowVec = Inf(boxes[k]);
+  double xlow = _double(xlowVec[1]);
+  gsl_integration_qags(&F, xlow, xupp, 0, 1e-7, 1000, w, &result, &error);
+  accumulate(dpIAE, result, 1.0);
+}
+// Accounting for the boundaries
+  cout << "Calculating IAE of the boundaries" << endl;
+
+  rvector xuppVec1 = Sup(boxes[Nbin-1]);
+  double xupp1 = _double(xuppVec1[1]);
+  rvector xlowVec1 = Inf(boxes[0]);
+  double xlow1 = _double(xlowVec1[1]);
+  dpIAEBoun = dpFinMixIAEBoun(xlow1, xupp1, Weight, Mean, Sigma);
+  dpIAE += dpIAEBoun;
+  cout<<dpIAE<<endl;
+
+  gsl_integration_workspace_free (w);
+  // store IAE in vector
+  dpIAEVec.push_back(dpIAE);
+ 
+//------------Calculate lower and upper bounds---------------------
+double totVol = 20;
+cout << "total volume: " << totVol << endl;
+for (int a=1; a<=90; a++){
+double alpha = a*0.01;
+double yesCovOne = 0;
+
+  for (int i =0; i < Nbin; i++){
+  // c
+  double c = gsl_cdf_ugaussian_Qinv(alpha/2*volumes[i])*sqrt(totVol/volumes[i])
+      /2/sqrt(n);
+ 
+  // lower bound
+  double Lb = pow(fmax(sqrt(fhat[i])-c, 0), 2);
+  // upper bound
+  double Ub = pow(sqrt(fhat[i]) + c, 2);
+
+  if (Fstar[i]/volumes[i] >= Lb && Fstar[i]/volumes[i] <= Ub)
+  { yesCovOne += 1;}
+}
+//cout << yesCovOne*1.0/Nbin*1.0 << " bins inside envelope" << endl;
+covAllVec.push_back(yesCovOne*1.0/(Nbin*1.0));
+} // end of loop for alpha
+
+ofstream oss;
+oss << scientific;
+oss.precision(5);
+string CIFileName;
+CIFileName = "FinMixCI";
+CIFileName += stm2.str();
+CIFileName += ".txt";
+oss.open(CIFileName.c_str());
+for (itCovAllVec = covAllVec.begin(); itCovAllVec < covAllVec.end(); 
+      itCovAllVec++){
+oss << (*itCovAllVec) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "CI's output to " << CIFileName << endl;
+
+   }// end of succesfulInsertion
+ } // end of for loop for maxC
+
+// output IAE to file
+string IAEFileName;
+ofstream oss;
+oss << scientific;
+oss.precision(5);
+
+IAEFileName = "FinMix";
+IAEFileName += stm1.str();
+IAEFileName += "IAEData";
+IAEFileName += stm2.str();
+IAEFileName += ".txt";
+oss.open(IAEFileName.c_str());
+for (dpIAEVecIt = dpIAEVec.begin(); dpIAEVecIt < dpIAEVec.end(); dpIAEVecIt++){
+oss << (*dpIAEVecIt) << endl;
+}
+oss << flush;
+oss.close();
+cout << "IAE output to " << IAEFileName << endl;
+
+string timeFileName;
+timeFileName = "FinMixTimeData";
+timeFileName += stm2.str();
+timeFileName += ".txt";
+oss.open(timeFileName.c_str());
+for (itTimeVec = timeVec.begin(); itTimeVec < timeVec.end(); itTimeVec++){
+oss << (*itTimeVec) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "Timings output to " << timeFileName << endl;
+
+//------output Epsilon------------------
+string diffMuFileName;
+diffMuFileName = "FinMixDiffMu";
+diffMuFileName += stm2.str();
+diffMuFileName += ".txt";
+oss.open(diffMuFileName.c_str());
+for (itDiffMuVec = diffMuVec.begin(); itDiffMuVec < diffMuVec.end(); 
+      itDiffMuVec++){
+oss << (*itDiffMuVec) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "Diff Mu output to " << diffMuFileName << endl;
+
+
+string BoxCountFileName;
+BoxCountFileName = "FinMixBoxCount";
+BoxCountFileName += stm2.str();
+BoxCountFileName += ".txt";
+oss.open(BoxCountFileName.c_str());
+for (nBoxVecIt = nBoxVec.begin(); nBoxVecIt < nBoxVec.end(); nBoxVecIt++){
+oss << (*nBoxVecIt) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "Box Count output to " << BoxCountFileName << endl;
+ return 0;
+
+} // end of FinMixPQLeaves program
+\end{DoxyCode}

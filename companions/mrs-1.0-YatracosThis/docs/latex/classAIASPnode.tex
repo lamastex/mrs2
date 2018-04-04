@@ -1,0 +1,1016 @@
+\hypertarget{classAIASPnode}{\subsection{\-A\-I\-A\-S\-Pnode \-Class \-Reference}
+\label{classAIASPnode}\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}}
+}
+
+
+\-A\-I\-A\-Sub\-Paving node class.  
+
+
+
+
+{\ttfamily \#include $<$\-A\-I\-Asubpaving.\-hpp$>$}
+
+
+
+\-Collaboration diagram for \-A\-I\-A\-S\-Pnode\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAIASPnode_a69e70b41f415cb17b09690315320b194}{\-A\-I\-A\-S\-Pnode} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classAIASPnode_a71f172fa0bf3aba39084ea502f79f523}{\-A\-I\-A\-S\-Pnode} (ivector \&v)
+\begin{DoxyCompactList}\small\item\em \-Initialized constructor. \end{DoxyCompactList}\item 
+\hyperlink{classAIASPnode_a95c45cd98b8ffad6b1bec8bdbdf36c3a}{\-A\-I\-A\-S\-Pnode} (const \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} \&n)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classAIASPnode_a57d10c2f272f0e78f1a72e4f5f548e77}{$\sim$\-A\-I\-A\-S\-Pnode} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ivector $\ast$ \hyperlink{classAIASPnode_ab904c07918618a89d5511fbaf87f5143}{the\-Box}
+\begin{DoxyCompactList}\small\item\em \-The interval vector the node represents. \end{DoxyCompactList}\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{classAIASPnode_a64dc679fe03b03b7beb6ddb04b2a0f85}{left\-Child}
+\begin{DoxyCompactList}\small\item\em \-The node's left child. \end{DoxyCompactList}\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{classAIASPnode_adbaa03014929ff2ab653d6d916ca2fc1}{right\-Child}
+\begin{DoxyCompactList}\small\item\em \-The node's right child. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Friends}
+\begin{Indent}{\bf \-Friend functions}\par
+{\em \-We have followed the implementation in \mbox{[}\-A\-I\-A2001, p. 336-\/348\mbox{]}, which uses friend functions in order to give non-\/member functions access to the private data members of the class. }\begin{DoxyCompactItemize}
+\item 
+ivector \hyperlink{classAIASPnode_ae78ba41711edb725cf1ef43c27144be3}{\-Box} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} a)
+\begin{DoxyCompactList}\small\item\em \-Returns a copy of the\-Box of an \-A\-I\-A\-Sub\-Paving. $\ast$/. \end{DoxyCompactList}\item 
+bool \hyperlink{classAIASPnode_a1d5eb42dff486e08cf1cb54fa2a719a4}{\-Is\-Empty} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} a)
+\begin{DoxyCompactList}\small\item\em \-Check if the \-A\-I\-A\-Sub\-Paving is empty. \end{DoxyCompactList}\item 
+bool \hyperlink{classAIASPnode_a8528a3302f3cce257686222b065bb807}{\-Is\-Leaf} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} a)
+\begin{DoxyCompactList}\small\item\em \-Check if the \-A\-I\-A\-Sub\-Paving is a leaf. \end{DoxyCompactList}\item 
+double \hyperlink{classAIASPnode_a7f6354ab5e7b1310b03f0e190169eabe}{\-Volume} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} a)
+\begin{DoxyCompactList}\small\item\em \-Volume of an \-A\-I\-A\-Sub\-Paving. \end{DoxyCompactList}\item 
+int \hyperlink{classAIASPnode_a6cc4fba2aef7df53e990c5348f84bd3b}{\-Nb\-Leaves} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} a)
+\begin{DoxyCompactList}\small\item\em \-Number of leaves of an \-A\-I\-A\-Sub\-Paving. \end{DoxyCompactList}\item 
+\hyperlink{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6}{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L} \hyperlink{classAIASPnode_a0869804e6aaefcc26aebe081061df6ad}{operator$<$=} (const ivector \&, \hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving})
+\begin{DoxyCompactList}\small\item\em \-Check for containment of interval vector or box in the \-A\-I\-A\-Sub\-Paving. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classAIASPnode_abf9101628f2ef58fbd1132a1c7086d06}{operator$<$$<$} (std\-::ostream \&, \hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving})
+\begin{DoxyCompactList}\small\item\em \-Output the contents of an \-A\-I\-A\-Sub\-Paving. \end{DoxyCompactList}\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{classAIASPnode_a7ca818aa239136500bfc1020684160de}{\-Sivia} (\hyperlink{AIAsubpaving_8hpp_ac3a2af016d66120f37b7e4b3da564876}{\-A\-I\-A\-\_\-\-P\-I\-B\-T} \-Bool\-Test, \hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \-A, double)
+\begin{DoxyCompactList}\small\item\em \-Set \-Inversion \-Via \-Interval \-Analysis method taken from \-A\-I\-A2001. \end{DoxyCompactList}\item 
+void \hyperlink{classAIASPnode_aa3ceca06b6916b5ac1382a5aa8bf56aa}{\-Expand} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \-A, int comp)
+\begin{DoxyCompactList}\small\item\em \-Expand a leaf node to have two child nodes. \end{DoxyCompactList}\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{classAIASPnode_ad0b3998c79d0cbf91d21c550a6bb72e7}{\-Re\-Unite} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} l\-Child, \hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} r\-Child, ivector x)
+\begin{DoxyCompactList}\small\item\em \-Return a minimal subpaving from two sibling subpavings. \end{DoxyCompactList}\item 
+void \hyperlink{classAIASPnode_ab7921c5bd80f01985ee134c5d2ab595d}{\-Mince} (\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \-A, double eps)
+\begin{DoxyCompactList}\small\item\em \-Mince up a subpaving. \end{DoxyCompactList}\item 
+void \hyperlink{classAIASPnode_a1032a6cd48f87337e0980fe290c140b8}{\-Evaluate} (\hyperlink{AIAsubpaving_8hpp_aee443215927e43ef8f6880f25b053a2e}{\-A\-I\-A\-\_\-\-P\-I\-V\-F}, \hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \-A, list$<$ ivector $>$ \&eval\-Images, ivector \&hull)
+\begin{DoxyCompactList}\small\item\em \-Evaluate the image. \end{DoxyCompactList}\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{classAIASPnode_a1b1148d30745256482cbc7cca090253d}{\-Regularize} (ivector \&hull, list$<$ ivector $>$ \&ivector\-List, double eps)
+\begin{DoxyCompactList}\small\item\em \-Forms a minimal image subpaving from a list of interval vector images. \end{DoxyCompactList}\item 
+\hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \hyperlink{classAIASPnode_aa860838286031ef8164937725092a2c2}{\-Image\-Sp} (\hyperlink{AIAsubpaving_8hpp_aee443215927e43ef8f6880f25b053a2e}{\-A\-I\-A\-\_\-\-P\-I\-V\-F}, \hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving} \-A, double eps)
+\begin{DoxyCompactList}\small\item\em \-Creation of an image subpaving (\-Image\-Sp) with \-Interval \-Analysis from \-A\-I\-A2001. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Related \-Functions}
+(\-Note that these are not member functions.) \begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classAIASPnode_a8713b30834070a586c0b99d9899f9b74}{vol\-Compare} (const ivector \&a, const ivector \&b)
+\begin{DoxyCompactList}\small\item\em \-Compare volumes of two boxes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A\-I\-A\-Sub\-Paving node class. 
+
+\-A class based on the \-Sub-\/paving node class from \mbox{[}\-A\-I\-A2001, p. 336-\/348\mbox{]} implemented over \-C-\/\-X\-S\-C. \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} is a node in the tree representation of a regular subpaving. \-A node represents a box (interval vector). \-S\-Pnodes are linked to children to form a binary tree. \-A subpaving of \mbox{[}{\bfseries x}\mbox{]} (union of non-\/overlapping subboxes of \mbox{[}{\bfseries x}\mbox{]}) is represented by the leaves (degenerate/ child-\/less) nodes in the tree. \-This class replicates the set computation functionality of the subpaving nodes developed in \-A\-I\-A2001. 
+
+\-Definition at line 82 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classAIASPnode_a69e70b41f415cb17b09690315320b194}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}}
+\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-A\-I\-A\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-S\-Pnode\-::\-A\-I\-A\-S\-Pnode} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classAIASPnode_a69e70b41f415cb17b09690315320b194}
+
+
+\-Default constructor. 
+
+
+
+\-Definition at line 94 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\-References left\-Child, right\-Child, and the\-Box.
+
+
+
+\-Referenced by \-A\-I\-A\-S\-Pnode().
+
+
+\begin{DoxyCode}
+      {theBox=NULL; leftChild=NULL; rightChild=NULL;}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a71f172fa0bf3aba39084ea502f79f523}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}}
+\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-A\-I\-A\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-S\-Pnode\-::\-A\-I\-A\-S\-Pnode} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classAIASPnode_a71f172fa0bf3aba39084ea502f79f523}
+
+
+\-Initialized constructor. 
+
+
+
+\-Definition at line 98 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\-References left\-Child, right\-Child, and the\-Box.
+
+
+\begin{DoxyCode}
+      {theBox=new ivector(v); leftChild=NULL; rightChild=NULL;}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a95c45cd98b8ffad6b1bec8bdbdf36c3a}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}}
+\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-A\-I\-A\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-S\-Pnode\-::\-A\-I\-A\-S\-Pnode} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-A\-I\-A\-S\-Pnode} \&}]{n}
+\end{DoxyParamCaption}
+)}}\label{classAIASPnode_a95c45cd98b8ffad6b1bec8bdbdf36c3a}
+
+
+\-Copy constructor. 
+
+
+
+\-Definition at line 29 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+
+\-References \-A\-I\-A\-S\-Pnode(), left\-Child, right\-Child, and the\-Box.
+
+
+\begin{DoxyCode}
+{
+  theBox=new ivector(*n.theBox);
+  //recursion on the children
+  if (n.leftChild) leftChild=new AIASPnode(*n.leftChild);
+  else leftChild=NULL;
+  if (n.rightChild) rightChild=new AIASPnode(*n.rightChild);
+  else rightChild=NULL;
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a57d10c2f272f0e78f1a72e4f5f548e77}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!$\sim$\-A\-I\-A\-S\-Pnode@{$\sim$\-A\-I\-A\-S\-Pnode}}
+\index{$\sim$\-A\-I\-A\-S\-Pnode@{$\sim$\-A\-I\-A\-S\-Pnode}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{$\sim$\-A\-I\-A\-S\-Pnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-S\-Pnode\-::$\sim$\-A\-I\-A\-S\-Pnode} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classAIASPnode_a57d10c2f272f0e78f1a72e4f5f548e77}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 105 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\-References left\-Child, right\-Child, and the\-Box.
+
+
+\begin{DoxyCode}
+      {delete theBox; delete leftChild; delete rightChild;}
+\end{DoxyCode}
+
+
+\subsubsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classAIASPnode_ae78ba41711edb725cf1ef43c27144be3}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Box@{\-Box}}
+\index{\-Box@{\-Box}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Box}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-Box} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_ae78ba41711edb725cf1ef43c27144be3}
+
+
+\-Returns a copy of the\-Box of an \-A\-I\-A\-Sub\-Paving. $\ast$/. 
+
+
+
+\-Definition at line 114 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+\begin{DoxyCode}
+      { return (*a->theBox); }
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a1032a6cd48f87337e0980fe290c140b8}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Evaluate@{\-Evaluate}}
+\index{\-Evaluate@{\-Evaluate}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Evaluate}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Evaluate} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-\_\-\-P\-I\-V\-F}}]{f, }
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{\-A, }
+\item[{list$<$ ivector $>$ \&}]{eval\-Images, }
+\item[{ivector \&}]{hull}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a1032a6cd48f87337e0980fe290c140b8}
+
+
+\-Evaluate the image. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em f} & a pointer to an interval vector function which returns the image box under f of some interval vector \\
+\hline
+{\em \-A} & the node of the subpaving to be evaluated \\
+\hline
+{\em eval\-Images} & a container of image interval vectors \\
+\hline
+{\em hull} & the interval hull of the image interval vectors \-Fills in the list of images using f of the subpaving boxes and update the hull of all the images.\\
+\hline
+\end{DoxyParams}
+\-Function to evaluate all the boxes in \-A\-I\-A\-Sub\-Paving. \-The images of all the boxes are formed and put into a list and the interval hull of the union of all the boxes is formed. \-Interval hull of a union is implemented under cxsc with $|$ operator. \-Boxes are expected to have been created by \hyperlink{classAIASPnode_ab7921c5bd80f01985ee134c5d2ab595d}{\-Mince()}. \-The argument f is a pointer to an interval vector function \-A\-I\-A\-\_\-\-P\-I\-V\-F (which returns an interval vector). \-A\-I\-A\-Sub\-Paving \-A is the \-A\-I\-A\-Sub\-Paving to be evaluated (should be const -\/ it is not changed in this function). eval\-Images is the current list of images to be added to in the function call, hull is an ivector hull of images currently in the list which may be altered in this call if an image is added to list 
+
+\-Definition at line 365 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  if (A!=NULL && IsLeaf(A))
+  {
+    // make an ivector image using the AIA_PIVF function f on Box(A)
+    ivector image = f(Box(A));
+
+    // if no images in image set yet, make hull the image
+    if (evalImages.size() == 0) hull = image;
+    // if there are images in the image set, hull is the convex hull of
+    else hull = (hull | image);
+    // the current hull and the ivector image from f(Box(A))
+
+    // add the image to the list of images
+    evalImages.push_back(image);
+
+  }                 // end of is a leaf
+
+  // if not a leaf, recursively call Evaluate on children
+  if (A!=NULL && !IsLeaf(A))
+  {
+
+    Evaluate(f, A->leftChild, evalImages, hull);
+    Evaluate(f, A->rightChild, evalImages, hull);
+
+  }                 // end of if is not a leaf
+
+  // case where A == NULL does nothing, just returns
+  return;
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_aa3ceca06b6916b5ac1382a5aa8bf56aa}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Expand@{\-Expand}}
+\index{\-Expand@{\-Expand}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Expand} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{\-A, }
+\item[{int}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_aa3ceca06b6916b5ac1382a5aa8bf56aa}
+
+
+\-Expand a leaf node to have two child nodes. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \-A} & a pointer to the node to be expanded. \\
+\hline
+{\em comp} & is the dimension to split along. \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 227 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  // comp argument is passed to Upper() and Lower()
+  // these functions split the box normal to direction set by comp
+
+  if (!IsLeaf(A)) return;
+  ivector lC,rC;
+  Lower(Box(A),lC,comp); Upper(Box(A), rC, comp);
+  A->leftChild = new AIASPnode(lC);
+  A->rightChild = new AIASPnode(rC);
+  //A->leftChild = new AIASPnode(Lower(Box(A),comp));
+  //A->rightChild = new AIASPnode(Upper(Box(A),comp));
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_aa860838286031ef8164937725092a2c2}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Image\-Sp@{\-Image\-Sp}}
+\index{\-Image\-Sp@{\-Image\-Sp}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Image\-Sp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-Image\-Sp} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-\_\-\-P\-I\-V\-F}}]{f, }
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{\-A, }
+\item[{double}]{eps}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_aa860838286031ef8164937725092a2c2}
+
+
+\-Creation of an image subpaving (\-Image\-Sp) with \-Interval \-Analysis from \-A\-I\-A2001. 
+
+\begin{DoxyReturn}{\-Returns}
+a minimal regular subpaving coveringing the image of \-A under some function f 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{\-Parameters}
+{\em f} & a ($\ast$\-A\-I\-A\-\_\-\-P\-I\-V\-F) which specifies the inclusion function of f and returns the inclusion function image \mbox{[}f\mbox{]}\mbox{[}x\mbox{]} of an interval vector \mbox{[}x\mbox{]} \\
+\hline
+{\em \-A} & the subpaving for which we wish to find a subpaving covering the image under f \\
+\hline
+{\em eps} & the precision with which the returned subpaving should be formed \-Image\-Sp uses \hyperlink{classAIASPnode_ab7921c5bd80f01985ee134c5d2ab595d}{\-Mince()} to chop up \-A and then \hyperlink{classAIASPnode_a1032a6cd48f87337e0980fe290c140b8}{\-Evaluate()} and \hyperlink{classAIASPnode_a1b1148d30745256482cbc7cca090253d}{\-Regularize()} to find a regular minimal subpaving covering the set of images of the boxes of the minced \-A. \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 491 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  list<ivector> images;
+  ivector hull;
+
+  Mince(A, eps);
+
+  //cout << "After mince " << endl;
+  //cout << "A has volume  " << Volume (A) << " and number of leaves "
+  //  << NbLeaves(A) << endl;
+
+  Evaluate(f, A, images, hull);
+
+  //cout << "After evaluate " << endl;
+  //cout << "Size of image list is : " << images.size()
+  //  << "  and hull has volume " << Volume(hull) << endl;
+
+  /* the output of eval is not included in the AIA examples, but it makes
+  an interesting comparison to the final subpaving */
+  // Filename
+  ofstream os2("eval.txt");
+  list<ivector>::iterator it;
+  for (it=images.begin(); it!=images.end(); it++)
+  {
+    ivector box = *it;
+    os2 << "[ " << Inf(box[1]) << " , " << Sup(box[1]) << " ] , [ "
+      << Inf(box[2]) << " , " << Sup(box[2]) << " ]" <<  endl;
+  }
+  // end of difference from AIA examples
+
+  return (Regularize(hull, images, eps));
+
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a1d5eb42dff486e08cf1cb54fa2a719a4}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Is\-Empty@{\-Is\-Empty}}
+\index{\-Is\-Empty@{\-Is\-Empty}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Is\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Is\-Empty} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a1d5eb42dff486e08cf1cb54fa2a719a4}
+
+
+\-Check if the \-A\-I\-A\-Sub\-Paving is empty. 
+
+
+
+\-Definition at line 118 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+\begin{DoxyCode}
+      {return ( (a==NULL) || (a->theBox==NULL) ); }
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a8528a3302f3cce257686222b065bb807}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Is\-Leaf@{\-Is\-Leaf}}
+\index{\-Is\-Leaf@{\-Is\-Leaf}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Is\-Leaf}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Is\-Leaf} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a8528a3302f3cce257686222b065bb807}
+
+
+\-Check if the \-A\-I\-A\-Sub\-Paving is a leaf. 
+
+
+
+\-Definition at line 122 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return ( !IsEmpty(a) && IsEmpty(a->leftChild)
+        && IsEmpty(a->rightChild) );
+    }
+\end{DoxyCode}
+\hypertarget{classAIASPnode_ab7921c5bd80f01985ee134c5d2ab595d}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Mince@{\-Mince}}
+\index{\-Mince@{\-Mince}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Mince}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Mince} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{\-A, }
+\item[{double}]{eps}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_ab7921c5bd80f01985ee134c5d2ab595d}
+
+
+\-Mince up a subpaving. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em \-A} & a pointer to the node whose box is to be minced \\
+\hline
+{\em eps} & the maximum diameter any box in the subpaving should be \-Mince minces recursively until each leaf has maximum diameter smaller than eps.\\
+\hline
+\end{DoxyParams}
+\-Mince transforms a minimal \-A\-I\-A\-Sub\-Paving into a non-\/minimal \-A\-I\-A\-Sub\-Paving, ie may have sibling leaves. \-Any leaf \-A\-I\-A\-Sub\-Paving with a box with diameter greater than eps will be expanded. \-Mince will keep mincing until every leaf \-A\-I\-A\-Sub\-Paving has a box with diameter $<$ eps 
+
+\-Definition at line 331 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  if (IsEmpty(A)) return;
+
+  if (IsLeaf(A))
+  {
+    int comp;       // value is given by calling MaxDiam function below
+
+    // if leaf and box smaller than eps then return
+    if(MaxDiam(Box(A),comp)<eps) return;
+
+    // if leaf and box not smaller than eps then expand
+    Expand(A,comp);
+
+  }                 // end if a leaf
+
+  // not a leaf, recurse Mince() on left and right children
+  Mince(A->rightChild,eps);
+  Mince(A->leftChild,eps);
+
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a6cc4fba2aef7df53e990c5348f84bd3b}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Nb\-Leaves@{\-Nb\-Leaves}}
+\index{\-Nb\-Leaves@{\-Nb\-Leaves}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Nb\-Leaves}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Nb\-Leaves} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a6cc4fba2aef7df53e990c5348f84bd3b}
+
+
+\-Number of leaves of an \-A\-I\-A\-Sub\-Paving. 
+
+
+
+\-Definition at line 61 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  int nbleaves=0;
+
+  if (IsEmpty(a)) return 0;
+  if (IsLeaf(a))  return 1;
+
+  nbleaves += NbLeaves(a->leftChild);
+  nbleaves += NbLeaves(a->rightChild);
+
+  return (nbleaves);
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_abf9101628f2ef58fbd1132a1c7086d06}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_abf9101628f2ef58fbd1132a1c7086d06}
+
+
+\-Output the contents of an \-A\-I\-A\-Sub\-Paving. 
+
+\-This output format is not the same as used in the example code provided for \mbox{[}\-A\-I\-A2001\mbox{]}, but is adapted for easy reading and rendering in \-Matlab. 
+
+\-Definition at line 40 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  if (a==NULL) return os;
+
+  //if (IsLeaf(a)) os << (*(a->theBox)) << std::endl;
+  //output for Jenny's matlab format, dimension = 2 max
+  if (IsLeaf(a))
+  {
+    ivector x = *(a->theBox);
+    os << "[ " << Inf(x[1]) << " , " << Sup(x[1]) << " ] , "
+      << "[ " << Inf(x[2]) << " , " << Sup(x[2]) << " ]"   << std::endl;
+  }
+  else
+    { os << (a->leftChild); os << (a->rightChild); }
+
+    return os;
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a0869804e6aaefcc26aebe081061df6ad}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L} operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{z, }
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{\-X}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a0869804e6aaefcc26aebe081061df6ad}
+
+
+\-Check for containment of interval vector or box in the \-A\-I\-A\-Sub\-Paving. 
+
+
+
+\-Definition at line 98 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  // z is assumed not to be empty
+  // note that Intersection() gives an error if unequal index sets passed
+
+  if (IsEmpty(X)) return BI_FALSE;
+
+  ivector r;        // ivector to be passed to Intersection()
+  // to contain the intersection
+
+  // check if X is a leaf and if so
+  if (IsLeaf(X))
+  {
+    // *************** old code
+    //if (z<=Box(X)) return BI_TRUE;
+    //if (!Intersection(r,z,Box(X))) return BI_FALSE;
+    // what if Intersection() returns 1, ie there is an intersection
+    // but z<=Box(X) is not true?
+    // at present this goes down to the default (else) case below
+
+    //**************** replacement code
+    if (z<=Box(X))
+                    // true if z is in the box
+        return BI_TRUE;
+    else if (!Intersection(r,z,Box(X)))
+                    // false if there is no intersection between z and the box
+        return BI_FALSE;
+    else          // z is not contained in the box but there is an intersection
+                  // so result is indeterminate
+        return BI_INDET;
+  }                 // end isLeaf()
+
+  AIA_BOOL_INTERVAL Ltest=BI_TRUE,Rtest=BI_TRUE;
+
+  ivector Lz,Rz;    // ivectors to be passed to Intersection()
+  // will contain intersection after call to Intersection()
+
+                    // both children exist
+  if (!IsEmpty(X->leftChild)&&!IsEmpty(X->rightChild))
+  {
+
+                    // intersection with left child
+    if (Intersection(Lz,z,Box(X->leftChild)))
+      // Lz now contains this intersection
+    {
+                    // compare Lz and left child
+      Ltest = (Lz<=(X->leftChild));
+
+                    //check intersection with right child
+      if (Intersection(Rz,z,Box(X->rightChild)))
+      {
+                    // compare Rz and right child
+        Rtest = (Rz<=(X->rightChild));
+                    // if left and right child tests same
+        if (Ltest==Rtest)
+                    // return this result from child tests
+          return Ltest;
+        else
+                    // z overlaps the boundary of X
+          return BI_INDET;
+      }
+      else
+        return Ltest;
+    }               // end if intersection with left child
+
+                    // given no intersection with left child
+    else if (Intersection(Rz,z,Box(X->rightChild)))
+                    // check intersection with right child
+                    // compare Rz and right child
+      return (Rz<=(X->rightChild));
+
+    else            // no intersection with either child
+                    // used to be BI_TRUE here from the AIA website
+        return BI_FALSE;
+    // but this cannot possibly be correct!
+  }                 // end if both children exist
+
+                    // only left child exists
+  else if (!IsEmpty(X->leftChild))
+  {
+                    // no intersection with left child
+    if (!Intersection(Lz,z,Box(X->leftChild)))
+      return BI_FALSE;
+    // there is an intersection with the left child, this intersection now in
+       Lz
+                    // compare Lz and the left child
+    Ltest = (Lz<=(X->leftChild));
+    // Rtest will still be at default value of TRUE
+
+                    // if left child intersection with z is not z
+    if (!(Lz==z)) Rtest = BI_FALSE;
+    else            // if left child intersection with z = z
+      return Ltest; // ie is whole of z in left child
+  }                 // end if  only left child exists
+
+  else              // if is not a leaf, only right child exists
+  // BUT if it is a leaf and there is an intersection but not full containment?
+  // I have now replaced the code that gave rise to the latter case
+  {
+                    // no intersection with right child
+    if (!Intersection(Rz,z,Box(X->rightChild)))
+      return BI_FALSE;
+    //there is an intersection with the right child, this intersection now in
+       Rz
+                    // compare Rz and right child
+    Rtest = (Rz<=(X->rightChild));
+    // Ltest will still be at default value of TRUE
+                    // if right child intersection with z is not z
+    if (!(Rz==z)) Ltest = BI_FALSE;
+    else            // if right child intersection with z = z
+      return Rtest; // ie is whole of z in right child
+  }                 // end if only right child exists
+
+  // only get here if only one child (left or right exists)
+  // and the intersection of that child with z exists but is not z
+  // in which case the other test will have been set to FALSE?
+  // or if is a leaf and both Intersection() returns 1 but z<=Box(X) is not 1
+  // in which case Ltest and Rtest will both be TRUE? - that code now replaced
+
+  if (Ltest==Rtest)
+    return Ltest;
+  else
+    // if only one child, and the whole of z is not in that child but
+    // the intersection of z with that child is inside the child
+    return BI_INDET;// z overlaps the boundary of X
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a1b1148d30745256482cbc7cca090253d}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Regularize@{\-Regularize}}
+\index{\-Regularize@{\-Regularize}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Regularize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-Regularize} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{hull, }
+\item[{list$<$ ivector $>$ \&}]{ivector\-List, }
+\item[{double}]{eps}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a1b1148d30745256482cbc7cca090253d}
+
+
+\-Forms a minimal image subpaving from a list of interval vector images. 
+
+\-Uses \hyperlink{namespacesubpavings_aa20ef6d47135f798ecc95164f0e6fdec}{\-Reunite()} and recursive calls to \hyperlink{classAIASPnode_a1b1148d30745256482cbc7cca090253d}{\-Regularize()} to work up from leaf nodes to form a minimal subpaving \begin{DoxyReturn}{\-Returns}
+a regular mimimal subpaving with root box hull 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{\-Parameters}
+{\em hull} & the interval hull of all the interval vectors in the image list \\
+\hline
+{\em ivector\-List} & a collection of possibly overlapping interval vectors to be made into a regular subpaving \\
+\hline
+{\em eps} & the precision with which the returned subpaving should be formed \-There are some minor changes in this function compared to the implementation in \-A\-I\-A2001, p. 346. \-We use the std\-::list to store the interval vector images instead of a \mbox{[}constantly sorted\mbox{]} set. \-We sort the list, using \hyperlink{classAIASPnode_a8713b30834070a586c0b99d9899f9b74}{vol\-Compare()}, only when we need to. \-We sort smallest to largest (the natural std\-::list sort order) (the \-Jaulin et al images are sorted largest to smallest) and hence we find the largest image box at the end of the the list rather than at the start.\\
+\hline
+\end{DoxyParams}
+\-Regularize creates an \-A\-I\-A\-Sub\-Paving from all the ivectors in the ivector\-List. \-The root of the \-A\-I\-A\-Sub\-Paving will have \-Box = hull where hull has already been formed from the union of all the ivectors in the ivector\-List. \-Regularize is applied recursively on bisected half of hull and new lists until either there are no images in the list or the diameter of the hull is below eps. 
+
+\-Definition at line 427 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+                    // return NULL if the list is empty
+  if (ivectorList.size()==0) return NULL;
+
+  // sort the list
+  // Jaulin et al do not have this step because they have their own IMAGELIST
+  // class which acts like a set and keeps the contents in order.  But we are
+  // using the stl std::list and so it is unsorted when it is passed to
+  // Regularize.  It is more effient to sort it once per call to Regularise
+  // than to keep it sorted as it is being built because the sorted order is
+  // only needed when the entire list has been built
+
+  // sort using the volCompare function
+  ivectorList.sort(volCompare);
+  // this sorts smallest to largest (the opposite to Jaulin et al)
+
+  // if the hull is equal to the last (largest) box in the list,
+  // this becomes the AIASubPaving
+  if (hull==(*ivectorList.rbegin())) return new AIASPnode(hull);
+
+  // un-valued int to take value for larged dimension calculated from MaxDiam
+  int maxdiamcomp;
+
+  //if the current maximum diameter is < eps return a new AIASubPaving from
+       hull
+  if (MaxDiam(hull,maxdiamcomp)<eps) return new AIASPnode(hull);
+
+  // new ivectors from splitting hull in its biggest dimension
+  ivector lefthull = Lower(hull,maxdiamcomp);
+  ivector righthull = Upper(hull,maxdiamcomp);
+
+  // create two empty lists
+  list<ivector> leftlist,rightlist;
+
+  // iterator to for the list
+  list<ivector>::iterator it;
+
+  // iterate through the current list and put the intersection of any element
+  // with the lefthull into the new left list, and the intersection of any
+  // element with new right hull into the new rightlist.
+  for (it=ivectorList.begin(); it!=ivectorList.end(); it++)
+  {
+    // temporary variables to take the results of call in Intersect
+    ivector interLeft, interRight;
+
+    if (Intersection(interLeft, *it, lefthull))
+    {
+      leftlist.push_back(interLeft);
+    }
+
+    if (Intersection(interRight, *it, righthull))
+    {
+      rightlist.push_back(interRight);
+    }
+
+  }  // end of iteration through list elements
+
+  // recursively call Regularize with lefthull, leftlist, righthull, rightlist
+  // reunite the results using hull as the box for the parent node
+  // Regularize creates a minimal AIASubPaving (no sibling child nodes)
+  return ReUnite(Regularize(lefthull,leftlist,eps),
+    Regularize(righthull,rightlist,eps),hull);
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_ad0b3998c79d0cbf91d21c550a6bb72e7}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Re\-Unite@{\-Re\-Unite}}
+\index{\-Re\-Unite@{\-Re\-Unite}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Re\-Unite}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-Re\-Unite} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{l\-Child, }
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{r\-Child, }
+\item[{ivector}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_ad0b3998c79d0cbf91d21c550a6bb72e7}
+
+
+\-Return a minimal subpaving from two sibling subpavings. 
+
+\-If two potential children are provided and they are both leaves, then \-Reunite combines the two leaf siblings into this. \-If the potential children are not leaves or if only one potential child is provided, grafts the potential child/children onto this as its child/children.
+
+\begin{DoxyReturn}{\-Returns}
+a minimal subpaving from two sibling subpavings 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{\-Parameters}
+{\em l\-Child} & a pointer to the left\-Child node to be reunited \\
+\hline
+{\em r\-Child} & a pointer to the right\-Child node to be reunited \\
+\hline
+{\em x} & is the box of the new subpaving to be returned \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 247 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  if(IsEmpty(lChild)&&IsEmpty(rChild)) return NULL;
+  AIASubPaving result = new AIASPnode(x);
+  // both AIASubPavings are leaves so discard them: new AIASubPaving is a leaf
+  if( IsLeaf(lChild)
+    &&IsLeaf(rChild)
+    &&(  x == ( Box(lChild) | Box(rChild) )  )
+    )
+    { delete lChild; delete rChild; return result; }
+
+    // if there are not two non-null potential children
+    // (so presumably just one child), just graft it on
+    // similarly if at least one child is not a leaf, just graft the potential
+    // children on
+    result->leftChild = lChild; result->rightChild = rChild;
+
+  return result;
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a7ca818aa239136500bfc1020684160de}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Sivia@{\-Sivia}}
+\index{\-Sivia@{\-Sivia}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Sivia}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-Sivia} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-\_\-\-P\-I\-B\-T}}]{\-Bool\-Test, }
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{\-A, }
+\item[{double}]{eps}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a7ca818aa239136500bfc1020684160de}
+
+
+\-Set \-Inversion \-Via \-Interval \-Analysis method taken from \-A\-I\-A2001. 
+
+\begin{DoxyReturn}{\-Returns}
+a minimal regular subpaving covering the reciprocal image of a subpaving under some function f 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{\-Parameters}
+{\em \-Bool\-Test} & a ($\ast$\-A\-I\-A\-\_\-\-P\-I\-B\-T)() which specifies the inclusion function of f and tests the inclusion function image \mbox{[}f\mbox{]}\mbox{[}x\mbox{]} of an interval vector \mbox{[}x\mbox{]} for containment in an \-S\-Pnode. \-In this implementation, the body of \-Bool\-Test specifies both the subpaving we want the image of and the function f forming the image \\
+\hline
+{\em \-A} & a subpaving whose box forms the interval vector passed to \-Bool\-Test \\
+\hline
+{\em eps} & the precision with which the returned subpaving should be formed \-S\-I\-V\-I\-A progressively subdivides the boxes of the initial search subpaving and calls itself recursively to select or reject or retest the resulting subpavings until the desired level of precision, specified by eps, in forming the subpaving to be returned has been achieved.\\
+\hline
+\end{DoxyParams}
+\-Set \-Inversion \-Via \-Interval \-Analysis method taken from \-A\-I\-A2001. \-Sivia gives an \-A\-I\-A\-Sub\-Paving which is based on the reciprocal image \-X of some function. \-Note that in this implementation, we get the outer \-A\-I\-A\-Sub\-Paving of a two, (lower\-X and \-Upper\-X) such that lower\-X is in \-X is in upper\-X \-The \-A\-I\-A\-\_\-\-P\-I\-B\-T points to a function wich specifies the function for which we want the reciprocal image and the \-A\-I\-A\-Sub\-Paving \-Y which should contain the reciprocal image. \-The \-A\-I\-A\-\_\-\-P\-I\-B\-T function evaluates whether the image of some box (ivector) is in \-Y. \-The \-A\-I\-A\-\_\-\-P\-I\-B\-T can return \-B\-I\-\_\-\-T\-R\-U\-E, \-B\-I\-\_\-\-F\-A\-L\-S\-E, or \-B\-I\-\_\-\-I\-N\-D\-E\-T (box partly in \-Y but not totally). \-If the \-A\-I\-A\-Sub\-Paving box tests \-B\-I\-\_\-\-I\-N\-D\-E\-T and the box diameter is sufficiently small then it is given the benefit of the doubt and included in upper\-X. \-Otherwise if the \-A\-I\-A\-\_\-\-P\-I\-B\-T function returns \-B\-I\-\_\-\-I\-N\-D\-E\-T then the \-A\-I\-A\-Sub\-Paving is expanded, ie two \-A\-I\-A\-Sub\-Paving children created, and these \-A\-I\-A\-Sub\-Paving children are then tested. \-The argument \-A is an \-A\-I\-A\-Sub\-Paving. \-On the first pass through \-S\-I\-V\-I\-A, \-A should have a box which is guaranteed to contain upper\-X; this \-A\-I\-A\-Sub\-Paving is progressively refined. \-The argument eps specifies the 'sufficiently small' width for a box to be included in upper\-X... 
+
+\-Definition at line 288 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  if (A==NULL) return NULL;
+
+                    // test the box of the given AIASubPaving
+  AIA_BOOL_INTERVAL test = BoolTest(Box(A));
+  // Test function (may be passed as parameter to Sivia)
+
+  // maxdiamcomp will be given a value by call to MaxDiam() below
+  int maxdiamcomp;
+
+  // the box fails the test
+  if ( test==BI_FALSE ) return NULL;
+
+  // if the box passes or the result is BI_INDET but the maximum diameter of
+  // the box is small enough, then return a new AIASubPaving which is a copy of
+  // the current one, ie include this AIASubPaving in outerX, our approximation
+  // of X the reciprocal image
+  if (test==BI_TRUE || MaxDiam(Box(A),maxdiamcomp)<eps)
+    return new AIASPnode(*A);
+
+  // SIVIA will only reach this point if the result of the test was BI_INDET
+  // and the maximum diameter of the box is not small enough for the box to be
+  // in outerX -- in this case we expand the AIASubPaving by giving it child
+  // nodes and test them
+  if (IsLeaf(A)) Expand(A,maxdiamcomp);
+
+  // ReUnite is used to get a minimal AIASubPaving from merging two
+  // AIASubPavings.  So will ensure that the AIASubPaving we return from Sivia
+  // is minimal, ie will not have sibling leaves
+  return ReUnite( Sivia(BoolTest,A->leftChild,eps),
+    Sivia(BoolTest,A->rightChild,eps),
+    Box(A));
+
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a8713b30834070a586c0b99d9899f9b74}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!vol\-Compare@{vol\-Compare}}
+\index{vol\-Compare@{vol\-Compare}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{vol\-Compare}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf vol\-Compare} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{a, }
+\item[{const ivector \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}related\mbox{]}}}}\label{classAIASPnode_a8713b30834070a586c0b99d9899f9b74}
+
+
+\-Compare volumes of two boxes. 
+
+\-A function for comparing ivectors based on volume. \-Used in sorting a list of ivectors ordered by volume. \-Will abort if the index sets of the two ivectors are different sizes. \-Uses \hyperlink{classAIASPnode_a7f6354ab5e7b1310b03f0e190169eabe}{\-Volume()} as defined in \hyperlink{toolz_8hpp}{toolz.\-hpp} \begin{DoxyReturn}{\-Returns}
+\-T\-R\-U\-E if the \-Volume of a is strictly less than \-Volume of b 
+\end{DoxyReturn}
+
+
+\-Definition at line 397 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+
+\-Referenced by \-Regularize().
+
+
+\begin{DoxyCode}
+{
+  bool returnValue = 0;
+
+  // Make sure the vectors have the same number of elements and at
+  // least one element each
+  if( (Ub(a) - Lb(a)) == (Ub(b) - Lb(b)) && (Ub(a) - Lb(a))>=1 )
+  {
+
+                    // compare the two volumes
+    returnValue = ((Volume(a)<Volume(b)));
+
+  }
+  else
+  {
+    std::cout
+      << "Error in volCompare : comparing ivectors of different dimensions"
+      << std::endl;
+  }
+
+  return returnValue;
+}
+\end{DoxyCode}
+\hypertarget{classAIASPnode_a7f6354ab5e7b1310b03f0e190169eabe}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!\-Volume@{\-Volume}}
+\index{\-Volume@{\-Volume}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Volume} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-A\-I\-A\-Sub\-Paving}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classAIASPnode_a7f6354ab5e7b1310b03f0e190169eabe}
+
+
+\-Volume of an \-A\-I\-A\-Sub\-Paving. 
+
+\-Sums the volumes of the leaves of the \-A\-I\-A\-Sub\-Paving. 
+
+\-Definition at line 77 of file \-A\-I\-Asubpaving.\-cpp.
+
+
+\begin{DoxyCode}
+{
+
+  if (IsEmpty(a)) return 0.0;
+  if (IsLeaf(a))
+  {
+
+                    // using Volume taking ivector argument
+    return Volume(Box(a));
+  }
+  double vol=0.0;
+
+  vol += Volume(a->leftChild);
+  vol += Volume(a->rightChild);
+
+  return (vol);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classAIASPnode_a64dc679fe03b03b7beb6ddb04b2a0f85}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!left\-Child@{left\-Child}}
+\index{left\-Child@{left\-Child}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{left\-Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-A\-I\-A\-S\-Pnode\-::left\-Child}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classAIASPnode_a64dc679fe03b03b7beb6ddb04b2a0f85}
+
+
+\-The node's left child. 
+
+
+
+\-Definition at line 88 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\-Referenced by \-A\-I\-A\-S\-Pnode(), \-Evaluate(), \-Expand(), \-Mince(), \-Nb\-Leaves(), operator$<$$<$(), operator$<$=(), \-Re\-Unite(), \-Sivia(), \-Volume(), and $\sim$\-A\-I\-A\-S\-Pnode().
+
+\hypertarget{classAIASPnode_adbaa03014929ff2ab653d6d916ca2fc1}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!right\-Child@{right\-Child}}
+\index{right\-Child@{right\-Child}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{right\-Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-A\-I\-A\-Sub\-Paving} {\bf \-A\-I\-A\-S\-Pnode\-::right\-Child}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classAIASPnode_adbaa03014929ff2ab653d6d916ca2fc1}
+
+
+\-The node's right child. 
+
+
+
+\-Definition at line 90 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\-Referenced by \-A\-I\-A\-S\-Pnode(), \-Evaluate(), \-Expand(), \-Mince(), \-Nb\-Leaves(), operator$<$$<$(), operator$<$=(), \-Re\-Unite(), \-Sivia(), \-Volume(), and $\sim$\-A\-I\-A\-S\-Pnode().
+
+\hypertarget{classAIASPnode_ab904c07918618a89d5511fbaf87f5143}{\index{\-A\-I\-A\-S\-Pnode@{\-A\-I\-A\-S\-Pnode}!the\-Box@{the\-Box}}
+\index{the\-Box@{the\-Box}!AIASPnode@{\-A\-I\-A\-S\-Pnode}}
+\paragraph[{the\-Box}]{\setlength{\rightskip}{0pt plus 5cm}ivector$\ast$ {\bf \-A\-I\-A\-S\-Pnode\-::the\-Box}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classAIASPnode_ab904c07918618a89d5511fbaf87f5143}
+
+
+\-The interval vector the node represents. 
+
+
+
+\-Definition at line 86 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\-Referenced by \-A\-I\-A\-S\-Pnode(), operator$<$$<$(), and $\sim$\-A\-I\-A\-S\-Pnode().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{AIAsubpaving_8hpp}{\-A\-I\-Asubpaving.\-hpp}\item 
+\hyperlink{AIAsubpaving_8cpp}{\-A\-I\-Asubpaving.\-cpp}\end{DoxyCompactItemize}

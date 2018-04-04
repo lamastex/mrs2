@@ -1,0 +1,776 @@
+\hypertarget{FiniteMixtureStats_8cpp}{\subsection{\-Finite\-Mixture\-Stats.\-cpp \-File \-Reference}
+\label{FiniteMixtureStats_8cpp}\index{\-Finite\-Mixture\-Stats.\-cpp@{\-Finite\-Mixture\-Stats.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{FiniteMixtureStats_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition in file \hyperlink{FiniteMixtureStats_8cpp_source}{\-Finite\-Mixture\-Stats.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{FiniteMixtureStats_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Finite\-Mixture\-Stats.\-cpp@{\-Finite\-Mixture\-Stats.\-cpp}!main@{main}}
+\index{main@{main}!FiniteMixtureStats.cpp@{\-Finite\-Mixture\-Stats.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{FiniteMixtureStats_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 41 of file \-Finite\-Mixture\-Stats.\-cpp.
+
+
+
+\-References subpavings\-::count\-Lines\-In\-Txt(), \-F(), find\-Comp(), \-Fin\-Mix\-C\-D\-F(), subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), \-Reg\-Hist\-::heights, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::insert\-From\-R\-Vec\-For\-Hold\-Out(), taylor\-::\-Lb(), \-Fin\-Mix\-::\-M, make\-Regular\-Hist(), subpavings\-::\-S\-Pnode\-::node\-Volume(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split\-With\-Total\-Var(), \-Fin\-Mix\-::\-S, taylor\-::sqrt(), taylor\-::\-Ub(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+  if ( argc != 11 ) {
+    cerr << "Syntax: FiniteMixture n dataSeed mix simNum maxCheck StopVal doEx
+       doTV doMDE doRegHist" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   int d = 1; // dimensions
+   long int dataSeed = atoi(argv[2]); //seed for generating data
+   int mix = atoi(argv[3]); //which mixture to use
+   int simNum = atoi(argv[4]); //which data set 
+   double alpha = 0.95; //to compute the coverage
+   size_t maxCheck = atoi(argv[5]); //stopping criteria for MDE
+   int StopVal = atoi(argv[6]); //stopping criteria for total variation
+   int doEx = atoi(argv[7]);
+   int doTV = atoi(argv[8]);
+   int doMDE = atoi(argv[9]);
+   int doRegHist = atoi(argv[10]);
+   
+   double Tol = 1e-15; // tolerance for root finding and integration routines
+  cout << "Tolerance is: " << Tol << endl;
+  int Deg = 2; // Degree of Taylor series.
+  
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(5);
+   std::ostringstream stm;
+  stm << simNum;
+
+  //==============get distribution parameters==========================//
+   // read input from mix*.txt
+   string mixfileName;
+   mixfileName = "MixtureFiles/mix";
+  std::ostringstream stmMix;
+  stmMix << mix;
+  mixfileName += stmMix.str();
+  mixfileName += ".txt";
+
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  // create vectors for Weight, Mean, Variance
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+
+  cout << "Reading in parameters of mixture " << mix << endl;
+  ifstream file; // create file for input
+  file.open(mixfileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << mixfileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+  
+  //put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+  //=========================end of setting up parameter===================//
+
+  // ========prepare to generate some data for the tests ================//
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    gsl_rng_set(r, dataSeed);
+
+   //set up a random number generator for gaussian rvs
+     const gsl_rng_type * T1;
+     gsl_rng * r1;
+     gsl_rng_env_setup();
+     T1 = gsl_rng_default;
+     r1 = gsl_rng_alloc (T1);
+     gsl_rng_set(r1, dataSeed);
+     
+  //Generate n U(0,1) r.v. and determine component membership.
+  double a=0, b=1;
+  vector<double> u;
+  int j;
+  for (j = 0; j < n; j++) {
+      u.push_back(gsl_ran_flat(r, a, b));
+  }
+
+  // number of components
+  const int comp = countLinesInTxt(mixfileName) - 1;
+  cout << "There are " << comp << " components in this mixture." << endl;
+
+  // get cumulative sum of the weights
+  double WeightCum[comp];
+  //initialize the array
+  WeightCum[0] = Weight[0]; 
+  cout << WeightCum[0] << endl;
+   for (int j = 1; j < comp; j++) {
+    WeightCum[j] = WeightCum[j-1] + Weight[j];
+  }
+
+  //Create mixture data using component densities that are normal.
+  cout<<"Creating mixture data..." <<endl; 
+  RVecData theData; // a container to keep the data
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << simNum << "..." << endl;
+    //find the number of members generated from each component.
+    for (j = 0; j < comp; j++) {  
+      int ind=0;
+      cout << "get the component: " << endl;
+      findComp(u, ind, n, WeightCum, j);
+      cout<<"Component " << j << " has " << ind << " members." <<endl;
+      //now generate the data
+      for (int k =0; k < ind; k++) {
+        rvector thisrv(1);
+        double z = gsl_ran_gaussian(r1, Sigma[j]); // generate a normal r.v.
+        thisrv[1] =Mean[j]+z; // transform the r.v. 
+        theData.push_back(thisrv);
+      }
+    }
+
+  ivector pavingBox;
+  double rootBoxVol;
+  bool holdAllStats = true;
+  //===============finish generating data============================//
+
+
+  //==============run an exhaustive SEB PQ==================================//
+  if (doEx == 1) {
+  
+  cout << "\n========================================================" << endl;
+  cout << "Run exhaustive PQ..." << endl;
+  bool successfulInsertion1 = false;
+  bool successfulPQSplit1 = false;
+  bool successfulInsertion2 = false;
+  bool successfulPQSplit2 = false;
+  bool successfulInsertion3 = false;
+  bool successfulPQSplit3 = false;
+  bool successfulInsertion4 = false;
+  bool successfulPQSplit4 = false;
+
+  // containers for output needed
+   vector<real> IAE1;
+   vector<int> NumLeafNodes1;
+   vector<double> TotalVarDist1;
+   vector<double> Coverage1;
+   vector<double> Times1;
+   
+    vector<real> IAE2;
+   vector<int> NumLeafNodes2;
+   vector<double> TotalVarDist2;
+   vector<double> Coverage2;
+   vector<double> Times2;
+   
+   vector<real> IAE3;
+  vector<int> NumLeafNodes3;
+   vector<double> TotalVarDist3;
+   vector<double> Coverage3;
+   vector<double> Times3;
+   
+  vector<real> IAE4;
+  vector<int> NumLeafNodes4;
+   vector<double> TotalVarDist4;
+   vector<double> Coverage4;
+   vector<double> Times4;
+
+  //do exhaustive PQ for steps of n*0.1
+  // set up function objects for a priority split
+  CompCount compCount;
+  CompVol compVol;
+  CompArea compArea;
+  CompExtArea compExtArea;
+  
+  for (int i = 1; i <= 100; i++) {
+  
+    AdaptiveHistogram myHist1(holdAllStats); 
+    successfulInsertion1= myHist1.insertFromRVec(theData);
+    rootBoxVol = (myHist1.getSubPaving()->nodeVolume());
+    pavingBox = (myHist1.getSubPaving()->getBox());
+    
+    AdaptiveHistogram myHist2(holdAllStats); 
+    successfulInsertion2= myHist2.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist3(holdAllStats); 
+    successfulInsertion3= myHist3.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist4(holdAllStats); 
+    successfulInsertion4= myHist4.insertFromRVec(theData);
+    
+    if (successfulInsertion1 && successfulInsertion2 && successfulInsertion3
+        && successfulInsertion4) {
+      int finalK = int(i*0.005*n);
+      cout << "Max k: " << finalK << endl;
+      // split until number of leaves is at most minVal
+      CritLargestCount_LTE critCount(finalK);
+      size_t minPQPoints = 0; // minimum of one data point in each box
+
+      size_t maxLeafNodes = n;
+      //cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+      
+      // we want to check the timings for this
+      clock_t start, end;
+      double timing; 
+      
+      // do the priority split for compCount
+      start  = clock(); // and keep the time
+      successfulPQSplit1 = myHist1.prioritySplit(compCount,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times1.push_back(timing);
+      
+      // do the priority split for compVol
+      start  = clock(); // and keep the time
+      successfulPQSplit2 = myHist2.prioritySplit(compVol,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times2.push_back(timing);
+      
+      // do the priority split for compMassVol
+      start  = clock(); // and keep the time
+      successfulPQSplit3 = myHist3.prioritySplit(compArea,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times3.push_back(timing);
+      
+      // do the priority split for compMassVol
+      start  = clock(); // and keep the time
+      successfulPQSplit4 = myHist4.prioritySplit(compExtArea,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times3.push_back(timing);
+
+      if (successfulPQSplit1 && successfulPQSplit2 && successfulPQSplit3
+          && successfulPQSplit4) {
+        
+        //optional - output the histogram
+        // create a name for the file to output
+            string fileName;
+            fileName = "HistCount";
+            std::ostringstream stm2;
+            stm2 << finalK;
+            fileName += stm2.str();
+            fileName += ".txt"; // and finish the filename
+            myHist1.outputToTxtTabs(fileName);
+            
+            //optional - output the histogram
+        // create a name for the file to output
+            fileName = "HistVol";
+            fileName += stm2.str();
+            fileName += ".txt"; // and finish the filename
+            myHist2.outputToTxtTabs(fileName);
+            
+            //optional - output the histogram
+        // create a name for the file to output
+            fileName = "HistArea";
+            fileName += stm2.str();
+            fileName += ".txt"; // and finish the filename
+            myHist3.outputToTxtTabs(fileName);
+            
+            //optional - output the histogram
+        // create a name for the file to output
+            fileName = "HistExtArea";
+            fileName += stm2.str();
+            fileName += ".txt"; // and finish the filename
+            myHist4.outputToTxtTabs(fileName);
+        /*
+        SPSnodePtrs leaves;
+        SPSnodePtrsItr leavesIt;
+        (myHist.getSubPaving())->getLeaves(leaves);
+
+        //get the number of leaves
+        NumLeafNodes.push_back(leaves.size());
+        double FUnif = 1.0/leaves.size()*1.0;
+        //cout << "Number of leaf nodes: " << leaves.size() << "\t fUnif: " <<
+       FUnif << endl;
+
+        //initialize totalvariationdistance
+        double totalVarDist = 0.0;
+
+        //initialize the coverage
+        size_t yesCovOne = 0;
+
+        //iterate through the leaf nodes
+        for (leavesIt = leaves.begin(); leavesIt < leaves.end(); leavesIt++) {
+          double leafVol = (*leavesIt)->nodeVolume();
+          //get the total variation distance
+          //calculate \mu_n - \mu
+               double fhat = ((*leavesIt)->getCounter())/leafVol/n;
+               //cout << fhat << "\t" << leafVol << "\t" << FUnif << "\t";
+               double diffMu = fabs(fhat*leafVol - FUnif);
+          totalVarDist += diffMu;
+          //out << "previous: " << totalVarDist << "\t current: " << diffMu <<
+       endl;
+          //totalVarDist = (diffMu > totalVarDist) ? diffMu : totalVarDist; 
+          //cout << "after comparison: " << totalVarDist << endl;
+
+          //get the 95% coverage
+          // c - see SAGE worksheet for this - Wasserman's Varied Bound
+          double c = gsl_cdf_ugaussian_Qinv(alpha/2*leafVol)*sqrt(rootBoxVol/
+      leafVol)/2/sqrt(n);
+
+          // get lower and upper bounds
+          double Lb = pow(fmax(sqrt(fhat)-c, 0), 2); // lower bound
+          double Ub = pow(sqrt(fhat) + c, 2); // upper bound
+
+          //get the CDF
+          rvector xuppVec = Sup((*leavesIt)->getBox());
+          double xupp = _double(xuppVec[1]);
+          rvector xlowVec = Inf((*leavesIt)->getBox());
+          double xlow = _double(xlowVec[1]);
+          double F=FinMixCDF(xlow, xupp, Weight, Mean, Sigma);
+          
+          // see SAGE worksheet for this
+          if ( F/leafVol >= Lb && F/leafVol <= Ub) { yesCovOne += 1;}
+        } // end of iterating through the leaves
+
+        //keep the total variation distance
+        //cout << "final: " << totalVarDist << endl;
+        TotalVarDist.push_back(totalVarDist);
+
+        //keep the coverage
+        //cout << yesCovOne*1.0/(leaves.size()*1.0)*100 << 
+        //    "% of the bins are the inside envelope." << endl;
+        Coverage.push_back(yesCovOne*1.0/(leaves.size()*1.0));
+        */
+        
+        //get the IAE
+        real midIAE = mid(myHist1.getFinMixIntervalIAE(mixt, Tol, Deg));
+        IAE1.push_back(midIAE);
+        NumLeafNodes1.push_back(myHist1.getRootLeaves());
+        
+        //get the IAE
+        midIAE = mid(myHist2.getFinMixIntervalIAE(mixt, Tol, Deg));
+        IAE2.push_back(midIAE);
+        NumLeafNodes2.push_back(myHist2.getRootLeaves());
+        
+        //get the IAE
+        midIAE = mid(myHist3.getFinMixIntervalIAE(mixt, Tol, Deg));
+        IAE3.push_back(midIAE);
+        NumLeafNodes3.push_back(myHist3.getRootLeaves());
+        
+        //get the IAE
+        midIAE = mid(myHist4.getFinMixIntervalIAE(mixt, Tol, Deg));
+        IAE4.push_back(midIAE);
+        NumLeafNodes4.push_back(myHist4.getRootLeaves());
+        
+      } // end of if(successfulPQSplit)
+    }// end of if(successfulInsertion)
+  } // end of iterating through different kn's
+
+  if (successfulPQSplit1 && successfulInsertion1 && successfulPQSplit2 && 
+      successfulInsertion2 && successfulPQSplit3 && successfulInsertion3
+        && successfulPQSplit4 && successfulInsertion4) {
+    // output IAE, number of leaf nodes, totalvardist, coverage to file
+    std::ostringstream stm;
+    stm << simNum;
+    string PQFileName = "FinMixExhaustivePQOutput";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < IAE1.size(); i++) {
+      oss << IAE1[i] << "\t";
+      oss << NumLeafNodes1[i] << "\t";
+      oss << IAE2[i] << "\t";
+      oss << NumLeafNodes2[i] << "\t";
+      oss << IAE3[i] << "\t";
+      oss << NumLeafNodes3[i] << "\t";
+      oss << IAE4[i] << "\t";
+      oss << NumLeafNodes4[i] << endl;
+      //oss << NumLeafNodes[i] << "\t";
+      //oss << TotalVarDist[i] << "\t";
+      //oss << Coverage[i] << "\t";
+      //oss << Times[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes, total variation distance, coverage and
+       times output to " 
+        << PQFileName << endl;
+  }
+} // end of doEx
+//=================end of exhaustive PQ=================================// 
+
+if (doTV == 1) {
+//===using total variation to determine best histogram and a stopping rule=//
+cout << "\n========================================================" << endl;
+cout << "Run PQ with total variation..." << endl;
+
+//containers to store needed output
+vector<real> IAETotal;
+vector<int> CoverageTotal;
+vector<int> NumLeafNodesTotal;
+vector<double> TotalVarDistTotal;
+double timing; 
+
+bool successfulInsertion = false;
+bool successfulPQSplit = false;
+
+vector<AdaptiveHistogram> HistAtValley;
+
+AdaptiveHistogram myHistTot(holdAllStats); 
+successfulInsertion= myHistTot.insertFromRVec(theData);
+
+if (successfulInsertion) {
+  int finalK = 1;
+  cout << "Max k: " << finalK << endl;
+  
+  size_t maxLeafNodes = int(n/log(n*(2*d+1))); // temporarily
+  cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+
+  CompCount compCount;
+  CritLargestCount_LTE critCount(finalK);
+  size_t minPQPoints = 0; // minimum of one data point in each box
+
+  // we want to check the timings for this
+  clock_t start, end;
+
+  // do the priority split
+  start  = clock(); // and keep the time
+  bool  successfulPQSplit = myHistTot.prioritySplitWithTotalVar(compCount,
+         critCount, NOLOG, minPQPoints, maxLeafNodes, StopVal, 
+         HistAtValley, simNum); // no logging
+  end = clock();
+  timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+  cout << "Computing time : " << timing << " s."<< endl;
+
+  if (successfulPQSplit) {
+    //iterate through the "best" histograms to get the MIAE
+    vector<AdaptiveHistogram>::iterator it;
+    for (it = HistAtValley.begin(); it < HistAtValley.end(); it++) {
+      SPSnodePtrs leaves;
+      SPSnodePtrsItr leavesIt;
+      ((*it).getSubPaving())->getLeaves(leaves);
+      (*it).outputToTxtTabs("HistTotal.txt");
+      //get the IAE
+      real midIAE = mid((*it).getFinMixIntervalIAE(mixt, Tol, Deg));
+      IAETotal.push_back(midIAE);
+
+      //get the number of leaves
+      NumLeafNodesTotal.push_back(leaves.size());
+      double FUnif = 1.0/leaves.size()*1.0;
+      cout << "Number of leaf nodes: " << leaves.size() << "\t fUnif: " << 
+      FUnif << endl;
+
+      //initialize the coverage
+      size_t yesCovOne = 0;
+      
+      //initialize the total variation distance
+      double totalVarDist = 0.0;
+
+      //iterate through the leaf nodes
+      for (leavesIt = leaves.begin(); leavesIt < leaves.end(); leavesIt++) {
+        double leafVol = (*leavesIt)->nodeVolume();
+        double fhat = ((*leavesIt)->getCounter())/leafVol/n;
+        //cout << fhat << "\t" << leafVol << "\t" << FUnif << "\t";
+        double diffMu = fabs(fhat*leafVol - FUnif);
+        totalVarDist += diffMu;
+        //cout << "previous: " << totalVarDist << "\t current: " << diffMu <<
+       endl;
+        //totalVarDist = (diffMu > totalVarDist) ? diffMu : totalVarDist; 
+        //cout << "after comparison: " << totalVarDist << endl;
+        
+        //get the 95% coverage
+        // c - see SAGE worksheet for this - Wasserman's Varied Bound
+        double c = gsl_cdf_ugaussian_Qinv(alpha/2*leafVol)*sqrt(rootBoxVol/
+      leafVol)/2/sqrt(n);
+
+        // get lower and upper bounds
+        double Lb = pow(fmax(sqrt(fhat)-c, 0), 2); // lower bound
+        double Ub = pow(sqrt(fhat) + c, 2); // upper bound
+
+        //get the CDF
+        rvector xuppVec = Sup((*leavesIt)->getBox());
+        double xupp = _double(xuppVec[1]);
+        rvector xlowVec = Inf((*leavesIt)->getBox());
+        double xlow = _double(xlowVec[1]);
+        double F=FinMixCDF(xlow, xupp, Weight, Mean, Sigma);
+        
+        // see SAGE worksheet for this
+        if ( F/leafVol >= Lb && F/leafVol <= Ub) { yesCovOne += 1;}
+      } // end of iterating through the leaves
+
+      //keep the total variation distance
+      TotalVarDistTotal.push_back(totalVarDist);
+
+      //keep the coverage
+      //cout << yesCovOne*1.0/(leaves.size()*1.0)*100 << 
+      //    "% of the bins are the inside envelope." << endl;
+      CoverageTotal.push_back(yesCovOne*1.0/(leaves.size()*1.0));
+    } // end of iterating through the "best" histograms
+  } // end of successfulPQSplit
+} // end of successfulInsertion
+
+if (successfulPQSplit && successfulInsertion) {
+  // output IAE, number of leaf nodes, totalvardist, coverage to file
+  string PQFileName = "FinMixTotalVariationPQOutput";
+  PQFileName += stm.str();
+  PQFileName += ".txt";
+  oss.open(PQFileName.c_str());
+  for (size_t i=0; i < CoverageTotal.size(); i++) {
+    oss << IAETotal[i] << "\t";
+    oss << NumLeafNodesTotal[i] << "\t";
+    oss << TotalVarDistTotal[i] << "\t";
+    oss << CoverageTotal[i] << endl;
+  }
+  oss << timing << endl;
+  oss << flush;
+  oss.close();
+  cout << "IAE, number of leaf nodes, total variation distance, coverage and
+       times output to " 
+      << PQFileName << endl;
+}
+}// end of do TV
+//=================end of total variation with stopping
+       rule=================================// 
+
+//==================Hold-out MDE===========================================//
+if (doMDE == 1) {
+  cout << "========================================================" << endl;
+  cout << "Run hold out estimation..." << endl;
+
+  //=========insert data into an AdaptiveHistogramValidation object=========//
+  // indicators
+   bool successfulInsertion = false;
+   bool successfulPQSplit = false;
+   double timing = 0;
+   
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal(holdAllStats);
+  int holdOutCount = int(n*0.3);
+  SplitNever sn;   
+  successfulInsertion = myHistVal.insertFromRVecForHoldOut(theData, sn, 
+      holdOutCount, NOLOG);
+  cout << n-holdOutCount << " training data and " 
+      << holdOutCount << " validation data inserted." << endl; 
+
+  //containers for output needed
+  vector<real> IAEV;
+  vector<int> NumLeafNodesV;
+  vector<double> TotalVarDistV;
+  vector<double> CoverageV;
+  vector<AdaptiveHistogramValidation> HistsKept;
+  
+  if (successfulInsertion) { // if data successfully inserted       
+    CompCountVal nodeCompCount;
+    int finalK = 1;
+    CritLargestCount_LTEV critCount(finalK);
+
+    //start the hold out estimation
+    //with stopping criteria
+    bool stopCrit = false;
+    cout << "------Running MDEAll with stopping criteria-----------" << endl;
+    int method = 2; // MDE
+
+    //maximum number of leaf nodes allowed
+    int trainCount = n-holdOutCount; 
+    size_t maxLeafNodes = int(trainCount/log(trainCount*(2*d+1))); //
+       temporarily
+
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit = myHistVal.prioritySplitAndEstimate(nodeCompCount, 
+      critCount, NOLOG, 
+                           0, 0.0, stopCrit, mixt, method, simNum, 
+                           maxLeafNodes, maxCheck, Tol, Deg, HistsKept);
+      end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    
+    if (successfulPQSplit) {
+      // get the final histograms
+      vector<AdaptiveHistogramValidation>::iterator it;
+      for (it = HistsKept.begin(); it < HistsKept.end(); it++) {
+        SPSVnodePtrs leaves;
+        SPSVnodePtrsItr leavesIt;
+        ((*it).getSubPaving())->getLeaves(leaves);
+
+        //get the IAE
+        real midIAE = mid((*it).getFinMixIntervalIAE(mixt, Tol, Deg));
+        IAEV.push_back(midIAE);
+
+        //get the number of leaves
+        NumLeafNodesV.push_back(leaves.size());
+        double FUnif = 1.0/leaves.size()*1.0;
+        cout << "Number of leaf nodes: " << leaves.size() << "\t fUnif: " << 
+      FUnif << endl;
+
+        //initialize the coverage
+        size_t yesCovOne = 0;
+        
+        //initialize the total variation distance
+        double totalVarDist = 0.0;
+
+        //iterate through the leaf nodes
+        for (leavesIt = leaves.begin(); leavesIt < leaves.end(); leavesIt++) {
+          double leafVol = (*leavesIt)->nodeVolume();
+               double fhat = ((*leavesIt)->getCounter())/leafVol/(n-
+      holdOutCount);
+               //cout << fhat << "\t" << leafVol << "\t" << FUnif << "\t";
+               double diffMu = fabs(fhat*leafVol - FUnif);
+          totalVarDist += diffMu;
+          //cout << "previous: " << totalVarDist << "\t current: " << diffMu <<
+       endl;
+          //totalVarDist = (diffMu > totalVarDist) ? diffMu : totalVarDist; 
+          //cout << "after comparison: " << totalVarDist << endl;
+          
+          //get the 95% coverage
+          // c - see SAGE worksheet for this - Wasserman's Varied Bound
+          double c = gsl_cdf_ugaussian_Qinv(alpha/2*leafVol)*sqrt(rootBoxVol/
+      leafVol)/2/sqrt(n);
+          // get lower and upper bounds
+          double Lb = pow(fmax(sqrt(fhat)-c, 0), 2); // lower bound
+          double Ub = pow(sqrt(fhat) + c, 2); // upper bound
+          
+          //get the CDF
+          rvector xuppVec = Sup((*leavesIt)->getBox());
+          double xupp = _double(xuppVec[1]);
+          rvector xlowVec = Inf((*leavesIt)->getBox());
+          double xlow = _double(xlowVec[1]);
+          double F=FinMixCDF(xlow, xupp, Weight, Mean, Sigma);
+        
+          // see SAGE worksheet for this
+          if ( F/leafVol >= Lb && F/leafVol <= Ub) { yesCovOne += 1;}
+        } // end of iterating through the leaves
+
+        //keep the total variation distance
+        TotalVarDistV.push_back(totalVarDist);
+        
+  
+
+        //keep the coverage
+        //cout << yesCovOne*1.0/(leaves.size()*1.0)*100 << 
+        //    "% of the bins are the inside envelope." << endl;
+        CoverageV.push_back(yesCovOne*1.0/(leaves.size()*1.0));
+      } // end of iterating through the "best" histograms
+    } // end of successfulPQSplit
+  } // end of successfulInsertion
+
+  if (successfulPQSplit && successfulInsertion) {
+    // output IAE, number of leaf nodes, totalvardist, coverage to file
+    std::ostringstream stm;
+    stm << simNum;
+    string PQFileName = "FinMixMDEPQOutput";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < CoverageV.size(); i++) {
+      oss << IAEV[i] << "\t";
+      oss << NumLeafNodesV[i] << "\t";
+      oss << TotalVarDistV[i] << "\t";
+      oss << CoverageV[i] << endl;
+    }
+    oss << timing << endl;
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes, total variation distance, coverage and
+       times output to " 
+        << PQFileName << endl;
+  }
+} // end of do MDE
+//====================end of MDE===================================//
+
+//==============Regular histogram==================================//
+if (doRegHist == 1) {
+   
+   cout << "===========Making regular histograms using the different rules==" <
+      < endl;
+   
+   vector<real> regHistIAE;
+   vector<int> nBins;
+   
+   for (int bw = 0; bw < 3; bw++) {
+    cout << "Method " << bw << endl;
+    RegHist myRegHist;
+    makeRegularHist(myRegHist, theData, pavingBox, bw);
+    nBins.push_back(myRegHist.heights.size());
+    real midIAE = mid(getRegHistFinMixIntervalIAE(n, myRegHist, mixt, Tol, Deg)
+      );
+    regHistIAE.push_back(midIAE);
+  }
+
+  //output IAE to .txt file------------------
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  string outputFileName;// for output file
+  outputFileName = "FinMixIAERegHist";
+  outputFileName += stm.str();
+  outputFileName += ".txt";
+  os.open(outputFileName.c_str());
+  for (size_t bw = 0; bw < 3; bw++) {
+    os << regHistIAE[bw] << "\t" << nBins[bw] << endl;
+  }
+  os << flush;
+  os.close();
+  
+  std::cout << "IAE output to " << outputFileName << endl;
+} // end of doRegHist
+
+// free the random number generator
+gsl_rng_free(r);
+gsl_rng_free(r1);
+
+return 0;
+}
+\end{DoxyCode}

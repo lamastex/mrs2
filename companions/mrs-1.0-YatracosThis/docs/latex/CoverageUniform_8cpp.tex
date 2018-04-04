@@ -1,0 +1,337 @@
+\hypertarget{CoverageUniform_8cpp}{\subsection{\-Coverage\-Uniform.\-cpp \-File \-Reference}
+\label{CoverageUniform_8cpp}\index{\-Coverage\-Uniform.\-cpp@{\-Coverage\-Uniform.\-cpp}}
+}
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-cdf.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+dotprecision \hyperlink{CoverageUniform_8cpp_aa761d6c65ae1def2134f8829dd6be8fd}{get\-Unif\-I\-A\-E} (vector$<$ double $>$, vector$<$ double $>$)
+\item 
+int \hyperlink{CoverageUniform_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{CoverageUniform_8cpp_aa761d6c65ae1def2134f8829dd6be8fd}{\index{\-Coverage\-Uniform.\-cpp@{\-Coverage\-Uniform.\-cpp}!get\-Unif\-I\-A\-E@{get\-Unif\-I\-A\-E}}
+\index{get\-Unif\-I\-A\-E@{get\-Unif\-I\-A\-E}!CoverageUniform.cpp@{\-Coverage\-Uniform.\-cpp}}
+\paragraph[{get\-Unif\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}dotprecision {\bf get\-Unif\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{vector$<$ double $>$}]{fhat, }
+\item[{vector$<$ double $>$}]{vol}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{CoverageUniform_8cpp_aa761d6c65ae1def2134f8829dd6be8fd}
+\hypertarget{CoverageUniform_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Coverage\-Uniform.\-cpp@{\-Coverage\-Uniform.\-cpp}!main@{main}}
+\index{main@{main}!CoverageUniform.cpp@{\-Coverage\-Uniform.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{CoverageUniform_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 51 of file \-Coverage\-Uniform.\-cpp.
+
+
+
+\-References dp\-I\-A\-E, subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), get\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), taylor\-::\-Lb(), \-Nbin, subpavings\-::\-N\-O\-L\-O\-G, taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::sp\-Leaves(), taylor\-::sqrt(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+ofstream oss;
+oss << scientific;
+oss.precision(5);
+    // ------- prepare to generate some data for the tests -----------
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    long s = time (NULL) * getpid();
+    gsl_rng_set(r, s);
+
+   //----------set up domain----------------------------------
+    int d = atoi(argv[2]); // dimension of the uniform hypercube to sample data
+       from
+    ivector pavingBox(d);
+
+    // domain is a hypercube
+    interval pavingInterval(0,1);
+    for(int i=1; i <= d; i++) pavingBox[i] = pavingInterval;
+
+    int n = atoi(argv[1]); // total points from random number generator
+    int numHist = atoi(argv[3]); // the number of histograms to make
+    int step = atoi(argv[4]);
+//  int bigD = atoi(argv[5]);
+//-------------make histograms-----------------------------------------
+    bool successfulInsertion = false;
+    bool successfulPQSplit = false;
+    bool successfulPQMerge = false;
+  
+// for different maxCount
+size_t maxCount = n;
+
+//container to keep number of leaf boxes for histograms
+vector<double> boxCountVec;
+vector<double>::iterator itBoxCountVec;
+
+// loop to make histograms
+for (int j = 1; j <= numHist; j++){ 
+       cout << "Doing hist number " << j << endl;
+        
+// container to keep IAE
+vector<dotprecision> dpIAEVec;
+vector<dotprecision>::iterator dpIAEVecIt;
+
+//container to keep time
+vector<double> timeVec;
+vector<double>::iterator itTimeVec;
+
+//container to keep %of bins in envelope
+vector<double> covAllVec;
+vector<double>::iterator itCovAllVec;
+
+//container to keep difference in measures
+vector<double> diffMuVec;
+vector<double>::iterator itDiffMuVec;
+
+        // ----- generate data---------------------------
+        RVecData theData;   // a container for all the points generated
+        rvector thisrv(d);
+        for (int k =0; k <n; k++){
+            for(int i=1; i <= d; i++) {
+               thisrv[i]  = gsl_rng_uniform(r);
+             } 
+          // put points generated into container
+          theData.push_back(thisrv);
+         } // data  should be in theData
+
+        cout << n << " samples generated." << endl;
+
+     for (int mC = 1; mC <= 100; mC++){
+       int maxC = mC*step;
+       cout << "Maximum count is : " << maxC << endl;
+
+
+      //----- make an Adaptive Histogram object with a specified box
+       AdaptiveHistogram myHist(pavingBox);
+
+      //--- put the data from the container into the histogram
+      bool successfulInsertion = myHist.insertFromRVec(theData);
+          
+
+      // split node wth most points in first (compCount)
+      CompCount nodeCompCount;
+      CritLargestCount_LTE critCount(maxC);
+       
+      if (successfulInsertion) {
+        clock_t start, end;
+        start = clock();
+      // now split with priority queue
+      // Stopping Criteria: critCount
+      successfulPQSplit = myHist.prioritySplit(nodeCompCount, critCount, NOLOG)
+      ;
+      
+        end = clock();
+        double timing;
+        timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+        cout << "Computing time : " << timing << " s."<< endl;
+        timeVec.push_back(timing);
+      } // end of if successfulInsertion
+
+     if (successfulPQSplit) {
+
+    
+      SPSnodePtrs leaves; // set up empty container for leaf node pointers
+      SPSnodePtrsItr it; // and an iterator over the container
+      myHist.getSubPaving()->getLeaves(leaves); // fill the container
+      // container is filled by reading leaves off tree from left to right
+
+          // a container for the counts
+          IntVec counts;  // IntVec is a typedef for vector<int>
+                            // the iterator is typedefed as IntVecItr
+          // a container for the boxes
+          vector<ivector> boxes;
+          vector<ivector>::iterator itBoxes;
+          // a container for the volumes
+          vector<double> volumes;
+          // a valarray container for the node levels, sized to fit
+          valarray<int> levels(spLeaves(myHist.getSubPaving()));
+          // a container for fhat
+          vector<double> fhat;
+          vector<double>::iterator itFhat;
+         
+       //   double diffMu = 0;
+
+          for(it = leaves.begin(); it < leaves.end(); it++) {
+          // remember that it points to a pointer, so *it is still a ptr
+               // get the counts in all the leaves
+               counts.push_back((*it)->getCounter());
+               // get the boxes from all the leaves
+               boxes.push_back((*it)->getBox());
+               // get the volumes of all the leaves
+               volumes.push_back((*it)->nodeVolume());
+               // get fhat for all leaves
+               fhat.push_back(((*it)->getCounter())/((*it)->nodeVolume())/n);
+               //calculate \mu_n - \mu
+           //    diffMu += fabs((*it)->nodeVolume() -
+       ((*it)->getCounter()*1.0/(n*1.0)));
+              double diffMu=fabs((*it)->nodeVolume() - ((*it)->getCounter()*1.0
+      /(n*1.0)));
+              diffMuVec.push_back(diffMu);
+            }
+         
+     //------------Calcuate Integrated Absolute Error------------------//
+     dotprecision dpIAE;
+     dpIAE=0.0;
+     rvector result(1);
+     result[1] = 0.0;
+
+     dpIAE = getUnifIAE(fhat, volumes);
+     dpIAEVec.push_back(dpIAE);
+
+
+//------------Calculate lower and upper bounds---------------------
+int Nbin = fhat.size();
+boxCountVec.push_back(Nbin);
+
+for (int a=1; a<=90; a++){
+double alpha = a*0.01;
+double yesCovOne = 0;
+
+  for (int i =0; i < Nbin; i++){
+  // c
+  double c = gsl_cdf_ugaussian_Qinv(alpha/2*volumes[i])*sqrt(1/volumes[i])/2/
+      sqrt(n);
+
+  // lower bound
+  double Lb = pow(fmax(sqrt(fhat[i])-c, 0), 2);
+  // upper bound
+  double Ub = pow(sqrt(fhat[i]) + c, 2);
+
+  if (1>= Lb && 1<= Ub)
+  { yesCovOne += 1;}
+}
+//cout << yesCovOne*1.0/Nbin*1.0 << " bins inside envelope" << endl;
+covAllVec.push_back(yesCovOne*1.0/(Nbin*1.0));
+} // end of loop for alpha
+
+std::ostringstream stm1;
+stm1 << j;
+string CIFileName;
+CIFileName = "UnifCI";
+CIFileName += stm1.str();
+CIFileName += ".txt";
+oss.open(CIFileName.c_str());
+for (itCovAllVec = covAllVec.begin(); itCovAllVec < covAllVec.end(); 
+      itCovAllVec++){
+oss << (*itCovAllVec) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "CI's output to " << CIFileName << endl;
+     } // end of if(successfulPQSplit)
+
+    } // end of loop for maxCount
+
+//-------------------------output vecIAE to .txt file--------------------
+  string outputFileName;// for output file
+
+outputFileName = "UnifIAEHist";
+std::ostringstream stm1, stm2;
+stm1 << j;
+outputFileName += stm1.str();
+stm2<< maxCount;
+outputFileName+="max";
+outputFileName+=stm2.str();
+outputFileName+= ".txt";
+
+oss.open(outputFileName.c_str());
+for (dpIAEVecIt = dpIAEVec.begin(); dpIAEVecIt < dpIAEVec.end(); dpIAEVecIt++){
+oss << (*dpIAEVecIt) << endl;
+}
+oss << flush;
+oss.close();
+cout << "IAE output to " << outputFileName << endl;
+
+string timeFileName;
+timeFileName = "UnifIAETime";
+timeFileName += stm1.str();
+timeFileName += ".txt";
+
+oss.open(timeFileName.c_str());
+for (itTimeVec = timeVec.begin(); itTimeVec < timeVec.end(); itTimeVec++){
+oss << (*itTimeVec) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "Timings output to " << timeFileName << endl;
+
+cout << "--------------------------------------------------------" << endl << 
+      endl;
+//------output Epsilon------------------
+string diffMuFileName;
+//std::ostringstream stm3;
+//stm3 << bigD;
+diffMuFileName = "UnifDiffMu";
+//diffMuFileName += stm3.str();
+diffMuFileName += stm1.str();
+diffMuFileName += ".txt";
+oss.open(diffMuFileName.c_str());
+for (itDiffMuVec = diffMuVec.begin(); itDiffMuVec < diffMuVec.end(); 
+      itDiffMuVec
+++){
+oss << (*itDiffMuVec) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "Diff Mu output to " << diffMuFileName << endl;
+} //end of loop for histograms
+
+string boxCountFileName;
+std::ostringstream stm3;
+//stm3 << bigD;
+boxCountFileName = "UnifBoxCount";
+//boxCountFileName += stm3.str();
+boxCountFileName += ".txt";
+oss.open(boxCountFileName.c_str());
+for (itBoxCountVec = boxCountVec.begin(); itBoxCountVec < boxCountVec.end(); 
+      itBoxCountVec
+++){
+oss << (*itBoxCountVec) << endl ;
+}
+oss << flush;
+oss.close();
+cout << "Box Count output to " << boxCountFileName << endl;
+
+
+
+
+
+
+
+
+
+
+// free the random number generator
+gsl_rng_free (r);
+
+return 0;
+
+} // end of histogram report test program
+\end{DoxyCode}

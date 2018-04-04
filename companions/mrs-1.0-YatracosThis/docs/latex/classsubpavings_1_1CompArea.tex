@@ -1,0 +1,90 @@
+\hypertarget{classsubpavings_1_1CompArea}{\subsection{subpavings\-:\-:\-Comp\-Area \-Class \-Reference}
+\label{classsubpavings_1_1CompArea}\index{subpavings\-::\-Comp\-Area@{subpavings\-::\-Comp\-Area}}
+}
+
+
+\-Class comparing the area of a histogram.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-Area\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-Area\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompArea_a8246a4db51101728675b010f57d68837}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing the area of a histogram. 
+
+\-Definition at line 208 of file nodecompobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompArea_a8246a4db51101728675b010f57d68837}{\index{subpavings\-::\-Comp\-Area@{subpavings\-::\-Comp\-Area}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompArea@{subpavings\-::\-Comp\-Area}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-Area\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompArea_a8246a4db51101728675b010f57d68837}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{subpavings\-::\-Node\-Comp\-Obj}.
+
+
+
+\-Definition at line 210 of file nodecompobj.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Counter(), subpavings\-::\-S\-P\-Snode\-::get\-Root\-Counter(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+      { 
+        size_t n = lhs->getRootCounter();
+        
+        cxsc::interval lCount = interval(lhs->getCounter()*1.0/(n*1.0));
+        cxsc::interval rCount = interval(rhs->getCounter()*1.0/(n*1.0));
+        
+        cxsc::interval lVol = interval(lhs->nodeVolume());
+        cxsc::interval rVol = interval(rhs->nodeVolume());
+        
+        cxsc::interval lMassVol = lCount * lVol;
+        cxsc::interval rMassVol = rCount * rVol;
+       
+        cxsc::real lMid = mid(lMassVol);
+        cxsc::real rMid = mid(rMassVol);
+        
+        /*
+        std::cout << n << std::endl;
+        std::cout << lhs->getNodeName() << "\t" << rhs->getNodeName() <<
+       std::endl;
+        std::cout << lCount << "\t" << rCount << std::endl;
+        std::cout << lVol << "\t" << rVol << std::endl;
+        std::cout << lMassVol << "\t" << rMassVol << std::endl;
+        std::cout << lMid << "\t" << rMid << std::endl;
+        */
+        
+        return ( (lMid < rMid) );
+        //return ( (lhs->getCounter()*1.0) * lhs->nodeVolume() 
+        //      < (rhs->getCounter()*1.0) * rhs->nodeVolume()); 
+    }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobj_8hpp}{nodecompobj.\-hpp}\end{DoxyCompactItemize}

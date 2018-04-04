@@ -1,0 +1,85 @@
+\hypertarget{Quadrature1_8cpp}{\subsection{\-Quadrature1.\-cpp \-File \-Reference}
+\label{Quadrature1_8cpp}\index{\-Quadrature1.\-cpp@{\-Quadrature1.\-cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$cmath$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-integration.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{Quadrature1_8cpp_a299a351ae0c2f31d690417ca8a34bcb6}{\-Rosenbrock} (double, void $\ast$)
+\item 
+int \hyperlink{Quadrature1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Quadrature1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Quadrature1.\-cpp@{\-Quadrature1.\-cpp}!main@{main}}
+\index{main@{main}!Quadrature1.cpp@{\-Quadrature1.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Quadrature1_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 11 of file \-Quadrature1.\-cpp.
+
+
+
+\-References \-F(), and f().
+
+
+\begin{DoxyCode}
+{
+gsl_integration_workspace * w = gsl_integration_workspace_alloc (1000);
+
+       double result, error;
+       double expected = -4.0;
+       double alpha = 1.0;
+
+       gsl_function F;
+       F.function = &f;
+       F.params = &alpha;
+
+       gsl_integration_qags (&F, 0, 1, 0, 1e-7, 1000,
+                             w, &result, &error);
+
+       printf ("result          = % .18f\n", result);
+       printf ("exact result    = % .18f\n", expected);
+       printf ("estimated error = % .18f\n", error);
+       printf ("actual error    = % .18f\n", result - expected);
+       printf ("intervals =  %d\n", w->size);
+
+       gsl_integration_workspace_free (w);
+
+
+
+
+return 0;
+}
+\end{DoxyCode}
+\hypertarget{Quadrature1_8cpp_a299a351ae0c2f31d690417ca8a34bcb6}{\index{\-Quadrature1.\-cpp@{\-Quadrature1.\-cpp}!\-Rosenbrock@{\-Rosenbrock}}
+\index{\-Rosenbrock@{\-Rosenbrock}!Quadrature1.cpp@{\-Quadrature1.\-cpp}}
+\paragraph[{\-Rosenbrock}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Rosenbrock} (
+\begin{DoxyParamCaption}
+\item[{double}]{x, }
+\item[{void $\ast$}]{params}
+\end{DoxyParamCaption}
+)}}\label{Quadrature1_8cpp_a299a351ae0c2f31d690417ca8a34bcb6}
+
+
+\-Definition at line 40 of file \-Quadrature1.\-cpp.
+
+
+
+\-References f(), and taylor\-::sqrt().
+
+
+\begin{DoxyCode}
+                                            {
+       double alpha = *(double *) params;
+       double f = log(alpha*x) / sqrt(x);
+       return f;
+     }
+\end{DoxyCode}

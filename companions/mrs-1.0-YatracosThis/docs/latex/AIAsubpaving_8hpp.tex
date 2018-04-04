@@ -1,0 +1,110 @@
+\hypertarget{AIAsubpaving_8hpp}{\subsection{\-A\-I\-Asubpaving.\-hpp \-File \-Reference}
+\label{AIAsubpaving_8hpp}\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}}
+}
+
+
+\hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} (\-A\-I\-S\-Sub\-Paving) declarations.  
+
+
+{\ttfamily \#include \char`\"{}cxsc.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$list$>$}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode}
+\begin{DoxyCompactList}\small\item\em \-A\-I\-A\-Sub\-Paving node class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Typedefs}
+\begin{Indent}{\bf \-Typedefs for function pointers}\par
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6}{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}($\ast$ \hyperlink{AIAsubpaving_8hpp_ac3a2af016d66120f37b7e4b3da564876}{\-A\-I\-A\-\_\-\-P\-I\-B\-T} )(const ivector \&)
+\begin{DoxyCompactList}\small\item\em \-Define type \char`\"{}\-Pointer to an interval boolean test\char`\"{}. \end{DoxyCompactList}\item 
+typedef ivector($\ast$ \hyperlink{AIAsubpaving_8hpp_aee443215927e43ef8f6880f25b053a2e}{\-A\-I\-A\-\_\-\-P\-I\-V\-F} )(const ivector \&)
+\begin{DoxyCompactList}\small\item\em \-Define type \char`\"{}\-Pointer to an interval vector function\char`\"{}. \end{DoxyCompactList}\item 
+typedef \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} $\ast$ \hyperlink{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\-A\-I\-A\-Sub\-Paving}
+\begin{DoxyCompactList}\small\item\em \-Makes \-A\-I\-A\-Sub\-Paving alias of pointer to a \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6}{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L} \{ \hyperlink{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6a966ca7244fcb98834f2b3afbb5d32ac2}{\-B\-I\-\_\-\-T\-R\-U\-E}, 
+\hyperlink{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6a57a124e19ed919ea8c7a944c309d7636}{\-B\-I\-\_\-\-F\-A\-L\-S\-E}, 
+\hyperlink{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6aa43b2bfa91b022f8aa5c08a522eb4fce}{\-B\-I\-\_\-\-I\-N\-D\-E\-T}
+ \}
+\begin{DoxyCompactList}\small\item\em \-Define type \char`\"{}\-Interval Booleans\char`\"{} \-This is used to extend the usual booleans \-T\-R\-U\-E and \-F\-A\-L\-S\-E for use with intervals. \-With intervals the result of a test may be indeterminate at a particular level of accuracy rather than clearly true or false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} (\-A\-I\-S\-Sub\-Paving) declarations. 
+
+\-Definition in file \hyperlink{AIAsubpaving_8hpp_source}{\-A\-I\-Asubpaving.\-hpp}.
+
+
+
+\subsubsection{\-Typedef \-Documentation}
+\hypertarget{AIAsubpaving_8hpp_ac3a2af016d66120f37b7e4b3da564876}{\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}!\-A\-I\-A\-\_\-\-P\-I\-B\-T@{\-A\-I\-A\-\_\-\-P\-I\-B\-T}}
+\index{\-A\-I\-A\-\_\-\-P\-I\-B\-T@{\-A\-I\-A\-\_\-\-P\-I\-B\-T}!AIAsubpaving.hpp@{\-A\-I\-Asubpaving.\-hpp}}
+\paragraph[{\-A\-I\-A\-\_\-\-P\-I\-B\-T}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf \-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}($\ast$ {\bf \-A\-I\-A\-\_\-\-P\-I\-B\-T})(const ivector \&)}}\label{AIAsubpaving_8hpp_ac3a2af016d66120f37b7e4b3da564876}
+
+
+\-Define type \char`\"{}\-Pointer to an interval boolean test\char`\"{}. 
+
+\-The test is for containment of the inclusion function image of the given interval vector in some subpaving \-Y. \-The inclusion function is specified in the body of the interval boolean test. \-The test returns \-B\-I\-\_\-\-I\-N\-D\-E\-T if the inclusion function image overlaps the borders of the subpaving. \-As implemented here, the test relies on the use of globals for the subpaving \-Y so this is not passed as parameter to the function but is identified within the body of the function. 
+
+\-Definition at line 54 of file \-A\-I\-Asubpaving.\-hpp.
+
+\hypertarget{AIAsubpaving_8hpp_aee443215927e43ef8f6880f25b053a2e}{\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}!\-A\-I\-A\-\_\-\-P\-I\-V\-F@{\-A\-I\-A\-\_\-\-P\-I\-V\-F}}
+\index{\-A\-I\-A\-\_\-\-P\-I\-V\-F@{\-A\-I\-A\-\_\-\-P\-I\-V\-F}!AIAsubpaving.hpp@{\-A\-I\-Asubpaving.\-hpp}}
+\paragraph[{\-A\-I\-A\-\_\-\-P\-I\-V\-F}]{\setlength{\rightskip}{0pt plus 5cm}typedef ivector($\ast$ {\bf \-A\-I\-A\-\_\-\-P\-I\-V\-F})(const ivector \&)}}\label{AIAsubpaving_8hpp_aee443215927e43ef8f6880f25b053a2e}
+
+
+\-Define type \char`\"{}\-Pointer to an interval vector function\char`\"{}. 
+
+\-P\-I\-V\-F is an interval vector inclusion function, ie a function which returns the interval vector which encloses f(x) for f as specified in the function and interval vector given in the function parameter. 
+
+\-Definition at line 62 of file \-A\-I\-Asubpaving.\-hpp.
+
+\hypertarget{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}{\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}!\-A\-I\-A\-Sub\-Paving@{\-A\-I\-A\-Sub\-Paving}}
+\index{\-A\-I\-A\-Sub\-Paving@{\-A\-I\-A\-Sub\-Paving}!AIAsubpaving.hpp@{\-A\-I\-Asubpaving.\-hpp}}
+\paragraph[{\-A\-I\-A\-Sub\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf \-A\-I\-A\-S\-Pnode}$\ast$ {\bf \-A\-I\-A\-Sub\-Paving}}}\label{AIAsubpaving_8hpp_ab6618d8727b32e897c1b7ab3415b93ff}
+
+
+\-Makes \-A\-I\-A\-Sub\-Paving alias of pointer to a \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode}. 
+
+
+
+\-Definition at line 65 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+
+\subsubsection{\-Enumeration \-Type \-Documentation}
+\hypertarget{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6}{\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}!\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}
+\index{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}!AIAsubpaving.hpp@{\-A\-I\-Asubpaving.\-hpp}}
+\paragraph[{\-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}}\label{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6}
+
+
+\-Define type \char`\"{}\-Interval Booleans\char`\"{} \-This is used to extend the usual booleans \-T\-R\-U\-E and \-F\-A\-L\-S\-E for use with intervals. \-With intervals the result of a test may be indeterminate at a particular level of accuracy rather than clearly true or false. 
+
+\begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{\-B\-I\-\_\-\-T\-R\-U\-E@{\-B\-I\-\_\-\-T\-R\-U\-E}!\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}}\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}!\-B\-I\-\_\-\-T\-R\-U\-E@{\-B\-I\-\_\-\-T\-R\-U\-E}}\item[{\em 
+\hypertarget{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6a966ca7244fcb98834f2b3afbb5d32ac2}{\-B\-I\-\_\-\-T\-R\-U\-E}\label{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6a966ca7244fcb98834f2b3afbb5d32ac2}
+}]\index{\-B\-I\-\_\-\-F\-A\-L\-S\-E@{\-B\-I\-\_\-\-F\-A\-L\-S\-E}!\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}}\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}!\-B\-I\-\_\-\-F\-A\-L\-S\-E@{\-B\-I\-\_\-\-F\-A\-L\-S\-E}}\item[{\em 
+\hypertarget{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6a57a124e19ed919ea8c7a944c309d7636}{\-B\-I\-\_\-\-F\-A\-L\-S\-E}\label{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6a57a124e19ed919ea8c7a944c309d7636}
+}]\index{\-B\-I\-\_\-\-I\-N\-D\-E\-T@{\-B\-I\-\_\-\-I\-N\-D\-E\-T}!\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}}\index{\-A\-I\-Asubpaving.\-hpp@{\-A\-I\-Asubpaving.\-hpp}!\-B\-I\-\_\-\-I\-N\-D\-E\-T@{\-B\-I\-\_\-\-I\-N\-D\-E\-T}}\item[{\em 
+\hypertarget{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6aa43b2bfa91b022f8aa5c08a522eb4fce}{\-B\-I\-\_\-\-I\-N\-D\-E\-T}\label{AIAsubpaving_8hpp_a04a5da87f7c1570d6ef4843fb476d1a6aa43b2bfa91b022f8aa5c08a522eb4fce}
+}]\end{description}
+\end{Desc}
+
+
+
+\-Definition at line 38 of file \-A\-I\-Asubpaving.\-hpp.
+
+
+\begin{DoxyCode}
+{BI_TRUE,BI_FALSE,BI_INDET}
+\end{DoxyCode}

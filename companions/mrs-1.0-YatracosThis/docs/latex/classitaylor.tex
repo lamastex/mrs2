@@ -1,0 +1,402 @@
+\hypertarget{classitaylor}{\subsection{itaylor \-Class \-Reference}
+\label{classitaylor}\index{itaylor@{itaylor}}
+}
+
+
+{\ttfamily \#include $<$itaylor.\-h$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classitaylor_a265623bc1a74c5677c0b356317691808}{itaylor} ()
+\item 
+\hyperlink{classitaylor_a12241a58e4d5de9efd24293e9c646ff1}{itaylor} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor_a49508643f0a5beba907408f81e4a870e}{itaylor} (const interval \&\hyperlink{classitaylor_a26ce2edd74c4225bd48d226bbd844d00}{constant})
+\item 
+\hyperlink{classitaylor_ac3f49c2df21c83051943e33f4f40550d}{itaylor} (const double \&\hyperlink{classitaylor_a26ce2edd74c4225bd48d226bbd844d00}{constant})
+\item 
+virtual \hyperlink{classitaylor_a4113323f2bf9f195b8a4a627a15f0509}{$\sim$itaylor} ()
+\item 
+\hyperlink{classitaylor}{itaylor} \& \hyperlink{classitaylor_a5edad8cbc893a1ae05cc535675d99ce3}{operator=} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+interval \& \hyperlink{classitaylor_a103e7ee5e21bccf03ad500086927443c}{operator\mbox{[}$\,$\mbox{]}} (int index) const 
+\item 
+int \hyperlink{classitaylor_a589de5c87d9993888423598c42be5f07}{get\-Order} (void) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a2c8074fdc97258d6581ce18a6d76d8d8}{variable} (const interval \&x, int degree)
+\item 
+static \hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a26ce2edd74c4225bd48d226bbd844d00}{constant} (const interval \&x, int degree)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classitaylor_a83c1b0a5a14fb5f0e0323adcc9b60a40}{order}
+\item 
+interval $\ast$ \hyperlink{classitaylor_a45521302408d376be9603aea42eb45f0}{coeff}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a812c741913a5c9a39d09244753c10f80}{operator+} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a5650df7895792673fedd1d3bbb993ca4}{operator-\/} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_abff047f20e6e0c3b9619e87c5cd78d1e}{operator+} (const \hyperlink{classitaylor}{itaylor} \&a, const \hyperlink{classitaylor}{itaylor} \&b)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a819e619172b445480f82ae8fd3160fc0}{operator-\/} (const \hyperlink{classitaylor}{itaylor} \&a, const \hyperlink{classitaylor}{itaylor} \&b)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a57cb7c8e28bc6f9150c46a25942a90ba}{operator$\ast$} (const \hyperlink{classitaylor}{itaylor} \&a, const \hyperlink{classitaylor}{itaylor} \&b)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a1ba4cc5b5b0ddcf66d9f43f0be7f920d}{operator/} (const \hyperlink{classitaylor}{itaylor} \&a, const \hyperlink{classitaylor}{itaylor} \&b)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a39b9b1399538b2b8ed7055eb042a0481}{exp} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_aeeba35ade2a2342936eb6a1e493b5d53}{log} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_aa120810b0216f92d8b7bb709fe4c8df2}{sin} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a863fa25a09ba4d108b624023f714fabc}{cos} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a1e89188d7c9f76e761e3a80574493169}{tan} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_add6a2dee94153503acc03c051014f863}{pow} (const \hyperlink{classitaylor}{itaylor} \&a, const \hyperlink{classitaylor}{itaylor} \&b)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a8865a7478d3d024024ac9c237ff05b4d}{pow} (const \hyperlink{classitaylor}{itaylor} \&a, const interval \&t)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_adfae79e43a063e2db1e109d1126e3319}{pow} (const \hyperlink{classitaylor}{itaylor} \&a, const int \&n)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a926643d40976e4eeb33f69598b35b8cf}{derivative} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_ac4891b459b32f3442e9b5200c2bd5e0b}{integral} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_ac4815c39ce987d7ab15e04240650d720}{derivative} (const \hyperlink{classitaylor}{itaylor} \&a, int k)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_ab46914e40a1c404067ac6d2ca48d46a2}{integral} (const \hyperlink{classitaylor}{itaylor} \&a, int k)
+\item 
+void \hyperlink{classitaylor_ad34de0d71513c5745f9edea5dbb7bbdf}{resize} (\hyperlink{classitaylor}{itaylor} \&a, int degree)
+\item 
+void \hyperlink{classitaylor_a2524c8f0db7471b13d0cd5e1aa785b40}{clear} (\hyperlink{classitaylor}{itaylor} \&a)
+\item 
+\hyperlink{classitaylor}{itaylor} \hyperlink{classitaylor_a1e6e019f776d845fb77bcdb183f98596}{round} (const \hyperlink{classitaylor}{itaylor} \&a, int degree)
+\item 
+void \hyperlink{classitaylor_a7e12f72c00d845d084279a3a66f3f341}{round} (\hyperlink{classitaylor}{itaylor} \&a, int degree)
+\item 
+int \hyperlink{classitaylor_a4132ecfd27a2b1283feb9f4f30e28c2b}{order\-Of} (const \hyperlink{classitaylor}{itaylor} \&a)
+\item 
+ostream \& \hyperlink{classitaylor_a0ad0ae441a5e94248ca15e0d92e9c73a}{operator$<$$<$} (ostream \&o\-S, const \hyperlink{classitaylor}{itaylor} \&a)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 28 of file itaylor.\-h.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classitaylor_a265623bc1a74c5677c0b356317691808}{\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classitaylor_a265623bc1a74c5677c0b356317691808}
+\hypertarget{classitaylor_a12241a58e4d5de9efd24293e9c646ff1}{\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)}}\label{classitaylor_a12241a58e4d5de9efd24293e9c646ff1}
+\hypertarget{classitaylor_a49508643f0a5beba907408f81e4a870e}{\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{constant}
+\end{DoxyParamCaption}
+)}}\label{classitaylor_a49508643f0a5beba907408f81e4a870e}
+\hypertarget{classitaylor_ac3f49c2df21c83051943e33f4f40550d}{\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!itaylor@{itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+\item[{const double \&}]{constant}
+\end{DoxyParamCaption}
+)}}\label{classitaylor_ac3f49c2df21c83051943e33f4f40550d}
+\hypertarget{classitaylor_a4113323f2bf9f195b8a4a627a15f0509}{\index{itaylor@{itaylor}!$\sim$itaylor@{$\sim$itaylor}}
+\index{$\sim$itaylor@{$\sim$itaylor}!itaylor@{itaylor}}
+\paragraph[{$\sim$itaylor}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf itaylor\-::$\sim$itaylor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classitaylor_a4113323f2bf9f195b8a4a627a15f0509}
+
+
+\-Definition at line 38 of file itaylor.\-h.
+
+
+\begin{DoxyCode}
+{ delete coeff; }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classitaylor_a26ce2edd74c4225bd48d226bbd844d00}{\index{itaylor@{itaylor}!constant@{constant}}
+\index{constant@{constant}!itaylor@{itaylor}}
+\paragraph[{constant}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf itaylor} {\bf itaylor\-::constant} (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{x, }
+\item[{int}]{degree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classitaylor_a26ce2edd74c4225bd48d226bbd844d00}
+\hypertarget{classitaylor_a589de5c87d9993888423598c42be5f07}{\index{itaylor@{itaylor}!get\-Order@{get\-Order}}
+\index{get\-Order@{get\-Order}!itaylor@{itaylor}}
+\paragraph[{get\-Order}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf itaylor\-::get\-Order} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classitaylor_a589de5c87d9993888423598c42be5f07}
+
+
+\-Definition at line 41 of file itaylor.\-h.
+
+
+\begin{DoxyCode}
+{ return order; }
+\end{DoxyCode}
+\hypertarget{classitaylor_a5edad8cbc893a1ae05cc535675d99ce3}{\index{itaylor@{itaylor}!operator=@{operator=}}
+\index{operator=@{operator=}!itaylor@{itaylor}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor}\& itaylor\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)}}\label{classitaylor_a5edad8cbc893a1ae05cc535675d99ce3}
+\hypertarget{classitaylor_a103e7ee5e21bccf03ad500086927443c}{\index{itaylor@{itaylor}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!itaylor@{itaylor}}
+\paragraph[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}interval\& itaylor\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+) const}}\label{classitaylor_a103e7ee5e21bccf03ad500086927443c}
+\hypertarget{classitaylor_a2c8074fdc97258d6581ce18a6d76d8d8}{\index{itaylor@{itaylor}!variable@{variable}}
+\index{variable@{variable}!itaylor@{itaylor}}
+\paragraph[{variable}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf itaylor} {\bf itaylor\-::variable} (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{x, }
+\item[{int}]{degree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classitaylor_a2c8074fdc97258d6581ce18a6d76d8d8}
+
+
+\-Referenced by integrand(), \-Laplace\-Integrand(), \-Laplace\-Riemann\-Term(), \-Lognormal\-Integrand(), \-Lognormal\-Riemann\-Term(), and riemann\-Term().
+
+
+
+\subsubsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classitaylor_a2524c8f0db7471b13d0cd5e1aa785b40}{\index{itaylor@{itaylor}!clear@{clear}}
+\index{clear@{clear}!itaylor@{itaylor}}
+\paragraph[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf clear} (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a2524c8f0db7471b13d0cd5e1aa785b40}
+\hypertarget{classitaylor_a863fa25a09ba4d108b624023f714fabc}{\index{itaylor@{itaylor}!cos@{cos}}
+\index{cos@{cos}!itaylor@{itaylor}}
+\paragraph[{cos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf cos} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a863fa25a09ba4d108b624023f714fabc}
+\hypertarget{classitaylor_a926643d40976e4eeb33f69598b35b8cf}{\index{itaylor@{itaylor}!derivative@{derivative}}
+\index{derivative@{derivative}!itaylor@{itaylor}}
+\paragraph[{derivative}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf derivative} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a926643d40976e4eeb33f69598b35b8cf}
+\hypertarget{classitaylor_ac4815c39ce987d7ab15e04240650d720}{\index{itaylor@{itaylor}!derivative@{derivative}}
+\index{derivative@{derivative}!itaylor@{itaylor}}
+\paragraph[{derivative}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf derivative} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_ac4815c39ce987d7ab15e04240650d720}
+\hypertarget{classitaylor_a39b9b1399538b2b8ed7055eb042a0481}{\index{itaylor@{itaylor}!exp@{exp}}
+\index{exp@{exp}!itaylor@{itaylor}}
+\paragraph[{exp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf exp} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a39b9b1399538b2b8ed7055eb042a0481}
+\hypertarget{classitaylor_ac4891b459b32f3442e9b5200c2bd5e0b}{\index{itaylor@{itaylor}!integral@{integral}}
+\index{integral@{integral}!itaylor@{itaylor}}
+\paragraph[{integral}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf integral} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_ac4891b459b32f3442e9b5200c2bd5e0b}
+\hypertarget{classitaylor_ab46914e40a1c404067ac6d2ca48d46a2}{\index{itaylor@{itaylor}!integral@{integral}}
+\index{integral@{integral}!itaylor@{itaylor}}
+\paragraph[{integral}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf integral} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{int}]{k}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_ab46914e40a1c404067ac6d2ca48d46a2}
+\hypertarget{classitaylor_aeeba35ade2a2342936eb6a1e493b5d53}{\index{itaylor@{itaylor}!log@{log}}
+\index{log@{log}!itaylor@{itaylor}}
+\paragraph[{log}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf log} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_aeeba35ade2a2342936eb6a1e493b5d53}
+\hypertarget{classitaylor_a57cb7c8e28bc6f9150c46a25942a90ba}{\index{itaylor@{itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!itaylor@{itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{const {\bf itaylor} \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a57cb7c8e28bc6f9150c46a25942a90ba}
+\hypertarget{classitaylor_a812c741913a5c9a39d09244753c10f80}{\index{itaylor@{itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!itaylor@{itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a812c741913a5c9a39d09244753c10f80}
+\hypertarget{classitaylor_abff047f20e6e0c3b9619e87c5cd78d1e}{\index{itaylor@{itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!itaylor@{itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{const {\bf itaylor} \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_abff047f20e6e0c3b9619e87c5cd78d1e}
+\hypertarget{classitaylor_a5650df7895792673fedd1d3bbb993ca4}{\index{itaylor@{itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!itaylor@{itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a5650df7895792673fedd1d3bbb993ca4}
+\hypertarget{classitaylor_a819e619172b445480f82ae8fd3160fc0}{\index{itaylor@{itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!itaylor@{itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{const {\bf itaylor} \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a819e619172b445480f82ae8fd3160fc0}
+\hypertarget{classitaylor_a1ba4cc5b5b0ddcf66d9f43f0be7f920d}{\index{itaylor@{itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!itaylor@{itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{const {\bf itaylor} \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a1ba4cc5b5b0ddcf66d9f43f0be7f920d}
+\hypertarget{classitaylor_a0ad0ae441a5e94248ca15e0d92e9c73a}{\index{itaylor@{itaylor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!itaylor@{itaylor}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o\-S, }
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a0ad0ae441a5e94248ca15e0d92e9c73a}
+\hypertarget{classitaylor_a4132ecfd27a2b1283feb9f4f30e28c2b}{\index{itaylor@{itaylor}!order\-Of@{order\-Of}}
+\index{order\-Of@{order\-Of}!itaylor@{itaylor}}
+\paragraph[{order\-Of}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf order\-Of} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a4132ecfd27a2b1283feb9f4f30e28c2b}
+\hypertarget{classitaylor_add6a2dee94153503acc03c051014f863}{\index{itaylor@{itaylor}!pow@{pow}}
+\index{pow@{pow}!itaylor@{itaylor}}
+\paragraph[{pow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf pow} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{const {\bf itaylor} \&}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_add6a2dee94153503acc03c051014f863}
+\hypertarget{classitaylor_a8865a7478d3d024024ac9c237ff05b4d}{\index{itaylor@{itaylor}!pow@{pow}}
+\index{pow@{pow}!itaylor@{itaylor}}
+\paragraph[{pow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf pow} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{const interval \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a8865a7478d3d024024ac9c237ff05b4d}
+\hypertarget{classitaylor_adfae79e43a063e2db1e109d1126e3319}{\index{itaylor@{itaylor}!pow@{pow}}
+\index{pow@{pow}!itaylor@{itaylor}}
+\paragraph[{pow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf pow} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{const int \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_adfae79e43a063e2db1e109d1126e3319}
+\hypertarget{classitaylor_ad34de0d71513c5745f9edea5dbb7bbdf}{\index{itaylor@{itaylor}!resize@{resize}}
+\index{resize@{resize}!itaylor@{itaylor}}
+\paragraph[{resize}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf resize} (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{a, }
+\item[{int}]{degree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_ad34de0d71513c5745f9edea5dbb7bbdf}
+\hypertarget{classitaylor_a1e6e019f776d845fb77bcdb183f98596}{\index{itaylor@{itaylor}!round@{round}}
+\index{round@{round}!itaylor@{itaylor}}
+\paragraph[{round}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf round} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a, }
+\item[{int}]{degree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a1e6e019f776d845fb77bcdb183f98596}
+\hypertarget{classitaylor_a7e12f72c00d845d084279a3a66f3f341}{\index{itaylor@{itaylor}!round@{round}}
+\index{round@{round}!itaylor@{itaylor}}
+\paragraph[{round}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf round} (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{a, }
+\item[{int}]{degree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a7e12f72c00d845d084279a3a66f3f341}
+\hypertarget{classitaylor_aa120810b0216f92d8b7bb709fe4c8df2}{\index{itaylor@{itaylor}!sin@{sin}}
+\index{sin@{sin}!itaylor@{itaylor}}
+\paragraph[{sin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sin} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_aa120810b0216f92d8b7bb709fe4c8df2}
+\hypertarget{classitaylor_a1e89188d7c9f76e761e3a80574493169}{\index{itaylor@{itaylor}!tan@{tan}}
+\index{tan@{tan}!itaylor@{itaylor}}
+\paragraph[{tan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf tan} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classitaylor_a1e89188d7c9f76e761e3a80574493169}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classitaylor_a45521302408d376be9603aea42eb45f0}{\index{itaylor@{itaylor}!coeff@{coeff}}
+\index{coeff@{coeff}!itaylor@{itaylor}}
+\paragraph[{coeff}]{\setlength{\rightskip}{0pt plus 5cm}interval$\ast$ {\bf itaylor\-::coeff}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classitaylor_a45521302408d376be9603aea42eb45f0}
+
+
+\-Definition at line 31 of file itaylor.\-h.
+
+\hypertarget{classitaylor_a83c1b0a5a14fb5f0e0323adcc9b60a40}{\index{itaylor@{itaylor}!order@{order}}
+\index{order@{order}!itaylor@{itaylor}}
+\paragraph[{order}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf itaylor\-::order}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classitaylor_a83c1b0a5a14fb5f0e0323adcc9b60a40}
+
+
+\-Definition at line 30 of file itaylor.\-h.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{itaylor_8h}{itaylor.\-h}\end{DoxyCompactItemize}

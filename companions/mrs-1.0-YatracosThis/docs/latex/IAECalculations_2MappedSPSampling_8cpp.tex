@@ -1,0 +1,791 @@
+\hypertarget{IAECalculations_2MappedSPSampling_8cpp}{\subsection{\-Mapped\-S\-P\-Sampling.\-cpp \-File \-Reference}
+\label{IAECalculations_2MappedSPSampling_8cpp}\index{\-Mapped\-S\-P\-Sampling.\-cpp@{\-Mapped\-S\-P\-Sampling.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}\-Fin\-Mix\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj1\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj10\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj100\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Rosen\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Rosen\-Fobj10\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Rosen\-Fobj100\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Levy\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnodevisitor\-\_\-expand.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLexicoSorting}{\-Lexico\-Sorting$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{IAECalculations_2MappedSPSampling_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+void \hyperlink{IAECalculations_2MappedSPSampling_8cpp_ad413fb4b470884bbd346547f10dd5b67}{get\-All\-Weights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ double $>$ \&\-Weights\-Vector)
+\item 
+void \hyperlink{IAECalculations_2MappedSPSampling_8cpp_a071c6769f9c807ff0719ce7470b94a86}{get\-Height\-And\-Box} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ ivector $>$ \&\-Box\-Vector, vector$<$ real $>$ \&\-Heights\-Vector)
+\item 
+void \hyperlink{IAECalculations_2MappedSPSampling_8cpp_aaccdd027128215abfb51d30ca3bfc190}{norm\-Heights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, double total\-Area, vector$<$ \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ real $>$ $>$ \&height\-Norm)
+\item 
+int \hyperlink{IAECalculations_2MappedSPSampling_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{IAECalculations_2MappedSPSampling_8cpp_ad413fb4b470884bbd346547f10dd5b67}{\index{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}!get\-All\-Weights@{get\-All\-Weights}}
+\index{get\-All\-Weights@{get\-All\-Weights}!IAECalculations/MappedSPSampling.cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}}
+\paragraph[{get\-All\-Weights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-All\-Weights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ double $>$ \&}]{\-Weights\-Vector}
+\end{DoxyParamCaption}
+)}}\label{IAECalculations_2MappedSPSampling_8cpp_ad413fb4b470884bbd346547f10dd5b67}
+
+
+\-Definition at line 88 of file \-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp.
+
+
+
+\-References get\-All\-Weights(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Weights(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     
+     //get the weights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getWeights(WeightsVector, thisNodePtr->nodeVolume());
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getAllWeights(thisNodePtr->getLeftChild(), WeightsVector);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getAllWeights(thisNodePtr->getRightChild(), WeightsVector);
+   }
+}
+\end{DoxyCode}
+\hypertarget{IAECalculations_2MappedSPSampling_8cpp_a071c6769f9c807ff0719ce7470b94a86}{\index{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}!get\-Height\-And\-Box@{get\-Height\-And\-Box}}
+\index{get\-Height\-And\-Box@{get\-Height\-And\-Box}!IAECalculations/MappedSPSampling.cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}}
+\paragraph[{get\-Height\-And\-Box}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-Height\-And\-Box} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ ivector $>$ \&}]{\-Box\-Vector, }
+\item[{vector$<$ real $>$ \&}]{\-Heights\-Vector}
+\end{DoxyParamCaption}
+)}}\label{IAECalculations_2MappedSPSampling_8cpp_a071c6769f9c807ff0719ce7470b94a86}
+
+
+\-Definition at line 107 of file \-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Height(), get\-Height\-And\-Box(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     //push back this box into the BoxVector
+     BoxVector.push_back(thisNodePtr->getBox());
+     
+     //get the heights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getHeight(HeightsVector);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getHeightAndBox(thisNodePtr->getLeftChild(), BoxVector, HeightsVector);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getHeightAndBox(thisNodePtr->getRightChild(), BoxVector, HeightsVector);
+   }
+}
+\end{DoxyCode}
+\hypertarget{IAECalculations_2MappedSPSampling_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}!main@{main}}
+\index{main@{main}!IAECalculations/MappedSPSampling.cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{IAECalculations_2MappedSPSampling_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 150 of file \-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::accept(), subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), \-Draw\-Unif\-Box(), get\-All\-Weights(), get\-Height\-And\-Box(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-N\-O\-L\-O\-G, norm\-Heights(), output(), subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), and subpavings\-::\-Adaptive\-Histogram\-::priority\-Split\-With\-Switches().
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+  if ( argc != 6 ) {
+    cerr << "Syntax: MappedFunctions n dataSeed dims lb ub" << endl;
+    exit(0);
+  }
+
+   //user inputs
+    const int n = atoi(argv[1]); //number of points
+    long int dataSeed = atoi(argv[2]); //seed for generating data
+    int dims = atoi(argv[3]); //which data set 
+
+     // Make sure tolerance for estimating function is not too small for the
+       dimension 
+//  real tolFunction = 0.7;
+  real tolFunction = 0.028141;
+//  real tolFunction = 0.999999;
+//  real tolFunction = 0.0000568; 
+  double lb = atof(argv[4]);
+  double ub = atof(argv[5]);
+ 
+
+   //string formatting
+   ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(10);
+
+  //=========================end of setting up parameter===================//
+
+   //=========set up to estimate the function==============================// 
+    //function object
+  GaussianFobj2D realF;
+//  RosenFobj2D realF;
+//  LevyFobj2D realF;
+  //  GaussianFobj10D realF;
+      
+    //make a root box
+  cout << "make root box: " << endl;
+   ivector pavingBox(dims);
+   interval pavingInterval(lb,ub);
+   for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+  cout << "Root box is " << pavingBox << endl;
+
+   RealMappedSPnode nodeEst(pavingBox); // make a MappedSPnode object
+   cout << "Estimate function:" << endl;
+    // estimate the function
+   MappedSPnodeVisitorExpand expander(realF, tolFunction);
+   nodeEst.accept(expander);
+   
+    cout << "Tolerance is: " << tolFunction << endl;
+   cout << "Number of leaves is: " << nodeEst.getNumLeaves() << endl;;
+
+   
+   //output to .txt   
+   string filename = "EstFunction.txt";
+   //output(filename, nodeEst);
+   string leafLevelEst = "EstLeafLevel.txt";
+   oss.open(leafLevelEst.c_str());
+   oss << nodeEst.getLeafLevelsString() << endl ;
+   oss << flush;
+   oss.close();
+  //=======================================================================//
+
+   //==================Get the weights of the boxes=========================//
+   cout << "Getting boxes and weights:" << endl;
+    vector<ivector> BoxVector;
+   vector<real> HeightsVector;
+   RealMappedSPnode* nodePtr;
+   nodePtr = &nodeEst;
+   vector<double>* WeightsVectorPtr;
+   WeightsVectorPtr = new vector<double>;
+   
+   // iterate through the leaf nodes to get boxes and heights and weights
+   getHeightAndBox(nodePtr, BoxVector, HeightsVector);
+   getAllWeights(nodePtr, *WeightsVectorPtr);
+   
+   //now put elements of WeightsVector into an array of doubles
+   size_t sizeWeight =(*WeightsVectorPtr).size();
+   //check that number of boxes < 10^6
+   if (sizeWeight > pow(10,7)) { 
+      cerr << "Too many boxes (" << sizeWeight << ")." << endl;
+      exit(1);
+   }
+
+  // normalize using heights
+   double totalArea = 0;
+   //normalize the heights so that the function integrates to 1
+   for (size_t i = 0; i < sizeWeight; i++) {
+    totalArea += (*WeightsVectorPtr)[i];
+   }
+  cout << "Total area: " << totalArea << endl; 
+   
+   // very important - normalize the heights in nodeEst
+   vector< RangeCollectionClass<real> >* heightNorm = new vector<
+       RangeCollectionClass<real> >;
+   normHeights(nodePtr, totalArea, *heightNorm);
+   nodeEst.allocateRanges(*heightNorm, 0);
+   filename = "EstFunctionAfterNormalized.txt";
+   output(filename, nodeEst);
+   
+   //need to check that the weights equal to 1
+   double densityCheck = 0.0;
+    //convert vector to array
+   double WeightsArray[sizeWeight];
+   for (size_t i = 0; i < sizeWeight; i++) {
+      WeightsArray[i] = (*WeightsVectorPtr)[i];
+      densityCheck += (*WeightsVectorPtr)[i]/totalArea;
+   }
+   
+  cout << "Total area after normalizing: " << densityCheck << endl;
+  /*
+  if ( (densityCheck != 1.0) ) {
+    cout << densityCheck << endl; 
+    cerr << "Function does not integrate to 1. Need to normalize." << endl; 
+    exit(0); 
+  }
+  */
+  
+   //return to the system the memory that was pointed to by WeightsVectorPtr
+   // and heightNorm
+   delete WeightsVectorPtr;
+   delete heightNorm;
+   
+    //now get the lookup table returned from gsl_ran_discrete_preproc
+   //i.e. the box indices with their weights
+   gsl_ran_discrete_t* gslpdfstruct;
+   gslpdfstruct = gsl_ran_discrete_preproc(sizeWeight, WeightsArray);
+   //===================end of getting box weights=======================//
+
+  //===================generate data===================================
+  // set up a random number generator to draw from weighted boxes
+  const gsl_rng_type * T;
+  gsl_rng * r;
+
+  //create a generator chosen by the environment variable GSL_RNG_TYPE
+  gsl_rng_env_setup();
+  T = gsl_rng_default;
+  r = gsl_rng_alloc (T);
+  // set a seed for the data
+  gsl_rng_set(r, dataSeed);
+
+  //now sample n data points from boxes given by the proposed indices
+  cout << "Sample data points using weighted boxes:" << endl;
+  RVecData theData;   // a container for all the points generated
+   // make a simulated data set
+  // data sampled as weighted-uniform-mixtures
+  for (int i = 0; i < n; i++) {
+    rvector thisrv(dims);
+    size_t proposedIndex = gsl_ran_discrete(r, gslpdfstruct);
+    //int proposed_index = static_cast<int>(gsl_ran_discrete(r, gslpdfstruct));
+    thisrv = DrawUnifBox(r, BoxVector[proposedIndex]);
+    // put points generated into container
+    theData.push_back(thisrv);
+  }  // data  should be in theData
+
+    /* optional output for data
+    string dataFileName = "FinMix";
+    dataFileName += mix.str();
+    dataFileName += "Data"; 
+    dataFileName += simNum.str();
+    dataFileName += ".txt"; 
+    oss.open(dataFileName.c_str());
+    RVecData::iterator theDataIt;
+    for(theDataIt = theData.begin(); theDataIt < theData.end(); theDataIt++){
+      oss << (*theDataIt) << endl ;
+    }
+    oss << flush;
+    oss.close();
+    */
+
+//==============run an exhaustive SEB PQ==================================//
+  cout << "\n========================================================" << endl;
+  cout << "Run exhaustive PQ..." << endl;
+  bool successfulInsertion1 = false;
+  bool successfulPQSplit1 = false;
+
+  bool successfulInsertion2 = false;
+  bool successfulPQSplit2 = false;
+
+  bool successfulInsertion3 = false;
+  bool successfulPQSplit3 = false;
+
+  bool successfulInsertion4 = false;
+  bool successfulPQSplit4 = false;
+
+  bool successfulInsertion5 = false;
+  bool successfulPQSplit5 = false;
+
+  bool successfulInsertion6 = false;
+  bool successfulPQSplit6 = false;
+
+  bool successfulInsertion7 = false;
+  bool successfulPQSplit7 = false;
+
+  bool successfulInsertion8 = false;
+  bool successfulPQSplit8 = false;
+
+
+  // containers for output needed
+  vector<real> IAEOpt;
+  vector<int> NumLeafNodesOpt;
+  
+  real IAE1=100.0;
+  int NumLeafNodes1;
+  AdaptiveHistogram optHist1;
+  vector<double> Times1;
+
+  real IAE2=100.0;
+  int NumLeafNodes2;
+  AdaptiveHistogram optHist2;
+  vector<double> Times2;
+
+  real IAE3=100.0;
+  int NumLeafNodes3;
+  AdaptiveHistogram optHist3;
+   vector<double> Times3;
+   
+  real IAE4=100.0;
+  int NumLeafNodes4;
+  AdaptiveHistogram optHist4;
+  vector<double> Times4;
+
+  real IAE5=100.0;
+  int NumLeafNodes5;
+  AdaptiveHistogram optHist5;
+  vector<double> Times5;
+
+  real IAE6=100.0;
+  int NumLeafNodes6;
+  AdaptiveHistogram optHist6;
+  vector<double> Times6;
+
+  real IAE7=100.0;
+  int NumLeafNodes7;
+  AdaptiveHistogram optHist7;
+   vector<double> Times7;
+   
+  real IAE8=100.0;
+  int NumLeafNodes8;
+  AdaptiveHistogram optHist8;
+  vector<double> Times8;
+
+  //do exhaustive PQ for steps of n*0.005
+  // set up function objects for a priority split
+  CompCount compCount;
+  CompVol compVol;
+  CompArea compArea;
+  CompMeanMass compMeanMass;
+  CompCovarMass compCovarMass;
+  CompHellingerDistMass compHDMass;
+  CompHellingerDistMassDiam compHDMassDiam;
+
+  bool holdAllStats = true;
+  
+  for (int i = 1; i <= 100; i++) {
+  
+    AdaptiveHistogram myHist1(pavingBox); 
+    successfulInsertion1= myHist1.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist2(pavingBox); 
+    successfulInsertion2= myHist2.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist3(pavingBox); 
+    successfulInsertion3= myHist3.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist4(pavingBox); 
+    successfulInsertion4= myHist4.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist5(pavingBox, holdAllStats); 
+    successfulInsertion5= myHist5.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist6(pavingBox, holdAllStats); 
+    successfulInsertion6= myHist6.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist7(pavingBox, holdAllStats); 
+    successfulInsertion7= myHist7.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist8(pavingBox, holdAllStats); 
+    successfulInsertion8= myHist8.insertFromRVec(theData);
+
+    if (successfulInsertion1 && successfulInsertion2 && successfulInsertion3
+        && successfulInsertion4 && successfulInsertion5 && 
+        successfulInsertion6 && successfulInsertion7
+        && successfulInsertion8) {
+
+      int finalK = int(i*0.005*n);
+      cout << "Max k: " << finalK << endl;
+      // split until number of leaves is at most minVal
+      CritLargestCount_LTE critCount(finalK);
+      size_t minPQPoints = 0; // minimum of one data point in each box
+
+      size_t maxLeafNodes = n;
+      //cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+      
+      // we want to check the timings for this
+      clock_t start, end;
+      double timing; 
+      
+      // do the priority split for compCount
+      start  = clock(); // and keep the time
+      successfulPQSplit1 = myHist1.prioritySplit(compCount,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times1.push_back(timing);
+      
+      // do the priority split for compVol
+      start  = clock(); // and keep the time
+      successfulPQSplit2 = myHist2.prioritySplit(compVol,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times2.push_back(timing);
+      
+      // do the priority split for compVol and remove empty boxes
+      start  = clock(); // and keep the time
+      successfulPQSplit3 = myHist3.prioritySplitWithSwitches(compVol,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times3.push_back(timing);
+      
+      // do the priority split for compMassVol
+      start  = clock(); // and keep the time
+      successfulPQSplit4 = myHist4.prioritySplitWithSwitches(compArea,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times4.push_back(timing);
+
+      start  = clock(); // and keep the time
+      cout << "Comparing mean mass remove empty: " << endl;
+      successfulPQSplit5 = myHist5.prioritySplitWithSwitches(compMeanMass,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times5.push_back(timing);
+      
+      start  = clock(); // and keep the time
+      cout << "Comparing covar mass remove empty box " << endl;
+      successfulPQSplit6 = myHist6.prioritySplitWithSwitches(compCovarMass,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times6.push_back(timing);
+      
+      start  = clock(); // and keep the time
+      cout << "Comparing hellinger distance with mass remove empty box" << endl
+      ;
+      successfulPQSplit7 = myHist7.prioritySplitWithSwitches(compHDMass,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times7.push_back(timing);
+      
+      start  = clock(); // and keep the time
+      cout << "Comparing hellinger distance with mass and maxdiam and remove
+       empty box" << endl;
+      successfulPQSplit8 = myHist8.prioritySplitWithSwitches(compHDMassDiam,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times8.push_back(timing);
+
+      if (successfulPQSplit1 && successfulPQSplit2 && successfulPQSplit3
+          && successfulPQSplit4 && successfulPQSplit5 && successfulPQSplit6
+          && successfulPQSplit7 && successfulPQSplit8) {
+
+        //get the IAE
+        cout << "Get IAE: " << endl;
+        real midIAE1 = myHist1.getMappedFunctionIAE(nodeEst);
+        if ( midIAE1 < IAE1 ) {
+          cout << midIAE1 << "\t" << IAE1 << endl;
+          IAE1 = midIAE1;
+          cout << "this histogram has " << myHist1.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist1 = myHist1;
+        }
+
+        //get the IAE
+        real midIAE2 =  myHist2.getMappedFunctionIAE(nodeEst);
+        if ( midIAE2 < IAE2 ) {
+          cout << midIAE2 << "\t" << IAE2 << endl;
+          IAE2 = midIAE2;
+          cout << "this histogram has " << myHist2.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist2 = myHist2;
+        }
+
+        real midIAE3 =  myHist3.getMappedFunctionIAE(nodeEst);
+        if ( midIAE3 < IAE3 ) {
+          cout << midIAE3 << "\t" << IAE3 << endl;
+          IAE3 = midIAE3;
+          cout << "this histogram has " << myHist3.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist3 = myHist3;
+        }
+
+        
+        //get the IAE
+        real midIAE4 =  myHist4.getMappedFunctionIAE(nodeEst);
+        if ( midIAE4 < IAE4 ) {
+          cout << midIAE4 << "\t" << IAE4 << endl;
+          IAE4 = midIAE4;
+          cout << "this histogram has " << myHist4.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist4 = myHist4;
+        }
+        
+        real midIAE5 = myHist5.getMappedFunctionIAE(nodeEst);
+        if ( midIAE5 < IAE5 ) {
+          cout << midIAE5 << "\t" << IAE5 << endl;
+          IAE5 = midIAE5;
+          cout << "this histogram has " << myHist5.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist5 = myHist5;
+        }
+
+        //get the IAE
+        real midIAE6 =  myHist6.getMappedFunctionIAE(nodeEst);
+        if ( midIAE6 < IAE6 ) {
+          cout << midIAE6 << "\t" << IAE6 << endl;
+          IAE6 = midIAE6;
+          cout << "this histogram has " << myHist6.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist6 = myHist6;
+        }
+
+        real midIAE7 =  myHist7.getMappedFunctionIAE(nodeEst);
+        if ( midIAE7 < IAE7 ) {
+          cout << midIAE7 << "\t" << IAE7 << endl;
+          IAE7 = midIAE7;
+          cout << "this histogram has " << myHist7.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist7 = myHist7;
+        }
+
+        
+        //get the IAE
+        real midIAE8 =  myHist8.getMappedFunctionIAE(nodeEst);
+        if ( midIAE8 < IAE8 ) {
+          cout << midIAE8 << "\t" << IAE8 << endl;
+          IAE8 = midIAE8;
+          cout << "this histogram has " << myHist8.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist8 = myHist8;
+        }
+
+      } // end of if(successfulPQSplit)
+    }// end of if(successfulInsertion)
+  } // end of iterating through different kn's
+
+  if (successfulPQSplit1 && successfulInsertion1 && successfulPQSplit2 && 
+    successfulInsertion2 && successfulPQSplit3 && successfulInsertion3
+    && successfulPQSplit4 && successfulInsertion4 &&
+    successfulPQSplit5 && successfulInsertion5 && successfulPQSplit6 && 
+    successfulInsertion6 && successfulPQSplit7 && successfulInsertion7
+    && successfulPQSplit8 && successfulInsertion8) {
+
+    // keep the optimal IAEs
+    IAEOpt.push_back(IAE1); 
+    IAEOpt.push_back(IAE2);
+    IAEOpt.push_back(IAE3);
+    IAEOpt.push_back(IAE4);
+    IAEOpt.push_back(IAE5); 
+    IAEOpt.push_back(IAE6);
+    IAEOpt.push_back(IAE7);
+    IAEOpt.push_back(IAE8);
+    
+    // keep the number of leaf nodes from the optimal histograms
+    NumLeafNodesOpt.push_back(optHist1.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist2.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist3.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist4.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist5.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist6.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist7.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist8.getRootLeaves());
+      
+      
+    // output the optimal histograms
+    std::ostringstream stm;
+    stm << dataSeed;
+    // create a name for the file to output
+    string fileName;
+    fileName = "HistCount";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist1.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistVol";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist2.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistVolRemoveEmpty";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist3.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistArea";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist4.outputToTxtTabs(fileName);
+    
+    // create a name for the file to output
+    fileName = "HistMeanMass";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist5.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistCovarMass";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist6.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistHellingerMass";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist7.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistHellingerMassDiam";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist8.outputToTxtTabs(fileName);
+
+    
+
+    // output IAE, number of leaf nodes, times to file
+    string PQFileName = "MappedFunctionExhaustivePQOutput";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < IAEOpt.size(); i++) {
+      oss << IAEOpt[i] << "\t";
+      oss << NumLeafNodesOpt[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes output to " 
+        << PQFileName << endl;
+        
+    PQFileName = "MappedFunctionExhaustivePQOutputTimes";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < Times1.size(); i++) {
+      oss << Times1[i] << "\t";
+      oss << Times2[i] << "\t";
+      oss << Times3[i] << "\t";
+      oss << Times4[i] << "\t";
+      oss << Times5[i] << "\t";
+      oss << Times6[i] << "\t";
+      oss << Times7[i] << "\t";
+      oss << Times8[i] << endl;
+    }
+    
+    oss << flush;
+    oss.close();
+    cout << "Times output to " 
+        << PQFileName << endl;
+  } // end of successes
+
+//=================end of exhaustive PQ=================================// 
+
+  // free the random number generator
+  gsl_rng_free (r);  
+  gsl_ran_discrete_free (gslpdfstruct);
+
+  return 0;
+}
+\end{DoxyCode}
+\hypertarget{IAECalculations_2MappedSPSampling_8cpp_aaccdd027128215abfb51d30ca3bfc190}{\index{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}!norm\-Heights@{norm\-Heights}}
+\index{norm\-Heights@{norm\-Heights}!IAECalculations/MappedSPSampling.cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}}
+\paragraph[{norm\-Heights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf norm\-Heights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{double}]{total\-Area, }
+\item[{vector$<$ {\bf \-Range\-Collection\-Class}$<$ real $>$ $>$ \&}]{height\-Norm}
+\end{DoxyParamCaption}
+)}}\label{IAECalculations_2MappedSPSampling_8cpp_aaccdd027128215abfb51d30ca3bfc190}
+
+
+\-Definition at line 129 of file \-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp.
+
+
+
+\-References subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), norm\-Heights(), and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::norm\-Node\-Height().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) ) { // this is non-empty
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     real newHeight = myContainer.normNodeHeight(totalArea);
+     
+     RangeCollectionClass<real> height(newHeight);
+    heightNorm.push_back(height);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    normHeights(thisNodePtr->getLeftChild(), totalArea, heightNorm);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    normHeights(thisNodePtr->getRightChild(), totalArea, heightNorm);
+   }
+}
+\end{DoxyCode}
+\hypertarget{IAECalculations_2MappedSPSampling_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}!output@{output}}
+\index{output@{output}!IAECalculations/MappedSPSampling.cpp@{\-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{IAECalculations_2MappedSPSampling_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 71 of file \-I\-A\-E\-Calculations/\-Mapped\-S\-P\-Sampling.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+   // To generate a file output
+   ofstream os(filename.c_str());         // Filename, c-string version
+   if (os.is_open()) {
+      node.leavesOutputTabs(os); // the output
+      std::cout << "The output of the estimated function"
+               << " has been written to " << filename << std::endl << std::endl
+      ;
+         os.close();
+      }
+   else {
+      std::cerr << "Error: could not open file named "
+         << filename << std::endl << std::endl;
+   }
+}
+\end{DoxyCode}

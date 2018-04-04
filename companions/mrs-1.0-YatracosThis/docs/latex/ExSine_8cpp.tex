@@ -1,0 +1,184 @@
+\hypertarget{ExSine_8cpp}{\subsection{\-Ex\-Sine.\-cpp \-File \-Reference}
+\label{ExSine_8cpp}\index{\-Ex\-Sine.\-cpp@{\-Ex\-Sine.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}\-Example\-Fobj\-Sine.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Example\-Fobj\-Sine\-Sum.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Example\-Fobj\-Sine\-P\-I.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnodevisitor\-\_\-expand.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ExSine_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+int \hyperlink{ExSine_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{ExSine_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Ex\-Sine.\-cpp@{\-Ex\-Sine.\-cpp}!main@{main}}
+\index{main@{main}!ExSine.cpp@{\-Ex\-Sine.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ExSine_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 40 of file \-Ex\-Sine.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::accept(), f(), output(), and \-P\-I.
+
+
+\begin{DoxyCode}
+{
+
+    real tolerance = 0.05;
+
+    string filenameRoot = "ExSine";
+
+    cout << "\nExSine\n" << endl;
+
+    int dims = 1;
+    ivector pavingBox(dims);
+    interval pavingInterval(-2,2);
+    for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+    int f = 1;
+
+    RealMappedSPnode nodeRootSquare;
+
+    for (f = 1; f < 6; f+=2) {
+
+
+        RealMappedSPnode nodeRoot(pavingBox); // make a MappedSPnode object
+
+        ExampleMappedFobjSine realF(2*f);
+
+        MappedSPnodeVisitorExpand expander(realF, tolerance);
+
+        nodeRoot.accept(expander);
+
+        std::ostringstream stm;
+        stm << filenameRoot << "_f" << f << "_pt_" << static_cast<int>(_double(
+      tolerance)*100) << ".txt";
+        string filename = stm.str();
+
+        output(filename, nodeRoot);
+
+        real mult(4.0/(f*PI));
+
+        nodeRoot *= mult;
+
+        nodeRootSquare += nodeRoot;
+
+        stm.str("");
+        stm << filenameRoot << "_f" << f << "_square_pt_" << static_cast<int>(
+      _double(tolerance)*100) << ".txt";
+        filename = stm.str();
+
+        output(filename, nodeRootSquare);
+
+    }
+
+    for (f=f; f < 20; f+=2) {
+
+
+        RealMappedSPnode nodeRoot(pavingBox); // make a MappedSPnode object
+
+        ExampleMappedFobjSine realF(2*f);
+
+        MappedSPnodeVisitorExpand expander(realF, tolerance);
+
+        nodeRoot.accept(expander);
+
+        real mult(4.0/(f*PI));
+
+        nodeRoot *= mult;
+
+        nodeRootSquare += nodeRoot;
+
+    }
+    f-=2;
+
+    std::ostringstream stm;
+    stm << filenameRoot << "_f" << f << "_square_pt_" << static_cast<int>(
+      _double(tolerance)*100) << ".txt";
+    string filename = stm.str();
+
+    output(filename, nodeRootSquare);
+
+    // do the mapped subpaving for the whole function
+    RealMappedSPnode nodeRootOverall(pavingBox); // make a MappedSPnode object
+
+    ExampleMappedFobjSineSum realFOverall(f);
+
+    MappedSPnodeVisitorExpand expander(realFOverall, tolerance);
+
+    nodeRootOverall.accept(expander);
+
+    stm.str("");
+    stm << filenameRoot << "_f" << f << "_overall_pt_" << static_cast<int>(
+      _double(tolerance)*100) << ".txt";
+    filename = stm.str();
+
+    output(filename, nodeRootOverall);
+
+    // calculate the absolute difference of nodeRootSquare and nodeRootOverall
+    real diff = nodeRootSquare.absDiff(nodeRootOverall);
+    std::cout << "Absolute difference is " << diff << std::endl;
+
+    // look at the difference between nodeRootSquare and nodeRootOverall
+    RealMappedSPnode nodeRootOverallDifference = nodeRootSquare - 
+      nodeRootOverall;
+
+    stm.str("");
+    stm << filenameRoot << "_f" << f << "_difference_pt_" << static_cast<int>(
+      _double(tolerance)*100) << ".txt";
+    filename = stm.str();
+
+    output(filename, nodeRootOverallDifference);
+
+    return 0;
+
+}
+\end{DoxyCode}
+\hypertarget{ExSine_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Ex\-Sine.\-cpp@{\-Ex\-Sine.\-cpp}!output@{output}}
+\index{output@{output}!ExSine.cpp@{\-Ex\-Sine.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{ExSine_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 23 of file \-Ex\-Sine.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+        // To generate a file output
+        ofstream os(filename.c_str());         // Filename, c-string version
+        if (os.is_open()) {
+
+            node.leavesOutputTabs(os); // the output
+            std::cout << "The output of the example"
+                    << " has been written to " << filename << std::endl << 
+      std::endl;
+            os.close();
+        }
+        else {
+            std::cerr << "Error: could not open file named "
+                << filename << std::endl << std::endl;
+        }
+}
+\end{DoxyCode}

@@ -1,0 +1,111 @@
+\hypertarget{Ex2D_8cpp}{\subsection{\-Ex2\-D.\-cpp \-File \-Reference}
+\label{Ex2D_8cpp}\index{\-Ex2\-D.\-cpp@{\-Ex2\-D.\-cpp}}
+}
+
+
+\-Mapped\-S\-Pnode example 2-\/d main.  
+
+
+{\ttfamily \#include \char`\"{}\-Example\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnodevisitor\-\_\-expand.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Ex2D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+int \hyperlink{Ex2D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Mapped\-S\-Pnode example 2-\/d main. 
+
+\-Definition in file \hyperlink{Ex2D_8cpp_source}{\-Ex2\-D.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Ex2D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Ex2\-D.\-cpp@{\-Ex2\-D.\-cpp}!main@{main}}
+\index{main@{main}!Ex2D.cpp@{\-Ex2\-D.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Ex2D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 37 of file \-Ex2\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::accept(), and output().
+
+
+\begin{DoxyCode}
+{
+
+    cout << "\nEx2D\n" << endl;
+
+    int dims = 2;
+    ivector pavingBox(dims);
+    interval pavingInterval(-1,1);
+    for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+    RealMappedSPnode nodeRoot(pavingBox); // make a MappedSPnode object
+
+    ExampleMappedFobj2D realF;
+    interval ival = realF(interval(-1.0,1.0),interval(-1.0,1.0));
+    cout << ival << endl;
+
+
+    MappedSPnodeVisitorExpand expander(realF, 0.05);
+
+    nodeRoot.accept(expander);
+
+    string filename = "Ex2D_pt05.txt";
+    output(filename, nodeRoot);
+
+
+
+    return 0;
+
+}
+\end{DoxyCode}
+\hypertarget{Ex2D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Ex2\-D.\-cpp@{\-Ex2\-D.\-cpp}!output@{output}}
+\index{output@{output}!Ex2D.cpp@{\-Ex2\-D.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{Ex2D_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 20 of file \-Ex2\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+        // To generate a file output
+        ofstream os(filename.c_str());         // Filename, c-string version
+        if (os.is_open()) {
+
+            node.leavesOutputTabs(os); // the output
+            std::cout << "The output of the example"
+                    << " has been written to " << filename << std::endl << 
+      std::endl;
+            os.close();
+        }
+        else {
+            std::cerr << "Error: could not open file named "
+                << filename << std::endl << std::endl;
+        }
+}
+\end{DoxyCode}

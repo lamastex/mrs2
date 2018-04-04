@@ -1,0 +1,127 @@
+\hypertarget{classsubpavings_1_1LogCatalanPrior}{\subsection{subpavings\-:\-:\-Log\-Catalan\-Prior \-Class \-Reference}
+\label{classsubpavings_1_1LogCatalanPrior}\index{subpavings\-::\-Log\-Catalan\-Prior@{subpavings\-::\-Log\-Catalan\-Prior}}
+}
+
+
+\-A class for a log prior based on a \-Catalan number prior.  
+
+
+
+
+{\ttfamily \#include $<$histmcmcobjs.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Log\-Catalan\-Prior\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Log\-Catalan\-Prior\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1LogCatalanPrior_a2073d1910c1c644561be521b643b5dd9}{\-Log\-Catalan\-Prior} ()
+\item 
+string \hyperlink{classsubpavings_1_1LogCatalanPrior_add1b40d81d8a22343e74ce7e1a76a354}{get\-Name} () const 
+\item 
+real \hyperlink{classsubpavings_1_1LogCatalanPrior_a54670df4e881f6516d2e368bee8c2439}{operator()} (const size\-\_\-t k) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classsubpavings_1_1LogCatalanPrior_a11e97ab23bba85316c2077491c4c5cac}{temp}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class for a log prior based on a \-Catalan number prior. 
+
+\-The prior is related to the \-Catalan number of the number of bisections of the root box k, \-Ck. \-After k splits there are \-Ck distinct possible full binary trees and so, for each k, total probability of all the states resulting from k splits is proportional to 1/\-Ck. \-If if each of these k-\/split states is equally likely then then the probability of any one k-\/split state is 1/(\-Ck$^\wedge$2) 
+
+\-Definition at line 60 of file histmcmcobjs.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1LogCatalanPrior_a2073d1910c1c644561be521b643b5dd9}{\index{subpavings\-::\-Log\-Catalan\-Prior@{subpavings\-::\-Log\-Catalan\-Prior}!\-Log\-Catalan\-Prior@{\-Log\-Catalan\-Prior}}
+\index{\-Log\-Catalan\-Prior@{\-Log\-Catalan\-Prior}!subpavings::LogCatalanPrior@{subpavings\-::\-Log\-Catalan\-Prior}}
+\paragraph[{\-Log\-Catalan\-Prior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Log\-Catalan\-Prior\-::\-Log\-Catalan\-Prior} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1LogCatalanPrior_a2073d1910c1c644561be521b643b5dd9}
+
+
+\-Definition at line 70 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+{}; 
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1LogCatalanPrior_add1b40d81d8a22343e74ce7e1a76a354}{\index{subpavings\-::\-Log\-Catalan\-Prior@{subpavings\-::\-Log\-Catalan\-Prior}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!subpavings::LogCatalanPrior@{subpavings\-::\-Log\-Catalan\-Prior}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf subpavings\-::\-Log\-Catalan\-Prior\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1LogCatalanPrior_add1b40d81d8a22343e74ce7e1a76a354}
+
+
+\-Implements \hyperlink{classsubpavings_1_1LogMCMCPrior_ace14dfa0a28927d063d091e13f9ead1c}{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}.
+
+
+
+\-Definition at line 75 of file histmcmcobjs.\-hpp.
+
+
+
+\-References subpavings\-::\-Log\-M\-C\-M\-C\-Prior\-::prior\-Name.
+
+
+\begin{DoxyCode}
+    { return priorName; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1LogCatalanPrior_a54670df4e881f6516d2e368bee8c2439}{\index{subpavings\-::\-Log\-Catalan\-Prior@{subpavings\-::\-Log\-Catalan\-Prior}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::LogCatalanPrior@{subpavings\-::\-Log\-Catalan\-Prior}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real subpavings\-::\-Log\-Catalan\-Prior\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{k}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1LogCatalanPrior_a54670df4e881f6516d2e368bee8c2439}
+
+
+\-Implements \hyperlink{classsubpavings_1_1LogMCMCPrior_ae53e146f9ac1b057ae9df4370220a22d}{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}.
+
+
+
+\-Definition at line 80 of file histmcmcobjs.\-hpp.
+
+
+
+\-References l\-Ck().
+
+
+\begin{DoxyCode}
+    {
+      return -2*lCk(k)/1;
+      //double a = 2  + 4*M_PI/pow(3, 2.5); 
+      //return (-1*log(a) - 2*lCk(k-1))/temp;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1LogCatalanPrior_a11e97ab23bba85316c2077491c4c5cac}{\index{subpavings\-::\-Log\-Catalan\-Prior@{subpavings\-::\-Log\-Catalan\-Prior}!temp@{temp}}
+\index{temp@{temp}!subpavings::LogCatalanPrior@{subpavings\-::\-Log\-Catalan\-Prior}}
+\paragraph[{temp}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Log\-Catalan\-Prior\-::temp}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1LogCatalanPrior_a11e97ab23bba85316c2077491c4c5cac}
+
+
+\-Definition at line 64 of file histmcmcobjs.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histmcmcobjs_8hpp}{histmcmcobjs.\-hpp}\end{DoxyCompactItemize}

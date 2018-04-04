@@ -1,0 +1,68 @@
+\hypertarget{MappedSP_8cpp}{\subsection{\-Mapped\-S\-P.\-cpp \-File \-Reference}
+\label{MappedSP_8cpp}\index{\-Mapped\-S\-P.\-cpp@{\-Mapped\-S\-P.\-cpp}}
+}
+
+
+\-Testing \-Mapped\-S\-Pnode class.  
+
+
+{\ttfamily \#include \char`\"{}\-Mapped\-S\-P\-Testing.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$exception$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{MappedSP_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Mapped\-S\-Pnode class. 
+
+\-Definition in file \hyperlink{MappedSP_8cpp_source}{\-Mapped\-S\-P.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MappedSP_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Mapped\-S\-P.\-cpp@{\-Mapped\-S\-P.\-cpp}!main@{main}}
+\index{main@{main}!MappedSP.cpp@{\-Mapped\-S\-P.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MappedSP_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 17 of file \-Mapped\-S\-P.\-cpp.
+
+
+
+\-References testing\-Intervals(), testing\-Ints(), testing\-Reals(), and testing\-Rvectors().
+
+
+\begin{DoxyCode}
+{
+    try {
+        // testing for ints
+        testingInts();
+
+        // testing for reals
+        testingReals();
+
+        // testing for intervals
+        testingIntervals();
+
+        // testing for intervals
+        testingRvectors();
+   }
+   catch (exception& e) {
+            cerr << "Error in testing" << endl;
+            const char* msg = e.what();
+            cerr << msg << std::endl;
+            throw;
+   }
+
+    return 0;
+
+} // end of test
+\end{DoxyCode}

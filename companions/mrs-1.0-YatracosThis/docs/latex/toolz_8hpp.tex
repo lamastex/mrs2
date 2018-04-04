@@ -1,0 +1,1060 @@
+\hypertarget{toolz_8hpp}{\subsection{toolz.\-hpp \-File \-Reference}
+\label{toolz_8hpp}\index{toolz.\-hpp@{toolz.\-hpp}}
+}
+
+
+\-Declaration of various tools; functions and structs, for \-M\-R\-S.  
+
+
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include $<$getopt.\-h$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include \char`\"{}interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}rmath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ivector.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-statistics.\-h$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structkahan__sum}{kahan\-\_\-sum$<$ T $>$}
+\begin{DoxyCompactList}\small\item\em \-Stable \-Summation \-Routine of \-Kahan's. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{toolz_8hpp_a24b3d8486c8dca4d0f62658bb4da8528}{mean} (const size\-\_\-t ssize, const double $\ast$x)
+\begin{DoxyCompactList}\small\item\em \-Compute the sample mean of a double array using a recurrence. \end{DoxyCompactList}\item 
+double \hyperlink{toolz_8hpp_a03a292f5dfc6f19a070570e44eeb8552}{var} (const size\-\_\-t ssize, double $\ast$x)
+\begin{DoxyCompactList}\small\item\em \-Compute the \-Variance. \end{DoxyCompactList}\item 
+long \hyperlink{toolz_8hpp_a9efdc4ede6e6e3539c2ddca8b71e79a8}{mean\-\_\-var} (const vector$<$ real $>$ \&x, real \&\hyperlink{toolz_8hpp_a24b3d8486c8dca4d0f62658bb4da8528}{mean}, real \&\hyperlink{toolz_8hpp_a03a292f5dfc6f19a070570e44eeb8552}{var})
+\item 
+double \hyperlink{toolz_8hpp_afbd188266fc6cb199c4d23bd27d2a8c3}{\-M\-S\-E} (double exact, int ssize, double $\ast$x)
+\begin{DoxyCompactList}\small\item\em \-Compute \-M\-S\-E using gsl\-\_\-stats\-\_\-variance\-\_\-with\-\_\-fixed\-\_\-mean. \end{DoxyCompactList}\item 
+real \hyperlink{toolz_8hpp_aed5587466d9191177de49b5f1e0301ad}{\-Min} (real x, real y)
+\begin{DoxyCompactList}\small\item\em \-Find \-Minimum of two real types. \end{DoxyCompactList}\item 
+real \hyperlink{toolz_8hpp_a4fb345087779da0877e22420a2ff922d}{\-Draw\-Unif\-Interval} (gsl\-\_\-rng $\ast$rgsl, const interval \&\-X)
+\begin{DoxyCompactList}\small\item\em \-Draw a real uniformly at random from the interval \-X in \-R. \end{DoxyCompactList}\item 
+rvector \hyperlink{toolz_8hpp_a7f15a72d3cac8f3a6b8b333864b2c79e}{\-Draw\-Unif\-Unit\-Box} (gsl\-\_\-rng $\ast$rgsl, const int n\-\_\-dimensions)
+\begin{DoxyCompactList}\small\item\em \-Draw a vector uniformly at pseudo-\/random from unit box \mbox{[}0,1)$^\wedge$n\-\_\-dimensions. \end{DoxyCompactList}\item 
+rvector \hyperlink{toolz_8hpp_abc84f170f624cc9d449c0cfcaac0f157}{\-Draw\-Unif\-Box} (gsl\-\_\-rng $\ast$rgsl, const ivector \&\-X)
+\begin{DoxyCompactList}\small\item\em \-Draw a vector uniformly at pseudo-\/random from a \-Box. \end{DoxyCompactList}\item 
+rvector \hyperlink{toolz_8hpp_adfd4a448ba53eebbc7284fc6414798c6}{\-Draw\-Q\-Z\-Unif\-Box} (gsl\-\_\-qrng $\ast$qrgsl, const ivector \&\-X)
+\begin{DoxyCompactList}\small\item\em \-Draw a vector uniformly at quasi-\/random from a \-Box. \end{DoxyCompactList}\item 
+rvector \hyperlink{toolz_8hpp_a6aa3917d7eb0f56bea69ce1924ad4445}{\-Draw\-Q\-Z\-Unif\-Box\-V} (double $\ast$v, const ivector \&\-X)
+\begin{DoxyCompactList}\small\item\em \-Draw a vector uniformly at quasi-\/random from a \-Box\-: trans-\/dimensional case. \end{DoxyCompactList}\item 
+int \hyperlink{toolz_8hpp_af7098b26cfe9466d751176b29c67342c}{\-Max\-Diam\-Comp} (ivector \&iv)
+\begin{DoxyCompactList}\small\item\em \-Return the first dimension with maximal diameter. \end{DoxyCompactList}\item 
+ivector \hyperlink{toolz_8hpp_a418bc35de36effbb3522fc58fa035b60}{\-Blow\-Up\-From\-Zero} (ivector iv, real \-From\-Zero, real eps)
+\begin{DoxyCompactList}\small\item\em \-Blow up a box by eps pivoted at \-From\-Zero and return it. \end{DoxyCompactList}\item 
+double \hyperlink{toolz_8hpp_ac7e3723f9b82103197575fd3be3db667}{\-Max\-Diam} (ivector x, int \&c)
+\begin{DoxyCompactList}\small\item\em \-Return the maximal diameter of box x. \end{DoxyCompactList}\item 
+int \hyperlink{toolz_8hpp_a4b95fc9f126441c04e5b773e5fe56533}{\-Intersection} (interval \&r, const interval \&a, const interval \&b)
+\begin{DoxyCompactList}\small\item\em \-Compute the intersection interval r of interval a and interval b. \end{DoxyCompactList}\item 
+int \hyperlink{toolz_8hpp_a0c91bae4b16d5270e24a7ba9dc3b5dfa}{\-Intersection} (ivector \&r, const ivector \&a, const ivector \&b)
+\begin{DoxyCompactList}\small\item\em \-Compute the intersection box r of box a and box b. \end{DoxyCompactList}\item 
+ivector \hyperlink{toolz_8hpp_ae667f0f5dcaff56bf979f20da13e9c9f}{\-Lower} (const ivector \&x, int split)
+\begin{DoxyCompactList}\small\item\em \-Bisect box x normal to direction \char`\"{}split\char`\"{} and return the lower half. \end{DoxyCompactList}\item 
+ivector \hyperlink{toolz_8hpp_acb5cc90c84a0b29fbbf2bed1f4ece8d3}{\-Upper} (const ivector \&x, int split)
+\begin{DoxyCompactList}\small\item\em \-Bisect box x normal to direction \char`\"{}split\char`\"{} and return the upper half. \end{DoxyCompactList}\item 
+void \hyperlink{toolz_8hpp_a849f3db59fb73147d7b220db2456e088}{\-Lower} (const ivector \&x, ivector \&y, int split)
+\begin{DoxyCompactList}\small\item\em \-Bisect box x normal to direction \char`\"{}split\char`\"{} and set box y to the lower half. \end{DoxyCompactList}\item 
+void \hyperlink{toolz_8hpp_a941924d49b132adc638d12d7eb7cda92}{\-Upper} (const ivector \&x, ivector \&y, int split)
+\begin{DoxyCompactList}\small\item\em \-Bisect box x normal to direction \char`\"{}split\char`\"{} and set box y to the upper half. \end{DoxyCompactList}\item 
+double \hyperlink{toolz_8hpp_ae06411dd54912b039475819875c13ecb}{\-Volume} (const ivector \&x)
+\begin{DoxyCompactList}\small\item\em \-Return the volume of box x. \end{DoxyCompactList}\item 
+real \hyperlink{toolz_8hpp_acdd3d20a2f2c8114e1195f5e6baa078f}{real\-Volume} (const ivector \&x)
+\begin{DoxyCompactList}\small\item\em \-Return the volume of box x as a real. \end{DoxyCompactList}\item 
+double \hyperlink{toolz_8hpp_a1dc9bf6a99daaa6cf7349f16c1e558f5}{l\-Ck} (const int k)
+\begin{DoxyCompactList}\small\item\em \-Function to return log of \-Catalan number of k. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{toolz_8hpp_a7f3b31a0850236fe59b892825f09fd2d}{to\-String} (const cxsc\-::rvector \&rv)
+\begin{DoxyCompactList}\small\item\em \-String representation of rvector, formatted with brackets etc. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{toolz_8hpp_a9e40bf6c2156aaa804a8bb8939b86742}{to\-String} (const cxsc\-::ivector \&iv)
+\begin{DoxyCompactList}\small\item\em \-String representation of ivector, formatted with brackets etc. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{toolz_8hpp_a9d4d9a3d991d98a1b2d72aaed3c33704}{to\-String} (const cxsc\-::interval \&ival)
+\begin{DoxyCompactList}\small\item\em \-String representation of interval, formatted with brackets etc. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{toolz_8hpp_aa58a6fd70016ae5a2ca4a4424c1dc8a6}{pretty\-Print} (std\-::ostream \&out, const cxsc\-::rvector \&rv)
+\begin{DoxyCompactList}\small\item\em \-Output formatted with brackets etc, suitable for human reading of rvectors. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{toolz_8hpp_aea221cbc39241cd4d2a09bf9a93dd62c}{pretty\-Print} (std\-::ostream \&out, const cxsc\-::ivector \&iv)
+\begin{DoxyCompactList}\small\item\em \-Output formatted with brackets etc, suitable for human reading of ivectors. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{toolz_8hpp_a456949a2a9837eb7179b90899cbfa51c}{pretty\-Print} (std\-::ostream \&out, const cxsc\-::interval \&ival)
+\begin{DoxyCompactList}\small\item\em \-Output formatted with brackets etc, suitable for human reading of intervals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Declaration of various tools; functions and structs, for \-M\-R\-S. 
+
+\-Definition in file \hyperlink{toolz_8hpp_source}{toolz.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{toolz_8hpp_a418bc35de36effbb3522fc58fa035b60}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Blow\-Up\-From\-Zero@{\-Blow\-Up\-From\-Zero}}
+\index{\-Blow\-Up\-From\-Zero@{\-Blow\-Up\-From\-Zero}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Blow\-Up\-From\-Zero}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-Blow\-Up\-From\-Zero} (
+\begin{DoxyParamCaption}
+\item[{ivector}]{iv, }
+\item[{real}]{\-From\-Zero, }
+\item[{real}]{eps}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a418bc35de36effbb3522fc58fa035b60}
+
+
+\-Blow up a box by eps pivoted at \-From\-Zero and return it. 
+
+
+
+\-Definition at line 175 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  int i, a = Lb (iv), z = Ub (iv);
+  interval x;
+  interval EPS = _interval (-eps, eps);
+  ivector ov (a, z);
+  for (i = a; i <= z; i++)
+  {
+    x = iv[i] + EPS;
+    ov[i] =
+      _interval (pred (max (FromZero, Inf (x))),
+      succ (max (FromZero, Sup (x))));
+  }
+  return ov;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_adfd4a448ba53eebbc7284fc6414798c6}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Draw\-Q\-Z\-Unif\-Box@{\-Draw\-Q\-Z\-Unif\-Box}}
+\index{\-Draw\-Q\-Z\-Unif\-Box@{\-Draw\-Q\-Z\-Unif\-Box}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Draw\-Q\-Z\-Unif\-Box}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf \-Draw\-Q\-Z\-Unif\-Box} (
+\begin{DoxyParamCaption}
+\item[{gsl\-\_\-qrng $\ast$}]{qrgsl, }
+\item[{const ivector \&}]{\-X}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_adfd4a448ba53eebbc7284fc6414798c6}
+
+
+\-Draw a vector uniformly at quasi-\/random from a \-Box. 
+
+
+
+\-Definition at line 128 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  int i, a = Lb (X), z = Ub (X);
+  vector<double> v(z - a + 1);
+
+  gsl_qrng_get (qrgsl, (&v[0]));
+  rvector UX (a, z);
+  for (i = a; i <= z; i++)
+  {
+    UX[i] = Inf (X[i]) + (diam (X[i]) * v[i - a]);
+  }
+  return UX;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a6aa3917d7eb0f56bea69ce1924ad4445}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Draw\-Q\-Z\-Unif\-Box\-V@{\-Draw\-Q\-Z\-Unif\-Box\-V}}
+\index{\-Draw\-Q\-Z\-Unif\-Box\-V@{\-Draw\-Q\-Z\-Unif\-Box\-V}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Draw\-Q\-Z\-Unif\-Box\-V}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf \-Draw\-Q\-Z\-Unif\-Box\-V} (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{v, }
+\item[{const ivector \&}]{\-X}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a6aa3917d7eb0f56bea69ce1924ad4445}
+
+
+\-Draw a vector uniformly at quasi-\/random from a \-Box\-: trans-\/dimensional case. 
+
+\-Draw a real uniformly at quasi-\/random from the box \-X in \-R$^\wedge$n given a quasi-\/random vector in hypercube; the quasi-\/random vector v may have dimensionality greater than that of \-X, in which case the extra elements at the end of v are not used. 
+
+\-Definition at line 147 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi().
+
+
+\begin{DoxyCode}
+{
+  int i, a = Lb (X), z = Ub (X);
+  rvector UX (a, z);
+  for (i = a; i <= z; i++)
+  {
+    UX[i] = Inf (X[i]) + (diam (X[i]) * v[i - a]);
+  }
+  return UX;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_abc84f170f624cc9d449c0cfcaac0f157}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Draw\-Unif\-Box@{\-Draw\-Unif\-Box}}
+\index{\-Draw\-Unif\-Box@{\-Draw\-Unif\-Box}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Draw\-Unif\-Box}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf \-Draw\-Unif\-Box} (
+\begin{DoxyParamCaption}
+\item[{gsl\-\_\-rng $\ast$}]{rgsl, }
+\item[{const ivector \&}]{\-X}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_abc84f170f624cc9d449c0cfcaac0f157}
+
+
+\-Draw a vector uniformly at pseudo-\/random from a \-Box. 
+
+
+
+\-Definition at line 116 of file toolz.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Interval(), taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), main(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once().
+
+
+\begin{DoxyCode}
+{
+  int i, a = Lb (X), z = Ub (X);
+  rvector UX (a, z);
+  for (i = a; i <= z; i++)
+  {
+    UX[i] = DrawUnifInterval (rgsl, X[i]);
+  }
+  return UX;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a4fb345087779da0877e22420a2ff922d}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Draw\-Unif\-Interval@{\-Draw\-Unif\-Interval}}
+\index{\-Draw\-Unif\-Interval@{\-Draw\-Unif\-Interval}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Draw\-Unif\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Draw\-Unif\-Interval} (
+\begin{DoxyParamCaption}
+\item[{gsl\-\_\-rng $\ast$}]{rgsl, }
+\item[{const interval \&}]{\-X}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a4fb345087779da0877e22420a2ff922d}
+
+
+\-Draw a real uniformly at random from the interval \-X in \-R. 
+
+
+
+\-Definition at line 96 of file toolz.\-cpp.
+
+
+
+\-Referenced by \-Draw\-Unif\-Box().
+
+
+\begin{DoxyCode}
+{
+  double r = gsl_rng_uniform (rgsl);
+  return (Inf (X) + (r * diam (X)));
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a7f15a72d3cac8f3a6b8b333864b2c79e}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Draw\-Unif\-Unit\-Box@{\-Draw\-Unif\-Unit\-Box}}
+\index{\-Draw\-Unif\-Unit\-Box@{\-Draw\-Unif\-Unit\-Box}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Draw\-Unif\-Unit\-Box}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf \-Draw\-Unif\-Unit\-Box} (
+\begin{DoxyParamCaption}
+\item[{gsl\-\_\-rng $\ast$}]{rgsl, }
+\item[{const int}]{n\-\_\-dimensions}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a7f15a72d3cac8f3a6b8b333864b2c79e}
+
+
+\-Draw a vector uniformly at pseudo-\/random from unit box \mbox{[}0,1)$^\wedge$n\-\_\-dimensions. 
+
+return rvector representing point drawn uniformly pseudo-\/randomly from unit box with n\-\_\-dimensions dimensions. 
+
+\-Definition at line 105 of file toolz.\-cpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many().
+
+
+\begin{DoxyCode}
+{
+  rvector rand_vector(1, n_dimensions);
+  for(int i=1; i<=n_dimensions; i++)
+  {
+    rand_vector[i] = gsl_rng_uniform(rgsl);
+  }
+  return rand_vector;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a4b95fc9f126441c04e5b773e5fe56533}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Intersection@{\-Intersection}}
+\index{\-Intersection@{\-Intersection}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Intersection}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Intersection} (
+\begin{DoxyParamCaption}
+\item[{interval \&}]{r, }
+\item[{const interval \&}]{a, }
+\item[{const interval \&}]{b}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a4b95fc9f126441c04e5b773e5fe56533}
+
+
+\-Compute the intersection interval r of interval a and interval b. 
+
+\begin{DoxyReturn}{\-Returns}
+0 if the intersection is empty, else return 1. 
+\end{DoxyReturn}
+
+
+\-Definition at line 203 of file toolz.\-cpp.
+
+
+
+\-Referenced by get\-Reg\-Hist\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Unif\-I\-A\-E(), get\-Unif\-True\-Delta(), \-I\-B\-T\-\_\-ex3\-\_\-4(), \-I\-B\-T\-Annular(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Leaves(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Voxels(), operator$<$=(), subpavings\-::\-Regularize(), \-Regularize(), subpavings\-::\-Regularize\-Non\-Minimal(), subpavings\-::\-S\-Pnode\-::sp\-Contains(), and subpavings\-::\-S\-P\-Snode\-::sps\-Contains().
+
+
+\begin{DoxyCode}
+{
+  // disjoint?
+  if( (Inf(a) > Sup(b)) || (Inf(b) > Sup(a)) )
+    return 0;
+  else {r = a & b; return 1;}
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a0c91bae4b16d5270e24a7ba9dc3b5dfa}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Intersection@{\-Intersection}}
+\index{\-Intersection@{\-Intersection}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Intersection}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Intersection} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{r, }
+\item[{const ivector \&}]{a, }
+\item[{const ivector \&}]{b}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a0c91bae4b16d5270e24a7ba9dc3b5dfa}
+
+
+\-Compute the intersection box r of box a and box b. 
+
+\begin{DoxyReturn}{\-Returns}
+0 if the intersection is empty, else return dimension of r. 
+\end{DoxyReturn}
+
+
+\-Definition at line 213 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  int i, il = Lb(a), iu = Ub(a);
+  int intersect = iu-il+2;
+  if( (iu != Ub(b)) || (il != Lb(b)) )
+  {
+    cerr << "\n unequal index sets in Intersection\n";
+    exit(0);
+  }
+  Resize(r, il, iu);
+  for (i = il; i <= iu; i++)
+  {
+    // disjoint?
+    if( (Inf(a[i]) > Sup(b[i])) || (Inf(b[i]) > Sup(a[i])) )
+      return 0;
+    else {r[i] = a[i] & b[i]; intersect--;}
+  }
+  return intersect;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a1dc9bf6a99daaa6cf7349f16c1e558f5}{\index{toolz.\-hpp@{toolz.\-hpp}!l\-Ck@{l\-Ck}}
+\index{l\-Ck@{l\-Ck}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{l\-Ck}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf l\-Ck} (
+\begin{DoxyParamCaption}
+\item[{const int}]{k}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a1dc9bf6a99daaa6cf7349f16c1e558f5}
+
+
+\-Function to return log of \-Catalan number of k. 
+
+\-In a histogram, k is the number of leaves-\/1, ie the number of splits. \-Catalan(k) = 1/(k+1)\-Binomial(2k choose k) = (2k)!/((k+1)!k!) ln(\-Catalan(k)) is 0 for k-\/0, k=1, sum(from i=1 to i=k-\/2) of (ln(2k-\/i) -\/ ln(k-\/i)) for integer k $>$ 1.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em k} & the integer to calculate the \-Catalan number for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the natural log of the \-Catalan number for k. 
+\end{DoxyReturn}
+
+
+\-Definition at line 310 of file toolz.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    double retValue = 0.0;
+    if (k > 1) {
+        for (int i = 0; i < k-1; i++) {
+            retValue += (log(2*k-i) - log(k-i));
+        }
+    }
+    return retValue; // return 0 for k=0, k=1
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_ae667f0f5dcaff56bf979f20da13e9c9f}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Lower@{\-Lower}}
+\index{\-Lower@{\-Lower}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Lower}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-Lower} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x, }
+\item[{int}]{split}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_ae667f0f5dcaff56bf979f20da13e9c9f}
+
+
+\-Bisect box x normal to direction \char`\"{}split\char`\"{} and return the lower half. 
+
+
+
+\-Definition at line 234 of file toolz.\-cpp.
+
+
+
+\-Referenced by \-Expand(), subpavings\-::\-S\-P\-S\-Vnode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split(), subpavings\-::\-S\-P\-Snode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Leaves(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Voxels(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::node\-Expand(), subpavings\-::\-Collator\-S\-Pnode\-::node\-Expand(), subpavings\-::\-Collator\-S\-P\-Vnode\-::node\-Expand(), subpavings\-::\-Mapped\-S\-Pnode$<$ cxsc\-::real $>$\-::node\-Expand(), subpavings\-::\-S\-Pnode\-::node\-Expand(), subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expansion\-Only(), subpavings\-::\-S\-P\-Snode\-::node\-Expansion\-Only(), subpavings\-::\-Regularize(), \-Regularize(), subpavings\-::\-Regularize\-Non\-Minimal(), and subpavings\-::\-S\-Pnode\-::vec\-Box\-Node\-Difference().
+
+
+\begin{DoxyCode}
+{
+  ivector t = x;
+  SetSup( t[split], mid(x[split]) );
+  return t;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a849f3db59fb73147d7b220db2456e088}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Lower@{\-Lower}}
+\index{\-Lower@{\-Lower}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Lower}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Lower} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x, }
+\item[{ivector \&}]{y, }
+\item[{int}]{split}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a849f3db59fb73147d7b220db2456e088}
+
+
+\-Bisect box x normal to direction \char`\"{}split\char`\"{} and set box y to the lower half. 
+
+
+
+\-Definition at line 250 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  Resize(y, Lb(x), Ub(x));
+  y = x;
+  SetSup( y[split], mid(x[split]) );
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_ac7e3723f9b82103197575fd3be3db667}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Max\-Diam@{\-Max\-Diam}}
+\index{\-Max\-Diam@{\-Max\-Diam}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Max\-Diam}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Max\-Diam} (
+\begin{DoxyParamCaption}
+\item[{ivector}]{x, }
+\item[{int \&}]{c}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_ac7e3723f9b82103197575fd3be3db667}
+
+
+\-Return the maximal diameter of box x. 
+
+
+
+\-Definition at line 192 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by subpavings\-::\-S\-P\-S\-Vnode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split(), subpavings\-::\-S\-P\-Snode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split(), subpavings\-::\-S\-P\-S\-Vnode\-::get\-Right\-Count\-If\-Split(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Leaves(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Voxels(), subpavings\-::\-Mince(), \-Mince(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::node\-Expand(), subpavings\-::\-Collator\-S\-Pnode\-::node\-Expand(), subpavings\-::\-Collator\-S\-P\-Vnode\-::node\-Expand(), subpavings\-::\-Mapped\-S\-Pnode$<$ cxsc\-::real $>$\-::node\-Expand(), subpavings\-::\-S\-Pnode\-::node\-Expand(), subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expand(), subpavings\-::\-S\-P\-Snode\-::node\-Expand(), subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam\-Val\-::operator()(), subpavings\-::\-Comp\-Hellinger\-Dist\-Mass\-Diam\-Val\-::operator()(), subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam\-::operator()(), subpavings\-::\-Comp\-Hellinger\-Dist\-Mass\-Diam\-::operator()(), subpavings\-::\-Regularize(), \-Regularize(), subpavings\-::\-Regularize\-Non\-Minimal(), subpavings\-::\-Sivia(), and \-Sivia().
+
+
+\begin{DoxyCode}
+{
+  int i, a=Lb(x), z=Ub(x);
+  real Diam = diam(x[a]); c = a;
+  for (i=a+1;i<=z;i++)
+    if (diam(x[i])>Diam) { Diam = diam(x[i]); c = i; }
+    return _double(Diam);
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_af7098b26cfe9466d751176b29c67342c}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Max\-Diam\-Comp@{\-Max\-Diam\-Comp}}
+\index{\-Max\-Diam\-Comp@{\-Max\-Diam\-Comp}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Max\-Diam\-Comp}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Max\-Diam\-Comp} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{iv}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_af7098b26cfe9466d751176b29c67342c}
+
+
+\-Return the first dimension with maximal diameter. 
+
+
+
+\-Definition at line 159 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Bisect(), subpavings\-::\-S\-P\-Snode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split(), subpavings\-::\-S\-P\-Snode\-::get\-Left\-Count\-If\-Split(), subpavings\-::\-S\-Pnode\-::is\-Splittable\-Node(), subpavings\-::\-S\-P\-Snode\-::is\-Splittable\-Node(), and subpavings\-::\-S\-Pnode\-::vec\-Box\-Node\-Difference().
+
+
+\begin{DoxyCode}
+{
+  int mc, k;
+  rvector d (Lb (iv), Ub (iv));
+
+  d = diam (iv);
+  mc = Lb (iv);
+  for (k = Lb (iv) + 1; k <= Ub (iv); k++)
+  {
+    if (d[k] > d[mc])
+      mc = k;
+  }
+  return mc;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a24b3d8486c8dca4d0f62658bb4da8528}{\index{toolz.\-hpp@{toolz.\-hpp}!mean@{mean}}
+\index{mean@{mean}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{mean}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf mean} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{ssize, }
+\item[{const double $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a24b3d8486c8dca4d0f62658bb4da8528}
+
+
+\-Compute the sample mean of a double array using a recurrence. 
+
+\-Compute the arithmetic mean of a double array using the recurrence relation mean\-\_\-(n) = mean(n-\/1) + (x\mbox{[}n\mbox{]} -\/ mean(n-\/1))/(n+1). 
+
+\-Definition at line 39 of file toolz.\-cpp.
+
+
+
+\-Referenced by main(), and mean\-\_\-var().
+
+
+\begin{DoxyCode}
+{
+  return gsl_stats_mean (x, 1, ssize);
+ /* long double mean = 0;
+  size_t i;
+
+  for (i = 0; i < ssize; i++)
+  {
+    mean += (x[i] - mean) / (i + 1);
+  }
+
+  return mean;*/
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a9efdc4ede6e6e3539c2ddca8b71e79a8}{\index{toolz.\-hpp@{toolz.\-hpp}!mean\-\_\-var@{mean\-\_\-var}}
+\index{mean\-\_\-var@{mean\-\_\-var}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{mean\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf mean\-\_\-var} (
+\begin{DoxyParamCaption}
+\item[{const vector$<$ real $>$ \&}]{x, }
+\item[{real \&}]{mean, }
+\item[{real \&}]{var}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a9efdc4ede6e6e3539c2ddca8b71e79a8}
+\-Compute the arithmetic mean of a double array -\/-\/ curruntly ugly/unstable
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000015}{\-Todo}]using the recurrence relation in \hyperlink{structkahan__sum}{kahan\-\_\-sum} and the sample variance using a similar recurrence \-O\-R cxsc \-Dot\-Precision \-Accumulators. \end{DoxyRefDesc}
+
+
+\-Definition at line 66 of file toolz.\-cpp.
+
+
+
+\-References mean().
+
+
+\begin{DoxyCode}
+{
+  vector < real >::const_iterator it = x.begin ();
+  real sum (0.0), sumsq (0.0);
+  long count (0);
+  for (; it != x.end (); it++)
+  {
+    sum += *it;
+    sumsq += *it * *it;
+    count++;
+  }
+  mean = sum / count;
+  var = sumsq / count - mean * mean;
+  return count;
+  //sum = std::accumulate(x.begin(),x.end(),0.,kahan_sum<real>());
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_aed5587466d9191177de49b5f1e0301ad}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Min@{\-Min}}
+\index{\-Min@{\-Min}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Min}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Min} (
+\begin{DoxyParamCaption}
+\item[{real}]{x, }
+\item[{real}]{y}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_aed5587466d9191177de49b5f1e0301ad}
+
+
+\-Find \-Minimum of two real types. 
+
+
+
+\-Definition at line 90 of file toolz.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  return (x < y) ? x : y;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_afbd188266fc6cb199c4d23bd27d2a8c3}{\index{toolz.\-hpp@{toolz.\-hpp}!\-M\-S\-E@{\-M\-S\-E}}
+\index{\-M\-S\-E@{\-M\-S\-E}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-M\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-S\-E} (
+\begin{DoxyParamCaption}
+\item[{double}]{exact, }
+\item[{int}]{ssize, }
+\item[{double $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_afbd188266fc6cb199c4d23bd27d2a8c3}
+
+
+\-Compute \-M\-S\-E using gsl\-\_\-stats\-\_\-variance\-\_\-with\-\_\-fixed\-\_\-mean. 
+
+
+
+\-Definition at line 84 of file toolz.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  return gsl_stats_variance_with_fixed_mean (x, 1, ssize, exact);
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_aa58a6fd70016ae5a2ca4a4424c1dc8a6}{\index{toolz.\-hpp@{toolz.\-hpp}!pretty\-Print@{pretty\-Print}}
+\index{pretty\-Print@{pretty\-Print}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{pretty\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf pretty\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{const cxsc\-::rvector \&}]{rv}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_aa58a6fd70016ae5a2ca4a4424c1dc8a6}
+
+
+\-Output formatted with brackets etc, suitable for human reading of rvectors. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em out} & the stream to send the output to. \\
+\hline
+{\em rv} & the rvector to describe in the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the stream with the new output. 
+\end{DoxyReturn}
+
+
+\-Definition at line 346 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by pretty\-Print(), and to\-String().
+
+
+\begin{DoxyCode}
+{
+  out << "(";
+  for(int i=Lb(rv); i<=Ub(rv); ++i)
+  {
+  out << " " << rv[i];
+  }
+  out << " )"; 
+
+  return out;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_aea221cbc39241cd4d2a09bf9a93dd62c}{\index{toolz.\-hpp@{toolz.\-hpp}!pretty\-Print@{pretty\-Print}}
+\index{pretty\-Print@{pretty\-Print}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{pretty\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf pretty\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{const cxsc\-::ivector \&}]{iv}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_aea221cbc39241cd4d2a09bf9a93dd62c}
+
+
+\-Output formatted with brackets etc, suitable for human reading of ivectors. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em out} & the stream to send the output to. \\
+\hline
+{\em iv} & the ivector to describe in the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the stream with the new output. 
+\end{DoxyReturn}
+
+
+\-Definition at line 359 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), pretty\-Print(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  for(int i=Lb(iv); i<=Ub(iv); ++i)
+  {
+  out << " ";
+  prettyPrint(out, iv[i]);
+  }
+
+
+  return out;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a456949a2a9837eb7179b90899cbfa51c}{\index{toolz.\-hpp@{toolz.\-hpp}!pretty\-Print@{pretty\-Print}}
+\index{pretty\-Print@{pretty\-Print}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{pretty\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf pretty\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out, }
+\item[{const cxsc\-::interval \&}]{ival}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a456949a2a9837eb7179b90899cbfa51c}
+
+
+\-Output formatted with brackets etc, suitable for human reading of intervals. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em out} & the stream to send the output to. \\
+\hline
+{\em ival} & the interval to describe in the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the stream with the new output. 
+\end{DoxyReturn}
+
+
+\-Definition at line 372 of file toolz.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  out << "[ " << Inf(ival) << ", " << Sup(ival) << " ]";
+
+  return out;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_acdd3d20a2f2c8114e1195f5e6baa078f}{\index{toolz.\-hpp@{toolz.\-hpp}!real\-Volume@{real\-Volume}}
+\index{real\-Volume@{real\-Volume}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{real\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf real\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_acdd3d20a2f2c8114e1195f5e6baa078f}
+
+
+\-Return the volume of box x as a real. 
+
+unclear what behaviour of vol() is if the interval vector x is uninitialised. 
+
+\-Definition at line 285 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by subpavings\-::\-Real\-Mapped\-S\-Pnode\-::\-\_\-marginalise(), subpavings\-::\-S\-Pnode\-::is\-Splittable\-Node(), subpavings\-::\-S\-Pnode\-::node\-Real\-Volume(), and subpavings\-::\-Uniform\-Fobj\-::operator()().
+
+
+\begin{DoxyCode}
+{
+  int low_index = Lb(x);
+  int upp_index = Ub(x);
+  
+  if (upp_index < low_index) throw std::logic_error("Ub < Lb");
+
+  real accVol = 1.0;
+
+  for (int i= low_index; i<=upp_index; ++i)
+  {
+
+    accVol *= diam(x[i]);
+
+  }                 //
+
+  return accVol;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a7f3b31a0850236fe59b892825f09fd2d}{\index{toolz.\-hpp@{toolz.\-hpp}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf to\-String} (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::rvector \&}]{rv}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a7f3b31a0850236fe59b892825f09fd2d}
+
+
+\-String representation of rvector, formatted with brackets etc. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em rv} & the rvector to describe in the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+string representation of {\itshape rv\/}. 
+\end{DoxyReturn}
+
+
+\-Definition at line 322 of file toolz.\-cpp.
+
+
+
+\-References pretty\-Print().
+
+
+\begin{DoxyCode}
+{
+  std::ostringstream oss;
+  prettyPrint(oss, rv);
+  return oss.str();
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a9e40bf6c2156aaa804a8bb8939b86742}{\index{toolz.\-hpp@{toolz.\-hpp}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf to\-String} (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::ivector \&}]{iv}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a9e40bf6c2156aaa804a8bb8939b86742}
+
+
+\-String representation of ivector, formatted with brackets etc. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em iv} & the ivector to describe in the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+string representation of {\itshape iv\/}. 
+\end{DoxyReturn}
+
+
+\-Definition at line 329 of file toolz.\-cpp.
+
+
+
+\-References pretty\-Print().
+
+
+\begin{DoxyCode}
+{
+  std::ostringstream oss;
+  prettyPrint(oss, iv);
+  return oss.str();
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a9d4d9a3d991d98a1b2d72aaed3c33704}{\index{toolz.\-hpp@{toolz.\-hpp}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf to\-String} (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::interval \&}]{ival}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a9d4d9a3d991d98a1b2d72aaed3c33704}
+
+
+\-String representation of interval, formatted with brackets etc. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em ival} & the interval to describe in the output. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+string representation of {\itshape ival\/}. 
+\end{DoxyReturn}
+
+
+\-Definition at line 336 of file toolz.\-cpp.
+
+
+
+\-References pretty\-Print().
+
+
+\begin{DoxyCode}
+{
+  std::ostringstream oss;
+  prettyPrint(oss, ival);
+  return oss.str();
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_acb5cc90c84a0b29fbbf2bed1f4ece8d3}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Upper@{\-Upper}}
+\index{\-Upper@{\-Upper}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Upper}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf \-Upper} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x, }
+\item[{int}]{split}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_acb5cc90c84a0b29fbbf2bed1f4ece8d3}
+
+
+\-Bisect box x normal to direction \char`\"{}split\char`\"{} and return the upper half. 
+
+
+
+\-Definition at line 242 of file toolz.\-cpp.
+
+
+
+\-Referenced by \-Expand(), subpavings\-::\-S\-P\-S\-Vnode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split(), subpavings\-::\-S\-P\-Snode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split(), subpavings\-::\-S\-P\-S\-Vnode\-::get\-Right\-Count\-If\-Split(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Leaves(), subpavings\-::\-S\-Pnode\-::make\-Tree\-From\-Voxels(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::node\-Expand(), subpavings\-::\-Collator\-S\-Pnode\-::node\-Expand(), subpavings\-::\-Collator\-S\-P\-Vnode\-::node\-Expand(), subpavings\-::\-Mapped\-S\-Pnode$<$ cxsc\-::real $>$\-::node\-Expand(), subpavings\-::\-S\-Pnode\-::node\-Expand(), subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expansion\-Only(), subpavings\-::\-S\-P\-Snode\-::node\-Expansion\-Only(), subpavings\-::\-Regularize(), \-Regularize(), subpavings\-::\-Regularize\-Non\-Minimal(), and subpavings\-::\-S\-Pnode\-::vec\-Box\-Node\-Difference().
+
+
+\begin{DoxyCode}
+{
+  ivector t = x;
+  SetInf( t[split], mid(x[split]) );
+  return t;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a941924d49b132adc638d12d7eb7cda92}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Upper@{\-Upper}}
+\index{\-Upper@{\-Upper}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Upper}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Upper} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x, }
+\item[{ivector \&}]{y, }
+\item[{int}]{split}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a941924d49b132adc638d12d7eb7cda92}
+
+
+\-Bisect box x normal to direction \char`\"{}split\char`\"{} and set box y to the upper half. 
+
+
+
+\-Definition at line 258 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  Resize(y, Lb(x), Ub(x));
+  y = x;
+  SetInf( y[split], mid(x[split]) );
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_a03a292f5dfc6f19a070570e44eeb8552}{\index{toolz.\-hpp@{toolz.\-hpp}!var@{var}}
+\index{var@{var}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{var}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf var} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{ssize, }
+\item[{double $\ast$}]{x}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_a03a292f5dfc6f19a070570e44eeb8552}
+
+
+\-Compute the \-Variance. 
+
+the non-\/parametric plug-\/in estimate of variance (1/\-N) sum (x\-\_\-i -\/ mean)$^\wedge$2 
+
+\-Definition at line 55 of file toolz.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  return gsl_stats_variance (x, 1, ssize)*((double) (ssize-1) / (double) ssize)
+      ;
+}
+\end{DoxyCode}
+\hypertarget{toolz_8hpp_ae06411dd54912b039475819875c13ecb}{\index{toolz.\-hpp@{toolz.\-hpp}!\-Volume@{\-Volume}}
+\index{\-Volume@{\-Volume}!toolz.hpp@{toolz.\-hpp}}
+\paragraph[{\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Volume} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{toolz_8hpp_ae06411dd54912b039475819875c13ecb}
+
+
+\-Return the volume of box x. 
+
+unclear what behaviour of vol() is if the interval vector x is uninitialised. 
+
+\-Definition at line 266 of file toolz.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  int low_index = Lb(x);
+  int upp_index = Ub(x);
+
+  real accVol = 1.0;
+
+  for (int i= low_index; i<=upp_index; i++)
+  {
+
+    accVol *= diam(x[i]);
+
+  }                 //
+
+  return _double(accVol);
+}
+\end{DoxyCode}

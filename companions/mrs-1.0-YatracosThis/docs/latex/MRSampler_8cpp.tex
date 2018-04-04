@@ -1,0 +1,165 @@
+\hypertarget{MRSampler_8cpp}{\subsection{\-M\-R\-Sampler.\-cpp \-File \-Reference}
+\label{MRSampler_8cpp}\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}}
+}
+
+
+\-Moore \-Rejection \-Sampler (\hyperlink{classMRSampler}{\-M\-R\-Sampler}) definitions.  
+
+
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$set$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include $<$getopt.\-h$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include \char`\"{}interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}rmath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ivector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}rvector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imatrix.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$numeric$>$}\*
+{\ttfamily \#include $<$assert.\-h$>$}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-R\-Sampler.\-hpp\char`\"{}}\*
+\subsubsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{MRSampler_8cpp_afea1691d86573780fa46039a644d0ef0}{\-U\-S\-E\-F\-S\-C\-A\-L\-E}~1
+\item 
+\#define \hyperlink{MRSampler_8cpp_ad122025112f01afde28a624bd67fecd0}{\-M\-A\-X\-N\-T\-R\-I\-E\-S}~100000
+\item 
+\#define \hyperlink{MRSampler_8cpp_a3d8d8a3b843d32eb688d5b3bf6fa4b8f}{\-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X}~(25.\-0)
+\item 
+\#define \hyperlink{MRSampler_8cpp_a8eccc0df28913d0d118413d09bc50a9c}{\-Umax\-M\-A\-X}~(1.\-0e200)
+\item 
+\#define \hyperlink{MRSampler_8cpp_a95709e71d232d35e41fc9ce012f70890}{\-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}~1
+\item 
+\#define \hyperlink{MRSampler_8cpp_afa38f0d1735edb0d91fdf2283fa84e0d}{\-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}~0
+\item 
+\#define \hyperlink{MRSampler_8cpp_ae1758ec128ca919e83bfb56f65d5d9f5}{\-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E}~(-\/1.\-0e-\/307)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{MRSampler_8cpp_a5405921d0ad6cd3f7d084367e9f8405a}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classMRSampler}{\-M\-R\-Sampler} \&mrs)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Moore \-Rejection \-Sampler (\hyperlink{classMRSampler}{\-M\-R\-Sampler}) definitions. 
+
+\-Definition in file \hyperlink{MRSampler_8cpp_source}{\-M\-R\-Sampler.\-cpp}.
+
+
+
+\subsubsection{\-Define \-Documentation}
+\hypertarget{MRSampler_8cpp_ae1758ec128ca919e83bfb56f65d5d9f5}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!\-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E@{\-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E}}
+\index{\-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E@{\-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{\-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E}~(-\/1.\-0e-\/307)}}\label{MRSampler_8cpp_ae1758ec128ca919e83bfb56f65d5d9f5}
+
+
+\-Definition at line 75 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-M\-R\-Sampler(), and \-M\-R\-Sampler\-::update\-Umax().
+
+\hypertarget{MRSampler_8cpp_a3d8d8a3b843d32eb688d5b3bf6fa4b8f}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!\-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X@{\-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X}}
+\index{\-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X@{\-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{\-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X}~(25.\-0)}}\label{MRSampler_8cpp_a3d8d8a3b843d32eb688d5b3bf6fa4b8f}
+
+
+\-Definition at line 66 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::update\-Umax().
+
+\hypertarget{MRSampler_8cpp_ad122025112f01afde28a624bd67fecd0}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!\-M\-A\-X\-N\-T\-R\-I\-E\-S@{\-M\-A\-X\-N\-T\-R\-I\-E\-S}}
+\index{\-M\-A\-X\-N\-T\-R\-I\-E\-S@{\-M\-A\-X\-N\-T\-R\-I\-E\-S}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{\-M\-A\-X\-N\-T\-R\-I\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-A\-X\-N\-T\-R\-I\-E\-S}~100000}}\label{MRSampler_8cpp_ad122025112f01afde28a624bd67fecd0}
+
+
+\-Definition at line 62 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once().
+
+\hypertarget{MRSampler_8cpp_a95709e71d232d35e41fc9ce012f70890}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!\-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E@{\-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}}
+\index{\-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E@{\-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{\-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}~1}}\label{MRSampler_8cpp_a95709e71d232d35e41fc9ce012f70890}
+
+
+\-Definition at line 69 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once().
+
+\hypertarget{MRSampler_8cpp_a8eccc0df28913d0d118413d09bc50a9c}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!\-Umax\-M\-A\-X@{\-Umax\-M\-A\-X}}
+\index{\-Umax\-M\-A\-X@{\-Umax\-M\-A\-X}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{\-Umax\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-Umax\-M\-A\-X}~(1.\-0e200)}}\label{MRSampler_8cpp_a8eccc0df28913d0d118413d09bc50a9c}
+
+
+\-Definition at line 68 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::update\-Umax().
+
+\hypertarget{MRSampler_8cpp_afea1691d86573780fa46039a644d0ef0}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!\-U\-S\-E\-F\-S\-C\-A\-L\-E@{\-U\-S\-E\-F\-S\-C\-A\-L\-E}}
+\index{\-U\-S\-E\-F\-S\-C\-A\-L\-E@{\-U\-S\-E\-F\-S\-C\-A\-L\-E}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{\-U\-S\-E\-F\-S\-C\-A\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-U\-S\-E\-F\-S\-C\-A\-L\-E}~1}}\label{MRSampler_8cpp_afea1691d86573780fa46039a644d0ef0}
+
+
+\-Definition at line 61 of file \-M\-R\-Sampler.\-cpp.
+
+\hypertarget{MRSampler_8cpp_afa38f0d1735edb0d91fdf2283fa84e0d}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!\-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E@{\-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}}
+\index{\-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E@{\-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{\-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E}~0}}\label{MRSampler_8cpp_afa38f0d1735edb0d91fdf2283fa84e0d}
+
+
+\-Definition at line 72 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), and \-M\-R\-Sampler\-::\-Setup\-P\-D\-F().
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MRSampler_8cpp_a5405921d0ad6cd3f7d084367e9f8405a}{\index{\-M\-R\-Sampler.\-cpp@{\-M\-R\-Sampler.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MRSampler.cpp@{\-M\-R\-Sampler.\-cpp}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf \-M\-R\-Sampler} \&}]{mrs}
+\end{DoxyParamCaption}
+)}}\label{MRSampler_8cpp_a5405921d0ad6cd3f7d084367e9f8405a}
+
+
+\-Definition at line 1103 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-M\-R\-Sampler\-::\-M\-R\-Soutput().
+
+
+\begin{DoxyCode}
+{
+  // uses public member function MRSoutput to generate output
+  mrs.MRSoutput(os);
+
+  return os;
+}
+\end{DoxyCode}

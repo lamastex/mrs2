@@ -1,0 +1,86 @@
+\hypertarget{classsubpavings_1_1SPCheckVisitor}{\subsection{subpavings\-:\-:\-S\-P\-Check\-Visitor \-Class \-Reference}
+\label{classsubpavings_1_1SPCheckVisitor}\index{subpavings\-::\-S\-P\-Check\-Visitor@{subpavings\-::\-S\-P\-Check\-Visitor}}
+}
+
+
+{\ttfamily \#include $<$sp\-\_\-check\-\_\-visitor.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-S\-P\-Check\-Visitor\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classsubpavings_1_1SPCheckVisitor_a041470491ae2202032abc1f23293d5d0}{$\sim$\-S\-P\-Check\-Visitor} ()
+\item 
+virtual void \hyperlink{classsubpavings_1_1SPCheckVisitor_ad5fd0bde6d256676290e790c6387f01a}{visit} (const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$const spn) const =0
+\begin{DoxyCompactList}\small\item\em \-The visit operation. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classsubpavings_1_1SPCheckVisitor_a6ea58710e956211e24fe4997eed3d94f}{get\-Result} () const =0
+\begin{DoxyCompactList}\small\item\em \-Get the result of the visit operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 39 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1SPCheckVisitor_a041470491ae2202032abc1f23293d5d0}{\index{subpavings\-::\-S\-P\-Check\-Visitor@{subpavings\-::\-S\-P\-Check\-Visitor}!$\sim$\-S\-P\-Check\-Visitor@{$\sim$\-S\-P\-Check\-Visitor}}
+\index{$\sim$\-S\-P\-Check\-Visitor@{$\sim$\-S\-P\-Check\-Visitor}!subpavings::SPCheckVisitor@{subpavings\-::\-S\-P\-Check\-Visitor}}
+\paragraph[{$\sim$\-S\-P\-Check\-Visitor}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf subpavings\-::\-S\-P\-Check\-Visitor\-::$\sim$\-S\-P\-Check\-Visitor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1SPCheckVisitor_a041470491ae2202032abc1f23293d5d0}
+
+
+\-Definition at line 44 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+
+\begin{DoxyCode}
+{};
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1SPCheckVisitor_a6ea58710e956211e24fe4997eed3d94f}{\index{subpavings\-::\-S\-P\-Check\-Visitor@{subpavings\-::\-S\-P\-Check\-Visitor}!get\-Result@{get\-Result}}
+\index{get\-Result@{get\-Result}!subpavings::SPCheckVisitor@{subpavings\-::\-S\-P\-Check\-Visitor}}
+\paragraph[{get\-Result}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool {\bf subpavings\-::\-S\-P\-Check\-Visitor\-::get\-Result} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1SPCheckVisitor_a6ea58710e956211e24fe4997eed3d94f}
+
+
+\-Get the result of the visit operation. 
+
+\-This should be true if the last node checked meets all of the requirements of this, false otherwise. 
+
+\-Implemented in \hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_a61eb963b4e6767a29479f37b32c23ce8}{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}, \hyperlink{classsubpavings_1_1IntervalImageToleranceCheck_a02946bab9ff32b818f246a418b6e5b96}{subpavings\-::\-Interval\-Image\-Tolerance\-Check}, and \hyperlink{classsubpavings_1_1SplittableCheck_a9b48f6f958be90822fcb39b8ec053a09}{subpavings\-::\-Splittable\-Check}.
+
+\hypertarget{classsubpavings_1_1SPCheckVisitor_ad5fd0bde6d256676290e790c6387f01a}{\index{subpavings\-::\-S\-P\-Check\-Visitor@{subpavings\-::\-S\-P\-Check\-Visitor}!visit@{visit}}
+\index{visit@{visit}!subpavings::SPCheckVisitor@{subpavings\-::\-S\-P\-Check\-Visitor}}
+\paragraph[{visit}]{\setlength{\rightskip}{0pt plus 5cm}virtual void {\bf subpavings\-::\-S\-P\-Check\-Visitor\-::visit} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-Pnode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1SPCheckVisitor_ad5fd0bde6d256676290e790c6387f01a}
+
+
+\-The visit operation. 
+
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_a2b5d9ad63206b70e195b5044fec56e39}{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}, \hyperlink{classsubpavings_1_1IntervalImageToleranceCheck_a47430de6c645ae717791f17425764ea4}{subpavings\-::\-Interval\-Image\-Tolerance\-Check}, and \hyperlink{classsubpavings_1_1SplittableCheck_a67b0655c14ae3573fd8f9c954491c51e}{subpavings\-::\-Splittable\-Check}.
+
+
+
+\-Referenced by subpavings\-::\-S\-Pnode\-::accept\-S\-P\-Check\-Visitor().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sp__check__visitor_8hpp}{sp\-\_\-check\-\_\-visitor.\-hpp}\end{DoxyCompactItemize}

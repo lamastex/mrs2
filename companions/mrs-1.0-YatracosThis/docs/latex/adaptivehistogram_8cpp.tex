@@ -1,0 +1,140 @@
+\hypertarget{adaptivehistogram_8cpp}{\subsection{adaptivehistogram.\-cpp \-File \-Reference}
+\label{adaptivehistogram_8cpp}\index{adaptivehistogram.\-cpp@{adaptivehistogram.\-cpp}}
+}
+
+
+\-Adaptive\-Histogram definitions.  
+
+
+{\ttfamily \#include \char`\"{}adaptivehistogram.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$set$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$list$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$exception$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-math.\-h$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-cdf.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-integration.\-h$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}sptools.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}spalgorithms.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}collatorspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histmcmcobjs.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histpenalty.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histevalobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}adaptivehistogramcollator.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/\-Int.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/dim2taylor.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classMyCompare}{\-My\-Compare}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{adaptivehistogram_8cpp_ae2f172a2081430943222aff00bd4d1e8}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&hd)
+\begin{DoxyCompactList}\small\item\em \-Output the \-Hist\-Description object. \end{DoxyCompactList}\item 
+bool \hyperlink{adaptivehistogram_8cpp_a9e63fc09d1a9204acd2d94fe3beadc86}{operator$<$} (const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&lhs, const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Comparison operator for the histogram description. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{adaptivehistogram_8cpp_a4b985816e4b7856ce15449885e012e09}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&adh)
+\begin{DoxyCompactList}\small\item\em \-Output the contents of an \-Adaptive\-Histogram object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Adaptive\-Histogram definitions. 
+
+\-Definition in file \hyperlink{adaptivehistogram_8cpp_source}{adaptivehistogram.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{adaptivehistogram_8cpp_a9e63fc09d1a9204acd2d94fe3beadc86}{\index{adaptivehistogram.\-cpp@{adaptivehistogram.\-cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!adaptivehistogram.cpp@{adaptivehistogram.\-cpp}}
+\paragraph[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Hist\-Description} \&}]{lhs, }
+\item[{const {\bf \-Hist\-Description} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogram_8cpp_a9e63fc09d1a9204acd2d94fe3beadc86}
+
+
+\-Comparison operator for the histogram description. 
+
+
+
+\-Definition at line 5890 of file adaptivehistogram.\-cpp.
+
+
+
+\-References subpavings\-::\-Hist\-Description\-::get\-Depth\-String().
+
+
+\begin{DoxyCode}
+{
+    return lhs.getDepthString() < rhs.getDepthString();
+}
+\end{DoxyCode}
+\hypertarget{adaptivehistogram_8cpp_ae2f172a2081430943222aff00bd4d1e8}{\index{adaptivehistogram.\-cpp@{adaptivehistogram.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!adaptivehistogram.cpp@{adaptivehistogram.\-cpp}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf \-Hist\-Description} \&}]{hd}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogram_8cpp_ae2f172a2081430943222aff00bd4d1e8}
+
+
+\-Output the \-Hist\-Description object. 
+
+
+
+\-Definition at line 5882 of file adaptivehistogram.\-cpp.
+
+
+
+\-References subpavings\-::\-Hist\-Description\-::get\-Depth\-String().
+
+
+\begin{DoxyCode}
+{
+    os << hd.getDepthString();
+    return os;
+}
+\end{DoxyCode}
+\hypertarget{adaptivehistogram_8cpp_a4b985816e4b7856ce15449885e012e09}{\index{adaptivehistogram.\-cpp@{adaptivehistogram.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!adaptivehistogram.cpp@{adaptivehistogram.\-cpp}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf \-Adaptive\-Histogram} \&}]{adh}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogram_8cpp_a4b985816e4b7856ce15449885e012e09}
+
+
+\-Output the contents of an \-Adaptive\-Histogram object. 
+
+\-Verbose output for an \-Adaptive\-Histogram object, including all boxes (not just leaves), data, and summary statistics. 
+
+\-Definition at line 5902 of file adaptivehistogram.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving().
+
+
+\begin{DoxyCode}
+{
+    os << (adh.getSubPaving())->nodesAllOutput(os, 1) << std::endl;
+
+    return os;
+}
+\end{DoxyCode}
