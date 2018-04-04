@@ -1,0 +1,472 @@
+\hypertarget{MappedSPTesting_8hpp}{\subsection{\-Mapped\-S\-P\-Testing.\-hpp \-File \-Reference}
+\label{MappedSPTesting_8hpp}\index{\-Mapped\-S\-P\-Testing.\-hpp@{\-Mapped\-S\-P\-Testing.\-hpp}}
+}
+
+
+declarations for testing \-Mapped\-S\-P nodes  
+
+
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MappedSPTesting_8hpp_a686d2f9fde8869851f8c1806db2a94de}{testing\-Ints} ()
+\item 
+void \hyperlink{MappedSPTesting_8hpp_af4f8f9d67560d931c3a6cf99a8ca2cb2}{testing\-Reals} ()
+\item 
+void \hyperlink{MappedSPTesting_8hpp_a2078ccf7a3182fc91c84636c22eafc5e}{testing\-Intervals} ()
+\item 
+void \hyperlink{MappedSPTesting_8hpp_a98c77f0cb3cafad5b5b5054aceaee80c}{testing\-Rvectors} ()
+\item 
+void \hyperlink{MappedSPTesting_8hpp_aef79ccce3ac1806a24d3b4b84156ffdd}{mapped\-Abs\-Diff\-Test} (const \hyperlink{classsubpavings_1_1RealMappedSPnode}{subpavings\-::\-Real\-Mapped\-S\-Pnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1RealMappedSPnode}{subpavings\-::\-Real\-Mapped\-S\-Pnode} $\ast$const rhs)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+declarations for testing \-Mapped\-S\-P nodes 
+
+\-Definition in file \hyperlink{MappedSPTesting_8hpp_source}{\-Mapped\-S\-P\-Testing.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MappedSPTesting_8hpp_aef79ccce3ac1806a24d3b4b84156ffdd}{\index{\-Mapped\-S\-P\-Testing.\-hpp@{\-Mapped\-S\-P\-Testing.\-hpp}!mapped\-Abs\-Diff\-Test@{mapped\-Abs\-Diff\-Test}}
+\index{mapped\-Abs\-Diff\-Test@{mapped\-Abs\-Diff\-Test}!MappedSPTesting.hpp@{\-Mapped\-S\-P\-Testing.\-hpp}}
+\paragraph[{mapped\-Abs\-Diff\-Test}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf mapped\-Abs\-Diff\-Test} (
+\begin{DoxyParamCaption}
+\item[{const {\bf subpavings\-::\-Real\-Mapped\-S\-Pnode} $\ast$const}]{lhs, }
+\item[{const {\bf subpavings\-::\-Real\-Mapped\-S\-Pnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting_8hpp_aef79ccce3ac1806a24d3b4b84156ffdd}
+
+
+\-Definition at line 14 of file \-Mapped\-S\-P\-Testing.\-cpp.
+
+
+
+\-Referenced by testing\-Reals().
+
+
+\begin{DoxyCode}
+{
+    cout << "Trying to find absolute value of difference" << endl;
+    cout << endl;
+
+    cxsc::real diff = lhs->absDiff(*rhs);
+
+    cout << "difference is " << diff << endl;
+    cout << endl;
+
+} // end of absdiff test
+\end{DoxyCode}
+\hypertarget{MappedSPTesting_8hpp_a2078ccf7a3182fc91c84636c22eafc5e}{\index{\-Mapped\-S\-P\-Testing.\-hpp@{\-Mapped\-S\-P\-Testing.\-hpp}!testing\-Intervals@{testing\-Intervals}}
+\index{testing\-Intervals@{testing\-Intervals}!MappedSPTesting.hpp@{\-Mapped\-S\-P\-Testing.\-hpp}}
+\paragraph[{testing\-Intervals}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf testing\-Intervals} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting_8hpp_a2078ccf7a3182fc91c84636c22eafc5e}
+
+
+\-Definition at line 189 of file \-Mapped\-S\-P\-Testing.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), mapped\-Addition\-Test(), mapped\-Product\-Test(), mapped\-Scalar\-Mult\-Test(), print\-Test\-Trees(), and subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::split\-To\-Shape().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+
+    MappedSPnode<interval>* nodeOne; // make a MappedSPnode object
+    MappedSPnode<interval>* nodeTwo; // make another MappedSPnode object
+
+    try {
+        // testing for intervals
+
+        cout << "\nTesting for ranges as intervals\n" << endl;
+
+        int dims = 1;
+        ivector pavingBox(dims);
+        interval pavingInterval(-4,4);
+        for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+        nodeOne = new MappedSPnode<interval>(pavingBox); // make a MappedSPnode
+       object
+        nodeTwo = new MappedSPnode<interval>(pavingBox); // make another
+       MappedSPnode object
+
+        // split the nodes to particular shapes
+        nodeOne->splitToShape("1,1"); // split it
+        nodeTwo->splitToShape("2,2,1"); // split it
+
+        // allocate ranges for nodeOne
+        RangeCollectionClass<interval>  rangeOne1(interval(1.0,5.0));
+        RangeCollectionClass<interval> rangeOne2(interval(1.5,3.0));
+        RangeCollectionClass<interval> rangeOne3(interval(2.5,4.0));
+
+        vector< RangeCollectionClass<interval> > rangesOne;
+        rangesOne.push_back(rangeOne1);
+        rangesOne.push_back(rangeOne2);
+        rangesOne.push_back(rangeOne3);
+
+        nodeOne->allocateRanges(rangesOne, 0);
+
+
+        // allocate ranges for nodeTwo
+        RangeCollectionClass<interval> rangeTwo1(interval(1.0,6.0));
+        RangeCollectionClass<interval> rangeTwo2(interval(2.0,5.0));
+        RangeCollectionClass<interval> rangeTwo3(interval(2.5,3.5));
+        RangeCollectionClass<interval> rangeTwo4(interval(3.0,4.5));
+        RangeCollectionClass<interval> rangeTwo5(interval(1.5,5.5));
+
+        vector< RangeCollectionClass<interval> > rangesTwo;
+        rangesTwo.push_back(rangeTwo1);
+        rangesTwo.push_back(rangeTwo2);
+        rangesTwo.push_back(rangeTwo3);
+        rangesTwo.push_back(rangeTwo4);
+        rangesTwo.push_back(rangeTwo5);
+
+        nodeTwo->allocateRanges(rangesTwo, 0);
+
+        printTestTrees(nodeOne, nodeTwo);
+
+        mappedAdditionTest(nodeOne, nodeTwo);
+        mappedProductTest(nodeOne, nodeTwo);
+
+        interval multiplier(1.0,4.0); // supply a multiplier of the right type
+
+        mappedScalarMultTest(nodeOne, nodeTwo, multiplier);
+
+        delete nodeOne;
+        delete nodeTwo;
+        nodeOne = NULL; nodeTwo = NULL;
+    }
+    catch (exception& e){
+        if (NULL == nodeOne) {
+            delete nodeOne;
+            nodeOne = NULL;}
+        if (NULL == nodeTwo) {
+            delete nodeTwo;
+            nodeTwo = NULL;}
+        throw;
+    }
+
+
+} // end of test for intervals
+\end{DoxyCode}
+\hypertarget{MappedSPTesting_8hpp_a686d2f9fde8869851f8c1806db2a94de}{\index{\-Mapped\-S\-P\-Testing.\-hpp@{\-Mapped\-S\-P\-Testing.\-hpp}!testing\-Ints@{testing\-Ints}}
+\index{testing\-Ints@{testing\-Ints}!MappedSPTesting.hpp@{\-Mapped\-S\-P\-Testing.\-hpp}}
+\paragraph[{testing\-Ints}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf testing\-Ints} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting_8hpp_a686d2f9fde8869851f8c1806db2a94de}
+
+
+\-Definition at line 28 of file \-Mapped\-S\-P\-Testing.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), mapped\-Addition\-Test(), mapped\-Product\-Test(), mapped\-Scalar\-Mult\-Test(), print\-Test\-Trees(), and subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::split\-To\-Shape().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+    MappedSPnode<int>* nodeOne; // make a MappedSPnode object
+    MappedSPnode<int>* nodeTwo; // make another MappedSPnode object
+
+    try {
+        // testing for ints
+
+        cout << "\nTesting for ranges as ints\n" << endl;
+
+        int dims = 1;
+        ivector pavingBox(dims);
+        interval pavingInterval(-4,4);
+        for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+        nodeOne = new MappedSPnode<int>(pavingBox); // make a MappedSPnode
+       object
+        nodeTwo = new MappedSPnode<int>(pavingBox); // make another
+       MappedSPnode object
+
+        // split the nodes to particular shapes
+        nodeOne->splitToShape("1,1"); // split it
+        nodeTwo->splitToShape("2,2,1"); // split it
+
+        // allocate ranges for nodeOne
+        RangeCollectionClass<int> rangeOne1(4);
+        RangeCollectionClass<int> rangeOne2(1);
+        RangeCollectionClass<int> rangeOne3(3);
+
+        vector< RangeCollectionClass<int> > rangesOne;
+        rangesOne.push_back(rangeOne1);
+        rangesOne.push_back(rangeOne2);
+        rangesOne.push_back(rangeOne3);
+
+        nodeOne->allocateRanges(rangesOne, 0);
+
+
+        // allocate ranges for nodeTwo
+        RangeCollectionClass<int>  rangeTwo1(5);
+        RangeCollectionClass<int>  rangeTwo2(3);
+        RangeCollectionClass<int>  rangeTwo3(1);
+        RangeCollectionClass<int>  rangeTwo4(2);
+        RangeCollectionClass<int>  rangeTwo5(4);
+
+        vector< RangeCollectionClass<int> > rangesTwo;
+        rangesTwo.push_back(rangeTwo1);
+        rangesTwo.push_back(rangeTwo2);
+        rangesTwo.push_back(rangeTwo3);
+        rangesTwo.push_back(rangeTwo4);
+        rangesTwo.push_back(rangeTwo5);
+
+        nodeTwo->allocateRanges(rangesTwo, 0);
+
+        printTestTrees(nodeOne, nodeTwo);
+
+        mappedAdditionTest(nodeOne, nodeTwo);
+        mappedProductTest(nodeOne, nodeTwo);
+
+        int multiplier = 4; // supply a multiplier of the right type
+
+        mappedScalarMultTest(nodeOne, nodeTwo, multiplier);
+
+        delete nodeOne;
+        delete nodeTwo;
+        nodeOne = NULL; nodeTwo = NULL;
+    }
+    catch (exception& e) {
+        if (NULL == nodeOne) {
+            delete nodeOne;
+            nodeOne = NULL;}
+        if (NULL == nodeTwo) {
+            delete nodeTwo;
+            nodeTwo = NULL;}
+        throw;
+    }
+
+
+
+} // end of test for ints
+\end{DoxyCode}
+\hypertarget{MappedSPTesting_8hpp_af4f8f9d67560d931c3a6cf99a8ca2cb2}{\index{\-Mapped\-S\-P\-Testing.\-hpp@{\-Mapped\-S\-P\-Testing.\-hpp}!testing\-Reals@{testing\-Reals}}
+\index{testing\-Reals@{testing\-Reals}!MappedSPTesting.hpp@{\-Mapped\-S\-P\-Testing.\-hpp}}
+\paragraph[{testing\-Reals}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf testing\-Reals} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting_8hpp_af4f8f9d67560d931c3a6cf99a8ca2cb2}
+
+
+\-Definition at line 108 of file \-Mapped\-S\-P\-Testing.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), mapped\-Abs\-Diff\-Test(), mapped\-Addition\-Test(), mapped\-Product\-Test(), mapped\-Scalar\-Mult\-Test(), print\-Test\-Trees(), and subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::split\-To\-Shape().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+    RealMappedSPnode* nodeOne; // make a RealMappedSPnode object
+    RealMappedSPnode* nodeTwo; // make another MappedSPnode object
+
+    try {
+
+        // testing for reals
+
+        cout << "\nTesting for ranges as csxc::reals\n" << endl;
+
+        int dims = 1;
+        ivector pavingBox(dims);
+        interval pavingInterval(-4,4);
+        for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+        nodeOne = new RealMappedSPnode(pavingBox); // make a MappedSPnode
+       object
+        nodeTwo = new RealMappedSPnode(pavingBox); // make another MappedSPnode
+       object
+
+        // split the nodes to particular shapes
+        nodeOne->splitToShape("1,1"); // split it
+        nodeTwo->splitToShape("2,2,1"); // split it
+
+        // allocate ranges for nodeOne
+        RangeCollectionClass<real> rangeOne1(real(4.0));
+        RangeCollectionClass<real> rangeOne2(real(1.0));
+        RangeCollectionClass<real> rangeOne3(real(3.0));
+
+        vector< RangeCollectionClass<real> > rangesOne;
+        rangesOne.push_back(rangeOne1);
+        rangesOne.push_back(rangeOne2);
+        rangesOne.push_back(rangeOne3);
+
+        nodeOne->allocateRanges(rangesOne, 0);
+
+
+        // allocate ranges for nodeTwo
+        RangeCollectionClass<real>  rangeTwo1(real(5.0));
+        RangeCollectionClass<real>  rangeTwo2(real(3.0));
+        RangeCollectionClass<real>  rangeTwo3(real(1.0));
+        RangeCollectionClass<real>  rangeTwo4(real(2.0));
+        RangeCollectionClass<real>  rangeTwo5(real(4.0));
+
+        vector< RangeCollectionClass<real> > rangesTwo;
+        rangesTwo.push_back(rangeTwo1);
+        rangesTwo.push_back(rangeTwo2);
+        rangesTwo.push_back(rangeTwo3);
+        rangesTwo.push_back(rangeTwo4);
+        rangesTwo.push_back(rangeTwo5);
+
+        nodeTwo->allocateRanges(rangesTwo, 0);
+
+        printTestTrees(nodeOne, nodeTwo);
+
+        mappedAdditionTest(nodeOne, nodeTwo);
+        mappedAbsDiffTest(nodeOne, nodeTwo);
+        mappedProductTest(nodeOne, nodeTwo);
+
+        real multiplier(4.0); // supply a multiplier of the right type
+
+        mappedScalarMultTest(nodeOne, nodeTwo, multiplier);
+
+        delete nodeOne;
+        delete nodeTwo;
+        nodeOne = NULL; nodeTwo = NULL;
+    }
+    catch (exception& e) {
+        if (NULL == nodeOne) {
+            delete nodeOne;
+            nodeOne = NULL;}
+        if (NULL == nodeTwo) {
+            delete nodeTwo;
+            nodeTwo = NULL;}
+        throw;
+    }
+
+
+} // end of test for ints
+\end{DoxyCode}
+\hypertarget{MappedSPTesting_8hpp_a98c77f0cb3cafad5b5b5054aceaee80c}{\index{\-Mapped\-S\-P\-Testing.\-hpp@{\-Mapped\-S\-P\-Testing.\-hpp}!testing\-Rvectors@{testing\-Rvectors}}
+\index{testing\-Rvectors@{testing\-Rvectors}!MappedSPTesting.hpp@{\-Mapped\-S\-P\-Testing.\-hpp}}
+\paragraph[{testing\-Rvectors}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf testing\-Rvectors} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting_8hpp_a98c77f0cb3cafad5b5b5054aceaee80c}
+
+
+\-Definition at line 277 of file \-Mapped\-S\-P\-Testing.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), make2\-Drvector(), mapped\-Addition\-Test(), mapped\-Product\-Test(), mapped\-Scalar\-Mult\-Test(), print\-Test\-Trees(), and subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::split\-To\-Shape().
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+
+    MappedSPnode<rvector>* nodeOne; // make a MappedSPnode object
+    MappedSPnode<rvector>* nodeTwo; // make another MappedSPnode object
+
+    try {
+
+        // testing for rvectors
+
+        cout << "\nTesting for ranges as rvectors\n" << endl;
+
+        int dims = 2;
+        ivector pavingBox(dims);
+        interval pavingInterval(-4,4);
+        for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+        nodeOne = new MappedSPnode<rvector>(pavingBox); // make a MappedSPnode
+       object
+        nodeTwo = new MappedSPnode<rvector>(pavingBox); // make another
+       MappedSPnode object
+
+        // split the nodes to particular shapes
+        nodeOne->splitToShape("1,1"); // split it
+        nodeTwo->splitToShape("2,2,1"); // split it
+
+        // allocate ranges for nodeOne
+        RangeCollectionClass<rvector>  rangeOne1(make2Drvector(1.0,5.0));
+        RangeCollectionClass<rvector> rangeOne2(make2Drvector(1.5,3.0));
+        RangeCollectionClass<rvector> rangeOne3(make2Drvector(2.5,4.0));
+
+        vector< RangeCollectionClass<rvector> > rangesOne;
+        rangesOne.push_back(rangeOne1);
+        rangesOne.push_back(rangeOne2);
+        rangesOne.push_back(rangeOne3);
+
+        nodeOne->allocateRanges(rangesOne, 0);
+
+
+        // allocate ranges for nodeTwo
+        RangeCollectionClass<rvector> rangeTwo1(make2Drvector(1.0,6.0));
+        RangeCollectionClass<rvector> rangeTwo2(make2Drvector(2.0,5.0));
+        RangeCollectionClass<rvector> rangeTwo3(make2Drvector(2.5,3.5));
+        RangeCollectionClass<rvector> rangeTwo4(make2Drvector(3.0,4.5));
+        RangeCollectionClass<rvector> rangeTwo5(make2Drvector(1.5,5.5));
+
+        vector< RangeCollectionClass<rvector> > rangesTwo;
+        rangesTwo.push_back(rangeTwo1);
+        rangesTwo.push_back(rangeTwo2);
+        rangesTwo.push_back(rangeTwo3);
+        rangesTwo.push_back(rangeTwo4);
+        rangesTwo.push_back(rangeTwo5);
+
+        nodeTwo->allocateRanges(rangesTwo, 0);
+
+        printTestTrees(nodeOne, nodeTwo);
+
+        mappedAdditionTest(nodeOne, nodeTwo);
+        mappedProductTest(nodeOne, nodeTwo);
+
+        rvector multiplier = make2Drvector(1.0,4.0); // supply a multiplier of
+       the right type
+
+        mappedScalarMultTest(nodeOne, nodeTwo, multiplier);
+
+        delete nodeOne;
+        delete nodeTwo;
+        nodeOne = NULL; nodeTwo = NULL;
+    }
+    catch (exception& e) {
+        if (NULL == nodeOne) {
+            delete nodeOne;
+            nodeOne = NULL;}
+        if (NULL == nodeTwo) {
+            delete nodeTwo;
+            nodeTwo = NULL;}
+        throw;
+    }
+
+
+} // end of test for intervals
+\end{DoxyCode}

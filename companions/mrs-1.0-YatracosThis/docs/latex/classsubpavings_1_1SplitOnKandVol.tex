@@ -1,0 +1,180 @@
+\hypertarget{classsubpavings_1_1SplitOnKandVol}{\subsection{subpavings\-:\-:\-Split\-On\-Kand\-Vol \-Class \-Reference}
+\label{classsubpavings_1_1SplitOnKandVol}\index{subpavings\-::\-Split\-On\-Kand\-Vol@{subpavings\-::\-Split\-On\-Kand\-Vol}}
+}
+
+
+\-Class for splitting based on node volume and number of points in a node (specific to the air traffic problem).  
+
+
+
+
+{\ttfamily \#include $<$splitdecisionobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Split\-On\-Kand\-Vol\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Split\-On\-Kand\-Vol\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1SplitOnKandVol_aa54cbe73a244a1c7d73ce9aa975279d0}{\-Split\-On\-Kand\-Vol} (double a\-Vol, size\-\_\-t min\-C\-P=0)
+\item 
+bool \hyperlink{classsubpavings_1_1SplitOnKandVol_a5995683a3db1e801a10e7e0baf011d03}{operator()} () const 
+\item 
+bool \hyperlink{classsubpavings_1_1SplitOnKandVol_afc8d8d30b0c25478ffbce3d2358cfd89}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const spn) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1SplitOnKandVol_adbdb11710318e74198eb1ad23a63f56f}{\-Split\-On\-Kand\-Vol} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classsubpavings_1_1SplitOnKandVol_af3766a409d0c882d23965ab7f5868c6c}{approx\-Min\-Vol}
+\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SplitOnKandVol_af590d181521aea9eacec7465312cb735}{min\-Child\-Points}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class for splitting based on node volume and number of points in a node (specific to the air traffic problem). 
+
+\-This class will try to split a node with $>$ 1 data points until each node has either 1 point or no points; and if the node has 1 or more points, this class will also try to split the node until the resulting node has volume approx\-Min\-Vol $<$= vol\-Node $<$= craft\-Vol, where min\-Vol is the area of an air craft. \-The class will not split a node if the split results in a box having vol\-Node $<$ approx\-Min\-Vol.
+
+\-Thus this class may leave a node that has 1 point with volume more than craft\-Vol. 
+
+\-Definition at line 178 of file splitdecisionobj.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1SplitOnKandVol_adbdb11710318e74198eb1ad23a63f56f}{\index{subpavings\-::\-Split\-On\-Kand\-Vol@{subpavings\-::\-Split\-On\-Kand\-Vol}!\-Split\-On\-Kand\-Vol@{\-Split\-On\-Kand\-Vol}}
+\index{\-Split\-On\-Kand\-Vol@{\-Split\-On\-Kand\-Vol}!subpavings::SplitOnKandVol@{subpavings\-::\-Split\-On\-Kand\-Vol}}
+\paragraph[{\-Split\-On\-Kand\-Vol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Split\-On\-Kand\-Vol\-::\-Split\-On\-Kand\-Vol} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SplitOnKandVol_adbdb11710318e74198eb1ad23a63f56f}
+\hypertarget{classsubpavings_1_1SplitOnKandVol_aa54cbe73a244a1c7d73ce9aa975279d0}{\index{subpavings\-::\-Split\-On\-Kand\-Vol@{subpavings\-::\-Split\-On\-Kand\-Vol}!\-Split\-On\-Kand\-Vol@{\-Split\-On\-Kand\-Vol}}
+\index{\-Split\-On\-Kand\-Vol@{\-Split\-On\-Kand\-Vol}!subpavings::SplitOnKandVol@{subpavings\-::\-Split\-On\-Kand\-Vol}}
+\paragraph[{\-Split\-On\-Kand\-Vol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Split\-On\-Kand\-Vol\-::\-Split\-On\-Kand\-Vol} (
+\begin{DoxyParamCaption}
+\item[{double}]{a\-Vol, }
+\item[{size\-\_\-t}]{min\-C\-P = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1SplitOnKandVol_aa54cbe73a244a1c7d73ce9aa975279d0}
+
+
+\-Definition at line 187 of file splitdecisionobj.\-hpp.
+
+
+\begin{DoxyCode}
+                     :  approxMinVol(aVol), 
+                   minChildPoints(minCP) {};
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1SplitOnKandVol_a5995683a3db1e801a10e7e0baf011d03}{\index{subpavings\-::\-Split\-On\-Kand\-Vol@{subpavings\-::\-Split\-On\-Kand\-Vol}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::SplitOnKandVol@{subpavings\-::\-Split\-On\-Kand\-Vol}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Split\-On\-Kand\-Vol\-::operator() (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1SplitOnKandVol_a5995683a3db1e801a10e7e0baf011d03}
+
+
+\-Implements \hyperlink{classsubpavings_1_1SplitDecisionObj_acaae38df4650168faf869bcfc11b0212}{subpavings\-::\-Split\-Decision\-Obj}.
+
+
+
+\-Definition at line 191 of file splitdecisionobj.\-hpp.
+
+
+\begin{DoxyCode}
+        {
+            return true;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SplitOnKandVol_afc8d8d30b0c25478ffbce3d2358cfd89}{\index{subpavings\-::\-Split\-On\-Kand\-Vol@{subpavings\-::\-Split\-On\-Kand\-Vol}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::SplitOnKandVol@{subpavings\-::\-Split\-On\-Kand\-Vol}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Split\-On\-Kand\-Vol\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1SplitOnKandVol_afc8d8d30b0c25478ffbce3d2358cfd89}
+
+
+\-Implements \hyperlink{classsubpavings_1_1SplitDecisionObj_aa1bd2caa4a7bc2890f0c7c7edc4ded4f}{subpavings\-::\-Split\-Decision\-Obj}.
+
+
+
+\-Definition at line 196 of file splitdecisionobj.\-hpp.
+
+
+
+\-References approx\-Min\-Vol, subpavings\-::\-S\-P\-Snode\-::get\-Counter(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+        {         
+        
+        //std::cout << "----calling splitonKandVol----" << std::endl;
+        bool retvalue;
+
+         if (spn->getCounter() >= 1 && spn->nodeVolume() > approxMinVol)
+          {  
+             //std::cout << spn->getNodeName() << "\t" << spn->getBox();
+            //std::cout << "spn->getCounter()==1 && spn->nodeVolume() >
+       approxMinVol:" << std::endl;
+            //std::cout << "Counter: " << spn->getCounter() 
+             //          << "\tVolume: " << spn->nodeVolume() 
+          //         << "\tApproxMinVol: " << approxMinVol << std::endl <<
+       std::endl;
+             //split only if the split does not result in a node having 
+            //  vol less than approxMinVol 
+            retvalue = true;
+          }
+        else {
+          //std::cout << "Do not split " << spn->getNodeName() << std::endl;
+          //std::cout << spn->getNodeName() << "\t" << spn->getBox();
+          //std::cout << "spn->getCounter()==1 && spn->nodeVolume() >
+       approxMinVol:" << std::endl;
+          //std::cout << "Counter: " << spn->getCounter() 
+          //      << "\tVolume: " << spn->nodeVolume() 
+          //      << "\tApproxMinVol: " << approxMinVol << std::endl <<
+       std::endl;
+          retvalue = false;
+        }
+        return retvalue;
+        }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1SplitOnKandVol_af3766a409d0c882d23965ab7f5868c6c}{\index{subpavings\-::\-Split\-On\-Kand\-Vol@{subpavings\-::\-Split\-On\-Kand\-Vol}!approx\-Min\-Vol@{approx\-Min\-Vol}}
+\index{approx\-Min\-Vol@{approx\-Min\-Vol}!subpavings::SplitOnKandVol@{subpavings\-::\-Split\-On\-Kand\-Vol}}
+\paragraph[{approx\-Min\-Vol}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Split\-On\-Kand\-Vol\-::approx\-Min\-Vol}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SplitOnKandVol_af3766a409d0c882d23965ab7f5868c6c}
+
+
+\-Definition at line 180 of file splitdecisionobj.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classsubpavings_1_1SplitOnKandVol_af590d181521aea9eacec7465312cb735}{\index{subpavings\-::\-Split\-On\-Kand\-Vol@{subpavings\-::\-Split\-On\-Kand\-Vol}!min\-Child\-Points@{min\-Child\-Points}}
+\index{min\-Child\-Points@{min\-Child\-Points}!subpavings::SplitOnKandVol@{subpavings\-::\-Split\-On\-Kand\-Vol}}
+\paragraph[{min\-Child\-Points}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-Split\-On\-Kand\-Vol\-::min\-Child\-Points}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SplitOnKandVol_af590d181521aea9eacec7465312cb735}
+
+
+\-Definition at line 181 of file splitdecisionobj.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{splitdecisionobj_8hpp}{splitdecisionobj.\-hpp}\end{DoxyCompactItemize}

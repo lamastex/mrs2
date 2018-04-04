@@ -1,0 +1,298 @@
+\hypertarget{classOscFobj}{\subsection{\-Osc\-Fobj \-Class \-Reference}
+\label{classOscFobj}\index{\-Osc\-Fobj@{\-Osc\-Fobj}}
+}
+
+
+{\ttfamily \#include $<$osc\-Fobj1.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-Osc\-Fobj\-:
+
+
+\-Collaboration diagram for \-Osc\-Fobj\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classOscFobj_a515cee36fbccd4fbe8a2f707bef2c9d6}{\-Osc\-Fobj} ()
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+cxsc\-::interval \hyperlink{classOscFobj_a5e2d7abb22cc71e47be2d6f9b5acaa2c}{operator()} (const cxsc\-::ivector \&ivec) const 
+\item 
+cxsc\-::real \hyperlink{classOscFobj_abc13936e90daaa530f97eea20cb6b310}{operator()} (const cxsc\-::rvector \&r) const 
+\item 
+std\-::string \hyperlink{classOscFobj_a11fc8cb4baeded5b0b1e21d76250d0a4}{get\-Name} () const 
+\begin{DoxyCompactList}\small\item\em a virtual function for the function name \end{DoxyCompactList}\item 
+\hyperlink{classOscFobj_a9b1a0df6b1af480edf1a158e98f2cffe}{$\sim$\-Osc\-Fobj} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+cxsc\-::interval \hyperlink{classOscFobj_abb34bbb89491d69889dfdbaf59ff97c5}{operator()} (const cxsc\-::interval \&ival) const 
+\item 
+cxsc\-::real \hyperlink{classOscFobj_a2472b4b74b761201ee2bfa7993a33392}{operator()} (const cxsc\-::real \&r) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classOscFobj_a27474ed25401a044c30395a44eeefcae}{name}
+\item 
+cxsc\-::real \hyperlink{classOscFobj_a66d7ba153ba87cd3483e4404cf7ffb6a}{a}
+\item 
+cxsc\-::real \hyperlink{classOscFobj_ab318db22734e335f06d64d72c9c4892c}{b}
+\item 
+cxsc\-::real \hyperlink{classOscFobj_accc6363665e58cef176c0f0df818d6e7}{c}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 15 of file osc\-Fobj1.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classOscFobj_a515cee36fbccd4fbe8a2f707bef2c9d6}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!\-Osc\-Fobj@{\-Osc\-Fobj}}
+\index{\-Osc\-Fobj@{\-Osc\-Fobj}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{\-Osc\-Fobj}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Osc\-Fobj\-::\-Osc\-Fobj} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classOscFobj_a515cee36fbccd4fbe8a2f707bef2c9d6}
+
+
+\-Constructor. 
+
+
+
+\-Definition at line 18 of file osc\-Fobj1.\-cpp.
+
+
+\begin{DoxyCode}
+:name("oscillator"), a(2.0), b(10.0), c(3.0) {}
+\end{DoxyCode}
+\hypertarget{classOscFobj_a9b1a0df6b1af480edf1a158e98f2cffe}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!$\sim$\-Osc\-Fobj@{$\sim$\-Osc\-Fobj}}
+\index{$\sim$\-Osc\-Fobj@{$\sim$\-Osc\-Fobj}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{$\sim$\-Osc\-Fobj}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Osc\-Fobj\-::$\sim$\-Osc\-Fobj} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classOscFobj_a9b1a0df6b1af480edf1a158e98f2cffe}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 34 of file osc\-Fobj1.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classOscFobj_a11fc8cb4baeded5b0b1e21d76250d0a4}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Osc\-Fobj\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classOscFobj_a11fc8cb4baeded5b0b1e21d76250d0a4}
+
+
+a virtual function for the function name 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1MappedFobj_a852f7fc0282f2e331f4c10f459dc96ae}{subpavings\-::\-Mapped\-Fobj}.
+
+
+
+\-Definition at line 72 of file osc\-Fobj1.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  return std::string("Osc");
+}
+\end{DoxyCode}
+\hypertarget{classOscFobj_a5e2d7abb22cc71e47be2d6f9b5acaa2c}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!operator()@{operator()}}
+\index{operator()@{operator()}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::interval \-Osc\-Fobj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::ivector \&}]{ivec}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classOscFobj_a5e2d7abb22cc71e47be2d6f9b5acaa2c}
+declare function for cxsc\-::interval image of a box 
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj_aad44e53cb112ea94a970a9bf3888fa6b}{subpavings\-::\-Mapped\-Fobj}.
+
+
+
+\-Definition at line 20 of file osc\-Fobj1.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by operator()().
+
+
+\begin{DoxyCode}
+{
+  int lb = Lb(ivec);
+  int ub = Ub(ivec);
+  
+  cxsc::interval result = this->operator()(ivec[lb]);
+  
+    
+  for (int i = lb+1; i <= ub; ++i) {
+    
+    
+    result *= this->operator()(ivec[i]);
+    
+  }
+  
+  return result;
+}
+\end{DoxyCode}
+\hypertarget{classOscFobj_abc13936e90daaa530f97eea20cb6b310}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!operator()@{operator()}}
+\index{operator()@{operator()}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real \-Osc\-Fobj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::rvector \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classOscFobj_abc13936e90daaa530f97eea20cb6b310}
+declare function for cxsc\-::real image of rvector 
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj_aed79714dcf7fb4eb54d0488428909291}{subpavings\-::\-Mapped\-Fobj}.
+
+
+
+\-Definition at line 38 of file osc\-Fobj1.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), operator()(), and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  int lb = Lb(r);
+  int ub = Ub(r);
+  
+  cxsc::real retr = this->operator()(r[lb]);
+  
+  for (int i = lb+1; i <= ub && retr > 0.0; ++i) {
+    retr *= (this->operator()(r[i]));
+  }
+    return retr;
+
+}
+\end{DoxyCode}
+\hypertarget{classOscFobj_abb34bbb89491d69889dfdbaf59ff97c5}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!operator()@{operator()}}
+\index{operator()@{operator()}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::interval \-Osc\-Fobj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::interval \&}]{ival}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classOscFobj_abb34bbb89491d69889dfdbaf59ff97c5}
+
+
+\-Definition at line 53 of file osc\-Fobj1.\-cpp.
+
+
+
+\-References a, b, c, taylor\-::cos(), taylor\-::pow(), and taylor\-::sin().
+
+
+\begin{DoxyCode}
+{
+  cxsc::interval int_a(a, a);
+  cxsc::interval reti = pow(ival,int_a) + (ival+1) * pow(cxsc::sin(ival*Pi_real
+      *b),int_a) * pow(cxsc::cos(ival*Pi_real*c),int_a);
+  if (Inf(ival) < 0 || Sup(ival) > 1) SetInf(reti, 0.0);
+  return reti;
+}
+\end{DoxyCode}
+\hypertarget{classOscFobj_a2472b4b74b761201ee2bfa7993a33392}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!operator()@{operator()}}
+\index{operator()@{operator()}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real \-Osc\-Fobj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classOscFobj_a2472b4b74b761201ee2bfa7993a33392}
+
+
+\-Definition at line 61 of file osc\-Fobj1.\-cpp.
+
+
+
+\-References a, b, c, taylor\-::cos(), taylor\-::pow(), and taylor\-::sin().
+
+
+\begin{DoxyCode}
+{
+  
+  cxsc::real retr = pow(r,a) + (r+1) * pow(cxsc::sin(r*Pi_real*b),a) * pow(
+      cxsc::cos(r*Pi_real*c),a);
+  if (r < 0.0 || r > 1.0) {
+     retr = 0.0;
+  
+  }
+  return retr;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classOscFobj_a66d7ba153ba87cd3483e4404cf7ffb6a}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!a@{a}}
+\index{a@{a}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{a}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf \-Osc\-Fobj\-::a}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classOscFobj_a66d7ba153ba87cd3483e4404cf7ffb6a}
+
+
+\-Definition at line 44 of file osc\-Fobj1.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classOscFobj_ab318db22734e335f06d64d72c9c4892c}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!b@{b}}
+\index{b@{b}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{b}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf \-Osc\-Fobj\-::b}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classOscFobj_ab318db22734e335f06d64d72c9c4892c}
+
+
+\-Definition at line 45 of file osc\-Fobj1.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classOscFobj_accc6363665e58cef176c0f0df818d6e7}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!c@{c}}
+\index{c@{c}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{c}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf \-Osc\-Fobj\-::c}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classOscFobj_accc6363665e58cef176c0f0df818d6e7}
+
+
+\-Definition at line 46 of file osc\-Fobj1.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classOscFobj_a27474ed25401a044c30395a44eeefcae}{\index{\-Osc\-Fobj@{\-Osc\-Fobj}!name@{name}}
+\index{name@{name}!OscFobj@{\-Osc\-Fobj}}
+\paragraph[{name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Osc\-Fobj\-::name}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classOscFobj_a27474ed25401a044c30395a44eeefcae}
+
+
+\-Definition at line 42 of file osc\-Fobj1.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{oscFobj1_8hpp}{osc\-Fobj1.\-hpp}\item 
+\hyperlink{oscFobj1_8cpp}{osc\-Fobj1.\-cpp}\end{DoxyCompactItemize}

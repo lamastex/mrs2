@@ -1,0 +1,885 @@
+\hypertarget{HellingerFunctionSimRosen_8cpp}{\subsection{\-Hellinger\-Function\-Sim\-Rosen.\-cpp \-File \-Reference}
+\label{HellingerFunctionSimRosen_8cpp}\index{\-Hellinger\-Function\-Sim\-Rosen.\-cpp@{\-Hellinger\-Function\-Sim\-Rosen.\-cpp}}
+}
+
+
+\-Get the \-Hellinger distance between actual \-Gaussian data and \-Gaussian data generated from a function estimate.  
+
+
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}intervalmappedspnode\-\_\-measurers.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}functionestimator\-\_\-interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}piecewise\-\_\-constant\-\_\-function.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Rosen\-Density\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-F\-Rosenbrock.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-R\-Sampler.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$unistd.\-h$>$}\*
+{\ttfamily \#include $<$limits$>$}\*
+{\ttfamily \#include \char`\"{}gsl/gsl\-\_\-linalg.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}gsl/gsl\-\_\-matrix.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}gsl/gsl\-\_\-blas.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}assert.\-h\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{HellingerFunctionSimRosen_8cpp_a0c0402be9ebd7abad750822814d38f99}{\-Produce\-M\-R\-Samples} (\hyperlink{classFobj}{\-Fobj} \&\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, int n\-\_\-boxes, int n\-\_\-samples, double \-Alb, unsigned seed, bool use\-\_\-f\-\_\-scale, \hyperlink{classRSSample}{\-R\-S\-Sample} \&rs\-\_\-sample)
+\item 
+int \hyperlink{HellingerFunctionSimRosen_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Get the \-Hellinger distance between actual \-Gaussian data and \-Gaussian data generated from a function estimate. 
+
+\-Definition in file \hyperlink{HellingerFunctionSimRosen_8cpp_source}{\-Hellinger\-Function\-Sim\-Rosen.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{HellingerFunctionSimRosen_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Hellinger\-Function\-Sim\-Rosen.\-cpp@{\-Hellinger\-Function\-Sim\-Rosen.\-cpp}!main@{main}}
+\index{main@{main}!HellingerFunctionSimRosen.cpp@{\-Hellinger\-Function\-Sim\-Rosen.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{HellingerFunctionSimRosen_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 116 of file \-Hellinger\-Function\-Sim\-Rosen.\-cpp.
+
+
+
+\-References taylor\-::exp(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Box(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Paving\-Mean(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Paving\-Var\-Covar(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Total\-Integral(), \-Height, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-S\-Sample(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Piecewise\-Constant\-Function\-::normalise(), subpavings\-::\-Piecewise\-Constant\-Function\-::output\-To\-Txt\-Tabs(), \-Produce\-M\-R\-Samples(), subpavings\-::\-Piecewise\-Constant\-Function\-::simulate\-Data(), taylor\-::sqrt(), and \-Tinverse.
+
+
+\begin{DoxyCode}
+{
+  // sort out user-defined parameters------------------//
+  if ( argc < 6 ) {
+    cerr << "Syntax: " << argv[0] << 
+    "d maxLeavesEst n dataSeed" << endl;
+    throw std::runtime_error("Syntax: " + std::string(argv[0]) + "d n states,
+       symmetryIndicator");
+  }
+  
+  int d = atoi(argv[1]);  // ds
+  size_t maxLeavesEst = atoi(argv[2]);  // number of leaves in estimator
+  const int n = atoi(argv[3]);  // number of points to generate
+  int dataSeed = atoi(argv[4]); // seed for data generation
+
+  size_t minPoints = 1;
+  size_t minPQPoints1 = 1;
+  size_t minPQPoints2 = 1;
+  size_t minPQPoints3 = 1;
+
+  int n_boxes = atoi(argv[5]); // for mrs
+
+  cout << argv[0] << " : process id is " << getpid() << std::endl;
+
+  // for output purposes
+  // string formatting
+  ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(10);
+
+  //=======generate actual data and get the root box==============//
+  cout << "\n Generate " << n << " data from actual density." << endl;
+
+  ios::sync_with_stdio ();  // call this function so iostream works with stdio
+  cout << SetPrecision (20, 15);  // Number of mantissa digits in I/O
+  
+  
+  // set up a random number generator and use mt19937 for generator
+  gsl_rng * r = gsl_rng_alloc (gsl_rng_mt19937); // set up with default seed
+  //long unsigned int seed = 1234;
+  gsl_rng_set (r, dataSeed); // change the seed
+  cout << "Data seed is " << dataSeed << endl;
+  
+  // set default values
+  int n_dimensions = d; 
+  int n_samples = n;
+  double Alb = 1.0;// partition until lower bound on Acceptance Prob. is > Alb
+  unsigned theSeed = dataSeed;
+  
+  //Parameters specific to the Rosenbrock target
+  real Tinverse = 1.0;
+  real Height = 100.0;
+  real RosenDomainLimit = 10.0;
+  
+  cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes 
+       << "  n_samples: " << n_samples << "  rng_seed = " << theSeed  
+       << endl; //getchar();
+  
+  bool UseLogPi = false; // log scale won't work naively
+  bool use_f_scale = false;
+  
+  // make the function object
+  FRosenbrock FRosen (n_dimensions, 
+                      Tinverse, Height, RosenDomainLimit, UseLogPi);
+  
+  // produce the samples
+  RSSample* actualDataPtr = new RSSample; 
+  ProduceMRSamples(FRosen, n_boxes, n_samples, 
+                   Alb, theSeed, use_f_scale, *actualDataPtr);
+
+  AdaptiveHistogram* actualHist = new AdaptiveHistogram(true); 
+  actualHist->insertFromRSSample(*actualDataPtr, 0, NOLOG);
+  ivector pavingBoxEst = actualHist->getRootBox();
+
+  //=========end of getting a root box from the actual data=============
+  
+  //============== make estimate ============//
+  cout << "\nMake the function estimator to " << maxLeavesEst << " leaves" << 
+      endl;
+  
+  // specify function object (from /examples/MappedTargets
+  RosenDensityFobj fobj;
+  
+  /* function estimate is going to use same box as the histograms */
+  //ivector pavingBoxEst(d);
+  //for(int k=1; k <= d; k++) pavingBoxEst[k] = pavingInterval;
+  
+  // Use fobj and pavingBox to get an estimator
+  FunctionEstimatorInterval estimator(pavingBoxEst, fobj);
+  
+  LOGGING_LEVEL logEst = NOLOG; // logging for making estimator
+  
+  #if(1)
+  size_t maxLeavesEstDown = static_cast<size_t>(1.2*maxLeavesEst); // go down
+       to 1.2 x max
+  #endif
+  #if(0)
+    size_t maxLeavesEstDown = maxLeavesEst;
+  #endif
+  
+  cout << "pq down to max leaves " << maxLeavesEstDown << endl;
+  
+  clock_t startEst = clock();
+  
+  // priority split driven by splitting leaf with max reimann diff
+  ReimannDiffMeasurer measurer;
+  estimator.prioritySplit(measurer, maxLeavesEstDown, logEst);
+      
+  // stop recording time here
+  clock_t endEst = clock();
+  cout << "Number of leaves in estimate: " << estimator.getRootLeaves() << " s.
+      "<< endl;  
+  cout << "After split, getTotalAreaOfIntervalBand() = "
+    << estimator.getTotalAreaOfIntervalBand() << endl;
+  double timingEst1 = ((static_cast<double>(endEst - startEst)) / 
+      CLOCKS_PER_SEC);
+  cout << "Computing time for pq split in estimate: " << timingEst1 << " s."<< 
+      endl;
+  startEst = clock();
+  
+  #if(1) 
+    cout << "Hull propagation" << endl;
+    estimator.hullPropagation();
+    
+    cout << "Priority merge to " << maxLeavesEst << " leaves" << endl;
+    #if(0)
+    // priority merge driven by minimising increase the reimann diff
+    estimator.priorityMergeOnLoss(maxLeavesEst, logEst);
+    #endif
+    #if(1)
+    // priority merge driven by merging cherry with minimum reimann diff
+    estimator.priorityMerge(maxLeavesEst, logEst);
+    #endif
+          
+    // stop recording time here
+    endEst = clock(); 
+    double timingEst2 = ((static_cast<double>(endEst - startEst)) / 
+      CLOCKS_PER_SEC);
+    cout << "Computing time for hull propagate and merge up in estimate: " << 
+      timingEst2 << " s."<< endl;
+    
+    cout << "After propagation and priority merge, getTotalAreaOfIntervalBand()
+       = " 
+          << estimator.getTotalAreaOfIntervalBand() << endl;
+    cout << "number of leaves is = " << estimator.getRootLeaves() << endl;
+  #endif
+  
+  cout << "Making estimate and normalising" << endl;
+  // Make PiecewiseConstantFunction estimate from estimator
+  PiecewiseConstantFunction estimate = estimator.makePiecewiseConstantFunction(
+      );
+  
+  cout << "estimate has integral " << estimate.getTotalIntegral() << " before
+       normalizing" << endl;
+  real before = estimate.getTotalIntegral();
+  
+  estimate.normalise();
+  
+  cout << "estimate has integral " << estimate.getTotalIntegral() << endl;
+  
+  //optional
+  estimate.outputToTxtTabs("PCF.txt");
+  
+  
+  string Integral = "Integral.txt";
+  oss.open(Integral.c_str());
+  oss << before << "\t" << estimate.getTotalIntegral() << endl;
+  oss << flush;
+  oss.close();
+  
+  
+  
+  
+  //===========end of estimating function using PCF=========================//
+
+  //===========generate data==============================================//
+  // Use PiecewiseConstantFunction to generate data, supplying our own rng
+  cout << "\nGenerating data for simulation" << endl;
+
+  RVecData* theDataPtr = new RVecData;   // a container for all the points
+       generated
+
+  clock_t startData = clock();
+
+  // Gaussian data
+  estimate.simulateData(*theDataPtr, n, r);
+
+  // stop recording time here
+  clock_t endData = clock();  
+  double timingData = ((static_cast<double>(endData - startData)) / 
+      CLOCKS_PER_SEC);
+  cout << "Computing time for simulating data: " << timingData << " s."<< endl;
+
+  cout << (*theDataPtr).size() << " points generated" << endl;
+  
+  try {
+    gsl_rng_free (r);
+    r = NULL;
+  }
+  catch(...) {}// catch and swallow
+  
+  cout << "\nStart example: n = " << n << " and d = " << d << endl;
+  //cout << "Paving interval is " << pavingInterval << endl;
+
+  //===========end of generating data=================================//
+
+  //================get the hellinger distance for this set 0f data========//
+  real HDEstActual = 0.0;  // est vs actual
+  
+  AdaptiveHistogram* estimateHist = new AdaptiveHistogram(true); 
+  estimateHist->insertFromRVec(*theDataPtr);
+
+  // get the mean and var-covar of the mapped data
+  rvector EstMean = (estimateHist->getSubPaving())->getMean(); // get mean
+  RealVec EstCovar = (estimateHist->getSubPaving())->getVarCovar(); //get the
+       covariance matrix/
+  
+  cout << "Estimated mean: " << EstMean << endl;
+
+  /*
+  //compare against actual (0,1)
+  {
+    //get the mean
+    rvector ExactMean(d);
+    for (int i = 1; i <= d; i++) { ExactMean[i] = 0.0; }
+    //cout << ExactMean << endl;
+
+    //get the differences of the mean vectors
+    rvector diffMean = ExactMean - EstMean;
+    //cout << diffMean << endl;
+
+    if (d == 1) {
+      interval covarI = interval(EstCovar[0]);
+      interval actualCovarI = interval(1.0);
+      interval sumVar = covarI + actualCovarI;
+      //cout << sumVar << "\t";
+      interval insqrt = 2*sqrt(covarI)*sqrt(actualCovarI)/sumVar;
+      //cout << insqrt << "\t";
+      interval H2 = interval(1,1) - sqrt(insqrt) *exp((-0.25*diffMean[1]*
+      diffMean[1])/sumVar);
+      //cout << "H2: " << H2 << endl;
+      HDTrue = mid(sqrt(H2));
+    }
+
+    else {
+    // get the variance-covariances
+    RealVec ExactCovar;
+    ExactCovar.reserve(d*d);
+
+    // fill in the matrix where the off-diag are 0
+    for (size_t i = 0; i < d*d; i++) {
+        ExactCovar.push_back(0.0); //first fill up the container with 1
+    }
+    // then fill up the diags with 1
+    for (size_t i = 0; i < d; i++) {
+      int pos = i*d + i;
+      ExactCovar[pos] = 1.0;
+    }
+    
+      //make a gsl matrix for the mean difference
+      gsl_matrix * diffMeanMat = gsl_matrix_alloc(d, 1);
+      for (int i = 0; i < d; i++) {
+        for (int j = 0; j < 1; j++) {
+          gsl_matrix_set (diffMeanMat, i, j, _double(diffMean[i+1]));
+        }
+      }
+  
+      // initialize matrix objects
+      gsl_matrix * EstCovarMat = gsl_matrix_alloc(d, d);
+      gsl_matrix * ExactCovarMat = gsl_matrix_alloc(d, d);
+      gsl_matrix * PMat = gsl_matrix_alloc(d, d); //make this same as CovarMat
+       first
+    
+      int k = 0; //counter for RealVec
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          gsl_matrix_set(EstCovarMat, i, j, _double(EstCovar[k])); //cast to
+       double
+          gsl_matrix_set(PMat, i, j, _double(EstCovar[k])); //cast to double
+          gsl_matrix_set(ExactCovarMat, i, j, _double(ExactCovar[k])); //cast
+       to double
+          k++;
+        }
+      }
+    
+      //add the two matrices
+      gsl_matrix_add(PMat, ExactCovarMat);
+      gsl_matrix_scale(PMat, 0.5);
+      //cout << "add the two matrices: " << endl;
+    
+      // get the determinants 
+      int s;
+      gsl_permutation * p = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(EstCovarMat, p, &s);
+      double detCovarMat = gsl_linalg_LU_det(EstCovarMat, s);
+      gsl_permutation_free(p);
+    
+      int s1;
+      gsl_permutation * p1 = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(ExactCovarMat, p1, &s1);
+      double detExactCovarMat = gsl_linalg_LU_det(ExactCovarMat, s1);
+      gsl_permutation_free(p1);
+    
+      int s2;
+      gsl_permutation * p2 = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(PMat, p2, &s2);
+      double detPMat = gsl_linalg_LU_det(PMat, s2);
+      
+      //cout << detCovarMat << "\t" << detExactCovarMat << "\t" << detPMat <<
+       endl;
+    
+      //now get the inverse of P
+      gsl_matrix * Pinverse = gsl_matrix_alloc(d, d); 
+      gsl_linalg_LU_invert(PMat, p2, Pinverse);
+      gsl_permutation_free(p2);
+    /*
+      cout << "PMat: " << endl;
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          cout << i << "\t" << j << "\t" << gsl_matrix_get(Pinverse, i, j) <<
+       endl; 
+        }
+      }
+    */
+    /*
+      //now get the Bhattacharya coefficient
+      //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 + 0.5*log(detP/
+      sqrt{detP1}{detP2});
+      gsl_matrix * diffMeanMatTranspose = gsl_matrix_alloc(1, d);
+      gsl_matrix_transpose_memcpy(diffMeanMatTranspose, diffMeanMat);
+    
+      // now convert all to rmatrix for easier computations
+      rmatrix diffMeanR(0, d-1, 0, 0);
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < 1; j++) {
+          diffMeanR[i][j] = gsl_matrix_get(diffMeanMat, i, j); 
+          //cout << i << "\t" << j << "\t" << gsl_matrix_get(diffMeanMat, i, j)
+       << endl; 
+        }
+      }
+    
+      rmatrix diffMeanTransR(0, 0, 0, d-1);
+      for (int i = 0; i < 1; i++) {
+        for (int j=0; j < d; j++) {
+          diffMeanTransR[i][j] = gsl_matrix_get(diffMeanMatTranspose, i, j); 
+          //cout << i << "\t" << j << "\t" <<
+       gsl_matrix_get(diffMeanMatTranspose, i, j) << endl; 
+        }
+      }
+    
+      rmatrix PinvR(0, d-1, 0, d-1);
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          PinvR[i][j] = gsl_matrix_get(Pinverse, i, j); 
+        }
+      }
+    
+      //free the gsl_matrices
+      gsl_matrix_free(EstCovarMat);
+      gsl_matrix_free(ExactCovarMat);
+      gsl_matrix_free(PMat);
+    
+      //now get the Bhattacharya coefficient
+      //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 + 0.5*log(detP/
+      sqrt{detP1}{detP2});
+      rmatrix MatOp = (diffMeanTransR*PinvR)*diffMeanR;
+      //cout << MatOp[0][0] << endl;
+      real DB = 1.0/8.0 * MatOp[0][0] + 0.5*log(detPMat/sqrt(detCovarMat*
+      detExactCovarMat));
+      //cout << "DB: " << DB << endl;
+      if (DB < 0) { HDTrue = 0.0; }
+      else {
+        real BC = exp(-DB);
+        assert(BC >= 0);
+        //cout << "BC: " << BC << endl;
+        HDTrue = sqrt(1-BC);
+        //cout << "HD: " << HDTrue << endl;
+        assert(HDTrue >=0);
+      }
+    }
+    cout << "Hellinger distance: " << HDTrue << endl;
+  }
+  */
+
+  // compare against actual data
+  {
+    //get the mean
+    rvector ExactMean = actualHist->getRootPavingMean();
+    RealVec ExactCovar = actualHist->getRootPavingVarCovar();
+
+    //get the differences of the mean vectors
+    rvector diffMean = ExactMean - EstMean;
+    cout << "Exact mean: " << ExactMean << endl;
+
+    if (d == 1) {
+      interval covarI = interval(EstCovar[0]);
+      interval actualCovarI = interval(ExactCovar[0]);
+      interval sumVar = covarI + actualCovarI;
+      //cout << sumVar << "\t";
+      interval insqrt = 2*sqrt(covarI)*sqrt(actualCovarI)/sumVar;
+      //cout << insqrt << "\t";
+      interval H2 = interval(1,1) - sqrt(insqrt) *exp((-0.25*diffMean[1]*
+      diffMean[1])/sumVar);
+      //cout << "H2: " << H2 << endl;
+      HDEstActual = mid(sqrt(H2));
+    }
+
+    else {
+      //make a gsl matrix for the mean difference
+      gsl_matrix * diffMeanMat = gsl_matrix_alloc(d, 1);
+      for (int i = 0; i < d; i++) {
+        for (int j = 0; j < 1; j++) {
+          gsl_matrix_set (diffMeanMat, i, j, _double(diffMean[i+1]));
+        }
+      }
+  
+      // initialize matrix objects
+      gsl_matrix * EstCovarMat = gsl_matrix_alloc(d, d);
+      gsl_matrix * ExactCovarMat = gsl_matrix_alloc(d, d);
+      gsl_matrix * PMat = gsl_matrix_alloc(d, d); //make this same as CovarMat
+       first
+    
+      int k = 0; //counter for RealVec
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          gsl_matrix_set(EstCovarMat, i, j, _double(EstCovar[k])); //cast to
+       double
+          gsl_matrix_set(PMat, i, j, _double(EstCovar[k])); //cast to double
+          gsl_matrix_set(ExactCovarMat, i, j, _double(ExactCovar[k])); //cast
+       to double
+          k++;
+        }
+      }
+    
+      //add the two matrices
+      gsl_matrix_add(PMat, ExactCovarMat);
+      gsl_matrix_scale(PMat, 0.5);
+      //cout << "add the two matrices: " << endl;
+    
+      // get the determinants 
+      int s;
+      gsl_permutation * p = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(EstCovarMat, p, &s);
+      double detCovarMat = gsl_linalg_LU_det(EstCovarMat, s);
+      gsl_permutation_free(p);
+    
+      int s1;
+      gsl_permutation * p1 = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(ExactCovarMat, p1, &s1);
+      double detExactCovarMat = gsl_linalg_LU_det(ExactCovarMat, s1);
+      gsl_permutation_free(p1);
+    
+      int s2;
+      gsl_permutation * p2 = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(PMat, p2, &s2);
+      double detPMat = gsl_linalg_LU_det(PMat, s2);
+      
+      //cout << detCovarMat << "\t" << detExactCovarMat << "\t" << detPMat <<
+       endl;
+    
+      //now get the inverse of P
+      gsl_matrix * Pinverse = gsl_matrix_alloc(d, d); 
+      gsl_linalg_LU_invert(PMat, p2, Pinverse);
+      gsl_permutation_free(p2);
+    
+    /*
+      cout << "PMat: " << endl;
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          //cout << i << "\t" << j << "\t" << gsl_matrix_get(Pinverse, i, j) <<
+       endl; 
+        }
+      }
+    */
+      //now get the Bhattacharya coefficient
+      //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 +
+       0.5*log(detP/sqrt{detP1}{detP2});
+      gsl_matrix * diffMeanMatTranspose = gsl_matrix_alloc(1, d);
+      gsl_matrix_transpose_memcpy(diffMeanMatTranspose, diffMeanMat);
+    
+      // now convert all to rmatrix for easier computations
+      rmatrix diffMeanR(0, d-1, 0, 0);
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < 1; j++) {
+          diffMeanR[i][j] = gsl_matrix_get(diffMeanMat, i, j); 
+          //cout << i << "\t" << j << "\t" << gsl_matrix_get(diffMeanMat, i, j)
+       << endl; 
+        }
+      }
+    
+      rmatrix diffMeanTransR(0, 0, 0, d-1);
+      for (int i = 0; i < 1; i++) {
+        for (int j=0; j < d; j++) {
+          diffMeanTransR[i][j] = gsl_matrix_get(diffMeanMatTranspose, i, j); 
+          //cout << i << "\t" << j << "\t" <<
+       gsl_matrix_get(diffMeanMatTranspose, i, j) << endl; 
+        }
+      }
+    
+      rmatrix PinvR(0, d-1, 0, d-1);
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          PinvR[i][j] = gsl_matrix_get(Pinverse, i, j); 
+        }
+      }
+    
+      //free the gsl_matrices
+      gsl_matrix_free(EstCovarMat);
+      gsl_matrix_free(ExactCovarMat);
+      gsl_matrix_free(PMat);
+    
+      //now get the Bhattacharya coefficient
+      //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 +
+       0.5*log(detP/sqrt{detP1}{detP2});
+      rmatrix MatOp = (diffMeanTransR*PinvR)*diffMeanR;
+      //cout << MatOp[0][0] << endl;
+      real DB = 1.0/8.0 * MatOp[0][0] + 0.5*log(detPMat/sqrt(detCovarMat*
+      detExactCovarMat));
+      //cout << "DB: " << DB << endl;
+      real BC = exp(-DB);
+      assert(BC >= 0);
+      //cout << "BC: " << BC << endl;
+      HDEstActual = sqrt(1-BC);
+      //cout << "HD: " << HDActual << endl;
+      assert(HDEstActual >=0);
+    }
+    cout << "Hellinger distance: " << HDEstActual << endl;
+  }
+
+  /*
+  // actual vs true
+  {
+    //get the mean
+    rvector ActualMean = actualHist->getRootPavingMean();
+    RealVec ActualCovar = actualHist->getRootPavingVarCovar();
+
+    //get the mean
+    rvector TrueMean(d);
+    for (int i = 1; i <= d; i++) { TrueMean[i] = 0.0; }
+
+    //get the differences of the mean vectors
+    rvector diffMean = ActualMean - TrueMean;
+
+    if (d == 1) {
+      interval actualCovarI = interval(ActualCovar[0]);
+      interval trueCovarI = interval(1.0);
+      interval sumVar = trueCovarI + actualCovarI;
+      interval insqrt = 2*sqrt(trueCovarI)*sqrt(actualCovarI)/sumVar;
+      interval H2 = interval(1,1) - sqrt(insqrt) *exp((-0.25*diffMean[1]*
+      diffMean[1])/sumVar);
+      HDTrueActual = mid(sqrt(H2));
+    }
+
+    else {
+    // get the variance-covariances
+    RealVec TrueCovar;
+    TrueCovar.reserve(d*d);
+
+    // fill in the matrix where the off-diag are 0
+    for (size_t i = 0; i < d*d; i++) {
+        TrueCovar.push_back(0.0); //first fill up the container with 1
+    }
+    // then fill up the diags with 1
+    for (size_t i = 0; i < d; i++) {
+      int pos = i*d + i;
+      TrueCovar[pos] = 1.0;
+    }
+    
+      //make a gsl matrix for the mean difference
+      gsl_matrix * diffMeanMat = gsl_matrix_alloc(d, 1);
+      for (int i = 0; i < d; i++) {
+        for (int j = 0; j < 1; j++) {
+          gsl_matrix_set (diffMeanMat, i, j, _double(diffMean[i+1]));
+        }
+      }
+  
+      // initialize matrix objects
+      gsl_matrix * TrueCovarMat = gsl_matrix_alloc(d, d);
+      gsl_matrix * ActualCovarMat = gsl_matrix_alloc(d, d);
+      gsl_matrix * PMat = gsl_matrix_alloc(d, d); //make this same as CovarMat
+       first
+    
+      int k = 0; //counter for RealVec
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          gsl_matrix_set(ActualCovarMat, i, j, _double(ActualCovar[k])); //cast
+       to double
+          gsl_matrix_set(PMat, i, j, _double(ActualCovar[k])); //cast to double
+          gsl_matrix_set(TrueCovarMat, i, j, _double(TrueCovar[k])); //cast to
+       double
+          k++;
+        }
+      }
+    
+      //add the two matrices
+      gsl_matrix_add(PMat, TrueCovarMat);
+      gsl_matrix_scale(PMat, 0.5);
+      //cout << "add the two matrices: " << endl;
+    
+      // get the determinants 
+      int s;
+      gsl_permutation * p = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(ActualCovarMat, p, &s);
+      double detCovarMat = gsl_linalg_LU_det(ActualCovarMat, s);
+      gsl_permutation_free(p);
+    
+      int s1;
+      gsl_permutation * p1 = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(TrueCovarMat, p1, &s1);
+      double detExactCovarMat = gsl_linalg_LU_det(TrueCovarMat, s1);
+      gsl_permutation_free(p1);
+    
+      int s2;
+      gsl_permutation * p2 = gsl_permutation_alloc(d);
+      gsl_linalg_LU_decomp(PMat, p2, &s2);
+      double detPMat = gsl_linalg_LU_det(PMat, s2);
+      
+      //cout << detCovarMat << "\t" << detExactCovarMat << "\t" << detPMat <<
+       endl;
+    
+      //now get the inverse of P
+      gsl_matrix * Pinverse = gsl_matrix_alloc(d, d); 
+      gsl_linalg_LU_invert(PMat, p2, Pinverse);
+      gsl_permutation_free(p2);
+    /*
+      cout << "PMat: " << endl;
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          cout << i << "\t" << j << "\t" << gsl_matrix_get(Pinverse, i, j) <<
+       endl; 
+        }
+      }
+    *//*
+      //now get the Bhattacharya coefficient
+      //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 + 0.5*log(detP/
+      sqrt{detP1}{detP2});
+      gsl_matrix * diffMeanMatTranspose = gsl_matrix_alloc(1, d);
+      gsl_matrix_transpose_memcpy(diffMeanMatTranspose, diffMeanMat);
+    
+      // now convert all to rmatrix for easier computations
+      rmatrix diffMeanR(0, d-1, 0, 0);
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < 1; j++) {
+          diffMeanR[i][j] = gsl_matrix_get(diffMeanMat, i, j); 
+          //cout << i << "\t" << j << "\t" << gsl_matrix_get(diffMeanMat, i, j)
+       << endl; 
+        }
+      }
+    
+      rmatrix diffMeanTransR(0, 0, 0, d-1);
+      for (int i = 0; i < 1; i++) {
+        for (int j=0; j < d; j++) {
+          diffMeanTransR[i][j] = gsl_matrix_get(diffMeanMatTranspose, i, j); 
+          //cout << i << "\t" << j << "\t" <<
+       gsl_matrix_get(diffMeanMatTranspose, i, j) << endl; 
+        }
+      }
+    
+      rmatrix PinvR(0, d-1, 0, d-1);
+      for (int i = 0; i < d; i++) {
+        for (int j=0; j < d; j++) {
+          PinvR[i][j] = gsl_matrix_get(Pinverse, i, j); 
+        }
+      }
+    
+      //free the gsl_matrices
+      gsl_matrix_free(TrueCovarMat);
+      gsl_matrix_free(ActualCovarMat);
+      gsl_matrix_free(PMat);
+    
+      //now get the Bhattacharya coefficient
+      //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 + 0.5*log(detP/
+      sqrt{detP1}{detP2});
+      rmatrix MatOp = (diffMeanTransR*PinvR)*diffMeanR;
+      //cout << MatOp[0][0] << endl;
+      real DB = 1.0/8.0 * MatOp[0][0] + 0.5*log(detPMat/sqrt(detCovarMat*
+      detExactCovarMat));
+      cout << "DB: " << DB << endl;
+      if (DB < 0) { HDTrueActual = 0.0; }
+      else {
+        real BC = exp(-DB);
+        assert(BC >= 0);
+        //cout << "BC: " << BC << endl;
+        HDTrueActual = sqrt(1-BC);
+        //cout << "HD: " << HDTrue << endl;
+        assert(HDTrueActual >=0);
+      }
+    }
+    cout << "Hellinger distance: " << HDTrueActual << endl;
+  }*/
+
+  
+
+  //output Hellinger distances
+  string filename;
+  filename = "HellingerDistance";
+  ostringstream stm;
+  stm << dataSeed;
+  filename += stm.str();
+  filename += ".txt";
+  oss.open(filename.c_str());
+  oss << HDEstActual << endl;
+  //oss << HDTrue << "\t" << HDActual << "\t" << HDTrueActual << endl;
+  oss << flush;
+  oss.close();
+  
+
+  /*
+  //optional 
+  string dataFileName = "ActualData";
+  dataFileName += stm.str(); 
+  dataFileName += ".txt"; 
+  oss.open(dataFileName.c_str());
+  for (size_t i = 0; i < n; i++) { 
+    for (size_t j = 1; j <= d; j++) {
+        oss << (*actualDataPtr)[i][j] << "\t";
+    }
+    oss << "\n";
+    //cout << "\n";
+  }
+  oss << flush;
+  oss.close();
+
+  cout << "Actual data written to  " << dataFileName << endl;
+  
+  //optional 
+  dataFileName = "MappedData";
+  dataFileName += stm.str(); 
+  dataFileName += ".txt"; 
+  oss.open(dataFileName.c_str());
+  for (size_t i = 0; i < n; i++) { 
+    for (size_t j = 1; j <= d; j++) {
+        oss << (*theDataPtr)[i][j] << "\t";
+    }
+    oss << "\n";
+    //cout << "\n";
+  }
+  oss << flush;
+  oss.close();
+  
+  cout << "Estimated data written to  " << dataFileName << endl;
+  */
+
+  delete estimateHist;
+  delete actualHist;
+  delete actualDataPtr;
+  delete theDataPtr;
+
+  return 0;
+} // end of MCMC test program
+\end{DoxyCode}
+\hypertarget{HellingerFunctionSimRosen_8cpp_a0c0402be9ebd7abad750822814d38f99}{\index{\-Hellinger\-Function\-Sim\-Rosen.\-cpp@{\-Hellinger\-Function\-Sim\-Rosen.\-cpp}!\-Produce\-M\-R\-Samples@{\-Produce\-M\-R\-Samples}}
+\index{\-Produce\-M\-R\-Samples@{\-Produce\-M\-R\-Samples}!HellingerFunctionSimRosen.cpp@{\-Hellinger\-Function\-Sim\-Rosen.\-cpp}}
+\paragraph[{\-Produce\-M\-R\-Samples}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Produce\-M\-R\-Samples} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Fobj} \&}]{f, }
+\item[{int}]{n\-\_\-boxes, }
+\item[{int}]{n\-\_\-samples, }
+\item[{double}]{\-Alb, }
+\item[{unsigned}]{seed, }
+\item[{bool}]{use\-\_\-f\-\_\-scale, }
+\item[{{\bf \-R\-S\-Sample} \&}]{rs\-\_\-sample}
+\end{DoxyParamCaption}
+)}}\label{HellingerFunctionSimRosen_8cpp_a0c0402be9ebd7abad750822814d38f99}
+
+
+\-Definition at line 62 of file \-Hellinger\-Function\-Sim\-Rosen.\-cpp.
+
+
+
+\-References \-R\-S\-Sample\-::\-Envelope\-Integral, \-Fobj\-::get\-\_\-interval\-\_\-calls(), \-Fobj\-::get\-\_\-real\-\_\-calls(), \-R\-S\-Sample\-::\-Integral\-Estimate(), \-R\-S\-Sample\-::\-Mean(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), and \-R\-S\-Sample\-::\-Samples.
+
+
+\begin{DoxyCode}
+{
+  //ofstream out ("MRS_Rosenbrock.samples");//file to store the i.i.d samples
+  clock_t T1 = clock (), T2, T3;
+  // Construct theSampler with the chosen target shape object FTG
+  MRSampler theSampler (f, n_boxes, Alb, seed, (use_f_scale == 1));
+  
+        //--comment this printing block if not needed
+        // To print out the partition of the domain
+        //cout << "Domain Partition: \n" ;
+        //ofstream Partout ("MRS_RosenbrockDomain.txt"); //Filename
+        //theSampler.Print_Domain_Partition(Partout);
+        //cout << "The output has been written to MRS_IsIt1or2CoinsDomain.txt" 
+        //     << endl << endl;
+ 
+        // To realize a file output of the RangeDomainSet
+   //     ofstream os("MRS_RosenbrockRangeDomainSet.txt");         // Filename
+   //     os << theSampler << endl;                   
+   //     cout << "output has been written to
+       MRS_IsIt1or2CoinsRangeDomainSet.txt" 
+   //          << endl << endl;
+        //--end of printing block
+  // To print out the partition of the domain
+  
+  T2 = clock ();
+  double Ptime = (double) (T2 - T1) / CLOCKS_PER_SEC;
+  
+  //RSSample rs_sample;
+  cout << "before Rej..SampleMany \n";
+  cout << "n_samples: " << n_samples << endl;
+  theSampler.RejectionSampleMany (n_samples, rs_sample);
+  cout << "after Rej..SampleMany \n";
+  double IntegralEstimate = _double (rs_sample.IntegralEstimate ());
+  cout << "rs_sample IU, N, Nrs: " << rs_sample.EnvelopeIntegral << " " 
+       << rs_sample.Samples.size() << " " << rs_sample.Samples.size() << endl;
+  cout << "RSSampleMany, integral est: " << IntegralEstimate << endl;
+  cout << "RSSampleMany mean: \n"; rs_sample.Mean ();
+  //rs_sample.Print(out);
+  
+  cout << "n interval function calls: " << f.get_interval_calls () << endl;
+  cout << "n real function calls: " << f.get_real_calls () << endl;
+  
+  //
+      ----------------------------------------------------------------------------
+  T3 = clock ();
+  double Stime = (double) (T3 - T2) / CLOCKS_PER_SEC;
+  cout << "# CPU Time (seconds). Partitioning: " << Ptime << "  Sampling: " 
+       << Stime << "  Total: " << (Ptime + Stime) << endl;
+  cout << "# CPU time (secods) per estimate: " 
+       << (Ptime + Stime) / (double) (n_samples) << endl;
+}
+\end{DoxyCode}

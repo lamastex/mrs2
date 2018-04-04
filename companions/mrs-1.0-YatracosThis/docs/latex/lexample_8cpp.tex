@@ -1,0 +1,53 @@
+\hypertarget{lexample_8cpp}{\subsection{lexample.\-cpp \-File \-Reference}
+\label{lexample_8cpp}\index{lexample.\-cpp@{lexample.\-cpp}}
+}
+
+
+\-C-\/\-X\-S\-C \-Example on interval staggered arithmetic.  
+
+
+{\ttfamily \#include \char`\"{}l\-\_\-interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{lexample_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-C-\/\-X\-S\-C \-Example on interval staggered arithmetic. 
+
+\-Definition in file \hyperlink{lexample_8cpp_source}{lexample.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{lexample_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{lexample.\-cpp@{lexample.\-cpp}!main@{main}}
+\index{main@{main}!lexample.cpp@{lexample.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{lexample_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 29 of file lexample.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  l_interval a, b;         // Multiple-precision intervals in C-XSC
+  stagprec = 2;            // global integer variable      
+  cout << SetDotPrecision(16*stagprec, 16*stagprec-3) << RndNext;
+  // I/O for variables of type l_interval is done using
+  // the long accumulator (i.e. a dotprecision variable)   
+
+  a = 1.0;                  // a   = [1.0,1.0]       
+  "[1, 2]" >> b;          // string to interval conversion b   = [1.0,2.0]     
+         
+  cout << "a - a = " << a-a << endl;
+  cout << "b - b = " << b-b << endl;
+  cout << "a/b = " << a/b << endl;  
+}
+\end{DoxyCode}

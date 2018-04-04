@@ -1,0 +1,8 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{taylor::dim2taylor_vector\n|- dim\l- lb\l- ub\l- p_el\l- comp\l|+ dim2taylor_vector()\l+ dim2taylor_vector()\l+ dim2taylor_vector()\l+ ~dim2taylor_vector()\l+ get_dim()\l+ get_lb()\l+ get_ub()\l+ get_p_el()\l+ operator=()\l+ operator[]()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" comp" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node2 [label="{taylor::dim2taylor\n|- p\l- dat\l|+ dim2taylor()\l+ dim2taylor()\l+ dim2taylor()\l+ dim2taylor()\l+ ~dim2taylor()\l+ operator=()\l+ operator[]()\l+ get_p()\l+ order()\l+ print_dim2taylor()\l+ print_dim2taylor()\l+ rescale()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classtaylor_1_1dim2taylor.shtml"];
+}

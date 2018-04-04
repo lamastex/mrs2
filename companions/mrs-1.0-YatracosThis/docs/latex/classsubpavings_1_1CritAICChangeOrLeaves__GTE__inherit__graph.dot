@@ -1,0 +1,8 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{subpavings::CritAICChangeOrLeaves_GTE\n|- pen\l- testLeaves\l- testScore\l|+ CritAICChangeOrLeaves_GTE()\l+ operator()()\l- CritAICChangeOrLeaves_GTE()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{subpavings::HistEvalObj\n||+ operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1HistEvalObj.shtml",tooltip="A Virtual class providing a way to stop histogram changes."];
+}

@@ -1,0 +1,95 @@
+\hypertarget{sptools_8hpp}{\subsection{sptools.\-hpp \-File \-Reference}
+\label{sptools_8hpp}\index{sptools.\-hpp@{sptools.\-hpp}}
+}
+
+
+\-General tools for subpavings.  
+
+
+{\ttfamily \#include \char`\"{}sptypes.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacesubpavings_ae23d4a36711d5b768cacab3fdb72b609}{subpavings\-::get\-Unique\-Filename} (string base\-File\-Name, string suffix=\char`\"{}.txt\char`\"{})
+\begin{DoxyCompactList}\small\item\em \-Construct a unique filename from base and timestamp number. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_aa5b5b66715568bc59cafea064eb8b1a7}{subpavings\-::output\-File} (const string \&s, const string line, bool append=true)
+\begin{DoxyCompactList}\small\item\em \-Append a line to a txt file. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_afb8564fbbb2536bafcd19a5cc56e6531}{subpavings\-::output\-File\-Start} (const string \&s)
+\begin{DoxyCompactList}\small\item\em \-Opening line of a txt log file. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_a57aa1d6f86ddd18d459fd36a710ae737}{subpavings\-::output\-File} (const std\-::string \&s, \-Real\-Vec \&vals, int i)
+\begin{DoxyCompactList}\small\item\em \-Append a tab delimited list seq of values as a line in log file. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_a11f846091a8b802ae4173e061b1b55f2}{subpavings\-::output\-File} (const std\-::string \&s, const std\-::string intro, \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&vals)
+\begin{DoxyCompactList}\small\item\em \-Append a tab delimited list seq of values as a line in log file. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_a577225f9ff8ccb0b27420ff962fc978f}{subpavings\-::output\-File} (const std\-::string \&s, std\-::vector$<$ string $>$ \&strings, int i)
+\begin{DoxyCompactList}\small\item\em \-Append a tab delimited list seq of strings as a line in log file. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_a0973b1623e6e12ba060db40d9cceece1}{subpavings\-::parse\-For\-Graph\-Dot} (string s, string to\-Parse)
+\begin{DoxyCompactList}\small\item\em \-Parse a string to make lines for a dot graph. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_abb4671c14005974aeea8f0dd39600ec6}{subpavings\-::make\-Dot\-Image} (string s)
+\begin{DoxyCompactList}\small\item\em make a \-Dot graph png image given a dot file. \end{DoxyCompactList}\item 
+int \hyperlink{namespacesubpavings_a5928e5a1c7fc26e6df9c5bf9eb4a37a2}{subpavings\-::count\-Lines\-In\-Txt} (const string \&s)
+\begin{DoxyCompactList}\small\item\em \-Method to count lines in a txt file. \end{DoxyCompactList}\item 
+\-Int\-Vec \hyperlink{namespacesubpavings_a498313e6b9ea0e6fb60d63ea3f2d0128}{subpavings\-::parse\-Spacings} (string line, \-Int\-Vec \&spacings)
+\begin{DoxyCompactList}\small\item\em parse a .vtk header line for spacings data. \end{DoxyCompactList}\item 
+\-Int\-Vec \hyperlink{namespacesubpavings_ab55a3f1bfa1cae218886328f19b2208f}{subpavings\-::get\-Coordinates\-From\-Vtk} (\-Int\-Vec \&\-Xs, \-Int\-Vec \&\-Ys, \-Int\-Vec \&\-Zs, const string \&s)
+\begin{DoxyCompactList}\small\item\em \-Get coordinates from a .vtk file. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_a19b79319876fc25305936396f24e5a6c}{subpavings\-::vol\-Compare} (const ivector \&a, const ivector \&b)
+\begin{DoxyCompactList}\small\item\em \-A function for comparing ivectors based on volume. \end{DoxyCompactList}\item 
+real \hyperlink{namespacesubpavings_ada0daf400b54e571b4f8d83bd32861c5}{subpavings\-::try\-Exp} (real r)
+\begin{DoxyCompactList}\small\item\em \-Work arround for c-\/xsc math library for exponentiation of reals. \end{DoxyCompactList}\item 
+rvector \hyperlink{namespacesubpavings_a6f8c4a15a4428e18b5ef0369782c86ae}{subpavings\-::make\-Double\-Into\-Rvector} (const double d)
+\begin{DoxyCompactList}\small\item\em \-Make a double into an rvector. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_af62c725dd362922c15d45983e2d8f6cf}{subpavings\-::check\-String} (const string \&s, const int n)
+\begin{DoxyCompactList}\small\item\em \-A quick check on a data string\-: expecting only numbers white space or decimal points. \end{DoxyCompactList}\item 
+int \hyperlink{namespacesubpavings_a4160d2d9f357dddf86d43f70c9bb8063}{subpavings\-::count\-Numbers} (const string \&s)
+\begin{DoxyCompactList}\small\item\em \-Find the number of 'blocks' of numbers in a properly formatted string of numbers. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_a535c4c5b9e6a042ec418db09ed956cda}{subpavings\-::read\-One\-Dim\-Data\-From\-Txt} (\-R\-Vec\-Data \&the\-Data, const string \&s, const std\-::size\-\_\-t headerlines=0)
+\begin{DoxyCompactList}\small\item\em \-Read in one-\/dimensional data from a txt file. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_a7918dddb1a8e32f72835e1e7b4442ca6}{subpavings\-::read\-Rvectors\-From\-Txt} (\-R\-Vec\-Data \&the\-Data, const string \&s, const std\-::size\-\_\-t headerlines=0)
+\begin{DoxyCompactList}\small\item\em \-Read in rvectors from a txt file. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacesubpavings_a211cb10f439ff2bdb92ce92906159792}{subpavings\-::get\-Rvectors\-From\-R\-Vec} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&data, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&rvec)
+\begin{DoxyCompactList}\small\item\em \-Get all rvectors from a container of rvectors. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacesubpavings_ad2d24521f44422db117d54d6287bc314}{subpavings\-::get\-Sample\-Rvectors\-From\-R\-Vec} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&data, gsl\-\_\-rng $\ast$rgsl, size\-\_\-t samplesize, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&rvec)
+\begin{DoxyCompactList}\small\item\em \-Get a sample of rvectors from an a container. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacesubpavings_ae988c56fd983d75dd9f60a5ef8f87660}{subpavings\-::get\-Sample\-Rvectors\-From\-R\-S\-Sample} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&data, gsl\-\_\-rng $\ast$rgsl, size\-\_\-t samplesize, const \hyperlink{classRSSample}{\-R\-S\-Sample} \&rss, int label)
+\begin{DoxyCompactList}\small\item\em \-Get a sample of rvectors from an \hyperlink{classRSSample}{\-R\-S\-Sample} object. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacesubpavings_ad435f1951db3078702d178b718018651}{subpavings\-::get\-Rvectors\-From\-R\-S\-Sample} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&data, const \hyperlink{classRSSample}{\-R\-S\-Sample} \&rss, int label)
+\begin{DoxyCompactList}\small\item\em \-Get all rvectors from an \hyperlink{classRSSample}{\-R\-S\-Sample} object. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacesubpavings_ad26b1f7572cd78c11b5f9a423a80a258}{subpavings\-::get\-Rvectors\-From\-R\-S\-Sample\-For\-Sampling} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&all\-Data, \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&sample\-Data, size\-\_\-t samplesize, const \hyperlink{classRSSample}{\-R\-S\-Sample} \&rss, int label)
+\begin{DoxyCompactList}\small\item\em \-Get data from an \hyperlink{classRSSample}{\-R\-S\-Sample} object to take samples from. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_a4605f09553766eb8702c7c58b8074cf2}{subpavings\-::get\-Sample\-From\-Container} (size\-\_\-t samplesize, gsl\-\_\-rng $\ast$rgsl, const \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&all\-Data, \hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&sample\-Data)
+\begin{DoxyCompactList}\small\item\em \-Get a sample from data in a container. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_a1e3a19279d328b2178aaac44beaaf2d6}{subpavings\-::point\-Mass\-Filter} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&the\-Data, std\-::map$<$ rvector, size\-\_\-t, std\-::less$<$ rvector $>$ $>$ \&\-Counts\-Map)
+\begin{DoxyCompactList}\small\item\em \-Point mass filtering from data in a \-R\-Vec\-Data container. \-Takes an \-R\-Vec\-Data container and sieves through the data to obtain \char`\"{}point mass\char`\"{} data, i.\-e. data that falls on the same location with precision up to instrument settings or user's definition. \end{DoxyCompactList}\item 
+void \hyperlink{namespacesubpavings_ab434c49dd2b267948d0048075ab0298c}{subpavings\-::label\-Data\-From\-Filter} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&the\-Data, \hyperlink{classRSSample}{\-R\-S\-Sample} \&lab\-Data, std\-::map$<$ rvector, size\-\_\-t, std\-::less$<$ rvector $>$ $>$ \&\-Counts\-Map, std\-::map$<$ rvector, double, std\-::less$<$ rvector $>$ $>$ \&\-E\-M\-F\-Map)
+\begin{DoxyCompactList}\small\item\em \-Labels an \-R\-Vec\-Data object and store as an \hyperlink{classRSSample}{\-R\-S\-Sample} object. \-Takes an \-R\-Vec\-Data container and its corresponding map to label the points. \-Point mass data gets label 0 and the rest gets label 1. \-The labelled data is then stored in an \hyperlink{classRSSample}{\-R\-S\-Sample} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf \-String representations of collections.}\par
+{\em \-Formatted to have \char`\"{}, \char`\"{} or \char`\"{},\char`\"{} ({\itshape compact\/} = true) between the elements of the collection.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em vec} & the collection to describe in the output. \\
+\hline
+{\em compact} & indicator for whether format should be compact. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+string representation of {\itshape vecints\/}. 
+\end{DoxyReturn}
+}\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{namespacesubpavings_a1c85cfc0ad8721fc6b480d66d51a653d}{subpavings\-::to\-String} (const \hyperlink{namespacesubpavings_aed8e75b2af342b9c1460431c223dca8e}{subpavings\-::\-Int\-Vec} vec, bool compact=false)
+\begin{DoxyCompactList}\small\item\em \-String representation of an \-Int\-Vec. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\subsubsection{\-Detailed \-Description}
+\-General tools for subpavings. 
+
+\-Definition in file \hyperlink{sptools_8hpp_source}{sptools.\-hpp}.
+

@@ -1,0 +1,1415 @@
+\hypertarget{MCMCGRSimsLeavesFinMix_8cpp}{\subsection{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp \-File \-Reference}
+\label{MCMCGRSimsLeavesFinMix_8cpp}\index{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-C\-M\-C\-G\-Rtools.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$cassert$>$}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+\subsubsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{MCMCGRSimsLeavesFinMix_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\-M\-Y\-D\-E\-B\-U\-G}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \hyperlink{MCMCGRSimsLeavesFinMix_8cpp_aef8513f9339e040227e9e38b5e6edb99}{do\-M\-C\-M\-C\-G\-R\-Auto} (size\-\_\-t n, int d, int max\-Loops, int samples\-Needed, int thinout, cxsc\-::real tol, size\-\_\-t min\-Points, int data\-Seed, int max\-Leaves, int mix, double temperature)
+\item 
+int \hyperlink{MCMCGRSimsLeavesFinMix_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Define \-Documentation}
+\hypertarget{MCMCGRSimsLeavesFinMix_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}{\index{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp}!\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}}
+\index{\-M\-Y\-D\-E\-B\-U\-G@{\-M\-Y\-D\-E\-B\-U\-G}!MCMCGRSimsLeavesFinMix.cpp@{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp}}
+\paragraph[{\-M\-Y\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-M\-Y\-D\-E\-B\-U\-G}}}\label{MCMCGRSimsLeavesFinMix_8cpp_a38cc676e6c9f06e021b17e537b7bba1d}
+
+
+\-Definition at line 47 of file \-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MCMCGRSimsLeavesFinMix_8cpp_aef8513f9339e040227e9e38b5e6edb99}{\index{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp}!do\-M\-C\-M\-C\-G\-R\-Auto@{do\-M\-C\-M\-C\-G\-R\-Auto}}
+\index{do\-M\-C\-M\-C\-G\-R\-Auto@{do\-M\-C\-M\-C\-G\-R\-Auto}!MCMCGRSimsLeavesFinMix.cpp@{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp}}
+\paragraph[{do\-M\-C\-M\-C\-G\-R\-Auto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Adaptive\-Histogram\-Collator} {\bf do\-M\-C\-M\-C\-G\-R\-Auto} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{n, }
+\item[{int}]{d, }
+\item[{int}]{max\-Loops, }
+\item[{int}]{samples\-Needed, }
+\item[{int}]{thinout, }
+\item[{cxsc\-::real}]{tol, }
+\item[{size\-\_\-t}]{min\-Points, }
+\item[{int}]{data\-Seed, }
+\item[{int}]{max\-Leaves, }
+\item[{int}]{mix, }
+\item[{double}]{temperature}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRSimsLeavesFinMix_8cpp_aef8513f9339e040227e9e38b5e6edb99}
+
+
+\-Definition at line 118 of file \-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp.
+
+
+
+\-References add\-Data\-Ptrs(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-To\-Collation(), subpavings\-::count\-Lines\-In\-Txt(), find\-Comp(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Number\-Collated(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-L\-O\-G\-S\-A\-M\-P\-L\-E\-S, \-Fin\-Mix\-::\-M, subpavings\-::\-Adaptive\-Histogram\-Collator\-::make\-Average(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::output\-File\-Start(), output\-To\-File\-Vertical(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs(), taylor\-::pow(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::public\-Output\-Log(), \-Fin\-Mix\-::\-S, taylor\-::sqrt(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+  //======set up for output========================================//     
+  // use the cxsc manipulators for changing printing of cxsc::reals to console
+  int prec = 15;
+  cout << cxsc::SaveOpt;
+  cout << cxsc::Variable;
+  cout << cxsc::SetPrecision(prec+2, prec);
+
+  ofstream os;
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  AdaptiveHistogramCollator* samplesAvg = new AdaptiveHistogramCollator; // our
+       return object, if all goes well
+  ostringstream stmH;
+  stmH << dataSeed;
+
+  //===========prepare to generate some data for the tests ================//
+  cout << "=============Generating data for simulation " << dataSeed << endl;
+  // set up a random number generator
+  const gsl_rng_type * T;
+  gsl_rng * r;
+
+  //create a generator chosen by the environment variable GSL_RNG_TYPE
+  gsl_rng_env_setup();
+  T = gsl_rng_default;
+  r = gsl_rng_alloc (T);
+  // set a seed for the data
+  gsl_rng_set(r, dataSeed);
+
+
+  //-------define the root box
+  ivector pavingBox(d);
+  interval pavingInterval(-10,10);
+  for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+  //==============get distribution parameters==========================//
+   // read input from mix*.txt
+   string mixfileName;
+   mixfileName = "../Coverage/MixtureFiles/mix";
+  std::ostringstream stmMix;
+  stmMix << mix;
+  mixfileName += stmMix.str();
+  mixfileName += ".txt";
+
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  // create vectors for Weight, Mean, Variance
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+
+  cout << "Reading in parameters of mixture " << mix << endl;
+  ifstream file; // create file for input
+  file.open(mixfileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << mixfileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+  
+  //put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+  //=========================end of setting up parameter===================//
+
+  // ========prepare to generate some data for the tests ================//
+   //set up a random number generator for gaussian rvs
+     const gsl_rng_type * T1;
+     gsl_rng * r1;
+     gsl_rng_env_setup();
+     T1 = gsl_rng_default;
+     r1 = gsl_rng_alloc (T1);
+     gsl_rng_set(r1, dataSeed);
+     
+  //Generate n U(0,1) r.v. and determine component membership.
+  double a=0, b=1;
+  vector<double> u;
+  int j;
+  for (j = 0; j < n; j++) {
+      u.push_back(gsl_ran_flat(r, a, b));
+  }
+
+  // number of components
+  const int comp = countLinesInTxt(mixfileName) - 1;
+  cout << "There are " << comp << " components in this mixture." << endl;
+
+  // get cumulative sum of the weights
+  double WeightCum[comp];
+  //initialize the array
+  WeightCum[0] = Weight[0]; 
+  cout << WeightCum[0] << endl;
+   for (int j = 1; j < comp; j++) {
+    WeightCum[j] = WeightCum[j-1] + Weight[j];
+  }
+
+  //Create mixture data using component densities that are normal.
+  cout<<"Creating mixture data..." <<endl; 
+  RVecData* theData = new RVecData;   // a container to keep the data
+    //find the number of members generated from each component.
+    for (j = 0; j < comp; j++) {  
+      int ind=0;
+      cout << "get the component: " << endl;
+      findComp(u, ind, n, WeightCum, j);
+      cout<<"Component " << j << " has " << ind << " members." <<endl;
+      //now generate the data
+      for (int k =0; k < ind; k++) {
+        rvector thisrv(1);
+        double z = gsl_ran_gaussian(r1, Sigma[j]); // generate a normal r.v.
+        thisrv[1] =Mean[j]+z; // transform the r.v. 
+        theData->push_back(thisrv);
+      }
+    }
+  //===============finish generating data============================//
+
+
+  //================Gelman-Rubin method=========================//
+   // start by making the histograms that are the starting points for our
+       chains
+   
+   // Gelman and Carlin [1996] recommend ten or more chains if the target
+   // distribution is unimodal (Martinez and Martinze, 2000, p. 453)
+   // the starting points are chosen to be widely dispersed
+  
+  //start recording cpu time here, which includes making the chains
+  clock_t start, end;
+  double timing; 
+  start = clock();
+  //------Starting histograms-------------------------------//
+  cout << "Starting the chains " << endl;
+  //histogram 1
+  cout << "Histogram 1" << endl;
+   AdaptiveHistogram* myHistFirst = new AdaptiveHistogram;
+  // put in the data in a 'pulse' with no splitting, ie into root box
+  bool successfulInsertionFirst = myHistFirst->insertFromRVec(*theData);
+
+  
+  //histogram 2
+  cout << "Histogram 2" << endl;
+  AdaptiveHistogram* myHistSecond = new AdaptiveHistogram;
+  // the same data into the second histogram
+  bool successfulInsertionSecond = myHistSecond->insertFromRVec(*theData);
+  bool successfulPQSplitSecond = false;
+  if (successfulInsertionSecond) {
+    // set up function objects for a priority split
+    CompArea compArea;
+    //CompCount compArea;
+    //CompVol compArea;
+    // split until number of leaves is at most minVal
+    CritLeaves_GTE critVal(maxLeaves);
+    // or split until each leaf node has at least minVal points
+    //CritLargestCount_LTE critVal(minVal);
+    size_t minPQPoints = 0; // minimum of one data point in each box
+    size_t maxLeafNodes = int(pow(n, 0.9));  
+    // do the priority split
+    successfulPQSplitSecond = myHistSecond->prioritySplit(compArea,
+         critVal, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      SPSnodePtrs leaves;
+    (myHistSecond->getSubPaving())->getLeaves(leaves);
+    cout << "number of leaves in myHistSecond: " << leaves.size() << endl;
+   }
+  
+  /*  
+  //histogram 3
+  cout << "Histogram 3" << endl;
+  AdaptiveHistogram* myHistThird = new AdaptiveHistogram(pavingBox);
+  myHistThird->splitToShape("1,2,2"); // make a specific starting shape
+  // put in the data in a 'pulse' with no further splitting
+  bool successfulInsertionThird = myHistThird->insertFromRVec(theData);
+  cout << "number of leaves in myHistThird: " <<
+       spLeaves(myHistThird->getSubPaving()) << endl;
+  */
+  
+  /*
+  //histogram 4
+  bool successfulPQSplitSecond = true;
+  cout << "Histogram 4" << endl;
+  AdaptiveHistogram* myHistSecond = new AdaptiveHistogram(pavingBox);
+  myHistSecond->splitToShape("2,3,4,4,3,4,4,2"); // make a specific starting
+       shape
+  // put in the data in a 'pulse' with no further splitting
+  bool successfulInsertionSecond = myHistSecond->insertFromRVec(*theData);
+  //cout << "number of leaves in myHistFourth: " <<
+       spLeaves(myHistFourth->getSubPaving()) << endl;
+  */
+  
+  /*
+  //histogram 5
+  cout << "Histogram 5" << endl;
+  AdaptiveHistogram* myHistFifth = new AdaptiveHistogram(pavingBox);
+  
+      myHistFifth->splitToShape("5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6,5,5,6,7,8,9,10,
+      10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"); // make a specific starting shape
+  // put in the data in a 'pulse' with no further splitting
+  bool successfulInsertionFifth = myHistFifth->insertFromRVec(theData);
+  cout << "number of leaves in myHistFifth: " <<
+       spLeaves(myHistFifth->getSubPaving()) << endl;
+  */
+  /*
+  #ifdef FORCEFAILINSERTION
+    // debugging - force a failure here to check what program does
+    successfulInsertionThird = false;
+  #endif
+  */
+  
+  // only proceed if successfully made histograms
+  if (successfulInsertionFirst && 
+    successfulPQSplitSecond) { // && //) {  
+    //  successfulInsertionThird && //) {
+  //   successfulInsertionFourth ) { 
+     //&& successfulInsertionFifth) {
+    
+    delete theData; // don't need this anymore
+
+    // Initializing containers etc.
+    cout << "Initializing containers since successfully made histograms. " << 
+      endl;
+    // containers for adaptive histograms
+    // the starting points of the chains
+    vector< AdaptiveHistogram* > hists;
+    hists.push_back(myHistFirst);
+    hists.push_back(myHistSecond);
+    //hists.push_back(myHistThird);
+    //hists.push_back(myHistFourth);
+    //hists.push_back(myHistFifth);
+    
+    // how many chains are to be run = number starting histograms
+    size_t chains = hists.size(); 
+    
+    if (chains < 2) {
+      throw HistException("Chains < 2");
+    }
+
+    //container to keep the L1-error between each state and true density
+    vector< vector <real> > stateL1(chains);
+    vector< vector <real> > avgStateL1(chains);
+    
+    // set up proposal distribution object
+    UniformProposal proposal;
+    // set up prior distribution object
+    LogCatalanPrior logPrior;
+
+    LOGGING_LEVEL logging = LOGSAMPLES; // leave it like this!
+    LOGGING_LEVEL loggingInChangeStates = NOLOG;
+
+    gsl_rng * rgsl = NULL;
+
+    // should check that each hist to be done has a paving
+
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * tgsl;
+    // set the library variables *gsl_rng_default and
+    // gsl_rng_default_seed to default environmental vars
+    gsl_rng_env_setup();
+    tgsl = gsl_rng_default; // make tgsl the default type
+    rgsl = gsl_rng_alloc (tgsl); // set up with default seed
+    
+    // set a seed for the data
+    int mcmcSeed = 1234;
+    gsl_rng_set(rgsl, mcmcSeed); // change the seed to our seed
+
+    // set up containers for the stuff we need pass to the MCMC engine
+    vector<SPSnodeList> nodeLists(chains);
+    Size_tVec numLeavesVec(chains);
+    Size_tVec numCherriesVec(chains);
+
+    vector<string> sequenceStateFilenames(chains);
+    vector<string> sequenceAverageFilenames(chains);
+    vector<string> sequenceCollationFilenames(chains);
+    vector<string> sequenceDiffsToAverageFilenames(chains);
+    
+    // names for leaves related stuff
+    vector<string> leavesColNames(chains);
+    vector<string> leavesRunningSumColNames(chains);
+    vector<string> leavesSampleVarianceColNames(chains);
+    std::string  baseLeavesColName = "leaves_";
+    std::string  baseLeavesRunningSumColName = "leavesSum_";
+    std::string  baseLeavesSampleVarianceColName = "leavesVar_";
+    std::string  overallLeavesRunningSumColName = "OverallLeavesSum";
+    
+    std::string baseSequenceStateFilename = "SequenceStates";
+    std::string baseSequenceStateCollationFilename = "SequenceStateCollations";
+    std::string baseSequenceStateAverageFilename = "SequenceStateAverages";
+    std::string baseSequenceStateDiffsToAverageFilename = "
+      SequenceStateDiffsToAverage";
+    
+    // files for outputing samples
+    std::string samplesCollFilename = "CollatedSamplesFromMCMCGRAuto.txt";
+    std::string samplesLogFilename = "LogSamplesFromMCMCGRAuto.txt";
+    //outputFileStart(samplesCollFilename);
+    
+    // should realy check on LOGSAMPLESANDGRAPH as well here
+    // but at the moment I have not done anything about graphing
+    if ( (logging = LOGSAMPLES) ) {
+      outputFileStart(samplesLogFilename);
+    }
+    
+    //std::string overSequenceAvgCollFilename =
+       "CollationsOfAveragesOverSequences.txt";
+    //outputFileStart(overSequenceAvgCollFilename);
+    
+    // a name for the file of diagnostics  for leaves
+    std::string GRLeavesFilename = "GelmanRubinLeavesScalar";
+    GRLeavesFilename += stmH.str();
+    GRLeavesFilename += ".txt";
+  
+    // a name for a file of the leaves v_ij scalars
+    std::string GR_vij_as_Leaves_Filename  = "LeavesScalar";
+    GR_vij_as_Leaves_Filename += stmH.str();
+    GR_vij_as_Leaves_Filename += ".txt";
+  
+    // a name for the file of working calculations for the leaves scalar
+       diagnostics 
+    std::string GRLeavesWorkingCalcsFilename = "
+      GelmanRubinLeavesScalarWorkingCalcs.txt";
+    
+    /* containers for summaries for the 
+    * Leaves-distances-to-average scalar convergence diagnostics */
+  
+    /* note we don't need this for leaves */
+    //std::vector < RealVec > currentLeaves(chains); 
+
+    // one vector of leaves as a RealVec for each chain
+    std::vector < RealVec >* leavesPtr = new std::vector < RealVec >(chains);  
+
+    /* vector containing one running sum of leaves for each chain
+    we can work out the average v = leaves for each chain so far from this
+    start with a running sum of 0.0 for each chain */
+    RealVec* runningSumLeavesPtr = new RealVec (chains, cxsc::real(0.0));
+  
+    /* vector containing one running sum of 
+    squared leaves for each chain
+    we can work out the average of the squared v's ie v^2 = leaves^2
+    for each chain so far from this
+    start with a running sum of 0.0 for each chain.
+    (Use a dotprecision for each running sum to keep accuracy 
+    when accumulating products of reals) */
+    VecDotPrec runningSumLeavesSquared(chains, cxsc::dotprecision(0.0));
+
+    /* value of running sum of leaves over all chains
+    we can work out the average v = leaves over all chains so far from this */
+    real runningSumLeavesAllChains = cxsc::real(0.0);
+    
+    #ifdef MYDEBUG
+      // keep a vector of all the overall running sums as well
+      RealVec* runningSumLeavesOverallPtr = new RealVec();
+      // keep a vector of the runningsums for each chain as well
+      std::vector < RealVec >* runningSumLeavesChainsPtr 
+                = new std::vector < RealVec >(chains);
+      // keep a vector of the sample variances for each chain as well
+      std::vector < RealVec >* sampleVariancesLeavesPtr 
+                = new std::vector < RealVec >(chains,
+                  RealVec(1, cxsc::real(0.0)) );
+      /* keep a vector of the flag for leaves convergence
+       * (it's not a real, but easier to output it if we treat it like one) */
+      RealVec* rhatLeavesFlagPtr = new RealVec(1, cxsc::real(0.0));
+    #endif
+
+    RealVec* Ws_leavesPtr = new RealVec(1, cxsc::real (0.0) ); // to hold the
+       Ws_leaves
+    RealVec* Bs_leavesPtr = new RealVec(1, cxsc::real (0.0) ); // to hold the
+       Bs_leaves
+    RealVec* estVarV_leavesPtr = new RealVec(1, cxsc::real (0.0) ); // to hold
+       the estimated var(v) for leaves
+    RealVec* rhat_leavesPtr = new RealVec(1, cxsc::real (0.0) ); // to hold the
+       rhats for leaves
+
+    #ifdef MYDEBUG
+      /* keep a vector of indicators for whether a state was sampled
+      * (not a real, but easier to output it if we treat it like one) */
+      RealVec* sampledIndPtr = new RealVec(1, cxsc::real(0.0));
+    #endif
+
+    // container of each state at each sequence
+    vector<AdaptiveHistogramCollator*> sequenceCollators(chains);
+    
+    bool cancontinue = true;
+    
+    /* need to accumulate sum over all chains of the square of 
+    * the running sum of leaves 
+    * for each chain for this starting state */
+    cxsc::real initialSumOfSquaresOfRunningSumsLeaves(0.0);
+
+    // this loop is just setting up containers of file names
+    // and getting info from the starting histograms that is
+    // needed to start the chains
+    // and a container of collators, one for each chain,
+    for (size_t ci = 0; ci < chains; ci++) {
+      
+      // do not comment these out
+      std::ostringstream stm1;
+      stm1 << baseSequenceStateFilename << ci << ".txt";
+      sequenceStateFilenames[ci] = stm1.str();
+      outputFileStart(sequenceStateFilenames[ci]);
+      
+      // to output v_ij
+      {
+        std::ostringstream stm;
+        stm << baseLeavesColName << ci;
+        leavesColNames[ci] = stm.str();
+      }
+
+      #ifdef MYDEBUG
+        {
+          std::ostringstream stm;
+          stm << baseSequenceStateCollationFilename << ci << ".txt";
+          sequenceCollationFilenames[ci] = stm.str();
+          outputFileStart(sequenceCollationFilenames[ci]);
+        }
+        {
+          std::ostringstream stm;
+          stm << baseSequenceStateAverageFilename << ci << ".txt";
+          sequenceAverageFilenames[ci] = stm.str();
+          outputFileStart(sequenceAverageFilenames[ci]);
+        }
+        {
+          std::ostringstream stm;
+          stm << baseSequenceStateDiffsToAverageFilename << ci << ".txt";
+          sequenceDiffsToAverageFilenames[ci] = stm.str();
+          outputFileStart(sequenceDiffsToAverageFilenames[ci]);
+        }
+        {
+          std::ostringstream stm;
+          stm << baseLeavesRunningSumColName << ci;
+          leavesRunningSumColNames[ci] = stm.str();
+        }
+        
+        {
+          std::ostringstream stm;
+          stm << baseLeavesSampleVarianceColName << ci;
+          leavesSampleVarianceColNames[ci] = stm.str();
+        }
+        #endif
+
+      /* we only need to do this because we are doing a step-by-step change of
+       the
+      * histogram states 'from the outside', ie through this example:  we need
+       to
+      * collect the stuff the histogram's changeMCMCstate method needs to make
+       one 
+      * change.  */
+      
+      // set up a container for the leaf children
+      SPSnodePtrs leafVec;
+      // set up a container for the subleaf children
+      SPSnodePtrs cherryVec;
+
+      size_t numLeaves = 0;
+      size_t numCherries = 0;
+
+      // fill the container with the leaf children
+      hists[ci]->getSubPaving()->getLeaves(leafVec);
+      // fill the container with the subleaf children
+      hists[ci]->getSubPaving()->getSubLeaves(cherryVec);
+
+      numCherries = cherryVec.size();
+
+      cout << "check if node is still splittable" << endl;
+      
+      // check if node is still splittable
+      if (!leafVec.empty()) {
+        // but only put into the container the leaves which, if split,
+        // would have at least minPoints data points associated with them
+        // or could split with one child getting all the points
+        SPSnodePtrsItr lit;
+        for (lit = leafVec.begin(); lit < leafVec.end(); lit++) {
+          if ((minPoints == 0)
+          || (  minPoints > 0
+              &&
+              (((*lit)->getCounter() >= minPoints) &&
+                ( ((*lit)->getMinChildCountIfSplit() == 0)
+                  ||
+                  ((*lit)->getMinChildCountIfSplit() >= minPoints) )
+              )
+            )
+          ) {
+            // leaf can go into container
+            nodeLists[ci].push_back(*lit);
+            numLeaves++;
+          }
+        }
+      }
+
+      // no need to check on cherries - they can all go in
+      if (numCherries > 0)
+         nodeLists[ci].insert(nodeLists[ci].end(), cherryVec.begin(),
+                         cherryVec.end());
+      if (nodeLists[ci].size() == 0) {
+         cancontinue = false;
+         break; // break out of the for loop
+         std::cout << "No changeable nodes given minPoints = "
+                 << minPoints << " in histogram " << ci
+                 << ". Sorry, aborting MCMC." << std::endl;
+      }
+
+      numLeavesVec[ci] = numLeaves;
+      numCherriesVec[ci] = numCherries;
+
+      // initialise things for the collection of data on leaves
+      
+      // one vector of leaves for each chain
+      // record leaves for this first state
+      cxsc::real lastStateLeaves(1.0*hists[ci]->getRootLeaves());
+      leavesPtr->at(ci).push_back( lastStateLeaves );  
+      
+      // update the running sum of leaves for the chain, held in
+       runningSumLeaves
+      cxsc::real newRunningSumLeaves = runningSumLeavesPtr->at(ci) + 
+      lastStateLeaves;
+      runningSumLeavesPtr->at(ci) = newRunningSumLeaves;
+          
+      // accumulate the square of the running sum of leaves 
+      initialSumOfSquaresOfRunningSumsLeaves += newRunningSumLeaves*
+      newRunningSumLeaves;
+          
+      /* update the running sum of squared leaves over this chain
+       *  held in runningSumLeavesSquared as a dot precision */
+      cxsc::accumulate( runningSumLeavesSquared[ci], lastStateLeaves, 
+      lastStateLeaves );
+      
+      // update  the overall running sum runningSumLeavesAllChains 
+      runningSumLeavesAllChains += lastStateLeaves;
+      
+      #ifdef MYDEBUG
+        //sampleVariancesLeavesPtr->at(ci) was initialised to 0.0
+        runningSumLeavesChainsPtr->at(ci).push_back (newRunningSumLeaves);
+      #endif
+
+      // initialise things using current histogram state
+      //cout << "set up collator for each chain: " << endl;
+      /* set up one collator for each chain, 
+       * starting it with the histogram state right now */
+      sequenceCollators[ci] = ( new AdaptiveHistogramCollator( *hists[ci] ) );
+      // get the IAE of this first state
+      //stateL1[ci].push_back(hists[ci]->getUnifIAE());
+
+      //cout << "get the averaged histogram at this state" << endl;
+      //moved this out from MYDEBUG_OUTPUT to get the IAE
+      //AdaptiveHistogramCollator colltempavg = 
+      //                sequenceCollators[ci]->makeAverage();
+      //cout << "get the IAE " << endl;
+      //cout << colltempavg.getUnifIAE() << endl;
+      //avgStateL1[ci].push_back(colltempavg.getUnifIAE());
+
+      #ifdef MYDEBUG_OUTPUT
+      {
+        sequenceCollators[ci]->publicOutputLog(sequenceCollationFilenames[ci], 
+      1);
+        AdaptiveHistogramCollator colltempavg = 
+                      sequenceCollators[ci]->makeAverage();
+        colltempavg.publicOutputLog(sequenceAverageFilenames[ci], 1);
+        AdaptiveHistogramCollator colltempdiffs
+                    = sequenceCollators[ci]->makeDifferencesToAverage();
+        colltempdiffs.publicOutputLog(sequenceDiffsToAverageFilenames[ci], 1);
+      } // temp objects go out of scope here  
+      #endif
+    } // end loop through chains setting up things to be able to start
+
+    /* the overall running sum runningSumLeavesAllChains 
+     * was initialised to 0.0 
+     * and #ifdef MYDEBUG, runningSumLeavesOverall was initialised to contain
+       one 0.0 
+     * and similarly rhatLeavesFlagPtr was initialised to contain one 0.0*/
+
+    /* and we started the convergence statistics for chains with just one state
+       in
+     * with one 0.0 in each (Ws, Bs, estVarsVs, rhats)
+     * when we initialised */
+
+    bool goodLoop = cancontinue;
+
+    if (cancontinue) cout << "About to do MCMC" << endl;
+
+    /* set up some variables we need to keep track of states and sampling */
+    int samplesSoFar = 0;
+    size_t states = 1;  /* keep track of states in the chain = 1 so far,
+            since state 1 is the initial histograms */
+  
+    // varibles for monitoring convergence
+    int rhatLeavesFlag = 0; // indicator for whether we are burntin on L1
+       scalar value 
+    int burntin = 0; // indicator for whether we consider ourselves burntin yet
+    size_t burntinReachedState = 0; // keep track of when we (last) reached
+       burnin
+    int rhatFlagCounter = 0;
+    int rhatFlagCounterThreshold = 1;   /* how many of the scalar values must
+       have
+                      * diagnostic within limits for sampling to start?
+                      * usually this would probably be the number
+                      * of scalar values being used? */ 
+                      
+    // counter to keep track of loops
+    int loopCounter = 0;
+
+    /* We also need a collator for the samples*/
+    AdaptiveHistogramCollator* samplesColl = new AdaptiveHistogramCollator();
+
+    while (goodLoop && (loopCounter < maxLoops) && (samplesSoFar < 
+      samplesNeeded)) 
+    {
+      #ifdef MYDEBUG_CALCS
+        cout << "****** Change from state number " << states << " ******" << 
+      endl;
+      #endif
+
+      loopCounter++;
+
+      // do initial values for everything so far
+      /* we want to accumulate the sample variance of the scalar summary leaves
+       * for each chain up to the point reached in this loop */
+      cxsc::real sumOfSampleVariancesLeavesOverChains(0.0);
+      
+      /* also accumulate sum over all chains of the square of 
+       * the running sum of leaves 
+       * for each chain up to the point reached in this loop */
+      cxsc::real sumOfSquaresOfRunningSumsLeaves(0.0);
+    
+      // for each histogram in turn, change the state
+      /* 
+       * this is all a fudge - changeMCMCstate should just be a private
+       * method of the histograms but I think I made it public so that
+       * I could use it here in the example as a first step to being
+       * able to make all of this chain convergence stuff back into
+       * a method of the histograms themselves
+      */
+
+      for (size_t ci = 0; ci < chains; ci++) {
+      
+        #ifdef MYDEBUG_CALCS
+          cout << "--- chain index " << ci << " ---" << endl;
+        #endif
+
+        /* I refer to the current chain, indexed by ci, as 'the chain
+        * in the comments inside this loop */
+
+        // changeMCMCState for the chain
+        // updates nodes, numLeaves, numCherries, i
+        goodLoop = hists[ci]->changeMCMCState(nodeLists[ci],
+             numLeavesVec[ci], numCherriesVec[ci],
+             proposal, logPrior, minPoints,
+             rgsl, loggingInChangeStates,
+             sequenceStateFilenames[ci], states);
+             
+        #ifdef FORCEFAILMCMCLOOP
+          // for debugging - force a loop failure and see what happens to
+       program
+          if (states == 5) goodLoop = false;
+        #endif 
+
+        if (!goodLoop) {
+          throw std::runtime_error("Failed to do MCMC change in state");
+          // stop if we aren't happy
+        }
+      
+        if ((numLeavesVec[ci] == 0 && numCherriesVec[ci] == 0)) {
+          throw std::runtime_error("No more leaves or cherries in MCMC");
+        }
+      
+        // so assume all is okay if we have not just thrown an exception
+
+        /* this chain should have states + 1 states in it
+        * because we have not yet incremented the states variable.*/
+        size_t n_for_leaves = states + 1;
+          
+        //dec 29
+        //collate the current sample state in the chain
+        cout << "add current sample into collator: " << endl;
+        sequenceCollators[ci]->addToCollation(*(hists[ci]));
+        
+        /* and n_Leaves should be at least 2 because we started with the 
+        * starting histogram and have now added another state.*/
+        assert(n_for_leaves > 1);
+      
+        cout << "collect leaves scalar: " << endl;
+        // collect the leaves scalar and update the running sums for leaves
+        {
+          // update leaves for last histogram state in the chain
+          cxsc::real lastStateLeaves(1.0*hists[ci]->getRootLeaves());
+          leavesPtr->at(ci).push_back( lastStateLeaves );  
+                  
+          // update the running sum of leaves for the chain, held in
+       runningSumLeaves
+          cxsc::real newRunningSumLeaves = runningSumLeavesPtr->at(ci) + 
+      lastStateLeaves;
+          runningSumLeavesPtr->at(ci) = newRunningSumLeaves;
+          
+          // accumulate the square of the running sum of leaves 
+          sumOfSquaresOfRunningSumsLeaves += newRunningSumLeaves*
+      newRunningSumLeaves;
+          
+          /* update the running sum of squared leaves over this chain
+           *  held in runningSumLeavesSquared as a dot precision */
+          cxsc::accumulate( runningSumLeavesSquared[ci], lastStateLeaves, 
+      lastStateLeaves );
+          
+          // update  the overall running sum runningSumLeavesAllChains 
+          runningSumLeavesAllChains += lastStateLeaves;
+          
+          /* accumulate the sample variance for leaves for this chain: 
+           * sample variance for the scalar summary v = leaves
+           * calculated as (sum of squares - n * square of averages)/(n-1)
+           * which equals (sum of squares - square of sums/n)/(n-1) */
+          cxsc::real thisSampleVarianceLeaves( ( 1.0/(n_for_leaves - 1) )
+              *( cxsc::rnd(runningSumLeavesSquared[ci])
+              -  (newRunningSumLeaves*newRunningSumLeaves/(n_for_leaves * 1.0))
+       ) );
+          sumOfSampleVariancesLeavesOverChains += thisSampleVarianceLeaves;
+          
+          #ifdef MYDEBUG
+            sampleVariancesLeavesPtr->at(ci).push_back( 
+      thisSampleVarianceLeaves );
+            runningSumLeavesChainsPtr->at(ci).push_back (newRunningSumLeaves);
+          #endif
+
+          #ifdef MYDEBUG_CALCS
+            //check thisSampleVariance is correct, doing it the long way
+            // leavesPtr[ci] has the v_ij for each chain i
+            
+            assert( n_for_leaves == leavesPtr->at(ci).size() );
+            cxsc::real acc(0.0);
+            for (RealVecItr it = leavesPtr->at(ci).begin(); it < leavesPtr->at(
+      ci).end(); ++it) {
+              acc+= (*it);
+            }
+            
+            cxsc::real av = acc/(n_for_leaves * 1.0);
+            cxsc::dotprecision accDiffs(0.0);
+            for (RealVecItr it = leavesPtr->at(ci).begin(); it < leavesPtr->at(
+      ci).end(); ++it) {
+              cxsc::real thisDiff = (*it) - av;
+              // sum up the squares of the differences compared to overall
+       average
+              cxsc::accumulate(accDiffs, thisDiff, thisDiff);
+            }
+            cxsc::real altVar = rnd(accDiffs)/( n_for_leaves - 1.0 );
+            
+            cout << "\nthisSampleVariance leaves is\t" << 
+      thisSampleVarianceLeaves << endl;
+            cout << "altSampleVar leaves is\t" << altVar << endl;
+            //assert(cxsc::_double(thisSampleVarianceLeaves) ==
+       cxsc::_double(altVar) );
+          
+          #endif
+        } // end of collecting leaves scalar
+    } // end change state for each histogram in turn
+    
+    // increment number of states histograms have been through
+    states++;
+
+    /* each chain now has a new state
+     * and info for leaves scalar for diagnostics has been collected
+     * and the sample variance of the leaves scalar for each chain 
+     * has been put into sampleVariancesLeaves vector,
+     * and if we are doing full checks, the current histogram states have 
+     * has been collated into collators 
+     * and info for any other scalars for diagnostics has been collected
+     * and the sample variance of these other scalar summaries for each chain 
+     * for each scalar value
+     * have been put into sampleVariances vectors for each diagnostic,
+     * so we can now work out the convergence diagnostics */
+
+    #ifdef MYDEBUG
+      // store the current runningSumLeavesAllChains as well
+      runningSumLeavesOverallPtr->push_back(runningSumLeavesAllChains);
+    #endif
+    
+    // convergence diagnostics calculations for leaves
+    {
+      // the Ws_leaves: average, over chains, of sample variance of scalar
+       value
+      cxsc::real thisW_leaves = sumOfSampleVariancesLeavesOverChains/(chains * 
+      1.0); 
+      Ws_leavesPtr->push_back(thisW_leaves); 
+      // the Bs_leaves
+      cxsc::real thisB_leaves = (1.0/( (chains - 1) * states ) 
+                * ( sumOfSquaresOfRunningSumsLeaves 
+                - (runningSumLeavesAllChains 
+                * runningSumLeavesAllChains/(chains * 1.0)) ) );
+      Bs_leavesPtr->push_back(thisB_leaves); 
+      
+      #ifdef MYDEBUG_CALCS
+        //check thisB_leaves is correct, doing it the long way
+        // runningSumLeaves has one running sum for each chain
+        RealVec chainAverages;
+        cxsc::real accRunningSums(0.0);
+        for (RealVecItr it = runningSumLeavesPtr->begin(); it < 
+      runningSumLeavesPtr->end(); ++it) {
+          cxsc::real thisChainRunningSum = (*it);
+          cxsc::real thisChainAv = thisChainRunningSum/(states * 1.0);
+          chainAverages.push_back(thisChainAv);
+          accRunningSums+=thisChainRunningSum;
+        }
+        cxsc::real overallAv = accRunningSums/(states * chains * 1.0);
+        cxsc::dotprecision accDiffs(0.0);
+        for (RealVecItr it = chainAverages.begin(); it < chainAverages.end(); +
+      +it) {
+          cxsc::real thisDiff = (*it) - overallAv;
+          // sum up the squares of the differences compared to overall average
+          cxsc::accumulate(accDiffs, thisDiff, thisDiff);
+        }
+        cxsc::real altB = rnd(accDiffs)*( states/(chains - 1.0) );
+        
+        cout << "\nthisB for leaves is\t" << thisB_leaves << endl;
+        cout << "altB for leaves is\t" << altB << endl;
+        //assert(thisB_leaves == altB);
+      
+      #endif
+      
+      // the estimated var(v)
+      cxsc::real thisVarV_leaves = states/(states-1.0) 
+              * thisW_leaves + (1.0/states)*thisB_leaves;
+      estVarV_leavesPtr->push_back(thisVarV_leaves); 
+      // the rhats
+      cxsc::real thisRhat_leaves(0.0);
+      // allow division by 0 if w = 0 when var does not
+      if (thisW_leaves > 0.0 || thisVarV_leaves > 0.0) {
+        thisRhat_leaves = thisVarV_leaves/thisW_leaves;
+      }
+      rhat_leavesPtr->push_back(thisRhat_leaves); 
+    } // end calculations for leaves
+    
+    
+    // check on the diagnostics for Leaves
+    if (rhat_leavesPtr->back() <= 1.0 + tol 
+            && rhat_leavesPtr->back() >= 1.0 - tol) {
+      // if we have not been converged before on this scalar value
+      if (!rhatLeavesFlag)  {
+        #ifdef MYDEBUG
+          cout << "\nleaves convergence test satisfied in state " 
+              << states << endl;
+        #endif
+        // set the flag for this scalar value
+        rhatLeavesFlag = 1;
+        // and increment the flag counter = we are converged on this scalar
+       value
+        rhatFlagCounter ++; 
+      }
+    } // end of checking diagnostic for leaves
+    else { // not converged on this scalar value
+      // if we were okay on this scalar value before
+      if (rhatLeavesFlag) {
+        #ifdef MYDEBUG
+          cout << "\nLeaves convergence test now NOT satisfied in state " 
+            << states << endl;
+      
+        #endif
+        rhatLeavesFlag = 0; // update the flag
+        rhatFlagCounter--; // decrement the flag counter
+      } 
+    }
+
+    #ifdef MYDEBUG
+      // store the Leavesflag as well, as a real, which is a fudge...
+      rhatLeavesFlagPtr->push_back(rhatLeavesFlag);
+    #endif
+
+    if ( !burntin && (rhatFlagCounter >= rhatFlagCounterThreshold) ) {
+      burntin = 1; 
+      burntinReachedState = states;
+      
+      #ifdef MYDEBUG
+        // if we have not been burntin, give a message
+         cout << "Burnin convergence test satisfied at state " 
+            << burntinReachedState << endl;
+      #endif
+    }
+    
+    // but it may be that we were burntin and no longer are
+    else if ( burntin && (rhatFlagCounter < rhatFlagCounterThreshold) ) {
+      
+      burntin = 0; 
+      burntinReachedState = 0;
+      
+      delete samplesColl; // get rid of the old samples collator
+      samplesColl = new AdaptiveHistogramCollator(); // and take a new one
+      
+      samplesSoFar = 0;
+      
+      // want to change all the 1's in sampledIndPtr so far to 0s
+      cxsc::real newVal(0.0);
+      
+      #ifdef MYDEBUG
+        std::replace_if (sampledIndPtr->begin(), sampledIndPtr->end(), 
+          std::bind2nd(greater< cxsc::real >(),newVal), newVal);
+      #endif
+      
+      // restart the log file if we are logging
+      // note nothing done here yet about logging graphs as well  
+      if ( (logging = LOGSAMPLES) ) {
+        outputFileStart(samplesLogFilename);
+      }   
+      
+      #ifdef MYDEBUG
+        cout << "Burnin convergence test now NOT satisfied at state " 
+            << states << endl;
+        
+      #endif
+    }
+    
+    /* take samples if we are burntin and this is a sampling point according to
+       
+     * the thinout specified 
+     * note - we will only be in the loop at all if we still need more samples
+      */
+    if (burntin && (( states - burntinReachedState )%thinout == 0)) {
+      
+      #ifdef MYDEBUG
+        //cout << "sampling at state " << states << endl;
+        sampledIndPtr->push_back (cxsc::real(1.0)); 
+
+      #endif
+      
+      // take one sample from each chain until we have enough samples
+      // and increment samplesSoFar for each one taken
+      vector<AdaptiveHistogram*>::iterator ait;
+
+      for (ait = hists.begin(); 
+          (ait < hists.end() && samplesSoFar < samplesNeeded);
+          ++ait) {
+        
+        // get the IAE of this histogram
+        //stateL1[c].push_back((*ait)->getUnifIAE());
+        //cout << "#Leaves: " << spLeaves((*ait)->getSubPaving()) << endl;
+        
+        // add the collation (this is the main collation to output the final
+       averaged sample)
+        samplesColl->addToCollation(**ait);
+        //cout << samplesColl->getNumberCollated() << endl;
+
+        //cout << "adding this sample to the collater for chain " << c << endl;
+        // also add this to the collation associated with this chain
+        //sigh this is so stupid but i can't get the vector one to work
+        /*
+        if (c==0) { 
+          coll1->addToCollation(**ait); 
+          //cout << coll1->getNumberCollated() << endl; 
+          // get the average of the collation associated with this chain
+          AdaptiveHistogramCollator colltemp = coll1->makeAverage();
+          // get the IAE
+          avgStateL1[c].push_back(colltemp.getUnifIAE());
+        }
+        else {
+          coll2->addToCollation(**ait); 
+          //cout << coll2->getNumberCollated() << endl; 
+          // get the average of the collation associated with this chain
+          AdaptiveHistogramCollator colltemp = coll2->makeAverage();
+          // get the IAE
+          avgStateL1[c].push_back(colltemp.getUnifIAE());
+        }
+
+        c++; //chain index
+        */
+        samplesSoFar++;
+        
+        if ( (logging = LOGSAMPLES) ) {
+          //(*ait)->outputLogPlain(samplesLogFilename, samplesSoFar);
+        }
+      } // finished iterating through samples to be taken
+    } // finished taking samples for this loop
+    else {
+      #ifdef MYDEBUG
+        sampledIndPtr->push_back (cxsc::real(0.0)); 
+      #endif
+    }
+    
+    assert( (samplesColl->getNumberCollated() == samplesSoFar) );
+    
+    // back into loop
+    #if !defined(MYDEBUG_CALCS)
+      #ifdef MYDEBUG
+        // output a line every now and again so that we know it's still alive
+        if (loopCounter%100 == 0) {
+          cout << "\n...I'm still going: completed change in state number " << 
+      states << " ...\n" << endl;
+        }
+      #endif
+    #endif
+  }    // finished while loop - either loop failed or reached maxLoops or have
+       all our samples
+  
+  cancontinue = goodLoop;
+  
+  // stop recording time here
+  end = clock();  
+  timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+  cout << "Computing time : " << timing << " s."<< endl;
+  
+  #ifdef MYDEBUG
+    cout << "****** finished all loops, states counter is = " << states << "
+       ******" << endl;
+  #endif
+  
+  cout << "\nnumber of samples collected is = " << samplesColl->
+      getNumberCollated() << endl;
+  
+  // free the random number generator
+  gsl_rng_free (rgsl);
+
+  cout << cxsc::RestoreOpt; // undo changes we made to cout printing for cxsc
+       values
+
+  
+  /* is all okay with the loop
+   * and we have all our samples */
+  if (cancontinue && (samplesSoFar >= samplesNeeded) ) {
+    #ifdef MYDEBUG
+      // output the overall collator
+      samplesColl->outputToTxtTabs(samplesCollFilename);
+    #endif
+    
+    // make the return object be the average of the samples
+    *samplesAvg = samplesColl->makeAverage();
+      
+    // output the convergence diagnostics
+    
+    //output file for leaves
+    {
+      std::vector < std::string > colNames;
+      colNames.push_back("W");
+      colNames.push_back("B");
+      colNames.push_back("estVarV");
+      colNames.push_back("rhat");
+      #ifdef MYDEBUG
+        colNames.push_back("rhatFlag");
+        colNames.push_back("sampled?");
+      #endif
+      std::vector < RealVec* > data;
+      data.push_back(Ws_leavesPtr);
+      data.push_back(Bs_leavesPtr);
+      data.push_back(estVarV_leavesPtr);
+      data.push_back(rhat_leavesPtr);
+      #ifdef MYDEBUG
+        data.push_back(rhatLeavesFlagPtr);
+        data.push_back(sampledIndPtr);
+      #endif
+      int precData = 5;
+      outputToFileVertical(data, colNames, GRLeavesFilename, precData);
+    } // all the stuff created in these {} goes out of scope here
+    
+    
+    // output the leaves  as v_ij's)
+    {
+      std::vector < std::string > colNames;
+      colNames.insert(colNames.end(), leavesColNames.begin(), leavesColNames.
+      end());
+      
+      std::vector < RealVec* > data;
+      data = addDataPtrs(data, *leavesPtr);
+      
+      int precData = 10;
+      outputToFileVertical(data, colNames, GR_vij_as_Leaves_Filename, precData)
+      ;
+    }
+
+    #ifdef MYDEBUG
+    {
+      /* output working calcs: all leaves for each chain, 
+       * running sums for each chain, sample variances,
+       * overall running sums */
+      std::vector < std::string > colNames;
+      colNames.insert(colNames.end(), leavesColNames.begin(), leavesColNames.
+      end());
+      colNames.insert(colNames.end(), leavesRunningSumColNames.begin(), 
+      leavesRunningSumColNames.end());
+      colNames.insert(colNames.end(), leavesSampleVarianceColNames.begin(), 
+      leavesSampleVarianceColNames.end());
+      colNames.push_back(overallLeavesRunningSumColName);
+      
+      std::vector < RealVec* > data;
+      data = addDataPtrs(data, *leavesPtr);
+      data = addDataPtrs(data, *runningSumLeavesChainsPtr);
+      data = addDataPtrs(data, *sampleVariancesLeavesPtr);
+      data.push_back(runningSumLeavesOverallPtr);
+      
+      int precData = 10;
+      outputToFileVertical(data, colNames, GRLeavesWorkingCalcsFilename, 
+      precData);
+    
+    }
+    #endif
+
+    cout << "\n\nFinished MCMC successfully\n" << endl;
+    cout << "Check output files\n\t" << GRLeavesFilename
+            << "\nfor diagnostics" << endl;
+    cout << "and for scalar values\n\t" << GR_vij_as_Leaves_Filename << endl;
+    if ( (logging = LOGSAMPLES) ) {
+      cout << "and\t" << samplesLogFilename
+          << "\nfor log of samples" <<endl;
+    }
+    #ifdef MYDEBUG
+      cout << "and " << GRLeavesWorkingCalcsFilename
+          << "\nfor working calculations for diagnostics" <<endl;
+    #endif
+    #ifdef MYDEBUG_OUTPUT
+      cout << "and\t" << baseSequenceStateCollationFilename << "*.txt, \n\t"
+          << baseSequenceStateAverageFilename << "*.txt \n\t"
+          << baseSequenceStateDiffsToAverageFilename << "*.txt \n"
+          << "for sequence development details" <<endl;
+    #endif
+    cout << endl;
+  }
+  
+  /* clean up the newed stuff
+   * 
+   * note that this does not get cleaned up if we throw an exception in the
+       while loop
+   * - should probably deal with that at some point but all the newed memory
+       will be 
+   * freed when it terminates anyway so assuming this code is just run as a
+       one-off example,
+   * it will be okay for the moment */
+
+  vector<AdaptiveHistogram*>::iterator ait;
+  for (ait = hists.begin(); ait < hists.end(); ++ait) {
+    if (NULL != *ait) delete (*ait);
+  }
+
+  vector<AdaptiveHistogramCollator*>::iterator acit;
+  for (acit = sequenceCollators.begin(); acit < sequenceCollators.end(); ++acit
+      ) {
+    if (NULL != *acit) delete (*acit);
+  }
+
+  /*
+  for (acit = averageCollators.begin(); acit < averageCollators.end(); acit++)
+       {
+    if (NULL != *acit) delete (*acit);
+  }
+  */
+  
+  delete samplesColl;
+  
+  #ifdef MYDEBUG
+    delete sampledIndPtr;
+  #endif
+  
+  // leaves stuff
+  delete leavesPtr;  
+  
+  #ifdef MYDEBUG
+    delete runningSumLeavesOverallPtr;
+    delete runningSumLeavesChainsPtr;
+    delete sampleVariancesLeavesPtr;
+    delete rhatLeavesFlagPtr;
+  #endif
+
+  delete Ws_leavesPtr;
+  delete Bs_leavesPtr;
+  delete estVarV_leavesPtr;
+  delete rhat_leavesPtr;
+
+        
+  /* since I throw an exception in the while loop if it is not a good loop,
+   *  really the only reason for failing here is that we did not get the right 
+   * number of samples, but might as well leave it like this - belt & braces*/    
+        
+  if (!cancontinue || (samplesSoFar < samplesNeeded) ) {
+    cout << "\nMCMC not successful" << endl;
+    cout << "Output files will not be complete - delete or ignore:\n"
+        << GRLeavesFilename
+        << "\n" << GR_vij_as_Leaves_Filename << endl;
+    
+    #ifdef MYDEBUG
+      cout << GRLeavesWorkingCalcsFilename << endl;
+    #endif
+    if ( (logging = LOGSAMPLES) ) {
+      cout << samplesLogFilename << endl;
+    }
+    #ifdef MYDEBUG_OUTPUT
+      cout << baseSequenceStateCollationFilename << "*.txt,"
+      << "\n" <<  baseSequenceStateAverageFilename << "*.txt,"
+      << "\n" <<  baseSequenceStateDiffsToAverageFilename << "*.txt" << endl;
+    #endif
+    cout << endl;
+    
+    if (!cancontinue) {
+      throw std::runtime_error("MCMC failed");
+    }
+    if (samplesSoFar < samplesNeeded) {
+      // we have not been able to get the required samples - need to give up
+      throw std::runtime_error("Did not get required number of samples");
+    }
+  }
+    /*
+    // Output the L1 error of states
+    vector< vector<real> >::iterator it1;
+    vector<real>::iterator it2;
+    string stateL1FileName = "UnifStateL1FileName";
+    stateL1FileName += stmH.str();
+    stateL1FileName += ".txt";
+    os.open(stateL1FileName.c_str());
+    for (it1 = stateL1.begin(); it1 < stateL1.end(); it1++) { 
+      for (it2 = (*it1).begin(); it2 < (*it1).end(); it2++) {
+        os << (*it2) << "\t";
+      }
+      os << "\n";
+    }
+    os << flush;
+    os.close();
+    
+    // Output the L1 error of avg states
+    string avgL1FileName = "UnifAvgL1FileName";
+    avgL1FileName += stmH.str();
+    avgL1FileName += ".txt";
+    os.open(avgL1FileName.c_str());
+    for (it1 = avgStateL1.begin(); it1 < avgStateL1.end(); it1++) { 
+      for (it2 = (*it1).begin(); it2 < (*it1).end(); it2++) {
+        os << (*it2) << "\t";
+      }
+      os << "\n";
+    }
+    os << flush;
+    os.close();
+    cout << "L1-errors output to " << avgL1FileName << " and " <<
+       stateL1FileName << endl;
+    */
+    
+    double Tol = 1e-15; // tolerance for root finding and integration routines
+    cout << "Tolerance is: " << Tol << endl;
+    int Deg = 2; // Degree of Taylor series.
+    
+    // now get the IAE of samplesAvg
+    real thisIAE = mid(samplesAvg->getFinMixIntervalIAE(mixt, Tol, Deg)); 
+    //output IAE to file
+    string IAEFileName;
+    IAEFileName = "FinMixIAETime";
+    IAEFileName += stmH.str();
+    IAEFileName += ".txt";
+    os.open(IAEFileName.c_str());
+    os << thisIAE << "\t" << timing << endl;
+    os << flush;
+    os.close();
+    cout << "IAE output to " << IAEFileName << endl;
+
+  } // end check on successful insertion of data into histograms
+  
+  else {
+    throw std::runtime_error("MCMC failed: could not insert data into all
+       starting histograms");
+  }
+
+  cout << "==========end of simulation " << dataSeed << "===========" << endl;
+
+//free the random number generator
+gsl_rng_free(r);
+gsl_rng_free(r1);
+
+  std::string samplesCollAverageFilename = "AveragedSamples";
+  samplesCollAverageFilename += stmH.str();
+  samplesCollAverageFilename += ".txt";
+  outputFileStart(samplesCollAverageFilename);
+  samplesAvg->outputToTxtTabs(samplesCollAverageFilename);
+
+return *samplesAvg;
+
+} // end of MCMC test program
+\end{DoxyCode}
+\hypertarget{MCMCGRSimsLeavesFinMix_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp@{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp}!main@{main}}
+\index{main@{main}!MCMCGRSimsLeavesFinMix.cpp@{\-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRSimsLeavesFinMix_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 63 of file \-M\-C\-M\-C\-G\-R\-Sims\-Leaves\-Fin\-Mix.\-cpp.
+
+
+
+\-References do\-M\-C\-M\-C\-G\-R\-Auto().
+
+
+\begin{DoxyCode}
+{
+  //========user-defined parameters====================//
+  if ( argc != 12 ) {
+    cerr << "Syntax: MCMCGRSimsLeaves n d maxLoops samplesNeeded thinout "
+    << "tolerance minPoints maxLeaves dataSeed shape temperature" << endl;
+    exit(0);
+  }
+  size_t n=atoi(argv[1]);  // number of datapoints to generate for each
+       histogram
+  int d = atoi(argv[2]); // dimensions
+  
+  int maxLoops = atoi(argv[3]); // maximum changes of state from initial state
+       to try
+  int samplesNeeded = atoi(argv[4]); // how many samples do we want (ie once
+       chains have burned in)
+  int thinout = atoi(argv[5]); // sample every thinout state, ie thinout-1
+       states between samples
+  
+  real tolerance = atof(argv[6]);
+  cxsc::real tol(tolerance); //tolerance for automated burn in criteria
+  
+  size_t minPoints = atoi(argv[7]); //minimum points needed for a node to be
+       splittable
+  int maxLeaves = atoi(argv[8]); // number of leaves allowed in the PQ
+       histogram
+                        // used as one of the chains
+                        
+  int dataSeed = atoi(argv[9]); //seed to generate data
+  
+  int mix = atoi(argv[10]);
+   
+  double temperature = atof(argv[11]);
+  
+  // should really do more checks on parameters, but just check thinout here
+  if (thinout < 1 ) {
+    throw std::invalid_argument("Invalid thinout argument");
+  }
+
+  //===========done with working on parameters==========================//
+
+  try {
+    AdaptiveHistogramCollator avg = doMCMCGRAuto(n, d, 
+        maxLoops, samplesNeeded, thinout, tol, minPoints, dataSeed,
+        maxLeaves, mix, temperature);
+
+    /*
+    std::string samplesCollAverageFilename =
+       "AveragedSamplesFromMCMCGRAuto.txt";
+    outputFileStart(samplesCollAverageFilename);
+  
+    avg.outputToTxtTabs(samplesCollAverageFilename);
+    */
+    return 0;
+  }
+  catch (std::runtime_error& e) {
+    cout << "\nFailed doMCMCGRAuto: original error:\n" 
+      << std::string(e.what()) << "\n" << endl;
+  }
+}
+\end{DoxyCode}

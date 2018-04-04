@@ -1,0 +1,287 @@
+\hypertarget{classFCesaroBellNo}{\subsection{\-F\-Cesaro\-Bell\-No \-Class \-Reference}
+\label{classFCesaroBellNo}\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}}
+}
+
+
+{\ttfamily \#include $<$\-F\-Cesaro\-Bell\-No.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-Cesaro\-Bell\-No\-:
+
+
+\-Collaboration diagram for \-F\-Cesaro\-Bell\-No\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFCesaroBellNo_ab47f395482d2f680a299f6b58fb1cb62}{\-F\-Cesaro\-Bell\-No} (real \-Nn, interval \hyperlink{LevyFobj2D_8cpp_ae28a2599911ae746bc33211d3ea52aaf}{\-Domain\-Limit}, bool \-Log\-Pi)
+\item 
+interval \hyperlink{classFCesaroBellNo_a92568b498df7475dd13d20cb7bfa1d23}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+real \hyperlink{classFCesaroBellNo_ab866e2831e6bf8c4fca46433ad2a6417}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFCesaroBellNo_a565d2a382aed9be6b5aebd99810be370}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box \end{DoxyCompactList}\item 
+int \hyperlink{classFCesaroBellNo_acfda8e11028fbc5d41cd8810cc17567f}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFCesaroBellNo_a20e3fb43978e543c32d826bc9ccf07f8}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{classFCesaroBellNo_ad4a60a8d228991378abcba98a90df97c}{n}
+\item 
+int \hyperlink{classFCesaroBellNo_a9b66171468efcbb22ffb4e9fba7759e4}{n\-\_\-interval\-\_\-calls}
+\item 
+int \hyperlink{classFCesaroBellNo_a933042ae08451f7e7c102787d3eb6211}{n\-\_\-real\-\_\-calls}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 52 of file \-F\-Cesaro\-Bell\-No.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFCesaroBellNo_ab47f395482d2f680a299f6b58fb1cb62}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}}
+\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{\-F\-Cesaro\-Bell\-No}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Cesaro\-Bell\-No\-::\-F\-Cesaro\-Bell\-No} (
+\begin{DoxyParamCaption}
+\item[{real}]{\-Nn, }
+\item[{interval}]{\-Domain\-Limit, }
+\item[{bool}]{\-Log\-Pi}
+\end{DoxyParamCaption}
+)}}\label{classFCesaroBellNo_ab47f395482d2f680a299f6b58fb1cb62}
+
+
+\-Definition at line 27 of file \-F\-Cesaro\-Bell\-No.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Domain\-Limit, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, n\-\_\-interval\-\_\-calls, n\-\_\-real\-\_\-calls, and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+                                                                      :
+n(Nn)
+{
+  n_interval_calls = 0;
+  n_real_calls = 0;
+  setUsingLogDensity (LogPi);
+
+  ivector domain (1, 1);
+  LabBox Ldomain;
+  for (int i = 1; i <= 1; i++)
+    {
+      domain[i] = DomainLimit;
+    }
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  LabDomainList.push_back (Ldomain);
+
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFCesaroBellNo_acfda8e11028fbc5d41cd8810cc17567f}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Cesaro\-Bell\-No\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCesaroBellNo_acfda8e11028fbc5d41cd8810cc17567f}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 61 of file \-F\-Cesaro\-Bell\-No.\-hpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{ return n_interval_calls; }
+\end{DoxyCode}
+\hypertarget{classFCesaroBellNo_a20e3fb43978e543c32d826bc9ccf07f8}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Cesaro\-Bell\-No\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCesaroBellNo_a20e3fb43978e543c32d826bc9ccf07f8}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 62 of file \-F\-Cesaro\-Bell\-No.\-hpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{ return n_real_calls; }
+\end{DoxyCode}
+\hypertarget{classFCesaroBellNo_a565d2a382aed9be6b5aebd99810be370}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-Cesaro\-Bell\-No\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCesaroBellNo_a565d2a382aed9be6b5aebd99810be370}
+
+
+a defined pure virtual function for default \-Lebesgue measure (volume) of a labelled box 
+
+get the default volume (\-Lebesgue) of a labeled box
+
+derived classes inherit interface and default behavior see \mbox{[}\-Item 34,\-P.\-166, \-Meyers, \-Effective \-C++\mbox{]}
+
+an inline definition of the pure virtual function for default \-Lebesgue measure (volume) of a labeled box 
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 60 of file \-F\-Cesaro\-Bell\-No.\-hpp.
+
+
+
+\-References \-Fobj\-::\-Lab\-Box\-Volume().
+
+
+\begin{DoxyCode}
+{return Fobj::LabBoxVolume(LB);}
+\end{DoxyCode}
+\hypertarget{classFCesaroBellNo_a92568b498df7475dd13d20cb7bfa1d23}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!operator()@{operator()}}
+\index{operator()@{operator()}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-Cesaro\-Bell\-No\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCesaroBellNo_a92568b498df7475dd13d20cb7bfa1d23}
+
+
+a pure virtual function for interval image of boxes under \hyperlink{classFobj}{\-Fobj} 
+
+\-Derived classes inherit interface only see \mbox{[}\-Item 34,\-P.\-162, \-Meyers, \-Effective \-C++\mbox{]} 
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 47 of file \-F\-Cesaro\-Bell\-No.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, taylor\-::cos(), taylor\-::exp(), taylor\-::ln(), n, n\-\_\-interval\-\_\-calls, taylor\-::sin(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+     {
+       n_interval_calls++;
+       interval x = X.Box[1];
+       interval cx=cos(x);
+       interval sx=sin(x);
+       interval ecx=exp(cos(x));
+       interval result=abs( exp(ecx * cos(sx)) * sin(ecx * sin(sx)) * sin(n * x
+      ) );
+       return (UsingLogDensity) ? ln (result) : result;
+     }
+\end{DoxyCode}
+\hypertarget{classFCesaroBellNo_ab866e2831e6bf8c4fca46433ad2a6417}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!operator()@{operator()}}
+\index{operator()@{operator()}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-Cesaro\-Bell\-No\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-L\-P}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCesaroBellNo_ab866e2831e6bf8c4fca46433ad2a6417}
+
+
+a pure virtual function for real image of real points under \hyperlink{classFobj}{\-Fobj} 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 60 of file \-F\-Cesaro\-Bell\-No.\-cpp.
+
+
+
+\-References taylor\-::cos(), taylor\-::exp(), taylor\-::ln(), n, n\-\_\-real\-\_\-calls, \-Lab\-Pnt\-::\-Pnt, taylor\-::sin(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+     {
+       n_real_calls++;
+       real x = X.Pnt[1];
+       real cx=cos(x);
+       real sx=sin(x);
+       real ecx=exp(cos(x));
+       real result=abs( exp(ecx * cos(sx) ) * sin(ecx * sin(sx)) * sin(n * x) )
+      ;
+       return (UsingLogDensity) ? ln (result) : result;
+     }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFCesaroBellNo_ad4a60a8d228991378abcba98a90df97c}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!n@{n}}
+\index{n@{n}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{n}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Cesaro\-Bell\-No\-::n}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCesaroBellNo_ad4a60a8d228991378abcba98a90df97c}
+
+
+\-Definition at line 53 of file \-F\-Cesaro\-Bell\-No.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFCesaroBellNo_a9b66171468efcbb22ffb4e9fba7759e4}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Cesaro\-Bell\-No\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCesaroBellNo_a9b66171468efcbb22ffb4e9fba7759e4}
+
+
+\-Definition at line 54 of file \-F\-Cesaro\-Bell\-No.\-hpp.
+
+
+
+\-Referenced by \-F\-Cesaro\-Bell\-No(), and operator()().
+
+\hypertarget{classFCesaroBellNo_a933042ae08451f7e7c102787d3eb6211}{\index{\-F\-Cesaro\-Bell\-No@{\-F\-Cesaro\-Bell\-No}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FCesaroBellNo@{\-F\-Cesaro\-Bell\-No}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Cesaro\-Bell\-No\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCesaroBellNo_a933042ae08451f7e7c102787d3eb6211}
+
+
+\-Definition at line 55 of file \-F\-Cesaro\-Bell\-No.\-hpp.
+
+
+
+\-Referenced by \-F\-Cesaro\-Bell\-No(), and operator()().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FCesaroBellNo_8hpp}{\-F\-Cesaro\-Bell\-No.\-hpp}\item 
+\hyperlink{FCesaroBellNo_8cpp}{\-F\-Cesaro\-Bell\-No.\-cpp}\end{DoxyCompactItemize}

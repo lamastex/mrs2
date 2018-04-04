@@ -1,0 +1,211 @@
+\hypertarget{ExVector3D_8cpp}{\subsection{\-Ex\-Vector3\-D.\-cpp \-File \-Reference}
+\label{ExVector3D_8cpp}\index{\-Ex\-Vector3\-D.\-cpp@{\-Ex\-Vector3\-D.\-cpp}}
+}
+
+
+\-Mapped\-S\-Pnode example with vectors main.  
+
+
+{\ttfamily \#include \char`\"{}\-Vec.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{classVec}{\-Vec} \hyperlink{ExVector3D_8cpp_a95ed2cc3df4ef6d63e8a7d315a9e9fd2}{hull\-Operator$<$ Vec $>$} (const \hyperlink{classVec}{\-Vec} \&x, const \hyperlink{classVec}{\-Vec} \&y)
+\item 
+void \hyperlink{ExVector3D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+int \hyperlink{ExVector3D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Mapped\-S\-Pnode example with vectors main. \-This example is f(x) = exp(-\/x$^\wedge$2) 
+
+\-Definition in file \hyperlink{ExVector3D_8cpp_source}{\-Ex\-Vector3\-D.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{ExVector3D_8cpp_a95ed2cc3df4ef6d63e8a7d315a9e9fd2}{\index{\-Ex\-Vector3\-D.\-cpp@{\-Ex\-Vector3\-D.\-cpp}!hull\-Operator$<$ Vec $>$@{hull\-Operator$<$ Vec $>$}}
+\index{hull\-Operator$<$ Vec $>$@{hull\-Operator$<$ Vec $>$}!ExVector3D.cpp@{\-Ex\-Vector3\-D.\-cpp}}
+\paragraph[{hull\-Operator$<$ Vec $>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf \-Vec} hull\-Operator$<$ {\bf \-Vec} $>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Vec} \&}]{x, }
+\item[{const {\bf \-Vec} \&}]{y}
+\end{DoxyParamCaption}
+)}}\label{ExVector3D_8cpp_a95ed2cc3df4ef6d63e8a7d315a9e9fd2}
+
+
+\-Definition at line 23 of file \-Ex\-Vector3\-D.\-cpp.
+
+
+\begin{DoxyCode}
+    {
+       return x + y; // addition
+    }
+\end{DoxyCode}
+\hypertarget{ExVector3D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Ex\-Vector3\-D.\-cpp@{\-Ex\-Vector3\-D.\-cpp}!main@{main}}
+\index{main@{main}!ExVector3D.cpp@{\-Ex\-Vector3\-D.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ExVector3D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 47 of file \-Ex\-Vector3\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), output(), and subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+
+    cout << "\nExVector3D\n" << endl;
+
+    int dims = 2;
+    ivector pavingBox(dims);
+    interval pavingInterval(-4,4);
+    for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+    MappedSPnode<Vec> nodeOne(pavingBox); // make a MappedSPnode object
+    MappedSPnode<Vec> nodeTwo(pavingBox); // make a MappedSPnode object
+
+    // split the nodes to particular shapes
+    nodeOne.splitToShape("3,3,2,1"); // split it
+    nodeTwo.splitToShape("3,4,4,2,2,3,3"); // split it
+
+
+    // allocate ranges for nodeOne
+    RangeCollectionClass<Vec> rangeOne1(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec> rangeOne2(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec> rangeOne3(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec> rangeOne4(Vec(0.3,0.1,0.3));
+    RangeCollectionClass<Vec> rangeOne5(Vec(0.2,0.1,-1.0));
+    RangeCollectionClass<Vec> rangeOne6(Vec(0.3,0.6,0.5));
+    RangeCollectionClass<Vec> rangeOne7(Vec(0.2,0.2,0.8));
+
+
+    vector< RangeCollectionClass<Vec> > rangesOne;
+    rangesOne.push_back(rangeOne1);
+    rangesOne.push_back(rangeOne2);
+    rangesOne.push_back(rangeOne3);
+    rangesOne.push_back(rangeOne4);
+    rangesOne.push_back(rangeOne5);
+    rangesOne.push_back(rangeOne6);
+    rangesOne.push_back(rangeOne7);
+
+
+
+    nodeOne.allocateRanges(rangesOne, 0);
+
+
+    // allocate ranges for nodeTwo
+    RangeCollectionClass<Vec>  rangeTwo1(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec>  rangeTwo2(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec>  rangeTwo3(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec>  rangeTwo4(Vec(0.2,0.5,0.-.8));
+    RangeCollectionClass<Vec>  rangeTwo5(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec>  rangeTwo6(Vec(0.-1,0.-.5,0.3));
+    RangeCollectionClass<Vec>  rangeTwo7(Vec(0.0,0.0,0.6));
+    RangeCollectionClass<Vec>  rangeTwo8(Vec(-1.0,0.5,0.5));
+    RangeCollectionClass<Vec>  rangeTwo9(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec>  rangeTwo10(Vec(0.5,-.3,0.3));
+    RangeCollectionClass<Vec>  rangeTwo11(Vec(0.0,0.0,0.0));
+    RangeCollectionClass<Vec>  rangeTwo12(Vec(-0.5,0.4,0.3));
+    RangeCollectionClass<Vec>  rangeTwo13(Vec(0.3,-.7,0.1));
+
+    vector< RangeCollectionClass<Vec> > rangesTwo;
+    rangesTwo.push_back(rangeTwo1);
+    rangesTwo.push_back(rangeTwo2);
+    rangesTwo.push_back(rangeTwo3);
+    rangesTwo.push_back(rangeTwo4);
+    rangesTwo.push_back(rangeTwo5);
+    rangesTwo.push_back(rangeTwo6);
+    rangesTwo.push_back(rangeTwo7);
+    rangesTwo.push_back(rangeTwo8);
+    rangesTwo.push_back(rangeTwo9);
+    rangesTwo.push_back(rangeTwo10);
+    rangesTwo.push_back(rangeTwo11);
+    rangesTwo.push_back(rangeTwo12);
+    rangesTwo.push_back(rangeTwo13);
+
+    nodeTwo.allocateRanges(rangesTwo, 0);
+
+
+    string filename = "ExVec3D_1.txt";
+    output(filename, nodeOne);
+
+    filename = "ExVec3D_2.txt";
+    output(filename, nodeTwo);
+
+    // ----------- try lazy addition
+
+    MappedSPnode<Vec> lazyaddition =
+            MappedSPnode<Vec>::lazyCollationNonMinimalUnion (nodeOne, nodeTwo);
+    filename = "ExVec3D_LazyAddition.txt";
+    output(filename, lazyaddition);
+
+
+    // ----------- try addition
+
+    MappedSPnode<Vec> addition = nodeOne + nodeTwo;
+    filename = "ExVec3D_Addition.txt";
+    output(filename, addition);
+
+    // ----------- try subtraction
+
+    MappedSPnode<Vec> subtraction = nodeOne - nodeTwo;
+    filename = "ExVec3D_Subtraction.txt";
+    output(filename, subtraction);
+
+    // ----------- try multiplication
+
+    MappedSPnode<Vec> multiplication = nodeOne * nodeTwo;
+    filename = "ExVec3D_Multiplication.txt";
+    output(filename, multiplication);
+
+    return 0;
+
+}
+\end{DoxyCode}
+\hypertarget{ExVector3D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Ex\-Vector3\-D.\-cpp@{\-Ex\-Vector3\-D.\-cpp}!output@{output}}
+\index{output@{output}!ExVector3D.cpp@{\-Ex\-Vector3\-D.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{ExVector3D_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 30 of file \-Ex\-Vector3\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+        // To generate a file output
+        ofstream os(filename.c_str());         // Filename, c-string version
+        if (os.is_open()) {
+
+            node.leavesOutputTabs(os); // the output
+            std::cout << "The output of the example"
+                    << " has been written to " << filename << std::endl << 
+      std::endl;
+            os.close();
+        }
+        else {
+            std::cerr << "Error: could not open file named "
+                << filename << std::endl << std::endl;
+        }
+}
+\end{DoxyCode}

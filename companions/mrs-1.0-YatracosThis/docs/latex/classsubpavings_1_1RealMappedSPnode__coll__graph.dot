@@ -1,0 +1,20 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{subpavings::RealMappedSPnode\n||+ ~RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\l+ RealMappedSPnode()\land 32 more...- _start_marginalise()\l- _marginalise()\l- _normalise()\l- _getL1distance()\l- nodeL1Distance()\l- _getLogLikelihood()\l- oneLineOutput()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{subpavings::MappedSPnode\< cxsc::real \>\n||+ ~MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ operator=()\l+ getParent()\land 8 more...* range\l* slice()\l* acceptSPExpandVisitor()\l* acceptSPValueVisitor()\l* operator+=()\l* operator+=()\l* operator+()\l* operator+()\l* operator-=()\l* operator-=()\land 29 more...}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1MappedSPnode.shtml"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node3 [label="{subpavings::SPnode\n|# theBox\l# dimension\l# label\l# parent\l# leftChild\l# rightChild\l# nodeName\l|+ SPnode()\l+ SPnode()\l+ SPnode()\l+ SPnode()\l+ SPnode()\l+ SPnode()\l+ ~SPnode()\l+ operator=()\l+ recursiveRename()\l+ isSplittableNode()\land 49 more...+ getParent()\l+ getLeftChild()\l+ getRightChild()\l+ leavesOutputTabs()\l+ leavesOutputTabs()\l+ nodesAllOutput()\l+ nodesAllOutput()\l+ vecLeafBoxOuterJacket()\l+ spLeafBoxOuterJacket()\l+ volOuterJacket()\l+ vecLeafBoxIntersection()\l+ spLeafBoxIntersection()\l+ volIntersection()\l+ vecLeafBoxDifference()\l+ vecBoxNodeDifference()\l+ spLeafBoxDifference()\l+ volDifference()\l+ makeTreeFromLeaves()\l+ makeTreeFromVoxels()\l+ vtkPaving()\l# splitLeft()\l# _reshapeToUnion()\l- constructor_error_handler()\l* getParent()\l* getLeftChild()\l* getRightChild()\l* leavesOutputTabs()\l* leavesOutputTabs()\l* nodesAllOutput()\l* nodesAllOutput()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1SPnode.shtml",tooltip="SPnodes are nodes in the representation of a subpaving as a binary tree."];
+  Node3 -> Node3 [color="grey25",fontsize="10",style="solid",label=" rightChild\nparent\nleftChild" ,arrowhead="odiamond"];
+  Node4 -> Node3 [color="grey25",fontsize="10",style="solid",label=" nodeName" ,arrowhead="odiamond"];
+  Node4 [label="{std::string\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node5 [label="{std::basic_string\< char \>\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node6 -> Node2 [dir="back",color="orange",fontsize="10",style="solid",label=" \< cxsc::real \>" ];
+  Node6 [label="{subpavings::MappedSPnode\< T \>\n||+ ~MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ MappedSPnode()\l+ operator=()\l+ getParent()\land 8 more...* range\l* slice()\l* acceptSPExpandVisitor()\l* acceptSPValueVisitor()\l* operator+=()\l* operator+()\l* operator+=()\l* operator+()\l* operator-=()\l* operator-()\land 29 more...}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1MappedSPnode.shtml",tooltip="A templated derived class based on SPnode."];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node7 -> Node6 [color="grey25",fontsize="10",style="solid",label=" range" ,arrowhead="odiamond"];
+  Node7 [label="{T\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

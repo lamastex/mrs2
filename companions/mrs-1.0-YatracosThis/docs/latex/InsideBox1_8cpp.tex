@@ -1,0 +1,102 @@
+\hypertarget{InsideBox1_8cpp}{\subsection{\-Inside\-Box1.\-cpp \-File \-Reference}
+\label{InsideBox1_8cpp}\index{\-Inside\-Box1.\-cpp@{\-Inside\-Box1.\-cpp}}
+}
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{InsideBox1_8cpp_a67bc8ada107b1684e3d3778eff9275a0}{factfunc} (unsigned long)
+\item 
+int \hyperlink{InsideBox1_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{InsideBox1_8cpp_a67bc8ada107b1684e3d3778eff9275a0}{\index{\-Inside\-Box1.\-cpp@{\-Inside\-Box1.\-cpp}!factfunc@{factfunc}}
+\index{factfunc@{factfunc}!InsideBox1.cpp@{\-Inside\-Box1.\-cpp}}
+\paragraph[{factfunc}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long {\bf factfunc} (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{n}
+\end{DoxyParamCaption}
+)}}\label{InsideBox1_8cpp_a67bc8ada107b1684e3d3778eff9275a0}
+
+
+\-Definition at line 86 of file \-Inside\-Box1.\-cpp.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+
+if (n>1)
+return n*factfunc(n-1);
+else
+return 1;
+}
+\end{DoxyCode}
+\hypertarget{InsideBox1_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Inside\-Box1.\-cpp@{\-Inside\-Box1.\-cpp}!main@{main}}
+\index{main@{main}!InsideBox1.cpp@{\-Inside\-Box1.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{InsideBox1_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 47 of file \-Inside\-Box1.\-cpp.
+
+
+
+\-References factfunc().
+
+
+\begin{DoxyCode}
+{
+
+int countBox=4;
+
+int outer = atoi(argv[1]);
+int test = atoi(argv[2]);
+
+
+
+if (outer == 1){
+if (test==1)
+{
+countBox += test;
+}
+else if (test==2)
+{
+countBox += test;
+}
+
+else
+{countBox +=test;}
+}
+else {countBox +=outer;}
+
+cout << countBox << endl;
+
+int n;
+unsigned long fact;
+cout << "Enter an integer:";
+cin >> n;
+fact = factfunc(n);
+cout << "Factorial of " << n << " is " << fact << endl;
+
+return 0;
+}
+\end{DoxyCode}

@@ -1,0 +1,139 @@
+\hypertarget{classsubpavings_1_1PenAIC4}{\subsection{subpavings\-:\-:\-Pen\-A\-I\-C4 \-Class \-Reference}
+\label{classsubpavings_1_1PenAIC4}\index{subpavings\-::\-Pen\-A\-I\-C4@{subpavings\-::\-Pen\-A\-I\-C4}}
+}
+
+
+\-Class for penalty function 4 for \-A\-I\-C.  
+
+
+
+
+{\ttfamily \#include $<$histpenalty.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Pen\-A\-I\-C4\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Pen\-A\-I\-C4\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1PenAIC4_aacc4f9e77faa5557de031b32c90463fc}{\-Pen\-A\-I\-C4} (double cc)
+\item 
+real \hyperlink{classsubpavings_1_1PenAIC4_a67df57460a12c319e2cb6e87e0b97c5d}{operator()} (const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} $\ast$const adh, int delta\-Leaf) const 
+\begin{DoxyCompactList}\small\item\em the penalty function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1PenAIC4_aaaab4eeda6d4bf68577fbb9df32cfc17}{\-Pen\-A\-I\-C4} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classsubpavings_1_1PenAIC4_a4bc616a39893c9f5bc3c2b3123aa6d1f}{c}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class for penalty function 4 for \-A\-I\-C. 
+
+\-Penalty is just some multiple of log\-Cat\-K. \-Should have c = 0.\-5 to stop splitting on one point with \-A\-I\-C \-E\-M\-P, or with c=2, penalty before taking logs is (\-Cat\-K)$^\wedge$2). 
+
+\-Definition at line 211 of file histpenalty.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1PenAIC4_aaaab4eeda6d4bf68577fbb9df32cfc17}{\index{subpavings\-::\-Pen\-A\-I\-C4@{subpavings\-::\-Pen\-A\-I\-C4}!\-Pen\-A\-I\-C4@{\-Pen\-A\-I\-C4}}
+\index{\-Pen\-A\-I\-C4@{\-Pen\-A\-I\-C4}!subpavings::PenAIC4@{subpavings\-::\-Pen\-A\-I\-C4}}
+\paragraph[{\-Pen\-A\-I\-C4}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Pen\-A\-I\-C4\-::\-Pen\-A\-I\-C4} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PenAIC4_aaaab4eeda6d4bf68577fbb9df32cfc17}
+\hypertarget{classsubpavings_1_1PenAIC4_aacc4f9e77faa5557de031b32c90463fc}{\index{subpavings\-::\-Pen\-A\-I\-C4@{subpavings\-::\-Pen\-A\-I\-C4}!\-Pen\-A\-I\-C4@{\-Pen\-A\-I\-C4}}
+\index{\-Pen\-A\-I\-C4@{\-Pen\-A\-I\-C4}!subpavings::PenAIC4@{subpavings\-::\-Pen\-A\-I\-C4}}
+\paragraph[{\-Pen\-A\-I\-C4}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Pen\-A\-I\-C4\-::\-Pen\-A\-I\-C4} (
+\begin{DoxyParamCaption}
+\item[{double}]{cc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1PenAIC4_aacc4f9e77faa5557de031b32c90463fc}
+
+
+\-Definition at line 220 of file histpenalty.\-hpp.
+
+
+\begin{DoxyCode}
+: c(cc) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1PenAIC4_a67df57460a12c319e2cb6e87e0b97c5d}{\index{subpavings\-::\-Pen\-A\-I\-C4@{subpavings\-::\-Pen\-A\-I\-C4}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::PenAIC4@{subpavings\-::\-Pen\-A\-I\-C4}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real subpavings\-::\-Pen\-A\-I\-C4\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram} $\ast$const}]{adh, }
+\item[{int}]{delta\-Leaf}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1PenAIC4_a67df57460a12c319e2cb6e87e0b97c5d}
+
+
+the penalty function. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em adh} & is the histogram object to calculate the penalty on. \\
+\hline
+{\em delta\-Leaf} & change in number leaves to take into account. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the penalty as a real. 
+\end{DoxyReturn}
+
+
+\-Implements \hyperlink{classsubpavings_1_1PenObj_a70c7efe90368cd85f0971ef548d678c1}{subpavings\-::\-Pen\-Obj}.
+
+
+
+\-Definition at line 222 of file histpenalty.\-hpp.
+
+
+
+\-References c, subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Leaves(), and l\-Ck().
+
+
+\begin{DoxyCode}
+      {
+          dotprecision penalty(0.0);
+  
+          int k = adh->getRootLeaves() + deltaLeaf - 1; // leaves-1
+          double logCatk= lCk(k);
+  
+          accumulate(penalty, c, logCatk); // pen = c*logCatk
+  
+          return (rnd(penalty));
+          // return c*logCatk
+      }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1PenAIC4_a4bc616a39893c9f5bc3c2b3123aa6d1f}{\index{subpavings\-::\-Pen\-A\-I\-C4@{subpavings\-::\-Pen\-A\-I\-C4}!c@{c}}
+\index{c@{c}!subpavings::PenAIC4@{subpavings\-::\-Pen\-A\-I\-C4}}
+\paragraph[{c}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Pen\-A\-I\-C4\-::c}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PenAIC4_a4bc616a39893c9f5bc3c2b3123aa6d1f}
+
+
+\-Definition at line 213 of file histpenalty.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histpenalty_8hpp}{histpenalty.\-hpp}\end{DoxyCompactItemize}

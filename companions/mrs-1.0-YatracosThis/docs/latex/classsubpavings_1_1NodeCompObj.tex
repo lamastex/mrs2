@@ -1,0 +1,49 @@
+\hypertarget{classsubpavings_1_1NodeCompObj}{\subsection{subpavings\-:\-:\-Node\-Comp\-Obj \-Class \-Reference}
+\label{classsubpavings_1_1NodeCompObj}\index{subpavings\-::\-Node\-Comp\-Obj@{subpavings\-::\-Node\-Comp\-Obj}}
+}
+
+
+\-A \-Virtual class providing a way to compare spsnodes.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Node\-Comp\-Obj\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const =0
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A \-Virtual class providing a way to compare spsnodes. 
+
+\-These classes create an ordering with the 'largest' at the right, or 'end'. \-This suits the implementation of priority queues for the \-Histogram\-Wrapper, which takes nodes from the end of a multiset. 
+
+\-Definition at line 43 of file nodecompobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{\index{subpavings\-::\-Node\-Comp\-Obj@{subpavings\-::\-Node\-Comp\-Obj}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::NodeCompObj@{subpavings\-::\-Node\-Comp\-Obj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool subpavings\-::\-Node\-Comp\-Obj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implemented in \hyperlink{classsubpavings_1_1CompVolInv_a9b031c839c3c330e4fcaa105c49975a6}{subpavings\-::\-Comp\-Vol\-Inv}, \hyperlink{classsubpavings_1_1CompHellingerDistMassDiam_a45fc3314836372332027716de71698b5}{subpavings\-::\-Comp\-Hellinger\-Dist\-Mass\-Diam}, \hyperlink{classsubpavings_1_1CompHellingerDistMass_a794cd9023bb26a82015aff89492e9cca}{subpavings\-::\-Comp\-Hellinger\-Dist\-Mass}, \hyperlink{classsubpavings_1_1CompHellingerDist1DMassDiam_aa5d0f459f73a7c5abb7c3c47b846a7a7}{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam}, \hyperlink{classsubpavings_1_1CompHellingerDist1DMass_a9b8a611439eef8ab2cb3c71315b2cf5f}{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass}, \hyperlink{classsubpavings_1_1CompHellingerDist1D_a557adaeb83fb64c6f1a290fa31147ec8}{subpavings\-::\-Comp\-Hellinger\-Dist1\-D}, \hyperlink{classsubpavings_1_1CompCovarMass_a3207e61acd3b49bcd678a46870c89766}{subpavings\-::\-Comp\-Covar\-Mass}, \hyperlink{classsubpavings_1_1CompCovar_ad0aa69ba754de16c776d3dcf7e415495}{subpavings\-::\-Comp\-Covar}, \hyperlink{classsubpavings_1_1CompMeanMass_a160308bb8acb75a4c8efe4bae9efc962}{subpavings\-::\-Comp\-Mean\-Mass}, \hyperlink{classsubpavings_1_1CompMean_a34ecf892bad19d5c794d13ce808efda5}{subpavings\-::\-Comp\-Mean}, \hyperlink{classsubpavings_1_1CompExtArea_aad6bf360d9d1e6b4b44bccbba839d6c2}{subpavings\-::\-Comp\-Ext\-Area}, \hyperlink{classsubpavings_1_1CompArea_a8246a4db51101728675b010f57d68837}{subpavings\-::\-Comp\-Area}, \hyperlink{classsubpavings_1_1CompHeight_a28bfee172ba99fc11db08cedc61db733}{subpavings\-::\-Comp\-Height}, \hyperlink{classsubpavings_1_1CompNothing_a61b201695d7212edb08504c0127b4f65}{subpavings\-::\-Comp\-Nothing}, \hyperlink{classsubpavings_1_1CompEMPSumChangeMergeAIC_a85af532940cbe2ccfdd277e2eea682eb}{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-A\-I\-C}, \hyperlink{classsubpavings_1_1CompEMPSumChangeMergeCOPERR_a74068f89bb79484997ef9819ebdb0e5b}{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R}, \hyperlink{classsubpavings_1_1CompEMPSumChangeAIC_aeea99de2697cb8c31c4a6e31556f8356}{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-A\-I\-C}, \hyperlink{classsubpavings_1_1CompEMPSumChangeCOPERR_ac17c58f07320c227e1baf9b968445e2f}{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-C\-O\-P\-E\-R\-R}, \hyperlink{classsubpavings_1_1CompVol_a6536133bf17bcc1c37b5e6f15fa6d175}{subpavings\-::\-Comp\-Vol}, and \hyperlink{classsubpavings_1_1CompCount_a5c54d25893dc9d280a13fe91ee4af5ec}{subpavings\-::\-Comp\-Count}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobj_8hpp}{nodecompobj.\-hpp}\end{DoxyCompactItemize}

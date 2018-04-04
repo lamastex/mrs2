@@ -1,0 +1,94 @@
+
+\begin{DoxyItemize}
+\item \hyperlink{StatsSubPavings_statssec_intro}{\-Introduction}
+\item \hyperlink{StatsSubPavings_statssec_organising}{\-Organising data}
+\item \hyperlink{StatsSubPavings_statssec_statsclass}{\-A class for statistical subpavings}
+\item \hyperlink{StatsSubPavings_statssec_usingStatsClass}{\-Using the statistical subpavings class}
+\item \hyperlink{StatsSubPavings_statssec_technicalities}{\-Implementing the statistical subpavings class}
+\end{DoxyItemize}
+
+
+
+\hypertarget{StatsSubPavings_statssec_intro}{}\subsection{\-Introduction}\label{StatsSubPavings_statssec_intro}
+\-Subpavings for processing statistical sample data are a refinement of regular subpavings where each box in a subpaving can be associated with data points in a sample.
+
+
+
+\hypertarget{StatsSubPavings_statssec_organising}{}\subsection{\-Organising data}\label{StatsSubPavings_statssec_organising}
+\-The subpaving becomes a way to organise the sample data. \-The boxes of the subpaving can be thought of a 'buckets' for the data points, each box containing some of the data points. \-A data point x belongs in a box or interval vector \mbox{[}{\bfseries x}\mbox{]} if \mbox{[}{\bfseries x}\mbox{]} contains x.
+
+\-The binary tree representation of the subpaving shows how the subpaving has been formed.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{nonminimalsp1.png}
+\caption{\-A 2-\/dimensional subpaving and its representation as a binary tree}
+\end{DoxyImage}
+
+
+\-Note that although we are still using {\itshape regular\/} subpavings (ie, we are bisecting boxes along their longest dimension), our subpavings are no longer {\itshape minimal\/} -\/ that is, we are not pruning branches from the tree to ensure that each node has at most one child leaf node.
+
+\-Using the binary tree representation of a subpaving we can think of the process of organising data as adding data starting at the root and having the data make its way through the tree to the leaf node whose box contains the data, going through the following steps at each node it gets to from the root down\-:
+
+
+\begin{DoxyEnumerate}
+\item \-If the box of the node contains the data, continue {\itshape \mbox{[}if the box does not contain the data, return something indicating \char`\"{}not this node\char`\"{}\mbox{]}\/} 
+\item \-If the box has been subdivided (node has children), see which subbox the data is in, ie recurse the addition process from step 1. on the children 
+\item \-If the box has not been subdivided then the data can be associated with this node 
+\end{DoxyEnumerate}
+
+\-Thus the data moves through the tree until it finds a leaf node whose box contains it.
+
+\-Because a subpaving comprises non-\/overlapping boxes, a data point should belong to at most only one box. \-If the data point is outside the box of the root node of a subpaving, it will clearly not be in any of the boxes of the leaves.
+
+
+
+\hypertarget{StatsSubPavings_statssec_statsclass}{}\subsection{\-A class for statistical subpavings}\label{StatsSubPavings_statssec_statsclass}
+\-We extend the \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode } base class to a class specifically designed for processing statistical sample data. \-This class is called \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode } and a pointer to an \-S\-P\-Snode is aliased as \hyperlink{namespacesubpavings_ace6b16f0adf0db13eeb38e124d5328c6}{\-Stats\-Sub\-Paving }. \-This class does not have the complete arsenal of methods for set computation of its base class \-S\-Pnode\-: its job is different -\/ organising and summarising statistical sample data.
+
+\-S\-P\-Snodes summarise as well as organise data\-: each node can maintain summaries of the data it is associated with, such as a count (number of data points in the box), sum, etc. \-Because of the tree structure, this means that we can maintain a summary of the data at each level of the tree, not just in relation to the final subpaving (the leaf nodes).
+
+\-As the data moves down the tree, each node it passes through updates its summary statistics, such as a count and sum of data points covered by the box of that node.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{statsspaddingdata.png}
+\caption{\-Summarising data with a binary tree}
+\end{DoxyImage}
+
+
+\-By default, all recursively computable statistics provided are maintained in each \-S\-P\-Snode. \-However, since this uses memory and is not always needed, an \-S\-P\-Snode can be constructed to \label{StatsSubPavings_SPScountsonly}%
+\hypertarget{StatsSubPavings_SPScountsonly}{}%
+only maintain count statistics. \-See \hyperlink{classsubpavings_1_1SPSnode_a99af67614faaf93216ec0991e96ddb02}{subpavings\-::\-S\-P\-Snode\-::counts\-Only}.
+
+
+
+\hypertarget{StatsSubPavings_statssec_usingStatsClass}{}\subsection{\-Using the statistical subpavings class}\label{StatsSubPavings_statssec_usingStatsClass}
+\-The statistical subpavings class \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode } is designed to be a flexible tool.
+
+\-An \-S\-P\-Snode object represents only part of a subpaving. \-The entire statistical subpaving is represented by a tree of \-S\-P\-Snodes. \-The behaviour of the tree of nodes will usually be controlled by a wrapper or manager object. \-In particular, there are no fixed rules specified within the \-S\-P\-Snode class to determine when a box in the subpaving represented by a tree of nodes is split. \-The wrapper or manager class will specify the methods which determine the development of the subpaving/its tree representation.
+
+\-An example of such a wrapper or manager object is the \-Adaptive\-Histogram class, see \hyperlink{AdaptiveHistograms}{\-Adaptive histograms} and \hyperlink{AdaptiveHistograms_adhsec_examples}{\-Examples using adaptive histograms}
+
+\-These manager classes will usually determine the rules for constructing the subpaving and simply pass on 'instructions' to the node in the tree representing a particular box in the subpaving. \-This allows decisions to be made on the basis of the characteristics of the statistical subpaving as a whole and not just an individual node.
+
+
+
+\hypertarget{StatsSubPavings_statssec_technicalities}{}\subsection{\-Implementing the statistical subpavings class}\label{StatsSubPavings_statssec_technicalities}
+\-For a full description of this class, see the \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode class } documentation. \-Here we discuss only some of the important points of this class.
+
+
+\begin{DoxyItemize}
+\item \hyperlink{StatsSubPavings_statssubsec_splitting}{\-Bisecting a box of a statistical subpaving}
+\item \hyperlink{StatsSubPavings_statssubsec_data}{\-Associating data with a node}
+\item \hyperlink{StatsSubPavings_statssubsec_accumulating}{\-C-\/\-X\-S\-C and processing statistical sample data}
+\end{DoxyItemize}\hypertarget{StatsSubPavings_statssubsec_splitting}{}\subsubsection{\-Bisecting a box of a statistical subpaving}\label{StatsSubPavings_statssubsec_splitting}
+\-When we bisect a box of a statistical subpaving to form two subboxes, we have to make a decision about which of the new boxes is considered to include the boundary hyperplane. \-This is so that, if we have a data point which falls exactly on that boundary, it is clear which of the subboxes it is associated with.
+
+\-We consider that the boundary to belong to the {\bfseries right} child. \-That is, the interval element of the {\bfseries right} child's box on the splitting dimension is a left-\/closed interval whereas the interval element of the left child's box on the splitting dimension is a right-\/open interval. \-For example, if the parent node box interval on the splitting dimension is \mbox{[}1 5\mbox{]} then the split takes place at the midpoint (3) and the right child is considered to have a box whose interval, on that dimesion, is \mbox{[}3 5\mbox{]} whereas the left child has \mbox{[}1 3). \mbox{[}1 5\mbox{]} is split into \mbox{[}1 3)\mbox{[}3 5\mbox{]}. \-A datapoint which is contained by the parent node's box and which has value 3 on the splitting dimension will be considered to belong to the right child's box and not to the left child's box.\hypertarget{StatsSubPavings_statssubsec_data}{}\subsubsection{\-Associating data with a node}\label{StatsSubPavings_statssubsec_data}
+\-A node of a tree representation of a subpaving is associated with a particular box of the subpaving. \-The box may have been subsequently subdivided, in which case the node will have children. \-A leaf node represents an undivided box in the subpaving. \-As well as keeping summaries of the data associated with a node (the data points covered by its box) we want to keep the full dataset itself as well, but without duplication. \-Thus, we only associate data with leaf nodes. \-When a box in the paving is subdivided the data associated with the corresponding node is passed down to the new children.
+
+\-In order to keep our implementation as flexible as possible, we maintain a container for the sample data outside the \-S\-P\-Snode class. \-A data point in this 'big collection' of data is associated with a node through the iterator to that data point in the big collection. \-The node does not 'have' the data, it simply knows where the data it is associated with is stored. \-In the implementation of \-S\-P\-Snode, a node has a data member which is a container for iterators into the big data collection to store references to the data that it is associated with.\hypertarget{StatsSubPavings_statssubsec_accumulating}{}\subsubsection{\-C-\/\-X\-S\-C and processing statistical sample data}\label{StatsSubPavings_statssubsec_accumulating}
+\-The \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode class } is implemented using the \-C-\/\-X\-S\-C library. \-A data point is a cxsc\-::rvector and a box or interval vector is a cxsc\-::ivector. \-For example, a point in 3-\/d which would be represented in cartesian coordinates as (1.\-0, 2.\-0, 3.\-0) is a 3-\/dimensional rvector whose elements are, in order, the reals 1.\-0, 2.\-0, and 3.\-0. \-This point would be contained in (in cxsc, the operator $<$= meaning \char`\"{}is an element of\char`\"{}) a 3 dimensional ivector. \-The ivector whose elements are \mbox{[}0.\-0 2.\-0\mbox{]}, \mbox{[}1.\-0 3.\-0\mbox{]}, \mbox{[}2.\-0, 3.\-0\mbox{]} defines a box which contains this point.
+
+\-Summaries of data values are stored in csxc\-::dotprecision accumulators to mitigate the risk of inaccuracy in summing floating point numbers (this risk is higher when the numbers being summed have large differences in order of magnitude, as will be the case when a relatively small new data point value is added to a much larger accumulated sum of data points so far). 

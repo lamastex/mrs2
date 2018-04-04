@@ -1,0 +1,637 @@
+\hypertarget{MCMCGRManual_8cpp}{\subsection{\-M\-C\-M\-C\-G\-R\-Manual.\-cpp \-File \-Reference}
+\label{MCMCGRManual_8cpp}\index{\-M\-C\-M\-C\-G\-R\-Manual.\-cpp@{\-M\-C\-M\-C\-G\-R\-Manual.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{MCMCGRManual_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MCMCGRManual_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-M\-C\-M\-C\-G\-R\-Manual.\-cpp@{\-M\-C\-M\-C\-G\-R\-Manual.\-cpp}!main@{main}}
+\index{main@{main}!MCMCGRManual.cpp@{\-M\-C\-M\-C\-G\-R\-Manual.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MCMCGRManual_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 38 of file \-M\-C\-M\-C\-G\-R\-Manual.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Sum\-Variance\-Area\-Scalar(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Sum\-Variance\-Total\-Height\-Scalar(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-L\-O\-G\-S\-A\-M\-P\-L\-E\-S, subpavings\-::\-Adaptive\-Histogram\-Collator\-::make\-Average(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::output\-File(), subpavings\-::output\-File\-Start(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::public\-Output\-Log(), subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape(), and taylor\-::sqrt().
+
+
+\begin{DoxyCode}
+{
+   //========user-defined parameters====================//
+   size_t n=atoi(argv[1]);  // number to generate
+   int d = atoi(argv[2]); // dimensions
+   int mix = atoi(argv[3]); //mix
+   double tol = atof(argv[7]); //tolerance for automated burn in criteria
+  
+   //======set up for output========================================//    
+   string samplesFileName; // for samples
+   string outputFileName;// for output file
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(5);
+
+   //===========prepare to generate some data for the tests ================//
+   // set up a random number generator
+   const gsl_rng_type * T;
+   gsl_rng * r;
+
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+
+   //-------define the root box--------------------
+   ivector pavingBox(d);
+   interval pavingInterval(0,1);
+   for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+   //------------data generating partition-------------
+   //data sampled as uniform mixture over leaves of sub-paving myPart
+   //make an Adaptive Histogram object with a specified box
+   AdaptiveHistogram myPart(pavingBox);
+   // a container for the boxes
+   vector<ivector> Pboxes;
+   //mixture shape
+   string mixShape;
+   if (mix == 1) {mixShape = "1,1"; }// this is the basic uniform
+   else if (mix == 2) { mixShape = "1,2,2"; }
+   else if (mix==3) { mixShape = "2,3,4,4,3,4,4,2"; }   
+   else if (mix==4) {mixShape =             "
+      5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6
+      ,5,5,6,7,8,9,10,10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"; }    
+   myPart.splitToShape(mixShape);// uniform mixture     
+   SPSnodePtrs Pleaves; // set up empty container for leaf node pointers
+   SPSnodePtrsItr it; // and an iterator over the container
+   myPart.getSubPaving()->getLeaves(Pleaves); // fill the container
+   
+   // container is filled by reading leaves off tree from left to right
+   for(it = Pleaves.begin(); it < Pleaves.end(); it++) {
+      Pboxes.push_back((*it)->getBox());
+   }
+   size_t PartSize = Pboxes.size();
+
+   //--------------generate data-----------------------------------------
+    cout << "Generating data: " << endl;
+    // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+    //create a generator chosen by the environment variable GSL_RNG_TYPE   
+    RVecData theData;   
+    for (int i = 0; i < n; i++) {
+      rvector thisrv(d);
+      size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+      for(int i=1; i <= d; i++) {
+        thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);
+      }
+      // put points generated into container
+      theData.push_back(thisrv);
+    }
+
+   // free the random number generator
+   gsl_rng_free (r);
+
+  /*  // output data to a file
+   string dataFile = "dataFile.txt";
+   ofstream osd(dataFile.c_str());         // replace data
+   if (osd.is_open()) {
+      RVecDataItr dit;
+      for (dit = theData.begin(); dit < theData.end(); dit++) {
+        //osd << *dit << "\n";
+        osd << (*dit)[1] << "\t" << (*dit)[2] << "\n";
+      }
+      osd.close();
+   }
+   else {
+      std::cout << "Error: could not open file named "
+        << dataFile << std::endl << std::endl;
+   }
+  */
+
+  //================Gelman-Rubin method=========================//
+   // this is how many starting histograms we need
+   size_t chains = 3; // how many chains to run
+   // Gelman and Carlin [1996] recommend ten or more chains if the target
+   // distribution is unimodal (Martinez and Martinze, 2000, p. 453)
+   // the starting points are chosen to be widely dispersed
+
+  //------Starting histograms-------------------------------//
+  //histogram 1
+  cout << "Histogram 1" << endl;
+   AdaptiveHistogram* myHistFirst = new AdaptiveHistogram(pavingBox);
+  // put in the data in a 'pulse' with no splitting, ie into root box
+  bool successfulInsertionFirst = myHistFirst->insertFromRVec(theData);
+
+  //histogram 2
+  cout << "Histogram 2" << endl;
+  AdaptiveHistogram* myHistSecond = new AdaptiveHistogram(pavingBox);
+  // the same data into the second histogram
+  bool successfulInsertionSecond = myHistSecond->insertFromRVec(theData);
+  bool successfulPQSplitSecond = false;
+  if (successfulInsertionSecond) {
+      // set up function objects for a priority split
+      CompCount compCount;
+      // split until number of leaves is >= minLeaves
+      size_t minLeaves = 50;
+      CritLeaves_GTE critLeavesGTE(minLeaves);
+      size_t minPQPoints = 0; // minimum of one data point in each box
+      // do the priority split
+      successfulPQSplitSecond = myHistSecond->prioritySplit(compCount,
+           critLeavesGTE, NOLOG, minPQPoints); // no logging
+   }
+
+  //histogram 3
+  cout << "Histogram 3" << endl;
+  AdaptiveHistogram* myHistThird = new AdaptiveHistogram(pavingBox);
+  myHistThird->splitToShape("1,2,2"); // make a specific starting shape
+  // put in the data in a 'pulse' with no further splitting
+  bool successfulInsertionThird = myHistThird->insertFromRVec(theData);
+
+  //--------Start the MCMC------------------------------------------------//
+   if (successfulInsertionFirst && successfulPQSplitSecond && 
+      successfulInsertionThird) 
+    {
+     // set up proposal distribution object
+     UniformProposal proposal;
+     // set up prior distribution object
+     LogCatalanPrior logPrior;
+
+     int loops = atoi(argv[4]);
+     int burnin = atoi(argv[5]); //want this to be automated
+     int thinout = atoi(argv[6]);
+     size_t minPoints = 0;
+     bool thinning = (thinout > 0);
+
+     LOGGING_LEVEL logging = LOGSAMPLES; // leave it like this!
+     LOGGING_LEVEL loggingInChangeStates = NOLOG;
+
+     gsl_rng * rgsl = NULL;
+
+     // should check that each hist to be done has a paving
+
+     // set up a random number generator for uniform rvs
+     const gsl_rng_type * tgsl;
+     // set the library variables *gsl_rng_default and
+     // gsl_rng_default_seed to default environmental vars
+     gsl_rng_env_setup();
+     tgsl = gsl_rng_default; // make tgsl the default type
+     rgsl = gsl_rng_alloc (tgsl); // set up with default seed
+
+      // set up containers for the stuff we need pass to the MCMC engine
+      vector<SPSnodeList> nodeLists(chains);
+      Size_tVec numLeavesVec(chains);
+      Size_tVec numCherriesVec(chains);
+
+      vector<string> sequenceStateFilenames(chains);
+      vector<string> sequenceAverageFilenames(chains);
+      vector<string> sequenceCollationFilenames(chains);
+
+      std::string baseSequenceStateFilename = "SequenceStates";
+      std::string baseSequenceStateCollationFilename = "SequenceStateCollations
+      ";
+      std::string baseSequenceStateAverageFilename = "SequenceStateAverages";
+
+      std::string overSequenceAvgCollFilename = "
+      CollationsOfAveragesOverSequences.txt";
+      outputFileStart(overSequenceAvgCollFilename);
+      std::string GRAreaFilename = "GelmanRubinLog_AreaScalar.txt";
+      std::string GRTotalHeightFilename = "GelmanRubinLog_TotalHeightScalar.txt
+      ";
+      outputFileStart(GRAreaFilename);
+      outputFileStart(GRTotalHeightFilename);
+
+      // containers for summaries for the Area-related scalar
+      RealVec withinSequenceVarianceAreaVec; // to hold the Ws
+      RealVec betweenSequenceVarianceAreaVec; // to hold the Bs
+      RealVec estVarVAreaVec; // to hold the estimated var(v)
+      RealVec sqrtRhatAreaVec; // to hold the sqrtRhats
+
+      // containers for summaries for the total height scalar
+      RealVec withinSequenceVarianceTotalHeightVec; // to hold the Ws
+      RealVec betweenSequenceVarianceTotalHeightVec; // to hold the Bs
+      RealVec estVarVTotalHeightVec; // to hold the estimated var(v)
+      RealVec sqrtRhatTotalHeightVec; // to hold the sqrtRhats
+
+      // containers for adaptive histograms
+      vector<AdaptiveHistogram*> hists;
+      hists.push_back(myHistFirst);
+      hists.push_back(myHistSecond);
+      hists.push_back(myHistThird);
+      // there should be as many hists in hists as there are chains
+      if (hists.size() != chains) {
+        cout << "Wrong number of histograms" << endl;
+        exit(1);
+      }
+
+      // container of each state at each sequence
+      vector<AdaptiveHistogramCollator*> sequenceCollators(chains);
+
+      //container for the collation of the averages over each sequence at each
+       state
+      vector<AdaptiveHistogramCollator*> averageCollators;
+
+      AdaptiveHistogramCollator masterCollator; // not newed so no need to
+       delete
+
+      bool cancontinue = true;
+
+      size_t ci = 0; // indexing through chains
+      for (ci = 0; ci < chains; ci++) {
+
+        // do not comment these out
+        std::ostringstream stm1;
+        stm1 << baseSequenceStateFilename << ci << ".txt";
+        sequenceStateFilenames[ci] = stm1.str();
+        outputFileStart(sequenceStateFilenames[ci]);
+
+        std::ostringstream stm3;
+        stm3 << baseSequenceStateCollationFilename << ci << ".txt";
+        sequenceCollationFilenames[ci] = stm3.str();
+        outputFileStart(sequenceCollationFilenames[ci]);
+
+        std::ostringstream stm2;
+        stm2 << baseSequenceStateAverageFilename << ci << ".txt";
+        sequenceAverageFilenames[ci] = stm2.str();
+        outputFileStart(sequenceAverageFilenames[ci]);
+
+        // set up a container for the leaf children
+        SPSnodePtrs leafVec;
+        // set up a container for the subleaf children
+        SPSnodePtrs cherryVec;
+
+        size_t numLeaves = 0;
+        size_t numCherries = 0;
+
+        // fill the container with the leaf children
+        hists[ci]->getSubPaving()->getLeaves(leafVec);
+        // fill the container with the subleaf children
+        hists[ci]->getSubPaving()->getSubLeaves(cherryVec);
+        
+        numCherries = cherryVec.size();
+
+        // check if node is still splittable
+        if (!leafVec.empty()) {
+           // but only put into the container the leaves which, if split,
+           // would have at least minPoints data points associated with them
+           SPSnodePtrsItr lit;
+           for (lit = leafVec.begin(); lit < leafVec.end(); lit++) {
+              if (((*lit)->getLeftCountIfSplit() >= minPoints) &&
+                ((*lit)->getRightCountIfSplit() >= minPoints)) {
+                   // leaf can go into container
+                   nodeLists[ci].push_back(*lit);
+                   numLeaves++;
+              }
+           }
+        }
+
+        // no need to check on cherries - they can all go in
+        if (numCherries > 0)
+           nodeLists[ci].insert(nodeLists[ci].end(), cherryVec.begin(),
+                           cherryVec.end());
+        if (nodeLists[ci].size() == 0) {
+           cancontinue = false;
+           break; // break out of the for loop
+           std::cout << "No changeable nodes given minPoints = "
+                   << minPoints << " in histogram " << ci
+                   << ". Sorry, aborting MCMC." << std::endl;
+        }
+
+        numLeavesVec[ci] = numLeaves;
+        numCherriesVec[ci] = numCherries;
+
+        AdaptiveHistogramCollator* coll = new AdaptiveHistogramCollator;
+        sequenceCollators[ci] = coll;
+      }
+
+      bool goodLoop = cancontinue;
+      int i = 1;  // keep track of states in the chain
+      if (cancontinue) cout << "About to do MCMC" << endl;
+
+      int sampleNumber = 1;
+      // loop from here conditional on good loop and cancontinue
+      while (goodLoop && (loops > 0) ) {
+        loops--;
+        // a collator for the averages for this loop
+        AdaptiveHistogramCollator* avgColl = new AdaptiveHistogramCollator;
+
+        // container for the S's for this loop
+        RealVec sampleVariancesArea(chains);
+        RealVec sampleVariancesTotalHeight(chains);
+
+        cout << "for each histogram in turn change the state" << endl;
+        // for each histogram in turn, change the state
+        for (ci = 0; ci < chains; ci++) {
+          cout << "chain " << ci << endl;
+           // changeMCMCState updates nodes, numLeaves, numCherries, i
+           goodLoop = hists[ci]->changeMCMCState(nodeLists[ci],
+                   numLeavesVec[ci], numCherriesVec[ci],
+                   proposal, logPrior, minPoints,
+                   rgsl, loggingInChangeStates,
+                   sequenceStateFilenames[ci], i);
+
+           if (!goodLoop) break; // break out if we aren't happy
+           else {
+
+              if ((numLeavesVec[ci] == 0 && numCherriesVec[ci] == 0)) {
+                throw HistException("No more leaves or cherries in MCMC");
+              }
+
+              // if we are taking samples take the sample here
+              if (thinning && (i >= burnin) &&
+                   ((i-burnin)%thinout == 0)) {
+
+                // output the sample state;
+                hists[ci]->publicOutputMCMCStateSample(ci, i);
+
+                // collate the sample state;
+                sequenceCollators[ci]->addToCollation(*(hists[ci]));
+
+                // now make the average over the collator
+                // and collect that too!
+                AdaptiveHistogramCollator colltempavg
+                        = sequenceCollators[ci]->makeAverage();
+                (*avgColl) += colltempavg; // add the average into the
+       collation of averages
+
+                // store the sample variance (only applicable if i > 1)
+
+                real sampleVarArea = 0.0;
+                real sampleVarTotalHeight = 0.0;
+                if (sampleNumber > 1) {
+                   sampleVarArea =
+                      sequenceCollators[ci]->getSampleVarianceAreaScalar();
+                   sampleVarTotalHeight =
+                      sequenceCollators[ci]->getSampleVarianceTotalHeightScalar
+      ();
+                }
+                sampleVariancesArea[ci] = sampleVarArea;
+                sampleVariancesTotalHeight[ci] = sampleVarTotalHeight;
+
+                // log the sample as well
+                hists[ci]->publicLogMCMCSample(sequenceStateFilenames[ci], i);
+                colltempavg.publicOutputLog(sequenceAverageFilenames[ci], i);
+                sequenceCollators[ci]->publicOutputLog(
+      sequenceCollationFilenames[ci], i);
+
+                // add the sample variance to the collations file
+                std::ostringstream stm;
+                stm << "Area scalar sample variance is \t" << sampleVarArea
+                   << "\n"
+                   << "Total height scalar sample variance is \t" << 
+      sampleVarTotalHeight;
+                outputFile(sequenceCollationFilenames[ci], stm.str());
+              }
+           }
+
+        } // end change state for each histogram in turn
+
+        // each histogram now has a new state which has been collated into
+        // its collator and its average has been updated
+
+        if (thinning && (i >= burnin) && ((i-burnin)%thinout == 0)) {
+           avgColl->publicOutputLog(overSequenceAvgCollFilename, i);
+           averageCollators.push_back(avgColl); // keep the collation of
+       averages
+
+           real sumSequenceVariancesArea =
+                   avgColl->getSumVarianceAreaScalar();
+           real sumSequenceVariancesTotalHeight =
+                   avgColl->getSumVarianceTotalHeightScalar();
+
+           // add to the collation of averages log file
+           std::ostringstream stm0;
+           stm0 << "Area scalar sum of variances of sequence averages \t"
+                << sumSequenceVariancesArea
+                << "\n"
+                << "Total height scalar sum of variances of sequence averages
+       is \t"
+                << sumSequenceVariancesTotalHeight;
+
+           outputFile(overSequenceAvgCollFilename, stm0.str());
+
+           // now make the average over the collator of averages
+           // and collect that too!
+           AdaptiveHistogramCollator collavtemp = avgColl->makeAverage();
+
+           masterCollator += collavtemp; // and collate it
+
+           // W is the average sample variance over the sequences
+           // we have collected the sequence sample variances for our scalars
+           real withinSequenceVarianceArea = 0.0;
+           real withinSequenceVarianceTotalHeight = 0.0;
+           RealVecItr it;
+           for (it = sampleVariancesArea.begin();
+                it < sampleVariancesArea.end(); it++) {
+              withinSequenceVarianceArea += *it;
+           }
+           withinSequenceVarianceArea /= (1.0*chains);
+
+           for (it = sampleVariancesTotalHeight.begin();
+                it < sampleVariancesTotalHeight.end(); it++) {
+              withinSequenceVarianceTotalHeight += *it;
+           }
+           withinSequenceVarianceTotalHeight /= (1.0*chains);
+
+           // B is n/(k-1)*sumSequenceVariances where n is number of states
+           // k is number of chains
+           real betweenSequenceVarianceArea = 0.0;
+           real sampleVarianceOfSequenceAveragesArea = 0.0;
+           real betweenSequenceVarianceTotalHeight = 0.0;
+           real sampleVarianceOfSequenceAveragesTotalHeight = 0.0;
+
+           if (chains > 1) {
+              betweenSequenceVarianceArea =
+                      sumSequenceVariancesArea*sampleNumber/(1.0*(chains-1));
+              sampleVarianceOfSequenceAveragesArea =
+                      sumSequenceVariancesArea/(1.0*(chains-1));
+
+              betweenSequenceVarianceTotalHeight =
+                      sumSequenceVariancesTotalHeight*sampleNumber/(1.0*(chains
+      -1));
+              sampleVarianceOfSequenceAveragesTotalHeight =
+                      sumSequenceVariancesTotalHeight/(1.0*(chains-1));
+           }
+
+           // estimated varV is (n-1)*W/n + B/n
+           // sqrt Rhat is sqrt(estimatedVarV/W)
+           real estimatedVarVArea = 0.0;
+           real sqrtRhatArea = 0.0;
+           real estimatedVarVTotalHeight = 0.0;
+           real sqrtRhatTotalHeight = 0.0;
+
+           if (sampleNumber > 1) {
+
+              estimatedVarVArea =
+                ((sampleNumber-1)*withinSequenceVarianceArea/(1.0*sampleNumber)
+      )
+                + betweenSequenceVarianceArea/(1.0*sampleNumber);
+              if (withinSequenceVarianceArea > 0.0)
+                sqrtRhatArea = sqrt(estimatedVarVArea/
+      withinSequenceVarianceArea);
+            
+                estimatedVarVTotalHeight =
+                ((sampleNumber-1)*withinSequenceVarianceTotalHeight/(1.0*
+      sampleNumber))
+                + betweenSequenceVarianceTotalHeight/(1.0*sampleNumber);
+            
+              if (withinSequenceVarianceTotalHeight > 0.0)
+                sqrtRhatTotalHeight =
+                   sqrt(estimatedVarVTotalHeight/
+      withinSequenceVarianceTotalHeight);
+           }
+
+           // store the convergence diagnostics
+           withinSequenceVarianceAreaVec.push_back(withinSequenceVarianceArea);
+           betweenSequenceVarianceAreaVec.push_back(betweenSequenceVarianceArea
+      );
+           estVarVAreaVec.push_back(estimatedVarVArea);
+           sqrtRhatAreaVec.push_back(sqrtRhatArea);
+
+           withinSequenceVarianceTotalHeightVec.push_back(
+      withinSequenceVarianceTotalHeight);
+           betweenSequenceVarianceTotalHeightVec.push_back(
+      betweenSequenceVarianceTotalHeight);
+           estVarVTotalHeightVec.push_back(estimatedVarVTotalHeight);
+           sqrtRhatTotalHeightVec.push_back(sqrtRhatTotalHeight);
+
+           std::ostringstream stm10;
+           stm10 << "Sample " << sampleNumber << " (state " << i << ")\n";
+           outputFile(GRAreaFilename, stm10.str());
+           outputFile(GRTotalHeightFilename, stm10.str());
+
+           // log the sample variances
+           outputFile(GRAreaFilename, "Area scalar sample variances",
+                           sampleVariancesArea);
+           outputFile(GRTotalHeightFilename, "Total height scalar sample
+       variances",
+                           sampleVariancesTotalHeight);
+
+           // and the rest
+           std::ostringstream stm20;
+           stm20 << "Sum of variances of sequence averages \t" << 
+      sumSequenceVariancesArea;
+           stm20 << "\n" << "Sample variance of sequence averages \t"
+                                      << sampleVarianceOfSequenceAveragesArea;
+           stm20  << "\n" << "Within sequence variance, W \t" << 
+      withinSequenceVarianceArea;
+           stm20 << "\n" << "Between sequence variance, B \t" << 
+      betweenSequenceVarianceArea;
+           stm20 << "\n" << "estimated variance of v, var(v)  \t" << 
+      estimatedVarVArea;
+           stm20 << "\n" << "sqrtRhat  \t" << sqrtRhatArea << "\n";
+           outputFile(GRAreaFilename, stm20.str());
+
+           std::ostringstream stm30;
+           stm30 << "Sum of variances of sequence averages \t" <<
+                sumSequenceVariancesTotalHeight;
+           stm30 << "\n" << "Sample variance of sequence averages \t" <<
+                sampleVarianceOfSequenceAveragesTotalHeight;
+           stm30  << "\n" << "Within sequence variance, W \t" <<
+                withinSequenceVarianceTotalHeight;
+           stm30 << "\n" << "Between sequence variance, B \t" <<
+                betweenSequenceVarianceTotalHeight;
+           stm30 << "\n" << "estimated variance of v, var(v)  \t" <<
+                estimatedVarVTotalHeight;
+           stm30 << "\n" << "sqrtRhat  \t" << sqrtRhatTotalHeight << "\n";
+           outputFile(GRTotalHeightFilename, stm30.str());
+
+           sampleNumber++;
+           cout << ".";
+        } // finished logging
+
+        i++;
+
+        // back into loop
+
+      }    // finished loop
+      cancontinue = goodLoop;
+
+
+      if (cancontinue && thinning) {
+        // output the convergence diagnostics
+        outputFile(GRAreaFilename, "\n\n\n Final diagnostics");
+        outputFile(GRAreaFilename, "W", withinSequenceVarianceAreaVec);
+        outputFile(GRAreaFilename, "");
+        outputFile(GRAreaFilename, "B", betweenSequenceVarianceAreaVec);
+        outputFile(GRAreaFilename, "");
+        outputFile(GRAreaFilename, "estVarV", estVarVAreaVec);
+        outputFile(GRAreaFilename, "");
+        outputFile(GRAreaFilename, "sqrtRhat",sqrtRhatAreaVec);
+        outputFile(GRAreaFilename, "");
+
+        outputFile(GRTotalHeightFilename, "\n\n\n Final diagnostics");
+        outputFile(GRTotalHeightFilename, "W", 
+      withinSequenceVarianceTotalHeightVec);
+        outputFile(GRTotalHeightFilename, "");
+        outputFile(GRTotalHeightFilename, "B", 
+      betweenSequenceVarianceTotalHeightVec);
+        outputFile(GRTotalHeightFilename, "");
+        outputFile(GRTotalHeightFilename, "estVarV", estVarVTotalHeightVec);
+        outputFile(GRTotalHeightFilename, "");
+        outputFile(GRTotalHeightFilename, "sqrtRhat",sqrtRhatTotalHeightVec);
+        outputFile(GRTotalHeightFilename, "");
+      }
+
+      // free the random number generator
+      gsl_rng_free (rgsl);
+
+      // check cancontinue;
+
+      if (cancontinue) {
+        cout << "\n\nFinished MCMC successfully" << endl;
+        cout << "Check output files " << GRAreaFilename
+                << " and " << GRTotalHeightFilename
+                << " for diagnostics" << endl;
+        cout << "and " << overSequenceAvgCollFilename
+                << " for averages over the squences" << endl;
+        cout << "and\t" << baseSequenceStateFilename << "*.txt, \n\t"
+              << baseSequenceStateCollationFilename << "*.txt, \n\t"
+              << baseSequenceStateAverageFilename << "*.txt \n"
+              << "for sequence development details" <<endl;
+      }
+      else {
+        cout << "MCMC not successful" << endl;
+        cout << "Output files will not be complete - delete or ignore: \n:"
+              << GRAreaFilename << "\n"
+              << GRTotalHeightFilename << "\n"
+              << overSequenceAvgCollFilename << "\n"
+              << baseSequenceStateFilename << "*.txt, \n"
+              << baseSequenceStateCollationFilename << "*.txt, \n"
+              << baseSequenceStateAverageFilename << "*.txt" << endl;
+      }
+
+      vector<AdaptiveHistogram*>::iterator ait;
+      for (ait = hists.begin(); ait < hists.end(); ait++) {
+        if (NULL != *ait) delete (*ait);
+      }
+
+      vector<AdaptiveHistogramCollator*>::iterator acit;
+      for (acit = sequenceCollators.begin(); acit < sequenceCollators.end(); 
+      acit++) {
+        if (NULL != *acit) delete (*acit);
+      }
+
+      for (acit = averageCollators.begin(); acit < averageCollators.end(); acit
+      ++) {
+        if (NULL != *acit) delete (*acit);
+      }
+   }
+
+   return 0;
+
+  } // end of MCMC test program
+\end{DoxyCode}

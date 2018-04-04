@@ -1,0 +1,1079 @@
+
+\begin{DoxyItemize}
+\item \hyperlink{AIASubPavings_AIAsec_setcomputation}{\-Regular subpavings and set computation}
+\item \hyperlink{AIASubPavings_AIAsec_SIVIA}{\-Set inversion using interval analysis}
+\item \hyperlink{AIASubPavings_AIAsec_imageSp}{\-Image evaluation}
+\item \hyperlink{AIASubPavings_AIAsec_examples}{\-Examples from \-Applied \-Interval \-Analysis using \-A\-I\-A\-S\-Pnodes}
+\end{DoxyItemize}
+
+
+
+\hypertarget{AIASubPavings_AIAsec_setcomputation}{}\subsection{\-Regular subpavings and set computation}\label{AIASubPavings_AIAsec_setcomputation}
+\mbox{[}\-A\-I\-A2001\mbox{]} show how subpavings can approximate compact sets in a guaranteed way and how computation on subpavings allows approximate computation on these compact sets. \-For any full compact set \-X we can find a subpaving 'lower bound' of \-X (which can be thought of an an 'inner paving' of \-X) and a subpaving 'upper bound' of \-X (or \label{AIASubPavings_outerpaving}%
+\hypertarget{AIASubPavings_outerpaving}{}%
+'outer paving' of \-X) as 'close' to \-X as we desire (distance and ordering of sets and hence what is meant by 'close' has to be defined of course). \-X is enclosed by the inner and outer paving. \mbox{[}\-A\-I\-A2001, pp. 48-\/49\mbox{]}
+
+\-To get 'close' to the set we want to enclose, we can take a large box (the root node of the binary tree representing the subpaving) which we know encloses the set and then progressively subdivide the box and the subboxes, etc, checking to see if we can discard any subbox (prune that branch) to get a subpaving/tree representation of the subpaving which meets our criteria for 'closeness' to our target compact set.
+
+
+
+\hypertarget{AIASubPavings_AIAsec_SIVIA}{}\subsection{\-Set inversion using interval analysis}\label{AIASubPavings_AIAsec_SIVIA}
+\-Set inversion is the computation of a reciprocal image \-X = {\bfseries f}$^{\mbox{-\/1}}$ (\-Y) where \-Y is regular subpaving of \-R$^{\mbox{m}}$ . \mbox{[}\-A\-I\-A2001\mbox{]} develop an algorithm \-S\-I\-V\-I\-A (\-Set \-Inverter \-Via \-Interval \-Analysis) for finding an outer subpaving of \-X to a specified level of precision. \-Starting with a large search box \mbox{[}{\bfseries x}\mbox{]}(0) to which the outer subpaving of \-X is guaranteed to belong and given a inclusion function \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) for {\bfseries f}, we form a subpaving by progressively bisecting and then testing the resulting subboxes to see if they should be included in our solution subpaving.
+
+\-The test for any box \mbox{[}{\bfseries x}\mbox{]} is a comparison of \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) to \-Y. \-This test has three possible outcomes
+
+
+\begin{DoxyEnumerate}
+\item \-If \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) has an empty intersection with \-Y then \mbox{[}{\bfseries x}\mbox{]} does not belong to \-X and can be cut off from the solution tree 
+\item \-If \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) is entirely in \-Y then \mbox{[}{\bfseries x}\mbox{]} belongs to the solution and is kept as part of the solution tree 
+\item \-If \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) has a non-\/empty intersection with \-Y but is not entirely in \-Y then \mbox{[}{\bfseries x}\mbox{]} is undetermined. \-If \mbox{[}{\bfseries x}\mbox{]} has width greater than the specified precision parameter it is bisected and each subbox (child in the tree structure) is then tested. \-If \mbox{[}{\bfseries x}\mbox{]} has width less than or equal to the specified precision parameter it included in the solution, ie the suppaving outer bound of the set \-X \mbox{[}\-A\-I\-A2001, pp. 55-\/56\mbox{]}. 
+\end{DoxyEnumerate}
+
+\-Thus the solution, the outer subpaving of the set \-X, includes the 'uncertainty' layer of boxes that cross the boundaries of the set but whose width is small enough to satisfy our precision criteria. \-We can make the uncertainty layer thinner by having a smaller precision and subdividing and testing the boxes in that layer further \mbox{[}\-A\-I\-A2001, p. 56\mbox{]}.
+
+\-An implementation of \-S\-I\-V\-I\-A using \-C++ is described in \mbox{[}\-A\-I\-A2001, pp. 339-\/342\mbox{]}. \-This includes an extension of the usual booleans \-T\-R\-U\-E and \-F\-A\-L\-S\-E to a set of {\itshape interval booleans\/} which includes notion of {\itshape indeterminate\/}.
+
+\-S\-I\-V\-I\-A can also be used to evaluate an outer subpaving of the image of set by a function provided that the function is invertible in the usual sense. \-This involves specifying the inclusion function \mbox{[}{\bfseries f}$^{\mbox{-\/1}}$ \mbox{]} for {\bfseries f}$^{\mbox{-\/1}}$  the inverse of {\bfseries f} and taking as an initial search box some box guaranteed to contain the image of the set.
+
+
+
+\hypertarget{AIASubPavings_AIAsec_imageSp}{}\subsection{\-Image evaluation}\label{AIASubPavings_AIAsec_imageSp}
+\-Computation of the direct image of a subpaving \-Y = {\bfseries f}(\-X) where \-X is a regular subpaving of \-R$^{\mbox{n}}$  (image evaluation) is more complex in the case where the function is not invertible in the usual sense. \-A\-I\-A2001 develop an algorithm \-Image\-S\-P for finding an outer subpaving of \-Y to a specified level of precision.
+
+\-Given a subpaving \-X for which we seek an outer approximation of the image and an inclusion function \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) for {\bfseries f}, \-Image\-S\-P proceeds as follows\-:
+
+
+\begin{DoxyEnumerate}
+\item \-Mince \-X (recursively bisect each box) until each box in \-X has width less than the specified level of precision. (\-X will no longer be a minimal subpaving.) 
+\item \-For each \mbox{[}{\bfseries x}\mbox{]} in the minced \-X, add \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) to a list of image boxes \-U and compute the interval hull of the union of all these image boxes. 
+\item \-If \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) \-Merge these boxes into a single, minimal, subpaving the root of which corresponds to the hull and which only contains boxes with width lower than the specified level of precision. 
+\end{DoxyEnumerate}
+
+\-An implementation of \-Image\-S\-P using \-C++ is described in \mbox{[}\-A\-I\-A2001, pp. 342-\/347\mbox{]}.
+
+\-We have reimplemented the algorithms for set inversion and image evaluation using the \-C-\/\-X\-S\-C interval library with as little change to the structure and code used in \mbox{[}\-Applied \-Interval \-Analysis, \-Springer, 2001\mbox{]} as possible, other than that necessitated by the use of \-C-\/\-X\-S\-C. \-Our class is called \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} (a pointer to an \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} is aliased as \-A\-I\-A\-Sub\-Paving)
+
+
+
+\hypertarget{AIASubPavings_AIAsec_examples}{}\subsection{\-Examples from Applied Interval Analysis using A\-I\-A\-S\-Pnodes}\label{AIASubPavings_AIAsec_examples}
+\-A\-I\-A2001 show how computation on subpavings allows approximate computation on compact sets. \-Their \-S\-U\-B\-P\-A\-V\-I\-N\-G\-S class and various supporting procedures are used to implement their two main algorithms\-:
+
+
+\begin{DoxyItemize}
+\item \-S\-I\-V\-I\-A (\-Set \-Inversion \-Via \-Interval \-Analysis). \-Set inversion is the computation of a reciprocal image \-X = {\bfseries f}$^{\mbox{-\/1}}$ (\-Y) where \-Y is regular subpaving of \-R$^{\mbox{m}}$  
+\item \-Image\-Sp (\-Image evaluation). \-Computation of the direct image of a subpaving \-Y = {\bfseries f}(\-X) where \-X is a regular subpaving of \-R$^{\mbox{n}}$  
+\end{DoxyItemize}
+
+\-The following examples show how we have replicated the \-S\-U\-B\-P\-A\-V\-I\-N\-G class and the implementations of \-S\-I\-V\-I\-A and \-Image\-Sp created by \-A\-I\-A2001 and available on their website \href{http://www.lss.supelec.fr/books/intervals/}{\tt http\-://www.\-lss.\-supelec.\-fr/books/intervals/})
+
+
+\begin{DoxyItemize}
+\item \hyperlink{AIASubPavings_AIAexamsec_11_33}{\-Exercise 11.\-33}
+\item \hyperlink{AIASubPavings_AIAexamsec_11_35}{\-Exercise 11.\-35}
+\item \hyperlink{AIASubPavings_AIAexamsec_3_3}{\-Example 3.\-3}
+\item \hyperlink{AIASubPavings_AIAexamsec_3_4}{\-Example 3.\-4}
+\end{DoxyItemize}
+
+\-Our implementation uses the \-C-\/\-X\-S\-C library but otherwise makes as little alteration to the structure and code used in \-Applied \-Interval \-Analysis as possible, other than that necessitated by the use of \-C-\/\-X\-S\-C. \-Our class is called \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} (a pointer to an \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} is aliased as \-A\-I\-A\-Sub\-Paving).
+
+\-The \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} class declarations and inline definitions are in the header file \hyperlink{AIAsubpaving_8hpp}{\-A\-I\-Asubpaving.\-hpp}. \-Other definitions are in the file \hyperlink{AIAsubpaving_8cpp}{\-A\-I\-Asubpaving.\-cpp}\hypertarget{AIASubPavings_AIAexamsec_11_33}{}\subsubsection{\-Exercise 11.\-33}\label{AIASubPavings_AIAexamsec_11_33}
+\-See \-A\-I\-A2001, p. 342.
+
+\-Exercise 11.\-33 explores the use of \-S\-I\-V\-I\-A and the \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} class for set inversion. \-In particular, this example demonstrates that it is possible to use to evaluate the direct image of a set by a function, {\itshape provided that the function is invertible in the usual sense\/}.
+
+\-Our implementation of this example is in the file \hyperlink{Exr__11__33_8cpp}{\-Exr\-\_\-11\-\_\-33.\-cpp}, which has header file \hyperlink{Exr__11__33_8hpp}{\-Exr\-\_\-11\-\_\-33.\-hpp}
+
+\hyperlink{Exr__11__33_8hpp}{\-Exr\-\_\-11\-\_\-33.\-hpp} shows the includes for this example
+
+
+
+
+\begin{DoxyCodeInclude}
+#include "AIAsubpaving.hpp"
+#include <time.h>
+#include <fstream>
+
+\end{DoxyCodeInclude}
+
+
+\-The file \hyperlink{AIAsubpaving_8hpp}{\-A\-I\-Asubpaving.\-hpp} is included in order to be able to use the \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} class it declares. $<$time.\-h$>$ is included in order to use the clock method and get information on the time take to run the example. $<$fstream$>$ is included in order to be able to output data to a file.
+
+\-Turning now to \-Exm\-\_\-11\-\_\-33.\-cpp,
+
+
+
+\-First we include the header file
+
+
+\begin{DoxyCodeInclude}
+#include "Exr_11_33.hpp"
+
+\end{DoxyCodeInclude}
+
+
+\-Then we declare some \-A\-I\-A\-Sub\-Pavings as global (\-A\-I\-A\-Sub\-Paving is declared as an alias for a pointer to an \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} in the \-A\-I\-Asubpavings.\-hpp header file). \-Declaring them as global means that they are available to all the functions in the file (they have file scope) and so they do not need to be passed as parameters to the functions that use them.
+
+
+\begin{DoxyCodeInclude}
+// These AIASubPavings are declared as global
+AIASubPaving Sc, Sc1, Sc2;
+
+\end{DoxyCodeInclude}
+
+
+\begin{DoxyRemark}{\-Remarks}
+\-Use of globals is normally discouraged in good programming,
+\end{DoxyRemark}
+\-Then we specify the interval boolean tests we are going to use in the example. \-The interval boolean test is the key to set inversion with interval analysis. \-Recall that set inversion is the computation of a reciprocal image \-X = {\bfseries f}$^{\mbox{-\/1}}$ (\-Y) where \-Y is regular subpaving of \-R$^{\mbox{m}}$  (see \hyperlink{AIASubPavings_AIAsec_SIVIA}{\-Set inversion using interval analysis}). \-Y is the subpaving we want to invert. \-The interval boolean test takes a box in 'x-\/space' and tests whether the image of the box in 'y-\/space' ie the image under the inclusion function \mbox{[}{\bfseries f}\mbox{]}, is in the subpaving \-Y. \-The interval boolean test can return one of the special interval boolean types \-B\-I\-\_\-\-T\-R\-U\-E (the image of the box is inside \-Y), \-B\-I\-\_\-\-F\-A\-L\-S\-E (the image of the box is outside \-Y), or \-B\-I\-\_\-\-I\-N\-D\-E\-T (indeterminate\-: the image of the box \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]} is partly in and partly out of the subpaving \-Y, ie overlaps the boundary of \-Y).
+
+\-The first test \label{AIASubPavings_IBTAnnular}%
+\hypertarget{AIASubPavings_IBTAnnular}{}%
+\-I\-B\-T\-Annular tests a 2-\/d box in \-I\-R$^{\mbox{2}}$  for inclusion in the set corresponding to the area between circles centred at the origin and with radii 1 and 2. \-The test is performed on the interval image \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) of the box \mbox{[}{\bfseries x}\mbox{]} supplied as the function argument. \-The test itself specifies the inclusion function f \mbox{[}{\bfseries f}\mbox{]} (x\mbox{[}1\mbox{]}$^{\mbox{2}}$  + x\mbox{[}2\mbox{]}$^{\mbox{2}}$ ). \-In this case the test also specifies the subpaving to invert -\/ in this case this is a very simple subpaving being just a single interval \mbox{[}1 2\mbox{]}. \-The test can return \-B\-I\-\_\-\-T\-R\-U\-E, \-B\-I\-\_\-\-F\-A\-L\-S\-E, or \-B\-I\-\_\-\-I\-N\-D\-E\-T.
+
+
+\begin{DoxyCodeInclude}
+// specifications of example interval boolean tests
+// The boolean interval test can return BI_TRUE, BI_FALSE, or BI_INDET
+
+AIA_BOOL_INTERVAL IBTAnnular(const ivector& x)
+{
+  // here we test a 2-d box for inclusion in the area between circles centred 
+  // on the origin with radii 1 and 2
+  interval ToInvert(1.0,2.0),Temp;
+  interval Img = sqr(x[1]) + sqr(x[2]);
+
+  if (!Intersection(Temp,Img,ToInvert)) return BI_FALSE;
+  if ( Img<=ToInvert ) return BI_TRUE;
+
+  return BI_INDET;
+}
+
+\end{DoxyCodeInclude}
+
+
+\-The second test \label{AIASubPavings_IBTFdirect}%
+\hypertarget{AIASubPavings_IBTFdirect}{}%
+\-I\-B\-T\-Fdirect is also an interval boolean test but on first sight looks rather different to \-I\-B\-T\-Annular. \-Taking it apart, we can how it does the same thing. \-The test takes a ivector argument and calculates the interval image of this using an inclusion function. \-The inclusion function is again specified within the test. \-In this case it is in fact the inverse of an invertible function\-: this test will be used to run \-S\-I\-V\-I\-A 'backwards'. \-Note that the subpaving we are inverting is one of the \label{AIASubPavings_AIAglobal}%
+\hypertarget{AIASubPavings_AIAglobal}{}%
+global \-A\-I\-A\-Sub\-Paving variables, \-Sc. \-Because the subpaving is not a simple interval as in the previous test, the test uses the \hyperlink{classAIASPnode_a0869804e6aaefcc26aebe081061df6ad}{\-A\-I\-A\-S\-Pnode\-::operator$<$=(const ivector\&, A\-I\-A\-Sub\-Paving)}, which returns an \-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L type just like the test above.
+
+
+\begin{DoxyCodeInclude}
+AIA_BOOL_INTERVAL IBTFdirect(const ivector& x)
+{
+  // A boolean interval test to illustrate SIVIA being used to evaluate the 
+  // direct image of a set by a function provided the function is invertible
+  // ie SIVIA will invert inverse_f
+
+  interval Temp;
+  ivector Img(2);
+
+  // taking the function f : (x1,x2) -> (2x1-x2,-x1+2x2)
+  // f is invertible and the inverse is 
+  // inverse_f : (x1,x2) -> (2x1 + x2,x1+2x2)/3
+  // this is an inclusion function for inverse_f
+
+  Img[1] = (2.0*x[1]+x[2]) / 3.0;
+  Img[2] = (x[1]+2.0*x[2]) / 3.0;
+
+  return (Img<=Sc); // Sc is an AIASubPaving set up by the first example
+}
+
+\end{DoxyCodeInclude}
+
+
+\-The third test \label{AIASubPavings_IBTFinverse}%
+\hypertarget{AIASubPavings_IBTFinverse}{}%
+\-I\-B\-T\-Finverse is similar again. \-The function f is the same function as that for which we used the inverse in the test \hyperlink{AIASubPavings_IBTFdirect}{\-I\-B\-T\-Fdirect} above. \-The subpaving we test for inclusion in is another of the globals, \-Sc1, and again we use the \hyperlink{classAIASPnode_a0869804e6aaefcc26aebe081061df6ad}{\-A\-I\-A\-S\-Pnode\-::operator$<$=(const ivector\&, A\-I\-A\-Sub\-Paving)} to returns an \-A\-I\-A\-\_\-\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L.
+
+
+\begin{DoxyCodeInclude}
+AIA_BOOL_INTERVAL IBTFinverse(const ivector& x)
+{
+  interval Temp;
+  ivector Img(2);
+
+  // the function f is f : (x1,x2) -> (2x1-x2,-x1+2x2)
+
+  Img[1] = 2.0*x[1]-x[2];
+  Img[2] = -x[1]+2.0*x[2];
+
+  return (Img<=Sc1);
+}
+
+// end specification of example boolean interval tests
+
+\end{DoxyCodeInclude}
+
+
+\-Now we say that we are using the std and cxsc namespaces to avoid having to type cxsc\-::ivector or std\-::cout etc.
+
+
+\begin{DoxyCodeInclude}
+using namespace cxsc;
+using namespace std;
+
+\end{DoxyCodeInclude}
+
+
+\-In the main process we start by declare some of the variables we will be using
+
+
+\begin{DoxyCodeInclude}
+int main()
+{
+  double prec;
+  clock_t start, end;
+
+  ivector x(2);
+  x[1] = interval(-5.0,5.0);
+  x[2] = interval(-5.0,5.0);
+
+  AIASubPaving A;
+  A = new AIASPnode(x);
+
+\end{DoxyCodeInclude}
+
+
+\-A 2-\/dimensional interval vector x is set up which is the 2-\/d box \mbox{[}-\/5 5\mbox{]}$^{\mbox{2}}$ . \-This is used to initialise a newed \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} in dynamic memory, with \-A as an \-A\-I\-A\-Sub\-Paving or pointer to an \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode}. \-Creating the node object in dynamic memory allows us to use pointers to it outside the scope of the function which created the object
+
+\-Now we use the \-S\-I\-V\-I\-A algorithm (see \hyperlink{AIASubPavings_AIAsec_SIVIA}{\-Set inversion using interval analysis}) to find a 'subpaving characterisation' \-Sc containing the area between circles centred on the origin with radii 1 and 2 in 2 dimensional space. \-We say 'subpaving characterisation' because the subpaving is an \hyperlink{AIASubPavings_outerpaving}{outer subpaving} of the actual area between circles centred on the origin with radii 1 and 2.
+
+
+\begin{DoxyCodeInclude}
+  // Using SIVIA for set inversion
+  //find an AIASubPaving characterisation Sc containing the area between 
+  // circles centred on the origin
+  // with radii 1 and 2 (in 2 dimensional space)
+  cout << "Characterization of the set Sc={(x1,x2) | 1 <= x1^2+x2^2 <= 2 }" 
+       << endl;
+  cout << "Enter a precision (between 1 and 0.001): ";
+
+\end{DoxyCodeInclude}
+
+
+\-A description of what we are doing is sent to standard output, \-The program asks the user to input a precision between 1 and 0.\-001.
+
+\-The clock is started and \hyperlink{AIAsubpaving_8cpp_a9bc7ba1f54979fabaf0f0ffeab245234}{\-Sivia(\-A\-I\-A\-\_\-\-P\-I\-B\-T Bool\-Test, A\-I\-A\-Sub\-Paving A, double eps)} is called. \-The \-A\-I\-A\-\_\-\-P\-I\-B\-T (pointer to an interval boolean test) is \hyperlink{AIASubPavings_IBTAnnular}{\-I\-B\-T\-Annular}, as described above. \-A is provided as an initial search box, and prec is given as the argument for the eps parameter. \-The clock is stopped when \-Sivia has returned a value for \-Sc.
+
+
+\begin{DoxyCodeInclude}
+  start = clock();
+
+  // when we start we give A a box big enough to guarantee to contain 
+  // the characterisation of Sc
+
+  Sc = Sivia(IBTAnnular,A,prec);
+  end = clock();
+
+\end{DoxyCodeInclude}
+
+
+\-Sc now points to the root node of a tree representing the subpaving constructed with \-Sivia.
+
+\-The \-S\-I\-V\-I\-A algorithm works by taking an initial search box, testing it, rejecting those returning \-B\-I\-\_\-\-F\-A\-L\-S\-E, including those returning \-B\-I\-\_\-\-T\-R\-U\-E in the subpaving it is building, and bisecting again if the interval boolean test returns \-B\-I\-\_\-\-I\-N\-D\-E\-T, and recursively sending each subbox to \-S\-I\-V\-I\-A to be tested similarly. \-Each subbox continues to be bisected until either the test returns a clear \-B\-I\-\_\-\-T\-R\-U\-E or \-B\-I\-\_\-\-F\-A\-L\-S\-E or the test is \-B\-I\-\_\-\-I\-N\-D\-E\-T but the width of the box is the value given for eps, which means that it is thin enough to be included in the subpaving to be returned. \-The eps parameter provides a 'stopping rule' prevents \-S\-I\-V\-I\-A recursing endlessly. \-A larger value for eps will mean a thicker uncertainty layer in the outer subpaving of the area we seek to characterise.
+
+\-We stop the clock after calling \-Sivia and report the computing time and the volume and number of leaf boxes of the subpaving.
+
+
+\begin{DoxyCodeInclude}
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "Volume: " << Volume(Sc) << endl;
+
+\end{DoxyCodeInclude}
+
+
+\-Then we create an output file of giving the subpaving as a list of interval vectors. \-The file name is specified in the example as \-A\-I\-Aannular.\-txt and the first three lines of the file give, respectively, the dimensions we are working in, the initial search box, and the precision used. \-The subpaving itself is then output. \-The format used for outputting the subpaving is specified in \hyperlink{AIAsubpaving_8cpp_a545707f4bc32ad5dac67608be229b51d}{operator$<$$<$(std\-::ostream \&, A\-I\-A\-Sub\-Paving)}
+
+
+\begin{DoxyCodeInclude}
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os("AIAannular.txt");
+  os << 2 << endl;  // Dimension of the AIASubPaving
+                    // Root box
+  os << interval(-5.0,5.0) << " "
+    << interval(-5.0,5.0) << " " << endl;
+                    // Precision used
+  os << "Precision is " << prec << endl;
+  os << Sc << endl; // AIASubPaving itself
+  cout << "The output AIASubPaving has been written to AIAannular.txt" 
+       << endl << endl;
+
+  // end of testing to find reciprocal image
+
+  // the AIASubPaving Sc that we have created is the regular AIASubPaving 
+  // that covers the set
+  // X = {(x1,x2) in R2 | sqr(x1) + sqr(x2) is in [1,2]} 
+  // (remember that it contains this area rather than being this area, 
+  // and that eps has determined how small we go in the AIASubPaving 
+
+\end{DoxyCodeInclude}
+
+
+\-This example now moves on to use this subpaving in further demonstrations of the \-S\-I\-V\-I\-A algorithm. \-First, we delete the \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} that \-A currently points to and replace it with a new one, again providing an initial search box \mbox{[}-\/5.\-0 5.\-0\mbox{]}$^{\mbox{2}}$ 
+
+
+\begin{DoxyCodeInclude}
+  // make a new AIASubPaving to provide an initial source box for the test next
+
+\end{DoxyCodeInclude}
+
+
+\-Now we prepare to use \-S\-I\-V\-I\-A to find the direct image of an invertible function, which can be thought of as using \-S\-I\-V\-I\-A in reverse\-: normally \-S\-I\-V\-I\-A characterises the reciprocal image \-X = {\bfseries f}$^{\mbox{-\/1}}$ (\-Y) where \-Y, the subpaving we want to invert, is regular subpaving of \-R$^{\mbox{m}}$ . \-However, if we have \-X but want to find \-Y (or a characterisation for \-Y) and f is invertible so that we can specify an inclusion function \mbox{[}{\bfseries f}$^{\mbox{-\/1}}$ \mbox{]} for {\bfseries f}$^{\mbox{-\/1}}$  then we can use this inclusion function to characterise \-Y. \-S\-I\-V\-I\-A can only be used to find a direct image under {\bfseries f} when {\bfseries f} is invertible in the normal sense because we need to be able to specify \mbox{[}{\bfseries f}$^{\mbox{-\/1}}$ \mbox{]} in our interval boolean test.
+
+\-A description of what we are doing is printed to standard output and the user again asked to enter a precision, and the clock is started
+
+
+\begin{DoxyCodeInclude}
+  // testing using SIVIA to find the direct image of an invertible function
+  // remember that we are only finding some upper enclosure of the direct 
+  // image really
+  // Note that this example will use the AIASubPaving Sc we created 
+  // above - see IBTFdirect
+
+  // ie create an AIASubPaving Sc1 containing f(Sc), where Sc was found above
+
+  cout << "Characterization of the set Sc1=f(Sc)" << endl
+    << "with f1(x) = 2*x1-x2," << endl
+    << "      f2(x) = -x1+2*x2," << endl;
+  cout << "by realizing the inversion of f-1 by Sivia" << endl;
+  cout << "Enter a precision (between 1 and 0.01): ";
+
+\end{DoxyCodeInclude}
+
+
+\-Now we run \-Sivia as above, but the argument supplied for the interval boolean test parameter is \hyperlink{AIASubPavings_IBTFdirect}{\-I\-B\-T\-Fdirect} as given at the top of the file. \-This specifies \mbox{[}{\bfseries f}$^{\mbox{-\/1}}$ \mbox{]} for f$_{\mbox{1}}$ (x) = 2x$_{\mbox{1}}$  -\/ x$_{\mbox{2}}$ , f$_{\mbox{2}}$ (x) = -\/x$_{\mbox{1}}$  + 2x$_{\mbox{2}}$ . \-Recall that \hyperlink{AIASubPavings_IBTFdirect}{\-I\-B\-T\-Fdirect} specifies that the subpaving to invert is \-Sc, ie the subpaving we found using \-Sivia above.
+
+
+\begin{DoxyCodeInclude}
+  start = clock();
+                    // Sc1 will be used by the following example
+  Sc1 = Sivia(IBTFdirect,A,prec);
+  end = clock();
+
+\end{DoxyCodeInclude}
+
+
+\-Sc1 now points to the root node of a tree representing the subpaving constructed with \-Sivia.
+
+\-The computing time, volume and number of leaves are reported and an output file produced.
+
+
+\begin{DoxyCodeInclude}
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "Volume: " << Volume(Sc1) << endl;
+  cout << "Number of leaves: " << NbLeaves(Sc1) << endl;
+
+  // To realize a file output of the AIASubPaving Sc1
+                    // Filename
+  ofstream os1("AIAdirect.txt");
+  os1 << 2 << endl; // Dimension of the AIASubPaving
+                    // Root box
+  os1 << interval(-5.0,5.0) << " "
+    << interval(-5.0,5.0) << " " << endl;
+                    // Precision used
+  os1 << "Precision is " << prec << endl;
+                    // AIASubPaving itself
+  os1 << Sc1 << endl;
+
+  cout << "The output AIASubPaving has been written to AIAdirect.txt" 
+       << endl << endl;
+
+  // end of example for finding direct image
+
+\end{DoxyCodeInclude}
+
+
+\-We have now found a subpaving \-Sc in 'x-\/space' and used \-Sivia on an function inverse to get a characterisation \-Sc1 of the image of \-Sc in 'y-\/space'. \-The final step is to use \-Sivia again to go back to 'x-\/space' and find the reciprocal image \-Sc2 of \-Sc1!
+
+\-Start by resetting \-A again, describe what we are doing, and get the precision
+
+
+\begin{DoxyCodeInclude}
+  // get a new AIASubPaving A to provide initial source box for next example
+  delete A;
+
+  x[1] = interval(-5.0,5.0);
+  x[2] = interval(-5.0,5.0);
+
+  A = new AIASPnode(x);
+
+  // Image evaluation using set inversion
+  // this uses the AIASubPaving Sc1 created by the above example
+  // create an AIASubPaving Sc2 which contains inverse_f(Sc1)
+
+  cout << "Characterization of the set Sc2=f-1(Sc1)" << endl
+    << "with f^-1_1(x) = (2*x1+x2)/3," << endl
+    << "     f^-1_2(x) = (x1+2*x2)/3," << endl;
+  cout << "by realizing the inversion of f by Sivia" << endl;
+  cout << "Enter a precision (between 1 and 0.01): ";
+
+\end{DoxyCodeInclude}
+
+
+\-Now the argument supplied for the interval boolean test parameter is \hyperlink{AIASubPavings_IBTFinverse}{\-I\-B\-T\-Finverse} from the top of the file. \-This specifies \mbox{[}{\bfseries f}\mbox{]} for f$_{\mbox{1}}$ (x) = 2x$_{\mbox{1}}$  -\/ x$_{\mbox{2}}$ ,f$_{\mbox{2}}$ (x) = -\/x$_{\mbox{1}}$  + 2x$_{\mbox{2}}$ . \hyperlink{AIASubPavings_IBTFinverse}{\-I\-B\-T\-Finverse} also specifies that the subpaving to invert is \-Sc1, ie the subpaving in 'y-\/space' we have just found using \-Sivia above.
+
+
+\begin{DoxyCodeInclude}
+  start = clock();
+  Sc2 = Sivia(IBTFinverse,A,prec);
+  end = clock();
+
+\end{DoxyCodeInclude}
+
+
+\-Sc2 now points to the root node of a tree representing the subpaving constructed with \-Sivia.
+
+\-The computing time, volume and number of leaves are reported and an output file produced.
+
+
+\begin{DoxyCodeInclude}
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "Volume: " << Volume(Sc2) << endl;
+  cout << "Number of leaves: " << NbLeaves(Sc2) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os2("AIAinverse.txt");
+  os2 << 2 << endl; // Dimension of the AIASubPaving
+                    // Root box
+  os2 << interval(-5.0,5.0) << " "
+    << interval(-5.0,5.0) << " " << endl;
+                    // Precision used
+  os2 << "Precision is " << prec << endl;
+                    // AIASubPaving itself
+  os2 << Sc2 << endl;
+
+  cout << "The output AIASubPaving has been written to AIAinverse.txt" 
+       << endl << endl;
+
+  // end of testing SIVIA for set inversion
+  // we should compare Sc2 to Sc in terms of volume and look at the effects of 
+  // the precision variable
+
+\end{DoxyCodeInclude}
+
+
+\-Finally we need to delete all the \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} trees we created in dynamic memory, then the program can return.
+
+
+\begin{DoxyCodeInclude}
+  delete A;         // delete subpavings newed in dyamic memory
+  delete Sc;
+  delete Sc1;
+  delete Sc2;
+
+  return 0;
+}
+
+\end{DoxyCodeInclude}
+
+
+\-The example can be run with different values supplied for the precision in each case, to examine the effect that this has on the volume and number of leaves of the subpavings.
+
+\-One of the interesting points about this example is that we can see the effect of pessimism in inclusion functions (\-A\-I\-A2001, pp. 15-\/17, p. 342). \-We start by making a subpaving \-Sc in 'x-\/space' and then find \-Sc1, a subpaving characterisation for the image of \-Sc under a function {\bfseries f} (ie, a subpaving in 'y-\/space'), and then go back to 'x-\/space' again and with \-Sc2 as a subpaving characterisation for the reciprocal image of \-Sc1 under {\bfseries f}.
+
+\-Under the output format currently specified, the the first part of the output file \-A\-I\-Adirect.\-txt looks like this\-:
+
+\begin{DoxyVerb}
+2
+[ -5.000000,  5.000000] [ -5.000000,  5.000000]
+Precision is 0.05
+[  -1.953125 ,  -1.875000 ] , [  -0.078125 ,   0.000000 ]
+[  -1.289062 ,  -1.250000 ] , [  -0.820312 ,  -0.781250 ]
+[  -1.406250 ,  -1.328125 ] , [  -0.703125 ,  -0.625000 ]
+[  -1.328125 ,  -1.289062 ] , [  -0.742188 ,  -0.703125 ]
+\end{DoxyVerb}
+
+
+\-All the output from this example rendered graphically looks like this.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{AIAexample11_33.png}
+\caption{\-Results for \-Exercise 11.33 using precision 0.05}
+\end{DoxyImage}
+\hypertarget{AIASubPavings_AIAexamsec_11_35}{}\subsubsection{\-Exercise 11.\-35}\label{AIASubPavings_AIAexamsec_11_35}
+\-See examples/\-A\-I\-A/\-Exr\-\_\-11\-\_\-35\hypertarget{AIASubPavings_AIAexamsec_3_3}{}\subsubsection{\-Example 3.\-3}\label{AIASubPavings_AIAexamsec_3_3}
+\-See \-A\-I\-A2001, p. 61.
+
+\-Example 3.\-3 explores the use of \-Image\-Sp and the \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} class for image evaluation. \-In \hyperlink{AIASubPavings_AIAexamsec_3_3}{\-Example 3.\-3} used \-Sivia to find the image of a subpaving under a function {\bfseries f}, but this is only possible when {\bfseries f} is invertible in the usual sense.
+
+\-Computation of the direct image of a subpaving \-Y = {\bfseries f}(\-X) where \-X is a regular subpaving of \-R$^{\mbox{n}}$  (image evaluation) is more complex in the case where the function is not invertible in the usual sense.
+
+\-Our implementation of this example is in the file \hyperlink{Exm__3__3_8cpp}{\-Exm\-\_\-3\-\_\-3.\-cpp}, which has header file \hyperlink{Exm__3__3_8hpp}{\-Exm\-\_\-3\-\_\-3.\-hpp}.
+
+\hyperlink{Exm__3__3_8hpp}{\-Exm\-\_\-3\-\_\-3.\-hpp} shows is similar to the header for \-Example 11.\-33 so we will move straight on the describing the file \hyperlink{Exm__3__3_8cpp}{\-Exm\-\_\-3\-\_\-3.\-cpp}.
+
+
+
+\-First we include the header file and declare more global subpavings.
+
+
+\begin{DoxyCodeInclude}
+#include "Exm_3_3.hpp"
+
+// These AIASubPavings are declared as global
+AIASubPaving Sc, Sc4;
+
+\end{DoxyCodeInclude}
+
+
+\-Now we look at the functions used in our main program.
+
+\-The first is a boolean interval test \hyperlink{AIASubPavings_IBTAnnular}{\-I\-B\-T\-Annular} is exactly the same as that used for \-Exercise 11.\-33.
+
+
+\begin{DoxyCodeInclude}
+// specifications of example interval boolean tests
+// The boolean interval test can return BI_TRUE, BI_FALSE, or BI_INDET
+
+AIA_BOOL_INTERVAL IBTAnnular(const ivector& x)
+{
+  // here we test a 2-d box for inclusion in the area between circles centred 
+  // on the origin with radii 1 and 2
+  interval ToInvert(1.0,2.0),Temp;
+  interval Img = sqr(x[1]) + sqr(x[2]);
+
+  if (!Intersection(Temp,Img,ToInvert)) return BI_FALSE;
+  if ( Img<=ToInvert ) return BI_TRUE;
+
+  return BI_INDET;
+}
+
+// end specification of example boolean interval tests
+
+\end{DoxyCodeInclude}
+
+
+\-The next function is an interval vector function, \label{AIASubPavings_IVFex3_3}%
+\hypertarget{AIASubPavings_IVFex3_3}{}%
+\-I\-V\-Fex3\-\_\-3. \-An interval vector function returns the interval vector image of an interval vector x under {\bfseries f} for {\bfseries f} as specified in the function and x supplied as the function argument.
+
+\-In this case {\bfseries f}\-: \-R$^{\mbox{2}}$  -\/$>$ \-R$^{\mbox{2}}$ , {\bfseries f}$_{\mbox{1}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = x$_{\mbox{1}}$ x$_{\mbox{2}}$ , {\bfseries f}$_{\mbox{2}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = x$_{\mbox{1}}$  + x$_{\mbox{2}}$ 
+
+
+\begin{DoxyCodeInclude}
+// specification of example interval vector function,
+// ie, vector inclusion function
+// as in Example 3.3 of AIA
+ivector IVF_ex3_3(const ivector& x)
+{
+  // example in 2-d space R2
+  // for f: R2 -> R2
+  //f1(x1, x2) = x1*x2
+  //f2(x1, x2) = x1 + x2
+
+  ivector Img(2);
+
+  Img[1] = x[1] * x[2];
+  Img[2] = x[1] + x[2];
+
+  return (Img);
+}
+
+// end specification of example interval vector funciions
+
+\end{DoxyCodeInclude}
+
+
+\-Then we say what namespaces we are using, start the main program, and set up an initial search box \mbox{[}-\/3.\-0 3.\-0\mbox{]}$^{\mbox{2}}$  and a pointer \-A to an \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} based on this search box.
+
+
+\begin{DoxyCodeInclude}
+using namespace cxsc;
+using namespace std;
+
+int main()
+{
+  double prec;
+  clock_t start, end;
+
+  ivector x(2);
+  x[1] = interval(-3.0,3.0);
+  x[2] = interval(-3.0,3.0);
+
+  AIASubPaving A;
+  A = new AIASPnode(x);
+
+\end{DoxyCodeInclude}
+
+
+\-The first subpaving we create is again \-Sc, the subpaving covering the set in \-R$^{\mbox{2}}$  between circles centred at the origin and with radii 1 and 2.
+
+
+\begin{DoxyCodeInclude}
+  // Using SIVIA for set inversion
+  // find an AIASubPaving characterisation Sc containing the area between 
+  // circles centred on the origin
+  // with radii 1 and 2 (in 2 dimensional space)
+  cout << "Characterization of the set Sc={(x1,x2) | 1 <= x1^2+x2^2 <= 2 }" 
+       << endl;
+  cout << "Enter a precision (between 1 and 0.001): ";
+  cin >> prec;
+
+  start = clock();
+
+  // when we start we give A a box big enough to guarantee to contain the 
+  // characterisation of Sc
+
+  Sc = Sivia(IBTAnnular,A,prec);
+  end = clock();
+
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "Volume: " << Volume(Sc) << endl;
+  cout << "Number of leaves: " << NbLeaves(Sc) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os("AIA3_3a.txt");
+  os << 2 << endl;  // Dimension of the AIASubPaving
+                    // Root box
+  os << interval(-5.0,5.0) << " "
+    << interval(-5.0,5.0) << " " << endl;
+                    // Precision used
+  os << "Precision is " << prec << endl;
+  os << Sc << endl; // AIASubPaving itself
+  cout << "The output AIASubPaving has been written to AIA3_3a.txt" 
+       << endl << endl;
+
+  // the AIASubPaving Sc that we have created is the regular 
+  // AIASubPaving that covers the set
+  // X = {(x1,x2) in R2 | sqr(x1) + sqr(x2) is in [1,2]} 
+  // (remember that it contains this area rather than being this area, 
+  // and that eps has determined how small we go in the AIASubPaving 
+
+\end{DoxyCodeInclude}
+
+
+\-Now we move on to using \-Image\-Sp. \-We are going to find \-Sc4, a characterisation of the set f(\-Sc) using f as defined in \hyperlink{Exm__3__3_8cpp_a08a7ccec803f0858fe9d44dbeb8e9a29}{\-I\-V\-F\-\_\-ex3\-\_\-3}.
+
+\-First we say what we are doing and ask for a precision.
+
+
+\begin{DoxyCodeInclude}
+  cout << "Characterization of the set Sc4=f(Sc)" << endl
+    << " with Sc from our first example and "<< endl
+    << "with f1(x) = x1*x2," << endl
+    << "     f2(x) = x1 + x2," << endl;
+  cout << "by realizing the image of f by ImageSp" << endl;
+  cout << "Enter a precision (between 1 and 0.01): ";
+
+\end{DoxyCodeInclude}
+
+
+\-Then start the clock and run \hyperlink{AIAsubpaving_8cpp_a6df9f8ffe0d5fbd9ec10bd6954b3b800}{\-Image\-Sp(\-A\-I\-A\-\_\-\-P\-I\-V\-F, A\-I\-A\-Sub\-Paving A, double eps)} giving as arguments our interval vector function, our subpaving node \-A, and our precision.
+
+\-Sc4 now points to the root node of a tree representing the subpaving constructed with \-Image\-Sp.
+
+\-The \-Image\-Sp algorithm works by taking an initial subpaving (in this case, the box of \-A), mincing it up into a fine subpaving where every box has width less than precision, and finding the image of each of these boxes with the specified interval vector test. \-It then forms a minimal regular subpaving which covers the union of all these image boxes, again with precision as specified.
+
+
+\begin{DoxyCodeInclude}
+  start = clock();
+
+  // use Image SP to find a characterisation of the image of Sc using the 
+  // function in IVF
+  Sc4 = ImageSp(IVF_ex3_3, Sc, prec);
+
+  end = clock();
+
+\end{DoxyCodeInclude}
+
+
+\-We report the running time, volume and number of leaves in the image subpaving and send the output to a txt file
+
+
+\begin{DoxyCodeInclude}
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "The volume is " << Volume(Sc4) << endl;
+  cout << "The number of leaves is " << NbLeaves(Sc4) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os4("AIA3_3d.txt");
+  os4 << 2 << endl; // Dimension of the AIASubPaving
+                    // Domain AIASubPaving
+  os4 << interval(-3.0,3.0) << " "
+    << interval(-3.0,3.0) << " " << endl;
+                    // Precision used
+  os4 << "Precision is " << prec << endl;
+                    // Image AIASubPaving itself
+  os4 << Sc4 << endl;
+
+  cout << "The output AIASubPaving has been written to AIA3_3d.txt" 
+
+\end{DoxyCodeInclude}
+
+
+\-Finally, we delete the subpavings and end the program.
+
+
+\begin{DoxyCodeInclude}
+  delete A;         // Delete all subpavings newed in dynamic memory
+  delete Sc;
+  delete Sc4;
+
+  return 0;
+}
+
+\end{DoxyCodeInclude}
+
+
+\-The subpavings produced by this program run using precision 0.\-05 for both subpavings is shown graphically below. \-As well as showing the initial subpaving (represented by \-Sc) and the image subpaving (represented by \-Sc4), we capture an intermediate step within \-Image\-Sp. \-This is the evaluation step, where we have a large set of (possibly overlapping) image boxes formed from all the minced up subboxes of the initial box (\mbox{[}-\/3.\-0 3.\-0\mbox{]}$^{\mbox{2}}$  chopped up so that each one is less than 0.\-05 wide). \-This set can be compared to the final regular minimal subpaving characterisation of the image which is formed by the function \-Regularize.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{AIAexample3_3.png}
+\caption{\-Results for \-Example 3.3 using precision 0.05}
+\end{DoxyImage}
+\hypertarget{AIASubPavings_AIAexamsec_3_4}{}\subsubsection{\-Example 3.\-4}\label{AIASubPavings_AIAexamsec_3_4}
+\-See \-A\-I\-A2001, pp. 61-\/63.
+
+\label{AIASubPavings_AIAexample3_4}%
+\hypertarget{AIASubPavings_AIAexample3_4}{}%
+\-Finally we show another example using both \-Sivia and \-Image\-Sp. \-This example shows why we need \-Image\-Sp when to evaluate the images of functions that are only invertible in a set-\/theoretic sense, and also illustrates the interesting effects that can occur in these circumstances.
+
+\-Our implementation of this example is in the file \hyperlink{Exm__3__4_8cpp}{\-Exm\-\_\-3\-\_\-4.\-cpp}, which has header file \hyperlink{Exm__3__4_8hpp}{\-Exm\-\_\-3\-\_\-4.\-hpp}.
+
+\hyperlink{Exm__3__4_8hpp}{\-Exm\-\_\-3\-\_\-4.\-hpp} shows is similar to the other header files so we will move straight on the describing the file \hyperlink{Exm__3__4_8cpp}{\-Exm\-\_\-3\-\_\-4.\-cpp}.
+
+
+
+\-First we include the header file and declare more global subpavings.
+
+
+\begin{DoxyCodeInclude}
+#include "Exm_3_4.hpp"
+
+// These AIASubPavings are declared as global
+AIASubPaving Sc5, Sc6, Sc7;
+
+\end{DoxyCodeInclude}
+
+
+\-Now we look at the functions used in our main program.
+
+\-The first is a boolean interval test, \label{AIASubPavings_IBT_ex3_4}%
+\hypertarget{AIASubPavings_IBT_ex3_4}{}%
+\-I\-B\-T\-\_\-ex3\-\_\-4. \-The first specifies a function {\bfseries f}\-: \-R$^{\mbox{2}}$  -\/$>$ \-R such that {\bfseries f}(x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = x$_{\mbox{1}}$ $^{\mbox{4}}$  -\/ x$_{\mbox{1}}$ $^{\mbox{2}}$  + 4x$_{\mbox{2}}$ $^{\mbox{2}}$  and tests the image of a box x under this function for inclusion in the subpaving to be inverted. \-As with \hyperlink{AIASubPavings_IBTAnnular}{\-I\-B\-T\-Annular} above, the subpaving to be inverted is also specifed in the test and here is just the interval \mbox{[}-\/0.\-1, 0.\-1\mbox{]}.
+
+
+\begin{DoxyCodeInclude}
+// specifications of example interval boolean tests
+// The boolean interval test can return BI_TRUE, BI_FALSE, or BI_INDET
+
+AIA_BOOL_INTERVAL IBT_ex3_4(const ivector& x)
+{
+  // here we test a 2-d box for inclusion in the area 
+  // such that x1^4 - x1^2 + 4x2^2 is in the interval [-0.1, 0.1]
+
+  interval ToInvert(-0.1, 0.1),Temp;
+  interval Img = power(x[1],4) - sqr(x[1]) + 4*sqr(x[2]);
+
+  if (!Intersection(Temp,Img,ToInvert)) return BI_FALSE;
+  if ( Img<=ToInvert ) return BI_TRUE;
+
+  return BI_INDET;
+}
+
+\end{DoxyCodeInclude}
+
+
+\-Then we have another boolean interval test, \label{AIASubPavings_IBTinverse_ex3_4}%
+\hypertarget{AIASubPavings_IBTinverse_ex3_4}{}%
+\-I\-B\-T\-Finverse\-\_\-ex3\-\_\-4. \-Again this specifies a function {\bfseries f}, this time {\bfseries f}\-: \-R$^{\mbox{2}}$  -\/$>$ \-R$^{\mbox{2}}$ , f$_{\mbox{1}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = (x$_{\mbox{1}}$  -\/ 1)$^{\mbox{2}}$  -\/1 + x$_{\mbox{2}}$ , f$_{\mbox{2}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = -\/x$_{\mbox{1}}$ $^{\mbox{2}}$  + (x$_{\mbox{2}}$  -\/ 1)$^{\mbox{2}}$ . \-The subpaving to invert is one of the globally defined subpaving \-Sc6
+
+
+\begin{DoxyCodeInclude}
+AIA_BOOL_INTERVAL IBTFinverse_ex3_4(const ivector& x)
+{
+  ivector Img(2);
+  // example in 2-d space R2
+  // for f: R2 -> R2
+  //f1(x1, x2) = (x1-1)^2 - 1+ x2
+  //f2(x1, x2) = -(x1^2) + (x2-1)^2
+
+  Img[1] = sqr(x[1]) - 2*x[1] + x[2];
+  Img[2] = -sqr(x[1]) + sqr(x[2]) - 2*x[2] + 1;
+
+  return (Img<=Sc6);
+}
+
+// end specification of example boolean interval tests
+
+\end{DoxyCodeInclude}
+
+
+\-The next function is an interval vector function, \label{AIASubPavings_IVF_ex3_4}%
+\hypertarget{AIASubPavings_IVF_ex3_4}{}%
+\-I\-V\-F\-\_\-ex3\-\_\-4. \-Recall that an interval vector function returns the interval vector image of an interval vector x under {\bfseries f} for {\bfseries f} as specified in the function and x supplied as the function argument. \-In this case {\bfseries f} is exactly the same as in the boolean interval test \hyperlink{Exm__3__4_8cpp_a222ab786ba862f781778b6ab42e6d346}{\-I\-B\-T\-Finverse\-\_\-ex3\-\_\-4} above.
+
+
+\begin{DoxyCodeInclude}
+// specification of example interval vector function 
+// (ie, vector inclusion function)
+
+ivector IVF_ex3_4(const ivector& x)
+{
+  // example in 2-d space R2
+  // for f: R2 -> R2
+  //f1(x1, x2) = (x1-1)^2 - 1+ x2
+  //f2(x1, x2) = -(x1^2) + (x2-1)^2
+
+  ivector Img(2);
+
+  Img[1] = sqr(x[1]) - 2*x[1] + x[2];
+  Img[2] = -sqr(x[1]) + sqr(x[2]) - 2*x[2] + 1;
+
+  return (Img);
+}
+
+// end specification of example interval vector functions
+
+\end{DoxyCodeInclude}
+
+
+\-Then we say what namespaces we are using, start the main program, and set up an initial search box \mbox{[}-\/3.\-0 3.\-0\mbox{]}$^{\mbox{2}}$  and a pointer \-A to an \hyperlink{classAIASPnode}{\-A\-I\-A\-S\-Pnode} based on this search box.
+
+
+\begin{DoxyCodeInclude}
+using namespace cxsc;
+using namespace std;
+
+//int main(int argc, char* argv[])
+int main()
+{
+  double prec;
+  clock_t start, end;
+
+  ivector x(2);
+  x[1] = interval(-3.0,3.0);
+  x[2] = interval(-3.0,3.0);
+
+  AIASubPaving A;
+  A = new AIASPnode(x);
+
+\end{DoxyCodeInclude}
+
+
+\-First we use \-S\-I\-V\-I\-A to get a subpaving \-Sc5 in 'x-\/space' using the function f and subpaving to invert specified in \hyperlink{AIASubPavings_IBT_ex3_4}{\-I\-B\-T\-\_\-ex3\-\_\-4}, ie \-Sc5 represents a subpaving characterisation of the set (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) such that x$_{\mbox{1}}$ $^{\mbox{4}}$  -\/ x$_{\mbox{1}}$ $^{\mbox{2}}$  + 4x$_{\mbox{2}}$ $^{\mbox{2}}$  is in the interval \mbox{[}-\/0.\-1, 0.\-1\mbox{]}.
+
+
+\begin{DoxyCodeInclude}
+  // Using SIVIA for set inversion
+
+  // Find an AIASubPaving characterisation Sc5 as in example 3.4
+
+  cout << "Characterization of the set Sc5={(x1,x2) | -0.1 " 
+       << "<= x1^4-x1^2+4x2^2 <= 0.1 }" << endl;
+  cout << "Enter a precision (between 1 and 0.001): ";
+  cin >> prec;
+
+  start = clock();
+
+  // when we start we give A a box big enough to guarantee to contain 
+  // the characterisation of Sc
+
+  Sc5 = Sivia(IBT_ex3_4,A,prec);
+  end = clock();
+
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "Volume: " << Volume(Sc5) << endl;
+  cout << "Number of leaves: " << NbLeaves(Sc5) << endl;
+
+\end{DoxyCodeInclude}
+
+
+\-And send the output to a txt file.
+
+
+\begin{DoxyCodeInclude}
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os5("AIA3_4a.txt");
+  os5 << 2 << endl; // Dimension of the AIASubPaving
+                    // Root box
+  os5 << interval(-3.0,3.0) << " "
+    << interval(-3.0,3.0) << " " << endl;
+                    // Precision used
+  os5 << "Precision is " << prec << endl;
+                    // AIASubPaving itself
+  os5 << Sc5 << endl;
+  cout << "The output AIASubPaving has been written to AIA3_4a.txt" 
+
+\end{DoxyCodeInclude}
+
+
+\-Now we want to find the image of this set using the function specified in \hyperlink{AIASubPavings_IVF_ex3_4}{\-I\-V\-F\-\_\-ex3\-\_\-4}. {\bfseries f}\-: \-R$^{\mbox{2}}$  -\/$>$ \-R$^{\mbox{2}}$ , f$_{\mbox{1}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = (x$_{\mbox{1}}$  -\/ 1)$^{\mbox{2}}$  -\/1 + x$_{\mbox{2}}$ , f$_{\mbox{2}}$ (x$_{\mbox{1}}$ , x$_{\mbox{2}}$ ) = -\/x$_{\mbox{1}}$ $^{\mbox{2}}$  + (x$_{\mbox{2}}$  -\/ 1)$^{\mbox{2}}$ .
+
+
+\begin{DoxyCodeInclude}
+  // Using ImageSp to find the image of Sc5 using
+  //  f1(x) = (x1-1)^2 - 1+ x2
+  // "    f2(x) = -(x1^2) + (x2-1)^2
+
+  cout << "Characterization of the set Sc6=f(Sc5)" << endl
+    << " with Sc5 from our previous example and "<< endl
+    << "with f1(x) = (x1-1)^2 - 1 +x2," << endl
+    << "     f2(x) = -(x1^2) + (x2-1)^2" << endl;
+  cout << "by realizing the image of f by ImageSp" << endl;
+  cout << "Enter a precision (between 1 and 0.01): ";
+
+\end{DoxyCodeInclude}
+
+
+\-This function is certainly not invertible in the usual sense and we have to use \-Image\-Sp to find the image. \-We supply the interval vector function \-I\-V\-F\-\_\-ex3\-\_\-4, the subpaving \-Sc5 and the precision input by the user as arguments in the call to \-Image\-Sp.
+
+
+\begin{DoxyCodeInclude}
+  start = clock();
+
+  // use Image SP to find a characterisation of the 
+  // image of Sc5 using the function in IVF
+  Sc6 = ImageSp(IVF_ex3_4, Sc5, prec);
+
+  end = clock();
+
+\end{DoxyCodeInclude}
+
+
+\-Sc6 now points to a subpaving representation in 'y-\/space', the image of \-Sc5 under the function {\bfseries f} in \hyperlink{AIASubPavings_IVF_ex3_4}{\-I\-V\-F\-\_\-ex3\-\_\-4}.
+
+\-We report computing time, volume and number of leaves and send the suppaving output to a txt file
+
+
+\begin{DoxyCodeInclude}
+  cout << "Computing time : " 
+      << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl;
+  cout << "The volume is " << Volume(Sc6) << endl;
+  cout << "The number of leaves is " << NbLeaves(Sc6) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os6("AIA3_4b.txt");
+  os6 << 2 << endl; // Dimension of the AIASubPaving
+                    // Domain AIASubPaving
+  os6 << interval(-3.0,3.0) << " "
+    << interval(-3.0,3.0) << " " << endl;
+                    // Precision used
+  os6 << "Precision is " << prec << endl;
+                    // Image AIASubPaving itself
+  os6 << Sc6 << endl;
+
+  cout << "The output AIASubPaving has been written to AIA3_4b.txt" 
+
+\end{DoxyCodeInclude}
+
+
+\-Subpaving \-A, which will have been minced and mangled in the process of forming \-Sc6, is now deleted and remade to provide another initial search box.
+
+
+\begin{DoxyCodeInclude}
+  //remake A
+  delete A;
+
+  x[1] = interval(-5.0,5.0);
+  x[2] = interval(-5.0,5.0);
+
+  A = new AIASPnode(x);
+
+\end{DoxyCodeInclude}
+
+
+\-What happens if we now use \-Sivia on our \-Image\-Sp-\/created image \-Sc6 in 'y-\/space', inverting our image to get back to 'x-\/space'?
+
+
+\begin{DoxyCodeInclude}
+  // set inversion using SIVIA
+  // this uses the AIASubPaving Sc6 created by the above example
+  // create an AIASubPaving Sc7 which contains inverse_f(Sc6)
+
+  cout << "Characterization of the set Sc7=f-1(Sc6)" << endl
+    << "with f as above  and Sc6 as above " << endl;
+  cout << "by realizing the inversion of f by Sivia" << endl;
+  cout << "Enter a precision (between 1 and 0.01): ";
+
+\end{DoxyCodeInclude}
+
+
+\-The boolean interval test \hyperlink{AIASubPavings_IBTinverse_ex3_4}{\-I\-B\-T\-Finverse\-\_\-ex3\-\_\-4} specifies the function and also specifies \-Sc6 as the subpaving to test for inclusion in. \-We give the new search box in the subpaving \-A, and the user-\/supplied precision.
+
+
+\begin{DoxyCodeInclude}
+  start = clock();
+  Sc7 = Sivia(IBTFinverse_ex3_4,A,prec);
+  end = clock();
+
+\end{DoxyCodeInclude}
+
+
+\-Sc7 is now points to 'x-\/space' subpaving characterisation of the reciprocal image of \-Sc6, which was in turn a subpaving characterisation of \-Sc5.
+
+\-We report computing time, volume and number of leaves and output the subpaving to a txt file.
+
+
+\begin{DoxyCodeInclude}
+  cout << "Computing time : " 
+       << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< endl
+      ;
+  cout << "Volume: " << Volume(Sc7) << endl;
+  cout << "Number of leaves: " << NbLeaves(Sc7) << endl;
+
+  // To realize a file output of the AIASubPaving Sc
+                    // Filename
+  ofstream os7("AIA3_4c.txt");
+  os7 << 2 << endl; // Dimension of the AIASubPaving
+                    // Root box
+  os7 << interval(-5.0,5.0) << " "
+    << interval(-5.0,5.0) << " " << endl;
+                    // Precision used
+  os7 << "Precision is " << prec << endl;
+                    // AIASubPaving itself
+  os7 << Sc7 << endl;
+
+  cout << "The output AIASubPaving has been written to AIA3_4c.txt" 
+
+\end{DoxyCodeInclude}
+
+
+and then delete our subpavings and end the program
+
+
+\begin{DoxyCodeInclude}
+  delete A;         // delete all Subpavings newed in dynamic memory
+  delete Sc5;
+  delete Sc6;
+  delete Sc7;
+
+  return 0;
+}
+
+\end{DoxyCodeInclude}
+
+
+\-The subpavings produced by this program run using precision 0.\-05 in each case is shown graphically below.
+
+\-As well as showing the initial subpaving (represented by \-Sc5), the image subpaving (represented by \-Sc6), and the reciprocal image of the image (\-Sc7), we capture an intermediate step in the process of creating \-Sc6 from \-Sc5 with \-Image\-Sp. \-This is the evaluation step, where we have a large set of (possibly overlapping) image boxes formed from all the minced up subboxes of the initial box (\mbox{[}-\/3.\-0 3.\-0\mbox{]}$^{\mbox{2}}$  chopped up so that each one is less than 0.\-05 wide). \-This set can be compared to the \-Sc6, the regular minimal subpaving characterisation of the image.
+
+\-The most interesting comparison though is between the initial subpaving (\-Sc5) and the subpaving for a reciprocal image of the image subpaving (\-Sc7). \-The initial set (characterised by \-Sc5) is in there but the result is fatter due to error accumulation in the process of going to 'y-\/space' and back, and the final subpaving has additional parts which appear because {\bfseries f}(.) is only invertible in the set-\/theoretic sense (\-A\-I\-A2001, pp. 63)
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{AIAexample3_4.png}
+\caption{\-Results for \-Example 3.4 using precision 0.05}
+\end{DoxyImage}
+ 

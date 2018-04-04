@@ -1,0 +1,130 @@
+\hypertarget{classWLabPnt}{\subsection{\-W\-Lab\-Pnt \-Class \-Reference}
+\label{classWLabPnt}\index{\-W\-Lab\-Pnt@{\-W\-Lab\-Pnt}}
+}
+
+
+\-A weighted labeled point class for a labeled point-\/valued particle.  
+
+
+
+
+{\ttfamily \#include $<$\-Small\-Classes.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-W\-Lab\-Pnt\-:
+
+
+\-Collaboration diagram for \-W\-Lab\-Pnt\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWLabPnt_a8c511a61a9524e2db1c3fa58b1d37293}{\-Print} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Print the weight, label and the point of the particle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classWLabPnt_a571c18b84ec2394bb517bee7b1a225f0}{q\-Pnt}
+\begin{DoxyCompactList}\small\item\em \-Proposal density of labeled point. \end{DoxyCompactList}\item 
+double \hyperlink{classWLabPnt_a5578d8ba94fa38860ea5b10527327ff3}{f\-Pnt}
+\begin{DoxyCompactList}\small\item\em \-Target shape at labeled point -\/-\/ f$^\wedge$$\ast$(\-Pnt) \end{DoxyCompactList}\item 
+double \hyperlink{classWLabPnt_a570ae2d3848d909ce95291f8d7ffc573}{\-Wt}
+\begin{DoxyCompactList}\small\item\em \-Weight of the labeled point -\/-\/ f\-Pnt/q\-Pnt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A weighted labeled point class for a labeled point-\/valued particle. 
+
+\-Used in trans-\/dimensional importance sampling and sequential importance sampling. \-Ideal for labeled, point-\/valued, trans-\/dimensional particle systems. 
+
+\-Definition at line 52 of file \-Small\-Classes.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classWLabPnt_a8c511a61a9524e2db1c3fa58b1d37293}{\index{\-W\-Lab\-Pnt@{\-W\-Lab\-Pnt}!\-Print@{\-Print}}
+\index{\-Print@{\-Print}!WLabPnt@{\-W\-Lab\-Pnt}}
+\paragraph[{\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-W\-Lab\-Pnt\-::\-Print} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classWLabPnt_a8c511a61a9524e2db1c3fa58b1d37293}
+
+
+\-Print the weight, label and the point of the particle. 
+
+
+
+\-Reimplemented from \hyperlink{classLabPnt_ac3062583331b0ca4591047cc79a0c3af}{\-Lab\-Pnt}.
+
+
+
+\-Definition at line 60 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Lab\-Pnt\-::\-L, taylor\-::\-Lb(), \-Lab\-Pnt\-::\-Pnt, taylor\-::\-Ub(), and \-Wt.
+
+
+\begin{DoxyCode}
+    {
+      out << Wt << " " << L; for(int i=Lb(Pnt); i<=Ub(Pnt); i++)
+      {
+        out << " " << Pnt[i];
+      }
+      out << endl; return;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classWLabPnt_a5578d8ba94fa38860ea5b10527327ff3}{\index{\-W\-Lab\-Pnt@{\-W\-Lab\-Pnt}!f\-Pnt@{f\-Pnt}}
+\index{f\-Pnt@{f\-Pnt}!WLabPnt@{\-W\-Lab\-Pnt}}
+\paragraph[{f\-Pnt}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-W\-Lab\-Pnt\-::f\-Pnt}}}\label{classWLabPnt_a5578d8ba94fa38860ea5b10527327ff3}
+
+
+\-Target shape at labeled point -\/-\/ f$^\wedge$$\ast$(\-Pnt) 
+
+
+
+\-Definition at line 56 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi().
+
+\hypertarget{classWLabPnt_a571c18b84ec2394bb517bee7b1a225f0}{\index{\-W\-Lab\-Pnt@{\-W\-Lab\-Pnt}!q\-Pnt@{q\-Pnt}}
+\index{q\-Pnt@{q\-Pnt}!WLabPnt@{\-W\-Lab\-Pnt}}
+\paragraph[{q\-Pnt}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-W\-Lab\-Pnt\-::q\-Pnt}}}\label{classWLabPnt_a571c18b84ec2394bb517bee7b1a225f0}
+
+
+\-Proposal density of labeled point. 
+
+
+
+\-Definition at line 55 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), and \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi().
+
+\hypertarget{classWLabPnt_a570ae2d3848d909ce95291f8d7ffc573}{\index{\-W\-Lab\-Pnt@{\-W\-Lab\-Pnt}!\-Wt@{\-Wt}}
+\index{\-Wt@{\-Wt}!WLabPnt@{\-W\-Lab\-Pnt}}
+\paragraph[{\-Wt}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-W\-Lab\-Pnt\-::\-Wt}}}\label{classWLabPnt_a570ae2d3848d909ce95291f8d7ffc573}
+
+
+\-Weight of the labeled point -\/-\/ f\-Pnt/q\-Pnt. 
+
+
+
+\-Definition at line 57 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), and \-Print().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SmallClasses_8hpp}{\-Small\-Classes.\-hpp}\end{DoxyCompactItemize}

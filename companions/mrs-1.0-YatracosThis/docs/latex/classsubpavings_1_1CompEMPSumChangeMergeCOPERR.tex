@@ -1,0 +1,76 @@
+\hypertarget{classsubpavings_1_1CompEMPSumChangeMergeCOPERR}{\subsection{subpavings\-:\-:\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R \-Class \-Reference}
+\label{classsubpavings_1_1CompEMPSumChangeMergeCOPERR}\index{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R@{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R}}
+}
+
+
+\-Class comparing change in \-E\-M\-P under \-C\-O\-P\-E\-R\-R from merging 2 nodes.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompEMPSumChangeMergeCOPERR_a74068f89bb79484997ef9819ebdb0e5b}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing change in \-E\-M\-P under \-C\-O\-P\-E\-R\-R from merging 2 nodes. 
+
+\-Under \-C\-O\-P\-E\-R\-R, \-E\-M\-P is -\/1/n$^\wedge$2 x sum over leaves of (counts in leaf squared / volume of leaf) where n is the total number of data points in the histogram
+
+\-For two subleaf nodes we are comparing change in the sum over leaves of (counts in leaf squared over volume of leaf) which would result if each node were to be the one to be merged.
+
+\-Merges take from the left of the queue first (\char`\"{}smallest\char`\"{})
+
+\-The smaller (more negative) the value returned by get\-Merge\-Change\-E\-M\-P\-C\-O\-P\-E\-R\-R(), the more a node will reduce or least increase the overall \-E\-M\-P by being merged, so it should be lower, ie more to left, in the ordering. 
+
+\-Definition at line 143 of file nodecompobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompEMPSumChangeMergeCOPERR_a74068f89bb79484997ef9819ebdb0e5b}{\index{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R@{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompEMPSumChangeMergeCOPERR@{subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-E\-M\-P\-Sum\-Change\-Merge\-C\-O\-P\-E\-R\-R\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompEMPSumChangeMergeCOPERR_a74068f89bb79484997ef9819ebdb0e5b}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{subpavings\-::\-Node\-Comp\-Obj}.
+
+
+
+\-Definition at line 145 of file nodecompobj.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Merge\-Change\-E\-M\-P\-C\-O\-P\-E\-R\-R(), and subpavings\-::\-S\-P\-Snode\-::get\-Root\-Counter().
+
+
+\begin{DoxyCode}
+        {
+            size_t nLhs = lhs->getRootCounter();
+            size_t nRhs = lhs->getRootCounter();
+
+            return (rnd(lhs->getMergeChangeEMPCOPERR(nLhs)) <
+                            rnd(rhs->getMergeChangeEMPCOPERR(nRhs)));
+        }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobj_8hpp}{nodecompobj.\-hpp}\end{DoxyCompactItemize}

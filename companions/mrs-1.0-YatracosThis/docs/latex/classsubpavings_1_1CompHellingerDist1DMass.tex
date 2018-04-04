@@ -1,0 +1,72 @@
+\hypertarget{classsubpavings_1_1CompHellingerDist1DMass}{\subsection{subpavings\-:\-:\-Comp\-Hellinger\-Dist1\-D\-Mass \-Class \-Reference}
+\label{classsubpavings_1_1CompHellingerDist1DMass}\index{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass@{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass}}
+}
+
+
+\-Class comparing the \-Chebyshev distance between the var-\/covar and uniform var-\/covar multiplied with the empirical mass.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-Hellinger\-Dist1\-D\-Mass\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-Hellinger\-Dist1\-D\-Mass\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompHellingerDist1DMass_a9b8a611439eef8ab2cb3c71315b2cf5f}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing the \-Chebyshev distance between the var-\/covar and uniform var-\/covar multiplied with the empirical mass. 
+
+\-Definition at line 364 of file nodecompobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompHellingerDist1DMass_a9b8a611439eef8ab2cb3c71315b2cf5f}{\index{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass@{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompHellingerDist1DMass@{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompHellingerDist1DMass_a9b8a611439eef8ab2cb3c71315b2cf5f}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{subpavings\-::\-Node\-Comp\-Obj}.
+
+
+
+\-Definition at line 366 of file nodecompobj.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Emp\-Mass(), and subpavings\-::\-S\-P\-Snode\-::get\-Hellinger\-Dist1\-D().
+
+
+\begin{DoxyCode}
+      { 
+      /*
+      std::cout << lhs->getNodeName() << "\t" << lhs->getHellingerDist1D()*
+      lhs->getEmpMass() << std::endl;
+      std::cout << rhs->getNodeName() << "\t" << rhs->getHellingerDist1D()*
+      rhs->getEmpMass() << std::endl;
+      std::cout << "=================" << std::endl;
+      */
+      return ( (lhs->getHellingerDist1D()*lhs->getEmpMass()) < 
+            (rhs->getHellingerDist1D()*rhs->getEmpMass()) );
+    }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobj_8hpp}{nodecompobj.\-hpp}\end{DoxyCompactItemize}

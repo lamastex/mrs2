@@ -1,0 +1,8 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{Fobj1D\n|# UsingLogDensity\l# LabDomainList\l# LabDomainPriorIntegralList\l|+ ~Fobj1D()\l+ setUsingLogDensity()\l+ operator()()\l+ operator()()\l+ getUsingLogDensity()\l+ get_domain()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="FreeSans"];
+  Node2 [label="{FLevy2D_Lkl_Tfrom1data\n|- Data\l- GlobalMax\l- Center1\l- Center2\l|+ FLevy2D_Lkl_Tfrom1data()\l+ operator()()\l+ operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFLevy2D__Lkl__Tfrom1data.shtml"];
+}

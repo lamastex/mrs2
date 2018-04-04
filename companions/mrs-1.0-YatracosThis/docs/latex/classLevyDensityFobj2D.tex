@@ -1,0 +1,266 @@
+\hypertarget{classLevyDensityFobj2D}{\subsection{\-Levy\-Density\-Fobj2\-D \-Class \-Reference}
+\label{classLevyDensityFobj2D}\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}}
+}
+
+
+{\ttfamily \#include $<$\-Levy\-Density\-Fobj2\-D.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-Levy\-Density\-Fobj2\-D\-:
+
+
+\-Collaboration diagram for \-Levy\-Density\-Fobj2\-D\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLevyDensityFobj2D_a3e8f6fe0ff3112777bffaed3fe8a745b}{\-Levy\-Density\-Fobj2\-D} ()
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+cxsc\-::interval \hyperlink{classLevyDensityFobj2D_addab3089660574b6397cc0a21b6dda52}{operator()} (const cxsc\-::ivector \&ivec) const 
+\begin{DoxyCompactList}\small\item\em declare function for interval image of a box \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classLevyDensityFobj2D_ae35555f858adb6678520d26573f8eb25}{operator()} (const cxsc\-::rvector \&r) const 
+\begin{DoxyCompactList}\small\item\em declare function for real image of reals \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classLevyDensityFobj2D_ac03556f1ba0eb95471ecb494a5c936d6}{get\-Name} () const 
+\begin{DoxyCompactList}\small\item\em a virtual function for the function name \end{DoxyCompactList}\item 
+\hyperlink{classLevyDensityFobj2D_a99c27958b40bcf66375c8e53d12f333d}{$\sim$\-Levy\-Density\-Fobj2\-D} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const real \hyperlink{classLevyDensityFobj2D_abef22d5930a586484e457df69f2c35f2}{temperature}
+\item 
+const real \hyperlink{classLevyDensityFobj2D_a4804ea4e7f8002b894f2f615e2068e5c}{center1}
+\item 
+const real \hyperlink{classLevyDensityFobj2D_a5a0110c10724caa7e1956618946fb674}{center2}
+\item 
+const real \hyperlink{classLevyDensityFobj2D_a6c87c8726a65d75e1bcb0d011e0f837e}{global\-Max}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-The \-Levy density is the \-Levy function made into a density. \-We get the density from energy by exponentiating its negative. 
+
+\-Definition at line 14 of file \-Levy\-Density\-Fobj2\-D.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classLevyDensityFobj2D_a3e8f6fe0ff3112777bffaed3fe8a745b}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}}
+\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{\-Levy\-Density\-Fobj2\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Levy\-Density\-Fobj2\-D\-::\-Levy\-Density\-Fobj2\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLevyDensityFobj2D_a3e8f6fe0ff3112777bffaed3fe8a745b}
+
+
+constructor 
+
+
+
+\-Definition at line 20 of file \-Levy\-Density\-Fobj2\-D.\-cpp.
+
+
+\begin{DoxyCode}
+                                     : 
+    temperature(40.0), center1(1.42513), center2(0.80032), 
+    globalMax(176.14) {}
+\end{DoxyCode}
+\hypertarget{classLevyDensityFobj2D_a99c27958b40bcf66375c8e53d12f333d}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!$\sim$\-Levy\-Density\-Fobj2\-D@{$\sim$\-Levy\-Density\-Fobj2\-D}}
+\index{$\sim$\-Levy\-Density\-Fobj2\-D@{$\sim$\-Levy\-Density\-Fobj2\-D}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{$\sim$\-Levy\-Density\-Fobj2\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Levy\-Density\-Fobj2\-D\-::$\sim$\-Levy\-Density\-Fobj2\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classLevyDensityFobj2D_a99c27958b40bcf66375c8e53d12f333d}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 78 of file \-Levy\-Density\-Fobj2\-D.\-cpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classLevyDensityFobj2D_ac03556f1ba0eb95471ecb494a5c936d6}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Levy\-Density\-Fobj2\-D\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classLevyDensityFobj2D_ac03556f1ba0eb95471ecb494a5c936d6}
+
+
+a virtual function for the function name 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1MappedFobj_a852f7fc0282f2e331f4c10f459dc96ae}{subpavings\-::\-Mapped\-Fobj}.
+
+
+
+\-Definition at line 73 of file \-Levy\-Density\-Fobj2\-D.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  return std::string("LevyDensity");
+}
+\end{DoxyCode}
+\hypertarget{classLevyDensityFobj2D_addab3089660574b6397cc0a21b6dda52}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-Levy\-Density\-Fobj2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::ivector \&}]{ivec}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classLevyDensityFobj2D_addab3089660574b6397cc0a21b6dda52}
+
+
+declare function for interval image of a box 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj_aad44e53cb112ea94a970a9bf3888fa6b}{subpavings\-::\-Mapped\-Fobj}.
+
+
+
+\-Definition at line 26 of file \-Levy\-Density\-Fobj2\-D.\-cpp.
+
+
+
+\-References center1, center2, taylor\-::cos(), taylor\-::exp(), global\-Max, taylor\-::pow(), and temperature.
+
+
+\begin{DoxyCode}
+{
+  if(VecLen(ivec) != 2) {
+    throw std::invalid_argument("LevyDensityFobj2D::operator()(const
+       cxsc::ivector& ivec): ivec not 2 dimensions");
+  }
+  
+  interval isum(0,0);
+  interval jsum(0,0);
+    
+    for (int i = 1; i <= 5; i++)  {
+    interval ii(i,i);
+    isum = isum + ii * cxsc::cos((ii - 1) * ivec[1] + ii);
+    jsum = jsum + ii * cxsc::cos((ii + 1) * ivec[2] + ii);
+  }
+  // Avoid real conversion error
+  interval int_pow = cxsc::interval(2.0,2.0);
+  interval hh = isum * jsum + cxsc::pow((ivec[1] + center1),int_pow) + pow((
+      ivec[2] + center2),int_pow);
+  hh = hh + globalMax;  
+  interval result = exp (-hh / temperature);
+  return result;
+  
+  
+  
+}
+\end{DoxyCode}
+\hypertarget{classLevyDensityFobj2D_ae35555f858adb6678520d26573f8eb25}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-Levy\-Density\-Fobj2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::rvector \&}]{r}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classLevyDensityFobj2D_ae35555f858adb6678520d26573f8eb25}
+
+
+declare function for real image of reals 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1MappedFobj_aed79714dcf7fb4eb54d0488428909291}{subpavings\-::\-Mapped\-Fobj}.
+
+
+
+\-Definition at line 52 of file \-Levy\-Density\-Fobj2\-D.\-cpp.
+
+
+
+\-References center1, center2, taylor\-::cos(), taylor\-::exp(), global\-Max, taylor\-::pow(), and temperature.
+
+
+\begin{DoxyCode}
+{   
+  if(VecLen(r) != 2) {
+    throw std::invalid_argument("LevyDensityFobj2D::operator()(const
+       cxsc::rvector& r): r not 2 dimensions");
+  }
+  
+  real isum(0.0);
+  real jsum(0.0);
+    
+    for (int i = 1; i <= 5; i++)  {
+    isum = isum + i * cxsc::cos((i - 1) * r[1] + i);
+    jsum = jsum + i * cxsc::cos((i + 1) * r[2] + i);
+  }
+  // Avoid real conversion error
+  real hh = isum * jsum + cxsc::pow((r[1] + center1),2.0) + pow((r[2] + center2
+      ),2.0);
+  hh = hh + globalMax;  
+  real result = exp (-hh / temperature);
+  return result;
+  
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classLevyDensityFobj2D_a4804ea4e7f8002b894f2f615e2068e5c}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!center1@{center1}}
+\index{center1@{center1}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{center1}]{\setlength{\rightskip}{0pt plus 5cm}const real {\bf \-Levy\-Density\-Fobj2\-D\-::center1}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classLevyDensityFobj2D_a4804ea4e7f8002b894f2f615e2068e5c}
+
+
+\-Definition at line 38 of file \-Levy\-Density\-Fobj2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classLevyDensityFobj2D_a5a0110c10724caa7e1956618946fb674}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!center2@{center2}}
+\index{center2@{center2}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{center2}]{\setlength{\rightskip}{0pt plus 5cm}const real {\bf \-Levy\-Density\-Fobj2\-D\-::center2}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classLevyDensityFobj2D_a5a0110c10724caa7e1956618946fb674}
+
+
+\-Definition at line 39 of file \-Levy\-Density\-Fobj2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classLevyDensityFobj2D_a6c87c8726a65d75e1bcb0d011e0f837e}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!global\-Max@{global\-Max}}
+\index{global\-Max@{global\-Max}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{global\-Max}]{\setlength{\rightskip}{0pt plus 5cm}const real {\bf \-Levy\-Density\-Fobj2\-D\-::global\-Max}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classLevyDensityFobj2D_a6c87c8726a65d75e1bcb0d011e0f837e}
+
+
+\-Definition at line 40 of file \-Levy\-Density\-Fobj2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classLevyDensityFobj2D_abef22d5930a586484e457df69f2c35f2}{\index{\-Levy\-Density\-Fobj2\-D@{\-Levy\-Density\-Fobj2\-D}!temperature@{temperature}}
+\index{temperature@{temperature}!LevyDensityFobj2D@{\-Levy\-Density\-Fobj2\-D}}
+\paragraph[{temperature}]{\setlength{\rightskip}{0pt plus 5cm}const real {\bf \-Levy\-Density\-Fobj2\-D\-::temperature}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classLevyDensityFobj2D_abef22d5930a586484e457df69f2c35f2}
+
+
+\-Definition at line 37 of file \-Levy\-Density\-Fobj2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{LevyDensityFobj2D_8hpp}{\-Levy\-Density\-Fobj2\-D.\-hpp}\item 
+\hyperlink{LevyDensityFobj2D_8cpp}{\-Levy\-Density\-Fobj2\-D.\-cpp}\end{DoxyCompactItemize}

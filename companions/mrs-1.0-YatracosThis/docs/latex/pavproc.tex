@@ -1,0 +1,55 @@
+
+\begin{DoxyItemize}
+\item \hyperlink{pavproc_intro}{\-A very short introduction to interval analysis and subpavings}
+\item \hyperlink{pavproc_setcomputation}{\-Regular subpavings and set computation}
+\item \hyperlink{pavproc_statssetprocessing}{\-Subpavings and statistical set processing}
+\end{DoxyItemize}
+
+
+
+\hypertarget{pavproc_intro}{}\subsection{\-A very short introduction to interval analysis and subpavings}\label{pavproc_intro}
+\-This is a very concise introduction to some of the concepts involved in subpavings using descriptions given in the introductory text book \char`\"{}\-Applied Interval Analysis\char`\"{}, by \-Jaulin, \-Kieffer, \-Didrit and \-Walter; \-Springer, 2001. \-This book is abbreviated by \-A\-I\-A2001.
+
+\-For a full description of subpavings see \-A\-I\-A2001 \href{http://www.lss.supelec.fr/books/intervals/}{\tt http\-://www.\-lss.\-supelec.\-fr/books/intervals/}\hypertarget{pavproc_intervals}{}\subsubsection{\-Intervals}\label{pavproc_intervals}
+\-An interval real \mbox{[}x\mbox{]} (usually referred to simply as an interval \mbox{[}x\mbox{]}) is a connected subset of the reals \-R. \-An interval has an upper bound and a lower bound. \mbox{[}\-A\-I\-A2001, pp. 18-\/20\mbox{]}\hypertarget{pavproc_intervalvectors}{}\subsubsection{\-Interval vectors and boxes}\label{pavproc_intervalvectors}
+\-An interval vector \mbox{[}{\bfseries x}\mbox{]} is a subset of \-R$^{\mbox{n}}$  (n-\/dimensional space) that can be defined as the cartesian product of n closed intervals. \mbox{[}{\bfseries x}\mbox{]} is usually referred to as an interval vector or {\itshape box\/}. \-I\-R$^{\mbox{n}}$  is the set of all closed intervals of \-R$^{\mbox{n}}$ . \mbox{[}\-A\-I\-A2001, p. 23\mbox{]}\hypertarget{pavproc_inclfuncs}{}\subsubsection{\-Inclusion functions}\label{pavproc_inclfuncs}
+\-Given a function {\bfseries x} from \-R$^{\mbox{n}}$  to \-R$^{\mbox{m}}$ , the interval function \mbox{[}{\bfseries f}\mbox{]} is an inclusion function for {\bfseries f} if, for all \mbox{[}{\bfseries x}\mbox{]} in \-I\-R$^{\mbox{n}}$ , {\bfseries f}(\mbox{[}{\bfseries x}\mbox{]}) is a subset of \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}). \-The inclusion function {\bfseries f} makes it possible to compute a box \mbox{[}{\bfseries f}\mbox{]}(\mbox{[}{\bfseries x}\mbox{]}) guaranteed to contain f(\mbox{[}{\bfseries x}\mbox{]}). \mbox{[}\-A\-I\-A2001, p. 27\mbox{]}\hypertarget{pavproc_subpavs}{}\subsubsection{\-Subpavings}\label{pavproc_subpavs}
+\-A {\itshape subpaving\/} of a box \mbox{[}{\bfseries x}\mbox{]} is a union of non-\/overlapping subboxes of \mbox{[}{\bfseries x}\mbox{]}. \mbox{[}\-A\-I\-A2001, p. 48\mbox{]}. \-To form this subpaving we subdivide \mbox{[}{\bfseries x}\mbox{]} and then subdivide the subboxes, and then subdivide those subboxes . . . \-The definition of a subpaving also allows us to not select some subbox resulting from any subdivision in the subpaving (only the subboxes we keep can be further subdivided, of course).
+
+\-Bisection of a box is subdivision of the box in half along its longest dimension (or the first longest dimension if it has the same longest length in more than one dimension). \-In one dimension, bisection is dividing an interval in half. \-In two dimensions, bisection is drawing a line through the middle of a rectangle, normal to its longest dimension. \-In three dimensions bisection is slicing a plane through a box, again normal to its longest dimension and again in order to divide the box in half. \-In general, in n dimensions, bisection is by an (n-\/1)-\/dimensional hyperplane normal to the longest dimension of the box at the midpoint of the box on that longest dimension.
+
+\-A {\itshape regular\/} subpaving is obtained from a finite succession of bisections and selections. \-It is computationally simpler to perform operations, such as intersection, on regular subpavings than on non-\/regular subpavings and so they are more easily manipulated in computer applications \mbox{[}\-A\-I\-A2001, pp. 49-\/50\mbox{]}.\hypertarget{pavproc_regsubpavs}{}\subsubsection{\-Regular subpavings and binary trees}\label{pavproc_regsubpavs}
+\-A regular subpaving can be represented as a binary tree. \-Bisection of a box into two subboxes corresponds to the node representing that box branching to two child nodes. \-A decision not to include a subbox in the subpaving means that that branch is pruned off the tree. \-Thus the growth of the branches is defined by how the initial box, which corresponds to the root of the tree, is bisected and which boxes are selected. \-A node with no children is a degenerate node or leaf, and represents a box that is not subdivided. \-In the tree representation of the subpaving, a leaf indicates that the box it represents belongs to the subpaving. \-A tree (or the subpaving it represents) is {\itshape minimal\/} if it has no sibling leaves; that is, no node has more than one leaf-\/child. \mbox{[}\-A\-I\-A2001, p. 52\mbox{]}. \-The presence to two sibling leaves (which means that the subpaving is non-\/minimal) indicates that a box is subdivided and both subboxes (child nodes) retained.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=15cm]{minimalsp1.png}
+\caption{\-A minimal 2-\/dimensional subpaving and its representation as a binary tree}
+\end{DoxyImage}
+
+
+
+
+\hypertarget{pavproc_setcomputation}{}\subsection{\-Regular subpavings and set computation}\label{pavproc_setcomputation}
+\-Jaulin, \-Kieffer, \-Didrit and \-Walter use regular subpavings for set computation. \-In particular, the computation of a reciprocal image \-X = {\bfseries f}$^{\mbox{-\/1}}$ (\-Y) where \-Y is regular subpaving of \-R$^{\mbox{m}}$  (set inversion), and computation of the direct image of a subpaving \-Y = {\bfseries f}(\-X) where \-X is a regular subpaving of \-R$^{\mbox{n}}$  (image evaluation). \mbox{[}\-A\-I\-A2001\mbox{]} outlines the creation of a \-S\-U\-B\-P\-A\-V\-I\-N\-G\-S class and the implementation their algorithms using this class for set inversion and image evaluation in \-C++ given some library for interval analysis\-: the basic requirements of such an interval analysis library are given and their own implementation uses the \-P\-R\-O\-F\-I\-L/\-B\-I\-A\-S library. \-We have implemented the algorithms for set inversion and image evaluation using the \-C-\/\-X\-S\-C interval library with as little change to the structure and code used in \mbox{[}\-A\-I\-A2001\mbox{]} as possible, other than that necessitated by the use of \-C-\/\-X\-S\-C.
+
+\-See\-:
+\begin{DoxyItemize}
+\item \hyperlink{AIASubPavings}{\-Implementation of \-Applied \-Interval \-Analysis procedures under \-C-\/\-X\-S\-C}
+\end{DoxyItemize}
+
+
+
+\hypertarget{pavproc_statssetprocessing}{}\subsection{\-Subpavings and statistical set processing}\label{pavproc_statssetprocessing}
+\-Our interest in subpavings is more general than set computation in the sense of \hyperlink{pavproc_setcomputation}{\-Regular subpavings and set computation}. \-Regular subpavings represent a special case of the general kd tree structure\-: a space partitioning data structure for organising points in k-\/dimensional space. \-We aim to combine interval analysis and inclusion functions with kd trees and manipulation of tree structures. \-In particular, we are interested in the use of subpavings for statistical set processing.
+
+\-We start with a re-\/implemention in \-C++ of the subpaving-\/as-\/a-\/binary-\/tree class based on \mbox{[}\-A\-I\-A2001\mbox{]}. \-Again, we use \-C-\/\-X\-S\-C as the interval analysis library. \-We alter the structure of the class and functions to give us a better basis for using the class as a base class for derived classes specifically for statistical set processing. \-See \hyperlink{newsubpavings}{\-Subpavings as a basis for statistical set processing}.
+
+\-We extend this base class to a class specifically designed for processing statistical sample data. \-The subpaving becomes a way to organise and summarise the sample data. \-The boxes of the subpaving can be thought of a 'buckets' for the data points contained in its interval vector box. \-The binary tree representation of the subpaving shows how the subpaving has been formed. \-Each node in the tree can maintain summaries (such as count, and sum) of the data it represents. \-See \hyperlink{StatsSubPavings}{\-Subpavings for processing statistical sample data}. \-The statistical subpaving class is used in our work on \hyperlink{AdaptiveHistograms}{\-Adaptive histograms} by extending the algoritthms and data structures in \hyperlink{pavproc_setcomputation}{\-Regular subpavings and set computation} .
+
+\-See\-:
+\begin{DoxyItemize}
+\item \hyperlink{newsubpavings}{\-Subpavings as a basis for statistical set processing}
+\item \hyperlink{StatsSubPavings}{\-Subpavings for processing statistical sample data}
+\item \hyperlink{AdaptiveHistograms}{\-Adaptive histograms} 
+\end{DoxyItemize}

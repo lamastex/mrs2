@@ -1,0 +1,2507 @@
+\hypertarget{classtaylor_1_1dim2taylor}{\subsection{taylor\-:\-:dim2taylor \-Class \-Reference}
+\label{classtaylor_1_1dim2taylor}\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}}
+}
+
+
+{\ttfamily \#include $<$dim2taylor.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtaylor_1_1dim2taylor_af42deea4555d3e27017799d98c889d19}{dim2taylor} ()
+\item 
+\hyperlink{classtaylor_1_1dim2taylor_ad7ee9b4029a65ec750e8be8f2a4241d2}{dim2taylor} (int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor_a95930d83a52a47f2547591fce0283c16}{dim2taylor} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor_a7216581b3f89d2ef618e1ec3412056c2}{dim2taylor} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor_a910e9d2b6f8df7e08c6993039475b8b3}{$\sim$dim2taylor} ()
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \& \hyperlink{classtaylor_1_1dim2taylor_aadd57620043591d41cd62f6b28299d8f}{operator=} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+ivector \& \hyperlink{classtaylor_1_1dim2taylor_ab8e423651b66d8d139153d6cc33efbd7}{operator\mbox{[}$\,$\mbox{]}} (int n) const 
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor_a060b69225e4e25f12c4366cd5d626500}{get\-\_\-p} () const 
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor_afd9dcb9af56af0136cf009c039542fc9}{order} () const 
+\item 
+void \hyperlink{classtaylor_1_1dim2taylor_a36fc3e017a76b47429978bf04580809c}{print\-\_\-dim2taylor} ()
+\item 
+void \hyperlink{classtaylor_1_1dim2taylor_a9ab021c4d972c15bf8785d54cb827f09}{print\-\_\-dim2taylor} (std\-::ostream \&)
+\item 
+void \hyperlink{classtaylor_1_1dim2taylor_a70d5bbe4a35c69b21f57e4924153029a}{rescale} (int i, int j, interval factor)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classtaylor_1_1dim2taylor_a68bb1d15f4bee8bf2a437d1558c9b28b}{p}
+\item 
+ivector $\ast$ \hyperlink{classtaylor_1_1dim2taylor_a831423b7ae2f1d7595c7786029612942}{dat}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a8c0fa623afa0bd7232383a92323034b9}{init\-\_\-var} (int, int, const interval \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a1e38ee90f5a7748279910deb6bb5a18c}{init\-\_\-const} (int, const interval \&)
+\item 
+std\-::ostream \& \hyperlink{classtaylor_1_1dim2taylor_aab904a95a98e21b21ee031059cac17e8}{operator$<$$<$} (std\-::ostream \&, \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a3bcec54e79e69c21c13d7172eb7f1e80}{operator-\/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&s)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_acadb11c640820dd3e04df8a76df68847}{operator-\/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_ad28973bf323c013e9b2408e545d73340}{operator+} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a0128fad9ad560b136628b54b2db20f8a}{operator$\ast$} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a3b317bf23d21b4e71893fd523f73e961}{operator/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a2957c8c107e41f10212695f7cc4e67b3}{operator-\/} (const interval \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a94f1681d271c24986e505d2cab8672b3}{operator+} (const interval \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_abc89439f8317a6edbdcb10f0985a6a45}{operator$\ast$} (const interval \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_ac8e54bc904ea5484d3396718abb1f11b}{operator/} (const interval \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_af606a5ebad7f118ee1a76a5ab4e0726a}{operator-\/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const interval \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_aa933d2b6b2551cbc590f399f49411eac}{operator+} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const interval \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a9d529379a2fb41cb1d82891fc27f9a7a}{operator$\ast$} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const interval \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_ab207e289fba8f39a622b2413b80663dc}{operator/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const interval \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a0514d94015d5aa559812f43086cdea02}{operator-\/} (const real \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a6d1538c756688160d8c101f3df990e6c}{operator+} (const real \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a4e87158c70647066f1c4d6b32f91ee10}{operator$\ast$} (const real \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_ab7c059a521398354da079fbe16472b58}{operator/} (const real \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a76bdb636ad6d8d93153e4eb536b63dfc}{operator-\/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const real \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a90620b246015f13f1e2b4465e94d2a2c}{operator+} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const real \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_af7ee67d9c68cbcc00272dabf4217147e}{operator$\ast$} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const real \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a6e797966e808641e8bac96bf139c3171}{operator/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const real \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a877e3ffa1e63ba74cfd3fbe2d55c21ef}{operator-\/} (int, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a550701a8d2eb556725616d7d6eda9c32}{operator+} (int, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a0f140f0d741024645798a527ff01b042}{operator$\ast$} (int, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_acf30d0d4be12a38fef863cd8fd59b5b0}{operator/} (int, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a40a2fbde540b34e912071fa7ec7ebc40}{operator-\/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a98134295941b50ca9a1bb27653d8c66d}{operator+} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_ac6fe62a3f83125b97038c34d8bb70e0f}{operator$\ast$} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_ac66f42b7e2992aaa02b88898cd1da51f}{operator/} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a0918e81021192eed36a5b0fb102247ea}{sqr} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a2d7a004d2ee48a630edfc41746512d93}{sqrt} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a0ee48b960b16cd8d2ecbafeb58420022}{sqrt1px2} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a91a86e0655561bafd6c1609ab75ce13e}{sqrtx2m1} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a43d67bd8644d997c3acb7ec15302d543}{sqrtp1m1} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_abdf82637f3423a00d9f6537e0e24b1ec}{pow} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const interval \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a56014cfe86271f3c7381f38719840488}{power} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, int)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_add076ca02a1a206d45cdba3c3975f482}{exp} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_afeceb1f35bc0ddad1298ba9d7ad6058e}{ln} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_aedce903fbdae780d0747f98d3df97999}{lnp1} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_adc5c16c2f29f77a66a9bc58da67cb836}{sin} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a5664e8bd2886b7a7cb182d0de6cc8488}{cos} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_ae1512635633c3f04275139d114882992}{tan} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a1bc5d172758d7c1778e68fd3f49e023e}{cot} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_aeac682b730862bff598a6fb0206b5764}{sinh} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a66716209543861cf0e04cc0e1f92b29a}{cosh} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a418b70a725a6518ff77e7c8d6c169144}{tanh} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a4f29b432dc4e82bb9bbd7ef9a1d8cd8c}{coth} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a2482f3c0537187553577cc066bc7be02}{asin} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a998947a4015cc752416339e96be56bcd}{acos} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a356054c59d1ee1a4a04c377b1029c773}{atan} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_addd4a90845a5143e8b9e6950a32d0618}{acot} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_aff3dc8ab9145b558b7f60ae455fa0fdb}{asinh} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a90e7380360f327ec4acc83f8ee851710}{acosh} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a721ffaeb7fe159ba485eca03a00bbe56}{atanh} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_af5ee0d6bc989b885c069e24afb9a545b}{acoth} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_af895bd87e20ec4e15cba89fb56806188}{erf} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+\hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \hyperlink{classtaylor_1_1dim2taylor_a42349afab7dd4af2f8853fce8aa6e168}{erfc} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&)
+\item 
+void \hyperlink{classtaylor_1_1dim2taylor_a1990d432f619f0945b84ef4bdf5aa89b}{f\-\_\-g\-\_\-u} (const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, const \hyperlink{classtaylor_1_1dim2taylor}{dim2taylor} \&, int)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 56 of file dim2taylor.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor_af42deea4555d3e27017799d98c889d19}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!dim2taylor@{dim2taylor}}
+\index{dim2taylor@{dim2taylor}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{dim2taylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-::dim2taylor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_af42deea4555d3e27017799d98c889d19}
+
+
+\-Definition at line 42 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ p=0;
+ dat=new ivector[p+1];
+ for(int i=0; i<=p; i++) Resize(dat[i], 0, p-i);
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ad7ee9b4029a65ec750e8be8f2a4241d2}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!dim2taylor@{dim2taylor}}
+\index{dim2taylor@{dim2taylor}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{dim2taylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-::dim2taylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{order}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_ad7ee9b4029a65ec750e8be8f2a4241d2}
+
+
+\-Definition at line 51 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ p=order;
+ dat=new ivector[p+1];
+ for(int i=0; i<=p; i++) Resize(dat[i], 0, p-i);
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a95930d83a52a47f2547591fce0283c16}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!dim2taylor@{dim2taylor}}
+\index{dim2taylor@{dim2taylor}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{dim2taylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-::dim2taylor} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_a95930d83a52a47f2547591fce0283c16}
+
+
+\-Definition at line 60 of file dim2taylor.\-cpp.
+
+
+
+\-References dat, and p.
+
+
+\begin{DoxyCode}
+{
+ p=s.p;
+ dat=new ivector[p+1];
+ for(int i=0; i<=p ;i++) dat[i]=s.dat[i];
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a7216581b3f89d2ef618e1ec3412056c2}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!dim2taylor@{dim2taylor}}
+\index{dim2taylor@{dim2taylor}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{dim2taylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-::dim2taylor} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_a7216581b3f89d2ef618e1ec3412056c2}
+
+
+\-Definition at line 1638 of file dim2taylor.\-cpp.
+
+
+
+\-References dat, and p.
+
+
+\begin{DoxyCode}
+{
+ p=s.p+1;
+ dat=new ivector[p+1];
+ for(int i=0; i<=p-1 ;i++) {
+   dat[i]=s.dat[i];
+   Resize(dat[i], 0, p-i);
+   dat[i][p-i]=0.0;
+ }
+ Resize(dat[p],0,0);
+ dat[p][0]=0.0;
+ 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a910e9d2b6f8df7e08c6993039475b8b3}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!$\sim$dim2taylor@{$\sim$dim2taylor}}
+\index{$\sim$dim2taylor@{$\sim$dim2taylor}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{$\sim$dim2taylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::dim2taylor\-::$\sim$dim2taylor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_a910e9d2b6f8df7e08c6993039475b8b3}
+
+
+\-Definition at line 68 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ delete[] dat;
+ dat=NULL;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor_a060b69225e4e25f12c4366cd5d626500}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!get\-\_\-p@{get\-\_\-p}}
+\index{get\-\_\-p@{get\-\_\-p}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{get\-\_\-p}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-::get\-\_\-p} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a060b69225e4e25f12c4366cd5d626500}
+
+
+\-Definition at line 80 of file dim2taylor.\-hpp.
+
+
+\begin{DoxyCode}
+{return p;};
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_aadd57620043591d41cd62f6b28299d8f}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator=@{operator=}}
+\index{operator=@{operator=}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} \& taylor\-::dim2taylor\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_aadd57620043591d41cd62f6b28299d8f}
+
+
+\-Definition at line 77 of file dim2taylor.\-cpp.
+
+
+
+\-References dat, and p.
+
+
+\begin{DoxyCode}
+{
+ if(this != &s)
+ {
+  delete[] dat;
+  dat=NULL;
+  p=s.p;
+  dat=new ivector[p+1];
+
+  for(int i=0; i<=p ; i++) dat[i]=s.dat[i]; 
+
+ }
+ return *this;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ab8e423651b66d8d139153d6cc33efbd7}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}ivector \& taylor\-::dim2taylor\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+) const}}\label{classtaylor_1_1dim2taylor_ab8e423651b66d8d139153d6cc33efbd7}
+
+
+\-Definition at line 94 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    return dat[n];
+} 
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_afd9dcb9af56af0136cf009c039542fc9}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!order@{order}}
+\index{order@{order}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{order}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-::order} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1dim2taylor_afd9dcb9af56af0136cf009c039542fc9}
+
+
+\-Definition at line 81 of file dim2taylor.\-hpp.
+
+
+\begin{DoxyCode}
+{return p;}  //added, mg2005-08/2005-11
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a36fc3e017a76b47429978bf04580809c}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!print\-\_\-dim2taylor@{print\-\_\-dim2taylor}}
+\index{print\-\_\-dim2taylor@{print\-\_\-dim2taylor}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{print\-\_\-dim2taylor}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf taylor\-::dim2taylor\-::print\-\_\-dim2taylor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_a36fc3e017a76b47429978bf04580809c}
+
+
+\-Definition at line 150 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    for(int j=0; j<=p ; j++) 
+    {
+  for(int i=0; i<=p-j ; i++) std::cout << dat[j][i]<< " ";
+  std::cout << std::endl;
+    }
+    std::cout << std::endl;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a9ab021c4d972c15bf8785d54cb827f09}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!print\-\_\-dim2taylor@{print\-\_\-dim2taylor}}
+\index{print\-\_\-dim2taylor@{print\-\_\-dim2taylor}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{print\-\_\-dim2taylor}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf taylor\-::dim2taylor\-::print\-\_\-dim2taylor} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1dim2taylor_a9ab021c4d972c15bf8785d54cb827f09}
+
+
+\-Definition at line 162 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ for(int j=0; j<=p ; j++) 
+  {
+   for(int i=0; i<=p-j ; i++) std::cout << dat[j][i]<< " ";
+   os << std::endl;
+  }
+ os << std::endl;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a70d5bbe4a35c69b21f57e4924153029a}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!rescale@{rescale}}
+\index{rescale@{rescale}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{rescale}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf taylor\-::dim2taylor\-::rescale} (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j, }
+\item[{interval}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a70d5bbe4a35c69b21f57e4924153029a}
+
+
+\-Definition at line 172 of file dim2taylor.\-hpp.
+
+
+\begin{DoxyCode}
+{dat[i][j]*=factor;}
+\end{DoxyCode}
+
+
+\subsubsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor_a998947a4015cc752416339e96be56bcd}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!acos@{acos}}
+\index{acos@{acos}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{acos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf acos} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a998947a4015cc752416339e96be56bcd}
+
+
+\-Definition at line 1267 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=-sqrt( interval(1.0)-sqr(s) );
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor acos : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _acos);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a90e7380360f327ec4acc83f8ee851710}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!acosh@{acosh}}
+\index{acosh@{acosh}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{acosh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf acosh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a90e7380360f327ec4acc83f8ee851710}
+
+
+\-Definition at line 1336 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+// g=sqrt(sqr(s)-interval(1.0));
+ g = sqrtx2m1(s); // Blomquist, 05.10.05;
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor acosh : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _acosh);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_addd4a90845a5143e8b9e6950a32d0618}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!acot@{acot}}
+\index{acot@{acot}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{acot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf acot} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_addd4a90845a5143e8b9e6950a32d0618}
+
+
+\-Definition at line 1301 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=-(interval(1.0)+sqr(s));
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor acot : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _acot);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_af5ee0d6bc989b885c069e24afb9a545b}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!acoth@{acoth}}
+\index{acoth@{acoth}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{acoth}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf acoth} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_af5ee0d6bc989b885c069e24afb9a545b}
+
+
+\-Definition at line 1371 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=interval(1.0)-sqr(s);
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor acoth : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _acoth);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a2482f3c0537187553577cc066bc7be02}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!asin@{asin}}
+\index{asin@{asin}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{asin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf asin} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a2482f3c0537187553577cc066bc7be02}
+
+
+\-Definition at line 1250 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=sqrt( interval(1.0)-sqr(s) );
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor asin : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _asin);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_aff3dc8ab9145b558b7f60ae455fa0fdb}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!asinh@{asinh}}
+\index{asinh@{asinh}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{asinh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf asinh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_aff3dc8ab9145b558b7f60ae455fa0fdb}
+
+
+\-Definition at line 1318 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+// g=sqrt(interval(1.0)+sqr(s));
+ g = sqrt1px2(s); // Blomquist, 05.10.05;
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor asinh : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _asinh);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a356054c59d1ee1a4a04c377b1029c773}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!atan@{atan}}
+\index{atan@{atan}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{atan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf atan} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a356054c59d1ee1a4a04c377b1029c773}
+
+
+\-Definition at line 1284 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=interval(1.0)+sqr(s);
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor atan : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _atan);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a721ffaeb7fe159ba485eca03a00bbe56}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!atanh@{atanh}}
+\index{atanh@{atanh}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{atanh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf atanh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a721ffaeb7fe159ba485eca03a00bbe56}
+
+
+\-Definition at line 1354 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=interval(1.0)-sqr(s);
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor atanh : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _atanh);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a5664e8bd2886b7a7cb182d0de6cc8488}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!cos@{cos}}
+\index{cos@{cos}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{cos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf cos} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a5664e8bd2886b7a7cb182d0de6cc8488}
+
+
+\-Definition at line 1052 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg1(s.p), erg2(s.p); 
+
+ idotprecision sum_idot1, sum_idot2;
+ interval sum1, sum2;
+
+ erg1[0][0]=sin(s[0][0]);
+ erg2[0][0]=cos(s[0][0]);
+
+ if(s.p>0)
+   {
+     for(int k=1; k<=erg1.p; k++)
+       {
+   for(int i=0; i<=k; i++)
+     {
+       sum_idot1=interval(0.0);
+       sum_idot2=interval(0.0);
+
+       for(int l=0; l<=i; l++) // now calculating ergs(i,k-i)
+         {
+     for(int m=0; m<=k-i; m++)
+       { 
+         interval h=interval(k)-interval(l)-interval(m);
+         accumulate(sum_idot1, h*erg2[l][m], s[i-l][k-i-m]);
+         accumulate(sum_idot2, h*erg1[l][m], s[i-l][k-i-m]);
+       } // for m
+         }     // for l
+
+       rnd(sum_idot1, sum1);  
+       rnd(sum_idot2, sum2);
+
+       erg1[i][k-i]=sum1/interval(k);
+       erg2[i][k-i]=-sum2/interval(k);
+     }
+       }
+   }
+
+ return erg2;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a66716209543861cf0e04cc0e1f92b29a}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!cosh@{cosh}}
+\index{cosh@{cosh}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{cosh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf cosh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a66716209543861cf0e04cc0e1f92b29a}
+
+
+\-Definition at line 1173 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg1(s.p), erg2(s.p); 
+
+ idotprecision sum_idot1, sum_idot2;
+ interval sum1, sum2;
+
+ erg1[0][0]=sinh(s[0][0]);
+ erg2[0][0]=cosh(s[0][0]);
+
+ if(s.p>0)
+   {
+     for(int k=1; k<=erg1.p; k++)
+       {
+   for(int i=0; i<=k; i++)
+     {
+       sum_idot1=interval(0.0);
+       sum_idot2=interval(0.0);
+
+       for(int l=0; l<=i; l++) // now calculating ergs(i,k-i)
+         {
+     for(int m=0; m<=k-i; m++)
+       { 
+         interval h=interval(k)-interval(l)-interval(m);
+         accumulate(sum_idot1, h*erg2[l][m], s[i-l][k-i-m]);
+         accumulate(sum_idot2, h*erg1[l][m], s[i-l][k-i-m]);
+       } // for m
+         }     // for l
+
+       rnd(sum_idot1, sum1);  
+       rnd(sum_idot2, sum2);
+
+       erg1[i][k-i]=sum1/interval(k);
+       erg2[i][k-i]=sum2/interval(k);
+     }
+       }
+   }
+
+ return erg2;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a1bc5d172758d7c1778e68fd3f49e023e}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!cot@{cot}}
+\index{cot@{cot}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{cot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf cot} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a1bc5d172758d7c1778e68fd3f49e023e}
+
+
+\-Definition at line 1113 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=-sqr(sin(s));
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor cot : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _cot);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a4f29b432dc4e82bb9bbd7ef9a1d8cd8c}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!coth@{coth}}
+\index{coth@{coth}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{coth}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf coth} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a4f29b432dc4e82bb9bbd7ef9a1d8cd8c}
+
+
+\-Definition at line 1233 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=-sqr(sinh(s));
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor coth : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _coth);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_af895bd87e20ec4e15cba89fb56806188}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!erf@{erf}}
+\index{erf@{erf}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{erf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf erf} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_af895bd87e20ec4e15cba89fb56806188}
+
+
+\-Definition at line 1389 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+
+ idotprecision sum_idot;
+ interval sum;
+
+ dim2taylor g(s.p);
+
+ g=exp(-sqr(s));
+
+ erg[0][0]=erf(s[0][0]);
+
+ if(s.p>0)
+   {
+     for(int k=1; k<=erg.p; k++)
+       {
+   for(int i=0; i<=k; i++)
+     {
+       sum_idot=interval(0.0);
+
+       for(int l=0; l<=i; l++) // now calculating erg(i,k-i)
+                                     // equiv. to erg(k1,k2) in Braeuer Thesis
+         {
+     for(int m=0; m<=k-i; m++)
+       { 
+         interval h=interval(k)-interval(l)-interval(m);
+         accumulate(sum_idot, h*g[l][m], s[i-l][k-i-m]);
+                                             //Braeuer:s[k1-j1][k2-j2]
+       } // for m
+         }     // for l
+
+       rnd(sum_idot, sum);  
+       erg[i][k-i]=interval(2)*sum/(sqrt(Pi())*interval(k));
+     }
+       }
+   }
+
+ return erg;
+
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a42349afab7dd4af2f8853fce8aa6e168}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!erfc@{erfc}}
+\index{erfc@{erfc}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{erfc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf erfc} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a42349afab7dd4af2f8853fce8aa6e168}
+
+
+\-Definition at line 1434 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+
+ erg=interval(1)-erf(s);
+
+ return erg;
+
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_add076ca02a1a206d45cdba3c3975f482}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!exp@{exp}}
+\index{exp@{exp}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{exp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf exp} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_add076ca02a1a206d45cdba3c3975f482}
+
+
+\-Definition at line 923 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+
+ idotprecision sum_idot;
+ interval sum;
+
+ erg[0][0]=exp(s[0][0]);
+
+ if(s.p>0)
+   {
+     for(int k=1; k<=erg.p; k++)
+       {
+   for(int i=0; i<=k; i++)
+     {
+       sum_idot=interval(0.0);
+
+       for(int l=0; l<=i; l++) // now calculating erg(i,k-i)
+         {
+     for(int m=0; m<=k-i; m++)
+       { 
+         interval h=interval(k)-interval(l)-interval(m);
+         accumulate(sum_idot, h*erg[l][m], s[i-l][k-i-m]);
+       } // for m
+         }     // for l
+
+       rnd(sum_idot, sum);  
+       erg[i][k-i]=sum/interval(k);
+     }
+       }
+   }
+
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a1990d432f619f0945b84ef4bdf5aa89b}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!f\-\_\-g\-\_\-u@{f\-\_\-g\-\_\-u}}
+\index{f\-\_\-g\-\_\-u@{f\-\_\-g\-\_\-u}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{f\-\_\-g\-\_\-u}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf f\-\_\-g\-\_\-u} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{f, }
+\item[{const {\bf dim2taylor} \&}]{g, }
+\item[{const {\bf dim2taylor} \&}]{u, }
+\item[{int}]{\-\_\-fkt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a1990d432f619f0945b84ef4bdf5aa89b}
+
+
+\-Definition at line 1447 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ idotprecision sum_idot;
+
+ interval sum1, sum2;
+ 
+ switch(_fkt)   { 
+   case _ln:       {f[0][0]=ln(u[0][0]);       break;}
+   case _lnp1:     {f[0][0]=lnp1(u[0][0]);     break;}
+   case _sqrtp1m1: {f[0][0]=sqrtp1m1(u[0][0]); break;}
+   case _tan:      {f[0][0]=tan(u[0][0]);      break;}
+   case _cot:      {f[0][0]=cot(u[0][0]);      break;}
+
+   case _asin:  {f[0][0]=asin(u[0][0]);  break;}
+   case _acos:  {f[0][0]=acos(u[0][0]);  break;}
+   case _atan:  {f[0][0]=atan(u[0][0]);  break;}
+   case _acot:  {f[0][0]=acot(u[0][0]);  break;}
+
+   case _tanh:  {f[0][0]=tanh(u[0][0]);  break;}
+   case _coth:  {f[0][0]=coth(u[0][0]);  break;}
+
+   case _asinh:  {f[0][0]=asinh(u[0][0]);  break;}
+   case _acosh:  {f[0][0]=acosh(u[0][0]);  break;}
+   case _atanh:  {f[0][0]=atanh(u[0][0]);  break;}
+   case _acoth:  {f[0][0]=acoth(u[0][0]);  break;}
+   } 
+
+ if(f.p>0)
+   {
+     for(int k=1; k<=f.p; k++)
+       {
+   sum_idot=interval(0.0);
+
+   for(int j=1; j<=k-1; j++)
+     {
+       accumulate(sum_idot, interval(j)*f[0][j], g[0][k-j]);
+     }
+   rnd(sum_idot, sum1);
+   f[0][k]=(u[0][k]-sum1/interval(k))/g[0][0];
+       }
+
+     for(int i=1; i<=f.p; i++) // now calculating the remainding f(i,j)
+       {
+   for(int j=0; j<=f.p-i; j++)
+     {
+       sum_idot=interval(0.0);
+       
+       for(int l=1; l<=i-1; l++) 
+         {
+     for(int m=0; m<=j; m++)
+      {
+      accumulate(sum_idot, interval(l)*f[l][m], g[i-l][j-m]);
+      }
+         }
+       rnd(sum_idot, sum1); 
+       
+       sum_idot=interval(0.0);
+       for(int m=1; m<=j; m++) 
+         {
+     accumulate(sum_idot, g[0][m], f[i][j-m]);
+         }
+       rnd(sum_idot, sum2); 
+       
+       f[i][j]=(u[i][j]-sum1/interval(i)-sum2)/g[0][0];
+     }
+       } 
+   }
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a1e38ee90f5a7748279910deb6bb5a18c}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!init\-\_\-const@{init\-\_\-const}}
+\index{init\-\_\-const@{init\-\_\-const}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{init\-\_\-const}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf init\-\_\-const} (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{const interval \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a1e38ee90f5a7748279910deb6bb5a18c}
+
+
+\-Definition at line 132 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+
+ dim2taylor t(order);
+
+ if(t.p>0)
+  {
+   for(int j=0; j<=t.p ; j++) 
+     for(int i=0; i<=t.p-j ; i++) t[j][i]=interval(0.0);       
+  }
+
+ t[0][0]=value;
+
+ return t;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a8c0fa623afa0bd7232383a92323034b9}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!init\-\_\-var@{init\-\_\-var}}
+\index{init\-\_\-var@{init\-\_\-var}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{init\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf init\-\_\-var} (
+\begin{DoxyParamCaption}
+\item[{int}]{, }
+\item[{int}]{, }
+\item[{const interval \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a8c0fa623afa0bd7232383a92323034b9}
+
+
+\-Definition at line 101 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+
+ dim2taylor t(order);
+
+ if( (nr<1) && (nr>2) ) std::cerr << "Error in dim2taylor::init_var" 
+                                  << std::endl;
+
+ t[0][0]=value;
+
+ if(t.p>0)
+  {
+   if(nr==1) t[1][0]=interval(1.0);
+   else t[1][0]=interval(0.0);
+
+   if(nr==2) t[0][1]=interval(1.0);
+   else t[0][1]=interval(0.0);
+   
+   for(int i=2; i<=t.p; i++) {t[0][i]=interval(0.0);}   // Rest 0. line
+   for(int i=1; i<=t.p-1; i++) {t[1][i]=interval(0.0);} // Rest 1. line  
+
+   // remaining elements
+   for(int j=2; j<=t.p ; j++) 
+     for(int i=0; i<=t.p-j ; i++) t[j][i]=interval(0.0);       
+  }
+
+ return t;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_afeceb1f35bc0ddad1298ba9d7ad6058e}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!ln@{ln}}
+\index{ln@{ln}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{ln}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf ln} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_afeceb1f35bc0ddad1298ba9d7ad6058e}
+
+
+\-Definition at line 960 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p);
+
+ if(0<=s[0][0])
+   {
+     cerr << "Error in dim2taylor ln : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, s, s, _ln);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_aedce903fbdae780d0747f98d3df97999}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!lnp1@{lnp1}}
+\index{lnp1@{lnp1}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{lnp1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf lnp1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_aedce903fbdae780d0747f98d3df97999}
+
+
+\-Definition at line 975 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+ g = interval(1) + s;
+
+ if(0<=interval(1)+s[0][0])
+   {
+     cerr << "Error in dim2taylor lnp1 : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _lnp1);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a0128fad9ad560b136628b54b2db20f8a}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a0128fad9ad560b136628b54b2db20f8a}
+
+
+\-Definition at line 259 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1=s.p;
+ int order2=t.p;
+
+ if(order1 != order2)
+   {
+     cerr << "dim2taylor operator* : Operands with different orders";
+     cerr << endl;
+     exit(1);
+   }
+
+ dim2taylor erg(order1);
+
+ idotprecision sum_idot;
+
+ for(int k=0; k<=erg.p; k++)
+  {
+    for(int i=0; i<=k; i++)
+     {
+      sum_idot=interval(0.0);
+
+      for(int l=0; l<=i; l++) // calculating erg(i,k-i)
+  {
+   for(int m=0; m<=k-i; m++)
+    {
+      accumulate(sum_idot, s[l][m], t[i-l][k-i-m]);
+    } 
+  }  
+
+      rnd(sum_idot, erg[i][k-i]);      
+     }
+  }
+
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_abc89439f8317a6edbdcb10f0985a6a45}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_abc89439f8317a6edbdcb10f0985a6a45}
+
+
+\-Definition at line 370 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(t.p);
+ dim2taylor s_ty=init_const(t.p, s);
+
+ erg=s_ty*t;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a9d529379a2fb41cb1d82891fc27f9a7a}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const interval \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a9d529379a2fb41cb1d82891fc27f9a7a}
+
+
+\-Definition at line 408 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+ dim2taylor t_ty=init_const(s.p, t);
+
+ erg=s*t_ty;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a4e87158c70647066f1c4d6b32f91ee10}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a4e87158c70647066f1c4d6b32f91ee10}
+
+
+\-Definition at line 449 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i); 
+    erg = s_ty * t; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_af7ee67d9c68cbcc00272dabf4217147e}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const real \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_af7ee67d9c68cbcc00272dabf4217147e}
+
+
+\-Definition at line 487 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s * t_ty;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a0f140f0d741024645798a527ff01b042}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a0f140f0d741024645798a527ff01b042}
+
+
+\-Definition at line 526 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i); 
+    erg = s_ty * t; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ac6fe62a3f83125b97038c34d8bb70e0f}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_ac6fe62a3f83125b97038c34d8bb70e0f}
+
+
+\-Definition at line 564 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s * t_ty;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ad28973bf323c013e9b2408e545d73340}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_ad28973bf323c013e9b2408e545d73340}
+
+
+\-Definition at line 235 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+int order1=s.p;
+int order2=t.p;
+
+ if(order1 != order2)
+   {
+     cerr << "dim2taylor operator+ : Operands with different orders";
+     cerr << endl;
+     exit(1);
+   }
+
+ dim2taylor erg(order1);
+
+ for(int j=0; j<=erg.p ; j++) 
+  {
+   for(int i=0; i<=erg.p-j ; i++) erg[j][i]=s[j][i]+t[j][i];
+  }
+
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a94f1681d271c24986e505d2cab8672b3}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a94f1681d271c24986e505d2cab8672b3}
+
+
+\-Definition at line 361 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(t.p);
+ dim2taylor s_ty = init_const(t.p, s);
+
+ erg = s_ty + t;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_aa933d2b6b2551cbc590f399f49411eac}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const interval \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_aa933d2b6b2551cbc590f399f49411eac}
+
+
+\-Definition at line 399 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+ dim2taylor t_ty = init_const(s.p, t);
+
+ erg=s+t_ty;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a6d1538c756688160d8c101f3df990e6c}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a6d1538c756688160d8c101f3df990e6c}
+
+
+\-Definition at line 439 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{    
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i);
+    erg = s_ty + t;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a90620b246015f13f1e2b4465e94d2a2c}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const real \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a90620b246015f13f1e2b4465e94d2a2c}
+
+
+\-Definition at line 478 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s + t_ty; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a550701a8d2eb556725616d7d6eda9c32}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a550701a8d2eb556725616d7d6eda9c32}
+
+
+\-Definition at line 516 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{    
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i);
+    erg = s_ty + t;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a98134295941b50ca9a1bb27653d8c66d}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a98134295941b50ca9a1bb27653d8c66d}
+
+
+\-Definition at line 555 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s + t_ty; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a3bcec54e79e69c21c13d7172eb7f1e80}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a3bcec54e79e69c21c13d7172eb7f1e80}
+
+
+\-Definition at line 196 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order=s.p;
+ dim2taylor erg(order);
+
+ for(int j=0; j<=erg.p ; j++) 
+  {
+   for(int i=0; i<=erg.p-j ; i++) erg[j][i]=-s[j][i];
+  }
+ 
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_acadb11c640820dd3e04df8a76df68847}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_acadb11c640820dd3e04df8a76df68847}
+
+
+\-Definition at line 211 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1=s.p;
+ int order2=t.p;
+
+ if(order1 != order2)
+   {
+     std::cerr << "dim2taylor operator- : Operands with different orders";
+     std::cerr << std::endl;
+     exit(1);
+   }
+
+ dim2taylor erg(order1);
+
+ for(int j=0; j<=erg.p ; j++) 
+  {
+   for(int i=0; i<=erg.p-j ; i++) erg[j][i]=s[j][i]-t[j][i];
+  }
+ 
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a2957c8c107e41f10212695f7cc4e67b3}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a2957c8c107e41f10212695f7cc4e67b3}
+
+
+\-Definition at line 352 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(t.p);
+ dim2taylor s_ty=init_const(t.p, s);
+
+ erg=s_ty-t;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_af606a5ebad7f118ee1a76a5ab4e0726a}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const interval \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_af606a5ebad7f118ee1a76a5ab4e0726a}
+
+
+\-Definition at line 390 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+ dim2taylor t_ty=init_const(s.p, t);
+
+ erg=s-t_ty;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a0514d94015d5aa559812f43086cdea02}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a0514d94015d5aa559812f43086cdea02}
+
+
+\-Definition at line 428 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i);
+    erg = s_ty - t; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a76bdb636ad6d8d93153e4eb536b63dfc}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const real \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a76bdb636ad6d8d93153e4eb536b63dfc}
+
+
+\-Definition at line 469 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s - t_ty; 
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a877e3ffa1e63ba74cfd3fbe2d55c21ef}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a877e3ffa1e63ba74cfd3fbe2d55c21ef}
+
+
+\-Definition at line 507 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i);
+    erg = s_ty - t; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a40a2fbde540b34e912071fa7ec7ebc40}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a40a2fbde540b34e912071fa7ec7ebc40}
+
+
+\-Definition at line 546 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s - t_ty; 
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a3b317bf23d21b4e71893fd523f73e961}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a3b317bf23d21b4e71893fd523f73e961}
+
+
+\-Definition at line 298 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1=s.p;
+ int order2=t.p;
+
+ if(order1 != order2)
+   {
+     cerr << "dim2taylor operator/ : Operands with different orders";
+     cerr << endl;
+     exit(1);
+   }
+
+ dim2taylor erg(order1);
+
+ idotprecision sum_idot;
+
+ interval h, sum;
+
+ if(0.0 <= t[0][0]) 
+  {
+    cerr << "dim2taylor operator/ : 0 in denominator" << endl;
+    exit(1);
+  }
+ h=interval(1.0)/t[0][0];
+ 
+
+ for(int k=0; k<=erg.p; k++) // calculating erg(i,k-i)
+  {
+    for(int i=0; i<=k; i++)
+     {
+      sum_idot=interval(0.0);
+
+      for(int l=0; l<=i; l++) // Without Coeff. (l,m)=(0,0)
+  {
+   for(int m=1; m<=k-i; m++) // m >= 1
+    {
+      accumulate(sum_idot, t[l][m], erg[i-l][k-i-m]);
+    }  //for m
+  }    //for l
+
+      for(int l=1; l<=i; l++) //  m=0, l!=0
+  {
+   accumulate(sum_idot, t[l][0], erg[i-l][k-i]);
+  }  // for l
+
+      rnd(sum_idot, sum);  
+      erg[i][k-i]=h*(s[i][k-i]-sum);
+     }
+  }
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ac8e54bc904ea5484d3396718abb1f11b}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_ac8e54bc904ea5484d3396718abb1f11b}
+
+
+\-Definition at line 379 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(t.p);
+ dim2taylor s_ty=init_const(t.p, s);
+
+ erg=s_ty/t;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ab207e289fba8f39a622b2413b80663dc}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const interval \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_ab207e289fba8f39a622b2413b80663dc}
+
+
+\-Definition at line 417 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+ dim2taylor t_ty=init_const(s.p, t);
+
+ erg=s/t_ty;
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ab7c059a521398354da079fbe16472b58}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_ab7c059a521398354da079fbe16472b58}
+
+
+\-Definition at line 458 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i);  
+    erg = s_ty / t; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a6e797966e808641e8bac96bf139c3171}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const real \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a6e797966e808641e8bac96bf139c3171}
+
+
+\-Definition at line 496 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s / t_ty; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_acf30d0d4be12a38fef863cd8fd59b5b0}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{const {\bf dim2taylor} \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_acf30d0d4be12a38fef863cd8fd59b5b0}
+
+
+\-Definition at line 535 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(t.p);
+    interval s_i(s);
+    dim2taylor s_ty = init_const(t.p,s_i);  
+    erg = s_ty / t; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ac66f42b7e2992aaa02b88898cd1da51f}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_ac66f42b7e2992aaa02b88898cd1da51f}
+
+
+\-Definition at line 573 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{   
+    dim2taylor erg(s.p);
+    interval t_i(t);
+    dim2taylor t_ty = init_const(s.p,t_i);  
+    erg = s / t_ty; 
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_aab904a95a98e21b21ee031059cac17e8}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{{\bf dim2taylor} \&}]{d2t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_aab904a95a98e21b21ee031059cac17e8}
+
+
+\-Definition at line 176 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ os <<"[dim2taylor object, order " << d2t.p << ":]" << std::endl;
+ for(int j=0; j<=d2t.p ; j++) 
+  {
+   for(int i=0; i<=d2t.p-j ; i++) std::cout << d2t.dat[j][i]<< " ";
+   os << std::endl;
+  }
+ os << std::endl;
+ return os;
+}                                 
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_abdf82637f3423a00d9f6537e0e24b1ec}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!pow@{pow}}
+\index{pow@{pow}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{pow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf pow} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{const interval \&}]{alpha}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_abdf82637f3423a00d9f6537e0e24b1ec}
+
+
+\-Definition at line 815 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+
+ idotprecision sum_idot;
+ interval sum1, sum2, h;
+
+ erg[0][0]=pow(s[0][0], alpha); 
+ 
+ for(int j=1; j<=erg.p; j++)
+   {
+     sum_idot=interval(0.0);
+     for(int i=0; i<=j-1; i++)
+       {
+   h=alpha*(interval(j)-interval(i))-interval(i);
+   accumulate(sum_idot, h*erg[0][i], s[0][j-i]);
+       }
+     rnd(sum_idot, sum1);
+     erg[0][j]=sum1/interval(j)/s[0][0];
+   }
+
+ for(int i=1; i<=erg.p; i++) // now calculating the remaining erg(i,k)
+  {
+    for(int k=0; k<=erg.p-i; k++)
+     {
+      sum_idot=interval(0.0);
+
+      for(int l=0; l<=i-1; l++) // Koeff. (l,m)=(0,0) nicht summieren
+  {
+   h=alpha*(interval(i)-interval(l))-interval(l);
+
+   for(int m=0; m<=k; m++)
+    {
+      accumulate(sum_idot, h*erg[l][m], s[i-l][k-m]);
+    }
+  }
+      rnd(sum_idot, sum1); 
+        
+      sum_idot=interval(0.0);
+      for(int m=1; m<=k; m++) 
+  {
+   accumulate(sum_idot, s[0][m], erg[i][k-m]);
+  }
+      rnd(sum_idot, sum2); 
+
+      erg[i][k]=(sum1/interval(i)-sum2)/s[0][0];
+     }
+  } 
+ 
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a56014cfe86271f3c7381f38719840488}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!power@{power}}
+\index{power@{power}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{power}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf power} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a56014cfe86271f3c7381f38719840488}
+
+
+\-Definition at line 869 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+
+ idotprecision sum_idot;
+ interval sum1, sum2, h;
+
+ erg[0][0]=power(s[0][0], n); 
+ 
+ for(int j=1; j<=erg.p; j++)
+   {
+     sum_idot=interval(0.0);
+     for(int i=0; i<=j-1; i++)
+       {
+   h=interval(n)*(interval(j)-interval(i))-interval(i);
+   accumulate(sum_idot, h*erg[0][i], s[0][j-i]);
+       }
+     rnd(sum_idot, sum1);
+     erg[0][j]=sum1/interval(j)/s[0][0];
+   }
+
+ for(int i=1; i<=erg.p; i++) // now calculating the remaining erg(i,k)
+  {
+    for(int k=0; k<=erg.p-i; k++)
+     {
+      sum_idot=interval(0.0);
+
+      for(int l=0; l<=i-1; l++) // Koeff. (l,m)=(0,0) nicht summieren
+  {
+   h=interval(n)*(interval(i)-interval(l))-interval(l);
+
+   for(int m=0; m<=k; m++)
+    {
+      accumulate(sum_idot, h*erg[l][m], s[i-l][k-m]);
+    }
+  }
+      rnd(sum_idot, sum1); 
+        
+      sum_idot=interval(0.0);
+      for(int m=1; m<=k; m++) 
+  {
+   accumulate(sum_idot, s[0][m], erg[i][k-m]);
+  }
+      rnd(sum_idot, sum2); 
+
+      erg[i][k]=(sum1/interval(i)-sum2)/s[0][0];
+     }
+  } 
+ 
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_adc5c16c2f29f77a66a9bc58da67cb836}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!sin@{sin}}
+\index{sin@{sin}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{sin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf sin} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_adc5c16c2f29f77a66a9bc58da67cb836}
+
+
+\-Definition at line 1008 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg1(s.p), erg2(s.p); 
+
+ idotprecision sum_idot1, sum_idot2;
+ interval sum1, sum2;
+
+ erg1[0][0]=sin(s[0][0]);
+ erg2[0][0]=cos(s[0][0]);
+
+ if(s.p>0)
+   {
+     for(int k=1; k<=erg1.p; k++)
+       {
+   for(int i=0; i<=k; i++)
+     {
+       sum_idot1=interval(0.0);
+       sum_idot2=interval(0.0);
+
+       for(int l=0; l<=i; l++) // now calculating ergs(i,k-i)
+         {
+     for(int m=0; m<=k-i; m++)
+       { 
+         interval h=interval(k)-interval(l)-interval(m);
+         accumulate(sum_idot1, h*erg2[l][m], s[i-l][k-i-m]);
+         accumulate(sum_idot2, h*erg1[l][m], s[i-l][k-i-m]);
+       } // for m
+         }     // for l
+
+       rnd(sum_idot1, sum1);  
+       rnd(sum_idot2, sum2);
+
+       erg1[i][k-i]=sum1/interval(k);
+       erg2[i][k-i]=-sum2/interval(k);
+     }
+       }
+   }
+
+ return erg1;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_aeac682b730862bff598a6fb0206b5764}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!sinh@{sinh}}
+\index{sinh@{sinh}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{sinh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf sinh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_aeac682b730862bff598a6fb0206b5764}
+
+
+\-Definition at line 1130 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg1(s.p), erg2(s.p); 
+
+ idotprecision sum_idot1, sum_idot2;
+ interval sum1, sum2;
+
+ erg1[0][0]=sinh(s[0][0]);
+ erg2[0][0]=cosh(s[0][0]);
+
+ if(s.p>0)
+   {
+     for(int k=1; k<=erg1.p; k++)
+       {
+   for(int i=0; i<=k; i++)
+     {
+       sum_idot1=interval(0.0);
+       sum_idot2=interval(0.0);
+
+       for(int l=0; l<=i; l++) // now calculating ergs(i,k-i)
+         {
+     for(int m=0; m<=k-i; m++)
+       { 
+         interval h=interval(k)-interval(l)-interval(m);
+         accumulate(sum_idot1, h*erg2[l][m], s[i-l][k-i-m]);
+         accumulate(sum_idot2, h*erg1[l][m], s[i-l][k-i-m]);
+       }  // for m
+         }      // for l
+
+       rnd(sum_idot1, sum1);  
+       rnd(sum_idot2, sum2);
+
+       erg1[i][k-i]=sum1/interval(k);
+       erg2[i][k-i]=sum2/interval(k);
+     }
+       }
+   }
+
+ return erg1;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a0918e81021192eed36a5b0fb102247ea}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!sqr@{sqr}}
+\index{sqr@{sqr}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{sqr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf sqr} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a0918e81021192eed36a5b0fb102247ea}
+
+
+\-Definition at line 592 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor erg(s.p);
+ 
+ idotprecision sum_idot;
+ interval sum1=interval(0.0);
+ interval sum2=interval(0.0);
+
+ erg[0][0]=sqr(s[0][0]); //Koeff. (0,0)
+
+ if(erg.p > 0)
+  {
+    
+    for(int k=0; k<=erg.p; k++) // calculating the remaining coefficients
+      {
+  for(int i=0; i<=k; i++)
+    {
+      if(i%2==1) // i: odd
+        {
+    sum_idot=interval(0.0);
+    for(int l=0; l<=(i-1)/2; l++) // calculating erg(i,k-i)
+      {
+        for(int m=0; m<=k-i; m++)
+          {
+      accumulate(sum_idot, s[l][m], s[i-l][k-i-m]);
+          } //for m
+      }     //for l
+
+    rnd(sum_idot, sum1);
+    erg[i][k-i]=interval(2.0)*sum1;     
+        }
+      else //i%2==0: i: even 
+        {
+    if( (k-i)%2==1 ) //k-i: odd
+      {
+        sum_idot=interval(0.0); 
+        for(int l=0; l<=(i-2)/2; l++) // calculating erg(i,k-i)
+          {
+      for(int m=0; m<=k-i; m++)
+        {
+          accumulate(sum_idot, s[l][m], s[i-l][k-i-m]);
+        } //for m
+          }     //for l
+        rnd(sum_idot, sum1);
+       
+        sum_idot=interval(0.0);
+        for(int m=0; m<=(k-i-1)/2; m++)
+          {
+      accumulate(sum_idot, s[i/2][m], s[i/2][k-i-m]);
+          }//for m
+        rnd(sum_idot, sum2);
+
+        erg[i][k-i]=interval(2.0)*(sum1+sum2);  
+             
+      }
+    else //(k-i)%2==0: k-i even
+      {
+        sum_idot=interval(0.0); 
+        for(int l=0; l<=(i-2)/2; l++) // calculating erg(i,k-i)
+          {
+      for(int m=0; m<=k-i; m++)
+        {
+          accumulate(sum_idot, s[l][m], s[i-l][k-i-m]);
+        } // for m
+          }     // for l
+        rnd(sum_idot, sum1);
+       
+        sum_idot=interval(0.0);
+        for(int m=0; m<=(k-i-2)/2; m++)
+          {
+      accumulate(sum_idot, s[i/2][m], s[i/2][k-i-m]);
+          } // for m
+        rnd(sum_idot, sum2);
+
+        erg[i][k-i]=interval(2.0)*(sum1+sum2);
+        erg[i][k-i]=erg[i][k-i]+sqr(s[i/2][(k-i)/2]);   
+      }
+        }
+    } // for i
+      }     // for k
+  }
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a2d7a004d2ee48a630edfc41746512d93}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!sqrt@{sqrt}}
+\index{sqrt@{sqrt}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{sqrt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf sqrt} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a2d7a004d2ee48a630edfc41746512d93}
+
+
+\-Definition at line 678 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{ 
+ dim2taylor erg(s.p);
+ idotprecision sum_idot;
+ interval sum(0.0);
+
+ erg[0][0] = sqrt(s[0][0]);  // Coeff. (0,0) --> function value
+  
+  if(erg.p > 0)
+  { 
+   if(0.0 <= erg[0][0])
+      {
+  cout << "error here: " << erg[0][0] << endl;
+   
+  cerr << "Error in dim2taylor sqrt: 0 in argument interval";
+  cerr << endl;
+  exit(1);
+      }
+      
+    
+    interval h = erg[0][0]; 
+    times2pown(h,1); // fast multiplication with 2;
+    int ki,il,z;
+    for(int k=1; k<=erg.p; k++) // calculating all other coefficients
+    {   
+  for(int i=0; i<=k; i++)
+  {   
+      sum_idot=interval(0.0);
+    // do not sum (l,m)=(0,0) and (l,m)=(i,k-i), see continue assignments
+      ki = k-i;   z = 0; // z: Numbering the following summands 
+      if (i%2==1) // i: odd
+      { 
+    for(int l=0; l<=(i-1)/2; l++) 
+    {
+        il = i-l;   
+        for(int m=0; m<=ki; m++)
+        {
+      z++; // Numbering the summands, z = 1,2,3,...
+      // (l,m) = (0,0) is the first summand (z=1),
+      if (z==1) continue; // skipping accumulate(...)
+      accumulate(sum_idot, erg[l][m], erg[il][ki-m]);
+        }
+    }
+    rnd(sum_idot,sum);
+    times2pown(sum,1);
+    erg[i][ki] = (s[i][ki]-sum)/h;
+      }
+      else // i: even
+      {
+    if (ki%2==1) // ki=k-i: odd
+    {
+        for(int l=0; l<=(i-2)/2; l++) 
+        {
+      il = i-l;
+      for(int m=0; m<=ki; m++)
+      {
+          z++;
+          if (z==1) continue;
+          accumulate(sum_idot,erg[l][m],erg[il][ki-m]);
+      }
+        }
+        for(int m=0; m<=(ki-1)/2; m++)
+        {
+      z++;
+      if (z==1) continue;
+      accumulate(sum_idot,erg[i/2][m],erg[i/2][ki-m]);
+        }
+        rnd(sum_idot,sum);
+        times2pown(sum,1);
+        erg[i][ki] = (s[i][ki]-sum)/h;
+    }
+    else // ki=k-i: even
+    {
+        for(int l=0; l<=(i-2)/2; l++)
+        {
+      il = i-l;
+      for(int m=0; m<=ki; m++)
+      {
+          z++;
+          if (z==1) continue;
+          accumulate(sum_idot,erg[l][m],erg[il][ki-m]);
+      }
+        }
+        for(int m=0; m<=(ki-2)/2; m++)
+        {
+      z++;
+      if (z==1) continue;
+      accumulate(sum_idot,erg[i/2][m],erg[i/2][ki-m]);
+        }
+        rnd(sum_idot,sum);
+        times2pown(sum,1);
+        sum += sqr(erg[i/2][ki/2]);
+        erg[i][ki] = (s[i][ki]-sum)/h;
+    }
+      }
+  } // for i
+      }   // for k
+  }
+
+ return erg;
+ }
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a0ee48b960b16cd8d2ecbafeb58420022}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!sqrt1px2@{sqrt1px2}}
+\index{sqrt1px2@{sqrt1px2}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{sqrt1px2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf sqrt1px2} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a0ee48b960b16cd8d2ecbafeb58420022}
+
+
+\-Definition at line 788 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+                                        {
+    // sqrt(1+x^2);
+    dim2taylor erg;
+    if (Inf(x[0][0])>1) erg = x * sqrt(1+sqr(1/x));
+    else 
+  if (Sup(x[0][0])<-1)
+      erg = -x * sqrt(1+sqr(1/x));
+  else erg = sqrt(1+sqr(x));
+    return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a43d67bd8644d997c3acb7ec15302d543}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!sqrtp1m1@{sqrtp1m1}}
+\index{sqrtp1m1@{sqrtp1m1}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{sqrtp1m1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf sqrtp1m1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a43d67bd8644d997c3acb7ec15302d543}
+
+
+\-Definition at line 991 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+ g = 2*sqrt(1+s);;
+
+ if(0<=interval(1)+s[0][0])
+   {
+     cerr << "Error in dim2taylor sqrtp1m1 : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _sqrtp1m1);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a91a86e0655561bafd6c1609ab75ce13e}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!sqrtx2m1@{sqrtx2m1}}
+\index{sqrtx2m1@{sqrtx2m1}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{sqrtx2m1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf sqrtx2m1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a91a86e0655561bafd6c1609ab75ce13e}
+
+
+\-Definition at line 801 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+                                        {
+    // sqrt(x^2-1);
+    dim2taylor erg;
+    if (Inf(x[0][0])>4) erg = x * sqrt( 1-sqr(1/x) );
+    else 
+  if (Sup(x[0][0])<-4)
+      erg = -x * sqrt( 1-sqr(1/x) );
+  else erg = sqrt(sqr(x)-1);
+    return erg; 
+    }
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_ae1512635633c3f04275139d114882992}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!tan@{tan}}
+\index{tan@{tan}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{tan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf tan} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_ae1512635633c3f04275139d114882992}
+
+
+\-Definition at line 1095 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=sqr(cos(s));
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor tan : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _tan);
+ return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1dim2taylor_a418b70a725a6518ff77e7c8d6c169144}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!tanh@{tanh}}
+\index{tanh@{tanh}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{tanh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dim2taylor} {\bf tanh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf dim2taylor} \&}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a418b70a725a6518ff77e7c8d6c169144}
+
+
+\-Definition at line 1216 of file dim2taylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ dim2taylor f(s.p), g(s.p);
+
+ g=sqr(cosh(s));
+
+ if(0<=g[0][0])
+   {
+     cerr << "Error in dim2taylor tanh : 0 in interval" << endl;
+     exit(1);
+   }
+ f_g_u(f, g, s, _tanh);
+ return f;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classtaylor_1_1dim2taylor_a831423b7ae2f1d7595c7786029612942}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!dat@{dat}}
+\index{dat@{dat}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{dat}]{\setlength{\rightskip}{0pt plus 5cm}ivector$\ast$ {\bf taylor\-::dim2taylor\-::dat}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a831423b7ae2f1d7595c7786029612942}
+
+
+\-Definition at line 60 of file dim2taylor.\-hpp.
+
+
+
+\-Referenced by dim2taylor(), taylor\-::operator$<$$<$(), and operator=().
+
+\hypertarget{classtaylor_1_1dim2taylor_a68bb1d15f4bee8bf2a437d1558c9b28b}{\index{taylor\-::dim2taylor@{taylor\-::dim2taylor}!p@{p}}
+\index{p@{p}!taylor::dim2taylor@{taylor\-::dim2taylor}}
+\paragraph[{p}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::dim2taylor\-::p}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1dim2taylor_a68bb1d15f4bee8bf2a437d1558c9b28b}
+
+
+\-Definition at line 59 of file dim2taylor.\-hpp.
+
+
+
+\-Referenced by taylor\-::acos(), taylor\-::acosh(), taylor\-::acot(), taylor\-::acoth(), taylor\-::asin(), taylor\-::asinh(), taylor\-::atan(), taylor\-::atanh(), taylor\-::cos(), taylor\-::cosh(), taylor\-::cot(), taylor\-::coth(), dim2taylor(), taylor\-::erf(), taylor\-::erfc(), taylor\-::exp(), taylor\-::f\-\_\-g\-\_\-u(), taylor\-::init\-\_\-const(), taylor\-::init\-\_\-var(), taylor\-::ln(), taylor\-::lnp1(), taylor\-::operator$\ast$(), taylor\-::operator+(), taylor\-::operator-\/(), taylor\-::operator/(), taylor\-::operator$<$$<$(), operator=(), taylor\-::pow(), taylor\-::power(), taylor\-::sin(), taylor\-::sinh(), taylor\-::sqr(), taylor\-::sqrt(), taylor\-::sqrtp1m1(), taylor\-::tan(), and taylor\-::tanh().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dim2taylor_8hpp}{dim2taylor.\-hpp}\item 
+\hyperlink{dim2taylor_8cpp}{dim2taylor.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,167 @@
+\hypertarget{classsubpavings_1_1SplitOnK}{\subsection{subpavings\-:\-:\-Split\-On\-K \-Class \-Reference}
+\label{classsubpavings_1_1SplitOnK}\index{subpavings\-::\-Split\-On\-K@{subpavings\-::\-Split\-On\-K}}
+}
+
+
+\-Classes derived from \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj}.  
+
+
+
+
+{\ttfamily \#include $<$splitdecisionobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Split\-On\-K\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Split\-On\-K\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1SplitOnK_a1c66caafc36078d8e4049564d75b61de}{\-Split\-On\-K} (size\-\_\-t k, size\-\_\-t min\-C\-P=0)
+\item 
+bool \hyperlink{classsubpavings_1_1SplitOnK_a5e716ff213abc4d8864153ab5ec872a5}{operator()} () const 
+\item 
+bool \hyperlink{classsubpavings_1_1SplitOnK_a9ffd1c8f5536bfbeb9465e317bbf18ad}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const spn) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1SplitOnK_aeda48e74521a54b6f83162e3ae6de0e8}{\-Split\-On\-K} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SplitOnK_a533786f57332f2559181036557cce420}{max\-Points}
+\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SplitOnK_a98bdd69177334492bf80b2ba32d41123}{min\-Child\-Points}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Classes derived from \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj}. 
+
+\-These class provide functions provide a test for whether a node should be split when the histogram is being formed as each data point is inserted. \-The function will return true if the node should be split.
+
+\-These classes are used with one-\/at-\/a-\/time insertion of data points into a subpaving tree.
+
+\-Class for splitting based on number of points in a node.
+
+\-This class will try to split a node with $>$ max\-Points of data points associated with it, but will {\bfseries never} split any node if the result would give at least one child with $<$ min\-Child\-Points of data associated with it. i.\-e. the class will only split a node if the node has $>$ max\-Points of data and both children after the split will have $>$= min\-Child\-Points of data.
+
+\-Thus this class may leave a node with $>$ max\-Points of data associated with it unsplit because splitting the node would create a child node with $<$ min\-Child\-Points of data associated with it. 
+
+\-Definition at line 75 of file splitdecisionobj.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1SplitOnK_aeda48e74521a54b6f83162e3ae6de0e8}{\index{subpavings\-::\-Split\-On\-K@{subpavings\-::\-Split\-On\-K}!\-Split\-On\-K@{\-Split\-On\-K}}
+\index{\-Split\-On\-K@{\-Split\-On\-K}!subpavings::SplitOnK@{subpavings\-::\-Split\-On\-K}}
+\paragraph[{\-Split\-On\-K}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Split\-On\-K\-::\-Split\-On\-K} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SplitOnK_aeda48e74521a54b6f83162e3ae6de0e8}
+\hypertarget{classsubpavings_1_1SplitOnK_a1c66caafc36078d8e4049564d75b61de}{\index{subpavings\-::\-Split\-On\-K@{subpavings\-::\-Split\-On\-K}!\-Split\-On\-K@{\-Split\-On\-K}}
+\index{\-Split\-On\-K@{\-Split\-On\-K}!subpavings::SplitOnK@{subpavings\-::\-Split\-On\-K}}
+\paragraph[{\-Split\-On\-K}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Split\-On\-K\-::\-Split\-On\-K} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{k, }
+\item[{size\-\_\-t}]{min\-C\-P = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1SplitOnK_a1c66caafc36078d8e4049564d75b61de}
+
+
+\-Definition at line 84 of file splitdecisionobj.\-hpp.
+
+
+\begin{DoxyCode}
+                                             : maxPoints(k),
+                                        minChildPoints(minCP)  {};
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1SplitOnK_a5e716ff213abc4d8864153ab5ec872a5}{\index{subpavings\-::\-Split\-On\-K@{subpavings\-::\-Split\-On\-K}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::SplitOnK@{subpavings\-::\-Split\-On\-K}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Split\-On\-K\-::operator() (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1SplitOnK_a5e716ff213abc4d8864153ab5ec872a5}
+
+
+\-Implements \hyperlink{classsubpavings_1_1SplitDecisionObj_acaae38df4650168faf869bcfc11b0212}{subpavings\-::\-Split\-Decision\-Obj}.
+
+
+
+\-Definition at line 88 of file splitdecisionobj.\-hpp.
+
+
+\begin{DoxyCode}
+        {
+            return true;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SplitOnK_a9ffd1c8f5536bfbeb9465e317bbf18ad}{\index{subpavings\-::\-Split\-On\-K@{subpavings\-::\-Split\-On\-K}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::SplitOnK@{subpavings\-::\-Split\-On\-K}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Split\-On\-K\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1SplitOnK_a9ffd1c8f5536bfbeb9465e317bbf18ad}
+
+
+\-Implements \hyperlink{classsubpavings_1_1SplitDecisionObj_aa1bd2caa4a7bc2890f0c7c7edc4ded4f}{subpavings\-::\-Split\-Decision\-Obj}.
+
+
+
+\-Definition at line 93 of file splitdecisionobj.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Counter(), subpavings\-::\-S\-P\-Snode\-::get\-Min\-Child\-Count\-If\-Split(), max\-Points, and min\-Child\-Points.
+
+
+\begin{DoxyCode}
+        {
+            bool retvalue = (spn->getCounter() > maxPoints);
+            // check whether splitting would give children with enough points
+            if (retvalue && (minChildPoints > 0)) {
+                retvalue = (spn->getMinChildCountIfSplit() >= minChildPoints);
+            }
+            return retvalue;
+        }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1SplitOnK_a533786f57332f2559181036557cce420}{\index{subpavings\-::\-Split\-On\-K@{subpavings\-::\-Split\-On\-K}!max\-Points@{max\-Points}}
+\index{max\-Points@{max\-Points}!subpavings::SplitOnK@{subpavings\-::\-Split\-On\-K}}
+\paragraph[{max\-Points}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-Split\-On\-K\-::max\-Points}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SplitOnK_a533786f57332f2559181036557cce420}
+
+
+\-Definition at line 77 of file splitdecisionobj.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classsubpavings_1_1SplitOnK_a98bdd69177334492bf80b2ba32d41123}{\index{subpavings\-::\-Split\-On\-K@{subpavings\-::\-Split\-On\-K}!min\-Child\-Points@{min\-Child\-Points}}
+\index{min\-Child\-Points@{min\-Child\-Points}!subpavings::SplitOnK@{subpavings\-::\-Split\-On\-K}}
+\paragraph[{min\-Child\-Points}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-Split\-On\-K\-::min\-Child\-Points}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SplitOnK_a98bdd69177334492bf80b2ba32d41123}
+
+
+\-Definition at line 78 of file splitdecisionobj.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{splitdecisionobj_8hpp}{splitdecisionobj.\-hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,2269 @@
+\hypertarget{classMRSampler}{\subsection{\-M\-R\-Sampler \-Class \-Reference}
+\label{classMRSampler}\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}}
+}
+
+
+\-The \-Moore rejection sampler class for trans-\/dimensional targets over labeled metric spaces.  
+
+
+
+
+{\ttfamily \#include $<$\-M\-R\-Sampler.\-hpp$>$}
+
+
+
+\-Collaboration diagram for \-M\-R\-Sampler\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMRSampler_a6fc8464ae6da9a1721ff3f437e03d8ef}{\-M\-R\-Sampler} (\hyperlink{classFobj}{\-Fobj} \&\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, int max\-\_\-n\-\_\-boxes, double \-Alb, unsigned seed=gsl\-\_\-rng\-\_\-default\-\_\-seed, bool use\-\_\-f\-\_\-scale=true)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classMRSampler_ab7fdfefd1123153f759ae4ceb775a10a}{$\sim$\-M\-R\-Sampler} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+double \hyperlink{classMRSampler_addd59ad1e400adae3c46b562c7ceb80d}{get\-P\-A\-L\-B} ()
+\begin{DoxyCompactList}\small\item\em \-Return lower bound on the acceptance prob. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a975802b28786372a0b1ee461184d3b23}{\-Refine} (double \-Alb)
+\begin{DoxyCompactList}\small\item\em \-Do further partitioning until acc. prob. lower bound $>$ \-Alb, then setup pdf. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_ab6456ed49e2b5a903035ae7ef32cc5f2}{\-Refine\-Until} (unsigned int \-Desired\-\_\-\-N\-\_\-boxes)
+\begin{DoxyCompactList}\small\item\em \-Refine partition by bisections until \-Desired\-\_\-\-N\-\_\-boxes many boxes is reached, then setup pdf. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_ae72be9880b00d25266c10d2f13365abf}{\-Refine} (int \-Nbisect)
+\begin{DoxyCompactList}\small\item\em \-Refine partition by doing \-Nbisect many bisections. \end{DoxyCompactList}\item 
+int \hyperlink{classMRSampler_a30f5c5489a08545226b462ace92dc321}{get\-\_\-n\-\_\-boxes} ()
+\begin{DoxyCompactList}\small\item\em \-Return the number of boxes in \-Range\-Domain\-Set. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a92103320447370feb1f9452915534a91}{\-Print\-\_\-\-Domain\-\_\-\-Partition} (std\-::ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Print labeled boxes in domain partition \-Domain\-Parts \mbox{[}\-C-\/\-X\-S\-C output format\mbox{]}. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a7c1905d15eef55fd405cf6e03550f6c1}{\-Output\-\_\-\-Domain\-\_\-\-Partition} (std\-::ostream \&out)
+\begin{DoxyCompactList}\small\item\em \-Print labeled boxes in domain partition \-Domain\-Parts \mbox{[}naive \-T\-A\-B-\/delimited numeric only format\mbox{]}. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classMRSampler_a7142c1478e259ec85354407fccfbfa78}{\-M\-R\-Soutput} (std\-::ostream \&os, const double eps=0) const 
+\begin{DoxyCompactList}\small\item\em \-Print the \-Range\-Domain\-Set in tab-\/delimited numeric only format. \end{DoxyCompactList}\item 
+\hyperlink{classLabPnt}{\-Lab\-Pnt} \hyperlink{classMRSampler_a3ab6aa3b0bb466c67c69db97e2dad5f2}{\-Rejection\-Sample\-Once} (int \&tries)
+\begin{DoxyCompactList}\small\item\em \-Return one sample of labeled point via rejection sampling, if possible. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_aac7c2e726a813ad155151c99cbdb7f12}{\-Rejection\-Sample\-Many} (int n\-R\-S, \hyperlink{classRSSample}{\-R\-S\-Sample} \&the\-Sample)
+\begin{DoxyCompactList}\small\item\em \-Draw n\-R\-S many samples of labeled points via rejection sampling, if possible. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a1e1e42a57421caa0b13b194372d0b067}{\-Importance\-Sample\-Many\-Quasi} (int \-N\-Samples, bool residual, \hyperlink{classISSample}{\-I\-S\-Sample} \&the\-Sample)
+\begin{DoxyCompactList}\small\item\em \-Importance sampling with \-Quasi random numbers -\/-\/ \mbox{[}\-Ignore\-: experimental\mbox{]}. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a4fc816422109d41053f1171346463b7d}{\-Importance\-Sample\-Many} (int \-N\-Samples, bool residual, bool pseudo\-R\-N\-G, \hyperlink{classISSample}{\-I\-S\-Sample} \&the\-Sample)
+\begin{DoxyCompactList}\small\item\em \-Importance sampling with \-Pseudo/\-Quasi random numbers. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a73999a2d6df8b33ddd459b6bcf9696f9}{\-Importance\-Sample\-Many\-Pseudo} (int \-N\-Samples, bool residual, \hyperlink{classISSample}{\-I\-S\-Sample} \&the\-Sample)
+\begin{DoxyCompactList}\small\item\em \-Importance sampling with \-Pseudo random numbers. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a25d99bdee1a715fb2a8e2a8068b890db}{\-Print\-Boxes} (int \-Nprint)
+\item 
+double \hyperlink{classMRSampler_a92b7d631e838539d7c9dcd047bd2936c}{get\-I\-U} ()
+\item 
+double \hyperlink{classMRSampler_aaf6497221623367c28cd9054eb52cbba}{get\-I\-L} ()
+\item 
+double \hyperlink{classMRSampler_a8a056b8e90fb8f72ff3923dca3257384}{get\-\_\-unscaled\-\_\-\-I\-U} ()
+\item 
+double \hyperlink{classMRSampler_a6d1a6fd3218a62ac5e77abe2a00ac84a}{get\-I\-Uminus\-L} ()
+\item 
+double \hyperlink{classMRSampler_ab663935171c58ac98f0eeee73c02cbc6}{get\-Umax} ()
+\item 
+double \hyperlink{classMRSampler_a71c9e4432504b5dcb9591265c4cfba50}{get\-P\-Aest} ()
+\item 
+double \hyperlink{classMRSampler_a37146ff923183a8563e57191d3e6bfa4}{get\-\_\-wsum} ()
+\item 
+int \hyperlink{classMRSampler_a281cb5fb693559dcbd4f90e7d5f37d3e}{get\-\_\-nsum} ()
+\item 
+double \hyperlink{classMRSampler_a85b66f54b156a0a742b48afcf2997379}{get\-\_\-wmax} ()
+\item 
+double \hyperlink{classMRSampler_aa2d8b962208940151e182e6b3ccb3874}{get\-\_\-wmin} ()
+\item 
+void \hyperlink{classMRSampler_a973099a9a64b6e447b196e8fecc121da}{update\-Integral} ()
+\begin{DoxyCompactList}\small\item\em update \-Integral using present partition \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a7e98b9c2e972668a7df1b1b4853bef6e}{update\-Umax} ()
+\begin{DoxyCompactList}\small\item\em \-Updating the upper and lower bounds for the global maximum of target \-F. \end{DoxyCompactList}\item 
+int \hyperlink{classMRSampler_a0302488b026965e8e6c401037a0c9240}{get\-\_\-n\-\_\-topologies} ()
+\item 
+int \hyperlink{classMRSampler_ab5bb18ce86dcf3e6835084e12ad3caff}{get\-\_\-nonresidual\-\_\-samples} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRangedLabBox}{\-Ranged\-Lab\-Box} \hyperlink{classMRSampler_a727ae6c7bafcf46f34c320e902cf43fe}{get\-Box\-R\-E\-Info} (\hyperlink{classLabBox}{\-Lab\-Box} \-L\-Box)
+\item 
+void \hyperlink{classMRSampler_acea6f64c0aba88187122af49c5949ddc}{\-Init\-R\-N\-G} (unsigned seed)
+\begin{DoxyCompactList}\small\item\em \-Initialize pseudo and \-Quasi \-Random \-Number \-Generators in \-G\-S\-L. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a0de2c0d6196f77662bb11304e3bec13d}{\-First\-Box} ()
+\item 
+void \hyperlink{classMRSampler_ae665da26800e35c295359e0d2dffb489}{\-Bisect} ()
+\begin{DoxyCompactList}\small\item\em \-Bisect the box at top of priority queue. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a68198444d2875642e8ee2cb3f3120419}{\-Adapt\-Partition} (double \-Alb)
+\begin{DoxyCompactList}\small\item\em \-Adaptively partition domain by bisecting the most prioritised labeled box. \end{DoxyCompactList}\item 
+void \hyperlink{classMRSampler_a91a20bb1df74b36668d4ea206685246f}{\-Setup\-P\-D\-F} ()
+\item 
+void \hyperlink{classMRSampler_a4898e0225312caca6bdc53d034b8cd2a}{\-Setup\-Walker} (unsigned int number\-\_\-of\-\_\-samples)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFobj}{\-Fobj} \& \hyperlink{classMRSampler_ab836cfbff1570a96b8af9c384226edfc}{\-F}
+\item 
+vector$<$ \hyperlink{classLabBox}{\-Lab\-Box} $>$ \hyperlink{classMRSampler_ab3c9a0e232b8145574c28989b9d25791}{\-Domain}
+\item 
+vector$<$ int $>$ \hyperlink{classMRSampler_a8497e118c2d180ff59884897ff97ff4d}{\-Domain\-Label\-Set}
+\begin{DoxyCompactList}\small\item\em \-The set of unique integer labels in \-Lab\-Domain\-List. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{classMRSampler_afa30f614f3bf25d89990256e2e0c38bd}{n\-\_\-dim\-\_\-max}
+\item 
+unsigned int \hyperlink{classMRSampler_aa245fc901ea417e5b19f3e26c63cebad}{topologies}
+\item 
+unsigned int \hyperlink{classMRSampler_adf95f77ac86c63eef71474204ac28efc}{\-Max\-\_\-n\-\_\-boxes}
+\item 
+int \hyperlink{classMRSampler_a31a44287b73bf986bbddcf67245d3c9c}{nonresidual\-\_\-samples}
+\item 
+interval \hyperlink{classMRSampler_ada8a56adf645018f986090ca485049f5}{\-Integral}
+\item 
+vector$<$ \hyperlink{classLabBox}{\-Lab\-Box} $>$ \hyperlink{classMRSampler_aea43aaf9d80cae23dc971ab12d706ef8}{\-Domain\-Parts}
+\item 
+rvector \hyperlink{classMRSampler_ae15d963eb51af7923bdb0dc4a1784208}{\-U\-Box}
+\item 
+rvector \hyperlink{classMRSampler_a541ae11d9bfc46da67065796901740a4}{\-Lo\-Box}
+\item 
+real \hyperlink{classMRSampler_ad222a996bc96c32c89586628583be8bb}{wmin}
+\item 
+real \hyperlink{classMRSampler_af151b4e7e703ba21c87ae895c6b904f4}{wmax}
+\item 
+real \hyperlink{classMRSampler_aa569a3c7e50e947daddfe9766e6aa206}{wsum}
+\item 
+int \hyperlink{classMRSampler_ab82586caa232037dde75eba134f035ae}{nsum}
+\item 
+real \hyperlink{classMRSampler_ac22f171e36cc11caa473d8232e9c0786}{\-Umax}
+\item 
+real \hyperlink{classMRSampler_a977efd8e3ab58d4e88bc647e68460071}{\-Lmax}
+\item 
+real \hyperlink{classMRSampler_a5980112acaced10adc29397c200fa798}{f\-Max\-L\-B}
+\item 
+real \hyperlink{classMRSampler_a9c85b485d8d4ed429e23af0e0427cbe8}{f\-\_\-scale}
+\item 
+bool \hyperlink{classMRSampler_aa677251ac24e0083e75a9ba5f4aa02ca}{f\-\_\-scale\-Done}
+\item 
+bool \hyperlink{classMRSampler_a64134c93ecebc9f1a53b32c07bc18858}{\-Use\-F\-Scale}
+\item 
+bool \hyperlink{classMRSampler_a5f1bfb7fca5ef5a992a9bc812b19bddd}{\-Using\-Log\-Density}
+\item 
+bool \hyperlink{classMRSampler_aa3abc2865eb1f5eed99f3b4017621d04}{own\-\_\-rng}
+\item 
+gsl\-\_\-rng $\ast$ \hyperlink{classMRSampler_a83ea740a453f9274eb77909ba0573a97}{rgsl}
+\item 
+gsl\-\_\-qrng $\ast$ \hyperlink{classMRSampler_a3045790ee467171c7ed5b1a7520457f6}{qrgsl}
+\item 
+gsl\-\_\-ran\-\_\-discrete\-\_\-t $\ast$ \hyperlink{classMRSampler_aeb2b7cd2e8b2459ed444a38b327897fd}{gslpdfstruct}
+\item 
+double $\ast$ \hyperlink{classMRSampler_a0019552cda42dbc57e0bbf88b661fbce}{proposalpmf}
+\item 
+double $\ast$ \hyperlink{classMRSampler_adf347c7e241dda4ccd20e8d661da5e72}{residual\-\_\-proposalpmf}
+\item 
+double $\ast$ \hyperlink{classMRSampler_ad32ae929145a5d9a1b042aaf4bd34952}{proposalpdf}
+\item 
+\hyperlink{SmallClasses_8hpp_a620bc30fe4c7a65c0a4cdbaf724bd9e9}{\-Ranged\-Lab\-Box\-Set} \hyperlink{classMRSampler_aec967af4872910cd04b49227d843ec66}{\-Range\-Domain\-Set}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-The \-Moore rejection sampler class for trans-\/dimensional targets over labeled metric spaces. 
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000005}{\-Todo}]\-In \hyperlink{classMRSampler}{\-M\-R\-Sampler} everything is inline for now -\/-\/ we need to make this truly object oriented, add a default constructor, add mrs namespace, get rid of \#defines, etc. \-Needs about 20 hours for complete documentation... \end{DoxyRefDesc}
+
+
+\-Definition at line 36 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classMRSampler_a6fc8464ae6da9a1721ff3f437e03d8ef}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-M\-R\-Sampler@{\-M\-R\-Sampler}}
+\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-M\-R\-Sampler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-M\-R\-Sampler\-::\-M\-R\-Sampler} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Fobj} \&}]{f, }
+\item[{int}]{max\-\_\-n\-\_\-boxes, }
+\item[{double}]{\-Alb, }
+\item[{unsigned}]{seed = {\ttfamily gsl\-\_\-rng\-\_\-default\-\_\-seed}, }
+\item[{bool}]{use\-\_\-f\-\_\-scale = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a6fc8464ae6da9a1721ff3f437e03d8ef}
+
+
+\-Initialised constructor. 
+
+
+
+\-Definition at line 80 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E, \-Domain, \-Domain\-Label\-Set, \-F, \-First\-Box(), \-Fobj\-::get\-Using\-Log\-Density(), gslpdfstruct, \-Init\-R\-N\-G(), taylor\-::\-Lb(), n\-\_\-dim\-\_\-max, nonresidual\-\_\-samples, nsum, proposalpmf, \-Range\-Domain\-Set, \-Refine(), topologies, taylor\-::\-Ub(), \-Umax, \-Using\-Log\-Density, wmax, wmin, and wsum.
+
+
+\begin{DoxyCode}
+:
+// target density or shape
+F (f),
+// should be vector of LabBox
+Domain (f.get_domain ()),
+// should be corresponding labels
+DomainLabelSet (f.get_labelset ()),
+n_dim_max(0),
+Max_n_boxes (max_n_boxes),
+f_scale(0),
+f_scaleDone(false),
+UseFScale(use_f_scale),
+own_rng (false),
+gslpdfstruct (NULL),
+proposalpmf (NULL),
+residual_proposalpmf (NULL),
+proposalpdf (NULL),
+RangeDomainSet (SortBox (F.getUsingLogDensity ()))
+{                   // constructor
+
+  Umax = BIGNEGATIVE;
+  wsum = 0.0;
+  wmax = -1.0;
+  wmin = 1.0e100;
+  nsum = 0;
+
+  vector < LabBox >::const_iterator it = Domain.begin();
+  //n_dimensions = 1 + Ub (it->Box) - Lb (it->Box);
+
+  for(it = Domain.begin(); it != Domain.end(); it++)
+  {
+    //int label = it->L;
+    unsigned int n_dimensions = 1 + Ub (it->Box) - Lb (it->Box);
+    //   cout << "label, n_dimensions[label]: " << label << " " 
+    //          <<  n_dimensions[label] << endl;
+    if(n_dimensions > n_dim_max){ n_dim_max = n_dimensions; }
+  }
+
+                    // Domain.size()
+  topologies = static_cast<int>(DomainLabelSet.size());
+  //cout << "number of topologies = " << topologies << endl;
+  UsingLogDensity = F.getUsingLogDensity ();
+  nonresidual_samples = 0;
+
+  //  cout << "#x, f(x) " << endl;
+  //   ofstream outx ("fout");
+  //   for(int i=1; i<1000; i++){
+  //       LabPnt P;
+  //       rvector x (1, n_dimensions);
+  //       x[1] = i*0.001;
+  //       P.Pnt = x;
+  //       P.L = 0;
+  //       outx << P.Pnt[1] << "  " << F(P) << "   " << exp(F(P)) << endl;
+  //   }
+  //   cout << "after printing fout" << endl;
+  InitRNG (seed);   // initialize the random number generator
+  FirstBox ();
+  cout << "after FirstBox, before Refine " << endl;
+  Refine (Alb);
+  cout << "after Refine " << endl;
+  //cout << "making pdf structure" << endl;
+  gslpdfstruct =
+    gsl_ran_discrete_preproc ((size_t) RangeDomainSet.size (), proposalpmf);
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_ab7fdfefd1123153f759ae4ceb775a10a}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!$\sim$\-M\-R\-Sampler@{$\sim$\-M\-R\-Sampler}}
+\index{$\sim$\-M\-R\-Sampler@{$\sim$\-M\-R\-Sampler}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{$\sim$\-M\-R\-Sampler}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-M\-R\-Sampler\-::$\sim$\-M\-R\-Sampler} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_ab7fdfefd1123153f759ae4ceb775a10a}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 148 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References gslpdfstruct, own\-\_\-rng, proposalpdf, proposalpmf, qrgsl, residual\-\_\-proposalpmf, and rgsl.
+
+
+\begin{DoxyCode}
+{                   
+  if (own_rng)
+    gsl_rng_free (rgsl);
+  gsl_qrng_free (qrgsl);
+  gsl_ran_discrete_free (gslpdfstruct);
+  free (proposalpmf);
+  if (residual_proposalpmf != NULL)
+  {
+    free (residual_proposalpmf);
+  }
+  free (proposalpdf);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classMRSampler_a68198444d2875642e8ee2cb3f3120419}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Adapt\-Partition@{\-Adapt\-Partition}}
+\index{\-Adapt\-Partition@{\-Adapt\-Partition}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Adapt\-Partition}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Adapt\-Partition} (
+\begin{DoxyParamCaption}
+\item[{double}]{\-Alb}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a68198444d2875642e8ee2cb3f3120419}
+
+
+\-Adaptively partition domain by bisecting the most prioritised labeled box. 
+
+\-The labeled box in the current partition of the domain with largest (prior\-\_\-integral$\ast$diam(range enclosure)) is bisected 
+
+\-Definition at line 916 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Bisect(), f\-\_\-scale\-Done, get\-I\-L(), get\-I\-U(), get\-P\-A\-L\-B(), \-Max\-\_\-n\-\_\-boxes, \-Range\-Domain\-Set, update\-Integral(), and update\-Umax().
+
+
+
+\-Referenced by \-Refine().
+
+
+\begin{DoxyCode}
+{                  
+  unsigned int next_updateUmax = 32;
+  //  cout << "Integral: " << Integral << endl;
+  while ((RangeDomainSet.size () < Max_n_boxes) && (getPALB () < Alb))
+  {
+    Bisect ();
+    //cout << "Integral: " << Integral << endl;
+    //cout << "in AdaptPartition. "  << RangeDomainSet.size() << endl;
+    if (!f_scaleDone && RangeDomainSet.size () == next_updateUmax)
+    {
+      cout << "in AdaptPartition before updateUmax. \n";
+      updateUmax ();
+      cout << "in AdaptPartition after updateUmax. \n";
+      updateIntegral ();
+      next_updateUmax *= 2;
+    }
+  }
+
+  updateUmax ();
+  cout << "in AdaptPartition after updateUmax2 \n";
+  updateIntegral ();
+  //   cout << "Integral: " << Integral << endl;
+  cout << "# Adaptive partitioning complete. Boxes: " << RangeDomainSet.
+    size () << "  Lower bound on Acceptance Prob.: " << getPALB () <<
+    " IL, IU: " << getIL () << "   " << getIU () << endl;
+  //  getchar();
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_ae665da26800e35c295359e0d2dffb489}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Bisect@{\-Bisect}}
+\index{\-Bisect@{\-Bisect}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Bisect}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Bisect} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ae665da26800e35c295359e0d2dffb489}
+
+
+\-Bisect the box at top of priority queue. 
+
+\-Bisect the box at the beginning of the \-Range\-Domain\-Set and push two resulting boxes onto set. \-Always bisect along the first dimension with the longest side. \-Range\-Domain\-Set is \-S\-T\-L set -\/-\/ sorted associative container. 
+
+\-Definition at line 848 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Fobj\-::\-Bisect\-Pt(), \-Lab\-Box\-::\-Box, \-Ranged\-Lab\-Box\-::\-Box\-Integral(), \-Ranged\-Lab\-Box\-::\-Box\-R\-E, \-F, f\-\_\-scale, get\-\_\-n\-\_\-boxes(), get\-Box\-R\-E\-Info(), get\-P\-A\-L\-B(), \-Integral, \-Lab\-Box\-::\-L, taylor\-::\-Lb(), \-Ranged\-Lab\-Box\-::\-L\-Box, \-Lmax, \-Max\-Diam\-Comp(), \-Range\-Domain\-Set, taylor\-::\-Ub(), and \-Using\-Log\-Density.
+
+
+
+\-Referenced by \-Adapt\-Partition(), \-Refine(), and \-Refine\-Until().
+
+
+\begin{DoxyCode}
+{
+  //cout << "bisecting\n"; getchar();
+  RangedLabBox theBox (*(RangeDomainSet.begin ()));
+  //   cout << "top two boxes: " << endl;
+  //   theBox.Print(cout);
+                    // remove from the set the box to be bisected.
+  RangeDomainSet.erase (RangeDomainSet.begin ());
+
+  //   theBox = (*(RangeDomainSet.begin ()));
+  //   theBox.Print(cout);
+  //  (RangeDomainSet.begin())->Print(cout);
+
+  ivector B (theBox.LBox.Box);
+  int BoxDimensions = Ub(B) - Lb(B) + 1;
+                    // midpoint of box
+  rvector c (mid (B));
+                    // Subboxes of Y
+  imatrix U (0, 1, 1, BoxDimensions);
+
+  real IBisectedBoxIntegral =  
+    Inf (theBox.BoxIntegral (UsingLogDensity, f_scale));
+  
+  real SBisectedBoxIntegral = 
+    Sup (theBox.BoxIntegral (UsingLogDensity, f_scale));
+  // index of longest dimension of box
+  int k = MaxDiamComp (B);
+  real cc = (0)? c[k]: F.BisectPt(theBox.LBox, k);
+  LabBox LBox;
+  LBox.L = theBox.LBox.L;
+  U[0] = U[1] = B;
+  SetSup (U[0][k], cc);
+  SetInf (U[1][k], cc);
+  //  cout << "the 2 new boxes " << endl;
+  for (int j = 0; j < 2; j++)
+  {
+    LBox.Box = U[j];
+    //cout <<"getting rangeinfo for\n" << LBox.L << '\n' << LBox.Box;
+       getchar();
+    theBox = getBoxREInfo (LBox);
+    //  cout << "j: " << j << endl; theBox.Print(cout);
+    if (!RangeDomainSet.insert (theBox).second)
+    {
+      cout << "in Bisect. failed to insert theBox into RangeDomainSet " <<
+        endl;
+    }
+    real newBoxL = Inf (theBox.BoxRE);
+    //cout << "newBoxL = " << newBoxL; getchar();
+    if (newBoxL > Lmax)
+    {
+      Lmax = newBoxL;
+    }               // update Lmax
+    Integral += theBox.BoxIntegral (UsingLogDensity, f_scale);
+  }
+
+  if (RangeDomainSet.size () % 100000 == 0)
+    cout << "# boxes: " << get_n_boxes () << "  Acceptance Prob. >= " <<
+      getPALB () << "\r";
+  // cout << "end of bisect\n"; //getchar();
+
+  // RangedLabBoxSet::const_iterator rdsit = RangeDomainSet.begin ();
+  //  for( ; rdsit!= RangeDomainSet.end ();rdsit++){
+  //      rdsit->Print(cout);
+  //  }
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a0de2c0d6196f77662bb11304e3bec13d}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-First\-Box@{\-First\-Box}}
+\index{\-First\-Box@{\-First\-Box}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-First\-Box}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-First\-Box} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a0de2c0d6196f77662bb11304e3bec13d}
+
+
+\-Definition at line 820 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Ranged\-Lab\-Box\-::\-Box\-Integral(), \-Ranged\-Lab\-Box\-::\-Box\-R\-E, \-Domain, f\-\_\-scale, get\-Box\-R\-E\-Info(), \-Integral, \-Ranged\-Lab\-Box\-::\-L\-Box, \-Lmax, \-Lab\-Box\-::\-Print(), \-Ranged\-Lab\-Box\-::\-Print(), \-Range\-Domain\-Set, topologies, update\-Umax(), and \-Using\-Log\-Density.
+
+
+
+\-Referenced by \-M\-R\-Sampler().
+
+
+\begin{DoxyCode}
+{ // setup the initial box (whole domain)
+  RangedLabBox theBox;
+  for (unsigned k = 0; k < topologies; k++)
+  {
+    cout << "in FirstBox, before getBoxREInfo. k: " << k << endl;
+    theBox = getBoxREInfo (Domain[k]);
+    theBox.Print(cout);
+    cout << "in FirstBox, after getBoxREInfo " << endl;
+    theBox.LBox.Print(cout);
+    if (!RangeDomainSet.insert (theBox).second)
+    {
+      cout << "in FirstBox, failed to insert theBox. " << endl;
+    }
+  }
+  Lmax = Inf (theBox.BoxRE);
+  updateUmax ();
+  cout << "in FirstBox, after updateUmax \n";
+  Integral = theBox.BoxIntegral (UsingLogDensity, f_scale);
+  cout << "bottom of FirstBox. \n";
+  // exit(1);
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a30f5c5489a08545226b462ace92dc321}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-n\-\_\-boxes@{get\-\_\-n\-\_\-boxes}}
+\index{get\-\_\-n\-\_\-boxes@{get\-\_\-n\-\_\-boxes}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-n\-\_\-boxes}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-M\-R\-Sampler\-::get\-\_\-n\-\_\-boxes} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a30f5c5489a08545226b462ace92dc321}
+
+
+\-Return the number of boxes in \-Range\-Domain\-Set. 
+
+
+
+\-Definition at line 202 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Range\-Domain\-Set.
+
+
+
+\-Referenced by \-Bisect().
+
+
+\begin{DoxyCode}
+{
+  return static_cast<int>(RangeDomainSet.size ());
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a0302488b026965e8e6c401037a0c9240}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-n\-\_\-topologies@{get\-\_\-n\-\_\-topologies}}
+\index{get\-\_\-n\-\_\-topologies@{get\-\_\-n\-\_\-topologies}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-n\-\_\-topologies}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-M\-R\-Sampler\-::get\-\_\-n\-\_\-topologies} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMRSampler_a0302488b026965e8e6c401037a0c9240}
+
+
+\-Definition at line 127 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-References \-Domain\-Label\-Set.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{ return static_cast<int>(DomainLabelSet.size()); }
+\end{DoxyCode}
+\hypertarget{classMRSampler_ab5bb18ce86dcf3e6835084e12ad3caff}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-nonresidual\-\_\-samples@{get\-\_\-nonresidual\-\_\-samples}}
+\index{get\-\_\-nonresidual\-\_\-samples@{get\-\_\-nonresidual\-\_\-samples}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-nonresidual\-\_\-samples}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-M\-R\-Sampler\-::get\-\_\-nonresidual\-\_\-samples} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMRSampler_ab5bb18ce86dcf3e6835084e12ad3caff}
+
+
+\-Definition at line 129 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-References nonresidual\-\_\-samples.
+
+
+\begin{DoxyCode}
+    {
+      return nonresidual_samples;
+    }
+\end{DoxyCode}
+\hypertarget{classMRSampler_a281cb5fb693559dcbd4f90e7d5f37d3e}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-nsum@{get\-\_\-nsum}}
+\index{get\-\_\-nsum@{get\-\_\-nsum}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-nsum}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-M\-R\-Sampler\-::get\-\_\-nsum} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a281cb5fb693559dcbd4f90e7d5f37d3e}
+
+
+\-Definition at line 676 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References nsum.
+
+
+\begin{DoxyCode}
+{
+  return nsum;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a8a056b8e90fb8f72ff3923dca3257384}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-unscaled\-\_\-\-I\-U@{get\-\_\-unscaled\-\_\-\-I\-U}}
+\index{get\-\_\-unscaled\-\_\-\-I\-U@{get\-\_\-unscaled\-\_\-\-I\-U}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-unscaled\-\_\-\-I\-U}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-\_\-unscaled\-\_\-\-I\-U} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMRSampler_a8a056b8e90fb8f72ff3923dca3257384}
+
+
+\-Definition at line 113 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-References \-Integral.
+
+
+\begin{DoxyCode}
+    {
+      return _double (Sup (Integral));
+    }
+\end{DoxyCode}
+\hypertarget{classMRSampler_a85b66f54b156a0a742b48afcf2997379}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-wmax@{get\-\_\-wmax}}
+\index{get\-\_\-wmax@{get\-\_\-wmax}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-wmax}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-\_\-wmax} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a85b66f54b156a0a742b48afcf2997379}
+
+
+\-Definition at line 682 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References wmax.
+
+
+\begin{DoxyCode}
+{
+  return _double (wmax);
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_aa2d8b962208940151e182e6b3ccb3874}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-wmin@{get\-\_\-wmin}}
+\index{get\-\_\-wmin@{get\-\_\-wmin}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-wmin}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-\_\-wmin} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_aa2d8b962208940151e182e6b3ccb3874}
+
+
+\-Definition at line 688 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References wmin.
+
+
+\begin{DoxyCode}
+{
+  return _double (wmin);
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a37146ff923183a8563e57191d3e6bfa4}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-\_\-wsum@{get\-\_\-wsum}}
+\index{get\-\_\-wsum@{get\-\_\-wsum}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-\_\-wsum}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-\_\-wsum} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a37146ff923183a8563e57191d3e6bfa4}
+
+
+\-Definition at line 670 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References wsum.
+
+
+\begin{DoxyCode}
+{
+  return _double (wsum);
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a727ae6c7bafcf46f34c320e902cf43fe}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-Box\-R\-E\-Info@{get\-Box\-R\-E\-Info}}
+\index{get\-Box\-R\-E\-Info@{get\-Box\-R\-E\-Info}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-Box\-R\-E\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Ranged\-Lab\-Box} {\bf \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Lab\-Box}}]{\-L\-Box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a727ae6c7bafcf46f34c320e902cf43fe}
+
+
+\-Definition at line 781 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Ranged\-Lab\-Box\-::\-Box\-Prior\-Integral, \-Ranged\-Lab\-Box\-::\-Box\-R\-E, \-Ranged\-Lab\-Box\-::\-Box\-Vol, \-F, \-Fobj\-::\-Lab\-Box\-Prior\-Integral(), \-Fobj\-::\-Lab\-Box\-Volume(), and \-Ranged\-Lab\-Box\-::\-L\-Box.
+
+
+
+\-Referenced by \-Bisect(), and \-First\-Box().
+
+
+\begin{DoxyCode}
+{ // return the RangedLabBox with information about Labelled Box LBox
+  RangedLabBox result;
+  ivector Box = LBox.Box;
+
+  //  cout << "in getBoxREInfo. before F(LBox) " << endl;
+  interval RangeEnclosure = F (LBox);
+  //  cout << "in getBoxREInfo. after F(LBox). RE: " << RangeEnclosure << endl;
+  //cout << "RangeEnclosure = " << RangeEnclosure << '\n'; getchar();
+
+  // this is the RE of the function supplied, could be either pi or log(pi)
+  result.BoxRE = RangeEnclosure;
+  result.LBox = LBox;
+  result.BoxVol = F.LabBoxVolume(LBox);
+  result.BoxPriorIntegral = F.LabBoxPriorIntegral(LBox);
+
+  return result;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_aaf6497221623367c28cd9054eb52cbba}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-I\-L@{get\-I\-L}}
+\index{get\-I\-L@{get\-I\-L}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-I\-L}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-I\-L} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_aaf6497221623367c28cd9054eb52cbba}
+
+
+\-Definition at line 646 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Integral.
+
+
+
+\-Referenced by \-Adapt\-Partition().
+
+
+\begin{DoxyCode}
+{
+  return _double (Inf (Integral));
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a92b7d631e838539d7c9dcd047bd2936c}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-I\-U@{get\-I\-U}}
+\index{get\-I\-U@{get\-I\-U}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-I\-U}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-I\-U} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a92b7d631e838539d7c9dcd047bd2936c}
+
+
+\-Definition at line 640 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Integral.
+
+
+
+\-Referenced by \-Adapt\-Partition(), \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), and \-Rejection\-Sample\-Many().
+
+
+\begin{DoxyCode}
+{
+  return _double (Sup (Integral));
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a6d1a6fd3218a62ac5e77abe2a00ac84a}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-I\-Uminus\-L@{get\-I\-Uminus\-L}}
+\index{get\-I\-Uminus\-L@{get\-I\-Uminus\-L}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-I\-Uminus\-L}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-I\-Uminus\-L} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a6d1a6fd3218a62ac5e77abe2a00ac84a}
+
+
+\-Definition at line 652 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Integral.
+
+
+\begin{DoxyCode}
+{
+  return _double (diam (Integral));
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a71c9e4432504b5dcb9591265c4cfba50}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-P\-Aest@{get\-P\-Aest}}
+\index{get\-P\-Aest@{get\-P\-Aest}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-P\-Aest}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-P\-Aest} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a71c9e4432504b5dcb9591265c4cfba50}
+
+
+\-Definition at line 664 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References nsum, and wsum.
+
+
+
+\-Referenced by \-Rejection\-Sample\-Once().
+
+
+\begin{DoxyCode}
+{
+  return _double (wsum / _double (nsum));
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_addd59ad1e400adae3c46b562c7ceb80d}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-P\-A\-L\-B@{get\-P\-A\-L\-B}}
+\index{get\-P\-A\-L\-B@{get\-P\-A\-L\-B}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-P\-A\-L\-B}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-P\-A\-L\-B} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_addd59ad1e400adae3c46b562c7ceb80d}
+
+
+\-Return lower bound on the acceptance prob. 
+
+
+
+\-Definition at line 164 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Integral.
+
+
+
+\-Referenced by \-Adapt\-Partition(), and \-Bisect().
+
+
+\begin{DoxyCode}
+{
+  return _double (Inf (Integral) / Sup (Integral));
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_ab663935171c58ac98f0eeee73c02cbc6}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!get\-Umax@{get\-Umax}}
+\index{get\-Umax@{get\-Umax}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{get\-Umax}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-M\-R\-Sampler\-::get\-Umax} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_ab663935171c58ac98f0eeee73c02cbc6}
+
+
+\-Definition at line 658 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Umax.
+
+
+\begin{DoxyCode}
+{
+  return _double (Umax);
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a4fc816422109d41053f1171346463b7d}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Importance\-Sample\-Many@{\-Importance\-Sample\-Many}}
+\index{\-Importance\-Sample\-Many@{\-Importance\-Sample\-Many}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Importance\-Sample\-Many}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Importance\-Sample\-Many} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-N\-Samples, }
+\item[{bool}]{residual, }
+\item[{bool}]{pseudo\-R\-N\-G, }
+\item[{{\bf \-I\-S\-Sample} \&}]{the\-Sample}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a4fc816422109d41053f1171346463b7d}
+
+
+\-Importance sampling with \-Pseudo/\-Quasi random numbers. 
+
+
+
+\-Definition at line 423 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Domain\-Label\-Set, \-Domain\-Parts, \-Fobj\-::\-Draw\-From\-Box\-Prior(), \-Draw\-Q\-Z\-Unif\-Box\-V(), \-Draw\-Unif\-Box(), \-Draw\-Unif\-Unit\-Box(), \-I\-S\-Sample\-::\-Envelope\-Integral, \-F, \-W\-Lab\-Pnt\-::f\-Pnt, get\-I\-U(), gslpdfstruct, \-Lab\-Pnt\-::\-L, \-I\-S\-Sample\-::\-Label\-Set, \-Lo\-Box, n\-\_\-dim\-\_\-max, nonresidual\-\_\-samples, \-I\-S\-Sample\-::\-Ntopologies, \-Lab\-Pnt\-::\-Pnt, \-Fobj\-::\-Prior\-Density(), proposalpdf, \-W\-Lab\-Pnt\-::q\-Pnt, qrgsl, \-Range\-Domain\-Set, rgsl, \-I\-S\-Sample\-::\-Samples, \-Setup\-Walker(), \-Using\-Log\-Density, \-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E, and \-W\-Lab\-Pnt\-::\-Wt.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many\-Pseudo(), and main().
+
+
+\begin{DoxyCode}
+{
+  WLabPnt Sample;
+                    // n_dimensions); 
+  // can we do this, and have dimensionality automatically increased 
+  // as necessary by assignment?
+  rvector proposed_point (1, 1);
+  //double v[n_dimensions];
+  cout << "n_dim_max: " << n_dim_max << endl;
+                    // n_dimensions[0]);
+  vector<double> v(n_dim_max);
+  cout << "after alloc v " << endl;
+  int NBoxes = int (RangeDomainSet.size ());
+
+  if (residual)
+  {
+    SetupWalker (NSamples);
+  }                 // will this work ok here?
+  else
+  {
+    for (int i = 0; i < NBoxes; i++)
+    {
+      DomainParts[i].SamplesToDo = 0;
+    }
+  }                 //initialize
+
+                    // N is number of residual samples
+  int Nresidual = (NSamples - nonresidual_samples);
+  for (int i = 0; i < Nresidual; i++)
+  {                 // randomly choose the boxes for the residual samples
+    DomainParts[(gsl_ran_discrete (rgsl, gslpdfstruct))].SamplesToDo++;
+  }
+  // now the number of samples to be drawn from each box is set, 
+  // and stored in DomainParts[index].SamplesToDo
+  size_t sample_num = 0;
+  for (int i = 0; i < NBoxes; i++)
+  {
+    while (DomainParts[i].SamplesToDo > 0)
+    {               //until all samples from Box i are exhausted
+                    //decrement the sample that's about to be taken care of
+      DomainParts[i].SamplesToDo--;
+      sample_num++; //increment sample_num
+      if(1)
+      {
+        if (pseudoRNG)
+        {
+          proposed_point = DrawUnifBox (rgsl, DomainParts[i].Box);
+        }
+        else
+        {           // quasi RNG
+                    // the quasi-random state is v at current sweep
+          gsl_qrng_get (qrgsl, (&v[0]));
+          // Note: QR vector v may have more dimensions than box; 
+          // in this case don't use the extra elements.
+          proposed_point = DrawQZUnifBoxV ((&v[0]), DomainParts[i].Box);
+        }
+      }
+      else          //
+      {
+        LabBox LBox = DomainParts[i];
+        //  rvector proposed_point;
+        if (pseudoRNG)
+        {
+          proposed_point = 
+            F.DrawFromBoxPrior(LBox, DrawUnifUnitBox(rgsl, VecLen(LBox.Box)));
+          //  proposed_point = DrawUnifBox (rgsl, DomainParts[i].Box);
+        }
+        else
+        {           // quasi RNG
+                    // the quasi-random state is v at current sweep
+          gsl_qrng_get (qrgsl, (&v[0]));
+          // Note: QR vector v may have more dimensions than box; 
+          // in this case don't use the extra elements.
+          // get a rvector from a double* ???
+          int ndim = VecLen(LBox.Box);
+          rvector rand_vector(1, ndim);
+          for(int ii=1; ii<=ndim; ii++){ rand_vector[ii] = v[ii-1]; }
+
+          proposed_point = F.DrawFromBoxPrior(LBox, rand_vector);
+          // proposed_point = DrawQZUnifBoxV ((&v[0]), DomainParts[i].Box);
+        }
+      }
+      Sample.Pnt = proposed_point;
+      Sample.L = DomainParts[i].L;
+      if (UsingLogDensity)
+      {
+        cerr <<
+          "UsingLogDensity=true is not defined for MRSampler::ImpPDSampleOnce()
+      "
+          << endl;
+        exit(1);
+      }
+      else
+      {
+        Sample.fPnt = _double (F (Sample));
+        if (WEIGHTED_SQUEEZE)
+        {
+          Sample.fPnt -= _double (LoBox[i]);
+        }           // FIXME scaling??
+                    //proposalpdf has been MODIFIED after pdfstruct was made
+        Sample.qPnt = _double (proposalpdf[i] * F.PriorDensity(Sample));
+        Sample.Wt = Sample.fPnt / Sample.qPnt;
+      }
+      theSample.Samples.push_back (Sample);
+    }               //end while(DomainParts[i].SamplesToDo > 0)
+  }                 // end i-loop
+  //  Offset = (WEIGHTED_SQUEEZE)? _double(Inf(Integral)): 0.0;
+  assert (sample_num == theSample.Samples.size ());
+  theSample.Ntopologies = DomainLabelSet.size ();
+  theSample.LabelSet = DomainLabelSet;
+  theSample.EnvelopeIntegral = getIU ();
+}                   // end ImportanceSampleMany
+\end{DoxyCode}
+\hypertarget{classMRSampler_a73999a2d6df8b33ddd459b6bcf9696f9}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Importance\-Sample\-Many\-Pseudo@{\-Importance\-Sample\-Many\-Pseudo}}
+\index{\-Importance\-Sample\-Many\-Pseudo@{\-Importance\-Sample\-Many\-Pseudo}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Importance\-Sample\-Many\-Pseudo}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Pseudo} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-N\-Samples, }
+\item[{bool}]{residual, }
+\item[{{\bf \-I\-S\-Sample} \&}]{the\-Sample}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMRSampler_a73999a2d6df8b33ddd459b6bcf9696f9}
+
+
+\-Importance sampling with \-Pseudo random numbers. 
+
+
+
+\-Definition at line 97 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-References \-Importance\-Sample\-Many().
+
+
+\begin{DoxyCode}
+    {
+      ImportanceSampleMany (NSamples, residual, true, theSample);
+    }
+\end{DoxyCode}
+\hypertarget{classMRSampler_a1e1e42a57421caa0b13b194372d0b067}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Importance\-Sample\-Many\-Quasi@{\-Importance\-Sample\-Many\-Quasi}}
+\index{\-Importance\-Sample\-Many\-Quasi@{\-Importance\-Sample\-Many\-Quasi}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Importance\-Sample\-Many\-Quasi}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-N\-Samples, }
+\item[{bool}]{residual, }
+\item[{{\bf \-I\-S\-Sample} \&}]{the\-Sample}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a1e1e42a57421caa0b13b194372d0b067}
+
+
+\-Importance sampling with \-Quasi random numbers -\/-\/ \mbox{[}\-Ignore\-: experimental\mbox{]}. 
+
+
+
+\-Definition at line 537 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Domain, \-Domain\-Parts, \-Draw\-Q\-Z\-Unif\-Box\-V(), \-Draw\-Unif\-Box(), \-I\-S\-Sample\-::\-Envelope\-Integral, \-F, \-W\-Lab\-Pnt\-::f\-Pnt, get\-I\-U(), gslpdfstruct, \-Lab\-Pnt\-::\-L, \-Lo\-Box, n\-\_\-dim\-\_\-max, nonresidual\-\_\-samples, \-I\-S\-Sample\-::\-Ntopologies, \-Lab\-Pnt\-::\-Pnt, \-Fobj\-::\-Prior\-Density(), proposalpdf, \-W\-Lab\-Pnt\-::q\-Pnt, qrgsl, \-Range\-Domain\-Set, rgsl, \-I\-S\-Sample\-::\-Samples, \-Setup\-Walker(), \-Using\-Log\-Density, \-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E, and \-W\-Lab\-Pnt\-::\-Wt.
+
+
+
+\-Referenced by main().
+
+
+\begin{DoxyCode}
+{
+  WLabPnt Sample;
+  rvector proposed_point (1, 1);
+  // the double vector to store the quasi-random state vector
+  vector<double> v(n_dim_max);
+
+  int NBoxes = int (RangeDomainSet.size ());
+
+  if (residual)
+  {
+    SetupWalker (NSamples);
+  }                 // will this work ok here?
+  else
+  {
+    for (int i = 0; i < NBoxes; i++)
+    {
+      DomainParts[i].SamplesToDo = 0;
+    }               //initialize
+  }
+
+                    // N is number of residual samples
+  int Nresidual = (NSamples - nonresidual_samples);
+  for (int i = 0; i < Nresidual; i++)
+  {                 // randomly choose the boxes for the residual samples
+    DomainParts[(gsl_ran_discrete (rgsl, gslpdfstruct))].SamplesToDo++;
+  }
+  // now the number of samples to be drawn from each box is set, 
+  // and stored in DomainParts[index].SamplesToDo
+  size_t sample_num = 0;
+  for (int i = 0; i < NBoxes; i++)
+  {
+    while (DomainParts[i].SamplesToDo > 0)
+    {               //until all samples from Box i are exhausted
+                    //decrement the sample that's about to be taken care of
+      DomainParts[i].SamplesToDo--;
+      sample_num++; //increment sample_num
+      if (0)
+      {
+        proposed_point = DrawUnifBox (rgsl, DomainParts[i].Box);
+      }
+      else
+      {
+                    // the quasi-random state is v at current sweep
+        gsl_qrng_get (qrgsl, (&v[0]));
+        proposed_point = DrawQZUnifBoxV ((&v[0]), DomainParts[i].Box);
+      }
+
+      Sample.Pnt = proposed_point;
+      Sample.L = DomainParts[i].L;
+      if (UsingLogDensity)
+      {
+        cerr <<
+          "UsingLogDensity=true is not defined for MRSampler::ImpPDSampleOnce()
+      "
+          << endl;
+        exit (1);
+      }
+      else
+      {
+        Sample.fPnt = _double (F (Sample));
+        if (WEIGHTED_SQUEEZE)
+        {
+          Sample.fPnt -= _double (LoBox[i]);
+        }           // FIXME scaling??
+                    //proposalpdf has been MODIFIED after pdfstruct was made
+        Sample.qPnt = _double (proposalpdf[i] * F.PriorDensity(Sample));
+        Sample.Wt = Sample.fPnt / Sample.qPnt;
+      }
+      theSample.Samples.push_back (Sample);
+    }               //end while(DomainParts[i].SamplesToDo > 0)
+  }                 // end i-loop
+  //  Offset = (WEIGHTED_SQUEEZE)? _double(Inf(Integral)): 0.0;
+  //  theSample.N = sample_num;
+  assert (sample_num == theSample.Samples.size ());
+  theSample.Ntopologies = Domain.size ();
+  theSample.EnvelopeIntegral = getIU ();
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_acea6f64c0aba88187122af49c5949ddc}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Init\-R\-N\-G@{\-Init\-R\-N\-G}}
+\index{\-Init\-R\-N\-G@{\-Init\-R\-N\-G}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Init\-R\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Init\-R\-N\-G} (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{seed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_acea6f64c0aba88187122af49c5949ddc}
+
+
+\-Initialize pseudo and \-Quasi \-Random \-Number \-Generators in \-G\-S\-L. 
+
+
+
+\-Definition at line 802 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References n\-\_\-dim\-\_\-max, own\-\_\-rng, qrgsl, and rgsl.
+
+
+
+\-Referenced by \-M\-R\-Sampler().
+
+
+\begin{DoxyCode}
+{                   
+  const gsl_rng_type *Tgsl;
+  gsl_rng_env_setup ();
+  Tgsl = gsl_rng_default;
+  rgsl = gsl_rng_alloc (Tgsl);
+  gsl_rng_set (rgsl, seed);
+  /* Note Regarding Quasi RNG: 
+    For now we will just use one quasi rng, with dimension equal to dmax, 
+    the max. dimension of all the labeled subdomains. Then when getting a 
+    point in a d dimension box (d<dmax), just use the first d elements, 
+    ignoring the rest. Not really sure whether this is legit.
+  */
+  qrgsl = gsl_qrng_alloc (gsl_qrng_sobol, n_dim_max);
+  own_rng = true;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a7142c1478e259ec85354407fccfbfa78}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-M\-R\-Soutput@{\-M\-R\-Soutput}}
+\index{\-M\-R\-Soutput@{\-M\-R\-Soutput}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-M\-R\-Soutput}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf \-M\-R\-Sampler\-::\-M\-R\-Soutput} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const double}]{eps = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const}}\label{classMRSampler_a7142c1478e259ec85354407fccfbfa78}
+
+
+\-Print the \-Range\-Domain\-Set in tab-\/delimited numeric only format. 
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000004}{\-Todo}]may want the output to be padded with \-T\-A\-B\-S for easy dlmread in \-M\-A\-T\-L\-A\-B for the trans-\/diminsional case\-: same for \-Output\-\_\-\-Domain\-\_\-\-Partition \end{DoxyRefDesc}
+
+
+\-Definition at line 235 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, taylor\-::\-Lb(), \-Ranged\-Lab\-Box\-::\-L\-Box, \-Range\-Domain\-Set, taylor\-::\-Ub(), and \-Volume().
+
+
+
+\-Referenced by operator$<$$<$().
+
+
+\begin{DoxyCode}
+{
+  // do nothing if there is nothing in the set
+  if(!RangeDomainSet.empty())
+  {
+    
+    RangedLabBoxSet::const_iterator it;
+    
+    it = RangeDomainSet.begin();
+    
+    double vol = Volume((it->LBox).Box);
+    
+    while (vol>eps  && it != RangeDomainSet.end())
+    {               // pull em out from top of pq
+      RangedLabBox theBox = *it;
+      ivector x = it->LBox.Box;
+      
+      // label
+      os << (it->LBox.L);
+      
+      // range enclosure
+      os << "\t" << Inf(it->BoxRE) << "\t" << Sup(it->BoxRE);
+      
+      //then the box
+      for (int i = Lb(x); i <= Ub(x) ; i++)
+      {
+        os << "\t" << Inf(x[i]) << "\t" << Sup(x[i]);
+      }
+      
+      os<<endl;
+      
+      vol = Volume((it->LBox).Box);
+      
+      it++;
+      
+    }               // end iteration through the set
+    
+  }                 // end if set not empty
+  
+  return os;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a7c1905d15eef55fd405cf6e03550f6c1}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Output\-\_\-\-Domain\-\_\-\-Partition@{\-Output\-\_\-\-Domain\-\_\-\-Partition}}
+\index{\-Output\-\_\-\-Domain\-\_\-\-Partition@{\-Output\-\_\-\-Domain\-\_\-\-Partition}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Output\-\_\-\-Domain\-\_\-\-Partition}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Output\-\_\-\-Domain\-\_\-\-Partition} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a7c1905d15eef55fd405cf6e03550f6c1}
+
+
+\-Print labeled boxes in domain partition \-Domain\-Parts \mbox{[}naive \-T\-A\-B-\/delimited numeric only format\mbox{]}. 
+
+
+
+\-Definition at line 217 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Domain\-Parts, taylor\-::\-Lb(), \-Range\-Domain\-Set, and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+  for (unsigned int ui = 0; ui < RangeDomainSet.size (); ui++)
+  {
+    out << DomainParts[ui].L;
+    for(int i=Lb((DomainParts[ui]).Box); i<=Ub((DomainParts[ui]).Box); i++)
+    {
+      out << "\t" << Inf((DomainParts[ui]).Box[i]) 
+          << "\t" << Sup((DomainParts[ui]).Box[i]);
+    }
+    out << endl;
+  }
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a92103320447370feb1f9452915534a91}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Print\-\_\-\-Domain\-\_\-\-Partition@{\-Print\-\_\-\-Domain\-\_\-\-Partition}}
+\index{\-Print\-\_\-\-Domain\-\_\-\-Partition@{\-Print\-\_\-\-Domain\-\_\-\-Partition}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Print\-\_\-\-Domain\-\_\-\-Partition}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Print\-\_\-\-Domain\-\_\-\-Partition} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{out}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a92103320447370feb1f9452915534a91}
+
+
+\-Print labeled boxes in domain partition \-Domain\-Parts \mbox{[}\-C-\/\-X\-S\-C output format\mbox{]}. 
+
+
+
+\-Definition at line 209 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Domain\-Parts, and \-Range\-Domain\-Set.
+
+
+\begin{DoxyCode}
+{
+  for (unsigned int ui = 0; ui < RangeDomainSet.size (); ui++)
+    out << DomainParts[ui].L << endl << DomainParts[ui].Box << endl;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a25d99bdee1a715fb2a8e2a8068b890db}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Print\-Boxes@{\-Print\-Boxes}}
+\index{\-Print\-Boxes@{\-Print\-Boxes}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Print\-Boxes}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Print\-Boxes} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-Nprint}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a25d99bdee1a715fb2a8e2a8068b890db}
+\-Print boxes with \-M\-A\-T\-L\-A\-B.
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000006}{\-Todo}]\-Needs standardization of rendering format(s) for ease of making low-\/dimensional pictures -\/-\/ \-M\-A\-T\-L\-A\-B/\-P\-O\-V\-R\-A\-Y/\-M\-A\-T\-P\-L\-O\-T\-L\-I\-B. \end{DoxyRefDesc}
+
+
+\-Definition at line 617 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Ranged\-Lab\-Box\-::\-L\-Box, and \-Range\-Domain\-Set.
+
+
+\begin{DoxyCode}
+{
+  //this is quick and dirty Matlab code generator for visualising range
+       enclosure in 1D cases
+  Nprint = 0;       //output through cout
+  int NBoxesToPrint=1000;
+  RangedLabBox theBox;
+  RangedLabBoxSet::const_iterator it = RangeDomainSet.begin ();
+  for (int i = 0; it != RangeDomainSet.end () && i < NBoxesToPrint; it++, i++)
+  {                 // pull em out from top of pq
+    theBox = *it;
+    ivector x = it->LBox.Box;
+    //cout << "i: " << i << "  Box: " << it->LBox.Box << " RE: :" 
+    //     << it->BoxRE << "  Vol: " << it->BoxVol;
+    //cout << " IntDiam: " << it->BoxIntegral (UsingLogDensity) << endl;
+    cout << "rectangle('Position',["
+      << Inf(x[1]) << "," << Inf(it->BoxRE) << "," << Sup(x[1])-Inf(x[1]) 
+      << "," << Sup(it->BoxRE)-Inf(it->BoxRE)
+      << "], 'FaceColor','b')" << endl;
+  } cout << endl;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a975802b28786372a0b1ee461184d3b23}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Refine@{\-Refine}}
+\index{\-Refine@{\-Refine}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Refine}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Refine} (
+\begin{DoxyParamCaption}
+\item[{double}]{\-Alb}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a975802b28786372a0b1ee461184d3b23}
+
+
+\-Do further partitioning until acc. prob. lower bound $>$ \-Alb, then setup pdf. 
+
+
+
+\-Definition at line 171 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Adapt\-Partition(), and \-Setup\-P\-D\-F().
+
+
+
+\-Referenced by \-M\-R\-Sampler().
+
+
+\begin{DoxyCode}
+{
+  AdaptPartition (Alb);
+  SetupPDF ();
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_ae72be9880b00d25266c10d2f13365abf}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Refine@{\-Refine}}
+\index{\-Refine@{\-Refine}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Refine}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Refine} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-Nbisect}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_ae72be9880b00d25266c10d2f13365abf}
+
+
+\-Refine partition by doing \-Nbisect many bisections. 
+
+
+
+\-Definition at line 191 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Bisect(), and \-Setup\-P\-D\-F().
+
+
+\begin{DoxyCode}
+{
+  for (int j = 0; j < Nbisect; j++)
+  {
+    Bisect ();
+  }
+  SetupPDF ();
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_ab6456ed49e2b5a903035ae7ef32cc5f2}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Refine\-Until@{\-Refine\-Until}}
+\index{\-Refine\-Until@{\-Refine\-Until}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Refine\-Until}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Refine\-Until} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{\-Desired\-\_\-\-N\-\_\-boxes}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_ab6456ed49e2b5a903035ae7ef32cc5f2}
+
+
+\-Refine partition by bisections until \-Desired\-\_\-\-N\-\_\-boxes many boxes is reached, then setup pdf. 
+
+
+
+\-Definition at line 180 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Bisect(), \-Range\-Domain\-Set, and \-Setup\-P\-D\-F().
+
+
+\begin{DoxyCode}
+{
+  while (RangeDomainSet.size () < Desired_N_boxes)
+  {
+    Bisect ();
+  }
+  SetupPDF ();
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_aac7c2e726a813ad155151c99cbdb7f12}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Rejection\-Sample\-Many@{\-Rejection\-Sample\-Many}}
+\index{\-Rejection\-Sample\-Many@{\-Rejection\-Sample\-Many}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Rejection\-Sample\-Many}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many} (
+\begin{DoxyParamCaption}
+\item[{int}]{n\-R\-S, }
+\item[{{\bf \-R\-S\-Sample} \&}]{the\-Sample}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_aac7c2e726a813ad155151c99cbdb7f12}
+
+
+\-Draw n\-R\-S many samples of labeled points via rejection sampling, if possible. 
+
+\-Rejection\-Sample\-Many stores the samples in the \hyperlink{classRSSample}{\-R\-S\-Sample} object the\-Sample.
+
+\-Draw n\-R\-S many rejection samples, if possible, and store in the \hyperlink{classRSSample}{\-R\-S\-Sample} object the\-Sample 
+
+\-Definition at line 354 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Domain\-Label\-Set, \-Domain\-Parts, \-Fobj\-::\-Draw\-From\-Box\-Prior(), \-Draw\-Unif\-Unit\-Box(), \-R\-S\-Sample\-::\-Envelope\-Integral, \-F, get\-I\-U(), gslpdfstruct, \-Lab\-Pnt\-::\-L, \-R\-S\-Sample\-::\-Label\-Set, taylor\-::ln(), \-Lo\-Box, n\-\_\-dim\-\_\-max, \-R\-S\-Sample\-::n\-\_\-\-Dim\-\_\-\-Max, \-R\-S\-Sample\-::\-Nprop, \-R\-S\-Sample\-::\-Ntopologies, \-Lab\-Pnt\-::\-Pnt, rgsl, \-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E, \-R\-S\-Sample\-::\-Samples, \-U\-Box, and \-Using\-Log\-Density.
+
+
+
+\-Referenced by main(), and \-Produce\-M\-R\-Samples().
+
+
+\begin{DoxyCode}
+{
+  LabPnt proposed_LPnt;
+  int total_tries = 0;
+  for (; theSample.Samples.size () < unsigned(nRS);)
+  {
+    int proposed_index = static_cast<int>(gsl_ran_discrete 
+                                          (rgsl, gslpdfstruct));
+    LabBox LBox = DomainParts[proposed_index];
+    rvector proposed_point = 
+              F.DrawFromBoxPrior(LBox, DrawUnifUnitBox(rgsl, VecLen(LBox.Box)))
+      ;
+
+    proposed_LPnt.Pnt = proposed_point;
+    proposed_LPnt.L = DomainParts[proposed_index].L;
+
+    real rand = gsl_rng_uniform (rgsl);
+    real Fprop;
+    if (rand > 1.0)
+    {
+      printf
+        ("#proposed_index, UBox[proposed_index], height: %i %g %g \n",
+        proposed_index, _double (UBox[proposed_index]), _double (rand));
+      getchar ();
+    }
+
+    if (UsingLogDensity)
+    {
+      // real rany = rand * UBox[proposed_index];
+      // cout << "RSmany. rany: " << rany << "  Ubox: " 
+      //      << UBox[proposed_index] << endl;
+      if (((RS_SQUEEZE) && 
+           (ln(rand) <= LoBox[proposed_index] - UBox[proposed_index]))
+        || ln (rand) <= F(proposed_LPnt) - UBox[proposed_index])
+      {
+        //  proposed_LPnt.Print(cout);
+        theSample.Samples.push_back (proposed_LPnt);
+      }
+    }
+    else
+    {
+      real rany = rand * UBox[proposed_index];
+                    // less than lower bound, don't need to eval. function
+      if (((RS_SQUEEZE) && (rany <= LoBox[proposed_index]))
+        || (rany <= (Fprop = F (proposed_LPnt))))
+      {
+        // proposed_LPnt.Print(cout);
+        theSample.Samples.push_back (proposed_LPnt);
+      }
+    }
+    // } // loop over tries
+    // if(tries == MAXNTRIES){ cout << "No RS accepted in " 
+    //                    << MAXNTRIES << " tries. Refine partition?" << endl;
+       }
+    total_tries++;  // += tries;
+    // cout << "RS accepted, tries: " << theSample.Samples.size() 
+    //      << "  " << total_tries << endl;
+  }                 // loop over samples
+  theSample.Nprop = total_tries;
+  theSample.Ntopologies = DomainLabelSet.size ();
+  theSample.LabelSet = DomainLabelSet;
+  theSample.n_Dim_Max = n_dim_max;
+  theSample.EnvelopeIntegral = getIU ();
+  // cerr << "In MRSample.SampleOnce. After " << MAXNTRIES
+  //      << " proposals, none accepted. Acceptance prob. very low. " << endl;
+  //  return proposed_LPnt;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a3ab6aa3b0bb466c67c69db97e2dad5f2}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Rejection\-Sample\-Once@{\-Rejection\-Sample\-Once}}
+\index{\-Rejection\-Sample\-Once@{\-Rejection\-Sample\-Once}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Rejection\-Sample\-Once}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Lab\-Pnt} {\bf \-M\-R\-Sampler\-::\-Rejection\-Sample\-Once} (
+\begin{DoxyParamCaption}
+\item[{int \&}]{tries}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a3ab6aa3b0bb466c67c69db97e2dad5f2}
+
+
+\-Return one sample of labeled point via rejection sampling, if possible. 
+
+
+
+\-Definition at line 279 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Domain\-Parts, \-Fobj\-::\-Draw\-From\-Box\-Prior(), \-Draw\-Unif\-Box(), \-F, get\-P\-Aest(), gslpdfstruct, \-Lab\-Pnt\-::\-L, taylor\-::\-Lb(), taylor\-::ln(), \-Lo\-Box, \-M\-A\-X\-N\-T\-R\-I\-E\-S, \-Lab\-Pnt\-::\-Pnt, \-Lab\-Pnt\-::\-Print(), rgsl, \-R\-S\-\_\-\-S\-Q\-U\-E\-E\-Z\-E, taylor\-::\-Ub(), \-U\-Box, and \-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+
+  LabPnt proposed_LPnt;
+  for (tries = 1; tries <= MAXNTRIES; tries++)
+  {                 // try a bunch of times
+    int proposed_index = 
+                        static_cast<int>(gsl_ran_discrete (rgsl, gslpdfstruct))
+      ;
+    //  int ndim = VecLen(DomainParts[proposed_index].Box);
+    rvector proposed_point;
+    if(0)           // old way in mrs-0.1; uniform prior -- left for recall!!!
+    {
+      //Different boxes can be different dimensionalities.
+      proposed_point = DrawUnifBox (rgsl, DomainParts[proposed_index].Box);
+    }
+    else
+    {
+      LabBox LBox = DomainParts[proposed_index];
+      int BoxDim = Ub(LBox.Box) - Lb(LBox.Box) + 1;
+      rvector rand_vector(1,BoxDim);
+      for(int k=1; k<=BoxDim; k++)
+      {
+        rand_vector[k] = gsl_rng_uniform(rgsl);
+      }
+
+      proposed_point = F.DrawFromBoxPrior(DomainParts[proposed_index], 
+                                          rand_vector);
+    }
+    proposed_LPnt.Pnt = proposed_point;
+    proposed_LPnt.L = DomainParts[proposed_index].L;
+    proposed_LPnt.Print(cout);
+
+    real rand = gsl_rng_uniform (rgsl);
+    real Fprop;
+    if (rand > 1.0)
+    {
+      printf
+        ("#proposed_index, UBox[proposed_index], height: %i %g %g \n",
+        proposed_index, _double (UBox[proposed_index]), _double (rand));
+      getchar ();
+    }
+
+    if (UsingLogDensity)
+    {
+      // Ah but Ubox is now the log
+      //   cout << "RSonce: rany: " << rany << "  Ubox: " 
+      //        << UBox[proposed_index] <<endl;
+      if (((RS_SQUEEZE) && 
+           (ln(rand) <= LoBox[proposed_index] - UBox[proposed_index]))
+        || (ln(rand) <= F(proposed_LPnt) - UBox[proposed_index]))
+      {
+        return proposed_LPnt;
+      }
+    }
+    else
+    {
+      real rany = rand * UBox[proposed_index];
+                    // < lower bound, don't need to eval. function
+      if (((RS_SQUEEZE) && (rany <= LoBox[proposed_index]))
+        || (rany <= (Fprop = F (proposed_LPnt))))
+      {
+        return proposed_LPnt;
+      }
+    }
+  }                 // loop over tries
+  cerr << "In MRSample.SampleOnce. After " << MAXNTRIES
+    << " proposals, none accepted. Acceptance prob. very low. " << endl;
+  cout << "estimated acceptance prob: " << getPAest () << endl;
+  getchar ();
+  return proposed_LPnt;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a91a20bb1df74b36668d4ea206685246f}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Setup\-P\-D\-F@{\-Setup\-P\-D\-F}}
+\index{\-Setup\-P\-D\-F@{\-Setup\-P\-D\-F}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Setup\-P\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Setup\-P\-D\-F} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a91a20bb1df74b36668d4ea206685246f}
+
+
+\-Definition at line 946 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Ranged\-Lab\-Box\-::\-Box\-Prior\-Integral, \-Ranged\-Lab\-Box\-::\-Box\-R\-E, \-Ranged\-Lab\-Box\-::\-Box\-Vol, \-Domain\-Parts, taylor\-::exp(), f\-\_\-scale, \-Ranged\-Lab\-Box\-::\-L\-Box, \-Lo\-Box, proposalpdf, proposalpmf, \-Range\-Domain\-Set, \-U\-Box, \-Umax, \-Using\-Log\-Density, and \-W\-E\-I\-G\-H\-T\-E\-D\-\_\-\-S\-Q\-U\-E\-E\-Z\-E.
+
+
+
+\-Referenced by \-Refine(), and \-Refine\-Until().
+
+
+\begin{DoxyCode}
+{
+  //cout << "inside SetupPDF \n";
+  unsigned int NBoxes = static_cast<unsigned int>(RangeDomainSet.size ());
+  rvector VolBox(0, NBoxes-1);
+  rvector PriorIntegralBox(0, NBoxes-1);
+  Resize (UBox, 0, NBoxes - 1);
+  Resize (LoBox, 0, NBoxes - 1);
+
+  if (proposalpmf != NULL)
+    free (proposalpmf);
+  proposalpmf = (double *) malloc (NBoxes * sizeof (double));
+  if (proposalpdf != NULL)
+    free (proposalpdf);
+  proposalpdf = (double *) malloc (NBoxes * sizeof (double));
+
+  RangedLabBox theBox;
+  Umax = Sup (RangeDomainSet.begin ()->BoxRE);
+  RangedLabBoxSet::const_iterator it = RangeDomainSet.begin ();
+  for (unsigned int ui = 0; it != RangeDomainSet.end (); it++, ui++)
+  {                 // pull em out from top of pq
+    theBox = *it;
+    DomainParts.push_back (theBox.LBox);
+    UBox[ui] = Sup (theBox.BoxRE);
+    LoBox[ui] = Inf (theBox.BoxRE);
+    VolBox[ui] = theBox.BoxVol;
+    PriorIntegralBox[ui] = theBox.BoxPriorIntegral;
+    if (UBox[ui] > Umax)
+      Umax = UBox[ui];
+  }
+
+                    //getchar();
+  cout << "#Using log(pi)? " << UsingLogDensity << endl;
+  double pTotal = 0.0;
+
+                    // reset proposalpmf
+  for (unsigned int ui = 0; ui < NBoxes; ui++)
+  {
+    real BoxI = (0)? VolBox[ui]: PriorIntegralBox[ui];
+    if (UsingLogDensity)
+    {
+      //  UBox[ui] = exp (UBox[ui] - f_scale); 
+      // leave Ubox as just Sup RE of logdensity
+      //  LoBox[ui] = exp (LoBox[ui] - f_scale);
+      // could we use BoxIntegral here?
+      if(WEIGHTED_SQUEEZE)
+      {
+        proposalpmf[ui] = _double((exp (UBox[ui] - f_scale) - 
+                                   exp (LoBox[ui] - f_scale)) * BoxI);
+      }
+      else
+      {
+        proposalpmf[ui] = _double(exp(UBox[ui] - f_scale) * BoxI);
+      }
+    }
+    else
+    {
+                    //
+      if (WEIGHTED_SQUEEZE)
+      {
+        proposalpmf[ui] = _double ((UBox[ui] - LoBox[ui]) * BoxI);
+      }
+      else
+      {
+        proposalpmf[ui] = _double (UBox[ui] * BoxI);
+      }
+    }
+
+                    //initialize
+    DomainParts[ui].SamplesToDo = 0;
+  }
+  //make pmf a probability mass function -- normalize
+  pTotal =
+    std::accumulate (proposalpmf, proposalpmf + NBoxes, 0.0,
+    kahan_sum < double >());
+
+  //   UBIntegral = pTotal;
+  std::transform (proposalpmf, proposalpmf + NBoxes, proposalpmf,
+    bind2nd (divides < double >(), pTotal));
+
+  //Now we will use proposalpdf to keep track of 
+  // the DENSITY (normalized simple fnctn) of a proposed point
+  int count0probBoxes16 = 0, count0probBoxes10 = 0, count0probBoxes6 =
+    0, count0probBoxes3 = 0;
+  for (unsigned int ui = 0; ui < NBoxes; ui++)
+  {
+    if(0)
+    {
+                    // (BoxI); // ????
+      proposalpdf[ui] = proposalpmf[ui] / _double (VolBox[ui]);
+    }
+    else
+    {
+      proposalpdf[ui] = proposalpmf[ui] / _double (PriorIntegralBox[ui]);
+    }
+    // do we need proposalpdf??? 
+    // it will not be const over box, if prior is not const.
+    if (proposalpmf[ui] >= 1e-3)
+      count0probBoxes3++;
+    if (proposalpmf[ui] >= 1e-6)
+      count0probBoxes6++;
+    if (proposalpmf[ui] <= 1e-16)
+      count0probBoxes16++;
+    if (proposalpmf[ui] <= 1e-10)
+      count0probBoxes10++;
+  }
+  // sometimes 20% of the boxes have mass <= 1e-16 !!!  this unnecessarily 
+  // enlarges our priority queue and the SetupWalker
+  // need regular sub-paving to make this efficient 
+  // perhaps have > 1 list of boxes
+  cout << "#No. of Boxes with proposal mass function <= 1e-16 " <<
+    count0probBoxes16 << endl;
+  cout << "#No. of Boxes with proposal mass function <= 1e-10 " <<
+    count0probBoxes10 << endl;
+  cout << "#No. of Boxes with proposal mass function >= 1e-6 " <<
+    count0probBoxes6 << endl;
+  cout << "#No. of Boxes with proposal mass function >= 1e-3 " <<
+    count0probBoxes3 << endl;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a4898e0225312caca6bdc53d034b8cd2a}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Setup\-Walker@{\-Setup\-Walker}}
+\index{\-Setup\-Walker@{\-Setup\-Walker}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Setup\-Walker}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::\-Setup\-Walker} (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{number\-\_\-of\-\_\-samples}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a4898e0225312caca6bdc53d034b8cd2a}
+
+
+\-Definition at line 1067 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Domain\-Parts, gslpdfstruct, nonresidual\-\_\-samples, proposalpmf, \-Range\-Domain\-Set, and residual\-\_\-proposalpmf.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), and \-Importance\-Sample\-Many\-Quasi().
+
+
+\begin{DoxyCode}
+{                   // Setup residual_proposalpmf
+  unsigned int NBoxes = static_cast<unsigned int>(RangeDomainSet.size ());
+
+  if (residual_proposalpmf != NULL)
+                    // start over again
+    free (residual_proposalpmf);
+  residual_proposalpmf = (double *) malloc (NBoxes * sizeof (double));
+
+  nonresidual_samples = 0;
+  // preprocess proposalpmf to get gslpdfstruct, used by gsl_ran_discrete
+  if (gslpdfstruct != NULL)
+    gsl_ran_discrete_free (gslpdfstruct);
+  if (samples != 0)
+  {                 // modify pmf for residual sampling to minimizing variance
+    double blowup, intpart;
+    double dsamples = double (samples);
+    double count_residuals = 0;
+    for (unsigned int ui = 0; ui < NBoxes; ui++)
+    {
+      blowup = proposalpmf[ui] * dsamples;
+                    // save the residue in the revided residual pmf
+      count_residuals += (residual_proposalpmf[ui] = modf (blowup, &intpart));
+      nonresidual_samples += (DomainParts[ui].SamplesToDo =
+        int (intpart));
+    }
+    std::transform (residual_proposalpmf, residual_proposalpmf + NBoxes,
+      residual_proposalpmf, bind2nd (divides < double >(),
+      count_residuals));
+  }
+                    // this is residual part now
+  gslpdfstruct = gsl_ran_discrete_preproc ((size_t) NBoxes, 
+                                           residual_proposalpmf);
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a973099a9a64b6e447b196e8fecc121da}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!update\-Integral@{update\-Integral}}
+\index{update\-Integral@{update\-Integral}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{update\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::update\-Integral} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a973099a9a64b6e447b196e8fecc121da}
+
+
+update \-Integral using present partition 
+
+
+
+\-Definition at line 695 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-Ranged\-Lab\-Box\-::\-Box\-Integral(), f\-\_\-scale, \-Integral, \-Range\-Domain\-Set, and \-Using\-Log\-Density.
+
+
+
+\-Referenced by \-Adapt\-Partition().
+
+
+\begin{DoxyCode}
+{
+  RangedLabBox theBox;
+  interval localIntegral (0.0, 0.0);
+  RangedLabBoxSet::const_iterator it = RangeDomainSet.begin ();
+  for (; it != RangeDomainSet.end (); it++)
+  {
+    theBox = *it;
+    //    localIntegral += theBox.BoxIntegral (UsingLogDensity);
+    localIntegral += theBox.BoxIntegral (UsingLogDensity, f_scale);
+  }
+  cout << "in updateIntegral. IL, IU: " << Inf (Integral) << " " <<
+    Sup (Integral) << endl;
+  Integral = localIntegral;
+}
+\end{DoxyCode}
+\hypertarget{classMRSampler_a7e98b9c2e972668a7df1b1b4853bef6e}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!update\-Umax@{update\-Umax}}
+\index{update\-Umax@{update\-Umax}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{update\-Umax}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-M\-R\-Sampler\-::update\-Umax} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMRSampler_a7e98b9c2e972668a7df1b1b4853bef6e}
+
+
+\-Updating the upper and lower bounds for the global maximum of target \-F. 
+
+\-For each box, first get upper bound \-U = \-Sup(range enclosure), and then \-Umax is the max over boxes of this and already have found during bisection \-Lmax, i.\-e. max of over boxes of \-Inf(range enclosure) \-Lmax, \-Umax are rigorous lower and upper bounds for global maximum of f each time \-U is eval'd for a box and found to be $>$ current \-Umax, eval f at midpoint of box. \-Then max of these is fmid\-\_\-max 
+
+\-Definition at line 713 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-B\-I\-G\-N\-E\-G\-A\-T\-I\-V\-E, \-Lab\-Box\-::\-Box, \-Ranged\-Lab\-Box\-::\-Box\-R\-E, taylor\-::exp(), \-F, f\-\_\-scale, f\-\_\-scale\-Done, f\-Max\-L\-B, \-Lab\-Pnt\-::\-L, \-Lab\-Box\-::\-L, \-Ranged\-Lab\-Box\-::\-L\-Box, \-Lmax, taylor\-::ln(), \-L\-O\-G\-D\-I\-A\-M\-F\-M\-A\-X, \-Lab\-Pnt\-::\-Pnt, \-Range\-Domain\-Set, \-Umax, \-Umax\-M\-A\-X, \-Use\-F\-Scale, and \-Using\-Log\-Density.
+
+
+
+\-Referenced by \-Adapt\-Partition(), and \-First\-Box().
+
+
+\begin{DoxyCode}
+{
+  RangedLabBox theBox;
+  real fmid_max = BIGNEGATIVE;
+  real f_scale_local;
+  bool f_scaleDone_local = false;
+
+  RangedLabBoxSet::const_iterator it = RangeDomainSet.begin ();
+  bool first = true;
+  for (; it != RangeDomainSet.end (); it++)
+  {
+    theBox = *it;
+    real U = Sup (theBox.BoxRE);
+    if (U > Umax || first)
+    {
+      Umax = U;
+      cout << "Umax: " << Umax << endl;
+      LabPnt lab_midpnt;
+      lab_midpnt.Pnt = mid (theBox.LBox.Box);
+      lab_midpnt.L = theBox.LBox.L;
+      real fmid = F (lab_midpnt);
+      if (fmid > fmid_max)
+                    // f eval'd in middle of box with greatest U.
+        fmid_max = fmid;
+      first = false;
+    }
+  }
+  //   Umax rigorous upper bound on f
+                    // fMaxLB is lower bound on maximum of f
+  fMaxLB = (Lmax > fmid_max) ? Lmax : fmid_max;
+
+  if (UsingLogDensity)
+  {
+    // could use F - scale
+
+    f_scale_local = Umax - ln (UmaxMAX);
+    cout << "UmaxMAX, Umax, f_scale_local: " << UmaxMAX << " " 
+         << Umax << " " << f_scale_local << endl;
+    if (Umax - fMaxLB < LOGDIAMFMAX)
+    {
+      f_scaleDone_local = true;
+    }
+  }
+  else
+  {
+    // could use F/f_scale
+    f_scale_local = Umax / UmaxMAX;
+    if (Umax < exp (LOGDIAMFMAX) * fMaxLB)
+    {
+      f_scaleDone_local = true;
+    }
+  }
+
+  f_scale = (UseFScale)? f_scale_local: (UsingLogDensity)? 0: 1.0;
+  cout << "f_scale: " << f_scale << "  " << f_scale_local << endl;
+  f_scaleDone = f_scaleDone_local;
+  cout << "bottom of updateUmax \n";
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classMRSampler_ab3c9a0e232b8145574c28989b9d25791}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Domain@{\-Domain}}
+\index{\-Domain@{\-Domain}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Domain}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf \-Lab\-Box} $>$ {\bf \-M\-R\-Sampler\-::\-Domain}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ab3c9a0e232b8145574c28989b9d25791}
+
+
+\-Definition at line 163 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-First\-Box(), \-Importance\-Sample\-Many\-Quasi(), and \-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_a8497e118c2d180ff59884897ff97ff4d}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Domain\-Label\-Set@{\-Domain\-Label\-Set}}
+\index{\-Domain\-Label\-Set@{\-Domain\-Label\-Set}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Domain\-Label\-Set}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf \-M\-R\-Sampler\-::\-Domain\-Label\-Set}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a8497e118c2d180ff59884897ff97ff4d}
+
+
+\-The set of unique integer labels in \-Lab\-Domain\-List. 
+
+
+
+\-Definition at line 165 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by get\-\_\-n\-\_\-topologies(), \-Importance\-Sample\-Many(), \-M\-R\-Sampler(), and \-Rejection\-Sample\-Many().
+
+\hypertarget{classMRSampler_aea43aaf9d80cae23dc971ab12d706ef8}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Domain\-Parts@{\-Domain\-Parts}}
+\index{\-Domain\-Parts@{\-Domain\-Parts}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Domain\-Parts}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf \-Lab\-Box} $>$ {\bf \-M\-R\-Sampler\-::\-Domain\-Parts}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_aea43aaf9d80cae23dc971ab12d706ef8}
+
+
+\-Definition at line 176 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-Output\-\_\-\-Domain\-\_\-\-Partition(), \-Print\-\_\-\-Domain\-\_\-\-Partition(), \-Rejection\-Sample\-Many(), \-Rejection\-Sample\-Once(), \-Setup\-P\-D\-F(), and \-Setup\-Walker().
+
+\hypertarget{classMRSampler_ab836cfbff1570a96b8af9c384226edfc}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-F@{\-F}}
+\index{\-F@{\-F}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Fobj}\& {\bf \-M\-R\-Sampler\-::\-F}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ab836cfbff1570a96b8af9c384226edfc}
+
+
+\-Definition at line 161 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Bisect(), get\-Box\-R\-E\-Info(), \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-M\-R\-Sampler(), \-Rejection\-Sample\-Many(), \-Rejection\-Sample\-Once(), and update\-Umax().
+
+\hypertarget{classMRSampler_a9c85b485d8d4ed429e23af0e0427cbe8}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!f\-\_\-scale@{f\-\_\-scale}}
+\index{f\-\_\-scale@{f\-\_\-scale}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{f\-\_\-scale}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-M\-R\-Sampler\-::f\-\_\-scale}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a9c85b485d8d4ed429e23af0e0427cbe8}
+
+
+\-Definition at line 186 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Bisect(), \-First\-Box(), \-Setup\-P\-D\-F(), update\-Integral(), and update\-Umax().
+
+\hypertarget{classMRSampler_aa677251ac24e0083e75a9ba5f4aa02ca}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!f\-\_\-scale\-Done@{f\-\_\-scale\-Done}}
+\index{f\-\_\-scale\-Done@{f\-\_\-scale\-Done}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{f\-\_\-scale\-Done}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-M\-R\-Sampler\-::f\-\_\-scale\-Done}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_aa677251ac24e0083e75a9ba5f4aa02ca}
+
+
+\-Definition at line 188 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Adapt\-Partition(), and update\-Umax().
+
+\hypertarget{classMRSampler_a5980112acaced10adc29397c200fa798}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!f\-Max\-L\-B@{f\-Max\-L\-B}}
+\index{f\-Max\-L\-B@{f\-Max\-L\-B}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{f\-Max\-L\-B}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-M\-R\-Sampler\-::f\-Max\-L\-B}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a5980112acaced10adc29397c200fa798}
+
+
+\-Definition at line 184 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by update\-Umax().
+
+\hypertarget{classMRSampler_aeb2b7cd2e8b2459ed444a38b327897fd}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!gslpdfstruct@{gslpdfstruct}}
+\index{gslpdfstruct@{gslpdfstruct}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{gslpdfstruct}]{\setlength{\rightskip}{0pt plus 5cm}gsl\-\_\-ran\-\_\-discrete\-\_\-t$\ast$ {\bf \-M\-R\-Sampler\-::gslpdfstruct}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_aeb2b7cd2e8b2459ed444a38b327897fd}
+
+
+\-Definition at line 195 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-M\-R\-Sampler(), \-Rejection\-Sample\-Many(), \-Rejection\-Sample\-Once(), \-Setup\-Walker(), and $\sim$\-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_ada8a56adf645018f986090ca485049f5}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Integral@{\-Integral}}
+\index{\-Integral@{\-Integral}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-M\-R\-Sampler\-::\-Integral}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ada8a56adf645018f986090ca485049f5}
+
+
+\-Definition at line 174 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Bisect(), \-First\-Box(), get\-\_\-unscaled\-\_\-\-I\-U(), get\-I\-L(), get\-I\-U(), get\-I\-Uminus\-L(), get\-P\-A\-L\-B(), and update\-Integral().
+
+\hypertarget{classMRSampler_a977efd8e3ab58d4e88bc647e68460071}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Lmax@{\-Lmax}}
+\index{\-Lmax@{\-Lmax}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Lmax}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-M\-R\-Sampler\-::\-Lmax}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a977efd8e3ab58d4e88bc647e68460071}
+
+
+\-Definition at line 184 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Bisect(), \-First\-Box(), and update\-Umax().
+
+\hypertarget{classMRSampler_a541ae11d9bfc46da67065796901740a4}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Lo\-Box@{\-Lo\-Box}}
+\index{\-Lo\-Box@{\-Lo\-Box}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Lo\-Box}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf \-M\-R\-Sampler\-::\-Lo\-Box}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a541ae11d9bfc46da67065796901740a4}
+
+
+\-Definition at line 178 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-Rejection\-Sample\-Many(), \-Rejection\-Sample\-Once(), and \-Setup\-P\-D\-F().
+
+\hypertarget{classMRSampler_adf95f77ac86c63eef71474204ac28efc}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Max\-\_\-n\-\_\-boxes@{\-Max\-\_\-n\-\_\-boxes}}
+\index{\-Max\-\_\-n\-\_\-boxes@{\-Max\-\_\-n\-\_\-boxes}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Max\-\_\-n\-\_\-boxes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-M\-R\-Sampler\-::\-Max\-\_\-n\-\_\-boxes}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_adf95f77ac86c63eef71474204ac28efc}
+
+
+\-Definition at line 171 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Adapt\-Partition().
+
+\hypertarget{classMRSampler_afa30f614f3bf25d89990256e2e0c38bd}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!n\-\_\-dim\-\_\-max@{n\-\_\-dim\-\_\-max}}
+\index{n\-\_\-dim\-\_\-max@{n\-\_\-dim\-\_\-max}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{n\-\_\-dim\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-M\-R\-Sampler\-::n\-\_\-dim\-\_\-max}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_afa30f614f3bf25d89990256e2e0c38bd}
+
+
+\-Definition at line 167 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-Init\-R\-N\-G(), \-M\-R\-Sampler(), and \-Rejection\-Sample\-Many().
+
+\hypertarget{classMRSampler_a31a44287b73bf986bbddcf67245d3c9c}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!nonresidual\-\_\-samples@{nonresidual\-\_\-samples}}
+\index{nonresidual\-\_\-samples@{nonresidual\-\_\-samples}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{nonresidual\-\_\-samples}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-M\-R\-Sampler\-::nonresidual\-\_\-samples}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a31a44287b73bf986bbddcf67245d3c9c}
+
+
+\-Definition at line 173 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by get\-\_\-nonresidual\-\_\-samples(), \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-M\-R\-Sampler(), and \-Setup\-Walker().
+
+\hypertarget{classMRSampler_ab82586caa232037dde75eba134f035ae}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!nsum@{nsum}}
+\index{nsum@{nsum}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{nsum}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-M\-R\-Sampler\-::nsum}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ab82586caa232037dde75eba134f035ae}
+
+
+\-Definition at line 181 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by get\-\_\-nsum(), get\-P\-Aest(), and \-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_aa3abc2865eb1f5eed99f3b4017621d04}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!own\-\_\-rng@{own\-\_\-rng}}
+\index{own\-\_\-rng@{own\-\_\-rng}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{own\-\_\-rng}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-M\-R\-Sampler\-::own\-\_\-rng}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_aa3abc2865eb1f5eed99f3b4017621d04}
+
+
+\-Definition at line 192 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Init\-R\-N\-G(), and $\sim$\-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_ad32ae929145a5d9a1b042aaf4bd34952}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!proposalpdf@{proposalpdf}}
+\index{proposalpdf@{proposalpdf}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{proposalpdf}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf \-M\-R\-Sampler\-::proposalpdf}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ad32ae929145a5d9a1b042aaf4bd34952}
+
+
+\-Definition at line 198 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-Setup\-P\-D\-F(), and $\sim$\-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_a0019552cda42dbc57e0bbf88b661fbce}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!proposalpmf@{proposalpmf}}
+\index{proposalpmf@{proposalpmf}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{proposalpmf}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf \-M\-R\-Sampler\-::proposalpmf}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a0019552cda42dbc57e0bbf88b661fbce}
+
+
+\-Definition at line 196 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler(), \-Setup\-P\-D\-F(), \-Setup\-Walker(), and $\sim$\-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_a3045790ee467171c7ed5b1a7520457f6}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!qrgsl@{qrgsl}}
+\index{qrgsl@{qrgsl}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{qrgsl}]{\setlength{\rightskip}{0pt plus 5cm}gsl\-\_\-qrng$\ast$ {\bf \-M\-R\-Sampler\-::qrgsl}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a3045790ee467171c7ed5b1a7520457f6}
+
+
+\-Definition at line 194 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-Init\-R\-N\-G(), and $\sim$\-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_aec967af4872910cd04b49227d843ec66}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Range\-Domain\-Set@{\-Range\-Domain\-Set}}
+\index{\-Range\-Domain\-Set@{\-Range\-Domain\-Set}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Range\-Domain\-Set}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Ranged\-Lab\-Box\-Set} {\bf \-M\-R\-Sampler\-::\-Range\-Domain\-Set}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_aec967af4872910cd04b49227d843ec66}
+
+
+\-Definition at line 200 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Adapt\-Partition(), \-Bisect(), \-First\-Box(), get\-\_\-n\-\_\-boxes(), \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-M\-R\-Sampler(), \-M\-R\-Soutput(), \-Output\-\_\-\-Domain\-\_\-\-Partition(), \-Print\-\_\-\-Domain\-\_\-\-Partition(), \-Print\-Boxes(), \-Refine\-Until(), \-Setup\-P\-D\-F(), \-Setup\-Walker(), update\-Integral(), and update\-Umax().
+
+\hypertarget{classMRSampler_adf347c7e241dda4ccd20e8d661da5e72}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!residual\-\_\-proposalpmf@{residual\-\_\-proposalpmf}}
+\index{residual\-\_\-proposalpmf@{residual\-\_\-proposalpmf}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{residual\-\_\-proposalpmf}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ {\bf \-M\-R\-Sampler\-::residual\-\_\-proposalpmf}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_adf347c7e241dda4ccd20e8d661da5e72}
+
+
+\-Definition at line 197 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Setup\-Walker(), and $\sim$\-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_a83ea740a453f9274eb77909ba0573a97}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!rgsl@{rgsl}}
+\index{rgsl@{rgsl}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{rgsl}]{\setlength{\rightskip}{0pt plus 5cm}gsl\-\_\-rng$\ast$ {\bf \-M\-R\-Sampler\-::rgsl}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a83ea740a453f9274eb77909ba0573a97}
+
+
+\-Definition at line 193 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-Init\-R\-N\-G(), \-Rejection\-Sample\-Many(), \-Rejection\-Sample\-Once(), and $\sim$\-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_aa245fc901ea417e5b19f3e26c63cebad}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!topologies@{topologies}}
+\index{topologies@{topologies}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{topologies}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf \-M\-R\-Sampler\-::topologies}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_aa245fc901ea417e5b19f3e26c63cebad}
+
+
+\-Definition at line 170 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-First\-Box(), and \-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_ae15d963eb51af7923bdb0dc4a1784208}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-U\-Box@{\-U\-Box}}
+\index{\-U\-Box@{\-U\-Box}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-U\-Box}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf \-M\-R\-Sampler\-::\-U\-Box}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ae15d963eb51af7923bdb0dc4a1784208}
+
+
+\-Definition at line 177 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Rejection\-Sample\-Many(), \-Rejection\-Sample\-Once(), and \-Setup\-P\-D\-F().
+
+\hypertarget{classMRSampler_ac22f171e36cc11caa473d8232e9c0786}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Umax@{\-Umax}}
+\index{\-Umax@{\-Umax}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Umax}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-M\-R\-Sampler\-::\-Umax}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ac22f171e36cc11caa473d8232e9c0786}
+
+
+\-Definition at line 184 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by get\-Umax(), \-M\-R\-Sampler(), \-Setup\-P\-D\-F(), and update\-Umax().
+
+\hypertarget{classMRSampler_a64134c93ecebc9f1a53b32c07bc18858}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Use\-F\-Scale@{\-Use\-F\-Scale}}
+\index{\-Use\-F\-Scale@{\-Use\-F\-Scale}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Use\-F\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-M\-R\-Sampler\-::\-Use\-F\-Scale}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a64134c93ecebc9f1a53b32c07bc18858}
+
+
+\-Definition at line 189 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by update\-Umax().
+
+\hypertarget{classMRSampler_a5f1bfb7fca5ef5a992a9bc812b19bddd}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!\-Using\-Log\-Density@{\-Using\-Log\-Density}}
+\index{\-Using\-Log\-Density@{\-Using\-Log\-Density}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{\-Using\-Log\-Density}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-M\-R\-Sampler\-::\-Using\-Log\-Density}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_a5f1bfb7fca5ef5a992a9bc812b19bddd}
+
+
+\-Definition at line 190 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by \-Bisect(), \-First\-Box(), \-Importance\-Sample\-Many(), \-Importance\-Sample\-Many\-Quasi(), \-M\-R\-Sampler(), \-Rejection\-Sample\-Many(), \-Rejection\-Sample\-Once(), \-Setup\-P\-D\-F(), update\-Integral(), and update\-Umax().
+
+\hypertarget{classMRSampler_af151b4e7e703ba21c87ae895c6b904f4}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!wmax@{wmax}}
+\index{wmax@{wmax}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{wmax}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-M\-R\-Sampler\-::wmax}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_af151b4e7e703ba21c87ae895c6b904f4}
+
+
+\-Definition at line 180 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by get\-\_\-wmax(), and \-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_ad222a996bc96c32c89586628583be8bb}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!wmin@{wmin}}
+\index{wmin@{wmin}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{wmin}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-M\-R\-Sampler\-::wmin}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_ad222a996bc96c32c89586628583be8bb}
+
+
+\-Definition at line 180 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by get\-\_\-wmin(), and \-M\-R\-Sampler().
+
+\hypertarget{classMRSampler_aa569a3c7e50e947daddfe9766e6aa206}{\index{\-M\-R\-Sampler@{\-M\-R\-Sampler}!wsum@{wsum}}
+\index{wsum@{wsum}!MRSampler@{\-M\-R\-Sampler}}
+\paragraph[{wsum}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-M\-R\-Sampler\-::wsum}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMRSampler_aa569a3c7e50e947daddfe9766e6aa206}
+
+
+\-Definition at line 180 of file \-M\-R\-Sampler.\-hpp.
+
+
+
+\-Referenced by get\-\_\-wsum(), get\-P\-Aest(), and \-M\-R\-Sampler().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{MRSampler_8hpp}{\-M\-R\-Sampler.\-hpp}\item 
+\hyperlink{MRSampler_8cpp}{\-M\-R\-Sampler.\-cpp}\end{DoxyCompactItemize}

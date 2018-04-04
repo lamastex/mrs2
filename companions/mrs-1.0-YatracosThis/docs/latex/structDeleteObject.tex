@@ -1,0 +1,49 @@
+\hypertarget{structDeleteObject}{\subsection{\-Delete\-Object \-Struct \-Reference}
+\label{structDeleteObject}\index{\-Delete\-Object@{\-Delete\-Object}}
+}
+
+
+\-A struct to make a templatised function to delete objects pointed to by pointers.  
+
+
+
+
+{\ttfamily \#include $<$\-Phylo\-Tree.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{structDeleteObject_ac6d4617e73a4f1e49f71393487ff83cf}{operator()} (const \-T $\ast$ptr) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A struct to make a templatised function to delete objects pointed to by pointers. 
+
+\-Definition at line 110 of file \-Phylo\-Tree.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{structDeleteObject_ac6d4617e73a4f1e49f71393487ff83cf}{\index{\-Delete\-Object@{\-Delete\-Object}!operator()@{operator()}}
+\index{operator()@{operator()}!DeleteObject@{\-Delete\-Object}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void \-Delete\-Object\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const \-T $\ast$}]{ptr}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{structDeleteObject_ac6d4617e73a4f1e49f71393487ff83cf}
+
+
+\-Definition at line 113 of file \-Phylo\-Tree.\-hpp.
+
+
+\begin{DoxyCode}
+  {
+    delete ptr;
+  }
+\end{DoxyCode}
+
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{PhyloTree_8hpp}{\-Phylo\-Tree.\-hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,260 @@
+\hypertarget{AirTrafficWeather_8cpp}{\subsection{\-Air\-Traffic\-Weather.\-cpp \-File \-Reference}
+\label{AirTrafficWeather_8cpp}\index{\-Air\-Traffic\-Weather.\-cpp@{\-Air\-Traffic\-Weather.\-cpp}}
+}
+
+
+\-Arithmetic on trajectory enclosures.  
+
+
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{AirTrafficWeather_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Arithmetic on trajectory enclosures. 
+
+\-Definition in file \hyperlink{AirTrafficWeather_8cpp_source}{\-Air\-Traffic\-Weather.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{AirTrafficWeather_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Air\-Traffic\-Weather.\-cpp@{\-Air\-Traffic\-Weather.\-cpp}!main@{main}}
+\index{main@{main}!AirTrafficWeather.cpp@{\-Air\-Traffic\-Weather.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{AirTrafficWeather_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 46 of file \-Air\-Traffic\-Weather.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::add\-To\-Collation\-With\-Val(), subpavings\-::count\-Lines\-In\-Txt(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Sub\-Paving(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::insert\-Rvectors\-From\-Txt(), subpavings\-::\-S\-Pnode\-::node\-Volume(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::output\-Accumulation\-To\-Txt\-Tabs(), and taylor\-::pow().
+
+
+\begin{DoxyCode}
+{
+    if ( argc != 2 ) {
+    cerr << "Syntax: AirTrafficWeather craftVol" << endl;
+    exit(0);
+  }
+    
+    //------------------------string
+       formatting----------------------------------- 
+    ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(5);
+    bool successfulInsertion = false;
+    
+   //-------------- make an Adaptive Histogram object with a specified box-----
+    double mult = -1.0; //linear combination idea
+   size_t goodWeather = 275;
+   size_t badWeather = 406;
+   
+   int d = 2; // dimension of the sample data
+    //  int d = 3; // dimension of the sample data
+    ivector pavingBox(d);
+    //for arr0222.txt
+    interval pavingInterval1(810, 1230);
+    interval pavingInterval2(550, 1350);
+    //interval pavingInterval3(0,49000);
+    pavingBox[2] = pavingInterval1;
+    pavingBox[1] = pavingInterval2;
+    //pavingBox[3] = pavingInterval3;
+    cout << "Box is: " << pavingBox << endl;
+   
+  
+   //------------------get minimum volume--------------------------------------
+   AdaptiveHistogramValidation hist(pavingBox);
+   //0.002
+   double craftVol = atof(argv[1]); //note this can be put into the for loop if
+       we know each individual craft size
+   cout << "getRootBoxVol" << endl;
+   double rootBoxVol = hist.getSubPaving()->nodeVolume();
+   double approxDepth = floor(log(rootBoxVol/craftVol)/log(2));
+   double approxMinVol = rootBoxVol/pow(2,approxDepth);
+   cout << "craftVol: " << craftVol << "\tapproxMinVol: " << approxMinVol << 
+      endl; 
+ 
+   //split on k and volume to get tightest possible enclosure
+   SplitOnKandVol splitVolCount(approxMinVol);
+   
+   //---------------------good weather
+       trajectories-----------------------------   
+   //-------------get individual trajectories and add into collator----------- 
+  vector<size_t> numAggGood;
+  string inputFileName = "arrivals0222/goodWeather.txt"; 
+   // tell user which data is being used.
+
+  cout << "Processing file " << inputFileName << endl;
+  // get a count of lines in the txt file
+  int dataCount = countLinesInTxt(inputFileName);
+  // tell user how many lines there are in the file
+  cout << "The file " << inputFileName << " has " << dataCount
+           << " lines in it" << endl << endl;
+
+  // read in flight ID
+  ifstream infile(inputFileName.c_str());
+  string flightID;
+
+  // create vectors for Weight, Mean, Variance
+  vector<string> flights;
+
+  cout << "Reading in parameters of mixture " << inputFileName << endl;
+  ifstream file; // create file for input
+  file.open(inputFileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << inputFileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> flightID;
+    flights.push_back(flightID);
+  }
+  flights.pop_back();
+
+  //---------------- create histograms -----------------
+  AdaptiveHistogramVCollator collGood;
+  size_t aggBox = 0;
+  for (int i = 0; i < flights.size(); i++) {
+  
+    clock_t start, end;
+    double timeTaken;
+    start=clock();
+     cout << "Getting enclosure for this trajectory: " << endl; 
+    AdaptiveHistogramValidation myHist(pavingBox);
+    vector<size_t> numNodes;
+    successfulInsertion = myHist.insertRvectorsFromTxt(flights[i], 
+                                                         numNodes, 
+                                                        splitVolCount, NOLOG);
+    end=clock();
+    timeTaken = static_cast<double>(end-start)/CLOCKS_PER_SEC;
+    cout << "Computing time : " <<timeTaken<< " s." << endl;
+    if (successfulInsertion) {
+        
+        /* optional output histogram
+        string histFileName = "goodHist.txt";
+        myHist.outputToTxtTabs(histFileName);
+        //*/
+        
+        /*get number of nodes at each split
+        vector<size_t>::iterator vecIt;
+          string fileNameCount = "goodNumNodes.txt";
+          ofstream os;
+           os.open(fileNameCount.c_str());
+           for (vecIt = numNodes.begin(); vecIt < numNodes.end(); vecIt++) {
+                os << *vecIt << "\n";
+           }
+           os << flush;
+           os.close();
+           std::cout << "Largest count at each split output to " << 
+           fileNameCount << std::endl;
+           */
+           
+           collGood.addToCollationWithVal(myHist, 2, aggBox);
+    }
+  }
+  
+   //-------------get individual trajectories and add into collator-----------
+   vector<size_t> numNodesBad;
+     //-------------get individual trajectories and add into
+       collator----------- 
+  vector<size_t> numAggBad;
+  inputFileName = "arrivals1130/badWeather.txt"; 
+   // tell user which data is being used.
+
+  cout << "Processing file " << inputFileName << endl;
+  // get a count of lines in the txt file
+  dataCount = countLinesInTxt(inputFileName);
+  // tell user how many lines there are in the file
+  cout << "The file " << inputFileName << " has " << dataCount
+           << " lines in it" << endl << endl;
+
+  // read in flight ID
+  ifstream infile1(inputFileName.c_str());
+
+  // create vectors for Weight, Mean, Variance
+  vector<string> flightsBad;
+
+  cout << "Reading in parameters of mixture " << inputFileName << endl;
+  ifstream file1;
+  file1.open(inputFileName.c_str());
+  // check if this file exists or not
+  if ( !file1 ) { // exit if file doesn't exists
+    cerr << "Could not open " << inputFileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile1.eof() ) {
+    infile1 >> flightID;
+    flightsBad.push_back(flightID);
+  }
+  flightsBad.pop_back();
+
+  //---------------- create histograms -----------------
+  AdaptiveHistogramVCollator collBad;
+  for (int i = 0; i < flightsBad.size(); i++) {
+  
+    clock_t start, end;
+    double timeTaken;
+    start=clock();
+     cout << "Getting enclosure for this trajectory: " << endl; 
+    AdaptiveHistogramValidation myHist(pavingBox);
+    vector<size_t> numNodes;
+    successfulInsertion = myHist.insertRvectorsFromTxt(flightsBad[i], 
+                                                         numNodes, 
+                                                        splitVolCount, NOLOG);
+    end=clock();
+    timeTaken = static_cast<double>(end-start)/CLOCKS_PER_SEC;
+    cout << "Computing time : " <<timeTaken<< " s." << endl;
+    if (successfulInsertion) {
+        
+        /* optional output histogram
+        string histFileName = "goodHist.txt";
+        myHist.outputToTxtTabs(histFileName);
+        //*/
+        
+        /*get number of nodes at each split
+        vector<size_t>::iterator vecIt;
+          string fileNameCount = "goodNumNodes.txt";
+          ofstream os;
+           os.open(fileNameCount.c_str());
+           for (vecIt = numNodes.begin(); vecIt < numNodes.end(); vecIt++) {
+                os << *vecIt << "\n";
+           }
+           os << flush;
+           os.close();
+           std::cout << "Largest count at each split output to " << 
+           fileNameCount << std::endl;
+           */
+           
+           collBad.addToCollationWithVal(myHist, 2, aggBox);
+    }
+  }
+
+  AdaptiveHistogramVCollator diffColl;
+  diffColl = collGood-collBad;
+  diffColl.outputAccumulationToTxtTabs("AccumDiff.txt");
+  
+  return 0;
+
+} // end of air traffic example program
+\end{DoxyCode}

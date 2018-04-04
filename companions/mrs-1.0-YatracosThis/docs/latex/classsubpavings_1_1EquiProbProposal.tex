@@ -1,0 +1,179 @@
+\hypertarget{classsubpavings_1_1EquiProbProposal}{\subsection{subpavings\-:\-:\-Equi\-Prob\-Proposal \-Class \-Reference}
+\label{classsubpavings_1_1EquiProbProposal}\index{subpavings\-::\-Equi\-Prob\-Proposal@{subpavings\-::\-Equi\-Prob\-Proposal}}
+}
+
+
+{\ttfamily \#include $<$histmcmcobjs.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Equi\-Prob\-Proposal\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Equi\-Prob\-Proposal\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1EquiProbProposal_a0061c48b37e74ebd4f15426d90e7f87a}{\-Equi\-Prob\-Proposal} ()
+\item 
+string \hyperlink{classsubpavings_1_1EquiProbProposal_afc31fba60e3a5686d4431f7236597ae8}{get\-Name} () const 
+\item 
+real \hyperlink{classsubpavings_1_1EquiProbProposal_a69979ac7c2578262f03556e763e81558}{fill\-Node\-Proposal\-Probs} (const size\-\_\-t n\-Leaf, const size\-\_\-t n\-Cherry, \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&probs) const 
+\item 
+real \hyperlink{classsubpavings_1_1EquiProbProposal_a14cfb9c0c63ee3a5d1ed978cac89b903}{get\-Log\-Q\-Ratio\-Split\-Proposal} (const size\-\_\-t leaves\-Now, const size\-\_\-t cherries\-Now, const size\-\_\-t leaves\-Prospective, const size\-\_\-t cherries\-Prospective) const 
+\item 
+real \hyperlink{classsubpavings_1_1EquiProbProposal_af7a44db43cc40978a791913baf083661}{get\-Log\-Q\-Ratio\-Merge\-Proposal} (const size\-\_\-t leaves\-Now, const size\-\_\-t cherries\-Now, const size\-\_\-t leaves\-Prospective, const size\-\_\-t cherries\-Prospective) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class where probabilities of any splittable leaf or mergeable cherry being proposed are equal, i.\-e. if there is just one leaf (eg root) then it is certain to be proposed. 
+
+\-Definition at line 246 of file histmcmcobjs.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1EquiProbProposal_a0061c48b37e74ebd4f15426d90e7f87a}{\index{subpavings\-::\-Equi\-Prob\-Proposal@{subpavings\-::\-Equi\-Prob\-Proposal}!\-Equi\-Prob\-Proposal@{\-Equi\-Prob\-Proposal}}
+\index{\-Equi\-Prob\-Proposal@{\-Equi\-Prob\-Proposal}!subpavings::EquiProbProposal@{subpavings\-::\-Equi\-Prob\-Proposal}}
+\paragraph[{\-Equi\-Prob\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Equi\-Prob\-Proposal\-::\-Equi\-Prob\-Proposal} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1EquiProbProposal_a0061c48b37e74ebd4f15426d90e7f87a}
+
+
+\-Definition at line 251 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+: MCMCProposal("EquiprobableProposal") {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1EquiProbProposal_a69979ac7c2578262f03556e763e81558}{\index{subpavings\-::\-Equi\-Prob\-Proposal@{subpavings\-::\-Equi\-Prob\-Proposal}!fill\-Node\-Proposal\-Probs@{fill\-Node\-Proposal\-Probs}}
+\index{fill\-Node\-Proposal\-Probs@{fill\-Node\-Proposal\-Probs}!subpavings::EquiProbProposal@{subpavings\-::\-Equi\-Prob\-Proposal}}
+\paragraph[{fill\-Node\-Proposal\-Probs}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Equi\-Prob\-Proposal\-::fill\-Node\-Proposal\-Probs} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{n\-Leaf, }
+\item[{const size\-\_\-t}]{n\-Cherry, }
+\item[{{\bf \-Real\-Vec} \&}]{probs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1EquiProbProposal_a69979ac7c2578262f03556e763e81558}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_a9a41619f829a7fd3c080f3f9c0bed705}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 258 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+        {
+            real retSum = 0.0;
+            probs.reserve(nLeaf + nCherry);
+
+            if (nLeaf + nCherry > 0) {
+                real pNode = 1.0/(nLeaf + nCherry);
+                retSum += pNode*(1.0*nLeaf + 1.0*nCherry);
+
+                probs.assign(nLeaf+nCherry, pNode);
+            }
+
+            return retSum;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1EquiProbProposal_af7a44db43cc40978a791913baf083661}{\index{subpavings\-::\-Equi\-Prob\-Proposal@{subpavings\-::\-Equi\-Prob\-Proposal}!get\-Log\-Q\-Ratio\-Merge\-Proposal@{get\-Log\-Q\-Ratio\-Merge\-Proposal}}
+\index{get\-Log\-Q\-Ratio\-Merge\-Proposal@{get\-Log\-Q\-Ratio\-Merge\-Proposal}!subpavings::EquiProbProposal@{subpavings\-::\-Equi\-Prob\-Proposal}}
+\paragraph[{get\-Log\-Q\-Ratio\-Merge\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Equi\-Prob\-Proposal\-::get\-Log\-Q\-Ratio\-Merge\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{leaves\-Now, }
+\item[{const size\-\_\-t}]{cherries\-Now, }
+\item[{const size\-\_\-t}]{leaves\-Prospective, }
+\item[{const size\-\_\-t}]{cherries\-Prospective}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1EquiProbProposal_af7a44db43cc40978a791913baf083661}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_ae39f9b3d8afbc8be9a10d6947f59798e}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 293 of file histmcmcobjs.\-hpp.
+
+
+
+\-References get\-Log\-Q\-Ratio\-Split\-Proposal().
+
+
+\begin{DoxyCode}
+        {
+            return getLogQRatioSplitProposal(leavesNow, cherriesNow,
+                                    leavesProspective, cherriesProspective);
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1EquiProbProposal_a14cfb9c0c63ee3a5d1ed978cac89b903}{\index{subpavings\-::\-Equi\-Prob\-Proposal@{subpavings\-::\-Equi\-Prob\-Proposal}!get\-Log\-Q\-Ratio\-Split\-Proposal@{get\-Log\-Q\-Ratio\-Split\-Proposal}}
+\index{get\-Log\-Q\-Ratio\-Split\-Proposal@{get\-Log\-Q\-Ratio\-Split\-Proposal}!subpavings::EquiProbProposal@{subpavings\-::\-Equi\-Prob\-Proposal}}
+\paragraph[{get\-Log\-Q\-Ratio\-Split\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Equi\-Prob\-Proposal\-::get\-Log\-Q\-Ratio\-Split\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{leaves\-Now, }
+\item[{const size\-\_\-t}]{cherries\-Now, }
+\item[{const size\-\_\-t}]{leaves\-Prospective, }
+\item[{const size\-\_\-t}]{cherries\-Prospective}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1EquiProbProposal_a14cfb9c0c63ee3a5d1ed978cac89b903}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_acd6dda5380192dfc3bd38a28925dd1ce}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 277 of file histmcmcobjs.\-hpp.
+
+
+
+\-Referenced by get\-Log\-Q\-Ratio\-Merge\-Proposal().
+
+
+\begin{DoxyCode}
+        {
+            real retValue = 0;
+            if ((leavesNow + cherriesNow > 0)
+                    && (leavesProspective + cherriesProspective > 0)) {
+                retValue = log(1.0*(leavesNow + cherriesNow))
+                    - log(1.0*(leavesProspective + cherriesProspective));
+            }
+            // else retValue = 0 - this should never occur
+            return retValue;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1EquiProbProposal_afc31fba60e3a5686d4431f7236597ae8}{\index{subpavings\-::\-Equi\-Prob\-Proposal@{subpavings\-::\-Equi\-Prob\-Proposal}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!subpavings::EquiProbProposal@{subpavings\-::\-Equi\-Prob\-Proposal}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf subpavings\-::\-Equi\-Prob\-Proposal\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1EquiProbProposal_afc31fba60e3a5686d4431f7236597ae8}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_a8b96ad3e975f60ad938d4aaf6d1009b3}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 254 of file histmcmcobjs.\-hpp.
+
+
+
+\-References subpavings\-::\-M\-C\-M\-C\-Proposal\-::proposal\-Name.
+
+
+\begin{DoxyCode}
+        { return proposalName; }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histmcmcobjs_8hpp}{histmcmcobjs.\-hpp}\end{DoxyCompactItemize}

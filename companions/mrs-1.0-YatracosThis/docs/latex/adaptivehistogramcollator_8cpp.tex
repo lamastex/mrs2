@@ -1,0 +1,74 @@
+\hypertarget{adaptivehistogramcollator_8cpp}{\subsection{adaptivehistogramcollator.\-cpp \-File \-Reference}
+\label{adaptivehistogramcollator_8cpp}\index{adaptivehistogramcollator.\-cpp@{adaptivehistogramcollator.\-cpp}}
+}
+
+
+\-Adaptive\-Histogram\-Collator definitions.  
+
+
+{\ttfamily \#include \char`\"{}adaptivehistogramcollator.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$set$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$list$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$exception$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}sptools.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}spalgorithms.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}spsnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}collatorspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}adaptivehistogram.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histpenalty.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$limits$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{adaptivehistogramcollator_8cpp_aa49b7ed245bb57c41c6133e48989b378}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classsubpavings_1_1AdaptiveHistogramCollator}{\-Adaptive\-Histogram\-Collator} \&adhc)
+\begin{DoxyCompactList}\small\item\em \-Output the contents of an \-Adaptive\-Histogram\-Collator object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Adaptive\-Histogram\-Collator definitions. 
+
+\-Definition in file \hyperlink{adaptivehistogramcollator_8cpp_source}{adaptivehistogramcollator.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{adaptivehistogramcollator_8cpp_aa49b7ed245bb57c41c6133e48989b378}{\index{adaptivehistogramcollator.\-cpp@{adaptivehistogramcollator.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!adaptivehistogramcollator.cpp@{adaptivehistogramcollator.\-cpp}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf \-Adaptive\-Histogram\-Collator} \&}]{adhc}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramcollator_8cpp_aa49b7ed245bb57c41c6133e48989b378}
+
+
+\-Output the contents of an \-Adaptive\-Histogram\-Collator object. 
+
+\-Verbose output for an \-Adaptive\-Histogram object. 
+
+\-Definition at line 1807 of file adaptivehistogramcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Sub\-Paving().
+
+
+\begin{DoxyCode}
+{
+    if (NULL != adhc.getSubPaving()) {
+        os << (adhc.getSubPaving())->nodesAllOutput(os, 1) << std::endl;
+    }
+
+    return os;
+}
+\end{DoxyCode}

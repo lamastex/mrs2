@@ -1,0 +1,217 @@
+\hypertarget{UnifRegHist_8cpp}{\subsection{\-Unif\-Reg\-Hist.\-cpp \-File \-Reference}
+\label{UnifRegHist_8cpp}\index{\-Unif\-Reg\-Hist.\-cpp@{\-Unif\-Reg\-Hist.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{UnifRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{UnifRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Unif\-Reg\-Hist.\-cpp@{\-Unif\-Reg\-Hist.\-cpp}!main@{main}}
+\index{main@{main}!UnifRegHist.cpp@{\-Unif\-Reg\-Hist.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{UnifRegHist_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 41 of file \-Unif\-Reg\-Hist.\-cpp.
+
+
+
+\-References \-Draw\-Unif\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), \-Reg\-Hist\-::heights, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), \-Reg\-Hist\-::\-Lower\-Boxes, make\-Regular\-Hist(), my\-Std(), subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape(), and \-Reg\-Hist\-::\-Upper\-Boxes.
+
+
+\begin{DoxyCode}
+{
+   //===================== user-inputs======================================//
+  if ( argc != 6 ) {
+    cerr << "Syntax: UniformMixture n d dataSeed mixShape nBins" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   int d = atoi(argv[2]); // dimensions
+   long int dataSeed = atoi(argv[3]); //seed for generating data
+   int shape = atoi(argv[4]); //which mixture to use
+   int nBins = atoi(argv[5]);
+ 
+  //=================set up for data generation===============================
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+   const gsl_rng_type * T;
+   gsl_rng * r;             
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+   gsl_rng_set(r, dataSeed);
+
+   //data generating partition
+   ivector pavingBox(d);
+   interval pavingInterval(0,1);
+   for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+   // data sampled as uniform mixture over leaves of sub-paving myPart
+   //make an Adaptive Histogram object with a specified box
+   AdaptiveHistogram myPart(pavingBox);
+   // a container for the boxes
+   vector<ivector> Pboxes;
+   size_t PartSize;
+   vector<int> holesLoc;
+
+   // mixture shape
+   string mixShape;
+  if (shape == 1) { mixShape = "1,1"; }
+  else if (shape ==2) { 
+    mixShape = "3,4,4,2,2,3,4,5,5"; 
+    for (int i = 0; i < 9; i++) { holesLoc.push_back(1);}
+    holesLoc[1]=0;
+    holesLoc[3]=0;
+    holesLoc[7]=0;
+  } 
+  else if (shape==3) {
+    mixShape = "
+      5,6,7,8,9,10,10,5,5,6,6,5,6,6,7,7,6,5,5,6,7,8,9,10,10,5,7,8,8,6,5,5,5,5,7,7,7,8,9,10,10,5,5,5,6,7,7,5,5,6,6,5,5,5,5,5,5,6,7,8,9,10,10"; 
+    for (int i = 0; i < 63 ; i++) { holesLoc.push_back(1);}
+    holesLoc[6]=0;
+    holesLoc[8]=0;
+    holesLoc[10]=0;
+    holesLoc[17]=0;
+    holesLoc[20]=0;
+    holesLoc[24]=0;
+    holesLoc[34]=0;
+    holesLoc[40]=0;
+    holesLoc[44]=0;
+    holesLoc[47]=0;
+    holesLoc[51]=0;
+    holesLoc[55]=0;
+    holesLoc[59]=0;
+    holesLoc[62]=0;
+  }       
+
+  myPart.splitToShape(mixShape);// uniform mixture   
+   SPSnodePtrs trueLeaves; // set up empty container for leaf node pointers
+   myPart.getSubPaving()->getLeaves(trueLeaves); // fill the container
+   
+   // container is filled by reading leaves off tree from left to right
+   for(int i = 0; i < holesLoc.size(); i++) {
+    if (holesLoc[i] == 1) {
+      Pboxes.push_back(trueLeaves[i]->getBox());
+    }
+  }
+  PartSize = Pboxes.size();
+  // get weight of mixture components
+  double weight = 1.0/(1.0*PartSize); 
+
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << "..." << endl;
+   // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+   RVecData theData;   
+   for (int i = 0; i < n; i++) {
+        rvector thisrv(d);
+        size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+        //cout << RndBoxNum << "\t" << Pboxes[RndBoxNum] << endl;
+        thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);         
+     // cout << thisrv << endl;
+        theData.push_back(thisrv);
+   }  // data  should be in theData
+   
+
+  //==============Regular histogram==================================//
+  cout << "sort data for reg hist" << endl; 
+  //sort the data first
+  // put the data into a list to sort the data
+  RVecDataCItr rvecIt;
+  list<rvector> rvecList;
+  list<rvector>::iterator rvecListIt;
+  for (rvecIt = theData.begin(); rvecIt < theData.end(); rvecIt++){
+    rvector thisrv(1);
+    thisrv = *rvecIt;
+    rvecList.push_back(thisrv);
+  }
+  rvecList.sort(); //sort the data
+  RVecData sortedData; // put back into vector
+  for (rvecListIt = rvecList.begin(); rvecListIt != rvecList.end(); rvecListIt+
+      +)
+  { 
+    rvector thisrv(1);
+    thisrv = *rvecListIt;
+    sortedData.push_back(thisrv);
+  };
+
+  //get the root box
+  AdaptiveHistogram myHist;
+  myHist.insertFromRVec(theData);
+  pavingBox = (myHist.getSubPaving())->getBox();
+  double rootBoxVol = (myHist.getSubPaving())->nodeVolume();
+
+  //get the standard deviation
+  double xsd = myStd(sortedData);
+  
+  //make the regular histogram
+  double bw = rootBoxVol/(nBins*1.0);
+  cout << "Making a regular histogram with " << nBins << " bins." << endl;
+  RegHist myRegHist;
+  makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+  cout << myRegHist.heights.size() << endl;
+  
+  //output histogram data to .txt file
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  string outputFileName;// for output file
+  outputFileName = "Unif";
+  outputFileName += "RegHistOpt.txt";
+  os.open(outputFileName.c_str());
+  for (int i = 0; i < myRegHist.heights.size(); i++) {
+    os << myRegHist.LowerBoxes[i] << "\t" << myRegHist.UpperBoxes[i] << "\t" <<
+       myRegHist.heights[i] << endl;
+  }
+  os << flush;
+  os.close();
+  
+  std::cout << "Regular histogram output to " << outputFileName << endl;
+
+  // now make the regular histograms with the standarad bandwidths
+  for (int bw = 0; bw < 3; bw++) {
+    cout << "Method " << bw << endl;
+    RegHist myRegHist;
+    makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+    
+    outputFileName = "Unif";
+    outputFileName += "RegHistBW";
+    ostringstream stm1;
+    stm1 << bw;
+    outputFileName += stm1.str();
+    outputFileName += ".txt";
+    os.open(outputFileName.c_str());
+    for (int i = 0; i < myRegHist.heights.size(); i++) {
+      os << myRegHist.LowerBoxes[i] << "\t" << myRegHist.UpperBoxes[i] << "\t" 
+      << myRegHist.heights[i] << endl;
+    }
+    os << flush;
+    os.close();
+    std::cout << "Regular histogram output to " << outputFileName << endl;
+    
+  }
+
+// free the random number generator
+gsl_rng_free(r);
+
+return 0;
+}
+\end{DoxyCode}

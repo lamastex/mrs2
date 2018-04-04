@@ -1,0 +1,327 @@
+\hypertarget{MappedFiniteMixtureLeafCounts_8cpp}{\subsection{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp \-File \-Reference}
+\label{MappedFiniteMixtureLeafCounts_8cpp}\index{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}\-Fin\-Mix\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnodevisitor\-\_\-expand.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLexicoSorting}{\-Lexico\-Sorting$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MappedFiniteMixtureLeafCounts_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+void \hyperlink{MappedFiniteMixtureLeafCounts_8cpp_ad413fb4b470884bbd346547f10dd5b67}{get\-All\-Weights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ double $>$ \&\-Weights\-Vector)
+\item 
+void \hyperlink{MappedFiniteMixtureLeafCounts_8cpp_a071c6769f9c807ff0719ce7470b94a86}{get\-Height\-And\-Box} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ ivector $>$ \&\-Box\-Vector, vector$<$ real $>$ \&\-Heights\-Vector)
+\item 
+void \hyperlink{MappedFiniteMixtureLeafCounts_8cpp_aaccdd027128215abfb51d30ca3bfc190}{norm\-Heights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, double total\-Area, vector$<$ \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ real $>$ $>$ \&height\-Norm)
+\item 
+int \hyperlink{MappedFiniteMixtureLeafCounts_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MappedFiniteMixtureLeafCounts_8cpp_ad413fb4b470884bbd346547f10dd5b67}{\index{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}!get\-All\-Weights@{get\-All\-Weights}}
+\index{get\-All\-Weights@{get\-All\-Weights}!MappedFiniteMixtureLeafCounts.cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}}
+\paragraph[{get\-All\-Weights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-All\-Weights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ double $>$ \&}]{\-Weights\-Vector}
+\end{DoxyParamCaption}
+)}}\label{MappedFiniteMixtureLeafCounts_8cpp_ad413fb4b470884bbd346547f10dd5b67}
+
+
+\-Definition at line 77 of file \-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp.
+
+
+
+\-References subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Weights(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), get\-All\-Weights(), and main().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     
+     //get the weights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getWeights(WeightsVector, thisNodePtr->nodeVolume());
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getAllWeights(thisNodePtr->getLeftChild(), WeightsVector);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getAllWeights(thisNodePtr->getRightChild(), WeightsVector);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedFiniteMixtureLeafCounts_8cpp_a071c6769f9c807ff0719ce7470b94a86}{\index{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}!get\-Height\-And\-Box@{get\-Height\-And\-Box}}
+\index{get\-Height\-And\-Box@{get\-Height\-And\-Box}!MappedFiniteMixtureLeafCounts.cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}}
+\paragraph[{get\-Height\-And\-Box}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-Height\-And\-Box} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ ivector $>$ \&}]{\-Box\-Vector, }
+\item[{vector$<$ real $>$ \&}]{\-Heights\-Vector}
+\end{DoxyParamCaption}
+)}}\label{MappedFiniteMixtureLeafCounts_8cpp_a071c6769f9c807ff0719ce7470b94a86}
+
+
+\-Definition at line 96 of file \-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Height(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), get\-Height\-And\-Box(), and main().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     //push back this box into the BoxVector
+     BoxVector.push_back(thisNodePtr->getBox());
+     
+     //get the heights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getHeight(HeightsVector);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getHeightAndBox(thisNodePtr->getLeftChild(), BoxVector, HeightsVector);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getHeightAndBox(thisNodePtr->getRightChild(), BoxVector, HeightsVector);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedFiniteMixtureLeafCounts_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}!main@{main}}
+\index{main@{main}!MappedFiniteMixtureLeafCounts.cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MappedFiniteMixtureLeafCounts_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 139 of file \-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::accept(), \-Fin\-Mix\-::\-M, \-Fin\-Mix\-::\-S, taylor\-::sqrt(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+    int mix = atoi(argv[1]); //which mixture to use
+   
+   //string formatting
+   ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(10);  
+  
+   //make a root box
+   int dims = 1;
+   ivector pavingBox(dims);
+   interval pavingInterval(-10,10);
+   for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+   
+  //=================Setting up parameters for the distribution============//
+   // read input from mix*.txt
+   string mixfileName;
+   mixfileName = "MixtureFiles/mix";
+  std::ostringstream stmMix;
+  stmMix << mix;
+  mixfileName += stmMix.str();
+  mixfileName += ".txt";
+
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  // create vectors for Weight, Mean, Variance
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+
+  cout << "Reading in parameters of mixture: " << endl;
+  ifstream file; // create file for input
+  file.open(mixfileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << mixfileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+  
+  //put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+  //=========================end of setting up parameter===================//
+
+   //=========set up to estimate the function==============================// 
+    //function object
+   FinMixFobj realFM(Weight, Mean, Sigma);  
+    
+   vector<real> tol;
+   tol.push_back(0.5);
+   tol.push_back(0.1);
+   tol.push_back(0.05);
+  tol.push_back(0.01);
+  tol.push_back(0.005);
+  tol.push_back(0.001);
+  tol.push_back(0.0005);
+  tol.push_back(0.0001);
+  tol.push_back(0.00005);
+  tol.push_back(0.00001);
+  tol.push_back(0.000005);
+  tol.push_back(0.000001);
+  
+  vector<real>::iterator it;
+  
+  vector<int> numLeaves;
+  
+  for (it = tol.begin(); it < tol.end(); it++) {
+     RealMappedSPnode nodeEst(pavingBox); // make a MappedSPnode object
+     cout << "Estimate function:" << endl;
+      // estimate the function
+    
+     MappedSPnodeVisitorExpand expander(realFM, (*it));
+     nodeEst.accept(expander);
+     
+     cout << "Tolerance is: " << (*it) << endl;
+     cout << "Number of leaves is: " << nodeEst.getNumLeaves() << endl;;
+    numLeaves.push_back(nodeEst.getNumLeaves());
+  }
+
+  //output to txt
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  string outputFileName;// for output file
+  outputFileName = "FinMix";
+  ostringstream stm;
+  stm << mix;
+  outputFileName += stm.str();
+  outputFileName += "LeafNodes.txt";
+  os.open(outputFileName.c_str());
+  for (int i = 0; i < numLeaves.size(); i++) {
+    os << numLeaves[i] << endl;
+  }
+  os << flush;
+  os.close();
+  
+  std::cout << "Number of leaf nodes output to " << outputFileName << endl;
+  
+  return 0;
+}
+\end{DoxyCode}
+\hypertarget{MappedFiniteMixtureLeafCounts_8cpp_aaccdd027128215abfb51d30ca3bfc190}{\index{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}!norm\-Heights@{norm\-Heights}}
+\index{norm\-Heights@{norm\-Heights}!MappedFiniteMixtureLeafCounts.cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}}
+\paragraph[{norm\-Heights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf norm\-Heights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{double}]{total\-Area, }
+\item[{vector$<$ {\bf \-Range\-Collection\-Class}$<$ real $>$ $>$ \&}]{height\-Norm}
+\end{DoxyParamCaption}
+)}}\label{MappedFiniteMixtureLeafCounts_8cpp_aaccdd027128215abfb51d30ca3bfc190}
+
+
+\-Definition at line 118 of file \-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp.
+
+
+
+\-References subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::norm\-Node\-Height().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), main(), and norm\-Heights().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) ) { // this is non-empty
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     real newHeight = myContainer.normNodeHeight(totalArea);
+     
+     RangeCollectionClass<real> height(newHeight);
+    heightNorm.push_back(height);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    normHeights(thisNodePtr->getLeftChild(), totalArea, heightNorm);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    normHeights(thisNodePtr->getRightChild(), totalArea, heightNorm);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedFiniteMixtureLeafCounts_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}!output@{output}}
+\index{output@{output}!MappedFiniteMixtureLeafCounts.cpp@{\-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{MappedFiniteMixtureLeafCounts_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 60 of file \-Mapped\-Finite\-Mixture\-Leaf\-Counts.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+   // To generate a file output
+   ofstream os(filename.c_str());         // Filename, c-string version
+   if (os.is_open()) {
+      node.leavesOutputTabs(os); // the output
+      std::cout << "The output of the estimated function"
+               << " has been written to " << filename << std::endl << std::endl
+      ;
+         os.close();
+      }
+   else {
+      std::cerr << "Error: could not open file named "
+         << filename << std::endl << std::endl;
+   }
+}
+\end{DoxyCode}

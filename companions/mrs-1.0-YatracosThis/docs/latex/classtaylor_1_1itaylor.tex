@@ -1,0 +1,2775 @@
+\hypertarget{classtaylor_1_1itaylor}{\subsection{taylor\-:\-:itaylor \-Class \-Reference}
+\label{classtaylor_1_1itaylor}\index{taylor\-::itaylor@{taylor\-::itaylor}}
+}
+
+
+{\ttfamily \#include $<$itaylor.\-hpp$>$}
+
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtaylor_1_1itaylor_a265623bc1a74c5677c0b356317691808}{itaylor} ()
+\item 
+\hyperlink{classtaylor_1_1itaylor_a8ed680089fc56345b4f3408767099609}{itaylor} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+\hyperlink{classtaylor_1_1itaylor_a887750e3c2930fedeebe83e693d71b6b}{itaylor} (int \hyperlink{classtaylor_1_1itaylor_a8a1dadee94ddf7f4c48757c02a696996}{order})
+\item 
+\hyperlink{classtaylor_1_1itaylor_a680b6e9e675f47fc26241800635cde08}{itaylor} (int \hyperlink{classtaylor_1_1itaylor_a8a1dadee94ddf7f4c48757c02a696996}{order}, const real \&value)
+\item 
+\hyperlink{classtaylor_1_1itaylor_af8c051a56aab85f0ab6fb9f38f7b34fc}{itaylor} (int \hyperlink{classtaylor_1_1itaylor_a8a1dadee94ddf7f4c48757c02a696996}{order}, const interval \&value)
+\item 
+\hyperlink{classtaylor_1_1itaylor_a9c5022ed34814f098555a3eae019932b}{$\sim$itaylor} ()
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a7463aa323cd249c6c8cb4b008f3bd371}{operator=} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ad2d33ad63445ff588128c7c7ab81ddd2}{operator=} (int)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ac1bb1fd6de6d9216fb753bd2ba7ffc78}{operator=} (const real \&)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a34d9e7d9dadf9745471bfd5379bdc57e}{operator=} (const interval \&)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a3e9c0bf41e486a5c9c95f107ceba0b7c}{operator=} (const ivector \&)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_ab0651bb54b7671f3443d3f939fbe2510}{operator==} (\hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_aa7041b3ebe493a059d6dfaee28faf82c}{operator!=} (\hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_a7b823770abba6bdcf6c2091caee5381d}{operator$<$=} (\hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_a5f4eaaa8772c9146900a951b8e53e2c6}{operator$<$} (\hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_acaf2ba4e4dcb012aed6a469a30ad5682}{operator$>$=} (\hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_a47ca76c8135b9bd62998e85c427fb232}{operator$>$} (\hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+interval \& \hyperlink{classtaylor_1_1itaylor_a3674126b2d14cc05e23c7150b52d0a8f}{operator\mbox{[}$\,$\mbox{]}} (int n)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_a8a1dadee94ddf7f4c48757c02a696996}{order} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Static \-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classtaylor_1_1itaylor_ab017f8633627f482ed1f3cc405d62d36}{initialize} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classtaylor_1_1itaylor_a4039cb1a204543dce7b572839609c890}{p}
+\item 
+ivector \hyperlink{classtaylor_1_1itaylor_a4df835280789a8639aed81fe83b272f8}{tayl}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Static \-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classtaylor_1_1itaylor_acf103bcde03b0ace044510e116ab3805}{initialized} = 0
+\end{DoxyCompactItemize}
+\subsubsection*{\-Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ad529aabfd4ddb7a266ac5398382a880e}{var\-\_\-itaylor} (int ord, const real \&c)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ad844d06e1838d2d4ddb723d8a3863591}{var\-\_\-itaylor} (int ord, const interval \&c)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a5b0cf952f2ef0ca4bc353c461235be0c}{const\-\_\-itaylor} (int ord, const real \&c)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ab14712ac0c9330a71023eb14964e34c8}{const\-\_\-itaylor} (int ord, const interval \&c)
+\item 
+int \hyperlink{classtaylor_1_1itaylor_a8a5c0c9343498de2b294fb171605a9ab}{get\-\_\-order} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+ivector \hyperlink{classtaylor_1_1itaylor_abd988b0bc6f50a3a888d43e4008d5d1e}{get\-\_\-all\-\_\-coef} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+interval \hyperlink{classtaylor_1_1itaylor_a4f1cabe655848691aae55aa9e81744e1}{get\-\_\-j\-\_\-coef} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int j)
+\item 
+void \hyperlink{classtaylor_1_1itaylor_ad4ee00a6eb0637b14de2995b8a3cd214}{print\-\_\-itaylor} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+void \hyperlink{classtaylor_1_1itaylor_a379a4a17eb84752d9a16e1e1b5343230}{print\-\_\-itaylor} (std\-::ostream \&os, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int width=0, int digits=0)
+\item 
+std\-::ostream \& \hyperlink{classtaylor_1_1itaylor_ac07b19edfa7978a5fc4c65ce136216f8}{operator$<$$<$} (std\-::ostream \&, \hyperlink{classtaylor_1_1itaylor}{itaylor} \&)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_afb753973c17006330c7c7418bc21f358}{operator-\/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a738113dbef62af2b3e5d02d81f0d80bf}{operator-\/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_abf63631b6c3b32cd83ffaed31f8a68e1}{operator+} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ab8e67cc898835ff637a15c47c428400f}{operator$\ast$} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ad48cedc38c3108eed1beaeb1bc25e622}{operator/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a49d69b2639d8a8bf6ba301c8ee1c3bdb}{operator-\/} (const interval \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a3b295df49a3e613a7ae367e70f5541c3}{operator+} (const interval \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a1808edf7ebbeb846cda848363389ce94}{operator$\ast$} (const interval \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a3327b8c63a96b31906c1882831aeea51}{operator/} (const interval \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a7bf24c7edf481b2cb1bc700704728805}{operator-\/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const interval \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ac2c50431cad3b55e0fd6ecd0e49f15c2}{operator+} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const interval \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_aac7006c7eef8c32b26dc2610d5d487c6}{operator$\ast$} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const interval \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_aa9754401400a0551800495335c4997f4}{operator/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const interval \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a2527a23e12002ac1e22143704babbbdc}{operator-\/} (const real \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ae02d6346af134135469fbbf8cd5b0498}{operator+} (const real \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a2161263e12cadbf1f5b44a6e50370d60}{operator$\ast$} (const real \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a430a28502969167967b0a8344636624d}{operator/} (const real \&x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ad0cc7998df32baffaaa78019a3f8791a}{operator-\/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const real \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a1b991862783a37079712e79fd5ba2c52}{operator+} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const real \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a996ffe24777fc20ee48b0754793f72d5}{operator$\ast$} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const real \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ab591d69abfbe913108d9ccea1183298f}{operator/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const real \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a96139ed4982a0e407e0187f1c9425cb4}{operator-\/} (int x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a6be136bb60c027951f94d54f9b8d0ff5}{operator+} (int x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a6b7bbd3af3ce5d85def7fcdbe95a06f8}{operator$\ast$} (int x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a70eabbfdbdec4404ab091ce00545e445}{operator/} (int x, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ad3b9e1d94001b31dc4861877b3ec0600}{operator-\/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a98eab5582ff2ae2c7f6356a56d0122e8}{operator+} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ab24d929f8b7e5d01e7458a10d90b3603}{operator$\ast$} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_aa6d4ea2601ec7cb03450f2816b05daa3}{operator/} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int y)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a9ef6e81a1ceb32ee143c301365a35980}{sqrt} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_af0cb94a71f65eb8f77698f7df2ab403c}{sqrt} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int n)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_afb2086a33961a372fdfddbc6f8c2bb19}{sqrt1px2} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a1d4b5ebbb74084dcbbcdd5feb4980b79}{sqrtp1m1} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a2a029f70653490604efa8b4f08a9875d}{sqrt1mx2} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_aa71646df2517a0c93f10ef9f936e3330}{sqrtx2m1} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_aea909b05cd5051da6dc84c98e3cf64eb}{sqr} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a01ec110d820ad5da24c157ed72e10395}{pow} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, const interval \&alpha)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a41c38304f26d68b981ac0e668d242492}{exp} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a0824022a2814fa1a57cd136336834ff3}{expm1} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a3ab0c3d85fa92ed6881fa80ca0593e4a}{ln} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_aae743e342c3929c1beca14adece530f7}{lnp1} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a146672640c9c6e4e37f566f551e12550}{sin} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a61e4504f3507332a814007be5fc8cf9b}{cos} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a5a9b67f02158013b52186777813f7f00}{tan} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a55e0e1c12c8245130e5f9303f2742ff3}{cot} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ae4dc5aee338add08c3b5226045650c3f}{sinh} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ac5c875cb97ac0f4f9bfd08db0bc20fb4}{cosh} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a1542dba0eedbc6fda7c8c1e75f380191}{tanh} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a42ec17cfca80578d13c0a75407882e0d}{coth} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_ac3c299b9ddf883a98ab04f2d148b89f8}{asin} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a3630d8dc6096fe2d8bb96fbe344cd63a}{acos} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a08e1af7fe8d116cb08c49f82a98904c6}{atan} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_af40f32124cc364033a16c632af8ea138}{acot} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a0481365c5de4d766820e0ab6c4b9899a}{asinh} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_abd30dcb5d1c37fba5101fa52e9353459}{acosh} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_af434e576d2afe390c574f173ea0fa3f6}{atanh} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a3fec24ca249e42226e93bc9a52cb870e}{acoth} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a21a0df49b5b7d917a7d61aec17fc3aac}{erf} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a9e1716ae14b1f3444b40a4a07fb03c9a}{erfc} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x)
+\item 
+void \hyperlink{classtaylor_1_1itaylor_a460a13e4d9a28ea5b39344c64ca4be48}{f\-\_\-g\-\_\-u} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&g, const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&u, int nb\-\_\-function)
+\item 
+\hyperlink{classtaylor_1_1itaylor}{itaylor} \hyperlink{classtaylor_1_1itaylor_a3287f4b338adf498600372c2436539be}{power\-At\-Zero} (const \hyperlink{classtaylor_1_1itaylor}{itaylor} \&x, int n)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 103 of file itaylor.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classtaylor_1_1itaylor_a265623bc1a74c5677c0b356317691808}{\index{taylor\-::itaylor@{taylor\-::itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a265623bc1a74c5677c0b356317691808}
+
+
+\-Definition at line 62 of file itaylor.\-cpp.
+
+
+
+\-References initialize(), and initialized.
+
+
+\begin{DoxyCode}
+{
+ if(!itaylor::initialized){itaylor::initialize();itaylor::initialized=1;};
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a8ed680089fc56345b4f3408767099609}{\index{taylor\-::itaylor@{taylor\-::itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a8ed680089fc56345b4f3408767099609}
+
+
+\-Definition at line 85 of file itaylor.\-cpp.
+
+
+
+\-References initialize(), initialized, p, and tayl.
+
+
+\begin{DoxyCode}
+{
+ if(!itaylor::initialized){itaylor::initialize();itaylor::initialized=1;};
+ p=s.p;
+ Resize(tayl,0,p);
+ tayl=s.tayl;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a887750e3c2930fedeebe83e693d71b6b}{\index{taylor\-::itaylor@{taylor\-::itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{order}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classtaylor_1_1itaylor_a887750e3c2930fedeebe83e693d71b6b}
+
+
+\-Definition at line 69 of file itaylor.\-cpp.
+
+
+
+\-References initialize(), initialized, order(), p, and tayl.
+
+
+\begin{DoxyCode}
+{
+ if(!itaylor::initialized){itaylor::initialize();itaylor::initialized=1;};
+ /*if(order<0 || order>170) 
+  {
+    std::cerr << "itaylor::itaylor: incorrect order! 0<=order<=170" 
+              << std::endl;
+    exit(1);
+  }
+ */
+ p=order;
+ Resize(tayl,0,p);
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a680b6e9e675f47fc26241800635cde08}{\index{taylor\-::itaylor@{taylor\-::itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{order, }
+\item[{const real \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a680b6e9e675f47fc26241800635cde08}
+
+
+\-Definition at line 95 of file itaylor.\-cpp.
+
+
+
+\-References initialize(), initialized, order(), p, tayl, and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+ if(!itaylor::initialized){itaylor::initialize();itaylor::initialized=1;};
+ /*
+ if(order<0 || order>170) 
+  {
+    std::cerr << "itaylor::itaylor: incorrect order! 0<=order<=170" 
+              << std::endl;
+    exit(1);
+  }
+ */
+ p=order;
+ Resize(tayl,0,p);
+ 
+ interval interval_value=interval(value);
+ tayl[0]=interval_value;
+ if(p>0)
+   {
+     tayl[1]=interval(1.0);
+     for(int i=2; i<=Ub(tayl);i++) tayl[i]=interval(0.0);
+   }
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_af8c051a56aab85f0ab6fb9f38f7b34fc}{\index{taylor\-::itaylor@{taylor\-::itaylor}!itaylor@{itaylor}}
+\index{itaylor@{itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor\-::itaylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{order, }
+\item[{const interval \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_af8c051a56aab85f0ab6fb9f38f7b34fc}
+
+
+\-Definition at line 120 of file itaylor.\-cpp.
+
+
+
+\-References initialize(), initialized, order(), p, tayl, and taylor\-::\-Ub().
+
+
+\begin{DoxyCode}
+{
+ if(!itaylor::initialized){itaylor::initialize();itaylor::initialized=1;};
+ /* 
+if(order<0 || order>170) 
+  {
+    std::cerr << "itaylor::itaylor: incorrect order! 0<=order<=170" 
+              << std::endl;
+    exit(1);
+  }
+ */
+ p=order;
+ Resize(tayl,0,p);
+ tayl[0]=value;
+ if(p>0)
+   { 
+     tayl[1]=interval(1.0);
+     for(int i=2; i<=Ub(tayl);i++) tayl[i]=interval(0.0);
+   }
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a9c5022ed34814f098555a3eae019932b}{\index{taylor\-::itaylor@{taylor\-::itaylor}!$\sim$itaylor@{$\sim$itaylor}}
+\index{$\sim$itaylor@{$\sim$itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{$\sim$itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf taylor\-::itaylor\-::$\sim$itaylor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1itaylor_a9c5022ed34814f098555a3eae019932b}
+
+
+\-Definition at line 121 of file itaylor.\-hpp.
+
+
+\begin{DoxyCode}
+{;};
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classtaylor_1_1itaylor_ab017f8633627f482ed1f3cc405d62d36}{\index{taylor\-::itaylor@{taylor\-::itaylor}!initialize@{initialize}}
+\index{initialize@{initialize}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf itaylor\-::initialize} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classtaylor_1_1itaylor_ab017f8633627f482ed1f3cc405d62d36}
+
+
+\-Definition at line 46 of file itaylor.\-cpp.
+
+
+
+\-Referenced by itaylor().
+
+
+\begin{DoxyCode}
+{
+  /*
+ Resize(itaylor::faks,0,170);
+ itaylor::faks[0]=interval(1.0);
+ itaylor::faks[1]=interval(1.0);
+
+ for(int i=2; i<=170; i++)
+   itaylor::faks[i]=itaylor::faks[i-1]*interval(i);
+  */
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_aa7041b3ebe493a059d6dfaee28faf82c}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}int itaylor\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{it}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_aa7041b3ebe493a059d6dfaee28faf82c}
+
+
+\-Definition at line 235 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+  return (!((p==it.p)&&(tayl==it.tayl)));
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a5f4eaaa8772c9146900a951b8e53e2c6}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}int itaylor\-::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{it}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a5f4eaaa8772c9146900a951b8e53e2c6}
+
+
+\-Definition at line 245 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+  return ((p==it.p)&&(tayl<it.tayl));
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a7b823770abba6bdcf6c2091caee5381d}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}int itaylor\-::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{it}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a7b823770abba6bdcf6c2091caee5381d}
+
+
+\-Definition at line 240 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+  return ((p==it.p)&&(tayl<=it.tayl));
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a7463aa323cd249c6c8cb4b008f3bd371}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator=@{operator=}}
+\index{operator=@{operator=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} itaylor\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a7463aa323cd249c6c8cb4b008f3bd371}
+
+
+\-Definition at line 187 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+ p=s.p;
+ Resize(tayl,0,s.p);
+ tayl=s.tayl;
+ return *this;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ad2d33ad63445ff588128c7c7ab81ddd2}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator=@{operator=}}
+\index{operator=@{operator=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} itaylor\-::operator= (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_ad2d33ad63445ff588128c7c7ab81ddd2}
+
+
+\-Definition at line 195 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+ tayl[0] = interval(n);
+ for (int j=1; j<=p; j++) tayl[j]=0.0;
+ return *this;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ac1bb1fd6de6d9216fb753bd2ba7ffc78}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator=@{operator=}}
+\index{operator=@{operator=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} itaylor\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_ac1bb1fd6de6d9216fb753bd2ba7ffc78}
+
+
+\-Definition at line 202 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+ tayl[0] = interval(x);
+ for (int j=1; j<=p; j++) tayl[j]=0.0;
+ return *this;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a34d9e7d9dadf9745471bfd5379bdc57e}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator=@{operator=}}
+\index{operator=@{operator=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} itaylor\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{x}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a34d9e7d9dadf9745471bfd5379bdc57e}
+
+
+\-Definition at line 209 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+ tayl[0] = x;
+ for (int j=1; j<=p; j++) tayl[j]=0.0;
+ return *this;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a3e9c0bf41e486a5c9c95f107ceba0b7c}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator=@{operator=}}
+\index{operator=@{operator=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} itaylor\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{iv}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a3e9c0bf41e486a5c9c95f107ceba0b7c}
+
+
+\-Definition at line 216 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{ 
+ p=VecLen(iv)-1;
+ Resize(tayl,0,p);
+ tayl=iv;
+ return *this;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ab0651bb54b7671f3443d3f939fbe2510}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator==@{operator==}}
+\index{operator==@{operator==}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}int itaylor\-::operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{it}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_ab0651bb54b7671f3443d3f939fbe2510}
+
+
+\-Definition at line 230 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+  return ((p==it.p)&&(tayl==it.tayl));
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a47ca76c8135b9bd62998e85c427fb232}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}int itaylor\-::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{it}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a47ca76c8135b9bd62998e85c427fb232}
+
+
+\-Definition at line 255 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+  return ((p==it.p)&&(tayl>it.tayl));
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_acaf2ba4e4dcb012aed6a469a30ad5682}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$>$=}]{\setlength{\rightskip}{0pt plus 5cm}int itaylor\-::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{{\bf itaylor} \&}]{it}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_acaf2ba4e4dcb012aed6a469a30ad5682}
+
+
+\-Definition at line 250 of file itaylor.\-cpp.
+
+
+
+\-References p, and tayl.
+
+
+\begin{DoxyCode}
+{
+  return ((p==it.p)&&(tayl>=it.tayl));
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a3674126b2d14cc05e23c7150b52d0a8f}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}interval \& itaylor\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{classtaylor_1_1itaylor_a3674126b2d14cc05e23c7150b52d0a8f}
+
+
+\-Definition at line 264 of file itaylor.\-cpp.
+
+
+
+\-References tayl.
+
+
+\begin{DoxyCode}
+{
+ return tayl[n];
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a8a1dadee94ddf7f4c48757c02a696996}{\index{taylor\-::itaylor@{taylor\-::itaylor}!order@{order}}
+\index{order@{order}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{order}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::itaylor\-::order} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classtaylor_1_1itaylor_a8a1dadee94ddf7f4c48757c02a696996}
+
+
+\-Definition at line 150 of file itaylor.\-hpp.
+
+
+
+\-Referenced by itaylor().
+
+
+\begin{DoxyCode}
+{return p;}           //added, mg2005-08
+\end{DoxyCode}
+
+
+\subsubsection{\-Friends \-And \-Related \-Function \-Documentation}
+\hypertarget{classtaylor_1_1itaylor_a3630d8dc6096fe2d8bb96fbe344cd63a}{\index{taylor\-::itaylor@{taylor\-::itaylor}!acos@{acos}}
+\index{acos@{acos}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{acos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf acos} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a3630d8dc6096fe2d8bb96fbe344cd63a}
+
+
+\-Definition at line 1373 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g = -sqrt1mx2(x);
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, acos : wrong argument " << std::endl;
+  exit(1);
+    };  
+ 
+    f_g_u(f,g,x,_i_acos);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_abd30dcb5d1c37fba5101fa52e9353459}{\index{taylor\-::itaylor@{taylor\-::itaylor}!acosh@{acosh}}
+\index{acosh@{acosh}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{acosh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf acosh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_abd30dcb5d1c37fba5101fa52e9353459}
+
+
+\-Definition at line 1443 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=sqrtx2m1(x);
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, acosh : wrong argument " << std::endl;
+  exit(1);
+    };  
+ 
+    f_g_u(f,g,x,_i_acosh);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_af40f32124cc364033a16c632af8ea138}{\index{taylor\-::itaylor@{taylor\-::itaylor}!acot@{acot}}
+\index{acot@{acot}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{acot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf acot} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_af40f32124cc364033a16c632af8ea138}
+
+
+\-Definition at line 1411 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=-(interval(1.0)+sqr(x));
+
+    f_g_u(f,g,x,_i_acot);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a3fec24ca249e42226e93bc9a52cb870e}{\index{taylor\-::itaylor@{taylor\-::itaylor}!acoth@{acoth}}
+\index{acoth@{acoth}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{acoth}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf acoth} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a3fec24ca249e42226e93bc9a52cb870e}
+
+
+\-Definition at line 1487 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=interval(1.0)-sqr(x);
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, acoth : wrong argument " << std::endl;
+  exit(1);
+    };  
+
+    f_g_u(f,g,x,_i_acoth);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ac3c299b9ddf883a98ab04f2d148b89f8}{\index{taylor\-::itaylor@{taylor\-::itaylor}!asin@{asin}}
+\index{asin@{asin}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{asin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf asin} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ac3c299b9ddf883a98ab04f2d148b89f8}
+
+
+\-Definition at line 1351 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=sqrt1mx2(x);
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, asin : wrong argument " << std::endl;
+  exit(1);
+    };  
+ 
+    f_g_u(f,g,x,_i_asin);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a0481365c5de4d766820e0ab6c4b9899a}{\index{taylor\-::itaylor@{taylor\-::itaylor}!asinh@{asinh}}
+\index{asinh@{asinh}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{asinh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf asinh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a0481365c5de4d766820e0ab6c4b9899a}
+
+
+\-Definition at line 1427 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=sqrt1px2(x);
+
+    f_g_u(f,g,x,_i_asinh);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a08e1af7fe8d116cb08c49f82a98904c6}{\index{taylor\-::itaylor@{taylor\-::itaylor}!atan@{atan}}
+\index{atan@{atan}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{atan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf atan} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a08e1af7fe8d116cb08c49f82a98904c6}
+
+
+\-Definition at line 1395 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=interval(1.0)+sqr(x);
+
+    f_g_u(f,g,x,_i_atan);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_af434e576d2afe390c574f173ea0fa3f6}{\index{taylor\-::itaylor@{taylor\-::itaylor}!atanh@{atanh}}
+\index{atanh@{atanh}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{atanh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf atanh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_af434e576d2afe390c574f173ea0fa3f6}
+
+
+\-Definition at line 1465 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=interval(1.0)-sqr(x);
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, atanh : wrong argument " << std::endl;
+  exit(1);
+    };  
+ 
+    f_g_u(f,g,x,_i_atanh);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a5b0cf952f2ef0ca4bc353c461235be0c}{\index{taylor\-::itaylor@{taylor\-::itaylor}!const\-\_\-itaylor@{const\-\_\-itaylor}}
+\index{const\-\_\-itaylor@{const\-\_\-itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{const\-\_\-itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf const\-\_\-itaylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{ord, }
+\item[{const real \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a5b0cf952f2ef0ca4bc353c461235be0c}
+
+
+\-Definition at line 162 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ itaylor erg(ord);
+ erg.tayl[0]=interval(c);
+ for(int i=1; i<=Ub(erg.tayl);i++) erg.tayl[i]=interval(0.0);
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ab14712ac0c9330a71023eb14964e34c8}{\index{taylor\-::itaylor@{taylor\-::itaylor}!const\-\_\-itaylor@{const\-\_\-itaylor}}
+\index{const\-\_\-itaylor@{const\-\_\-itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{const\-\_\-itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf const\-\_\-itaylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{ord, }
+\item[{const interval \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ab14712ac0c9330a71023eb14964e34c8}
+
+
+\-Definition at line 172 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ itaylor erg(ord);
+ erg.tayl[0]=c;
+ for(int i=1; i<=Ub(erg.tayl);i++) erg.tayl[i]=interval(0.0);
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a61e4504f3507332a814007be5fc8cf9b}{\index{taylor\-::itaylor@{taylor\-::itaylor}!cos@{cos}}
+\index{cos@{cos}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{cos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf cos} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a61e4504f3507332a814007be5fc8cf9b}
+
+
+\-Definition at line 1185 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg1(order);   // sin
+    itaylor erg2(order);   // cos
+    interval s1,s2;
+
+    erg1.tayl[0]=sin(x.tayl[0]); // Element No. 0:  erg1 (sin)
+    erg2.tayl[0]=cos(x.tayl[0]); // Element No. 0:  erg2 (cos)
+
+    // remainig elements: 
+    for(int j=1; j<=Ub(x.tayl); j++) 
+    {
+  s1=s2=interval(0);
+  for(int i=0; i<=j-1; i++)
+  {
+      s1 += interval(j-i) * erg2.tayl[i] * x.tayl[j-i];
+      s2 += interval(j-i) * erg1.tayl[i] * x.tayl[j-i];
+  }
+  erg1.tayl[j]= s1/interval(j);
+  erg2.tayl[j]= real(-1.0)/interval(j)*s2;
+    }
+ return erg2; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ac5c875cb97ac0f4f9bfd08db0bc20fb4}{\index{taylor\-::itaylor@{taylor\-::itaylor}!cosh@{cosh}}
+\index{cosh@{cosh}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{cosh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf cosh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ac5c875cb97ac0f4f9bfd08db0bc20fb4}
+
+
+\-Definition at line 1285 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg1(order); // sinh
+    itaylor erg2(order); // cosh
+    interval s1,s2;
+
+    erg1.tayl[0]=sinh(x.tayl[0]); // element No. 0:  erg1 (sinh)
+    erg2.tayl[0]=cosh(x.tayl[0]); // element No. 0:  erg2 (cosh)
+
+    // remaining elements: 
+    for(int j=1; j<=Ub(x.tayl); j++) 
+    {
+  s1=s2=interval(0);
+  for(int i=0; i<=j-1; i++)
+  {
+      s1 += interval(j-i) * erg2.tayl[i] * x.tayl[j-i];
+      s2 += interval(j-i) * erg1.tayl[i] * x.tayl[j-i];
+  }
+  erg1.tayl[j]= s1/interval(j);
+  erg2.tayl[j]= s2/interval(j);
+    }
+    return erg2; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a55e0e1c12c8245130e5f9303f2742ff3}{\index{taylor\-::itaylor@{taylor\-::itaylor}!cot@{cot}}
+\index{cot@{cot}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{cot}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf cot} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a55e0e1c12c8245130e5f9303f2742ff3}
+
+
+\-Definition at line 1235 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=-sqr(sin(x));
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, cot : wrong argument" << std::endl;
+  exit(1);
+    };  
+ 
+    f_g_u(f,g,x,_i_cot);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a42ec17cfca80578d13c0a75407882e0d}{\index{taylor\-::itaylor@{taylor\-::itaylor}!coth@{coth}}
+\index{coth@{coth}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{coth}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf coth} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a42ec17cfca80578d13c0a75407882e0d}
+
+
+\-Definition at line 1329 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=-sqr(sinh(x));
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, coth : wrong argument " << std::endl;
+  exit(1);
+    };  
+ 
+    f_g_u(f,g,x,_i_coth);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a21a0df49b5b7d917a7d61aec17fc3aac}{\index{taylor\-::itaylor@{taylor\-::itaylor}!erf@{erf}}
+\index{erf@{erf}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{erf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf erf} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a21a0df49b5b7d917a7d61aec17fc3aac}
+
+
+\-Definition at line 1509 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    itaylor g(order);
+
+    g=exp(-sqr(x));
+   
+    erg.tayl[0] = erf(x.tayl[0]); // element No. 0; function value
+    
+    for(int k=1; k<=order; k++)
+    {
+        erg.tayl[k] = 0;
+        
+  for(int j=0; j<=k-1; j++)
+      erg.tayl[k] += interval(k-j)*g.tayl[j]*x.tayl[k-j]; 
+  erg.tayl[k] = 2*erg.tayl[k]/(sqrt(Pi())*interval(k));
+    }
+    return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a9e1716ae14b1f3444b40a4a07fb03c9a}{\index{taylor\-::itaylor@{taylor\-::itaylor}!erfc@{erfc}}
+\index{erfc@{erfc}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{erfc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf erfc} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a9e1716ae14b1f3444b40a4a07fb03c9a}
+
+
+\-Definition at line 1533 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+
+    erg=interval(1)-erf(x); 
+
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a41c38304f26d68b981ac0e668d242492}{\index{taylor\-::itaylor@{taylor\-::itaylor}!exp@{exp}}
+\index{exp@{exp}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{exp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf exp} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a41c38304f26d68b981ac0e668d242492}
+
+
+\-Definition at line 1085 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+
+    erg.tayl[0] = exp(x.tayl[0]); // element No. 0; function value
+    for(int k=1; k<=order; k++)
+    {
+  erg.tayl[k] = 0;
+  for(int j=0; j<=k-1; j++)
+      erg.tayl[k] += interval(k-j)*erg.tayl[j]*x.tayl[k-j]; 
+  erg.tayl[k] /= interval(k);
+    }
+    return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a0824022a2814fa1a57cd136336834ff3}{\index{taylor\-::itaylor@{taylor\-::itaylor}!expm1@{expm1}}
+\index{expm1@{expm1}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{expm1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf expm1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a0824022a2814fa1a57cd136336834ff3}
+
+
+\-Definition at line 1104 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+
+    erg.tayl[0] = exp(x.tayl[0]); // element No. 0; function value
+    for(int k=1; k<=order; k++)
+    {
+  erg.tayl[k] = 0;
+  for(int j=0; j<=k-1; j++)
+      erg.tayl[k] += interval(k-j)*erg.tayl[j]*x.tayl[k-j]; 
+  erg.tayl[k] /= interval(k);
+    }
+    erg.tayl[0] = exp(x.tayl[0])-real(1); // = expm1(x.tayl[0]); Blomi
+    return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a460a13e4d9a28ea5b39344c64ca4be48}{\index{taylor\-::itaylor@{taylor\-::itaylor}!f\-\_\-g\-\_\-u@{f\-\_\-g\-\_\-u}}
+\index{f\-\_\-g\-\_\-u@{f\-\_\-g\-\_\-u}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{f\-\_\-g\-\_\-u}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf f\-\_\-g\-\_\-u} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{f, }
+\item[{const {\bf itaylor} \&}]{g, }
+\item[{const {\bf itaylor} \&}]{u, }
+\item[{int}]{nb\-\_\-function}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a460a13e4d9a28ea5b39344c64ca4be48}
+
+
+\-Definition at line 807 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1=get_order(f);
+ int order2=get_order(g);
+ int order3=get_order(u);
+
+ // The following errors should be caught before 
+ // but for security here again:
+ if(order1 != order2) 
+  {
+   std::cerr << "Error1 in f_g_u: different orders " 
+             << std::endl;
+   exit(1);
+  };
+
+ if(order3 != order2) 
+  {
+   std::cerr << "Error2 in f_g_u: different orders " << std::endl;
+   exit(1);
+  };
+
+ if(0 <= g.tayl[0]) 
+  {
+   std::cerr << "Error in f_g_u : wrong argument " << std::endl;
+   exit(1);
+  }; 
+
+ switch(nb_function) // element No. 0
+   {
+    case _i_ln:f.tayl[0]=ln(u.tayl[0]); break;
+
+    case _i_tan:f.tayl[0]=tan(u.tayl[0]); break;
+    case _i_cot:f.tayl[0]=cot(u.tayl[0]); break;
+
+    case _i_asin:f.tayl[0]=asin(u.tayl[0]); break;
+    case _i_acos:f.tayl[0]=acos(u.tayl[0]); break;
+    case _i_atan:f.tayl[0]=atan(u.tayl[0]); break;
+    case _i_acot:f.tayl[0]=acot(u.tayl[0]); break;
+
+    case _i_tanh:f.tayl[0]=tanh(u.tayl[0]); break;
+    case _i_coth:f.tayl[0]=coth(u.tayl[0]); break; 
+
+    case _i_asinh:f.tayl[0]=asinh(u.tayl[0]); break;
+    case _i_acosh:f.tayl[0]=acosh(u.tayl[0]); break;
+    case _i_atanh:f.tayl[0]=atanh(u.tayl[0]); break;
+
+    case _i_acoth:f.tayl[0]=acoth(u.tayl[0]); break;
+   }
+ 
+ // remaining elements:
+ interval sum; 
+ for(int j=1; j<=Ub(f.tayl); j++) 
+ {
+     sum = interval(0);
+     for(int i=1; i<=j-1; i++)
+   sum += interval(i)*f.tayl[i]*g.tayl[j-i];
+     f.tayl[j] = (u.tayl[j]-sum/interval(j)) / g.tayl[0];
+ }
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_abd988b0bc6f50a3a888d43e4008d5d1e}{\index{taylor\-::itaylor@{taylor\-::itaylor}!get\-\_\-all\-\_\-coef@{get\-\_\-all\-\_\-coef}}
+\index{get\-\_\-all\-\_\-coef@{get\-\_\-all\-\_\-coef}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{get\-\_\-all\-\_\-coef}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf get\-\_\-all\-\_\-coef} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_abd988b0bc6f50a3a888d43e4008d5d1e}
+
+
+\-Definition at line 284 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ return x.tayl;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a4f1cabe655848691aae55aa9e81744e1}{\index{taylor\-::itaylor@{taylor\-::itaylor}!get\-\_\-j\-\_\-coef@{get\-\_\-j\-\_\-coef}}
+\index{get\-\_\-j\-\_\-coef@{get\-\_\-j\-\_\-coef}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{get\-\_\-j\-\_\-coef}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf get\-\_\-j\-\_\-coef} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a4f1cabe655848691aae55aa9e81744e1}
+
+
+\-Definition at line 292 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ return x.tayl[j];
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a8a5c0c9343498de2b294fb171605a9ab}{\index{taylor\-::itaylor@{taylor\-::itaylor}!get\-\_\-order@{get\-\_\-order}}
+\index{get\-\_\-order@{get\-\_\-order}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{get\-\_\-order}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf get\-\_\-order} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a8a5c0c9343498de2b294fb171605a9ab}
+
+
+\-Definition at line 276 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ return x.p;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a3ab0c3d85fa92ed6881fa80ca0593e4a}{\index{taylor\-::itaylor@{taylor\-::itaylor}!ln@{ln}}
+\index{ln@{ln}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{ln}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf ln} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a3ab0c3d85fa92ed6881fa80ca0593e4a}
+
+
+\-Definition at line 1124 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+
+    f_g_u(f,x,x,_i_ln);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_aae743e342c3929c1beca14adece530f7}{\index{taylor\-::itaylor@{taylor\-::itaylor}!lnp1@{lnp1}}
+\index{lnp1@{lnp1}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{lnp1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf lnp1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_aae743e342c3929c1beca14adece530f7}
+
+
+\-Definition at line 1137 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order), g(order);
+
+    g = interval(1) + x;
+    erg.tayl[0] = lnp1(x.tayl[0]);
+    for (int k=1; k<=order; k++)
+    {
+  erg.tayl[k] = 0;
+  for (int j=1; j<=k-1; j++)
+      erg.tayl[k] += interval(j) * erg.tayl[j] * g.tayl[k-j];
+  erg.tayl[k] = (x.tayl[k]-erg.tayl[k]/interval(k)) / g.tayl[0];
+    }
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ab8e67cc898835ff637a15c47c428400f}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ab8e67cc898835ff637a15c47c428400f}
+
+
+\-Definition at line 402 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1=get_order(x);
+ int order2=get_order(y);
+ if(order1 != order2) 
+  {
+   std::cerr << "Error in itaylor, operator * : different orders " 
+             << std::endl;
+   exit(1);
+  };
+
+ itaylor erg(order1);
+ interval sum; 
+ idotprecision sum_idot; // for accumulate(...), scalar product
+
+ for(int j=0; j<=order1; j++) 
+ {
+  sum_idot=interval(0);
+  for(int i=0; i<=j; i++)
+   {
+    accumulate(sum_idot, x.tayl[i],y.tayl[j-i]);
+   }
+  rnd(sum_idot,sum);
+  erg.tayl[j]= sum;
+ }
+ return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a1808edf7ebbeb846cda848363389ce94}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a1808edf7ebbeb846cda848363389ce94}
+
+
+\-Definition at line 494 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x*y.tayl[j];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_aac7006c7eef8c32b26dc2610d5d487c6}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const interval \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_aac7006c7eef8c32b26dc2610d5d487c6}
+
+
+\-Definition at line 556 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x.tayl[j]*y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a2161263e12cadbf1f5b44a6e50370d60}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a2161263e12cadbf1f5b44a6e50370d60}
+
+
+\-Definition at line 602 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x*y.tayl[j];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a996ffe24777fc20ee48b0754793f72d5}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const real \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a996ffe24777fc20ee48b0754793f72d5}
+
+
+\-Definition at line 664 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x.tayl[j]*y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a6b7bbd3af3ce5d85def7fcdbe95a06f8}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a6b7bbd3af3ce5d85def7fcdbe95a06f8}
+
+
+\-Definition at line 714 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = interval(x)*y.tayl[j];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ab24d929f8b7e5d01e7458a10d90b3603}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ab24d929f8b7e5d01e7458a10d90b3603}
+
+
+\-Definition at line 776 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x.tayl[j]*interval(y);
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_abf63631b6c3b32cd83ffaed31f8a68e1}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_abf63631b6c3b32cd83ffaed31f8a68e1}
+
+
+\-Definition at line 384 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1=get_order(x);
+ int order2=get_order(y);
+ if(order1 != order2) 
+  {
+   std::cerr << "Error in itaylor, operator + : different orders " 
+             << std::endl;
+   exit(1);
+  };
+
+ itaylor erg(order1);
+ for(int j=Lb(x.tayl); j<=Ub(x.tayl); j++) erg.tayl[j]= x.tayl[j]+y.tayl[j];
+ return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a3b295df49a3e613a7ae367e70f5541c3}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a3b295df49a3e613a7ae367e70f5541c3}
+
+
+\-Definition at line 483 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    erg = y;
+    erg.tayl[0] = x + y.tayl[0];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ac2c50431cad3b55e0fd6ecd0e49f15c2}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const interval \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ac2c50431cad3b55e0fd6ecd0e49f15c2}
+
+
+\-Definition at line 545 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    erg = x;
+    erg.tayl[0] = x.tayl[0] + y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ae02d6346af134135469fbbf8cd5b0498}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ae02d6346af134135469fbbf8cd5b0498}
+
+
+\-Definition at line 591 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    erg = y;
+    erg.tayl[0] = x + y.tayl[0];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a1b991862783a37079712e79fd5ba2c52}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const real \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a1b991862783a37079712e79fd5ba2c52}
+
+
+\-Definition at line 653 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    erg = x;
+    erg.tayl[0] = x.tayl[0] + y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a6be136bb60c027951f94d54f9b8d0ff5}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a6be136bb60c027951f94d54f9b8d0ff5}
+
+
+\-Definition at line 703 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    erg = y;
+    erg.tayl[0] = interval(x) + y.tayl[0];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a98eab5582ff2ae2c7f6356a56d0122e8}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator+@{operator+}}
+\index{operator+@{operator+}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a98eab5582ff2ae2c7f6356a56d0122e8}
+
+
+\-Definition at line 765 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    erg = x;
+    erg.tayl[0] = x.tayl[0] + interval(y);
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_afb753973c17006330c7c7418bc21f358}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_afb753973c17006330c7c7418bc21f358}
+
+
+\-Definition at line 354 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order=get_order(x);
+ itaylor erg(order);
+ for(int j=Lb(x.tayl); j<=Ub(x.tayl); j++) erg.tayl[j]= -x.tayl[j];
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a738113dbef62af2b3e5d02d81f0d80bf}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a738113dbef62af2b3e5d02d81f0d80bf}
+
+
+\-Definition at line 366 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1=get_order(x);
+ int order2=get_order(y);
+ if(order1 != order2) 
+  {
+   std::cerr << "Error in itaylor, operator - : different orders " 
+             << std::endl;
+   exit(1);
+  };
+
+ itaylor erg(order1);
+ for(int j=Lb(x.tayl); j<=Ub(x.tayl); j++) erg.tayl[j]= x.tayl[j]-y.tayl[j];
+ return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a49d69b2639d8a8bf6ba301c8ee1c3bdb}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a49d69b2639d8a8bf6ba301c8ee1c3bdb}
+
+
+\-Definition at line 472 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    erg = -y;
+    erg.tayl[0] = x - y.tayl[0];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a7bf24c7edf481b2cb1bc700704728805}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const interval \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a7bf24c7edf481b2cb1bc700704728805}
+
+
+\-Definition at line 534 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    erg = x;
+    erg.tayl[0] = x.tayl[0] - y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a2527a23e12002ac1e22143704babbbdc}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a2527a23e12002ac1e22143704babbbdc}
+
+
+\-Definition at line 580 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    erg = -y;
+    erg.tayl[0] = x - y.tayl[0];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ad0cc7998df32baffaaa78019a3f8791a}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const real \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ad0cc7998df32baffaaa78019a3f8791a}
+
+
+\-Definition at line 642 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    erg = x;
+    erg.tayl[0] = x.tayl[0] - y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a96139ed4982a0e407e0187f1c9425cb4}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a96139ed4982a0e407e0187f1c9425cb4}
+
+
+\-Definition at line 692 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(y));
+    itaylor erg(order);
+    erg = -y;
+    erg.tayl[0] = interval(x) - y.tayl[0];
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ad3b9e1d94001b31dc4861877b3ec0600}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ad3b9e1d94001b31dc4861877b3ec0600}
+
+
+\-Definition at line 754 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    erg = x;
+    erg.tayl[0] = x.tayl[0] - interval(y);
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ad48cedc38c3108eed1beaeb1bc25e622}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ad48cedc38c3108eed1beaeb1bc25e622}
+
+
+\-Definition at line 432 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ int order1(get_order(x));
+ int order2(get_order(y));
+ if(order1 != order2) 
+  {
+   std::cerr << "Error in itaylor, operator / : different orders " 
+             << std::endl;
+   exit(1);
+  };
+ 
+ if(0 <= y.tayl[0]) 
+  {
+   std::cerr << "Error in itaylor, operator / : 0 in interval " << std::endl;
+   exit(1);
+  };
+
+ itaylor erg(order1);
+ interval sum; 
+ idotprecision sum_idot; // for accumulate(...), scalar product
+
+ for(int j=0; j<=order1; j++) 
+ {
+  sum_idot=interval(0);
+  for(int i=1; i<=j; i++)
+   {
+    accumulate(sum_idot, y.tayl[i],erg.tayl[j-i]);
+   }
+  rnd(sum_idot,sum);
+  erg.tayl[j]= (x.tayl[j]-sum)/y.tayl[0];
+ }
+ return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a3327b8c63a96b31906c1882831aeea51}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const interval \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a3327b8c63a96b31906c1882831aeea51}
+
+
+\-Definition at line 504 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    if (0<=y.tayl[0])
+    {
+  std::cerr << "Error in itaylor, operator / : 0 in interval " 
+                  << std::endl;
+  exit(1);
+    }; 
+    idotprecision idot;
+    interval sum;
+    int order(get_order(y));
+    itaylor w(order);
+    w.tayl[0] = x / y.tayl[0];
+    for (int k=1; k<=order; k++)
+    {
+  idot=0;
+  for (int j=1; j<=k; j++) 
+      accumulate(idot,y.tayl[j],w.tayl[k-j]);
+  rnd(idot,sum);
+  w.tayl[k] = -sum / y.tayl[0];
+    }
+    return w;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_aa9754401400a0551800495335c4997f4}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const interval \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_aa9754401400a0551800495335c4997f4}
+
+
+\-Definition at line 566 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x.tayl[j]/y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a430a28502969167967b0a8344636624d}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const real \&}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a430a28502969167967b0a8344636624d}
+
+
+\-Definition at line 612 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    if (0<=y.tayl[0])
+    {
+  std::cerr << "Error in itaylor, operator / : 0 in interval " 
+                  << std::endl;
+  exit(1);
+    }; 
+    idotprecision idot;
+    interval sum;
+    int order(get_order(y));
+    itaylor w(order);
+    w.tayl[0] = x / y.tayl[0];
+    for (int k=1; k<=order; k++)
+    {
+  idot=0;
+  for (int j=1; j<=k; j++) 
+      accumulate(idot,y.tayl[j],w.tayl[k-j]);
+  rnd(idot,sum);
+  w.tayl[k] = -sum / y.tayl[0];
+    }
+    return w;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ab591d69abfbe913108d9ccea1183298f}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const real \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ab591d69abfbe913108d9ccea1183298f}
+
+
+\-Definition at line 674 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    if (y==0)
+    {
+  std::cerr << "Error in itaylor: division by 0" 
+                  << std::endl;
+  exit(1);
+    };
+    int order(get_order(x));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x.tayl[j]/y;
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a70eabbfdbdec4404ab091ce00545e445}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{const {\bf itaylor} \&}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a70eabbfdbdec4404ab091ce00545e445}
+
+
+\-Definition at line 724 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    if (0<=y.tayl[0])
+    {
+  std::cerr << "Error in itaylor, operator / : 0 in interval " 
+                  << std::endl;
+  exit(1);
+    }; 
+    idotprecision idot;
+    interval sum;
+    int order(get_order(y));
+    itaylor w(order);
+    w.tayl[0] = interval(x) / y.tayl[0];
+    for (int k=1; k<=order; k++)
+    {
+  idot=0;
+  for (int j=1; j<=k; j++) 
+      accumulate(idot,y.tayl[j],w.tayl[k-j]);
+  rnd(idot,sum);
+  w.tayl[k] = -sum / y.tayl[0];
+    }
+    return w;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_aa6d4ea2601ec7cb03450f2816b05daa3}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator/@{operator/}}
+\index{operator/@{operator/}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_aa6d4ea2601ec7cb03450f2816b05daa3}
+
+
+\-Definition at line 786 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    if (y==0)
+    {
+  std::cerr << "Error in itaylor: division by 0" 
+                  << std::endl;
+  exit(1);
+    };
+    int order(get_order(x));
+    itaylor erg(order);
+    for (int j=0; j<=order; j++) erg.tayl[j] = x.tayl[j]/interval(y);
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ac07b19edfa7978a5fc4c65ce136216f8}{\index{taylor\-::itaylor@{taylor\-::itaylor}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{{\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ac07b19edfa7978a5fc4c65ce136216f8}
+
+
+\-Definition at line 333 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ os <<"[itaylor object, order " << x.p << ":]" << std::endl;
+ for(int i=Lb(x.tayl); i<=Ub(x.tayl);i++) 
+  {
+   os << "[" << i << "]";
+   os << x.tayl[i] << std::endl;
+  };
+ os << std::endl;
+ return os;
+}                                
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a01ec110d820ad5da24c157ed72e10395}{\index{taylor\-::itaylor@{taylor\-::itaylor}!pow@{pow}}
+\index{pow@{pow}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{pow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf pow} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{const interval \&}]{alpha}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a01ec110d820ad5da24c157ed72e10395}
+
+
+\-Definition at line 1057 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+
+    if (0<=x.tayl[0])
+    {
+  std::cerr << "Error in itaylor, pow(x,a): 0 in interval x" 
+                  << std::endl;
+  exit(1);
+    };
+
+    erg.tayl[0] = pow(x.tayl[0],alpha); // element No. 0
+    for (int k=1; k<=order; k++)
+    {
+  erg.tayl[k] = 0;
+  for (int j=0; j<=k-1; j++)
+      erg.tayl[k] += (interval(k-j)*alpha-interval(j))
+               * erg.tayl[j] * x.tayl[k-j];
+  erg.tayl[k] /= (interval(k)*x.tayl[0]);
+    }
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a3287f4b338adf498600372c2436539be}{\index{taylor\-::itaylor@{taylor\-::itaylor}!power\-At\-Zero@{power\-At\-Zero}}
+\index{power\-At\-Zero@{power\-At\-Zero}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{power\-At\-Zero}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf power\-At\-Zero} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a3287f4b338adf498600372c2436539be}
+
+
+\-Definition at line 1565 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+                                             {
+  int order(get_order(x));
+  itaylor erg(order);
+  
+  if (0<=x.tayl[1])
+    {
+      std::cerr << "Error in itaylor, pow(x,a): 0 in the derivative of x" 
+    << std::endl;
+      exit(1);
+    };
+  
+  for (int k=0; k<n; k++)
+    erg.tayl[k]=0.0;
+
+  erg.tayl[n] = power(x.tayl[1],n); // element No. n
+  for (int k=n+1; k<=order; k++)
+    {
+      erg.tayl[k] = 0;
+      for (int j=0; j<=k-1-n; j++)
+  erg.tayl[k] += (interval(k-n-j)*n-interval(j))
+               * erg.tayl[j+n] * x.tayl[k+1-n-j];
+      erg.tayl[k] /= (interval(k-n)*x.tayl[1]);
+    }
+  return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ad4ee00a6eb0637b14de2995b8a3cd214}{\index{taylor\-::itaylor@{taylor\-::itaylor}!print\-\_\-itaylor@{print\-\_\-itaylor}}
+\index{print\-\_\-itaylor@{print\-\_\-itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{print\-\_\-itaylor}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf print\-\_\-itaylor} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ad4ee00a6eb0637b14de2995b8a3cd214}
+
+
+\-Definition at line 308 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ std::cerr <<"Output itaylor of order " << x.p << " " << std::endl;
+ for(int i=Lb(x.tayl); i<=Ub(x.tayl);i++) 
+  {
+   std::cerr << "i  " << i << "  component: " << x.tayl[i] << std::endl;
+  };
+ std::cerr << std::endl;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a379a4a17eb84752d9a16e1e1b5343230}{\index{taylor\-::itaylor@{taylor\-::itaylor}!print\-\_\-itaylor@{print\-\_\-itaylor}}
+\index{print\-\_\-itaylor@{print\-\_\-itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{print\-\_\-itaylor}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf print\-\_\-itaylor} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{width = {\ttfamily 0}, }
+\item[{int}]{digits = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a379a4a17eb84752d9a16e1e1b5343230}
+
+
+\-Definition at line 318 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+ os <<"Ausgabe itaylor der Ordnung " << x.p << " " << std::endl;
+ for(int i=Lb(x.tayl); i<=Ub(x.tayl);i++) 
+  {
+   os << "i  " << i << "  component: ";
+   if (width>0||digits>0) os << SetPrecision(width,digits);
+   os << x.tayl[i] << std::endl;
+  };
+ os << std::endl;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a146672640c9c6e4e37f566f551e12550}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sin@{sin}}
+\index{sin@{sin}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sin} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a146672640c9c6e4e37f566f551e12550}
+
+
+\-Definition at line 1157 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg1(order);   // sin
+    itaylor erg2(order);   // cos
+    interval s1,s2;
+
+    erg1.tayl[0]=sin(x.tayl[0]); // Element No. 0:  erg1 (sin)
+    erg2.tayl[0]=cos(x.tayl[0]); // Element No. 0:  erg2 (cos)
+
+    // remainig elements: 
+    for(int j=1; j<=Ub(x.tayl); j++) 
+    {
+  s1=s2=interval(0);
+  for(int i=0; i<=j-1; i++)
+  {
+      s1 += interval(j-i) * erg2.tayl[i] * x.tayl[j-i];
+      s2 += interval(j-i) * erg1.tayl[i] * x.tayl[j-i];
+  }
+  erg1.tayl[j]= s1/interval(j);
+  erg2.tayl[j]= real(-1.0)/interval(j)*s2;
+    }
+    return erg1; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ae4dc5aee338add08c3b5226045650c3f}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sinh@{sinh}}
+\index{sinh@{sinh}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sinh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sinh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ae4dc5aee338add08c3b5226045650c3f}
+
+
+\-Definition at line 1257 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg1(order);  // sinh
+    itaylor erg2(order);  // cosh
+    interval s1,s2;
+
+    erg1.tayl[0]=sinh(x.tayl[0]); // element No. 0:  erg1 (sinh)
+    erg2.tayl[0]=cosh(x.tayl[0]); // element No. 0:  erg2 (cosh)
+
+    // remainig elements: 
+    for(int j=1; j<=Ub(x.tayl); j++) 
+    {
+  s1=s2=interval(0);
+  for(int i=0; i<=j-1; i++)
+  {
+      s1 += interval(j-i) * erg2.tayl[i] * x.tayl[j-i];
+      s2 += interval(j-i) * erg1.tayl[i] * x.tayl[j-i];
+  }
+  erg1.tayl[j]= s1/interval(j);
+  erg2.tayl[j]= s2/interval(j);
+    }
+    return erg1; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_aea909b05cd5051da6dc84c98e3cf64eb}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sqr@{sqr}}
+\index{sqr@{sqr}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sqr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sqr} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_aea909b05cd5051da6dc84c98e3cf64eb}
+
+
+\-Definition at line 868 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    idotprecision idot;
+    interval sum;
+    int order(get_order(x)),m;
+    itaylor erg(order);
+
+    erg.tayl[0] = sqr(x.tayl[0]);
+    for (int k=1; k<=order; k++)
+    {
+  m = (k+1) / 2;
+  idot = 0;
+  for (int j=0; j<=m-1; j++) 
+      accumulate(idot,x.tayl[j],x.tayl[k-j]);
+  rnd(idot,sum);
+  times2pown(sum,1);  // Multiplication with 2
+  erg.tayl[k] = sum;
+  if (k%2==0) erg.tayl[k] += sqr(x.tayl[m]); // k even 
+    }
+    return erg; 
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a9ef6e81a1ceb32ee143c301365a35980}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sqrt@{sqrt}}
+\index{sqrt@{sqrt}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sqrt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sqrt} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a9ef6e81a1ceb32ee143c301365a35980}
+
+
+\-Definition at line 894 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    idotprecision idot;
+    interval sum,h;
+    int order(get_order(x)),m;
+    itaylor erg(order);
+    if (0<=x.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, sqrt: 0 in interval" << std::endl;
+  exit(1);
+    };
+    erg.tayl[0] = sqrt(x.tayl[0]);
+    h = erg.tayl[0];
+    times2pown(h,1);
+    for (int k=1; k<=order; k++)
+    {
+  m = (k+1) / 2;
+  idot = 0;
+  for (int j=1; j<=m-1; j++) 
+      accumulate(idot,erg.tayl[j],erg.tayl[k-j]);
+  rnd(idot,sum);
+  times2pown(sum,1);  // Multiplication with 2
+  erg.tayl[k] = sum;
+  if (k%2==0) erg.tayl[k] += sqr(erg.tayl[m]); // k even 
+  erg.tayl[k] = (x.tayl[k]-erg.tayl[k]) / h;
+    }
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_af0cb94a71f65eb8f77698f7df2ab403c}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sqrt@{sqrt}}
+\index{sqrt@{sqrt}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sqrt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sqrt} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_af0cb94a71f65eb8f77698f7df2ab403c}
+
+
+\-Definition at line 927 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    if (0<=x.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, sqrt(x,n): 0 in interval" << std::endl;
+  exit(1);
+    };
+    erg.tayl[0] = sqrt(x.tayl[0],n); // element No. 0
+    for (int k=1; k<=order; k++)
+    {
+  erg.tayl[k] = 0;
+  for (int j=0; j<=k-1; j++)
+      erg.tayl[k] += (interval(k-j)/real(n)-interval(j))
+               * erg.tayl[j] * x.tayl[k-j];
+  erg.tayl[k] /= (interval(k)*x.tayl[0]);
+    }
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a2a029f70653490604efa8b4f08a9875d}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sqrt1mx2@{sqrt1mx2}}
+\index{sqrt1mx2@{sqrt1mx2}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sqrt1mx2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sqrt1mx2} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a2a029f70653490604efa8b4f08a9875d}
+
+
+\-Definition at line 950 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    idotprecision idot;
+    interval sum,h;
+    int order(get_order(x)),m;
+    itaylor erg(order), g(order);
+
+    if (Inf(x.tayl[0])<=-1 || Sup(x.tayl[0])>=1)
+    {
+  std::cerr << "Error in itaylor, sqrt1mx2: wrong argument" << std::endl;
+  exit(1);
+    };
+    erg.tayl[0]=sqrt(real(1)-sqr(x.tayl[0])); // =sqrt1mx2(x.tayl[0]); Blomi 
+    h = real(-1)/erg.tayl[0];
+    times2pown(h,-1);
+    g = sqr(x);
+    for (int k=1; k<=order; k++)
+    {
+  m = (k+1)/2;
+  idot = 0;
+  for (int j=1; j<=m-1; j++) 
+      accumulate(idot,erg.tayl[j],erg.tayl[k-j]);
+  rnd(idot,sum);
+  times2pown(sum,1);  // Multiplication with 2
+  erg.tayl[k] = sum;
+  if (k%2==0) erg.tayl[k] += sqr(erg.tayl[m]); // k even 
+  erg.tayl[k] = (g.tayl[k]+erg.tayl[k])*h;
+    }
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_afb2086a33961a372fdfddbc6f8c2bb19}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sqrt1px2@{sqrt1px2}}
+\index{sqrt1px2@{sqrt1px2}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sqrt1px2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sqrt1px2} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_afb2086a33961a372fdfddbc6f8c2bb19}
+
+
+\-Definition at line 1547 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x));
+    itaylor erg(order);
+    const real c = 500.0;
+
+    if (Inf(x.tayl[0]) > c) erg = x*sqrt(real(1)+real(1)/sqr(x));
+    else if (Sup(x.tayl[0]) < -c) erg = -x*sqrt(real(1)+real(1)/sqr(x)); 
+    else erg = sqrt(real(1)+sqr(x));  
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a1d4b5ebbb74084dcbbcdd5feb4980b79}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sqrtp1m1@{sqrtp1m1}}
+\index{sqrtp1m1@{sqrtp1m1}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sqrtp1m1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sqrtp1m1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a1d4b5ebbb74084dcbbcdd5feb4980b79}
+
+
+\-Definition at line 1022 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order(get_order(x)),m;
+    itaylor erg(order);
+    idotprecision idot;
+    interval h,Ne;
+
+    if (Inf(x.tayl[0])<=-1)
+    {
+  std::cerr << "Error in itaylor, sqrtp1m1: wrong argument" << std::endl;
+  exit(1);
+    };
+
+    erg.tayl[0] = sqrtp1m1(x.tayl[0]);
+    Ne = real(1.0)+erg.tayl[0];
+    times2pown(Ne,1);
+
+    for (int k=1; k<=order; k++)
+    {
+  m = (k+1)/2;
+  idot = 0;
+  for (int j=1; j<=m-1; j++)
+      accumulate(idot,erg.tayl[j],erg.tayl[k-j]);
+  rnd(idot,h);
+  times2pown(h,1);
+  erg.tayl[k] = h;
+  if (k%2==0) erg.tayl[k] += sqr(erg.tayl[m]);
+  erg.tayl[k] = (x.tayl[k]-erg.tayl[k]) / Ne; 
+    }
+    return erg;
+} // sqrtp1m1
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_aa71646df2517a0c93f10ef9f936e3330}{\index{taylor\-::itaylor@{taylor\-::itaylor}!sqrtx2m1@{sqrtx2m1}}
+\index{sqrtx2m1@{sqrtx2m1}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{sqrtx2m1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf sqrtx2m1} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_aa71646df2517a0c93f10ef9f936e3330}
+
+
+\-Definition at line 984 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    const real c = 30.0; 
+    idotprecision idot;
+    interval sum,h;
+    int order(get_order(x)),m;
+    itaylor erg(order), g(order);
+
+    if (Disjoint(x.tayl[0],interval(-1,1))==0)
+    {
+  std::cerr << "Error in itaylor, sqrtx2m1: wrong argument" << std::endl;
+  exit(1);
+    };
+
+    if (Inf(x.tayl[0])>c) erg = x*sqrt1mx2(real(1)/x);
+    else if (Sup(x.tayl[0])<-c) erg = -x*sqrt1mx2(real(1)/x);
+    else {
+  erg.tayl[0]=sqrt(sqr(x.tayl[0])-real(1)); // =sqrtx2m1(x.tayl[0]); Blomi 
+  g = sqr(x);
+  h = real(1)/erg.tayl[0];
+  times2pown(h,-1);
+  for (int k=1; k<=order; k++)
+  {
+      m = (k+1)/2;
+      idot = 0;
+      for (int j=1; j<=m-1; j++) 
+    accumulate(idot,erg.tayl[j],erg.tayl[k-j]);
+      rnd(idot,sum);
+      times2pown(sum,1);  // Multiplication with 2
+      erg.tayl[k] = sum;
+      if (k%2==0) erg.tayl[k] += sqr(erg.tayl[m]); // k even 
+      erg.tayl[k] = (g.tayl[k]-erg.tayl[k])*h;
+  }
+    }
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a5a9b67f02158013b52186777813f7f00}{\index{taylor\-::itaylor@{taylor\-::itaylor}!tan@{tan}}
+\index{tan@{tan}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{tan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf tan} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a5a9b67f02158013b52186777813f7f00}
+
+
+\-Definition at line 1213 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=sqr(cos(x));
+
+    if(0 <= g.tayl[0]) 
+    {
+  std::cerr << "Error in itaylor, tan : wrong argument" << std::endl;
+  exit(1);
+    };  
+ 
+    f_g_u(f,g,x,_i_tan);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_a1542dba0eedbc6fda7c8c1e75f380191}{\index{taylor\-::itaylor@{taylor\-::itaylor}!tanh@{tanh}}
+\index{tanh@{tanh}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{tanh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf tanh} (
+\begin{DoxyParamCaption}
+\item[{const {\bf itaylor} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_a1542dba0eedbc6fda7c8c1e75f380191}
+
+
+\-Definition at line 1313 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    int order=get_order(x);
+    itaylor f(order);
+    itaylor g(order);
+
+    g=sqr(cosh(x)); 
+ 
+    f_g_u(f,g,x,_i_tanh);
+  
+    return f;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ad529aabfd4ddb7a266ac5398382a880e}{\index{taylor\-::itaylor@{taylor\-::itaylor}!var\-\_\-itaylor@{var\-\_\-itaylor}}
+\index{var\-\_\-itaylor@{var\-\_\-itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{var\-\_\-itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf var\-\_\-itaylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{ord, }
+\item[{const real \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ad529aabfd4ddb7a266ac5398382a880e}
+
+
+\-Definition at line 144 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    itaylor erg(ord,x);
+    return erg;
+}
+\end{DoxyCode}
+\hypertarget{classtaylor_1_1itaylor_ad844d06e1838d2d4ddb723d8a3863591}{\index{taylor\-::itaylor@{taylor\-::itaylor}!var\-\_\-itaylor@{var\-\_\-itaylor}}
+\index{var\-\_\-itaylor@{var\-\_\-itaylor}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{var\-\_\-itaylor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf itaylor} {\bf var\-\_\-itaylor} (
+\begin{DoxyParamCaption}
+\item[{int}]{ord, }
+\item[{const interval \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classtaylor_1_1itaylor_ad844d06e1838d2d4ddb723d8a3863591}
+
+
+\-Definition at line 152 of file itaylor.\-cpp.
+
+
+\begin{DoxyCode}
+{
+    itaylor erg(ord,x);
+    return erg;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classtaylor_1_1itaylor_acf103bcde03b0ace044510e116ab3805}{\index{taylor\-::itaylor@{taylor\-::itaylor}!initialized@{initialized}}
+\index{initialized@{initialized}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{initialized}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf itaylor\-::initialized} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classtaylor_1_1itaylor_acf103bcde03b0ace044510e116ab3805}
+
+
+\-Definition at line 111 of file itaylor.\-hpp.
+
+
+
+\-Referenced by itaylor().
+
+\hypertarget{classtaylor_1_1itaylor_a4039cb1a204543dce7b572839609c890}{\index{taylor\-::itaylor@{taylor\-::itaylor}!p@{p}}
+\index{p@{p}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{p}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf taylor\-::itaylor\-::p}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1itaylor_a4039cb1a204543dce7b572839609c890}
+
+
+\-Definition at line 106 of file itaylor.\-hpp.
+
+
+
+\-Referenced by taylor\-::get\-\_\-order(), itaylor(), operator!=(), operator$<$(), taylor\-::operator$<$$<$(), operator$<$=(), operator=(), operator==(), operator$>$(), operator$>$=(), and taylor\-::print\-\_\-itaylor().
+
+\hypertarget{classtaylor_1_1itaylor_a4df835280789a8639aed81fe83b272f8}{\index{taylor\-::itaylor@{taylor\-::itaylor}!tayl@{tayl}}
+\index{tayl@{tayl}!taylor::itaylor@{taylor\-::itaylor}}
+\paragraph[{tayl}]{\setlength{\rightskip}{0pt plus 5cm}ivector {\bf taylor\-::itaylor\-::tayl}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classtaylor_1_1itaylor_a4df835280789a8639aed81fe83b272f8}
+
+
+\-Definition at line 107 of file itaylor.\-hpp.
+
+
+
+\-Referenced by taylor\-::acos(), taylor\-::acosh(), taylor\-::acoth(), taylor\-::asin(), taylor\-::atanh(), taylor\-::const\-\_\-itaylor(), taylor\-::cos(), taylor\-::cosh(), taylor\-::cot(), taylor\-::coth(), taylor\-::erf(), taylor\-::exp(), taylor\-::expm1(), taylor\-::f\-\_\-g\-\_\-u(), taylor\-::get\-\_\-all\-\_\-coef(), taylor\-::get\-\_\-j\-\_\-coef(), itaylor(), taylor\-::lnp1(), operator!=(), taylor\-::operator$\ast$(), taylor\-::operator+(), taylor\-::operator-\/(), taylor\-::operator/(), operator$<$(), taylor\-::operator$<$$<$(), operator$<$=(), operator=(), operator==(), operator$>$(), operator$>$=(), operator\mbox{[}$\,$\mbox{]}(), taylor\-::pow(), taylor\-::power\-At\-Zero(), taylor\-::print\-\_\-itaylor(), taylor\-::sin(), taylor\-::sinh(), taylor\-::sqr(), taylor\-::sqrt(), taylor\-::sqrt1mx2(), taylor\-::sqrt1px2(), taylor\-::sqrtp1m1(), taylor\-::sqrtx2m1(), and taylor\-::tan().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{itaylor_8hpp}{itaylor.\-hpp}\item 
+\hyperlink{itaylor_8cpp}{itaylor.\-cpp}\end{DoxyCompactItemize}

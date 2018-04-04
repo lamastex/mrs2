@@ -1,0 +1,143 @@
+\hypertarget{classsubpavings_1_1LogTemperaturePrior}{\subsection{subpavings\-:\-:\-Log\-Temperature\-Prior \-Class \-Reference}
+\label{classsubpavings_1_1LogTemperaturePrior}\index{subpavings\-::\-Log\-Temperature\-Prior@{subpavings\-::\-Log\-Temperature\-Prior}}
+}
+
+
+{\ttfamily \#include $<$histmcmcobjs.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Log\-Temperature\-Prior\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Log\-Temperature\-Prior\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1LogTemperaturePrior_a608c83384be76200c1ac7bf9905d95c2}{\-Log\-Temperature\-Prior} (double t)
+\item 
+string \hyperlink{classsubpavings_1_1LogTemperaturePrior_a8a41da03f7f93a125f796a8f8009996a}{get\-Name} () const 
+\item 
+real \hyperlink{classsubpavings_1_1LogTemperaturePrior_a09b2afaea3be6e703e24ecce36ef0b9a}{operator()} (const size\-\_\-t l) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1LogTemperaturePrior_affb626295cf29d795210eab0111bda13}{\-Log\-Temperature\-Prior} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classsubpavings_1_1LogTemperaturePrior_a161fe5fa916de9250535f5b9f86811b6}{temp}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 89 of file histmcmcobjs.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1LogTemperaturePrior_affb626295cf29d795210eab0111bda13}{\index{subpavings\-::\-Log\-Temperature\-Prior@{subpavings\-::\-Log\-Temperature\-Prior}!\-Log\-Temperature\-Prior@{\-Log\-Temperature\-Prior}}
+\index{\-Log\-Temperature\-Prior@{\-Log\-Temperature\-Prior}!subpavings::LogTemperaturePrior@{subpavings\-::\-Log\-Temperature\-Prior}}
+\paragraph[{\-Log\-Temperature\-Prior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Log\-Temperature\-Prior\-::\-Log\-Temperature\-Prior} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private\mbox{]}}}}\label{classsubpavings_1_1LogTemperaturePrior_affb626295cf29d795210eab0111bda13}
+
+
+\-Definition at line 96 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1LogTemperaturePrior_a608c83384be76200c1ac7bf9905d95c2}{\index{subpavings\-::\-Log\-Temperature\-Prior@{subpavings\-::\-Log\-Temperature\-Prior}!\-Log\-Temperature\-Prior@{\-Log\-Temperature\-Prior}}
+\index{\-Log\-Temperature\-Prior@{\-Log\-Temperature\-Prior}!subpavings::LogTemperaturePrior@{subpavings\-::\-Log\-Temperature\-Prior}}
+\paragraph[{\-Log\-Temperature\-Prior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Log\-Temperature\-Prior\-::\-Log\-Temperature\-Prior} (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1LogTemperaturePrior_a608c83384be76200c1ac7bf9905d95c2}
+
+
+\-Definition at line 100 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+: LogMCMCPrior("CatalanPrior"), temp(t) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1LogTemperaturePrior_a8a41da03f7f93a125f796a8f8009996a}{\index{subpavings\-::\-Log\-Temperature\-Prior@{subpavings\-::\-Log\-Temperature\-Prior}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!subpavings::LogTemperaturePrior@{subpavings\-::\-Log\-Temperature\-Prior}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf subpavings\-::\-Log\-Temperature\-Prior\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1LogTemperaturePrior_a8a41da03f7f93a125f796a8f8009996a}
+
+
+\-Implements \hyperlink{classsubpavings_1_1LogMCMCPrior_ace14dfa0a28927d063d091e13f9ead1c}{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}.
+
+
+
+\-Definition at line 103 of file histmcmcobjs.\-hpp.
+
+
+
+\-References subpavings\-::\-Log\-M\-C\-M\-C\-Prior\-::prior\-Name.
+
+
+\begin{DoxyCode}
+    { return priorName; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1LogTemperaturePrior_a09b2afaea3be6e703e24ecce36ef0b9a}{\index{subpavings\-::\-Log\-Temperature\-Prior@{subpavings\-::\-Log\-Temperature\-Prior}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::LogTemperaturePrior@{subpavings\-::\-Log\-Temperature\-Prior}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real subpavings\-::\-Log\-Temperature\-Prior\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{l}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1LogTemperaturePrior_a09b2afaea3be6e703e24ecce36ef0b9a}
+
+
+\-Implements \hyperlink{classsubpavings_1_1LogMCMCPrior_ae53e146f9ac1b057ae9df4370220a22d}{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}.
+
+
+
+\-Definition at line 107 of file histmcmcobjs.\-hpp.
+
+
+
+\-References temp.
+
+
+\begin{DoxyCode}
+    {
+        return -1.0/temp*l;
+
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1LogTemperaturePrior_a161fe5fa916de9250535f5b9f86811b6}{\index{subpavings\-::\-Log\-Temperature\-Prior@{subpavings\-::\-Log\-Temperature\-Prior}!temp@{temp}}
+\index{temp@{temp}!subpavings::LogTemperaturePrior@{subpavings\-::\-Log\-Temperature\-Prior}}
+\paragraph[{temp}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Log\-Temperature\-Prior\-::temp}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1LogTemperaturePrior_a161fe5fa916de9250535f5b9f86811b6}
+
+
+\-Definition at line 93 of file histmcmcobjs.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histmcmcobjs_8hpp}{histmcmcobjs.\-hpp}\end{DoxyCompactItemize}

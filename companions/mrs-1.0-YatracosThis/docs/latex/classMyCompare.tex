@@ -1,0 +1,167 @@
+\hypertarget{classMyCompare}{\subsection{\-My\-Compare \-Class \-Reference}
+\label{classMyCompare}\index{\-My\-Compare@{\-My\-Compare}}
+}
+
+
+\-Collaboration diagram for \-My\-Compare\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMyCompare_a07bd4f4cbba1f03bce0db9991ceb5e07}{\-My\-Compare} (const \hyperlink{classsubpavings_1_1NodeCompObj}{\-Node\-Comp\-Obj} \&nc)
+\item 
+bool \hyperlink{classMyCompare_ab8e83151fa901c20449290ba5e8fb735}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const 
+\item 
+\hyperlink{classMyCompare_a404a0d135af697d1e77f095a5f178c50}{\-My\-Compare} (const \hyperlink{classsubpavings_1_1NodeCompObjVal}{\-Node\-Comp\-Obj\-Val} \&nc)
+\item 
+bool \hyperlink{classMyCompare_a9af5853229809316e3499b8be21a607e}{operator()} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const rhs) const 
+\item 
+\hyperlink{classMyCompare_adeb357f13bed7aa77885efe212b65fbf}{\-My\-Compare} (const \hyperlink{classsubpavings_1_1NodeCompObjMapped}{\-Node\-Comp\-Obj\-Mapped} \&nc)
+\item 
+bool \hyperlink{classMyCompare_acefac57f95bf5fa66ac62fa08d82e72b}{operator()} (const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classsubpavings_1_1NodeCompObj}{\-Node\-Comp\-Obj} \& \hyperlink{classMyCompare_af0e29031d7490821548f19f8f993b297}{my\-N\-C}
+\item 
+const \hyperlink{classsubpavings_1_1NodeCompObjVal}{\-Node\-Comp\-Obj\-Val} \& \hyperlink{classMyCompare_aad6bdf9b44e3fbc16faaf3368b764515}{my\-N\-C}
+\item 
+const \hyperlink{classsubpavings_1_1NodeCompObjMapped}{\-Node\-Comp\-Obj\-Mapped} \& \hyperlink{classMyCompare_aa9f27ea198651dc3a8f2b3aaedc3b2ae}{my\-N\-C}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+
+
+\-Definition at line 79 of file adaptivehistogram.\-cpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classMyCompare_a07bd4f4cbba1f03bce0db9991ceb5e07}{\index{\-My\-Compare@{\-My\-Compare}!\-My\-Compare@{\-My\-Compare}}
+\index{\-My\-Compare@{\-My\-Compare}!MyCompare@{\-My\-Compare}}
+\paragraph[{\-My\-Compare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-My\-Compare\-::\-My\-Compare} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Node\-Comp\-Obj} \&}]{nc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMyCompare_a07bd4f4cbba1f03bce0db9991ceb5e07}
+
+
+\-Definition at line 84 of file adaptivehistogram.\-cpp.
+
+
+\begin{DoxyCode}
+: myNC(nc) {}
+\end{DoxyCode}
+\hypertarget{classMyCompare_a404a0d135af697d1e77f095a5f178c50}{\index{\-My\-Compare@{\-My\-Compare}!\-My\-Compare@{\-My\-Compare}}
+\index{\-My\-Compare@{\-My\-Compare}!MyCompare@{\-My\-Compare}}
+\paragraph[{\-My\-Compare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-My\-Compare\-::\-My\-Compare} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Node\-Comp\-Obj\-Val} \&}]{nc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMyCompare_a404a0d135af697d1e77f095a5f178c50}
+
+
+\-Definition at line 82 of file adaptivehistogramvalidation.\-cpp.
+
+
+\begin{DoxyCode}
+: myNC(nc) {}
+\end{DoxyCode}
+\hypertarget{classMyCompare_adeb357f13bed7aa77885efe212b65fbf}{\index{\-My\-Compare@{\-My\-Compare}!\-My\-Compare@{\-My\-Compare}}
+\index{\-My\-Compare@{\-My\-Compare}!MyCompare@{\-My\-Compare}}
+\paragraph[{\-My\-Compare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-My\-Compare\-::\-My\-Compare} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Node\-Comp\-Obj\-Mapped} \&}]{nc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMyCompare_adeb357f13bed7aa77885efe212b65fbf}
+
+
+\-Definition at line 28 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+
+\begin{DoxyCode}
+: myNC(nc) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classMyCompare_acefac57f95bf5fa66ac62fa08d82e72b}{\index{\-My\-Compare@{\-My\-Compare}!operator()@{operator()}}
+\index{operator()@{operator()}!MyCompare@{\-My\-Compare}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool \-My\-Compare\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-Pnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-Pnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMyCompare_acefac57f95bf5fa66ac62fa08d82e72b}
+
+
+\-Definition at line 30 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+
+\begin{DoxyCode}
+    { return myNC(lhs, rhs); }
+\end{DoxyCode}
+\hypertarget{classMyCompare_a9af5853229809316e3499b8be21a607e}{\index{\-My\-Compare@{\-My\-Compare}!operator()@{operator()}}
+\index{operator()@{operator()}!MyCompare@{\-My\-Compare}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool \-My\-Compare\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMyCompare_a9af5853229809316e3499b8be21a607e}
+
+
+\-Definition at line 84 of file adaptivehistogramvalidation.\-cpp.
+
+
+\begin{DoxyCode}
+    { return myNC(lhs, rhs); }
+\end{DoxyCode}
+\hypertarget{classMyCompare_ab8e83151fa901c20449290ba5e8fb735}{\index{\-My\-Compare@{\-My\-Compare}!operator()@{operator()}}
+\index{operator()@{operator()}!MyCompare@{\-My\-Compare}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool \-My\-Compare\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classMyCompare_ab8e83151fa901c20449290ba5e8fb735}
+
+
+\-Definition at line 86 of file adaptivehistogram.\-cpp.
+
+
+\begin{DoxyCode}
+    { return myNC(lhs, rhs); }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classMyCompare_aa9f27ea198651dc3a8f2b3aaedc3b2ae}{\index{\-My\-Compare@{\-My\-Compare}!my\-N\-C@{my\-N\-C}}
+\index{my\-N\-C@{my\-N\-C}!MyCompare@{\-My\-Compare}}
+\paragraph[{my\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Node\-Comp\-Obj\-Mapped}\& {\bf \-My\-Compare\-::my\-N\-C}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMyCompare_aa9f27ea198651dc3a8f2b3aaedc3b2ae}
+
+
+\-Definition at line 25 of file mappedspnodevisitor\-\_\-expand.\-cpp.
+
+\hypertarget{classMyCompare_aad6bdf9b44e3fbc16faaf3368b764515}{\index{\-My\-Compare@{\-My\-Compare}!my\-N\-C@{my\-N\-C}}
+\index{my\-N\-C@{my\-N\-C}!MyCompare@{\-My\-Compare}}
+\paragraph[{my\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Node\-Comp\-Obj\-Val}\& {\bf \-My\-Compare\-::my\-N\-C}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMyCompare_aad6bdf9b44e3fbc16faaf3368b764515}
+
+
+\-Definition at line 79 of file adaptivehistogramvalidation.\-cpp.
+
+\hypertarget{classMyCompare_af0e29031d7490821548f19f8f993b297}{\index{\-My\-Compare@{\-My\-Compare}!my\-N\-C@{my\-N\-C}}
+\index{my\-N\-C@{my\-N\-C}!MyCompare@{\-My\-Compare}}
+\paragraph[{my\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Node\-Comp\-Obj}\& {\bf \-My\-Compare\-::my\-N\-C}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMyCompare_af0e29031d7490821548f19f8f993b297}
+
+
+\-Definition at line 81 of file adaptivehistogram.\-cpp.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{adaptivehistogram_8cpp}{adaptivehistogram.\-cpp}\item 
+\hyperlink{adaptivehistogramvalidation_8cpp}{adaptivehistogramvalidation.\-cpp}\item 
+\hyperlink{mappedspnodevisitor__expand_8cpp}{mappedspnodevisitor\-\_\-expand.\-cpp}\end{DoxyCompactItemize}

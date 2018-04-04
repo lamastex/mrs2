@@ -1,0 +1,530 @@
+\hypertarget{FiniteMixture_8cpp}{\subsection{\-Finite\-Mixture.\-cpp \-File \-Reference}
+\label{FiniteMixture_8cpp}\index{\-Finite\-Mixture.\-cpp@{\-Finite\-Mixture.\-cpp}}
+}
+
+
+\-Get the \-L1-\/error of uniform mixture for\-: 1. \-Exhaustive \-P\-Q 2. \-M\-D\-E 3. \-Regular \-Histogram.  
+
+
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{FiniteMixture_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Get the \-L1-\/error of uniform mixture for\-: 1. \-Exhaustive \-P\-Q 2. \-M\-D\-E 3. \-Regular \-Histogram. 
+
+\-Definition in file \hyperlink{FiniteMixture_8cpp_source}{\-Finite\-Mixture.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{FiniteMixture_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Finite\-Mixture.\-cpp@{\-Finite\-Mixture.\-cpp}!main@{main}}
+\index{main@{main}!FiniteMixture.cpp@{\-Finite\-Mixture.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{FiniteMixture_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 45 of file \-Finite\-Mixture.\-cpp.
+
+
+
+\-References subpavings\-::count\-Lines\-In\-Txt(), find\-Comp(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), \-Reg\-Hist\-::heights, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), \-Fin\-Mix\-::\-M, make\-Regular\-Hist(), subpavings\-::\-N\-O\-L\-O\-G, output\-Reg\-Hist\-To\-Txt(), subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split\-With\-Switches(), \-Fin\-Mix\-::\-S, taylor\-::sqrt(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+  if ( argc != 5 ) {
+    cerr << "Syntax: FiniteMixture n dataSeed mix simNum" << endl;
+    exit(0);
+  }
+
+   const int n = atoi(argv[1]); //number of points
+   int d = 1; // dimensions
+   long int dataSeed = atoi(argv[2]); //seed for generating data
+   int mix = atoi(argv[3]); //which mixture to use
+   int simNum = atoi(argv[4]); //which data set 
+   
+   double Tol = 1e-15; // tolerance for root finding and integration routines
+  cout << "Tolerance is: " << Tol << endl;
+  int Deg = 2; // Degree of Taylor series.
+  
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(5);
+   std::ostringstream stm;
+  stm << simNum;
+
+  //==============get distribution parameters==========================//
+   // read input from mix*.txt
+   string mixfileName;
+   mixfileName = "MixtureFiles/mix";
+  std::ostringstream stmMix;
+  stmMix << mix;
+  mixfileName += stmMix.str();
+  mixfileName += ".txt";
+
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  // create vectors for Weight, Mean, Variance
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+
+  cout << "Reading in parameters of mixture " << mix << endl;
+  ifstream file; // create file for input
+  file.open(mixfileName.c_str());
+  // check if this file exists or not
+  if ( !file ) { // exit if file doesn't exists
+    cerr << "Could not open " << mixfileName << ". It does not exist." 
+         << endl;
+    exit(1);
+  }
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+  
+  //put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+  //=========================end of setting up parameter===================//
+
+  // ========prepare to generate some data for the tests ================//
+    // set up a random number generator for uniform rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+    gsl_rng_env_setup();
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+    gsl_rng_set(r, dataSeed);
+
+   //set up a random number generator for gaussian rvs
+     const gsl_rng_type * T1;
+     gsl_rng * r1;
+     gsl_rng_env_setup();
+     T1 = gsl_rng_default;
+     r1 = gsl_rng_alloc (T1);
+     gsl_rng_set(r1, dataSeed);
+     
+  //Generate n U(0,1) r.v. and determine component membership.
+  double a=0, b=1;
+  vector<double> u;
+  int j;
+  for (j = 0; j < n; j++) {
+      u.push_back(gsl_ran_flat(r, a, b));
+  }
+
+  // number of components
+  const int comp = countLinesInTxt(mixfileName) - 1;
+  cout << "There are " << comp << " components in this mixture." << endl;
+
+  // get cumulative sum of the weights
+  double WeightCum[comp];
+  //initialize the array
+  WeightCum[0] = Weight[0]; 
+  cout << WeightCum[0] << endl;
+   for (int j = 1; j < comp; j++) {
+    WeightCum[j] = WeightCum[j-1] + Weight[j];
+  }
+
+  //Create mixture data using component densities that are normal.
+  cout<<"Creating mixture data..." <<endl; 
+  RVecData theData; // a container to keep the data
+  cout << "\n========================================================" << endl;
+  cout << "Generating dataset " << simNum << "..." << endl;
+    //find the number of members generated from each component.
+    for (j = 0; j < comp; j++) {  
+      int ind=0;
+      cout << "get the component: " << endl;
+      findComp(u, ind, n, WeightCum, j);
+      cout<<"Component " << j << " has " << ind << " members." <<endl;
+      //now generate the data
+      for (int k =0; k < ind; k++) {
+        rvector thisrv(1);
+        double z = gsl_ran_gaussian(r1, Sigma[j]); // generate a normal r.v.
+        thisrv[1] =Mean[j]+z; // transform the r.v. 
+        theData.push_back(thisrv);
+      }
+    }
+  //===============finish generating data============================//
+
+  //==============run an exhaustive SEB PQ==================================//
+  cout << "\n========================================================" << endl;
+  cout << "Run exhaustive PQ..." << endl;
+  bool successfulInsertion1 = false;
+  bool successfulPQSplit1 = false;
+
+  bool successfulInsertion2 = false;
+  bool successfulPQSplit2 = false;
+
+  bool successfulInsertion3 = false;
+  bool successfulPQSplit3 = false;
+
+  bool successfulInsertion4 = false;
+  bool successfulPQSplit4 = false;
+
+  // containers for output needed
+  vector<real> IAEOpt;
+  vector<int> NumLeafNodesOpt;
+  
+  real IAE1=100.0;
+  int NumLeafNodes1;
+  AdaptiveHistogram optHist1;
+  vector<double> Times1;
+
+  real IAE2=100.0;
+  int NumLeafNodes2;
+  AdaptiveHistogram optHist2;
+  vector<double> Times2;
+
+  real IAE3=100.0;
+  int NumLeafNodes3;
+  AdaptiveHistogram optHist3;
+   vector<double> Times3;
+   
+  real IAE4=100.0;
+  int NumLeafNodes4;
+  AdaptiveHistogram optHist4;
+  vector<double> Times4;
+
+  //do exhaustive PQ for steps of n*0.005
+  // set up function objects for a priority split
+  CompCount compCount;
+  CompVol compVol;
+  CompArea compArea;
+
+  double rootBoxVol = 0.0;
+  ivector pavingBox;
+  
+  for (int i = 1; i <= 100; i++) {
+  
+    AdaptiveHistogram myHist1; 
+    successfulInsertion1= myHist1.insertFromRVec(theData);
+    rootBoxVol = (myHist1.getSubPaving())->nodeVolume();
+    pavingBox = (myHist1.getSubPaving())->getBox();
+    
+    AdaptiveHistogram myHist2; 
+    successfulInsertion2= myHist2.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist3; 
+    successfulInsertion3= myHist3.insertFromRVec(theData);
+    
+    AdaptiveHistogram myHist4; 
+    successfulInsertion4= myHist4.insertFromRVec(theData);
+
+    if (successfulInsertion1 && successfulInsertion2 && successfulInsertion3
+        && successfulInsertion4) {
+
+      int finalK = int(i*0.005*n);
+      cout << "Max k: " << finalK << endl;
+      // split until number of leaves is at most minVal
+      CritLargestCount_LTE critCount(finalK);
+      size_t minPQPoints = 0; // minimum of one data point in each box
+
+      size_t maxLeafNodes = n;
+      //cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+      
+      // we want to check the timings for this
+      clock_t start, end;
+      double timing; 
+      
+      // do the priority split for compCount
+      start  = clock(); // and keep the time
+      successfulPQSplit1 = myHist1.prioritySplit(compCount,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times1.push_back(timing);
+      
+      // do the priority split for compVol
+      start  = clock(); // and keep the time
+      successfulPQSplit2 = myHist2.prioritySplit(compVol,
+           critCount, NOLOG, minPQPoints, maxLeafNodes); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times2.push_back(timing);
+      
+      // do the priority split for compVol and remove empty boxes
+      start  = clock(); // and keep the time
+      successfulPQSplit3 = myHist3.prioritySplitWithSwitches(compVol,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times3.push_back(timing);
+      
+      // do the priority split for compMassVol
+      start  = clock(); // and keep the time
+      successfulPQSplit4 = myHist4.prioritySplitWithSwitches(compArea,
+           critCount, NOLOG, minPQPoints, maxLeafNodes, 0); // no logging
+      end = clock();
+      timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+      cout << "Computing time : " << timing << " s."<< endl;
+      Times4.push_back(timing);
+
+      if (successfulPQSplit1 && successfulPQSplit2 && successfulPQSplit3
+          && successfulPQSplit4) {
+
+        //get the IAE
+        cout << "Get IAE: " << endl;
+        real midIAE1 = mid(myHist1.getFinMixIntervalIAE(mixt, Tol, Deg));
+        if ( midIAE1 < IAE1 ) {
+          cout << midIAE1 << "\t" << IAE1 << endl;
+          IAE1 = midIAE1;
+          cout << "this histogram has " << myHist1.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist1 = myHist1;
+        }
+
+        //get the IAE
+        real midIAE2 = mid(myHist2.getFinMixIntervalIAE(mixt, Tol, Deg));
+        if ( midIAE2 < IAE2 ) {
+          cout << midIAE2 << "\t" << IAE2 << endl;
+          IAE2 = midIAE2;
+          cout << "this histogram has " << myHist2.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist2 = myHist2;
+        }
+
+        real midIAE3 = mid(myHist3.getFinMixIntervalIAE(mixt, Tol, Deg));
+        if ( midIAE3 < IAE3 ) {
+          cout << midIAE3 << "\t" << IAE3 << endl;
+          IAE3 = midIAE3;
+          cout << "this histogram has " << myHist3.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist3 = myHist3;
+        }
+
+        
+        //get the IAE
+        real midIAE4 = mid(myHist4.getFinMixIntervalIAE(mixt, Tol, Deg));
+        if ( midIAE4 < IAE4 ) {
+          cout << midIAE4 << "\t" << IAE4 << endl;
+          IAE4 = midIAE4;
+          cout << "this histogram has " << myHist4.getRootLeaves() << " leaf
+       nodes." << endl;
+          optHist4 = myHist4;
+        }
+      } // end of if(successfulPQSplit)
+    }// end of if(successfulInsertion)
+  } // end of iterating through different kn's
+
+  if (successfulPQSplit1 && successfulInsertion1 && successfulPQSplit2 && 
+    successfulInsertion2 && successfulPQSplit3 && successfulInsertion3
+    && successfulPQSplit4 && successfulInsertion4) {
+
+    // keep the optimal IAEs
+    IAEOpt.push_back(IAE1); 
+    IAEOpt.push_back(IAE2);
+    IAEOpt.push_back(IAE3);
+    IAEOpt.push_back(IAE4);
+    
+    // keep the number of leaf nodes from the optimal histograms
+    NumLeafNodesOpt.push_back(optHist1.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist2.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist3.getRootLeaves());
+    NumLeafNodesOpt.push_back(optHist4.getRootLeaves());
+      
+    // output the optimal histograms
+    std::ostringstream stm;
+    stm << simNum;
+    // create a name for the file to output
+    string fileName;
+    fileName = "HistCount";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist1.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistVol";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist2.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistVolRemoveEmpty";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist3.outputToTxtTabs(fileName);
+
+    // create a name for the file to output
+    fileName = "HistArea";
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    optHist4.outputToTxtTabs(fileName);
+
+    // output IAE, number of leaf nodes, times to file
+    string PQFileName = "FinMixExhaustivePQOutput";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < IAEOpt.size(); i++) {
+      oss << IAEOpt[i] << "\t";
+      oss << NumLeafNodesOpt[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "IAE, number of leaf nodes output to " 
+        << PQFileName << endl;
+        
+    PQFileName = "FinMixExhaustivePQOutputTimes";
+    PQFileName += stm.str();
+    PQFileName += ".txt";
+    oss.open(PQFileName.c_str());
+    for (size_t i=0; i < Times1.size(); i++) {
+      oss << Times1[i] << "\t";
+      oss << Times2[i] << "\t";
+      oss << Times3[i] << "\t";
+      oss << Times4[i] << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "Times output to " 
+        << PQFileName << endl;
+  } // end of successes
+
+//=================end of exhaustive PQ=================================// 
+
+//==============Regular histogram==================================//
+  cout << "sort data for reg hist" << endl; 
+  //sort the data first
+  // put the data into a list to sort the data
+  RVecDataCItr rvecIt;
+  list<rvector> rvecList;
+  list<rvector>::iterator rvecListIt;
+  for (rvecIt = theData.begin(); rvecIt < theData.end(); rvecIt++){
+    rvector thisrv(1);
+    thisrv = *rvecIt;
+    rvecList.push_back(thisrv);
+  }
+  rvecList.sort(); //sort the data
+  RVecData sortedData; // put back into vector
+  for (rvecListIt = rvecList.begin(); rvecListIt != rvecList.end(); rvecListIt+
+      +)
+  { 
+    rvector thisrv(1);
+    thisrv = *rvecListIt;
+    sortedData.push_back(thisrv);
+  }
+  
+  //mae regular histograms with the 3 rules
+  cout << "=====Making regular histograms using the different rules==" << endl;
+  vector<real> regHistIAE;
+  vector<int> nBins;
+
+
+  for (int bw = 0; bw < 3; bw++) {
+    cout << "Method " << bw << endl;
+    RegHist myRegHist;
+    makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+    nBins.push_back(myRegHist.heights.size());
+    real midIAE = mid(getRegHistFinMixIntervalIAE(n, myRegHist, mixt, Tol, Deg)
+      );
+    regHistIAE.push_back(midIAE);
+    
+    // output the histogram
+    string fileName = "HistRegBW";
+    ostringstream stm2;
+    stm2 << bw;
+    fileName += stm2.str();
+    fileName += stm.str();
+    fileName += ".txt"; // and finish the filename
+    outputRegHistToTxt(myRegHist, fileName);
+  }
+
+  //make regular histograms with manual bandwidth
+  cout << "===========Making regular histograms with manual bandwidths==" << 
+      endl;
+   
+  real regHistIAEM = 100;
+  RegHist regHistOpt;
+   
+   size_t maxLeafNodes = int(n/log(n*(2*d+1))); // temporarily
+  cout << "Max leaf nodes allowed: " << maxLeafNodes << endl;
+  maxLeafNodes = 1000;
+  size_t flagCheck = 0;
+  for (int i = 1; i <= maxLeafNodes; i++) {
+    double bw = rootBoxVol/(i*1.0);
+    cout << "Nbins: " << i << endl;
+    RegHist myRegHist;
+    makeRegularHist(myRegHist, sortedData, pavingBox, bw);
+    real midIAE = mid(getRegHistFinMixIntervalIAE(n, myRegHist, mixt, Tol, Deg)
+      );
+    
+    // get the minimum IAE
+    if ( midIAE < regHistIAEM ) {
+      cout << midIAE << "\t" << regHistIAEM << endl;
+      regHistIAEM = midIAE;
+      regHistOpt = myRegHist;
+    flagCheck = 0;
+    }
+    else { 
+      flagCheck++; 
+      if ( flagCheck >= 100) { break; }
+    }
+  }
+
+  // get the final IAE
+  nBins.push_back(regHistOpt.heights.size());
+  regHistIAE.push_back(regHistIAEM);
+
+  // output the histogram to .txt
+  string fileName = "HistRegOpt";
+  fileName += stm.str();
+  fileName += ".txt"; // and finish the filename
+  outputRegHistToTxt(regHistOpt, fileName);
+
+
+  // output the IAEs
+  string outputFileName;// for output file
+  outputFileName = "FinMixIAERegHist";
+  outputFileName += stm.str();
+  outputFileName += ".txt";
+  oss.open(outputFileName.c_str());
+  for (size_t i = 0; i < 4; i++) {
+    oss << regHistIAE[i] << "\t" << nBins[i] << endl;
+  }
+  oss << flush;
+  oss.close();  
+  std::cout << "IAE output to " << outputFileName << endl;
+
+
+// free the random number generator
+gsl_rng_free(r);
+gsl_rng_free(r1);
+
+return 0;
+}
+\end{DoxyCode}

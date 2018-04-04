@@ -1,0 +1,77 @@
+\hypertarget{classsubpavings_1_1CompHellingerDist1DMassDiam}{\subsection{subpavings\-:\-:\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam \-Class \-Reference}
+\label{classsubpavings_1_1CompHellingerDist1DMassDiam}\index{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam@{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam}}
+}
+
+
+\-Class comparing the \-Chebyshev distance between the var-\/covar and uniform var-\/covar multiplied with the empirical mass.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobj.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompHellingerDist1DMassDiam_aa5d0f459f73a7c5abb7c3c47b846a7a7}{operator()} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing the \-Chebyshev distance between the var-\/covar and uniform var-\/covar multiplied with the empirical mass. 
+
+\-Definition at line 383 of file nodecompobj.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompHellingerDist1DMassDiam_aa5d0f459f73a7c5abb7c3c47b846a7a7}{\index{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam@{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompHellingerDist1DMassDiam@{subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompHellingerDist1DMassDiam_aa5d0f459f73a7c5abb7c3c47b846a7a7}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObj_a121d53049c5ed1c0924313951d6aa630}{subpavings\-::\-Node\-Comp\-Obj}.
+
+
+
+\-Definition at line 385 of file nodecompobj.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-P\-Snode\-::get\-Emp\-Mass(), subpavings\-::\-S\-P\-Snode\-::get\-Hellinger\-Dist1\-D(), and \-Max\-Diam().
+
+
+\begin{DoxyCode}
+      { 
+      /*
+      std::cout << lhs->getNodeName() << "\t" << lhs->getHellingerDist1D()*
+      lhs->getEmpMass() << std::endl;
+      std::cout << rhs->getNodeName() << "\t" << rhs->getHellingerDist1D()*
+      rhs->getEmpMass() << std::endl;
+      std::cout << "=================" << std::endl;
+      */
+       int maxdiamcomp = 0;  // to take value calculated from MaxDiam
+          // find the maximum diameter, put the max dimension into maxdiamcomp
+          double maxDiamL = ::MaxDiam(lhs->getBox(), maxdiamcomp);
+          double maxDiamR = ::MaxDiam(rhs->getBox(), maxdiamcomp);
+            
+      return ( (lhs->getHellingerDist1D()*lhs->getEmpMass()*maxDiamL) < 
+            (rhs->getHellingerDist1D()*rhs->getEmpMass()*maxDiamR) );
+    }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobj_8hpp}{nodecompobj.\-hpp}\end{DoxyCompactItemize}

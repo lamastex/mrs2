@@ -1,0 +1,4366 @@
+\hypertarget{classsubpavings_1_1SPSVnode}{\subsection{subpavings\-:\-:\-S\-P\-S\-Vnode \-Class \-Reference}
+\label{classsubpavings_1_1SPSVnode}\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+}
+
+
+\-A derived class based on \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} for processing sample data split to training and validation sets.  
+
+
+
+
+{\ttfamily \#include $<$spsvnode.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-S\-P\-S\-Vnode\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-S\-P\-S\-Vnode\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1SPSVnode_a1fac8007420cae9fb27af8e7c81eaa52}{\-S\-P\-S\-Vnode} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode_a29413a70c5c7f01002665a8319971984}{\-S\-P\-S\-Vnode} (ivector \&v, bool cnt\-Only, int lab=0)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode_a4d33a48a0510f2988d17ae9c1f56eb1a}{\-S\-P\-S\-Vnode} (ivector \&v, int lab=0)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode_aa91b89ffdb65468e88ab8cecf290a75d}{\-S\-P\-S\-Vnode} (ivector \&v, size\-\_\-t max, bool cnt\-Only, int lab=0)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode_a62e88e96ee22be76109b387277ef6955}{\-S\-P\-S\-Vnode} (ivector \&v, size\-\_\-t max, int lab=0)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode_a22251951e28c6876d4159e82bf2f36e1}{\-S\-P\-S\-Vnode} (\hyperlink{classLabBox}{\-Lab\-Box} \&lb, bool cnt\-Only=true)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode_a0652f353916bda77708ed26053a21789}{\-S\-P\-S\-Vnode} (\hyperlink{classLabBox}{\-Lab\-Box} \&lb, size\-\_\-t max, bool cnt\-Only=true)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode_ac34ad69da8e0f3894b74f4027de2614b}{\-S\-P\-S\-Vnode} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} \& \hyperlink{classsubpavings_1_1SPSVnode_ad4e310986c60dcebb3fd3c54dab19c33}{operator=} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a7d7f4ecaaf020bcb614557eba4743f6a}{get\-Vcounter} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the node's validation data counter. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1SPSVnode_a899334f4e1760a380a776bc38d664710}{get\-Just\-Split} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the node's just\-Split boolean flag. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_af005697b49cff9ea37fc3bc9ed19da30}{\-Node\-Data} \hyperlink{classsubpavings_1_1SPSVnode_a05d47c013af462f857c6f54b20cb3404}{get\-Vdata} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the node's validation data collection. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_af7739cf5333fccbe27610cbbd1138719}{clear\-Data} () const 
+\begin{DoxyCompactList}\small\item\em \-Clears the node's data collection for both training and validation set. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a9a51fbde60e061846a93981688cc67af}{get\-Right\-Count\-If\-Split} () const 
+\begin{DoxyCompactList}\small\item\em \-The count the right child would have if this node was split. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a64b5d63790c02a454aa0e86222b1a3d3}{get\-Left\-Count\-If\-Split} () const 
+\begin{DoxyCompactList}\small\item\em \-The count the left child would have if this node was split. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a43024ae81075f8a822ccccad013b3ef7}{get\-Min\-Child\-Count\-If\-Split} () const 
+\begin{DoxyCompactList}\small\item\em \-Smallest number of points in either child if this was split. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_a612fc5639b45583b9fd33bd304354f81}{\-Size\-\_\-t\-Vec} \& \hyperlink{classsubpavings_1_1SPSVnode_ad1e930cb7befb42cd1985e91f3ddd9b6}{get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split} (\hyperlink{namespacesubpavings_a612fc5639b45583b9fd33bd304354f81}{\-Size\-\_\-t\-Vec} \&grandchild\-Counts) const 
+\begin{DoxyCompactList}\small\item\em return a container of counts for prospective grandchildren. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_a612fc5639b45583b9fd33bd304354f81}{\-Size\-\_\-t\-Vec} \& \hyperlink{classsubpavings_1_1SPSVnode_a0d6df4752e05170510e43b67d8eb3110}{get\-Leaf\-Node\-Counts} (\hyperlink{namespacesubpavings_a612fc5639b45583b9fd33bd304354f81}{\-Size\-\_\-t\-Vec} \&counts) const 
+\item 
+\hyperlink{namespacesubpavings_a90b5f0e33fa46403066cc5a89929e6a9}{\-S\-P\-S\-Vnode\-Ptrs} \& \hyperlink{classsubpavings_1_1SPSVnode_a6f3850e716947e051a9e9af16c2b4508}{get\-Leaves} (\hyperlink{namespacesubpavings_a90b5f0e33fa46403066cc5a89929e6a9}{\-S\-P\-S\-Vnode\-Ptrs} \&leaves) const 
+\begin{DoxyCompactList}\small\item\em \-Return a reference to all descendent leaf nodes. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_a90b5f0e33fa46403066cc5a89929e6a9}{\-S\-P\-S\-Vnode\-Ptrs} \& \hyperlink{classsubpavings_1_1SPSVnode_aa5408d2d74de8b95325c5973cf43f7fb}{get\-Sub\-Leaves} (\hyperlink{namespacesubpavings_a90b5f0e33fa46403066cc5a89929e6a9}{\-S\-P\-S\-Vnode\-Ptrs} \&subleaves) const 
+\begin{DoxyCompactList}\small\item\em \-Return a reference to all sub-\/leaf descendent nodes. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_a90b5f0e33fa46403066cc5a89929e6a9}{\-S\-P\-S\-Vnode\-Ptrs} \& \hyperlink{classsubpavings_1_1SPSVnode_ac637655f207bc9bc049145a2bd904fdf}{get\-All\-Nodes} (\hyperlink{namespacesubpavings_a90b5f0e33fa46403066cc5a89929e6a9}{\-S\-P\-S\-Vnode\-Ptrs} \&all\-Nodes) const 
+\begin{DoxyCompactList}\small\item\em \-Return a reference to all nodes. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a346a5ff0d8177212b23342cada4b5c18}{get\-Root\-Counter} () const 
+\begin{DoxyCompactList}\small\item\em \-The count in the node's ultimate ancestor root. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_acb4a623e5679b79f05244e79a078e6c1}{get\-Root\-Vcounter} () const 
+\begin{DoxyCompactList}\small\item\em \-The count in the node's ultimate ancestor root. \end{DoxyCompactList}\item 
+rvector \hyperlink{classsubpavings_1_1SPSVnode_a2d2b97cb6916b19ad2affc4907265b6f}{get\-Mean} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the sample mean. \end{DoxyCompactList}\item 
+rvector \hyperlink{classsubpavings_1_1SPSVnode_ae2cfb09a96d3c6b0d716236cbfccebd3}{get\-Uniform\-Mean} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the uniform mean vector where each element is the midpoint of the coordinate. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1SPSVnode_a24fc7b09a8293edce2e3b602763a45e3}{get\-Cheb\-Dist\-Mean} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the \-Chebyshev distance for the mean. \end{DoxyCompactList}\item 
+double \hyperlink{classsubpavings_1_1SPSVnode_afb9e32e6d78db527309d95ccc8c0049f}{get\-Emp\-Mass} () const 
+\begin{DoxyCompactList}\small\item\em get the empirical mass of the node \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1SPSVnode_a63ea0f67b354888a8a12c0ffc81b0e5e}{get\-Cheb\-Dist\-Covar} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the \-Chebyshev distance for the var-\/covar. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1SPSVnode_a2e0a1a393daed9e3f5887162b68b0e6e}{get\-Hellinger\-Dist} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the \-Bhattarchaya coefficient. \end{DoxyCompactList}\item 
+real \hyperlink{classsubpavings_1_1SPSVnode_a3b56f3b8a024ab6929087e803e7af765}{get\-Hellinger\-Dist1\-D} () const 
+\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \hyperlink{classsubpavings_1_1SPSVnode_a0a9c9ba4802d37fdb0ee1fff25908fbb}{get\-Uniform\-Var\-Covar} () const 
+\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \& \hyperlink{classsubpavings_1_1SPSVnode_ab1f050670fdcdc6f68e009a0cba0ed35}{get\-Uniform\-Var\-Covar} (\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&var\-Covar) const 
+\item 
+real \hyperlink{classsubpavings_1_1SPSVnode_ac741a9772d992ba74911cf692e1ed772}{get\-Sum\-Leaf\-Count\-Over\-Vol} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the sum of the count over volume in the leaf nodes. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a5d355f8da3eb609f5c81ce63b437fcf9}{get\-Smallest\-Leaf\-Count} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the count of the leaf with the smallest count. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_adfb30c9946f868e143c81e6bf35a7a6f}{get\-Largest\-Leaf\-Count} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the count in the leaf with the smallest count. \end{DoxyCompactList}\item 
+virtual std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a51715ef7b6e370006e914fee15061cfc}{node\-Print} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output details of a specific node. \end{DoxyCompactList}\item 
+virtual std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a01b35db8ce4b99460ff352f6d25a529c}{leaf\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for a node in a binary tree, tab-\/delimited. \end{DoxyCompactList}\item 
+virtual std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_abcac815b9e5e60a3d18fa3534a12c518}{leaves\-Output\-Tabs} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Output for for {\bfseries all leaves} of a binary tree. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_adc55cda7856cfdd854051b891263d3bf}{leaves\-Output\-Tabs\-With\-Hist\-Height} (std\-::ostream \&os, const int prec) const 
+\begin{DoxyCompactList}\small\item\em \-Output for for {\bfseries all leaves} of a binary tree. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a8419f16a2f0667bc190a4a9ed41121c1}{leaves\-Output\-Tabs\-With\-Hist\-Height} (const size\-\_\-t big\-N, std\-::ostream \&os, const int prec=5) const 
+\begin{DoxyCompactList}\small\item\em \-Output for for {\bfseries all leaves} of a binary tree. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1SPSVnode_a94c33927011a8d2613d40ccf6ccfafc1}{node\-Expand} (int comp)
+\begin{DoxyCompactList}\small\item\em \-Expand a leaf node. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_acbad110f9ed41364774c9e2fea658594}{node\-Expand} (const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test, int comp)
+\begin{DoxyCompactList}\small\item\em \-Expand a leaf node. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1SPSVnode_a0eb85efd74fa770f3259d6ba948b65b8}{node\-Expand} ()
+\begin{DoxyCompactList}\small\item\em \-Expand a leaf node. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_ada1ce5002ee4985a22d35d8cb651d191}{node\-Expand} (const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test, bool bool\-Val)
+\begin{DoxyCompactList}\small\item\em \-Expand a leaf node. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_a4846c8d9c7d29d0f0850a7a9c30eec2b}{node\-Expand} (bool bool\-Val)
+\begin{DoxyCompactList}\small\item\em \-Expand a leaf node to make two leaves as children. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1SPSVnode_aed19a06dc479c2edc865243d2c131c30}{node\-Reabsorb\-Children} ()
+\begin{DoxyCompactList}\small\item\em \-Reabsorbs both children of the node. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1SPSVnode_a5abf598ead77d94aa130a8a7bf78f1f7}{node\-Reunite} (\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$l\-Child, \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$r\-Child)
+\begin{DoxyCompactList}\small\item\em \-Try to reunite nodes to form one leaf. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1SPSVnode_a928db3d7b687a9fb5d50fa135f51b040}{node\-Adopt\-Left} (\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$l\-Child)
+\begin{DoxyCompactList}\small\item\em \-Builds a higher level of a tree from existing nodes. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classsubpavings_1_1SPSVnode_a33d64bef2bd9dd7f430b732719eab71d}{node\-Adopt\-Right} (\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$r\-Child)
+\begin{DoxyCompactList}\small\item\em \-Builds a higher level of a tree from existing nodes. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$ \hyperlink{classsubpavings_1_1SPSVnode_a58deac20a0a5b69bb06cdc04fc059135}{insert\-One\-Find} (\hyperlink{namespacesubpavings_a8792314c11b28ac2b8c4c85c47526f3a}{\-Big\-Data\-Itr} new\-Itr, \hyperlink{namespacesubpavings_ae1ea349cda4812634df03761ebfc1c98}{\-O\-P\-E\-R\-A\-T\-I\-O\-N\-S\-\_\-\-O\-N} child\-Ind, const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test, bool bool\-Val)
+\begin{DoxyCompactList}\small\item\em \-Inserts data into this node. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1SPSVnode_a803d11f31d86f0565dbe682a33099698}{node\-Contains} (const rvector \&p, \hyperlink{namespacesubpavings_ae1ea349cda4812634df03761ebfc1c98}{\-O\-P\-E\-R\-A\-T\-I\-O\-N\-S\-\_\-\-O\-N} child\-Ind) const 
+\begin{DoxyCompactList}\small\item\em \-Check if the box a node represents contains a datapoint p. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf \-Accessors for links between the nodes.}\par
+{\em \-These accessor methods shadow equivalent methods in the base class. \-Thus the method used is determined at compile time, not run time as would be the case if virtual methods were used. \-Because the pointers to parents and children are part of the base class definition, the methods have to cast the base class form to the derived class form in order for the pointer returned to be able to be used with derived class members.
+
+\-Note that pointers for parent, left\-Child, and right\-Child are not reference counted so there could potentially be problems with the use of returned pointers (for instance, being used to delete nodes). \-These pointers might be better implemented with boost\-::shared\-\_\-ptr . }\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$ \hyperlink{classsubpavings_1_1SPSVnode_ae42cbf85bd00caf12e6acac68ae1fcd3}{get\-Parent} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the parent of a node. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$ \hyperlink{classsubpavings_1_1SPSVnode_a3ef0b662df21eb88689644cb5d1279d2}{get\-Left\-Child} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the left child of a node. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$ \hyperlink{classsubpavings_1_1SPSVnode_af681e178575b285f123c1c01bac9ac42}{get\-Right\-Child} () const 
+\begin{DoxyCompactList}\small\item\em \-Accessor for the right child of a node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf \-Get the sample variance-\/covariance matrix.}\par
+{\em \-This calculates the sample variance-\/covariance matrix from the accumulators for the sumproducts and sums of data point elements.
+
+cov(i,j) = \mbox{[}sumproduct(i,j)-\/sum(i)xsum(j)/counter\mbox{]}/(counter-\/1)
+
+\begin{DoxyReturn}{\-Returns}
+a \-Real\-Vec or reference to a \-Real\-Vec representing the sample variance-\/covariance matrix in row-\/major order. 
+\end{DoxyReturn}
+}\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \hyperlink{classsubpavings_1_1SPSVnode_abdef36aad99bfe53f78d4e8304ac59d6}{get\-Var\-Covar} () const 
+\item 
+\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \& \hyperlink{classsubpavings_1_1SPSVnode_a61adf71c4652c4ec29a9dc323174d1a3}{get\-Var\-Covar} (\hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&var\-Covar) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Static \-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$ \hyperlink{classsubpavings_1_1SPSVnode_a0e051b28a89645eb09e8bbccc7b13780}{stripped\-Constructor} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const other)
+\item 
+static \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$ \hyperlink{classsubpavings_1_1SPSVnode_ad61518c409809cca73c262dbd17d320f}{union\-Tree\-Structure} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const rhs)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a98a73d1c8dafe1d9248aeec76c8f74ef}{space\-Indication}
+\begin{DoxyCompactList}\small\item\em \-An indication of the maximum number of data points a node needs to carry. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1SPSVnode_a288af7a8149effcb2d19e163e217e951}{just\-Split}
+\begin{DoxyCompactList}\small\item\em \-A boolean flag to know if this node was being split or node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf mutable data members.}\par
+{\em \-These data members are mutable to allow them to be modified by const functions as data passed to or through the node.
+
+\-Only leaf nodes have data associated with them but the recursively computable statistics, such as counter and sum, are maintained for all nodes. \-Thus when a data point is sent to the root node and progresses down the tree to find which leaf node it should be associated with, the counter is incremented and the data sum increased for each non-\/leaf node it passes through (ie, where it is contained in the box of that node but that node is not a leaf node so the box has been sub-\/ divided and the datapoint continues on to one of the children). }\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1SPSVnode_a5d0154d5c5d30fa214b8a2d9deedee12}{\-Vcounter}
+\begin{DoxyCompactList}\small\item\em \-A counter for how many data points from the validation set that are covered by the\-Box. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_ad8f0a077ee1c4678bcd1868f3aecd605}{\-Vec\-Dot\-Prec} \hyperlink{classsubpavings_1_1SPSVnode_a60f29b9bd7f1a448515c5465e5f7f1ba}{dp\-V\-Sums}
+\begin{DoxyCompactList}\small\item\em \-A container representing the sum of the data points covered by the\-Box. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_ad8f0a077ee1c4678bcd1868f3aecd605}{\-Vec\-Dot\-Prec} \hyperlink{classsubpavings_1_1SPSVnode_af35e25f257c98de51097428419d0cf81}{dp\-V\-Sum\-Products}
+\begin{DoxyCompactList}\small\item\em \-A container representing the sumproduct matrix of the data points covered by the\-Box. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_af005697b49cff9ea37fc3bc9ed19da30}{\-Node\-Data} \hyperlink{classsubpavings_1_1SPSVnode_a0e6c6ea9c454b9ce280915b59c7f3647}{\-Vdata\-Itrs}
+\begin{DoxyCompactList}\small\item\em \-A container for the association of validation data with a node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Private \-Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{classsubpavings_1_1SPSVnode_ae284ba2007e19bf4e2d546d6d844346aa0a41030519d8a235798dcc07a0c2948c}{default\-Max\-Pts} =  1000
+ \}
+\begin{DoxyCompactList}\small\item\em \-To define the default maximum number of datapoints the node is expected to have associated with it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_af37c85866ee5bdb968faf84856b51291}{recalculate\-Stats} (rvector \&newdata, bool bool\-Val) const 
+\begin{DoxyCompactList}\small\item\em \-Recalculate summary statistics associated with node. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_a7590c8e3a8502b3b8a15bc2c4c494904}{recalculate\-Sums} (rvector \&newdata) const 
+\begin{DoxyCompactList}\small\item\em \-Recalculate summary statistics associated with node. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_a3df955b69f0e3d73efd0ccc3026fe0e7}{recalculate\-Sum\-Products} (rvector \&newdata) const 
+\begin{DoxyCompactList}\small\item\em \-Recalculate summary statistics associated with node. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_a747a3c135503cbf1f1b349a5898cebc4}{node\-Expansion\-Only} (int comp)
+\begin{DoxyCompactList}\small\item\em \-Expand the node with no reallocation of data. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_a82423d1ad9f1589dbeef2018705591ad}{split\-Data} (const \hyperlink{classsubpavings_1_1SplitDecisionObj}{\-Split\-Decision\-Obj} \&bool\-Test, bool bool\-Val)
+\begin{DoxyCompactList}\small\item\em \-Send the data associated with this down to children. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a5868a7661363e2f3bd7d2e267c22ceb1}{node\-Data\-Print} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Print the data in a specified format. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a768f9507517be618970d19874b1ff992}{node\-Mean\-Print} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Print the mean in a specified format. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a096bff1081ceb308590aac8f2f3ee660}{node\-Var\-Covar\-Print} (std\-::ostream \&os) const 
+\begin{DoxyCompactList}\small\item\em \-Print the variance-\/covariance in a specified format. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a2ab7acc0aff92694976546f1555f67ed}{leaf\-Output\-Tabs\-With\-E\-M\-Ps} (const size\-\_\-t big\-N, std\-::ostream \&os, const int prec=5) const 
+\begin{DoxyCompactList}\small\item\em \-Output for a node in a binary tree, tab-\/delimited. \end{DoxyCompactList}\item 
+virtual std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a6eff83d7095798158c0bc17ee70e54c0}{leaf\-Output\-Tabs\-With\-Hist\-Height} (const size\-\_\-t big\-N, std\-::ostream \&os, const int prec=5) const 
+\begin{DoxyCompactList}\small\item\em \-Output for a node in a binary tree, tab-\/delimited. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1SPSVnode_a4ed4d26826f77814558a0ad3770582f4}{leaf\-Output\-Tabs\-With\-Hist\-Height\-And\-E\-M\-Ps} (const size\-\_\-t big\-N, std\-::ostream \&os, const int prec=5) const 
+\begin{DoxyCompactList}\small\item\em \-Output for a node in a binary tree, tab-\/delimited. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1SPSVnode_a5d6459ebf84a81b4759a3dd6524df4cf}{set\-Splits} ()
+\begin{DoxyCompactList}\small\item\em \-Set the split\-Dimension and \-Split\-Value when children grafted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Static \-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{namespacesubpavings_af005697b49cff9ea37fc3bc9ed19da30}{\-Node\-Data} \& \hyperlink{classsubpavings_1_1SPSVnode_ad9b78707e372d9b66876e6afa0cb8eb1}{gather\-Data} (\hyperlink{namespacesubpavings_af005697b49cff9ea37fc3bc9ed19da30}{\-Node\-Data} \&container, \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$spn)
+\begin{DoxyCompactList}\small\item\em \-Return a reference to the node data. \end{DoxyCompactList}\item 
+static \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$ \hyperlink{classsubpavings_1_1SPSVnode_ab79e2b1aa783e2df56abf8279c5dc564}{union\-No\-Data} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const rhs)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A derived class based on \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} for processing sample data split to training and validation sets. 
+
+\-The \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} class is used to form a regular subpaving representing containers of sample data using data-\/splitting methods. \-Here we implement the minimum distance estimator based on \-Devroye and \-Lugosi (200.)..clearer citation here.
+
+\-Leaves of the \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} class have data associated with them in the form of pointers to some big collection of sample data for both the training and validation sets. \-If an \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} is bisected the data associated with it descends to its children, so that only leaf \-S\-P\-S\-Vnodes have data associated with them. \-However, for the training set, \char`\"{}recursively-\/computable statistical summaries\char`\"{}, such as, count, sum, etc, of the data which would be contained in the box an \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} represents are kept for all \-S\-P\-S\-Vnodes and continue to be updated when the \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} has children and data reaching the node is passed on to be finally associated with a leaf. \-For the validation set, only the count is maintained.
+
+\-By default, all recursively computable statistics provided except counts are not maintained in each \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode}, since this uses memory and is always needed in the data splitting method implemented here.
+
+\-Each node also has a boolean flag to indicate if this node has been split or not. 
+
+\-Definition at line 71 of file spsvnode.\-hpp.
+
+
+
+\subsubsection{\-Member \-Enumeration \-Documentation}
+\hypertarget{classsubpavings_1_1SPSVnode_ae284ba2007e19bf4e2d546d6d844346a}{\paragraph[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_ae284ba2007e19bf4e2d546d6d844346a}
+
+
+\-To define the default maximum number of datapoints the node is expected to have associated with it. 
+
+\-This is used for efficiency only to reserve vector space and a node can have more than this default maximum number of data points associated with it. \begin{Desc}
+\item[\-Enumerator\-: ]\par
+\begin{description}
+\index{default\-Max\-Pts@{default\-Max\-Pts}!subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}}\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!default\-Max\-Pts@{default\-Max\-Pts}}\item[{\em 
+\hypertarget{classsubpavings_1_1SPSVnode_ae284ba2007e19bf4e2d546d6d844346aa0a41030519d8a235798dcc07a0c2948c}{default\-Max\-Pts}\label{classsubpavings_1_1SPSVnode_ae284ba2007e19bf4e2d546d6d844346aa0a41030519d8a235798dcc07a0c2948c}
+}]\end{description}
+\end{Desc}
+
+
+
+\-Definition at line 84 of file spsvnode.\-hpp.
+
+
+\begin{DoxyCode}
+{defaultMaxPts = 1000};
+\end{DoxyCode}
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1SPSVnode_a1fac8007420cae9fb27af8e7c81eaa52}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a1fac8007420cae9fb27af8e7c81eaa52}
+
+
+\-Default constructor. 
+
+
+
+\-Definition at line 572 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, default\-Max\-Pts, space\-Indication, and \-Vdata\-Itrs.
+
+
+
+\-Referenced by operator=(), \-S\-P\-S\-Vnode(), and stripped\-Constructor().
+
+
+\begin{DoxyCode}
+                       :  Vcounter(0), justSplit(false)
+    {
+        try {
+            //invokes the base class default constructor
+            // then does additional data members
+
+            //dpSums, a vector of dotprecision terms, is not initialised
+            //dpSumProducts, similarly not initialised
+
+            // reserve space
+            spaceIndication = static_cast<size_t>(defaultMaxPts);
+            // not sure whether to do this or not - leave for the moment
+            dataItrs.reserve(spaceIndication);
+        VdataItrs.reserve(spaceIndication);
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a29413a70c5c7f01002665a8319971984}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{v, }
+\item[{bool}]{cnt\-Only, }
+\item[{int}]{lab = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a29413a70c5c7f01002665a8319971984}
+
+
+\-Initialised constructor. 
+
+\-Initialised with an interval vector for the box it represents and a value for counts\-Only which controls whether all available stats are maintained (false) or just counts (true), and optionally initialised with a label which defaults to 0 if not provided. 
+
+\-Definition at line 623 of file spsvnode.\-cpp.
+
+
+
+\-References default\-Max\-Pts, space\-Indication, and \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+                                                        : 
+                                                SPSnode(v, cntOnly, lab),
+                                Vcounter(0), justSplit(false)
+    {
+        try {
+            //invokes the base class constructor with ivector, cntOnly & label
+            // and then initialises additional data members
+
+            //dpSums, a vector of dotprecision terms, is not initialised
+            //dpSumProducts, similarly not initialised
+
+            spaceIndication = static_cast<size_t>(defaultMaxPts);
+            //reserve space - not sure if important - leave for moment
+            VdataItrs.reserve(spaceIndication);
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a4d33a48a0510f2988d17ae9c1f56eb1a}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{v, }
+\item[{int}]{lab = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a4d33a48a0510f2988d17ae9c1f56eb1a}
+
+
+\-Initialised constructor. 
+
+\-Initialised with an interval vector for the box it represents and optionally initialised with a label which defaults to 0 if not provided. \-The value for counts\-Only will default to false (i.\-e., all stats maintained by default). 
+
+\-Definition at line 598 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, default\-Max\-Pts, and space\-Indication.
+
+
+\begin{DoxyCode}
+                                          : SPSnode(v, lab),
+                               Vcounter(0), justSplit(false)
+    {
+        try {
+            //invokes the base class constructor with ivector & label
+            // and then initialises additional data members
+
+            //dpSums, a vector of dotprecision terms, is not initialised
+            //dpSumProducts, similarly not initialised
+
+            spaceIndication = static_cast<size_t>(defaultMaxPts);
+            //reserve space - not sure if important - leave for moment
+            dataItrs.reserve(spaceIndication);
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_aa91b89ffdb65468e88ab8cecf290a75d}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{v, }
+\item[{size\-\_\-t}]{max, }
+\item[{bool}]{cnt\-Only, }
+\item[{int}]{lab = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_aa91b89ffdb65468e88ab8cecf290a75d}
+
+
+\-Initialised constructor. 
+
+\-Initialised with an interval vector for the box it represents, a space indication, and a value for counts\-Only which controls wether all available stats are maintained (false) or just counts (true), and optionally initialised with a label for the model which defaults to 0 if not provided. 
+
+\-Definition at line 675 of file spsvnode.\-cpp.
+
+
+\begin{DoxyCode}
+                                                                    :
+        SPSnode(v, max, cntOnly, lab), Vcounter(0), justSplit(false)
+    {
+        try {
+            //invokes the base class constructor with ivector, max, cntOnly and
+          
+            //label
+            //and then initialises additional data members
+
+            //dpSums, a vector of dotprecision terms, is not initialised
+            //dpSumProducts, similarly not initialised
+
+            //reserve space - not sure if important - leave for moment
+          //  VdataItrs.reserve(spaceIndication+1); // this will somehow affect
+       the constructor 
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory in SPSVnode constructor" << 
+      endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a62e88e96ee22be76109b387277ef6955}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+\item[{ivector \&}]{v, }
+\item[{size\-\_\-t}]{max, }
+\item[{int}]{lab = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a62e88e96ee22be76109b387277ef6955}
+
+
+\-Initialised constructor. 
+
+\-Initialised with an interval vector for the box it represents, a space indication, and optionally initialised with a label for the model which defaults to 0 if not provided. \-The value for counts\-Only will default to false (i.\-e., all stats maintained by default). 
+
+\-Definition at line 650 of file spsvnode.\-cpp.
+
+
+
+\-References space\-Indication, and \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+                                                      :
+        SPSnode(v, max, lab), Vcounter(0), justSplit(false)
+    {
+        try {
+            //invokes the base class constructor with ivector, max and label
+            // and then initialises additional data members
+
+            //dpSums, a vector of dotprecision terms, is not initialised
+            //dpSumProducts, similarly not initialised
+
+            //reserve space - not sure if important - leave for moment
+            VdataItrs.reserve(spaceIndication+1);
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a22251951e28c6876d4159e82bf2f36e1}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Lab\-Box} \&}]{lb, }
+\item[{bool}]{cnt\-Only = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a22251951e28c6876d4159e82bf2f36e1}
+
+
+\-Initialised constructor. 
+
+\-Initialised with a \hyperlink{classLabBox}{\-Lab\-Box} for the labeled box it represents. \-Also optionally initialised with a value for counts\-Only, defaults to false (i.\-e., all stats maintained by default). 
+
+\-Definition at line 724 of file spsvnode.\-cpp.
+
+
+
+\-References default\-Max\-Pts, space\-Indication, and \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+                                               : SPSnode(lb, cntOnly), 
+                                  Vcounter(0), justSplit(false)
+    {
+        try {
+            //invokes the base class constructor with LabBox and cntOnly 
+            //argument
+            // and then initialises additional data members
+
+            //dpSums, a vector of dotprecision terms, is not initialised
+            //dpSumProducts, similarly not initialised
+
+            spaceIndication = static_cast<size_t>(defaultMaxPts);
+            //reserve space - not sure if important - leave for moment
+            VdataItrs.reserve(spaceIndication);
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a0652f353916bda77708ed26053a21789}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Lab\-Box} \&}]{lb, }
+\item[{size\-\_\-t}]{max, }
+\item[{bool}]{cnt\-Only = {\ttfamily true}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a0652f353916bda77708ed26053a21789}
+
+
+\-Initialised constructor. 
+
+\-Initialised with a \hyperlink{classLabBox}{\-Lab\-Box} for the labeled box it represents, and a space indication. \-Also optionally initialised with a value for counts\-Only, defaults to false (i.\-e., all stats maintained by default). 
+
+\-Definition at line 700 of file spsvnode.\-cpp.
+
+
+
+\-References space\-Indication, and \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+                                                           : 
+      SPSnode(lb, max, cntOnly), Vcounter(0), justSplit(false)
+    {
+        try {
+
+            //invokes the base class constructor with LabBox, max and cntOnly
+            //and then initialises additional data members
+
+            //dpSums, a vector of dotprecision terms, is not initialised
+            //dpSumProducts, similarly not initialised
+
+            //reserve space - not sure if important - leave for moment
+            VdataItrs.reserve(spaceIndication+1);
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ac34ad69da8e0f3894b74f4027de2614b}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}}
+\index{\-S\-P\-S\-Vnode@{\-S\-P\-S\-Vnode}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-S\-P\-S\-Vnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-S\-P\-S\-Vnode} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_ac34ad69da8e0f3894b74f4027de2614b}
+
+
+\-Copy constructor. 
+
+
+
+\-Definition at line 749 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, subpavings\-::\-S\-P\-Snode\-::counts\-Only, subpavings\-::\-S\-P\-Snode\-::data\-Itrs, subpavings\-::\-S\-P\-Snode\-::dp\-Sum\-Products, subpavings\-::\-S\-P\-Snode\-::dp\-Sums, get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::left\-Child, subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::right\-Child, space\-Indication, subpavings\-::\-S\-P\-Snode\-::split\-Dim, subpavings\-::\-S\-P\-Snode\-::split\-Value, \-S\-P\-S\-Vnode(), and \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+                                            : SPSnode(*(other.theBox),
+        other.label), Vcounter(other.Vcounter), justSplit(other.justSplit)
+    {
+        try {
+        // cout << "copy constructor for " << nodeName << " called:" << endl;
+            //reserve space
+            dataItrs.reserve((other.dataItrs).size());
+         VdataItrs.reserve((other.VdataItrs).size());
+
+        //dataItrs = other.dataItrs;
+        counter = other.counter;
+        spaceIndication = other.spaceIndication;
+            dpSums = other.dpSums;
+            dpSumProducts = other.dpSumProducts; 
+        splitDim = other.splitDim;
+            splitValue = other.splitValue;
+        countsOnly = other.countsOnly;
+        
+        VdataItrs = other.VdataItrs;
+            nodeName = other.nodeName;;
+
+            //recursion on the children
+            if (other.leftChild) {
+                nodeAddLeft(new SPSVnode(*(other.getLeftChild())));
+            }
+            else leftChild=NULL;
+
+            if (other.rightChild) {
+                nodeAddRight(new SPSVnode(*(other.getRightChild())));
+            }
+            else rightChild=NULL;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1SPSVnode_af7739cf5333fccbe27610cbbd1138719}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!clear\-Data@{clear\-Data}}
+\index{clear\-Data@{clear\-Data}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{clear\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::clear\-Data} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_af7739cf5333fccbe27610cbbd1138719}
+
+
+\-Clears the node's data collection for both training and validation set. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aa4b207c66d28113dc641d7cddf691547}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 907 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, and \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+    { 
+    dataItrs.clear(); 
+      VdataItrs.clear();   
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ad9b78707e372d9b66876e6afa0cb8eb1}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!gather\-Data@{gather\-Data}}
+\index{gather\-Data@{gather\-Data}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{gather\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node\-Data} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::gather\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Node\-Data} \&}]{container, }
+\item[{{\bf \-S\-P\-S\-Vnode} $\ast$}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_ad9b78707e372d9b66876e6afa0cb8eb1}
+
+
+\-Return a reference to the node data. 
+
+\begin{DoxyReturn}{\-Returns}
+a reference to a container of data associated with the node {\bfseries  and its descendents }. 
+\end{DoxyReturn}
+
+
+\-Definition at line 433 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+
+\-Referenced by node\-Adopt\-Left(), node\-Adopt\-Right(), node\-Reabsorb\-Children(), and node\-Reunite().
+
+
+\begin{DoxyCode}
+    {
+        if (!spn->isLeaf()) {
+            if (spn->hasLCwithBox()) {
+                container =
+                    gatherData(container,
+                            spn->getLeftChild());
+            }
+            if (spn->hasRCwithBox()) {
+                container =
+                    gatherData(container,
+                            spn->getRightChild());
+            }
+        }
+        else { // is a leaf
+            // copy data from spn's dataItrs into temp container
+            container.insert(container.end(),
+                            (spn->dataItrs).begin(),
+                            (spn->dataItrs).end());
+        }
+        return container;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ac637655f207bc9bc049145a2bd904fdf}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-All\-Nodes@{get\-All\-Nodes}}
+\index{get\-All\-Nodes@{get\-All\-Nodes}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-All\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode\-Ptrs} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-All\-Nodes} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-P\-S\-Vnode\-Ptrs} \&}]{all\-Nodes}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_ac637655f207bc9bc049145a2bd904fdf}
+
+
+\-Return a reference to all nodes. 
+
+\begin{DoxyReturn}{\-Returns}
+a reference to a container of node pointers. 
+\end{DoxyReturn}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a8683fb9b17016cbe615408b51e791b9c}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1123 of file spsvnode.\-cpp.
+
+
+
+\-References get\-All\-Nodes(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::is\-Empty().
+
+
+
+\-Referenced by get\-All\-Nodes().
+
+
+\begin{DoxyCode}
+    {
+        if (!isEmpty()) { // this is not empty
+      //if (!hasLCwithBox() && !hasRCwithBox()) { // this is a leaf
+            // arrgh horrible - cast away const if this node is a leaf
+        //cout << nodeName << endl;
+            allNodes.push_back(const_cast<SPSVnode*>(this));
+        }
+      
+      //if children, recurse on the children
+        if (hasLCwithBox()) {
+            getLeftChild()->getAllNodes(allNodes);
+        }
+
+        if (hasRCwithBox()) {
+            getRightChild()->getAllNodes(allNodes);
+        }       
+        return allNodes;
+   }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a63ea0f67b354888a8a12c0ffc81b0e5e}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Cheb\-Dist\-Covar@{get\-Cheb\-Dist\-Covar}}
+\index{get\-Cheb\-Dist\-Covar@{get\-Cheb\-Dist\-Covar}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Cheb\-Dist\-Covar}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Cheb\-Dist\-Covar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a63ea0f67b354888a8a12c0ffc81b0e5e}
+
+
+\-Get the \-Chebyshev distance for the var-\/covar. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a7713822499beb30a3d30f43b79c608b8}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1389 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::dimension, get\-Uniform\-Var\-Covar(), and get\-Var\-Covar().
+
+
+
+\-Referenced by subpavings\-::\-Comp\-Covar\-Val\-::operator()(), and subpavings\-::\-Comp\-Covar\-Mass\-Val\-::operator()().
+
+
+\begin{DoxyCode}
+  {
+    RealVec Covar = getVarCovar();
+    RealVec unifCovar = getUniformVarCovar();
+
+    real ChebDist = 0;
+    //loop through the real vector and get the Chebyshev distances
+    
+    for (int i = 0; i < dimension*dimension; i++) {
+        real temp = abs(Covar[i] - unifCovar[i]);
+        //std::cout << temp << "\t" << ChebDist << std::endl;
+        ChebDist  = ( temp > ChebDist) ? temp : ChebDist;
+      }
+      
+      //cout << "getChebDist: " << endl;
+    return ChebDist;
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a24fc7b09a8293edce2e3b602763a45e3}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Cheb\-Dist\-Mean@{get\-Cheb\-Dist\-Mean}}
+\index{get\-Cheb\-Dist\-Mean@{get\-Cheb\-Dist\-Mean}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Cheb\-Dist\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Cheb\-Dist\-Mean} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a24fc7b09a8293edce2e3b602763a45e3}
+
+
+\-Get the \-Chebyshev distance for the mean. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aa3a4a9df979f04453e82d76866b52850}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1370 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::dimension, get\-Mean(), and get\-Uniform\-Mean().
+
+
+
+\-Referenced by subpavings\-::\-Comp\-Mean\-Val\-::operator()(), and subpavings\-::\-Comp\-Mean\-Mass\-Val\-::operator()().
+
+
+\begin{DoxyCode}
+  {
+    rvector Mean = getMean();
+    rvector MeanUnif = getUniformMean();
+    real ChebDist = 0;
+    //loop through the means and get the Chebyshev distances
+    for (int i = 1; i <= dimension; i++) {
+        real temp = abs(Mean[i] - MeanUnif[i]);
+        //std::cout << temp << "\t" << ChebDist << std::endl;
+        ChebDist  = ( temp > ChebDist) ? temp : ChebDist;
+      }
+      
+      //cout << "getChebDist: " << endl;
+      //std::cout << getNodeName() << "\t" << getMean() << "\t" <<
+       getUniformMean() << std::endl;
+    return ChebDist;
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ad1e930cb7befb42cd1985e91f3ddd9b6}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split@{get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split}}
+\index{get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split@{get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Size\-\_\-t\-Vec} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Childrens\-Left\-And\-Right\-Counts\-If\-Split} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Size\-\_\-t\-Vec} \&}]{grandchild\-Counts}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_ad1e930cb7befb42cd1985e91f3ddd9b6}
+
+
+return a container of counts for prospective grandchildren. 
+
+\-Should be called only on leaf nodes.
+
+returns an indexable container of the number of points the prospective children of each prospective child (ie all four prospective grandchildren) would be associated with, indexed like this \mbox{[}0\mbox{]} = left child's left child count, \mbox{[}1\mbox{]} = left child's rght child count, \mbox{[}2\mbox{]} = rght child's left child count, \mbox{[}3\mbox{]} = rght child's rght child count, 
+\begin{DoxyParams}{\-Parameters}
+{\em grandchild\-Counts} & a reference to a container to be filled with the prospective grandchild counts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+grandchild\-Counts filled with the prospective grandchild counts. 
+\end{DoxyReturn}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_acbe47754c218f0c895a900330491cbb3}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 986 of file spsvnode.\-cpp.
+
+
+
+\-References \-Lower(), \-Max\-Diam(), and \-Upper().
+
+
+\begin{DoxyCode}
+    {
+        // first find what the right hand child's box would be if that child
+        // were to be created
+            int maxdiamcomp1; // variable to hold first longest dimension
+            double temp1 = ::MaxDiam(getBox(), maxdiamcomp1);
+
+            // ivectors to be new boxes for new children
+            ivector rCBox;
+            ivector lCBox;
+            // Call Upper() to get what would be the right hand child box
+            Upper(getBox(), rCBox, maxdiamcomp1);
+            // Call Lower() to get what would be the left hand child box
+            Lower(getBox(), lCBox, maxdiamcomp1);
+
+            int maxdiamcomp2; // variable to hold first longest dimension
+            double temp2 = ::MaxDiam(rCBox, maxdiamcomp2);
+
+            // ivectors to be new boxes for new children
+            ivector rCrCBox;
+            ivector rClCBox;
+
+            // Call Upper() to get what would be the right hand child box
+            Upper(getBox(), rCrCBox, maxdiamcomp2);
+
+            // Call Lower() to get what would be the left hand child box
+            Lower(getBox(), rClCBox, maxdiamcomp2);
+
+            int maxdiamcomp3; // variable to hold first longest dimension
+            double temp3 = ::MaxDiam(lCBox, maxdiamcomp3);
+
+            // ivectors to be new boxes for new children
+            ivector lCrCBox;
+            ivector lClCBox;
+
+            // Call Upper() to get what would be the right hand child box
+            Upper(getBox(), lCrCBox, maxdiamcomp3);
+
+            // Call Lower() to get what would be the left hand child box
+            Lower(getBox(), lClCBox, maxdiamcomp3);
+
+
+        // now find how many of this node's data points would go right
+        // and left children of left and right children
+        size_t rightRightCount = 0;
+        size_t rightLeftCount = 0;
+        size_t leftRightCount = 0;
+        size_t leftLeftCount = 0;
+        NodeDataItr it;
+
+        for (it = dataItrs.begin(); it < dataItrs.end(); it++) {
+            // DataItrs is a container of iterators to a BigDataCollection
+            ivector pvec = _ivector((*(*it)));
+            // increment rightCount if the point is in rC
+            if (pvec <= rCBox) {
+                if (pvec <= rCrCBox) rightRightCount++;
+                else leftRightCount++;
+            }
+            else {
+                if (pvec <= lCrCBox) rightLeftCount++;
+                else leftLeftCount++;
+            }
+        }
+
+        grandchildCounts.push_back(leftLeftCount);
+        grandchildCounts.push_back(rightLeftCount);
+        grandchildCounts.push_back(leftRightCount);
+        grandchildCounts.push_back(rightRightCount);
+
+        return grandchildCounts;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_afb9e32e6d78db527309d95ccc8c0049f}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Emp\-Mass@{get\-Emp\-Mass}}
+\index{get\-Emp\-Mass@{get\-Emp\-Mass}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Emp\-Mass}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Emp\-Mass} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_afb9e32e6d78db527309d95ccc8c0049f}
+
+
+get the empirical mass of the node 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a31ee93bb53be29fd0e50ff7fcd189c98}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1409 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Counter(), and get\-Root\-Counter().
+
+
+
+\-Referenced by subpavings\-::\-Comp\-Mean\-Mass\-Val\-::operator()(), subpavings\-::\-Comp\-Covar\-Mass\-Val\-::operator()(), subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Val\-::operator()(), subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam\-Val\-::operator()(), subpavings\-::\-Comp\-Hellinger\-Dist\-Mass\-Val\-::operator()(), and subpavings\-::\-Comp\-Hellinger\-Dist\-Mass\-Diam\-Val\-::operator()().
+
+
+\begin{DoxyCode}
+  {
+    int n = getRootCounter();
+    double empMass = getCounter()*1.0/(n*1.0);
+    //cout << nodeName << "\t" << empMass << endl;
+    return empMass;
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a2e0a1a393daed9e3f5887162b68b0e6e}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Hellinger\-Dist@{get\-Hellinger\-Dist}}
+\index{get\-Hellinger\-Dist@{get\-Hellinger\-Dist}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Hellinger\-Dist}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Hellinger\-Dist} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a2e0a1a393daed9e3f5887162b68b0e6e}
+
+
+\-Get the \-Bhattarchaya coefficient. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aa0ea6455e40f7f2bdb1e972ab080f5a5}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1419 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, subpavings\-::\-S\-Pnode\-::dimension, taylor\-::exp(), subpavings\-::\-S\-P\-Snode\-::get\-Counter(), get\-Mean(), subpavings\-::\-S\-Pnode\-::get\-Node\-Name(), get\-Root\-Counter(), get\-Uniform\-Mean(), get\-Uniform\-Var\-Covar(), get\-Var\-Covar(), taylor\-::pow(), and taylor\-::sqrt().
+
+
+
+\-Referenced by subpavings\-::\-Comp\-Hellinger\-Dist\-Mass\-Val\-::operator()(), and subpavings\-::\-Comp\-Hellinger\-Dist\-Mass\-Diam\-Val\-::operator()().
+
+
+\begin{DoxyCode}
+    {
+    RealVec Covar = getVarCovar(); //get the covariance matrix/
+    real HD = 0.0; //initialize hellinger distance to 0.
+
+    // if there are no points, cov should be undefined. But since we want to
+       push
+    // this node to the bottom of the queue, hence let HD = 0.
+    // if there is one point, the variance is 0. At the moment, we do not 
+    // want to split boxes with only one point and so also let HD = 0.
+    if ( getCounter() == 0 || getCounter() == 1 ) { return HD = 0.0; } 
+
+    else {
+      //cout << "===========================" << getNodeName() << "\t" <<
+       getCounter() << endl;
+      //get the differences of the mean vectors
+      rvector diffMean = getMean() - getUniformMean();
+      //cout << "mean differences: " << diffMean << endl;
+
+      //make a gsl matrix for the mean difference
+      gsl_matrix * diffMeanMat = gsl_matrix_alloc(dimension, 1);
+      for (int i = 0; i < dimension; i++) {
+        for (int j = 0; j < 1; j++) {
+          gsl_matrix_set (diffMeanMat, i, j, _double(diffMean[i+1]));
+        }
+      }
+
+      // get the variances
+      RealVec unifCovar = getUniformVarCovar();
+
+      // initialize matrix objects
+      gsl_matrix * CovarMat = gsl_matrix_alloc(dimension, dimension);
+      gsl_matrix * CovarMatMult = gsl_matrix_alloc(dimension, dimension);
+      gsl_matrix * UnifCovarMat = gsl_matrix_alloc(dimension, dimension);
+      gsl_matrix * PMat = gsl_matrix_alloc(dimension, dimension); //make this
+       same as
+                                              //CovarMat first
+      int n = getRootCounter();
+    
+      // problem with stably inverting the covariance matrix - if determinant
+       is wrong, will get -DB
+      // fill up the matrics for the var-covar
+      int k = 0; //counter for RealVec
+      for (int i = 0; i < dimension; i++) {
+        for (int j=0; j < dimension; j++) {
+
+          if ( i == j ) {
+            gsl_matrix_set(CovarMat, i, j, _double(Covar[k]) + 0.00000001); //
+      cast to double
+            gsl_matrix_set(CovarMatMult, i, j, 100*(_double(Covar[k]))+0.000000
+      01);
+          }
+          else {
+            gsl_matrix_set(CovarMat, i, j, _double(Covar[k])); //cast to double
+            gsl_matrix_set(CovarMatMult, i, j, 100*(_double(Covar[k])));
+          }
+          
+          gsl_matrix_set(PMat, i, j, _double(Covar[k])); //cast to double
+          gsl_matrix_set(UnifCovarMat, i, j, _double(unifCovar[k])); //cast to
+       double
+          k++;
+        }
+      }
+
+      // if variance is -ve, atomic data points? treat as only one point (not
+      // a very good assumption at the moment) and let HD = 0. 
+      for ( int i = 0; i < dimension; i++) {
+        for (int j = 0; j < dimension; j++) {
+          if ( (i == j) && (gsl_matrix_get(CovarMat, i, j) < 0) ) {
+            cerr << "Negative variance!" << endl;
+            cout.precision(20);
+            cout << getCounter() << endl;
+            NodeDataItr dataItr;
+            cout << getNodeName() << endl;
+            cout.precision(20);
+            cout << "Data is" << std::endl;
+            for (dataItr = dataItrs.begin();
+              dataItr!= dataItrs.end(); dataItr++) {
+              BigDataItr bigIt = *dataItr;
+              rvector theData = *bigIt;
+              cout << theData << endl; 
+            } // end loop through data container
+        
+            cerr << "Variance cannot be negative." << endl; 
+            exit(1); 
+            
+            /*
+            gsl_matrix_free(CovarMat);
+            gsl_matrix_free(UnifCovarMat);
+            gsl_matrix_free(PMat);
+            return HD = 0.0;
+            */ 
+          }
+        }
+      }
+  
+      //else {
+        /*cout << "CovarMat: " << endl;
+        for (int i = 0; i < dimension; i++) {
+          for (int j=0; j < dimension; j++) {
+            cout << i << "\t" << j << "\t" << gsl_matrix_get(CovarMat, i, j) <<
+       endl; 
+          }
+        }
+        cout << "CovarMatMult: " << endl;
+        for (int i = 0; i < dimension; i++) {
+          for (int j=0; j < dimension; j++) {
+            cout << i << "\t" << j << "\t" << gsl_matrix_get(CovarMatMult, i,
+       j) << endl; 
+          }
+        }
+        cout << "UnifCovarMat: " << endl;
+        for (int i = 0; i < dimension; i++) {
+          for (int j=0; j < dimension; j++) {
+            cout << i << "\t" << j << "\t" << gsl_matrix_get(UnifCovarMat, i,
+       j) << endl; 
+          }
+        }*/
+
+        //add the two matrices
+        gsl_matrix_add(PMat, UnifCovarMat);
+        gsl_matrix_scale(PMat, 0.5);
+        
+        gsl_matrix * PMatForInv = gsl_matrix_alloc(dimension, dimension);
+        PMatForInv = PMat; 
+        /*cout << "PMat: " << endl;
+        for (int i = 0; i < dimension; i++) {
+          for (int j=0; j < dimension; j++) {
+            cout << i << "\t" << j << "\t" << gsl_matrix_get(PMat, i, j) <<
+       endl; 
+          }
+        }*/
+
+        // get the determinants of CovarMat, UnifCovarMat, PMat
+        int s;
+        gsl_permutation * p = gsl_permutation_alloc(dimension);
+        gsl_linalg_LU_decomp(CovarMatMult, p, &s);
+        //cout << "CovarMat LU decomp: " << endl;
+        for (int i = 0; i < dimension; i++) {
+          for (int j=0; j < dimension; j++) {
+            //cout << i << "\t" << j << "\t" << gsl_matrix_get(CovarMat, i, j)
+       << endl; 
+          }
+        }
+        double detCovarMat = gsl_linalg_LU_det(CovarMatMult, s)/(pow(100,
+      dimension));
+        //cout << "det covar mat: " << detCovarMat << "\t" << endl;
+        gsl_permutation_free(p);
+        // it is possible to get negative determinants, and negative DB,
+       temporarily sweeping this under the rug 
+        if (detCovarMat < 0) { cout << "Negative determinant." << endl; exit(1)
+      ; }//return HD = 0.0; }
+        else {
+          
+          int s1;
+          gsl_permutation * p1 = gsl_permutation_alloc(dimension);
+          gsl_linalg_LU_decomp(UnifCovarMat, p1, &s1);
+          //cout << "UnifCovarMat decomp: " << endl;
+          for (int i = 0; i < dimension; i++) {
+            for (int j=0; j < dimension; j++) {
+              //cout << i << "\t" << j << "\t" << gsl_matrix_get(UnifCovarMat,
+       i, j) << endl; 
+            }
+          }
+          double detUnifCovarMat = gsl_linalg_LU_det(UnifCovarMat, s1);
+          //cout << "det unif covar mat: " << detUnifCovarMat << endl;
+          gsl_permutation_free(p1);
+
+          int s2;
+          gsl_permutation * p2 = gsl_permutation_alloc(dimension);
+          gsl_linalg_LU_decomp(PMat, p2, &s2);
+          double detPMat = gsl_linalg_LU_det(PMat, s2);
+          //cout << "det p mat: " << detPMat << endl;
+  
+          //now get the inverse of P
+          gsl_matrix * Pinverse = gsl_matrix_alloc(dimension, dimension); 
+          gsl_linalg_LU_invert(PMat, p2, Pinverse);
+          gsl_permutation_free(p2);
+          //cout << "p inverse " << endl;
+          for (int i = 0; i < dimension; i++) {
+            for (int j=0; j < dimension; j++) {
+              //cout << i << "\t" << j << "\t" << gsl_matrix_get(Pinverse, i,
+       j) << endl; 
+            }
+          }
+      
+          //now get the Bhattacharya coefficient
+          //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 +
+       0.5*log(detP/sqrt{detP1}{detP2});
+          gsl_matrix * diffMeanMatTranspose = gsl_matrix_alloc(1, dimension);
+          gsl_matrix_transpose_memcpy(diffMeanMatTranspose, diffMeanMat);
+        
+          // now convert all to rmatrix for easier computations
+          rmatrix diffMeanR(0, dimension-1, 0, 0);
+          for (int i = 0; i < dimension; i++) {
+            for (int j=0; j < 1; j++) {
+              diffMeanR[i][j] = gsl_matrix_get(diffMeanMat, i, j); 
+            }
+          }
+        
+          rmatrix diffMeanTransR(0, 0, 0, dimension-1);
+          for (int i = 0; i < 1; i++) {
+            for (int j=0; j < dimension; j++) {
+              diffMeanTransR[i][j] = gsl_matrix_get(diffMeanMatTranspose, i, j)
+      ; 
+            }
+          }
+        
+          rmatrix PinvR(0, dimension-1, 0, dimension-1);
+          for (int i = 0; i < dimension; i++) {
+            for (int j=0; j < dimension; j++) {
+              PinvR[i][j] = gsl_matrix_get(Pinverse, i, j); 
+            }
+          }
+        
+          //free the gsl_matrices
+          gsl_matrix_free(CovarMat);
+          gsl_matrix_free(UnifCovarMat);
+          gsl_matrix_free(PMat);
+        
+          //cout << diffMeanR << endl;
+          //cout << diffMeanTransR << endl;
+          //cout << PinvR << endl;
+        
+          //now get the Bhattacharya coefficient
+          //DB = 1.0/8.0 * diffMeanMat1 * invP * diffMeanMat2 +
+       0.5*log(detP/sqrt{detP1}{detP2});
+          //cout << (diffMeanTransR*PinvR)*diffMeanR << endl;
+          rmatrix MatOp = (diffMeanTransR*PinvR)*diffMeanR;
+          //cout << MatOp << "\t" << MatOp[0][0] << endl;
+          assert(MatOp >= 0);
+          real DB = 1.0/8.0 * MatOp[0][0] + 0.5*log(detPMat/sqrt(detCovarMat*
+      detUnifCovarMat));
+          //cout << "DB: " << DB << endl;
+          if ( DB <  0 ) { return HD = 0.0; }
+          else {
+          
+            real BC = exp(-DB);
+            assert(BC >= 0);
+          //cout << "BC: " << BC << endl;
+            real HD = sqrt(1-BC);
+          //cout << "HD: " << HD << endl;
+            assert(HD >=0);
+            return HD;
+          }
+        } // end of determinant is not zero
+      }
+  }   
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a3b56f3b8a024ab6929087e803e7af765}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Hellinger\-Dist1\-D@{get\-Hellinger\-Dist1\-D}}
+\index{get\-Hellinger\-Dist1\-D@{get\-Hellinger\-Dist1\-D}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Hellinger\-Dist1\-D}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Hellinger\-Dist1\-D} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a3b56f3b8a024ab6929087e803e7af765}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_afe386393d18f1e251972e959e79c3847}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1651 of file spsvnode.\-cpp.
+
+
+
+\-References taylor\-::exp(), subpavings\-::\-S\-P\-Snode\-::get\-Counter(), get\-Mean(), get\-Uniform\-Mean(), get\-Uniform\-Var\-Covar(), get\-Var\-Covar(), and taylor\-::sqrt().
+
+
+
+\-Referenced by subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Val\-::operator()(), subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Val\-::operator()(), and subpavings\-::\-Comp\-Hellinger\-Dist1\-D\-Mass\-Diam\-Val\-::operator()().
+
+
+\begin{DoxyCode}
+   {
+    real HD = 0.0; 
+    RealVec Covar = getVarCovar();
+
+    // if the variance is negative - need to investiage this more
+    /*
+    if (Covar[0] < 0) {
+      cout << getCounter() << endl;
+      cout << Covar[0] << endl;
+      NodeDataItr dataItr;
+      cout << getNodeName() << endl;
+      cout << "Data is" << std::endl;
+          for (dataItr = dataItrs.begin();
+                dataItr!= dataItrs.end(); dataItr++) {
+
+                BigDataItr bigIt = *dataItr;
+                rvector theData = *bigIt;
+
+                cout << theData << endl; 
+      } // end loop through data container
+      
+      cerr << "Variance cannot be negative." << endl; 
+      exit(1); 
+    }
+  */
+  
+    // can continue if variance is not negative
+
+      // if there are no points, should be undefined. But since we want to push
+      // this node to the bottom of the queue, hence let HD = 0.
+      // if there is one point, the variance is 0. At the moment, we do not 
+      //want to split boxes with only one point and so also let HD = 0.
+      // if variance is -ve, atomic data points? treat as only one point (not
+      // a very good assumption at the moment) and let HD = 0. 
+      if ( getCounter() == 0  || Covar[0] <= 0 ) { return HD = 0.0; } 
+      /*else if ( Covar[0] == 0 ) { 
+        cout << getCounter() << endl;
+        cout << getEmpMass() << endl;
+        cout << nodeVolume() << endl;
+        cout << getMean() << endl;
+        cerr << "no variance. check!" << endl;
+        exit(1);
+      }*/
+
+      else {
+        //get the differences of the mean vectors
+        rvector diffMean = getMean() - getUniformMean();
+        //cout << "mean differences: " << diffMean[1] << endl;
+        
+        // get the variances
+        RealVec unifCovar = getUniformVarCovar();
+        //cout << "Covar: " << Covar[0] <<  endl;
+        //cout << "unifCovar: " << unifCovar[0] << endl;
+        //if all the elements for CovarMat are all zero, we do not have any
+       points in 
+        //this leaf node - so return hellinger distance as 0
+  
+        // use the sqrt of the squared hellinger distance for two normal
+       distributions
+        // 1 - sqrt(2*sigma1*sigma2/(sigma1^2 +
+       sigma2^2))*exp(-0.25*(mu1-mu2)^2/(sigma1^2+sigma2^2))
+        //cout << diffMean << "\t";
+        interval covarI = interval(Covar[0]);
+        interval unifCovarI = interval(unifCovar[0]);
+        interval sumVar = covarI + unifCovarI;
+        //cout << sumVar << "\t";
+        interval insqrt = 2*sqrt(covarI)*sqrt(unifCovarI)/sumVar;
+        //cout << insqrt << "\t";
+        interval H2 = interval(1,1) - sqrt(insqrt) *exp((-0.25*diffMean[1]*
+      diffMean[1])/sumVar);
+        //cout << "H2: " << H2 << endl;
+        HD = mid(sqrt(H2));
+        //cout << HD << endl;
+        if ( HD > 1 || HD < 0) { 
+          cerr << "HD should be between 0 and 1." << endl;
+          exit(0);
+        }
+        return HD;
+      }
+
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a899334f4e1760a380a776bc38d664710}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Just\-Split@{get\-Just\-Split}}
+\index{get\-Just\-Split@{get\-Just\-Split}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Just\-Split}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Just\-Split} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a899334f4e1760a380a776bc38d664710}
+
+
+\-Accessor for the node's just\-Split boolean flag. 
+
+\-Returns just\-Split. 
+
+\-Definition at line 898 of file spsvnode.\-cpp.
+
+
+
+\-References just\-Split.
+
+
+\begin{DoxyCode}
+    { return justSplit; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_adfb30c9946f868e143c81e6bf35a7a6f}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Largest\-Leaf\-Count@{get\-Largest\-Leaf\-Count}}
+\index{get\-Largest\-Leaf\-Count@{get\-Largest\-Leaf\-Count}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Largest\-Leaf\-Count}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Largest\-Leaf\-Count} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_adfb30c9946f868e143c81e6bf35a7a6f}
+
+
+\-Get the count in the leaf with the smallest count. 
+
+\-Returns the count of the largest (by count) leaf node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_ae094573d2988d458e00a549039a6ad56}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1207 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, get\-Leaves(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+\begin{DoxyCode}
+    {
+        size_t largestCount = 0;
+
+        if (isLeaf()) {  // this is a leaf
+            largestCount = counter;
+        }
+
+        else { // this is not a leaf
+
+            // set up a container for the leaf children
+            SPSVnodePtrs leaves;
+            // fill the container with the leaf children
+            // could be just this if no children
+            getLeaves(leaves);
+
+            // find the largest child by volume
+            SPSVnodePtrsItr it;
+            largestCount = (*(leaves.begin()))->counter;
+
+            for(it = leaves.begin(); it < leaves.end(); it++) {
+                if ((*it)->counter > largestCount) {
+                    largestCount = (*it)->counter;
+                }
+            }
+        } // end else not a leaf
+
+        return largestCount;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a0d6df4752e05170510e43b67d8eb3110}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Leaf\-Node\-Counts@{get\-Leaf\-Node\-Counts}}
+\index{get\-Leaf\-Node\-Counts@{get\-Leaf\-Node\-Counts}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Leaf\-Node\-Counts}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Size\-\_\-t\-Vec} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Leaf\-Node\-Counts} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Size\-\_\-t\-Vec} \&}]{counts}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a0d6df4752e05170510e43b67d8eb3110}
+\-Fills in container of leaf counts, left to right.
+
+\-Traverses the leaves left to right, puts the leaf counts into container.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em counts} & is reference to the container to fill in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the container filled in with leaf counts. 
+\end{DoxyReturn}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a2f8ce829fd9ba3ef3838d640ae201e9e}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1060 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, get\-Leaf\-Node\-Counts(), get\-Left\-Child(), and get\-Right\-Child().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Leaf\-Counts(), and get\-Leaf\-Node\-Counts().
+
+
+\begin{DoxyCode}
+    {
+
+        if (getLeftChild()!=NULL) {
+            getLeftChild()->getLeafNodeCounts(counts);
+        }
+        if (getRightChild()!=NULL) {
+            getRightChild()->getLeafNodeCounts(counts);
+        }
+        if (getLeftChild()==NULL && getRightChild()==NULL) {
+
+            counts.push_back(counter);
+        }
+        return counts;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a6f3850e716947e051a9e9af16c2b4508}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Leaves@{get\-Leaves}}
+\index{get\-Leaves@{get\-Leaves}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Leaves}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode\-Ptrs} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Leaves} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-P\-S\-Vnode\-Ptrs} \&}]{leaves}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a6f3850e716947e051a9e9af16c2b4508}
+
+
+\-Return a reference to all descendent leaf nodes. 
+
+\-Will be just this if this is a leaf.
+
+\begin{DoxyReturn}{\-Returns}
+a reference to a container of node pointers. 
+\end{DoxyReturn}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a6a833240b503da0e2b640782e8671954}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1080 of file spsvnode.\-cpp.
+
+
+
+\-References get\-Leaves(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), get\-Largest\-Leaf\-Count(), get\-Leaves(), get\-Smallest\-Leaf\-Count(), get\-Sum\-Leaf\-Count\-Over\-Vol(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), and subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch().
+
+
+\begin{DoxyCode}
+    {
+        //if children, recurse on the children
+        if (hasLCwithBox()) {
+            getLeftChild()->getLeaves(leaves);
+        }
+
+        if (hasRCwithBox()) {
+            getRightChild()->getLeaves(leaves);
+        }
+
+        if (!hasLCwithBox() && !hasRCwithBox()) { // this is a leaf
+            // arrgh horrible - cast away const if this node is a leaf
+            leaves.push_back(const_cast<SPSVnode*>(this));
+        }
+        return leaves;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a3ef0b662df21eb88689644cb5d1279d2}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Left\-Child@{get\-Left\-Child}}
+\index{get\-Left\-Child@{get\-Left\-Child}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Left\-Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} $\ast$ {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Left\-Child} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a3ef0b662df21eb88689644cb5d1279d2}
+
+
+\-Accessor for the left child of a node. 
+
+\-Hides the base class version of this method.
+
+\-Returns a copy of the pointer to left\-Child node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_af7588b657e2819dd5dda525e08143ffc}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 920 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::left\-Child.
+
+
+
+\-Referenced by subpavings\-::\-Collator\-S\-P\-Vnode\-::\-Collator\-S\-P\-Vnode(), gather\-Data(), get\-All\-Nodes(), get\-Leaf\-Node\-Counts(), get\-Leaves(), get\-Sub\-Leaves(), insert\-One\-Find(), leaves\-Output\-Tabs(), leaves\-Output\-Tabs\-With\-Hist\-Height(), node\-Reabsorb\-Children(), operator=(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch(), \-S\-P\-S\-Vnode(), stripped\-Constructor(), and union\-No\-Data().
+
+
+\begin{DoxyCode}
+    { return (SPSVnode*) leftChild; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a64b5d63790c02a454aa0e86222b1a3d3}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Left\-Count\-If\-Split@{get\-Left\-Count\-If\-Split}}
+\index{get\-Left\-Count\-If\-Split@{get\-Left\-Count\-If\-Split}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Left\-Count\-If\-Split}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Left\-Count\-If\-Split} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a64b5d63790c02a454aa0e86222b1a3d3}
+
+
+\-The count the left child would have if this node was split. 
+
+\-Does not split the nodes, just calculates how many of the data points currently associated with this node would go to the left child if the node were to be split. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_ad077233e00a7093d66e35cca6fc6db6b}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 964 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, and get\-Right\-Count\-If\-Split().
+
+
+\begin{DoxyCode}
+    {
+        return counter - getRightCountIfSplit();
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a2d2b97cb6916b19ad2affc4907265b6f}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Mean@{get\-Mean}}
+\index{get\-Mean@{get\-Mean}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Mean} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a2d2b97cb6916b19ad2affc4907265b6f}
+
+
+\-Get the sample mean. 
+
+\-This calculates the sample mean from the accumulators for the sums of data point elements. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aa5ae31017fb2fdee8b9168009d8d08a6}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1267 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, subpavings\-::\-S\-P\-Snode\-::counts\-Only, subpavings\-::\-S\-Pnode\-::dimension, and subpavings\-::\-S\-P\-Snode\-::dp\-Sums.
+
+
+
+\-Referenced by get\-Cheb\-Dist\-Mean(), get\-Hellinger\-Dist(), and get\-Hellinger\-Dist1\-D().
+
+
+\begin{DoxyCode}
+    {
+        // set up an rvector retMean of the correct dimensions
+        rvector retMean(dimension);
+        // loop through the elements in the dpSums vector
+        for (size_t i = 0; i< dimension; i++) {
+
+            // if no data elements each element or if only counts are held,
+            // that element of the mean is 0.0
+            if (countsOnly || (counter == 0)) {
+                // cxsc::rvector is indexed 1 to n
+                retMean[i+1] = 0.0;
+            }
+            // if data elements, find the element-by-element mean
+            else {
+                // default cxsc rounding dotprecision rnd_next
+                retMean[i+1] = rnd(dpSums[i])/(1.0*counter);
+
+            }
+        }// end loop through the elements in dpSums
+
+        return retMean;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a43024ae81075f8a822ccccad013b3ef7}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Min\-Child\-Count\-If\-Split@{get\-Min\-Child\-Count\-If\-Split}}
+\index{get\-Min\-Child\-Count\-If\-Split@{get\-Min\-Child\-Count\-If\-Split}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Min\-Child\-Count\-If\-Split}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Min\-Child\-Count\-If\-Split} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a43024ae81075f8a822ccccad013b3ef7}
+
+
+\-Smallest number of points in either child if this was split. 
+
+\-Does not split the nodes, just calculates how many of the data points currently associated with this node would go to the left and right child if the node were to be split. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a1b3356a466432a282290af76df3adb08}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 970 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, and get\-Right\-Count\-If\-Split().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::check\-Node\-Count\-For\-Split().
+
+
+\begin{DoxyCode}
+    {
+        size_t min = getRightCountIfSplit();
+        if ((counter - min) < min) min = counter - min;
+        return min;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ae42cbf85bd00caf12e6acac68ae1fcd3}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Parent@{get\-Parent}}
+\index{get\-Parent@{get\-Parent}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} $\ast$ {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Parent} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_ae42cbf85bd00caf12e6acac68ae1fcd3}
+
+
+\-Accessor for the parent of a node. 
+
+\-Hides the base class version of this method.
+
+\-Returns a copy of the pointer to parent node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a88c1d25d8e0b9738f5199cc4435c08b4}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 915 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::parent.
+
+
+
+\-Referenced by get\-Root\-Counter(), get\-Root\-Vcounter(), and node\-Contains().
+
+
+\begin{DoxyCode}
+    { return (SPSVnode*) parent; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_af681e178575b285f123c1c01bac9ac42}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Right\-Child@{get\-Right\-Child}}
+\index{get\-Right\-Child@{get\-Right\-Child}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Right\-Child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} $\ast$ {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Right\-Child} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_af681e178575b285f123c1c01bac9ac42}
+
+
+\-Accessor for the right child of a node. 
+
+\-Hides the base class version of this method.
+
+\-Returns a copy of the pointer to right\-Child node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_acc7d3e22be28d76da5c8c228aaaa95c7}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 925 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::right\-Child.
+
+
+
+\-Referenced by subpavings\-::\-Collator\-S\-P\-Vnode\-::\-Collator\-S\-P\-Vnode(), gather\-Data(), get\-All\-Nodes(), get\-Leaf\-Node\-Counts(), get\-Leaves(), get\-Sub\-Leaves(), insert\-One\-Find(), leaves\-Output\-Tabs(), leaves\-Output\-Tabs\-With\-Hist\-Height(), node\-Reabsorb\-Children(), operator=(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch(), \-S\-P\-S\-Vnode(), stripped\-Constructor(), and union\-No\-Data().
+
+
+\begin{DoxyCode}
+    { return (SPSVnode*) rightChild; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a9a51fbde60e061846a93981688cc67af}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Right\-Count\-If\-Split@{get\-Right\-Count\-If\-Split}}
+\index{get\-Right\-Count\-If\-Split@{get\-Right\-Count\-If\-Split}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Right\-Count\-If\-Split}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Right\-Count\-If\-Split} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a9a51fbde60e061846a93981688cc67af}
+
+
+\-The count the right child would have if this node was split. 
+
+\-Does not split the nodes, just calculates how many of the data points currently associated with this node would go to the right child if the node were to be split. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aa10917d57d9a50cb2d393a422188a51f}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 932 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, subpavings\-::\-S\-Pnode\-::get\-Box(), \-Max\-Diam(), and \-Upper().
+
+
+
+\-Referenced by get\-Left\-Count\-If\-Split(), and get\-Min\-Child\-Count\-If\-Split().
+
+
+\begin{DoxyCode}
+    {
+        // first find what the right hand child's box would be if that child
+        // were to be created
+            int maxdiamcomp; // variable to hold first longest dimension
+            double temp = ::MaxDiam(getBox(), maxdiamcomp);
+
+            // ivectors to be new boxes for new children
+            ivector rCBox;
+
+            // Call Upper() to get what would be the right hand child box
+            Upper(getBox(), rCBox, maxdiamcomp);
+
+        // now find how many of this node's data points would go right
+        // all the rest of them would go left
+        size_t rightCount = 0;
+        NodeDataItr it;
+
+        for (it = dataItrs.begin(); it < dataItrs.end(); it++) {
+            // DataItrs is a container of iterators to a BigDataCollection
+            ivector pvec = _ivector((*(*it)));
+            // increment rightCount if the point is in rC
+            if (pvec <= rCBox) rightCount++;
+        }
+
+        return rightCount;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a346a5ff0d8177212b23342cada4b5c18}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Root\-Counter@{get\-Root\-Counter}}
+\index{get\-Root\-Counter@{get\-Root\-Counter}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Root\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Root\-Counter} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a346a5ff0d8177212b23342cada4b5c18}
+
+
+\-The count in the node's ultimate ancestor root. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aeac2247b4626b1adfa609d3ff109ceb2}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1238 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, get\-Parent(), get\-Root\-Counter(), and subpavings\-::\-S\-Pnode\-::parent.
+
+
+
+\-Referenced by subpavings\-::\-Collator\-S\-P\-Vnode\-::\-Collator\-S\-P\-Vnode(), get\-Emp\-Mass(), get\-Hellinger\-Dist(), get\-Root\-Counter(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Unif\-I\-A\-E(), and subpavings\-::\-Comp\-Area\-Val\-::operator()().
+
+
+\begin{DoxyCode}
+    {
+        size_t retValue = 0;
+        if (parent == NULL) { // this is root
+            retValue = counter;
+        }
+        else {
+            // recurse upwards
+            retValue = getParent()->getRootCounter();
+        }
+        return retValue;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_acb4a623e5679b79f05244e79a078e6c1}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Root\-Vcounter@{get\-Root\-Vcounter}}
+\index{get\-Root\-Vcounter@{get\-Root\-Vcounter}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Root\-Vcounter}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Root\-Vcounter} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_acb4a623e5679b79f05244e79a078e6c1}
+
+
+\-The count in the node's ultimate ancestor root. 
+
+
+
+\-Definition at line 1252 of file spsvnode.\-cpp.
+
+
+
+\-References get\-Parent(), get\-Root\-Vcounter(), subpavings\-::\-S\-Pnode\-::parent, and \-Vcounter.
+
+
+
+\-Referenced by subpavings\-::\-Collator\-S\-P\-Vnode\-::\-Collator\-S\-P\-Vnode(), and get\-Root\-Vcounter().
+
+
+\begin{DoxyCode}
+    {
+        size_t retValue = 0;
+        if (parent == NULL) { // this is root
+            retValue = Vcounter;
+        }
+        else {
+            // recurse upwards
+            retValue = getParent()->getRootVcounter();
+        }
+        return retValue;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a5d355f8da3eb609f5c81ce63b437fcf9}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Smallest\-Leaf\-Count@{get\-Smallest\-Leaf\-Count}}
+\index{get\-Smallest\-Leaf\-Count@{get\-Smallest\-Leaf\-Count}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Smallest\-Leaf\-Count}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Smallest\-Leaf\-Count} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a5d355f8da3eb609f5c81ce63b437fcf9}
+
+
+\-Get the count of the leaf with the smallest count. 
+
+\-Returns the count in the smallest (by count) leaf node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a6a75d9675312fb76aaf98bbeb084f9d6}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1175 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, get\-Leaves(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+\begin{DoxyCode}
+    {
+        size_t smallestCount = 0;
+
+        if (isLeaf()) {  // this is a leaf
+            smallestCount = counter;
+        }
+
+        else { // this is not a leaf
+            // set up a container for the leaf children
+            SPSVnodePtrs leaves;
+            // fill the container with the leaf children
+            getLeaves(leaves);
+
+            // find the smallest child by count
+            SPSVnodePtrsItr it;
+            SPSVnode* smallest = *(leaves.begin());
+
+            smallestCount = smallest->counter;
+
+            for(it = leaves.begin(); it < leaves.end(); it++) {
+                if ((*it)->counter < smallestCount) {
+
+                    smallestCount = (*it)->counter;
+                }
+            }
+        } // end else not a leaf
+
+        return smallestCount;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_aa5408d2d74de8b95325c5973cf43f7fb}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Sub\-Leaves@{get\-Sub\-Leaves}}
+\index{get\-Sub\-Leaves@{get\-Sub\-Leaves}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Sub\-Leaves}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode\-Ptrs} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Sub\-Leaves} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-P\-S\-Vnode\-Ptrs} \&}]{subleaves}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_aa5408d2d74de8b95325c5973cf43f7fb}
+
+
+\-Return a reference to all sub-\/leaf descendent nodes. 
+
+\-Sub-\/leaf nodes have at least one child but any child must be a leaf, ie sub-\/leaves are the parents of leaf nodes.
+
+\-Will be just this if this is a subleaf.
+
+\begin{DoxyReturn}{\-Returns}
+a reference to a container of node pointers. 
+\end{DoxyReturn}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_af5ff16174902743a78b2d3db3e0a1c70}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1103 of file spsvnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), get\-Sub\-Leaves(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), and subpavings\-::\-S\-Pnode\-::is\-Sub\-Leaf().
+
+
+
+\-Referenced by get\-Sub\-Leaves().
+
+
+\begin{DoxyCode}
+    {
+        //if children, recurse on the children
+        if (hasLCwithBox()) {
+            getLeftChild()->getSubLeaves(subleaves);
+        }
+
+        if (hasRCwithBox()) {
+            getRightChild()->getSubLeaves(subleaves);
+        }
+
+        if (isSubLeaf()) { // this is a subleaf
+            // arrgh horrible - cast away const if this node is a subleaf
+            subleaves.push_back(const_cast<SPSVnode*>(this));
+        }
+        return subleaves;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ac741a9772d992ba74911cf692e1ed772}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Sum\-Leaf\-Count\-Over\-Vol@{get\-Sum\-Leaf\-Count\-Over\-Vol}}
+\index{get\-Sum\-Leaf\-Count\-Over\-Vol@{get\-Sum\-Leaf\-Count\-Over\-Vol}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Sum\-Leaf\-Count\-Over\-Vol}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Sum\-Leaf\-Count\-Over\-Vol} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_ac741a9772d992ba74911cf692e1ed772}
+
+
+\-Get the sum of the count over volume in the leaf nodes. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_adf589d16a3e20b4285f428c8dc42d75d}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1147 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, get\-Leaves(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Root\-Sum\-Leaf\-Count\-Over\-Vol().
+
+
+\begin{DoxyCode}
+    {
+        dotprecision sum(0.0);
+
+        if (isLeaf()) {  // this is a leaf
+            accumulate(sum, 1.0*counter, (1.0/nodeVolume()));
+        }
+
+        else { // this is not a leaf
+
+            SPSVnodePtrs leaves;
+            // fill the container with the leaf children
+            getLeaves(leaves);
+
+            SPSVnodePtrsItr it;
+
+            for(it = leaves.begin(); it < leaves.end(); it++) {
+                accumulate(sum, 1.0*((*it)->getCounter()),
+                            (1.0/(*it)->nodeVolume()));
+            }
+        }
+        return rnd(sum);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ae2cfb09a96d3c6b0d716236cbfccebd3}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Uniform\-Mean@{get\-Uniform\-Mean}}
+\index{get\-Uniform\-Mean@{get\-Uniform\-Mean}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Uniform\-Mean}]{\setlength{\rightskip}{0pt plus 5cm}rvector {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Uniform\-Mean} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_ae2cfb09a96d3c6b0d716236cbfccebd3}
+
+
+\-Get the uniform mean vector where each element is the midpoint of the coordinate. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a4369d3887385551e053d3873b600f8a1}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1356 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::dimension, and subpavings\-::\-S\-Pnode\-::get\-Box().
+
+
+
+\-Referenced by get\-Cheb\-Dist\-Mean(), get\-Hellinger\-Dist(), and get\-Hellinger\-Dist1\-D().
+
+
+\begin{DoxyCode}
+  {
+    rvector unifMean(dimension);
+    
+    // loop through the coordinates of this box to get the midpoint at each
+    // coordinate
+    ivector thisBox = getBox();
+    for (size_t i = 1; i <= dimension; i++) {
+      unifMean[i] = mid(thisBox[i]);
+    }
+    return unifMean;
+  }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a0a9c9ba4802d37fdb0ee1fff25908fbb}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Uniform\-Var\-Covar@{get\-Uniform\-Var\-Covar}}
+\index{get\-Uniform\-Var\-Covar@{get\-Uniform\-Var\-Covar}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Uniform\-Var\-Covar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Uniform\-Var\-Covar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a0a9c9ba4802d37fdb0ee1fff25908fbb}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a83c7f66b07ab9afd1934b080fd4af8c4}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1730 of file spsvnode.\-cpp.
+
+
+
+\-Referenced by get\-Cheb\-Dist\-Covar(), get\-Hellinger\-Dist(), and get\-Hellinger\-Dist1\-D().
+
+
+\begin{DoxyCode}
+    {
+        RealVec retVarCovar;
+        retVarCovar = getUniformVarCovar(retVarCovar);
+        return retVarCovar;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ab1f050670fdcdc6f68e009a0cba0ed35}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Uniform\-Var\-Covar@{get\-Uniform\-Var\-Covar}}
+\index{get\-Uniform\-Var\-Covar@{get\-Uniform\-Var\-Covar}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Uniform\-Var\-Covar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Uniform\-Var\-Covar} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Vec} \&}]{var\-Covar}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_ab1f050670fdcdc6f68e009a0cba0ed35}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a8ca1683e838159d5a33048344bec9b49}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1739 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::dimension, and subpavings\-::\-S\-Pnode\-::get\-Box().
+
+
+\begin{DoxyCode}
+    {
+      unifVarCovar.reserve(dimension*dimension);
+      ivector thisBox = getBox();
+      
+      // fill in the matrix where the diag are (1/12)*(b-a)^2 and off-diag 
+      // are 0.
+      for (size_t i = 0; i < dimension*dimension; i++) {
+          unifVarCovar.push_back(0.0); //first fill up the container with 0
+      }
+      // then fill up the diags
+      for (size_t i = 0; i < dimension; i++) {
+        int pos = i*dimension + i;
+        unifVarCovar[pos] = 1.0/12.0 * (Sup(thisBox[i+1]) - Inf(thisBox[i+1])) 
+                      * (Sup(thisBox[i+1]) - Inf(thisBox[i+1]));
+      }
+      
+      //for (size_t i = 0; i < dimension*dimension; i++) {cout <<
+       unifVarCovar[i] << endl;}
+
+        return unifVarCovar;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_abdef36aad99bfe53f78d4e8304ac59d6}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Var\-Covar@{get\-Var\-Covar}}
+\index{get\-Var\-Covar@{get\-Var\-Covar}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Var\-Covar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Var\-Covar} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_abdef36aad99bfe53f78d4e8304ac59d6}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a7637c85b772a280a9769b97f7bace3c3}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1347 of file spsvnode.\-cpp.
+
+
+
+\-Referenced by get\-Cheb\-Dist\-Covar(), get\-Hellinger\-Dist(), and get\-Hellinger\-Dist1\-D().
+
+
+\begin{DoxyCode}
+    {
+        RealVec retVarCovar;
+        retVarCovar = getVarCovar(retVarCovar);
+        return retVarCovar;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a61adf71c4652c4ec29a9dc323174d1a3}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Var\-Covar@{get\-Var\-Covar}}
+\index{get\-Var\-Covar@{get\-Var\-Covar}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Var\-Covar}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Vec} \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Var\-Covar} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Vec} \&}]{var\-Covar}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a61adf71c4652c4ec29a9dc323174d1a3}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a1bc0843e834ae4d09db3bc148b64761b}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1294 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, subpavings\-::\-S\-P\-Snode\-::counts\-Only, subpavings\-::\-S\-Pnode\-::dimension, subpavings\-::\-S\-P\-Snode\-::dp\-Sum\-Products, and subpavings\-::\-S\-P\-Snode\-::dp\-Sums.
+
+
+\begin{DoxyCode}
+    {
+        varCovar.clear();
+        varCovar.reserve(dimension*dimension);
+
+        // loop through the elements in the dpSumProducts vector
+        for (size_t k = 0; k < dimension*dimension; k++) {
+
+            // counts only held or if 0 or 1 data points
+            // each element of the var-covar is 0.0
+            if (countsOnly || (counter <= 1)) {
+                varCovar.push_back(0.0);
+            }
+            // if >1 data points find element-by-element var-covar
+
+            /*the var-covar is the sample var-covar
+            which is
+            [sumproduct(i,j)-sum(i)sum(j)/counter]/(counter-1)
+
+            element k in the vector of dotprecison sumproducts
+            corresponds to row k/n, (row 0 to n-1)
+            and column k-row*n (col 0 to n-1)
+            in a matrix view of the sumproducts */
+
+            else {
+                size_t i = k/dimension; // row  (int/int = int)
+                size_t j = k - i*dimension; // column
+
+                // make another dotprecision variable
+                dotprecision temp1 = dpSumProducts[k];
+
+                dotprecision temp2(0.0);
+                // sum(i) x sum(j)
+                // default cxsc rounding dotprecision rnd_next
+                accumulate(temp2,  rnd(dpSums[i]),
+                        rnd(dpSums[j]));
+
+                real div = -1.0/counter;
+
+                // sumproduct(i,j) - sum(i)(sum(j)/counter
+                // default cxsc rounding
+                accumulate(temp1, rnd(temp2), div);
+                // calculate the variance covariance element
+                varCovar.push_back(rnd(temp1)/(1.0*(counter-1)));
+
+            }
+        }// end loop through the elements in dpSumProducts
+
+        return varCovar;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a7d7f4ecaaf020bcb614557eba4743f6a}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Vcounter@{get\-Vcounter}}
+\index{get\-Vcounter@{get\-Vcounter}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Vcounter}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Vcounter} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a7d7f4ecaaf020bcb614557eba4743f6a}
+
+
+\-Accessor for the node's validation data counter. 
+
+\-Returns \-Vcounter. 
+
+\-Definition at line 894 of file spsvnode.\-cpp.
+
+
+
+\-References \-Vcounter.
+
+
+
+\-Referenced by subpavings\-::\-Collator\-S\-P\-Vnode\-::\-Collator\-S\-P\-Vnode(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-Interval\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Root\-Vcounter(), and subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Unif\-I\-A\-E().
+
+
+\begin{DoxyCode}
+    { return Vcounter; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a05d47c013af462f857c6f54b20cb3404}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!get\-Vdata@{get\-Vdata}}
+\index{get\-Vdata@{get\-Vdata}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{get\-Vdata}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node\-Data} {\bf subpavings\-::\-S\-P\-S\-Vnode\-::get\-Vdata} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a05d47c013af462f857c6f54b20cb3404}
+
+
+\-Accessor for the node's validation data collection. 
+
+\-Returns a copy of the node's collection of iterators to the big data set. 
+
+\-Definition at line 903 of file spsvnode.\-cpp.
+
+
+
+\-References \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+    { return VdataItrs; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a58deac20a0a5b69bb06cdc04fc059135}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!insert\-One\-Find@{insert\-One\-Find}}
+\index{insert\-One\-Find@{insert\-One\-Find}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{insert\-One\-Find}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} $\ast$ {\bf subpavings\-::\-S\-P\-S\-Vnode\-::insert\-One\-Find} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Big\-Data\-Itr}}]{new\-Itr, }
+\item[{{\bf \-O\-P\-E\-R\-A\-T\-I\-O\-N\-S\-\_\-\-O\-N}}]{child\-Ind, }
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test, }
+\item[{bool}]{bool\-Val}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1SPSVnode_a58deac20a0a5b69bb06cdc04fc059135}
+
+
+\-Inserts data into this node. 
+
+\-Called recursively from the root and through the tree, seeking leaf node whose box contains the data point. \-If data is inserted, this method also tests whether the node should be expanded following the addition of the data. \-Following an expansion, insert\-One\-Find is used again to pass the the node's data down to its new children.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em new\-Itr} & an iterator to the data in big data collection. \\
+\hline
+{\em child\-Ind} & an indicator for whether the current node is a treated as a left or right child or a root. \-This is passed to \hyperlink{classsubpavings_1_1SPSVnode_a803d11f31d86f0565dbe682a33099698}{node\-Contains()} when testing whether the node contains the data. \\
+\hline
+{\em bool\-Test} & is a reference to an object providing a function operator determining whether to split a node when a data point arrives. \-This object can a dummy which never splits the node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+a pointer to the node the data is 'inserted' into, before it is split, or \-N\-U\-L\-L if no insert. 
+\end{DoxyReturn}
+
+
+\-Definition at line 2132 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), subpavings\-::\-S\-Pnode\-::left\-Child, node\-Contains(), node\-Expand(), subpavings\-::\-O\-N\-\_\-\-L\-E\-F\-T, subpavings\-::\-O\-N\-\_\-\-R\-I\-G\-H\-T, recalculate\-Stats(), subpavings\-::\-S\-Pnode\-::right\-Child, and \-Vdata\-Itrs.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::insert\-Data\-From\-Container(), node\-Adopt\-Left(), node\-Adopt\-Right(), and node\-Reunite().
+
+
+\begin{DoxyCode}
+   {
+      rvector newData = *newItr;
+      // start at the top
+      SPSVnode* retObj = NULL;
+      if(nodeContains(newData, childInd)) {
+            recalculateStats(newData, boolVal);
+            bool wasLeaf = (isLeaf());
+            // if it is a leaf, add the data and return this object
+            if(wasLeaf) { 
+                if (boolVal==true) {
+                   VdataItrs.push_back(newItr);
+                }
+                else {
+                     dataItrs.push_back(newItr);
+                }            
+                // give this node as return value
+                retObj = this;
+                // split if we need to
+                if (boolTest(this)) {
+                    // expand and split data to children
+                    nodeExpand(boolTest, boolVal);
+                } // end if we need to split
+            } // end of isLeaf
+            // if not a leaf before we had split, and contains data
+            // recurse on the children if any
+            if (!wasLeaf) {
+               if(rightChild!=NULL && !rightChild->isEmpty()){
+                    retObj =
+                    (getRightChild())->insertOneFind(
+                        newItr, ON_RIGHT, boolTest, boolVal);
+               }
+               // only try left if we did not find on the right
+               if(retObj == NULL && leftChild!=NULL &&
+                                    !leftChild->isEmpty()) {
+                    retObj =
+                    (getLeftChild())->insertOneFind(newItr,
+                    ON_LEFT, boolTest, boolVal);
+               }
+            }
+         } // end if node contains
+        // will return null if does not contain the data
+        return retObj;
+      }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a01b35db8ce4b99460ff352f6d25a529c}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!leaf\-Output\-Tabs@{leaf\-Output\-Tabs}}
+\index{leaf\-Output\-Tabs@{leaf\-Output\-Tabs}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{leaf\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::leaf\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a01b35db8ce4b99460ff352f6d25a529c}
+
+
+\-Output for a node in a binary tree, tab-\/delimited. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Replaces the format that that the cxsc\-:\-:$<$$<$ operator produces for interval vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data. \-The format for an n-\/dimensional interval vector is\-:
+
+label \mbox{[}tab\mbox{]} counter \mbox{[}tab\mbox{]} \-Vcounter \mbox{[}tab\mbox{]} volume \mbox{[}tabl\mbox{]} \-Inf(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} ... \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}n\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}n\mbox{]}) 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a3cc0c8bb64c854ef16ba03891f5945d6}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 373 of file spsvnode.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+        int prec = 5; // precision for output
+
+        if(theBox != NULL) { // do nothing if there is no box
+
+            ivector thisBox = *theBox; // copy of theBox
+
+            // output the node name, nodeVolume, counter
+            os << nodeName;
+            os << "\t" << nodeVolume();
+            os << "\t" << counter;
+            os << "\t" << Vcounter;
+            // followed by the intervals of box using Inf and Sup
+            // ie unlike cxsc output, there is no [  ] around them
+
+            streamsize oldPrec = os.precision();
+            os << setprecision(prec);
+
+            for (int i= Lb(thisBox); i <= Ub(thisBox) ; i++) {
+
+                os << "\t" << Inf(thisBox[i])
+                    << "\t" << Sup(thisBox[i]);
+            }
+            os << setprecision(oldPrec);
+
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a2ab7acc0aff92694976546f1555f67ed}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!leaf\-Output\-Tabs\-With\-E\-M\-Ps@{leaf\-Output\-Tabs\-With\-E\-M\-Ps}}
+\index{leaf\-Output\-Tabs\-With\-E\-M\-Ps@{leaf\-Output\-Tabs\-With\-E\-M\-Ps}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{leaf\-Output\-Tabs\-With\-E\-M\-Ps}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::leaf\-Output\-Tabs\-With\-E\-M\-Ps} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{big\-N, }
+\item[{std\-::ostream \&}]{os, }
+\item[{const int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a2ab7acc0aff92694976546f1555f67ed}
+
+
+\-Output for a node in a binary tree, tab-\/delimited. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Replaces the format that that the cxsc\-:\-:$<$$<$ operator produces for interval vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data.
+
+\-The format for a d-\/dimensional interval vector is
+
+node\-Name \mbox{[}tab\mbox{]} counter \mbox{[}tab\mbox{]} volume \mbox{[}tab\mbox{]} scaled \-E\-M\-P contribution \-C\-O\-P\-E\-R\-R \mbox{[}tab\mbox{]} change in scaled \-E\-M\-P contribution \-C\-O\-P\-E\-R\-R if split \mbox{[}tab\mbox{]} scaled \-E\-M\-P contribution \-A\-I\-C \mbox{[}tab\mbox{]} change in scaled \-E\-M\-P contribution \-A\-I\-C if split \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}1\mbox{]}.\mbox{[}tab\mbox{]} . . \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}d\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}d\mbox{]} 
+\begin{DoxyParams}{\-Parameters}
+{\em big\-N} & is total datapoints, used by the emps calculation \\
+\hline
+{\em os} & is the stream to send to \\
+\hline
+{\em prec} & is the precision used for printing, defaulting to 5 \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_ac273545c33e3abb0114811e7a1b06f98}{subpavings\-::\-S\-P\-Snode}.
+
+\hypertarget{classsubpavings_1_1SPSVnode_a6eff83d7095798158c0bc17ee70e54c0}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!leaf\-Output\-Tabs\-With\-Hist\-Height@{leaf\-Output\-Tabs\-With\-Hist\-Height}}
+\index{leaf\-Output\-Tabs\-With\-Hist\-Height@{leaf\-Output\-Tabs\-With\-Hist\-Height}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{leaf\-Output\-Tabs\-With\-Hist\-Height}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::leaf\-Output\-Tabs\-With\-Hist\-Height} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{big\-N, }
+\item[{std\-::ostream \&}]{os, }
+\item[{const int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private, virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a6eff83d7095798158c0bc17ee70e54c0}
+
+
+\-Output for a node in a binary tree, tab-\/delimited. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Includes the height of a bin represented by this leaf node for a normalised histogram, ie counter/(node volume $\ast$ total count in tree)
+
+\-Replaces the format that that the cxsc\-:\-:$<$$<$ operator produces for interval vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data. \-The format for a d-\/dimensional interval vector is\-:
+
+node\-Name \mbox{[}tab\mbox{]} counter \mbox{[}tab\mbox{]} volume \mbox{[}tabl\mbox{]} counter/(volume$\ast$total count) \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} ... \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}d\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}d\mbox{]}) 
+\begin{DoxyParams}{\-Parameters}
+{\em big\-N} & is total data points, used by the height calculation \\
+\hline
+{\em os} & is the stream to send to \\
+\hline
+{\em prec} & is the precision used for printing, defaulting to 5 \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aaf9ac8d98bda6e99c74b946d85c6bc61}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 405 of file spsvnode.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by leaves\-Output\-Tabs\-With\-Hist\-Height().
+
+
+\begin{DoxyCode}
+    {
+        if(theBox != NULL) { // do nothing if there is no box
+
+            ivector thisBox = *theBox; // copy of theBox
+            double vol = nodeVolume();
+
+            // output the node name, nodeVolume, counter, counter/(bigN * vol)
+            os << nodeName;
+            os << "\t" << vol;
+            os << "\t" << counter;
+            os << "\t" << counter/(vol * bigN);
+            // followed by the intervals of box using Inf and Sup
+            // ie unlike cxsc output, there is no [  ] around them
+            streamsize oldPrec = os.precision();
+            os << setprecision(prec);
+
+            for (int i= Lb(thisBox); i <= Ub(thisBox) ; i++) {
+
+                os << "\t" << Inf(thisBox[i])
+                    << "\t" << Sup(thisBox[i]);
+            }
+            os << setprecision(oldPrec);
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a4ed4d26826f77814558a0ad3770582f4}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!leaf\-Output\-Tabs\-With\-Hist\-Height\-And\-E\-M\-Ps@{leaf\-Output\-Tabs\-With\-Hist\-Height\-And\-E\-M\-Ps}}
+\index{leaf\-Output\-Tabs\-With\-Hist\-Height\-And\-E\-M\-Ps@{leaf\-Output\-Tabs\-With\-Hist\-Height\-And\-E\-M\-Ps}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{leaf\-Output\-Tabs\-With\-Hist\-Height\-And\-E\-M\-Ps}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::leaf\-Output\-Tabs\-With\-Hist\-Height\-And\-E\-M\-Ps} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{big\-N, }
+\item[{std\-::ostream \&}]{os, }
+\item[{const int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a4ed4d26826f77814558a0ad3770582f4}
+
+
+\-Output for a node in a binary tree, tab-\/delimited. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Replaces the format that that the cxsc\-:\-:$<$$<$ operator produces for interval vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data.
+
+\-Includes the height of a bin represented by this leaf node for a normalised histogram, ie counter/(node volume $\ast$ total count in tree)
+
+\-The format for a d-\/dimensional interval vector is
+
+node\-Name \mbox{[}tab\mbox{]} counter \mbox{[}tab\mbox{]} volume \mbox{[}tabl\mbox{]} counter/(volume$\ast$total count) scaled \-E\-M\-P contribution \-C\-O\-P\-E\-R\-R \mbox{[}tab\mbox{]} change in scaled \-E\-M\-P contribution \-C\-O\-P\-E\-R\-R if split \mbox{[}tab\mbox{]} scaled \-E\-M\-P contribution \-A\-I\-C \mbox{[}tab\mbox{]} change in scaled \-E\-M\-P contribution \-A\-I\-C if split \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}1\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}1\mbox{]}.\mbox{[}tab\mbox{]} . . \mbox{[}tab\mbox{]} \-Inf(ivector\mbox{[}d\mbox{]}) \mbox{[}tab\mbox{]} \-Sup(ivector\mbox{[}d\mbox{]} 
+\begin{DoxyParams}{\-Parameters}
+{\em big\-N} & is total data points, used by emps and height calculations \\
+\hline
+{\em os} & is the stream to send to \\
+\hline
+{\em prec} & is the precision used for printing, defaulting to 5 \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_ad64bd4af47589b21d9c8dde5135c3d0a}{subpavings\-::\-S\-P\-Snode}.
+
+\hypertarget{classsubpavings_1_1SPSVnode_abcac815b9e5e60a3d18fa3534a12c518}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!leaves\-Output\-Tabs@{leaves\-Output\-Tabs}}
+\index{leaves\-Output\-Tabs@{leaves\-Output\-Tabs}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{leaves\-Output\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::leaves\-Output\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_abcac815b9e5e60a3d18fa3534a12c518}
+
+
+\-Output for for {\bfseries all leaves} of a binary tree. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Recursively uses \hyperlink{classsubpavings_1_1SPSVnode_a01b35db8ce4b99460ff352f6d25a529c}{leaf\-Output\-Tabs()} to output information for each leaf node. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_abe732a753f432c2239c9f82a47d089b1}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1795 of file spsvnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), leaf\-Output\-Tabs(), and leaves\-Output\-Tabs().
+
+
+
+\-Referenced by leaves\-Output\-Tabs(), and subpavings\-::\-Adaptive\-Histogram\-Validation\-::output\-To\-Txt\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+        // uses  member function leafOutputTabs to generate node output
+        if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+            leafOutputTabs(os);
+            return (os << "\n");
+
+        }
+
+        //recurse on the children
+        if (getLeftChild()!=NULL) {
+            getLeftChild()->leavesOutputTabs(os);
+        }
+
+        if (getRightChild()!=NULL) {
+            getRightChild()->leavesOutputTabs(os);
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_adc55cda7856cfdd854051b891263d3bf}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!leaves\-Output\-Tabs\-With\-Hist\-Height@{leaves\-Output\-Tabs\-With\-Hist\-Height}}
+\index{leaves\-Output\-Tabs\-With\-Hist\-Height@{leaves\-Output\-Tabs\-With\-Hist\-Height}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{leaves\-Output\-Tabs\-With\-Hist\-Height}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::leaves\-Output\-Tabs\-With\-Hist\-Height} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const int}]{prec}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_adc55cda7856cfdd854051b891263d3bf}
+
+
+\-Output for for {\bfseries all leaves} of a binary tree. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Recursively uses \hyperlink{classsubpavings_1_1SPSVnode_a6eff83d7095798158c0bc17ee70e54c0}{leaf\-Output\-Tabs\-With\-Hist\-Height()} to output information for each leaf node. \-Includes output for the height of histogram bins for a normalised histogram based on tree with total number of data points of this root. 
+\begin{DoxyParams}{\-Parameters}
+{\em os} & is the stream to send to \\
+\hline
+{\em prec} & is the precision used for printing, defaulting to 5 \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a11c1e7c0e652b891c08dfefebd285904}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1818 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter.
+
+
+
+\-Referenced by leaves\-Output\-Tabs\-With\-Hist\-Height().
+
+
+\begin{DoxyCode}
+    {
+        leavesOutputTabsWithHistHeight(counter, os, prec);
+        return (os);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a8419f16a2f0667bc190a4a9ed41121c1}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!leaves\-Output\-Tabs\-With\-Hist\-Height@{leaves\-Output\-Tabs\-With\-Hist\-Height}}
+\index{leaves\-Output\-Tabs\-With\-Hist\-Height@{leaves\-Output\-Tabs\-With\-Hist\-Height}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{leaves\-Output\-Tabs\-With\-Hist\-Height}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::leaves\-Output\-Tabs\-With\-Hist\-Height} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{big\-N, }
+\item[{std\-::ostream \&}]{os, }
+\item[{const int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1SPSVnode_a8419f16a2f0667bc190a4a9ed41121c1}
+
+
+\-Output for for {\bfseries all leaves} of a binary tree. 
+
+\-Output intended for a txt file, in numeric form only.
+
+\-Recursively uses \hyperlink{classsubpavings_1_1SPSVnode_a6eff83d7095798158c0bc17ee70e54c0}{leaf\-Output\-Tabs\-With\-Hist\-Height()} to output information for each leaf node. \-Includes output for the height of histogram bins for a normalised histogram based on tree with total number of data points of this root. 
+\begin{DoxyParams}{\-Parameters}
+{\em big\-N} & is total data points, used by emps and height calculations \\
+\hline
+{\em os} & is the stream to send to \\
+\hline
+{\em prec} & is the precision used for printing, defaulting to 5 \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a7f8027e04d883efdf7b627208775b989}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1828 of file spsvnode.\-cpp.
+
+
+
+\-References get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), leaf\-Output\-Tabs\-With\-Hist\-Height(), and leaves\-Output\-Tabs\-With\-Hist\-Height().
+
+
+\begin{DoxyCode}
+    {
+        // uses  member function leafOutputTabs to generate node output
+        if (!(isEmpty()) && isLeaf()) { // this is a non-empty leaf
+            leafOutputTabsWithHistHeight(bigN, os, prec);
+            return (os << "\n");
+
+        }
+
+        //recurse on the children
+        if (getLeftChild()!=NULL) {
+            getLeftChild()->leavesOutputTabsWithHistHeight(bigN, os, prec);
+        }
+
+        if (getRightChild()!=NULL) {
+            getRightChild()->leavesOutputTabsWithHistHeight(bigN, os, prec);
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a928db3d7b687a9fb5d50fa135f51b040}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Adopt\-Left@{node\-Adopt\-Left}}
+\index{node\-Adopt\-Left@{node\-Adopt\-Left}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Adopt\-Left}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Adopt\-Left} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-P\-S\-Vnode} $\ast$}]{l\-Child}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a928db3d7b687a9fb5d50fa135f51b040}
+
+
+\-Builds a higher level of a tree from existing nodes. 
+
+\-This adopts a left child rather than attempting to reunite two children into this. \begin{DoxyWarning}{\-Warning}
+not thoroughly tested 
+\end{DoxyWarning}
+
+
+\-Definition at line 2036 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, gather\-Data(), insert\-One\-Find(), subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-O\-N\-\_\-\-P\-A\-R\-E\-N\-T, and set\-Splits().
+
+
+
+\-Referenced by node\-Reunite().
+
+
+\begin{DoxyCode}
+    {
+        // *this is the node which will become the parent
+
+        // we have to collect all the data from the child,
+        // and fire it into this to make sure that the stats
+        // for this (this node) are correct
+
+        NodeData tempContainer;
+        gatherData(tempContainer, lChild);
+
+        // reserve capacity in this
+        dataItrs.reserve(tempContainer.size());
+
+        NodeDataItr it;
+
+        SPSVnode* insertedInto = NULL;
+
+        for (it = tempContainer.begin();
+            it < tempContainer.end(); it++) {
+
+            SplitNever sn; // dummy split decision maker
+            bool boolVal = true;
+            insertedInto = insertOneFind(*it, ON_PARENT, sn, boolVal);
+            // insert with no splitting
+            if (insertedInto == NULL) {
+                std::cerr << "Check SPSVnode::nodeAdoptLeft: "
+                    << "data " << **it << " from node "
+                    << "to be adopted rejected by new "
+                    << "parent" << std::endl;
+            }
+        }
+
+        // the stats for this should now be right
+        // but the data is associated with its descendent nodes
+        // so we need to clear the actual data
+        dataItrs.clear();
+
+        // point parent and child pointers in the right directions
+        // nodeAddLeft() checks labels, hull size , present children
+        nodeAddLeft(lChild);
+        setSplits(); // set the split dimension and split value
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a33d64bef2bd9dd7f430b732719eab71d}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Adopt\-Right@{node\-Adopt\-Right}}
+\index{node\-Adopt\-Right@{node\-Adopt\-Right}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Adopt\-Right}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Adopt\-Right} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-P\-S\-Vnode} $\ast$}]{r\-Child}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a33d64bef2bd9dd7f430b732719eab71d}
+
+
+\-Builds a higher level of a tree from existing nodes. 
+
+\-This adopts a right child rather than attempting to reunite two children into this. \begin{DoxyWarning}{\-Warning}
+\-Not thoroughly tested 
+\end{DoxyWarning}
+
+
+\-Definition at line 2085 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, gather\-Data(), insert\-One\-Find(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-O\-N\-\_\-\-P\-A\-R\-E\-N\-T, and set\-Splits().
+
+
+
+\-Referenced by node\-Reunite().
+
+
+\begin{DoxyCode}
+    {
+        //* this is the node which will become the parent
+
+        // we have to collect all the data from the child,
+        // and fire it into this to make sure that the stats
+        // for this (this node) are correct
+        NodeData tempContainer;
+        gatherData(tempContainer, rChild);
+
+        // reserve capacity in this
+        dataItrs.reserve(tempContainer.size());
+
+        NodeDataItr it;
+
+        SPSVnode* insertedInto = NULL;
+
+        for (it = tempContainer.begin();
+            it < tempContainer.end(); it++) {
+
+            SplitNever sn; // dummy split decision maker
+            bool boolVal = false;
+            insertedInto = insertOneFind(*it, ON_PARENT, sn, boolVal);
+            // insert with no splitting
+            if (insertedInto == NULL) {
+                std::cerr << "Check SPSVnode::nodeAdoptRight: "
+                    << "data " << **it << " from node to "
+                    << "be adopted rejected by new parent"
+                    << std::endl;
+            }
+        }
+
+        // the stats for this should now be right
+        // but the data is associated with its descendent nodes
+        // so we need to clear the actual data
+        dataItrs.clear();
+
+        // point parent and child pointers in the right directions
+        // nodeAddRight() checks labels, hull size, present children
+        nodeAddRight(rChild);
+        setSplits(); // set the split dimension and split value
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a803d11f31d86f0565dbe682a33099698}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Contains@{node\-Contains}}
+\index{node\-Contains@{node\-Contains}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Contains}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Contains} (
+\begin{DoxyParamCaption}
+\item[{const rvector \&}]{p, }
+\item[{{\bf \-O\-P\-E\-R\-A\-T\-I\-O\-N\-S\-\_\-\-O\-N}}]{child\-Ind}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a803d11f31d86f0565dbe682a33099698}
+
+
+\-Check if the box a node represents contains a datapoint p. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em p} & the value of the data point being tested for containment in the box represented by this node. \\
+\hline
+{\em child\-Ind} & indicates whether this should be considered to be a left child or a right child (ie where we need to take splitting dimension and value into account) or as a parent node.\\
+\hline
+\end{DoxyParams}
+child\-Ind, together with the split\-Value and split\-Dimension of the parent, is used to to make sure that the containment assessment takes notice of the open and closed intervals at the split value on the split dimension that result from splitting a box. \-The interval in the split dimension of the right child's box is closed at the split value and the interval of the left child's box is open. \-A datapoint whose element in the split dimension is exactly the split value should be assessed to be in the right child's box but not the left child's box. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a918067afb150c053f7450fd18c6ecd22}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 2184 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), get\-Parent(), subpavings\-::\-S\-P\-Snode\-::get\-Split\-Dim(), subpavings\-::\-S\-P\-Snode\-::get\-Split\-Value(), subpavings\-::\-O\-N\-\_\-\-L\-E\-F\-T, and subpavings\-::\-S\-Pnode\-::parent.
+
+
+
+\-Referenced by insert\-One\-Find().
+
+
+\begin{DoxyCode}
+    {
+        bool retValue = false; // for the return value
+
+        // cast p to an ivector
+        ivector pvec = _ivector(p);
+
+        //find if p is in the box
+        if (pvec <= getBox()) {
+            retValue = true;
+        }
+
+        // if true and there is a parent and this is a left child,
+        // we need to check the split
+        // find what dimension the parent was split on and what
+        // the split value was
+        // pvector must be strictly less than parentSplitValue
+        // on the split dimension
+        if (retValue && parent!=NULL && childInd == ON_LEFT) {
+
+            int parentSplitDim = (getParent())->getSplitDim();
+            real parentSplitValue = (getParent())->getSplitValue();
+
+            if (!(p[parentSplitDim] < parentSplitValue)) {
+            retValue = false;
+            }
+        }
+
+        return retValue;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a5868a7661363e2f3bd7d2e267c22ceb1}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Data\-Print@{node\-Data\-Print}}
+\index{node\-Data\-Print@{node\-Data\-Print}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Data\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Data\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a5868a7661363e2f3bd7d2e267c22ceb1}
+
+
+\-Print the data in a specified format. 
+
+\-Replaces the format that the cxsc\-:\-:$<$$<$ operator produces for vectors. \-The format used here includes the box label and produces numeric tab-\/delimited data. \-The format for an n-\/dimensional real vector data point is\-:
+
+label \mbox{[}tab\mbox{]} rvector\mbox{[}1\mbox{]} \mbox{[}tab\mbox{]} . . . \mbox{[}tab\mbox{]} rvector\mbox{[}n\mbox{]} 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a799dd8e194518c3dd525ecba26072585}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 292 of file spsvnode.\-cpp.
+
+
+
+\-Referenced by node\-Print().
+
+
+\begin{DoxyCode}
+    {
+        if (!dataItrs.empty()) {
+
+            NodeDataItr dataItr;
+
+            os << "Data is" << std::endl;
+            for (dataItr = dataItrs.begin();
+                dataItr!= dataItrs.end(); dataItr++) {
+
+                BigDataItr bigIt = *dataItr;
+                rvector theData = *bigIt;
+
+                for (size_t i = 1; i < dimension + 1; i++) {
+                    os << label; // print the label
+                    os << "  " << theData[i]; // print data
+                }   // end loop through data elements
+
+                os << std::endl;
+
+            } // end loop through data container
+        } // end if counter > 0
+        // if no data, ie counter = 0, then just return os unaltered
+
+        return os;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a94c33927011a8d2613d40ccf6ccfafc1}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Expand@{node\-Expand}}
+\index{node\-Expand@{node\-Expand}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expand} (
+\begin{DoxyParamCaption}
+\item[{int}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a94c33927011a8d2613d40ccf6ccfafc1}
+
+
+\-Expand a leaf node. 
+
+\-Expand a leaf node to have two children and pass data down to the children with no further splitting.
+
+\-Uses node\-Expansion() and \hyperlink{classsubpavings_1_1SPSVnode_a82423d1ad9f1589dbeef2018705591ad}{split\-Data()}.
+
+\-Equivalent to bisecting a box in a regular subpaving. \-Makes two new sibling child nodes of this. 
+\begin{DoxyParams}{\-Parameters}
+{\em comp} & is the dimension on which to to bisect the\-Box. \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_adf0575b58b84a0910a8d5b67b6ec0f48}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1850 of file spsvnode.\-cpp.
+
+
+
+\-References node\-Expansion\-Only(), and split\-Data().
+
+
+\begin{DoxyCode}
+    {
+        nodeExpansionOnly(comp);    // expand the node
+        SplitNever sn;      
+        bool boolVal = true;        // dummy split decision maker
+        splitData(sn, boolVal);            // split the data with no further
+       splitting
+
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_acbad110f9ed41364774c9e2fea658594}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Expand@{node\-Expand}}
+\index{node\-Expand@{node\-Expand}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expand} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test, }
+\item[{int}]{comp}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1SPSVnode_acbad110f9ed41364774c9e2fea658594}
+
+
+\-Expand a leaf node. 
+
+\-Expand a leaf node to have two children and pass data down to the children, allowing for further splitting.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bool\-Test} & is a reference to an object providing a function operator determining whether to split a node when a data point arrives. \\
+\hline
+{\em comp} & is the dimension on which to to bisect the\-Box. \\
+\hline
+\end{DoxyParams}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a0728b0ec4deee17f6a729a97c8b5a560}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1862 of file spsvnode.\-cpp.
+
+
+
+\-References node\-Expansion\-Only(), and split\-Data().
+
+
+\begin{DoxyCode}
+    {
+        nodeExpansionOnly(comp);    // expand the node
+        // split the data, allowing for further splitting
+        bool boolVal = true; 
+        splitData(boolTest, boolVal);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a0eb85efd74fa770f3259d6ba948b65b8}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Expand@{node\-Expand}}
+\index{node\-Expand@{node\-Expand}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expand} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a0eb85efd74fa770f3259d6ba948b65b8}
+
+
+\-Expand a leaf node. 
+
+\-Expand a leaf node to have two children and pass data down to the children with no further splitting.
+
+\-Finds the splitting dimension. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_ae432186483a5ec950dab0eb00b08a9bc}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1873 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), and \-Max\-Diam().
+
+
+
+\-Referenced by insert\-One\-Find().
+
+
+\begin{DoxyCode}
+    {
+        int maxdiamcomp; // variable to hold first longest dimension
+        double temp = ::MaxDiam(getBox(), maxdiamcomp);
+        nodeExpand(maxdiamcomp); // complete nodeExpand
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ada1ce5002ee4985a22d35d8cb651d191}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Expand@{node\-Expand}}
+\index{node\-Expand@{node\-Expand}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expand} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test, }
+\item[{bool}]{bool\-Val}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1SPSVnode_ada1ce5002ee4985a22d35d8cb651d191}
+
+
+\-Expand a leaf node. 
+
+\-Expand the leaf node to have two children and pass data down to the children, allowing for further splitting.
+
+\-Finds the dimension to split on.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em bool\-Test} & is a reference to an object providing a function operator determining whether to split a node when a data point arrives. \\
+\hline
+\end{DoxyParams}
+
+
+\-Definition at line 1882 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), just\-Split, \-Max\-Diam(), node\-Expansion\-Only(), and split\-Data().
+
+
+\begin{DoxyCode}
+    {
+        int maxdiamcomp; // variable to hold first longest dimension
+        double temp = ::MaxDiam(getBox(), maxdiamcomp);
+      
+        nodeExpansionOnly(maxdiamcomp);
+        justSplit = true;
+        splitData(boolTest, boolVal);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a4846c8d9c7d29d0f0850a7a9c30eec2b}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Expand@{node\-Expand}}
+\index{node\-Expand@{node\-Expand}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Expand}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expand} (
+\begin{DoxyParamCaption}
+\item[{bool}]{bool\-Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a4846c8d9c7d29d0f0850a7a9c30eec2b}
+
+
+\-Expand a leaf node to make two leaves as children. 
+
+\-Has parameter bool\-Val for validation data (ingeritance polymorphism) 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPnode_a3b16d632897f3a4fb11f36db1e9004bf}{subpavings\-::\-S\-Pnode}.
+
+
+
+\-Definition at line 1893 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), just\-Split, \-Max\-Diam(), node\-Expansion\-Only(), and split\-Data().
+
+
+\begin{DoxyCode}
+    {
+              
+        int maxdiamcomp; // variable to hold first longest dimension      
+        double temp = ::MaxDiam(getBox(), maxdiamcomp);        
+        nodeExpansionOnly(maxdiamcomp);        
+        justSplit = true;                
+        SplitNever sn;
+        splitData(sn, boolVal);
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a747a3c135503cbf1f1b349a5898cebc4}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Expansion\-Only@{node\-Expansion\-Only}}
+\index{node\-Expansion\-Only@{node\-Expansion\-Only}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Expansion\-Only}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Expansion\-Only} (
+\begin{DoxyParamCaption}
+\item[{int}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a747a3c135503cbf1f1b349a5898cebc4}
+
+
+\-Expand the node with no reallocation of data. 
+
+\-Bisect box, make two new nodes (one for each half box) and graft onto this node provided that this node is a leaf. \-Equivalent to bisecting a box in a regular subpaving. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_ac549870ef3b7994d9e87b952a012a7e9}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 170 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::is\-Leaf(), \-Lower(), and \-Upper().
+
+
+
+\-Referenced by node\-Expand().
+
+
+\begin{DoxyCode}
+    {
+        
+        try
+        {
+            // only do something if this SPSVnode is a leaf
+            if (isLeaf()) {
+                // ivectors to become boxes for new children
+                ivector lC, rC;
+
+                // Call Lower() and Upper() to put the split
+                // boxes into lC and rC respectively
+                
+                   
+                Lower(getBox(), lC, comp);
+                Upper(getBox(), rC, comp);
+
+                // when making new children, use constructor
+                // that will give space indication (for data)
+                // of the size of this node's dataItrs
+                size_t space = dataItrs.size();
+                
+                nodeAddLeft(new SPSVnode(lC, space, countsOnly, label));
+                nodeAddRight(new SPSVnode(rC,space, countsOnly, label));
+
+
+                //name the new children
+                getLeftChild()->setNodeName(nodeName + "L");
+                getRightChild()->setNodeName(nodeName + "R");
+
+                // store the split dimension in this
+                splitDim = comp;
+
+                // store the split value in this
+                // the split value is the infinum of interval
+                // of right child box for dimension split on
+                splitValue = _double(Inf(
+                    ((getRightChild())->getBox())[comp]));
+            }
+        }
+
+        catch (bad_alloc&)
+        {
+            std::cerr << "Error allocating memory in "
+                << "SPSVnode::nodeExpansionOnly()" << std::endl;
+            throw;
+        }
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a768f9507517be618970d19874b1ff992}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Mean\-Print@{node\-Mean\-Print}}
+\index{node\-Mean\-Print@{node\-Mean\-Print}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Mean\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Mean\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a768f9507517be618970d19874b1ff992}
+
+
+\-Print the mean in a specified format. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a5f5cc02f707a2b98f7a93543c71298b2}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 320 of file spsvnode.\-cpp.
+
+
+
+\-Referenced by node\-Print().
+
+
+\begin{DoxyCode}
+    {
+
+        if ((counter > 0) && !countsOnly) {
+
+            os << "Mean is ";
+
+            // loop through the elements in the dpSums vector
+            for (size_t i = 0; i< dimension; i++) {
+                // default cxsc rounding of dotprecision
+                // to rnd_next
+                os << "  " << (rnd(dpSums[i])/(1.0*counter));
+
+            }// end loop through the elements in dpSums
+
+            os << std::endl;
+
+        } // end if
+        // if no data, ie counter = 0, or if we are only keeping counts
+        // then just return os unaltered
+
+        return os;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a51715ef7b6e370006e914fee15061cfc}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Print@{node\-Print}}
+\index{node\-Print@{node\-Print}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a51715ef7b6e370006e914fee15061cfc}
+
+
+\-Output details of a specific node. 
+
+\-This is intended for console output or output to a mixed alpha and numeric file. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aba02715cb75f803df7c3ffd1eaf027e8}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1765 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, taylor\-::\-Lb(), node\-Data\-Print(), node\-Mean\-Print(), node\-Var\-Covar\-Print(), subpavings\-::\-S\-Pnode\-::node\-Volume(), subpavings\-::\-S\-Pnode\-::the\-Box, taylor\-::\-Ub(), and \-Vcounter.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::output\-Root\-To\-Txt().
+
+
+\begin{DoxyCode}
+    {
+        // output for box in form:
+        // box, volume, counter, mean, variance covariance, and data
+
+        if(theBox != NULL) { // do nothing if there is no box
+
+            ivector thisBox = *theBox; // copy theBox
+
+            os << "Box is :";
+
+            for (int i = Lb(thisBox); i <= Ub(thisBox) ; i++) {
+                // c-xsc default output for intervals
+                os << "  " << thisBox[i];
+            }
+
+            os << std::endl;
+            os << "Box volume is " << nodeVolume() << std::endl;
+            os << "Counter = " << counter << std::endl;
+        os << "VCounter = " << Vcounter << std::endl;
+        
+            nodeMeanPrint(os);
+            nodeVarCovarPrint(os);
+            nodeDataPrint(os);
+            os << std::endl;
+        }
+        return os;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_aed19a06dc479c2edc865243d2c131c30}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Reabsorb\-Children@{node\-Reabsorb\-Children}}
+\index{node\-Reabsorb\-Children@{node\-Reabsorb\-Children}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Reabsorb\-Children}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Reabsorb\-Children} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_aed19a06dc479c2edc865243d2c131c30}
+
+
+\-Reabsorbs both children of the node. 
+
+\-Effectively reverses any split of the node.
+
+\-Data associated with the children is pushed back up to this and the split\-Dim and split\-Value reset to leaf defaults.
+
+\-Works even if the children are not leaves. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a68cc1a1722c627a99dcefc3491847fb2}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 1909 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, gather\-Data(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::left\-Child, node\-Reabsorb\-Children(), subpavings\-::\-S\-Pnode\-::right\-Child, subpavings\-::\-S\-P\-Snode\-::split\-Dim, and subpavings\-::\-S\-P\-Snode\-::split\-Value.
+
+
+
+\-Referenced by node\-Reabsorb\-Children().
+
+
+\begin{DoxyCode}
+    {
+        // first recursively deal with the children of the children
+        if (hasLCwithBox())
+            getLeftChild()->nodeReabsorbChildren();
+        if (hasRCwithBox())
+            getRightChild()->nodeReabsorbChildren();
+
+        if (hasLCwithBox()) {
+            gatherData(dataItrs, getLeftChild());
+            delete leftChild;
+            leftChild = NULL;
+        }
+
+        if (hasRCwithBox()) {
+            gatherData(dataItrs, getRightChild());
+            delete rightChild;
+            rightChild = NULL;
+        }
+
+        // reset splitDim and splitValue to their defaults
+        splitDim = -1;
+        splitValue = 0.0;
+
+        leftChild = NULL;
+        rightChild = NULL;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a5abf598ead77d94aa130a8a7bf78f1f7}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Reunite@{node\-Reunite}}
+\index{node\-Reunite@{node\-Reunite}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Reunite}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Reunite} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-S\-P\-S\-Vnode} $\ast$}]{l\-Child, }
+\item[{{\bf \-S\-P\-S\-Vnode} $\ast$}]{r\-Child}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a5abf598ead77d94aa130a8a7bf78f1f7}
+
+
+\-Try to reunite nodes to form one leaf. 
+
+\-Note that the nodes provided, l\-Child and r\-Child, are not the actual children of this, they are potential children which we are trying to either totally bring into this (if there are two of them) or to graft onto this if there is only one of them. \-This is typically a new, part-\/formed node whose formation can be completed by reuniting already two already-\/formed nodes into it or by adding on one child if only one is available. node\-Reunite is used in building a tree upwards (rather than in pruning leaves of formed tree from the bottom up).
+
+\-If two potential children are provided and they are both leaves, it combines the two leaf siblings into this. \-If the potential children are not leaves or if only one potential child is provided, it grafts the potential child/children onto this as its child/children.
+
+\-Data associated with the children is moved to the new parent and statistics recalculated.
+
+\begin{DoxyWarning}{\-Warning}
+node\-Reunite would not normally be used with \-S\-P\-S\-Vnodes but is in the base class and is reimplemented to try do it appropriately for this derived class should it be needed. \-This function is untested. 
+\end{DoxyWarning}
+
+
+\-Definition at line 1960 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::data\-Itrs, gather\-Data(), insert\-One\-Find(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), subpavings\-::\-S\-Pnode\-::label, node\-Adopt\-Left(), node\-Adopt\-Right(), subpavings\-::\-O\-N\-\_\-\-P\-A\-R\-E\-N\-T, subpavings\-::\-S\-Pnode\-::recursive\-Rename(), and subpavings\-::\-S\-Pnode\-::the\-Box.
+
+
+\begin{DoxyCode}
+    {
+        // redo the box, move the data up,
+
+        // *this is the node which will become the parent
+
+        // check that the labels match and exit if not
+        if ((lChild->label != label ) || (rChild->label != label)) {
+            throw SPnodeException("Labels do not match");
+        }
+
+        // if both subpavings are leaves and hull of boxes is x,
+        // discard them: *this is a leaf
+        if (lChild->isLeaf() && rChild->isLeaf()) {
+            if (*theBox !=
+                (*(lChild->theBox) | *(rChild->theBox))) {
+                throw SPnodeException("Boxes to be reunited do not fit");
+            }
+
+            // we have to collect all the data from the children,
+            // and fire it into this to make sure that the
+            // stats for this (this node) are correct
+            NodeData tempContainer;
+            gatherData(tempContainer, lChild);
+            gatherData(tempContainer, rChild);
+
+            // reserve capacity in this
+            dataItrs.reserve(tempContainer.size());
+
+            NodeDataItr it;
+
+            SPSVnode* insertedInto = NULL;
+
+            for (it = tempContainer.begin();
+                it < tempContainer.end(); it++) {
+                // insert with no splitting
+                SplitNever sn;
+                bool boolVal = false;
+                insertedInto = insertOneFind(*it, ON_PARENT, sn, boolVal);
+                if (insertedInto == NULL) {
+                    std::cerr << "Check "
+                        << "SPSVnode::nodeReunite: "
+                        << " data " << **it
+                        << " from nodes to be adopted "
+                        << "rejected by new parent"
+                        << std::endl;
+                }
+            }
+
+            // the stats for this should now be right
+            // and this will be a leaf so the data
+            // should stay associated with it
+
+            //discard the two subpavings given
+            delete lChild;
+            delete rChild;
+
+        }
+
+        else {  // at least one of the children is not a leaf
+            // this has to adopt them rather than reuniting them
+            nodeAdoptRight(rChild);
+            nodeAdoptLeft(lChild);
+            recursiveRename(); // recursively rename child branches
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a096bff1081ceb308590aac8f2f3ee660}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!node\-Var\-Covar\-Print@{node\-Var\-Covar\-Print}}
+\index{node\-Var\-Covar\-Print@{node\-Var\-Covar\-Print}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{node\-Var\-Covar\-Print}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream \& {\bf subpavings\-::\-S\-P\-S\-Vnode\-::node\-Var\-Covar\-Print} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a096bff1081ceb308590aac8f2f3ee660}
+
+
+\-Print the variance-\/covariance in a specified format. 
+
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a03042a5084349960b1fd35396dc509a5}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 346 of file spsvnode.\-cpp.
+
+
+
+\-Referenced by node\-Print().
+
+
+\begin{DoxyCode}
+    {
+        if ((counter > 0) && !countsOnly) {
+
+            RealVec varCovar;
+            varCovar = getVarCovar(varCovar);
+
+            /* element k in the vector representing the
+            variance-covariance matrix corresponds to
+            row k/n, (row 0 to n-1) and column k-row*n (col 0 to n-1)
+            in a matrix view variance-covariance */
+
+            os << "Variance Covariance is " << std::endl;
+
+            // loop through the elements and print as matrix
+            for (size_t i = 0; i < dimension; i++) {
+                for (size_t j = 0; j < dimension; j++) {
+                    os << "  " << varCovar[(i*dimension)+j];
+                }
+                os << std::endl;
+            }
+        }
+        return os;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ad4e310986c60dcebb3fd3c54dab19c33}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!operator=@{operator=}}
+\index{operator=@{operator=}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} \& subpavings\-::\-S\-P\-S\-Vnode\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1SPSVnode_ad4e310986c60dcebb3fd3c54dab19c33}
+
+
+\-Copy assignment operator. 
+
+
+
+\-Definition at line 791 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counter, subpavings\-::\-S\-P\-Snode\-::counts\-Only, subpavings\-::\-S\-P\-Snode\-::data\-Itrs, subpavings\-::\-S\-Pnode\-::dimension, subpavings\-::\-S\-P\-Snode\-::dp\-Sum\-Products, subpavings\-::\-S\-P\-Snode\-::dp\-Sums, get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::label, subpavings\-::\-S\-Pnode\-::left\-Child, subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-Pnode\-::parent, subpavings\-::\-S\-Pnode\-::right\-Child, space\-Indication, subpavings\-::\-S\-P\-Snode\-::split\-Dim, subpavings\-::\-S\-P\-Snode\-::split\-Value, \-S\-P\-S\-Vnode(), subpavings\-::\-S\-Pnode\-::the\-Box, \-Vcounter, and \-Vdata\-Itrs.
+
+
+\begin{DoxyCode}
+    {
+        try {
+
+          //  cout << "copy assignment operator for node " << nodeName << "
+       called:" << endl;
+     
+            // delete the current children (deletes their children as well)
+            if (leftChild != NULL) {
+                delete getLeftChild();
+                leftChild = NULL;
+            }
+
+            if (rightChild != NULL) {
+                delete getRightChild();
+                rightChild = NULL;
+            }
+            // and delete the current box
+            if (theBox != NULL) {
+                delete theBox;
+                theBox = NULL;
+            }
+
+            parent=NULL;
+            theBox=new ivector(*rhs.theBox);
+            dimension = rhs.dimension;
+            label = rhs.label;
+            nodeName = rhs.nodeName;
+
+            spaceIndication = rhs.spaceIndication;
+
+            counter = rhs.counter;
+            Vcounter = rhs.Vcounter;
+            dpSums = rhs.dpSums;
+            dpSumProducts = rhs.dpSumProducts;
+            splitDim = rhs.splitDim;
+            splitValue = rhs.splitValue;
+            countsOnly = rhs.countsOnly;
+
+            //reserve space
+            dataItrs.reserve((rhs.dataItrs).size());
+            VdataItrs.reserve((rhs.VdataItrs).size());
+            //copy dataItrs from other to this
+            dataItrs = rhs.dataItrs;
+        VdataItrs = rhs.VdataItrs;
+        
+            //recursion on the children
+            if (rhs.leftChild) {
+                nodeAddLeft(new SPSVnode(*(rhs.getLeftChild())));
+            }
+            else leftChild=NULL;
+
+            if (rhs.rightChild) {
+                nodeAddRight(new SPSVnode(*(rhs.getRightChild())));
+            }
+            else rightChild=NULL;
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+        return *this;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_af37c85866ee5bdb968faf84856b51291}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!recalculate\-Stats@{recalculate\-Stats}}
+\index{recalculate\-Stats@{recalculate\-Stats}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{recalculate\-Stats}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::recalculate\-Stats} (
+\begin{DoxyParamCaption}
+\item[{rvector \&}]{newdata, }
+\item[{bool}]{bool\-Val}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_af37c85866ee5bdb968faf84856b51291}
+
+
+\-Recalculate summary statistics associated with node. 
+
+\-Recalculates counter and sums (used for mean) and sumproducts (used for variance-\/covariance). 
+
+\-Definition at line 73 of file spsvnode.\-cpp.
+
+
+
+\-Referenced by insert\-One\-Find().
+
+
+\begin{DoxyCode}
+    {
+        if (boolVal==false) { counter++; } // update the counter  
+      
+      else { Vcounter++; } // update  the Vcounter
+      
+      //cout << "incrementing counters for node " << getNodeName() << endl;
+    
+      if (!countsOnly) {
+            //cout << "mean/var calc is on" << endl;
+            if (boolVal == false) {
+          recalculateSums(newdata); // update the sums
+          recalculateSumProducts(newdata); // update the sumproducts
+      }
+    }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a3df955b69f0e3d73efd0ccc3026fe0e7}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!recalculate\-Sum\-Products@{recalculate\-Sum\-Products}}
+\index{recalculate\-Sum\-Products@{recalculate\-Sum\-Products}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{recalculate\-Sum\-Products}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::recalculate\-Sum\-Products} (
+\begin{DoxyParamCaption}
+\item[{rvector \&}]{newdata}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a3df955b69f0e3d73efd0ccc3026fe0e7}
+
+
+\-Recalculate summary statistics associated with node. 
+
+\-Recalculates sumproducts (used for variance-\/covariance). 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_ab49e57afe0939b41930e0cbb22c9ba8a}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 114 of file spsvnode.\-cpp.
+
+
+\begin{DoxyCode}
+    {
+        /* the sumproducts can be thought of as an nxn matrix,
+        which is implemented here as a nxn element vector of
+        dotprecision variables, using row-major order.
+        Ie the m-th element (m = 0, . . . nxn-1) is in row floor(m/n)
+        and column m-rowxn in the matrix configuration.
+        Or, the sumproduct of elements i and j in an rvector,
+        i,j = 0,...,n-1, is element m=(ixn+j) of the sumproducts
+        vector. */
+
+        if (dpSumProducts.empty()) {    //nothing there yet
+            // reserve space for all elements
+            dpSums.reserve(dimension*dimension);
+
+            // for each dimnsn^2 of data, initialise element
+            for (size_t i = 0; i< (dimension*dimension); i++) {
+                dotprecision dp;
+                dp = 0.0;
+                dpSumProducts.push_back(dp);
+            }
+        }
+
+        // make a dot precision variable out of the ith element
+        // and jth element of the of the rvector of new data and
+        // store in dpSumProducts.
+        for (size_t i = 1; i < dimension + 1; i++) {
+            // only need to do columns 1 to i because of symmetry
+            for (size_t j = 1; j< i + 1; j++) {
+
+                size_t index = (i-1)*dimension + (j-1);
+                // rvectors indexed 1 to n
+                accumulate(dpSumProducts[index],
+                        newdata[i], newdata[j]);
+
+                //if not on the diagonal of the matrix,
+                // we can also fill in the symmetric element
+                if (i!=j) {
+                    size_t sym_index = (j-1)*dimension
+                        + (i-1);
+                    dpSumProducts[sym_index] =
+                        dpSumProducts[index];
+                } // end if
+            }// end j-loop
+        }// end i-loop
+
+        // sumproducts has been updated for new datapoint
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a7590c8e3a8502b3b8a15bc2c4c494904}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!recalculate\-Sums@{recalculate\-Sums}}
+\index{recalculate\-Sums@{recalculate\-Sums}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{recalculate\-Sums}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::recalculate\-Sums} (
+\begin{DoxyParamCaption}
+\item[{rvector \&}]{newdata}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a7590c8e3a8502b3b8a15bc2c4c494904}
+
+
+\-Recalculate summary statistics associated with node. 
+
+\-Recalculates sums (used for mean). 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_aa70c978a273b7266c75e7d617ae4d100}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 91 of file spsvnode.\-cpp.
+
+
+\begin{DoxyCode}
+    {
+        if (dpSums.empty()) {   //nothing in the sums yet
+            // reserve space in dpSums for all elements of the mean
+            dpSums.reserve(dimension);
+
+            // for each dimnsn of data, initialise element
+            for (size_t i = 0; i< dimension; i++) {
+                dotprecision dp;
+                dp = 0.0;
+                dpSums.push_back(dp);
+            }
+        }
+
+        // make a dot precision variable out of the ith element
+        // of the rvector of new data and store in dpSums
+        for (size_t i = 1; i< dimension + 1; i++) {
+            // rvectors indexed 1 to n, vectors indexed 0 to n-1
+            accumulate(dpSums[i-1], newdata[i], 1.0);
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a5d6459ebf84a81b4759a3dd6524df4cf}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!set\-Splits@{set\-Splits}}
+\index{set\-Splits@{set\-Splits}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{set\-Splits}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::set\-Splits} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a5d6459ebf84a81b4759a3dd6524df4cf}
+
+
+\-Set the split\-Dimension and \-Split\-Value when children grafted. 
+
+\-Sets the split\-Dimension and \-Split\-Value for this node when children are grafted on. \-Called by node\-Adopt\-Left or node\-Adopt\-Right.
+
+\begin{DoxyPostcond}{\-Postcondition}
+this has split\-Dimension and \-Split\-Value corresponding to children. 
+\end{DoxyPostcond}
+
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a785e03fc466a6a1ea851f08338f8103d}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 457 of file spsvnode.\-cpp.
+
+
+
+\-References taylor\-::\-Lb(), and taylor\-::\-Ub().
+
+
+
+\-Referenced by node\-Adopt\-Left(), and node\-Adopt\-Right().
+
+
+\begin{DoxyCode}
+    {
+        // set the split dimension and split value for this box
+        // based on the children which have been added
+        ivector childBox;
+        bool alreadyDone = false;
+
+        if (hasRCwithBox()) {
+            childBox = getRightChild()->getBox();
+        }
+        else if (hasLCwithBox()) {
+            childBox = getLeftChild()->getBox();
+        }
+        int pLb = Lb(*theBox); // parent box lower bound
+        int dim = Ub(*theBox) - Lb(*theBox) + 1;
+        int cLb = Lb(childBox); // child box lower bound (should be = pLb)
+
+        if ( splitDim != -1 &&
+            (splitValue == Inf(childBox[splitDim - pLb + cLb])
+            || splitValue == Sup(childBox[splitDim - pLb + cLb])))
+                alreadyDone = true;
+
+        if (!alreadyDone) {
+            int d = 1;
+            splitDim = -1;
+            while ((d <= dim) && (splitDim == -1)) {
+                if (diam(childBox[d + cLb - 1]) < diam((*theBox)[d])) {
+                    splitDim = d + pLb - 1; // the split dimension
+                }
+                d++;
+            }
+            // split value is bottom of right child box on dth dim
+            if (hasRCwithBox()) {
+                splitValue = Inf(childBox[splitDim - pLb + cLb]);
+            }
+            // else split value is top of left child box on dth dim
+            else if (hasLCwithBox()) {
+                splitValue = Sup(childBox[splitDim - pLb + cLb]);
+            }
+        }
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a82423d1ad9f1589dbeef2018705591ad}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!split\-Data@{split\-Data}}
+\index{split\-Data@{split\-Data}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{split\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-S\-P\-S\-Vnode\-::split\-Data} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Split\-Decision\-Obj} \&}]{bool\-Test, }
+\item[{bool}]{bool\-Val}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a82423d1ad9f1589dbeef2018705591ad}
+
+
+\-Send the data associated with this down to children. 
+
+\-Children may then be resplit using bool\-Test. 
+
+\-Definition at line 223 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-O\-N\-\_\-\-L\-E\-F\-T, and subpavings\-::\-O\-N\-\_\-\-R\-I\-G\-H\-T.
+
+
+
+\-Referenced by node\-Expand().
+
+
+\begin{DoxyCode}
+   {
+        // check that both children exist
+        if (!hasLCwithBox() || !hasRCwithBox()) {
+            string msg = "Cannot split data when there are not two ";
+            msg += " children";
+            throw SPnodeException(msg);
+        }
+
+        NodeDataItr dataItr; // iterator
+     
+        boolVal = false;
+        for (dataItr = dataItrs.begin();
+            dataItr!= dataItrs.end(); dataItr++) {
+            BigDataItr newItr = *dataItr;
+
+            //calls insertOneFind on the children of this node
+            // so stats are not recalculated for this node itself
+            SPSVnode* reinsertedInto = NULL;
+
+            if(rightChild!=NULL && !rightChild->isEmpty()) {
+
+                reinsertedInto =
+                    (getRightChild())->insertOneFind(
+                    newItr, ON_RIGHT, boolTest, boolVal);
+            }
+
+            // only try the left if it's not on the right
+            if(reinsertedInto==NULL && leftChild!=NULL
+            && !leftChild->isEmpty()) {
+
+                reinsertedInto =
+                    (getLeftChild())->insertOneFind(
+                    newItr, ON_LEFT, boolTest, boolVal);
+            }
+        }
+
+        //divide the data up amongst the children
+         boolVal = true;
+         for (dataItr = VdataItrs.begin();
+            dataItr!= VdataItrs.end(); dataItr++) {
+            BigDataItr newItr = *dataItr;
+
+            //calls insertOneFind on the children of this node
+            // so stats are not recalculated for this node itself
+            SPSVnode* reinsertedInto = NULL;
+
+            if(rightChild!=NULL && !rightChild->isEmpty()) {
+
+                reinsertedInto =
+                    (getRightChild())->insertOneFind(
+                    newItr, ON_RIGHT, boolTest, boolVal);
+            }
+
+            // only try the left if it's not on the right
+            if(reinsertedInto==NULL && leftChild!=NULL
+            && !leftChild->isEmpty()) {
+
+                reinsertedInto =
+                    (getLeftChild())->insertOneFind(
+                    newItr, ON_LEFT, boolTest, boolVal);
+            }
+        }
+        clearData();         //clear the data in this node
+        
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_a0e051b28a89645eb09e8bbccc7b13780}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!stripped\-Constructor@{stripped\-Constructor}}
+\index{stripped\-Constructor@{stripped\-Constructor}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{stripped\-Constructor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} $\ast$ {\bf subpavings\-::\-S\-P\-S\-Vnode\-::stripped\-Constructor} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a0e051b28a89645eb09e8bbccc7b13780}
+
+
+\-Definition at line 859 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::counts\-Only, subpavings\-::\-S\-Pnode\-::get\-Box(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::label, subpavings\-::\-S\-Pnode\-::node\-Add\-Left(), subpavings\-::\-S\-Pnode\-::node\-Add\-Right(), subpavings\-::\-S\-Pnode\-::node\-Name, subpavings\-::\-S\-P\-Snode\-::split\-Dim, subpavings\-::\-S\-P\-Snode\-::split\-Value, and \-S\-P\-S\-Vnode().
+
+
+\begin{DoxyCode}
+    {
+        SPSVnode* newNode = NULL;
+        try {
+            if (other != NULL) {
+                if (other->isEmpty())
+                    newNode = new SPSVnode;
+                else {
+                    ivector* newBox = new ivector(other->getBox());
+                    newNode = new SPSVnode(*newBox);
+                    newNode->splitDim = other->splitDim;
+                    newNode->splitValue = other->splitValue;
+                }
+
+                newNode->nodeName = other->nodeName;
+                newNode->label = 0;
+                newNode->countsOnly = false;
+
+                if (other->getLeftChild() != NULL)
+                    newNode->nodeAddLeft(strippedConstructor(other->
+      getLeftChild()));
+                if (other->getRightChild() != NULL)
+                    newNode->nodeAddRight(strippedConstructor(other->
+      getRightChild()));
+            }
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+        return newNode;
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ab79e2b1aa783e2df56abf8279c5dc564}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!union\-No\-Data@{union\-No\-Data}}
+\index{union\-No\-Data@{union\-No\-Data}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{union\-No\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} $\ast$ {\bf subpavings\-::\-S\-P\-S\-Vnode\-::union\-No\-Data} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_ab79e2b1aa783e2df56abf8279c5dc564}
+\-Makes the non-\/minimal union of nodes with no data.
+
+\-Calls itself recursively to adds two pavings together as the union of the two but discards the actual data.
+
+\-Does not rename the nodes from root downwards.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em lhs} & pointer to root of first \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} tree operand. \\
+\hline
+{\em rhs} & pointer to root of second \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} tree operand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+a pointer to root of a new \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} tree whose leaves are the union of the leaves of lhs, rhs and which has no data. 
+\end{DoxyReturn}
+
+
+\-Definition at line 503 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), get\-Left\-Child(), get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::is\-Empty(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+
+\-Referenced by union\-Tree\-Structure().
+
+
+\begin{DoxyCode}
+    {
+        SPSVnode* newNode = NULL;
+
+        bool done = false;  // indicator for done adding
+
+        try {
+
+            if (lhs == NULL && rhs == NULL) done = true; // we will return NULL
+
+            // if the lhs is null or has no box, return a tree or node based on
+       rhs
+            if (!done && (lhs==NULL || ((lhs != NULL) && (lhs->isEmpty())))) {
+
+                newNode = SPSVnode::strippedConstructor(rhs);
+                done = true;
+            }
+
+            // if the rhs is null or has no box, return a tree or node based on
+       lhs
+            if (!done && (rhs==NULL || ((rhs != NULL) && (rhs->isEmpty())))) {
+
+                newNode = SPSVnode::strippedConstructor(lhs);
+                done = true;
+            }
+
+            // by now, if we are not done, both pavings are not null and both
+       have boxes
+            // we assume that the boxes are the same
+
+            // we have to check who has children
+
+            // if both are leaves we can just return a node based on say lhs
+             // if only rhs is leaf, lhs is not a leaf, return a node based on
+       lhs
+            if (!done && rhs->isLeaf()) {
+                newNode = SPSVnode::strippedConstructor(lhs);
+                done = true;
+            }
+
+            // if only lhs is leaf, rhs is not a leaf, return a node based on
+       rhs
+            if (!done && lhs->isLeaf() && !rhs->isLeaf()) {
+                newNode = SPSVnode::strippedConstructor(rhs);
+                done = true;
+            }
+
+            // if neither are leaves
+            if (!done && !lhs->isLeaf() && !rhs->isLeaf()) {
+                // make a node based on one of them, and add on the results of
+                // recursing on the children
+                ivector* newPermBox = new ivector(lhs->getBox());
+                newNode = new SPSVnode(*newPermBox);
+                newNode->nodeAdoptRight(unionNoData(lhs->getRightChild(),
+                                                            rhs->getRightChild(
+      )));
+                newNode->nodeAdoptLeft(unionNoData(lhs->getLeftChild(),
+                                                            rhs->getLeftChild()
+      ));
+            }
+        }
+        catch (bad_alloc& ba) {
+            std::cerr << "Error allocating memory" << endl;
+            const char* msg = ba.what();
+            std::cerr << msg << std::endl;
+            throw;
+        }
+
+        return newNode;
+
+    }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1SPSVnode_ad61518c409809cca73c262dbd17d320f}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!union\-Tree\-Structure@{union\-Tree\-Structure}}
+\index{union\-Tree\-Structure@{union\-Tree\-Structure}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{union\-Tree\-Structure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-S\-Vnode} $\ast$ {\bf subpavings\-::\-S\-P\-S\-Vnode\-::union\-Tree\-Structure} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_ad61518c409809cca73c262dbd17d320f}
+\-Makes the non-\/minimal union of two tree as a new tree with no data.
+
+\-Adds two pavings together as the union of the two but discards the actual data. \-The tree manager should provide new data.
+
+\-Renames nodes from new root downwards.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em lhs} & pointer to root of first \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} tree operand. \\
+\hline
+{\em rhs} & pointer to root of second \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} tree operand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+a pointer to root of a new \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} tree whose leaves are the union of the leaves of lhs, rhs and which has no data. 
+\end{DoxyReturn}
+
+
+\-Definition at line 2220 of file spsvnode.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-S\-Pnode\-::recursive\-Rename(), union\-No\-Data(), and subpavings\-::\-S\-Pnode\-Exception\-::what().
+
+
+\begin{DoxyCode}
+    {
+        SPSVnode* newNode = NULL;
+
+        if ((lhs != NULL) && (rhs != NULL) && (lhs->getBox() != rhs->getBox()))
+        {
+            throw SPnodeException("Union unequal subpavings");
+        }
+        else {
+            try {
+
+                newNode = unionNoData(lhs, rhs);
+                newNode->recursiveRename();
+            }
+            catch (bad_alloc& a) {
+                cerr << a.what() << endl;
+                cerr << "Error allocating memory" << endl;
+                throw;
+            }
+            catch (SPnodeException& e) {
+                string msg(e.what());
+                throw SPnodeException("Error in union: original error " + msg);
+            }
+        }
+
+        return newNode;
+
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1SPSVnode_af35e25f257c98de51097428419d0cf81}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!dp\-V\-Sum\-Products@{dp\-V\-Sum\-Products}}
+\index{dp\-V\-Sum\-Products@{dp\-V\-Sum\-Products}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{dp\-V\-Sum\-Products}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-Dot\-Prec} {\bf subpavings\-::\-S\-P\-S\-Vnode\-::dp\-V\-Sum\-Products}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, protected\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_af35e25f257c98de51097428419d0cf81}
+
+
+\-A container representing the sumproduct matrix of the data points covered by the\-Box. 
+
+\-The sumproducts matrix is used to obtain the sample variance-\/covariance matrix.
+
+\-The for n-\/dimensional data the sample variance-\/covariance matrix is an nxn matrix where the element in row i, column j is the sample covariance between the ith-\/dimension and jth-\/dimension of the data, which is \mbox{[}sumproduct(i,j)-\/sum(i)sum(j)/counter\mbox{]}/(counter-\/1).
+
+\-So by keeping the sum product and sums up to date, we can calculate a covariance on demand.
+
+\-The sumproducts can be thought of as an nxn matrix where the element in row i, column j is the sum over all the datapoints associated with that box of the products of the ith element and jth element in the datapoints. ie for each datapoint, we take the product of the ith and jth elements and then sum the products over all the datapoints.
+
+\-Data points are rvectors so each element is a real, and the the accumulation (sum) of products of reals is implemented here with a dotprecision accumulator.
+
+\-The sumproduct matrix is stored here as a nxn element vector of dotprecision variables (where n is the dimensions of the rvectors or data points), using row-\/major order.
+
+\-Ie the m-\/th element (m = 0, . . . nxn-\/1) is in row floor(m/n) and column m-\/rowxn in the matrix configuration.
+
+\-Or, the sumproduct of elements i and j in an rvector, i,j = 0,...,n-\/1, is element m=(ixn+j) of the sumproducts vector. 
+
+\-Definition at line 350 of file spsvnode.\-hpp.
+
+\hypertarget{classsubpavings_1_1SPSVnode_a60f29b9bd7f1a448515c5465e5f7f1ba}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!dp\-V\-Sums@{dp\-V\-Sums}}
+\index{dp\-V\-Sums@{dp\-V\-Sums}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{dp\-V\-Sums}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Vec\-Dot\-Prec} {\bf subpavings\-::\-S\-P\-S\-Vnode\-::dp\-V\-Sums}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, protected\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a60f29b9bd7f1a448515c5465e5f7f1ba}
+
+
+\-A container representing the sum of the data points covered by the\-Box. 
+
+\-The sums are used for calculating the mean and also the sample variance-\/covariance matrix for the data associated with a node.
+
+cxsc\-::dotprecision accumulators are used to maintain the sum of the data in each dimension of the data because floating point arithmetic can result in inaccuracies during summation, especially in large boxes.
+
+\-We could use \-Kahan summation instead with a lot more work. \-Kahan summation relies on adding a number of points in a sequence and recovering data lost in one summation during the next one. \-When we simply add two numbers, \-Kahan summation has no chance to recover the lost part. \-We would have to implement this by keeping the lost part, say having a vector of pairs, and trying to re-\/add the lost part each time. \-See \href{http://en.wikipedia.org/wiki/Kahan_summation_algorithm}{\tt http\-://en.\-wikipedia.\-org/wiki/\-Kahan\-\_\-summation\-\_\-algorithm} . \-The same may apply to arguments for using gsl\-\_\-mean using a simpler reccurence relation. \-Speed comparisons have not been performed on the three alternative possible implementations of the recursively computable sample sum or sample mean. \-However we get most relable and accurate sums using cxsc\-::dotprecision accumulators. 
+
+\-Definition at line 313 of file spsvnode.\-hpp.
+
+\hypertarget{classsubpavings_1_1SPSVnode_a288af7a8149effcb2d19e163e217e951}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!just\-Split@{just\-Split}}
+\index{just\-Split@{just\-Split}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{just\-Split}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-S\-P\-S\-Vnode\-::just\-Split}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a288af7a8149effcb2d19e163e217e951}
+
+
+\-A boolean flag to know if this node was being split or node. 
+
+\-False (not split) by default. 
+
+\-Definition at line 266 of file spsvnode.\-hpp.
+
+
+
+\-Referenced by get\-Just\-Split(), and node\-Expand().
+
+\hypertarget{classsubpavings_1_1SPSVnode_a98a73d1c8dafe1d9248aeec76c8f74ef}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!space\-Indication@{space\-Indication}}
+\index{space\-Indication@{space\-Indication}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{space\-Indication}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::space\-Indication}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a98a73d1c8dafe1d9248aeec76c8f74ef}
+
+
+\-An indication of the maximum number of data points a node needs to carry. 
+
+\-This is used for efficiency only to reserve vector space and a node can have more than this maximum number of data points associated with it. \-Defaults to default\-Max\-Pts. 
+
+\-Reimplemented from \hyperlink{classsubpavings_1_1SPSnode_a4d836fd2b3cd074343475de6f9511c95}{subpavings\-::\-S\-P\-Snode}.
+
+
+
+\-Definition at line 260 of file spsvnode.\-hpp.
+
+
+
+\-Referenced by operator=(), and \-S\-P\-S\-Vnode().
+
+\hypertarget{classsubpavings_1_1SPSVnode_a5d0154d5c5d30fa214b8a2d9deedee12}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-Vcounter@{\-Vcounter}}
+\index{\-Vcounter@{\-Vcounter}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-Vcounter}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-Vcounter}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, protected\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a5d0154d5c5d30fa214b8a2d9deedee12}
+
+
+\-A counter for how many data points from the validation set that are covered by the\-Box. 
+
+
+
+\-Definition at line 285 of file spsvnode.\-hpp.
+
+
+
+\-Referenced by get\-Root\-Vcounter(), get\-Vcounter(), node\-Print(), and operator=().
+
+\hypertarget{classsubpavings_1_1SPSVnode_a0e6c6ea9c454b9ce280915b59c7f3647}{\index{subpavings\-::\-S\-P\-S\-Vnode@{subpavings\-::\-S\-P\-S\-Vnode}!\-Vdata\-Itrs@{\-Vdata\-Itrs}}
+\index{\-Vdata\-Itrs@{\-Vdata\-Itrs}!subpavings::SPSVnode@{subpavings\-::\-S\-P\-S\-Vnode}}
+\paragraph[{\-Vdata\-Itrs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Node\-Data} {\bf subpavings\-::\-S\-P\-S\-Vnode\-::\-Vdata\-Itrs}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, protected\mbox{]}}}}\label{classsubpavings_1_1SPSVnode_a0e6c6ea9c454b9ce280915b59c7f3647}
+
+
+\-A container for the association of validation data with a node. 
+
+\-Data is associated with a node via this container of iterators. \-The iterators can, very loosely, in the sense in which they are used here, be thought of as pointers to a big data collection of all data points. \-Only leaf nodes can have anything in this container. \-However, not all leaf nodes will necessarily have something in this container\-: the container will be empty if no data points are covered by the box represented by a leaf node. 
+
+\-Definition at line 363 of file spsvnode.\-hpp.
+
+
+
+\-Referenced by clear\-Data(), get\-Vdata(), insert\-One\-Find(), operator=(), and \-S\-P\-S\-Vnode().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{spsvnode_8hpp}{spsvnode.\-hpp}\item 
+\hyperlink{spsvnode_8cpp}{spsvnode.\-cpp}\end{DoxyCompactItemize}

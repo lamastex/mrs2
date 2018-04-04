@@ -1,0 +1,119 @@
+\hypertarget{classsubpavings_1_1LogMCMCPrior}{\subsection{subpavings\-:\-:\-Log\-M\-C\-M\-C\-Prior \-Class \-Reference}
+\label{classsubpavings_1_1LogMCMCPrior}\index{subpavings\-::\-Log\-M\-C\-M\-C\-Prior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}}
+}
+
+
+\-Abstract class for \-M\-C\-M\-C priors.  
+
+
+
+
+{\ttfamily \#include $<$histmcmcobjs.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Log\-M\-C\-M\-C\-Prior\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1LogMCMCPrior_a6c3e7fab7f47501de8e5577c20a93e22}{\-Log\-M\-C\-M\-C\-Prior} ()
+\item 
+\hyperlink{classsubpavings_1_1LogMCMCPrior_ad3d0c5e29c3a14d86902e90256cbdd97}{\-Log\-M\-C\-M\-C\-Prior} (string pn)
+\item 
+virtual string \hyperlink{classsubpavings_1_1LogMCMCPrior_ace14dfa0a28927d063d091e13f9ead1c}{get\-Name} () const =0
+\item 
+virtual real \hyperlink{classsubpavings_1_1LogMCMCPrior_ae53e146f9ac1b057ae9df4370220a22d}{operator()} (const size\-\_\-t k) const =0
+\end{DoxyCompactItemize}
+\subsubsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classsubpavings_1_1LogMCMCPrior_a56c878a215bc9b7fb54871a3c0f6dc44}{prior\-Name}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Abstract class for \-M\-C\-M\-C priors. 
+
+\-Definition at line 33 of file histmcmcobjs.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1LogMCMCPrior_a6c3e7fab7f47501de8e5577c20a93e22}{\index{subpavings\-::\-Log\-M\-C\-M\-C\-Prior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}!\-Log\-M\-C\-M\-C\-Prior@{\-Log\-M\-C\-M\-C\-Prior}}
+\index{\-Log\-M\-C\-M\-C\-Prior@{\-Log\-M\-C\-M\-C\-Prior}!subpavings::LogMCMCPrior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}}
+\paragraph[{\-Log\-M\-C\-M\-C\-Prior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Log\-M\-C\-M\-C\-Prior\-::\-Log\-M\-C\-M\-C\-Prior} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1LogMCMCPrior_a6c3e7fab7f47501de8e5577c20a93e22}
+
+
+\-Definition at line 41 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+: priorName("") {}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1LogMCMCPrior_ad3d0c5e29c3a14d86902e90256cbdd97}{\index{subpavings\-::\-Log\-M\-C\-M\-C\-Prior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}!\-Log\-M\-C\-M\-C\-Prior@{\-Log\-M\-C\-M\-C\-Prior}}
+\index{\-Log\-M\-C\-M\-C\-Prior@{\-Log\-M\-C\-M\-C\-Prior}!subpavings::LogMCMCPrior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}}
+\paragraph[{\-Log\-M\-C\-M\-C\-Prior}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Log\-M\-C\-M\-C\-Prior\-::\-Log\-M\-C\-M\-C\-Prior} (
+\begin{DoxyParamCaption}
+\item[{string}]{pn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1LogMCMCPrior_ad3d0c5e29c3a14d86902e90256cbdd97}
+
+
+\-Definition at line 43 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+: priorName(pn) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1LogMCMCPrior_ace14dfa0a28927d063d091e13f9ead1c}{\index{subpavings\-::\-Log\-M\-C\-M\-C\-Prior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!subpavings::LogMCMCPrior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}virtual string {\bf subpavings\-::\-Log\-M\-C\-M\-C\-Prior\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1LogMCMCPrior_ace14dfa0a28927d063d091e13f9ead1c}
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1LogTemperaturePrior_a8a41da03f7f93a125f796a8f8009996a}{subpavings\-::\-Log\-Temperature\-Prior}, and \hyperlink{classsubpavings_1_1LogCatalanPrior_add1b40d81d8a22343e74ce7e1a76a354}{subpavings\-::\-Log\-Catalan\-Prior}.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::\-M\-C\-M\-C\-Start\-Log\-File().
+
+\hypertarget{classsubpavings_1_1LogMCMCPrior_ae53e146f9ac1b057ae9df4370220a22d}{\index{subpavings\-::\-Log\-M\-C\-M\-C\-Prior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::LogMCMCPrior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual real subpavings\-::\-Log\-M\-C\-M\-C\-Prior\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{k}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1LogMCMCPrior_ae53e146f9ac1b057ae9df4370220a22d}
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1LogTemperaturePrior_a09b2afaea3be6e703e24ecce36ef0b9a}{subpavings\-::\-Log\-Temperature\-Prior}, and \hyperlink{classsubpavings_1_1LogCatalanPrior_a54670df4e881f6516d2e368bee8c2439}{subpavings\-::\-Log\-Catalan\-Prior}.
+
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1LogMCMCPrior_a56c878a215bc9b7fb54871a3c0f6dc44}{\index{subpavings\-::\-Log\-M\-C\-M\-C\-Prior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}!prior\-Name@{prior\-Name}}
+\index{prior\-Name@{prior\-Name}!subpavings::LogMCMCPrior@{subpavings\-::\-Log\-M\-C\-M\-C\-Prior}}
+\paragraph[{prior\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf subpavings\-::\-Log\-M\-C\-M\-C\-Prior\-::prior\-Name}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classsubpavings_1_1LogMCMCPrior_a56c878a215bc9b7fb54871a3c0f6dc44}
+
+
+\-Definition at line 37 of file histmcmcobjs.\-hpp.
+
+
+
+\-Referenced by subpavings\-::\-Log\-Catalan\-Prior\-::get\-Name(), and subpavings\-::\-Log\-Temperature\-Prior\-::get\-Name().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histmcmcobjs_8hpp}{histmcmcobjs.\-hpp}\end{DoxyCompactItemize}

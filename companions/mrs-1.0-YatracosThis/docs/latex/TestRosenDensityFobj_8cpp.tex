@@ -1,0 +1,74 @@
+\hypertarget{TestRosenDensityFobj_8cpp}{\subsection{\-Test\-Rosen\-Density\-Fobj.\-cpp \-File \-Reference}
+\label{TestRosenDensityFobj_8cpp}\index{\-Test\-Rosen\-Density\-Fobj.\-cpp@{\-Test\-Rosen\-Density\-Fobj.\-cpp}}
+}
+
+
+\-Test \hyperlink{classRosenDensityFobj}{\-Rosen\-Density\-Fobj}.  
+
+
+{\ttfamily \#include \char`\"{}\-Rosen\-Density\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{TestRosenDensityFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Test \hyperlink{classRosenDensityFobj}{\-Rosen\-Density\-Fobj}. 
+
+\-Definition in file \hyperlink{TestRosenDensityFobj_8cpp_source}{\-Test\-Rosen\-Density\-Fobj.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{TestRosenDensityFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Test\-Rosen\-Density\-Fobj.\-cpp@{\-Test\-Rosen\-Density\-Fobj.\-cpp}!main@{main}}
+\index{main@{main}!TestRosenDensityFobj.cpp@{\-Test\-Rosen\-Density\-Fobj.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{TestRosenDensityFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 18 of file \-Test\-Rosen\-Density\-Fobj.\-cpp.
+
+
+\begin{DoxyCode}
+{
+
+    int dims = 2;
+  double intside = 1.0;
+  
+  if (argc > 1) dims = atoi(argv[1]);
+  if (argc > 2) intside = atof(argv[2]);
+  
+    cxsc::ivector pavingBox(dims);
+    cxsc::interval pavingInterval(-intside,intside);
+    for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+  
+  RosenDensityFobj realF;
+    
+  cxsc::ivector testBox(dims);
+  cxsc::interval testInterval(-intside/2,intside/2);
+  for(int k=1; k <= dims; k++) testBox[k] = testInterval;
+  cxsc::interval ival = realF(testBox);
+  
+  cxsc::rvector testRvec(dims);
+  cxsc::real testReal(intside/2);
+  for(int k=1; k <= dims; k++) testRvec[k] = testReal;
+  cxsc::real r = realF(testRvec);
+  
+  cout << "testBox = " << testBox << endl;
+  cout << "Rosen(testBox) = " << ival << endl;
+  cout << "testRvec = " << testRvec << endl;
+  cout << "Rosen(testRvec) = " << r << endl;
+
+
+  
+    return 0;
+
+}
+\end{DoxyCode}

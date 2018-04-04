@@ -1,0 +1,53 @@
+\hypertarget{MRSampler_8hpp}{\subsection{\-M\-R\-Sampler.\-hpp \-File \-Reference}
+\label{MRSampler_8hpp}\index{\-M\-R\-Sampler.\-hpp@{\-M\-R\-Sampler.\-hpp}}
+}
+
+
+\-Moore \-Rejection \-Sampler (\hyperlink{classMRSampler}{\-M\-R\-Sampler}) declarations.  
+
+
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classMRSampler}{\-M\-R\-Sampler}
+\begin{DoxyCompactList}\small\item\em \-The \-Moore rejection sampler class for trans-\/dimensional targets over labeled metric spaces. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{MRSampler_8hpp_a5405921d0ad6cd3f7d084367e9f8405a}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classMRSampler}{\-M\-R\-Sampler} \&mrs)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Moore \-Rejection \-Sampler (\hyperlink{classMRSampler}{\-M\-R\-Sampler}) declarations. 
+
+\-Definition in file \hyperlink{MRSampler_8hpp_source}{\-M\-R\-Sampler.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MRSampler_8hpp_a5405921d0ad6cd3f7d084367e9f8405a}{\index{\-M\-R\-Sampler.\-hpp@{\-M\-R\-Sampler.\-hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!MRSampler.hpp@{\-M\-R\-Sampler.\-hpp}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf \-M\-R\-Sampler} \&}]{mrs}
+\end{DoxyParamCaption}
+)}}\label{MRSampler_8hpp_a5405921d0ad6cd3f7d084367e9f8405a}
+
+
+\-Definition at line 1103 of file \-M\-R\-Sampler.\-cpp.
+
+
+
+\-References \-M\-R\-Sampler\-::\-M\-R\-Soutput().
+
+
+\begin{DoxyCode}
+{
+  // uses public member function MRSoutput to generate output
+  mrs.MRSoutput(os);
+
+  return os;
+}
+\end{DoxyCode}

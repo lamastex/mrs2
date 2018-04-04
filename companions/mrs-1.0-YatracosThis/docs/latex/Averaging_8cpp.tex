@@ -1,0 +1,177 @@
+\hypertarget{Averaging_8cpp}{\subsection{\-Averaging.\-cpp \-File \-Reference}
+\label{Averaging_8cpp}\index{\-Averaging.\-cpp@{\-Averaging.\-cpp}}
+}
+
+
+\-Testing \-Collator\-S\-P\-Snodes with \-Bivariate \-Gaussian data.  
+
+
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Averaging_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Collator\-S\-P\-Snodes with \-Bivariate \-Gaussian data. 
+
+\-Definition in file \hyperlink{Averaging_8cpp_source}{\-Averaging.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Averaging_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Averaging.\-cpp@{\-Averaging.\-cpp}!main@{main}}
+\index{main@{main}!Averaging.cpp@{\-Averaging.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Averaging_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 38 of file \-Averaging.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-To\-Collation(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::make\-Average(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs(), and subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs().
+
+
+\begin{DoxyCode}
+{
+    // ------- prepare to generate some data for the tests -----------
+
+    // set up a random number generator for bivariate gaussian rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+
+    const int n=10;  // number to generate
+    double sigma_x=1;   // distribution parameter
+    double sigma_y=1;   // distribution parameter
+    double rho=0;       // x and y uncorrelated
+
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+
+    gsl_rng_env_setup();
+
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+
+    // ----------------   example to create and ------------------
+    //---------------- collate multiple histograms -------------------
+
+    // make a box: the same box will be used by all histograms
+    // so should be big enough for all of them
+    int d = 2; // dimensions
+    ivector pavingBox(d);
+    interval dim1(-5,5);
+    interval dim2(-5,5);
+    pavingBox[1] = dim1;
+    pavingBox[2] = dim2;
+
+    // make a collation object, empty at present
+    AdaptiveHistogramCollator coll;
+
+    // the number of histograms to generate
+    int numHist = 10000;
+
+    // for loop to generate histograms and add to collation
+    for (int j=1; j<=numHist; j++) {
+
+        //get n random variates chosen from the bivariate Gaussian
+        // distribution with mean zero and given sigma_x, sigma_y.
+
+        RVecData theData;   // a container for all the points generated
+
+        // make a sample
+        for (int i = 0; i < n; i++) {
+
+            rvector thisrv(d);
+            double x = 0;
+            double y = 0;
+
+            gsl_ran_bivariate_gaussian(r, sigma_x, sigma_y,
+                                    rho, &x, &y);
+            thisrv[1] = x;
+            thisrv[2] = y;
+
+            // put points generated into container
+            theData.push_back(thisrv);
+
+        }  // data should be in theData
+
+
+        // make an Adaptive Histogram object with a specified box.  By default,
+        // holdAllStats = false so that the underlying rootPaving managed by
+       the
+        // myHistFirst will not maintain all available stats, only counts
+        AdaptiveHistogram myHist(pavingBox);
+
+        // find k, the maximum number of data members
+        // to be allowed in each box of the histogram
+        // as a function of j and n
+        // applying SEB heuristics for k to satisfy k/n -> 0 as n -> +oo
+        int k_int = (int(log2(double(n)))*2*j);
+
+        cout << "Splitting with k = " << k_int << endl;
+
+        bool successfulInsertion = false;
+
+        // make the function object to get max myK data members in each box
+        SplitOnK splitK(k_int);
+
+        // insert data into the histogram, splitting as we go, no logging
+        successfulInsertion = myHist.insertFromRVec(theData, splitK, NOLOG);
+
+        // only do more if some data was fed in
+        if(successfulInsertion) {
+
+            // create a name for the file to output
+            string fileName = "BivGaussian";
+            //convert j to a string
+            std::ostringstream stm2;
+            stm2 << j;
+            // add the stringed j to the filename
+            fileName += stm2.str();
+            fileName += ".txt"; // and finish the filename
+
+            // To realize a file output
+            myHist.outputToTxtTabs(fileName);
+
+            // add the histogram to the collection
+            coll.addToCollation(myHist);
+
+            // optional- create graph output
+            // myHist.outputGraphDot();
+        }
+
+    } // end of for loop creating histograms
+
+    // free the random number generator
+    gsl_rng_free (r);
+
+    string collfileName = "CollatorHistogram.txt";
+    coll.outputToTxtTabs(collfileName); // output the collation to file
+
+    // optional - create graph output - don't do for lots of leaves!
+    //coll.outputGraphDot();
+
+  //  Make an average
+  string avgfileName = "AverageBG.txt";     // provide a filename
+
+  AdaptiveHistogramCollator avColl = coll.makeAverage();
+  avColl.outputToTxtTabs(avgfileName);  // output the average to file
+  
+  avColl.getAvgHistUnifIAE(); // get the IAE for the averaged histogram
+
+    // ---- end of example to create and collate multiple histograms -----
+
+    return 0;
+
+} // end of averaging test program
+\end{DoxyCode}

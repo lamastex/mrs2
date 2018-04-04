@@ -1,0 +1,675 @@
+\hypertarget{classMultiTreeManager}{\subsection{\-Multi\-Tree\-Manager \-Class \-Reference}
+\label{classMultiTreeManager}\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}}
+}
+
+
+\-A class which can look into the state space of \-S\-P\-Snode trees.  
+
+
+
+
+{\ttfamily \#include $<$multitreemanager.\-hpp$>$}
+
+
+
+\-Collaboration diagram for \-Multi\-Tree\-Manager\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMultiTreeManager_a4fb2b59dc74b9db44247340eee246948}{\-Multi\-Tree\-Manager} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{classMultiTreeManager_a75d0b2730d19db22c94702097138c56a}{$\sim$\-Multi\-Tree\-Manager} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classMultiTreeManager_ae81995550988df35d1dcb7f0c14b5872}{map\-Pavings} ()
+\item 
+void \hyperlink{classMultiTreeManager_ab1524c6866c35ce2cafad068792ec5de}{make\-And\-Map\-Outcome\-Space} (int to\-Level)
+\item 
+void \hyperlink{classMultiTreeManager_a5feeb102bc4ffb52cf5fc11327499a1d}{make\-Outcome\-Space} (int to\-Level)
+\item 
+void \hyperlink{classMultiTreeManager_af09e6377690a9ebffc9b141532cb07b2}{make\-And\-Graph\-Outcome\-Space} (int to\-Level)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMultiTreeManager_a2d48afc2b0c1ee16a512e016cc871643}{\-Multi\-Tree\-Manager} (const \hyperlink{classMultiTreeManager}{\-Multi\-Tree\-Manager} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor not implemented. \end{DoxyCompactList}\item 
+\hyperlink{classMultiTreeManager}{\-Multi\-Tree\-Manager} \& \hyperlink{classMultiTreeManager_a7efa564054ab02d135e76c070431c651}{operator=} (const \hyperlink{classMultiTreeManager}{\-Multi\-Tree\-Manager} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator not implemented. \end{DoxyCompactList}\item 
+bool \hyperlink{classMultiTreeManager_abb477bda6e195ddd91b4f4cf41f90114}{add\-To\-Outcome\-Space\-And\-Graph} (const string s, int to\-Level, int this\-Level, \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$tree, set$<$ string $>$ \&lines)
+\begin{DoxyCompactList}\small\item\em \-Accumulate splitting outcomes in pavings and add to graph. \end{DoxyCompactList}\item 
+bool \hyperlink{classMultiTreeManager_a6661b18a6941311bb5c7ca2d7c6ee10a}{add\-To\-Outcome\-Space} (int to\-Level, int this\-Level, \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em \-Accumulate splitting outcomes in pavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Static \-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \hyperlink{classMultiTreeManager_aa0eccb6e029837f3b25c5a80f55e9990}{get\-Leaf\-Levels\-String} (const \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em get a string of the leaf levels of given subpaving \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacesubpavings_ad23942a388da964ca7487e496d0f2923}{\-S\-P\-Snode\-Ptrs} \hyperlink{classMultiTreeManager_a69e27576dc42a5433ecc8723503638d0}{pavings}
+\begin{DoxyCompactList}\small\item\em vector of pointers to subpavings managed by this object \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class which can look into the state space of \-S\-P\-Snode trees. 
+
+\-Primary method graph\-Outcome\-Space creates a collection of all the different possible \-S\-P\-Snode trees down to a specified number of splits.
+
+\-The number of distinct full binary \-S\-P\-Strees after k splits is the \-Catalan number \-Ck. 
+
+\-Definition at line 46 of file multitreemanager.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classMultiTreeManager_a2d48afc2b0c1ee16a512e016cc871643}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}}
+\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{\-Multi\-Tree\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Multi\-Tree\-Manager\-::\-Multi\-Tree\-Manager} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Multi\-Tree\-Manager} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit, private\mbox{]}}}}\label{classMultiTreeManager_a2d48afc2b0c1ee16a512e016cc871643}
+
+
+\-Copy constructor not implemented. 
+
+\hypertarget{classMultiTreeManager_a4fb2b59dc74b9db44247340eee246948}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}}
+\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{\-Multi\-Tree\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Multi\-Tree\-Manager\-::\-Multi\-Tree\-Manager} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}\label{classMultiTreeManager_a4fb2b59dc74b9db44247340eee246948}
+
+
+default constructor 
+
+
+
+\-Definition at line 109 of file multitreemanager.\-hpp.
+
+
+\begin{DoxyCode}
+{}
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_a75d0b2730d19db22c94702097138c56a}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!$\sim$\-Multi\-Tree\-Manager@{$\sim$\-Multi\-Tree\-Manager}}
+\index{$\sim$\-Multi\-Tree\-Manager@{$\sim$\-Multi\-Tree\-Manager}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{$\sim$\-Multi\-Tree\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Multi\-Tree\-Manager\-::$\sim$\-Multi\-Tree\-Manager} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMultiTreeManager_a75d0b2730d19db22c94702097138c56a}
+
+
+\-Destructor. 
+
+
+
+\-Definition at line 165 of file multitreemanager.\-cpp.
+
+
+
+\-References pavings.
+
+
+\begin{DoxyCode}
+{
+    SPSnodePtrsItr it;
+    for (it = pavings.begin(); it < pavings.end(); it++) {
+        delete *it;
+        *it = NULL;
+    }
+    pavings.clear();
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classMultiTreeManager_a6661b18a6941311bb5c7ca2d7c6ee10a}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!add\-To\-Outcome\-Space@{add\-To\-Outcome\-Space}}
+\index{add\-To\-Outcome\-Space@{add\-To\-Outcome\-Space}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{add\-To\-Outcome\-Space}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Multi\-Tree\-Manager\-::add\-To\-Outcome\-Space} (
+\begin{DoxyParamCaption}
+\item[{int}]{to\-Level, }
+\item[{int}]{this\-Level, }
+\item[{{\bf \-S\-P\-Snode} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMultiTreeManager_a6661b18a6941311bb5c7ca2d7c6ee10a}
+
+
+\-Accumulate splitting outcomes in pavings. 
+
+\-Pointers to the trees which result from the splitting are put into the data member pavings.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em to\-Level} & is the number of splits to get to in total. \\
+\hline
+{\em this\-Level} & is the number of splits on this loop through the method. \\
+\hline
+{\em tree} & is the pointer to the tree we are currently working on. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true when done; 
+\end{DoxyReturn}
+
+
+\-Definition at line 114 of file multitreemanager.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), pavings, and subpavings\-::sp\-Leaves().
+
+
+
+\-Referenced by make\-Outcome\-Space().
+
+
+\begin{DoxyCode}
+{
+    bool done = false;
+
+    if (thisLevel <= toLevel) {
+
+        // get how many leaves n there are on the tree
+        size_t n = spLeaves(tree);
+
+        // make a temporary collection container
+        SPSnodePtrs container;
+        container.reserve(n); // reserve space
+
+        // make one copy of the tree for each leaf
+        // put each copy in the temporary container
+        for (size_t i = 0; i < n; i++) {
+
+            SPSnode* copyTree = new SPSnode(*tree);
+            container.push_back(copyTree);
+            // take the jth copy of tree and find its leaves
+            SPSnodePtrs leaves;
+            copyTree->getLeaves(leaves);
+            // split the ith leaf of this copy of tree
+            leaves[i]->nodeExpand();
+
+        }
+
+        // copy the contents of the temporary container to pavings
+        pavings.insert(pavings.end(), container.begin(),container.end());
+
+        SPSnodePtrsItr it;
+
+        // for each copy in the temporary container
+        for (it = container.begin(); it < container.end(); it++) {
+            // recurse addToOutComeSpace(toLevel, thisLevel+1, copy)
+            done = addToOutcomeSpace(toLevel, thisLevel + 1, *it);
+        }
+
+    }
+    else {
+        done = true;
+    }
+    return done;
+
+}
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_abb477bda6e195ddd91b4f4cf41f90114}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!add\-To\-Outcome\-Space\-And\-Graph@{add\-To\-Outcome\-Space\-And\-Graph}}
+\index{add\-To\-Outcome\-Space\-And\-Graph@{add\-To\-Outcome\-Space\-And\-Graph}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{add\-To\-Outcome\-Space\-And\-Graph}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Multi\-Tree\-Manager\-::add\-To\-Outcome\-Space\-And\-Graph} (
+\begin{DoxyParamCaption}
+\item[{const string}]{s, }
+\item[{int}]{to\-Level, }
+\item[{int}]{this\-Level, }
+\item[{{\bf \-S\-P\-Snode} $\ast$}]{tree, }
+\item[{set$<$ string $>$ \&}]{lines}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMultiTreeManager_abb477bda6e195ddd91b4f4cf41f90114}
+
+
+\-Accumulate splitting outcomes in pavings and add to graph. 
+
+\-Pointers to the trees which result from the splitting are put into the data member pavings. \-For each tree made a line is added to the file for a dot graph showing the link from parent to child provided the link indicated by the line has not already been registered in the graph.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & is the name of the graph to add to. \\
+\hline
+{\em to\-Level} & is the number of splits to get to in total. \\
+\hline
+{\em this\-Level} & is the number of splits on this loop through the method. \\
+\hline
+{\em tree} & is the pointer to the tree we are currently working on. \\
+\hline
+{\em lines} & is a set of graph lines to make sure we don't have duplicates. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true when done; 
+\end{DoxyReturn}
+
+
+\-Definition at line 58 of file multitreemanager.\-cpp.
+
+
+
+\-References get\-Leaf\-Levels\-String(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::output\-File(), pavings, and subpavings\-::sp\-Leaves().
+
+
+
+\-Referenced by make\-And\-Graph\-Outcome\-Space().
+
+
+\begin{DoxyCode}
+{
+    bool done = false;
+
+    if (thisLevel <= toLevel) {
+
+        // get how many leaves n there are on the tree
+        size_t n = spLeaves(tree);
+
+        // make a temporary collection container
+        SPSnodePtrs container;
+        container.reserve(n); // reserve space
+        string parent = "\"" + getLeafLevelsString(tree) + "\"";
+
+        // make one copy of the tree for each leaf
+        // put each copy in the temporary container
+        for (size_t i = 0; i < n; i++) {
+            SPSnode* copyTree = new SPSnode(*tree);
+            container.push_back(copyTree);
+            // take the jth copy of tree and find its leaves
+            SPSnodePtrs leaves;
+            copyTree->getLeaves(leaves);
+            // split the ith leaf of this copy of tree
+            leaves[i]->nodeExpand();
+            // add the parent child connection to the dot graph
+            string segment = "\"" + getLeafLevelsString(copyTree) + "\"";
+            string line = "\t " + parent + " -> " + segment + ";";
+
+            pair<set<string>::iterator, bool> ret;
+
+            ret = lines.insert(line); // try and see if the line is a new one
+            if (ret.second==true) outputFile(s, line);  // output if new line
+        }
+
+        // copy the contents of the temporary container to pavings
+        pavings.insert(pavings.end(), container.begin(),container.end());
+
+        SPSnodePtrsItr it;
+        // for each copy in the temporary container
+
+        for (it = container.begin(); it < container.end(); it++) {
+            // recurse addToOutComeSpace(toLevel, thisLevel+1, copy)
+            done = addToOutcomeSpaceAndGraph(s, toLevel,
+                                            thisLevel + 1, *it, lines);
+        }
+
+    }
+    else {
+        done = true;
+    }
+    return done;
+
+}
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_aa0eccb6e029837f3b25c5a80f55e9990}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!get\-Leaf\-Levels\-String@{get\-Leaf\-Levels\-String}}
+\index{get\-Leaf\-Levels\-String@{get\-Leaf\-Levels\-String}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{get\-Leaf\-Levels\-String}]{\setlength{\rightskip}{0pt plus 5cm}static string {\bf \-Multi\-Tree\-Manager\-::get\-Leaf\-Levels\-String} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-Snode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, static, private\mbox{]}}}}\label{classMultiTreeManager_aa0eccb6e029837f3b25c5a80f55e9990}
+
+
+get a string of the leaf levels of given subpaving 
+
+\-Left to right, 0 is root 
+
+\-Definition at line 99 of file multitreemanager.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Leaf\-Node\-Levels\-String().
+
+
+
+\-Referenced by add\-To\-Outcome\-Space\-And\-Graph().
+
+
+\begin{DoxyCode}
+    {
+        return spn->getLeafNodeLevelsString();
+    }
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_af09e6377690a9ebffc9b141532cb07b2}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!make\-And\-Graph\-Outcome\-Space@{make\-And\-Graph\-Outcome\-Space}}
+\index{make\-And\-Graph\-Outcome\-Space@{make\-And\-Graph\-Outcome\-Space}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{make\-And\-Graph\-Outcome\-Space}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Multi\-Tree\-Manager\-::make\-And\-Graph\-Outcome\-Space} (
+\begin{DoxyParamCaption}
+\item[{int}]{to\-Level}
+\end{DoxyParamCaption}
+)}}\label{classMultiTreeManager_af09e6377690a9ebffc9b141532cb07b2}
+\-Make and graph outcome space from continual splitting to level to\-Level
+
+\-The outcome space is all the possible results of up to and including to\-Level splits starting from a single root node, ie the number of trees in the outcome space for to\-Level = k is the \-Catalan number \-Ck.
+
+\-Pointers to the trees which result from the splitting are put into the data member pavings.
+
+\-The method makes a dot graph showing all the unique leaf level patterns in the outcome space and the relationship between them, ie. which pattern can lead to which other patterns.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em to\-Level} & is the number of splits to go up to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+the data member pavings will contain pointers to all the trees in the outcome space. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 292 of file multitreemanager.\-cpp.
+
+
+
+\-References add\-To\-Outcome\-Space\-And\-Graph(), subpavings\-::get\-Unique\-Filename(), subpavings\-::make\-Dot\-Image(), subpavings\-::output\-File(), and pavings.
+
+
+\begin{DoxyCode}
+{
+
+    // clear the pavings
+    pavings.clear();
+
+    std::cout << "Making and graphing the outcome space" << std::endl;
+
+    //Make a node with a dummy box
+    ivector pavingBox(1);
+    interval pavingInterval(0,1);
+    pavingBox[1] = pavingInterval;
+    SPSnode* root = new SPSnode(pavingBox);
+
+    int i = 0;
+    string baseFileName = "outputGraph";
+    string suffix = ".dot";
+    string s = getUniqueFilename(baseFileName, suffix);
+    outputFile(s, "digraph G {"); // opening line
+
+    // add it to the pavings data member collection
+    pavings.push_back(root);
+
+    // Send it into addtoOutComeSpace
+    bool done = false;
+    set<string> lines; // to check on uniqueness of lines for graph
+    done = addToOutcomeSpaceAndGraph(s, toLevel, 1, root, lines);
+    while (!done) {}
+
+    outputFile(s, "}"); // closing line
+
+    // make the image of the graph
+    makeDotImage(s);
+
+}
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_ab1524c6866c35ce2cafad068792ec5de}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!make\-And\-Map\-Outcome\-Space@{make\-And\-Map\-Outcome\-Space}}
+\index{make\-And\-Map\-Outcome\-Space@{make\-And\-Map\-Outcome\-Space}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{make\-And\-Map\-Outcome\-Space}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Multi\-Tree\-Manager\-::make\-And\-Map\-Outcome\-Space} (
+\begin{DoxyParamCaption}
+\item[{int}]{to\-Level}
+\end{DoxyParamCaption}
+)}}\label{classMultiTreeManager_ab1524c6866c35ce2cafad068792ec5de}
+\-Get and map the outcome space resulting from splitting to level to\-Level.
+
+\-The outcome space is all the possible results of up to and including to\-Level splits starting from a single root node, ie the number of trees in the outcome space for to\-Level = k is the \-Catalan number \-Ck.
+
+\-The map creates a summary of the frequencies of each leaf level pattern in the outcome space as a collection of ordered maps, one map for each number of leaves of any tree in the outcome space collection. \-A map for leaves \-L has keys the unique leaf level pattern summaries with \-L leaves and values the number of trees in the outcome space that has that leaf level pattern summary.
+
+\-Console output and txt file output both give a summary of the frequencies and relative frequencies of each leaf level pattern, grouped by number of leaves.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em to\-Level} & is the number of splits to go up to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+output file in tab delimited txt format of summary of the frequencies and relative frequencies of each leaf level pattern, grouped by number of leaves. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 282 of file multitreemanager.\-cpp.
+
+
+
+\-References make\-Outcome\-Space(), and map\-Pavings().
+
+
+\begin{DoxyCode}
+{
+    makeOutcomeSpace(toLevel);
+    mapPavings();
+
+}
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_a5feeb102bc4ffb52cf5fc11327499a1d}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!make\-Outcome\-Space@{make\-Outcome\-Space}}
+\index{make\-Outcome\-Space@{make\-Outcome\-Space}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{make\-Outcome\-Space}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Multi\-Tree\-Manager\-::make\-Outcome\-Space} (
+\begin{DoxyParamCaption}
+\item[{int}]{to\-Level}
+\end{DoxyParamCaption}
+)}}\label{classMultiTreeManager_a5feeb102bc4ffb52cf5fc11327499a1d}
+\-Make the outcome space from continual splitting to level to\-Level.
+
+\-The outcome space is all the possible results of up to and including to\-Level splits starting from a single root node, ie the number of trees in the outcome space for to\-Level = k is the \-Catalan number \-Ck.
+
+\-Pointers to the trees which result from the splitting are put into the data member pavings.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em to\-Level} & is the number of splits to go up to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+the data member pavings will contain pointers to all the trees in the outcome space. 
+\end{DoxyPostcond}
+
+
+\-Definition at line 329 of file multitreemanager.\-cpp.
+
+
+
+\-References add\-To\-Outcome\-Space(), and pavings.
+
+
+
+\-Referenced by main(), and make\-And\-Map\-Outcome\-Space().
+
+
+\begin{DoxyCode}
+{
+
+    // clear the pavings
+    pavings.clear();
+
+    std::cout << "Making the outcome space" << std::endl;
+
+    //Make a node with a dummy box
+    ivector pavingBox(1);
+    interval pavingInterval(0,1);
+    pavingBox[1] = pavingInterval;
+    SPSnode* root = new SPSnode(pavingBox);
+
+    int i = 0;
+    // add it to the pavings data member collection
+    pavings.push_back(root);
+
+    // Send it into addtoOutComeSpace
+    bool done = false;
+    done = addToOutcomeSpace(toLevel, 1, root);
+    while (!done) {}
+
+}
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_ae81995550988df35d1dcb7f0c14b5872}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!map\-Pavings@{map\-Pavings}}
+\index{map\-Pavings@{map\-Pavings}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{map\-Pavings}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Multi\-Tree\-Manager\-::map\-Pavings} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classMultiTreeManager_ae81995550988df35d1dcb7f0c14b5872}
+\-Map the leaf levels of trees currently in the pavings collection
+
+\-Creates a collection of ordered maps, one map for each number of leaves of any tree in the pavings collection. \-A map for leaves \-L has keys the unique leaf level pattern summaries with \-L leaves and values the number of trees in the pavings collection that has that leaf level pattern summary.
+
+\-Console output gives a summary of the frequencies and relative frequencies of each leaf level pattern, grouped by number of leaves. 
+
+\-Definition at line 177 of file multitreemanager.\-cpp.
+
+
+
+\-References subpavings\-::get\-Unique\-Filename(), subpavings\-::output\-File(), pavings, and subpavings\-::sp\-Leaves().
+
+
+
+\-Referenced by main(), and make\-And\-Map\-Outcome\-Space().
+
+
+\begin{DoxyCode}
+{
+    // don't clear the current pavings! - that's what we use here
+
+    // go through the pavings and record into the vector of shape count maps
+    if (!pavings.empty()) {
+
+         size_t numberPavings = pavings.size();
+
+        cout << " mapping outcomes... there are " << numberPavings
+                        << " outcomes " << endl;
+
+        std::pair< OrdLeafDepthsMap::iterator, bool > mapBool;
+
+        // what is the maximum number of leaves we have?
+        set<size_t> leafSet;
+        size_t count = 0;
+        for (SPSnodePtrsItr sit = pavings.begin(); sit < pavings.end(); sit++) 
+      {
+            leafSet.insert(spLeaves(*sit));
+            count ++;
+        }
+
+        size_t uniqueLeaves = leafSet.size();
+
+        vector< OrdLeafDepthsMap > vecMaps(uniqueLeaves); // vector of maps
+
+        for (SPSnodePtrsItr it = pavings.begin(); it < pavings.end(); it++) {
+
+            size_t thisLeaves = spLeaves((*it));
+
+            IntVec thisLevels;
+            thisLevels  = (*it)->getLeafNodeLevels(thisLevels);
+
+            int indexer = 0; // need to find index for maps with this no.
+       leaves
+            for (int j = 1; j < thisLeaves; j++) {
+                if (leafSet.count(j)) indexer++;
+            }
+
+            mapBool = vecMaps[indexer].insert(pair<IntVec, int> (thisLevels,1))
+      ;
+
+            if(!(mapBool.second)) // if its a new one, add
+                (mapBool.first)->second +=1; // else increment count
+        }
+
+        string basefilename = "multimanager";
+        string filename = getUniqueFilename (basefilename);
+
+        outputFile(filename,
+            "tree shape frequencies and relative frequencies in outcomes");
+        std::ostringstream stm;
+        stm << numberPavings << " outcomes altogether";
+        outputFile(filename, stm.str());
+
+        // print out the results
+        std::cout << "tree shape frequencies (relative frequencies) in outcomes
+      "
+                << "\n";
+
+        vector< OrdLeafDepthsMap >::iterator vecMapsIt = vecMaps.begin();
+
+        for (set<size_t>::iterator lit = leafSet.begin(); lit != leafSet.end();
+                                        lit++) {
+
+            OrdLeafDepthsMap::iterator mapIt;
+
+            cout << "Leaves : " << "\t" << *lit << "\t("
+                            << (*vecMapsIt).size() << " unique outcomes)\n";
+
+            std::ostringstream stm1;
+            stm1 << "Leaves : \t" << (*lit) << "\t" << (*vecMapsIt).size()
+                            << "\tunique outcomes";
+            outputFile(filename, stm1.str());
+
+            for(mapIt = (*vecMapsIt).begin(); mapIt != (*vecMapsIt).end();
+                                        mapIt++) {
+
+                IntVec levels = mapIt->first;
+
+                size_t freq = (mapIt->second);
+                double relfreq = (1.0*(mapIt->second))/numberPavings;
+
+                cout << freq << " : " << "(\t"
+                    << relfreq << ")\t";
+
+                std::ostringstream stm2;
+                stm2 << "\t\t\t\t" << freq << "\t"
+                    << relfreq << "\t";
+                string thisline =  stm2.str();
+
+                outputFile(filename, thisline, levels);
+
+                copy (levels.begin(), levels.end(),
+                      ostream_iterator<int>(cout, ";"));
+                cout << '\n';
+            }
+            vecMapsIt++; // move the iterator to the vec maps in step
+        }
+        std::cout << "Output file in " << filename << std::endl;
+    }
+    else std::cout << "There are no pavings in the outcome space to map"
+                << std::endl;
+
+}
+\end{DoxyCode}
+\hypertarget{classMultiTreeManager_a7efa564054ab02d135e76c070431c651}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!operator=@{operator=}}
+\index{operator=@{operator=}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Multi\-Tree\-Manager}\& \-Multi\-Tree\-Manager\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Multi\-Tree\-Manager} \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMultiTreeManager_a7efa564054ab02d135e76c070431c651}
+
+
+\-Copy assignment operator not implemented. 
+
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classMultiTreeManager_a69e27576dc42a5433ecc8723503638d0}{\index{\-Multi\-Tree\-Manager@{\-Multi\-Tree\-Manager}!pavings@{pavings}}
+\index{pavings@{pavings}!MultiTreeManager@{\-Multi\-Tree\-Manager}}
+\paragraph[{pavings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-S\-P\-Snode\-Ptrs} {\bf \-Multi\-Tree\-Manager\-::pavings}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classMultiTreeManager_a69e27576dc42a5433ecc8723503638d0}
+
+
+vector of pointers to subpavings managed by this object 
+
+
+
+\-Definition at line 51 of file multitreemanager.\-hpp.
+
+
+
+\-Referenced by add\-To\-Outcome\-Space(), add\-To\-Outcome\-Space\-And\-Graph(), make\-And\-Graph\-Outcome\-Space(), make\-Outcome\-Space(), map\-Pavings(), and $\sim$\-Multi\-Tree\-Manager().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{multitreemanager_8hpp}{multitreemanager.\-hpp}\item 
+\hyperlink{multitreemanager_8cpp}{multitreemanager.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,231 @@
+\hypertarget{HoldOutUniform_8cpp}{\subsection{\-Hold\-Out\-Uniform.\-cpp \-File \-Reference}
+\label{HoldOutUniform_8cpp}\index{\-Hold\-Out\-Uniform.\-cpp@{\-Hold\-Out\-Uniform.\-cpp}}
+}
+
+
+\-Hold out estimation for uniform (or uniform mixtures).  
+
+
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{HoldOutUniform_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Hold out estimation for uniform (or uniform mixtures). 
+
+\-Definition in file \hyperlink{HoldOutUniform_8cpp_source}{\-Hold\-Out\-Uniform.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{HoldOutUniform_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Hold\-Out\-Uniform.\-cpp@{\-Hold\-Out\-Uniform.\-cpp}!main@{main}}
+\index{main@{main}!HoldOutUniform.cpp@{\-Hold\-Out\-Uniform.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{HoldOutUniform_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 38 of file \-Hold\-Out\-Uniform.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), and subpavings\-::\-Adaptive\-Histogram\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+   //===================== user-inputs======================================//
+   const int n = atoi(argv[1]); //number of points
+   int d = atoi(argv[2]); // dimensions
+   
+   //==============set formatting for input to oss=============================
+   ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(5);
+    
+   //=================set up for data generation===============================
+   //create a generator chosen by the environment variable GSL_RNG_TYPE
+   const gsl_rng_type * T;
+   gsl_rng * r;             
+   gsl_rng_env_setup();
+   T = gsl_rng_default;
+   r = gsl_rng_alloc (T);
+   long s = time (NULL) * getpid();
+   gsl_rng_set(r, s);
+
+   //data generating partition
+   ivector pavingBox(d);
+   interval pavingInterval(0,1);
+   for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
+
+   // data sampled as uniform mixture over leaves of sub-paving myPart
+   //make an Adaptive Histogram object with a specified box
+   AdaptiveHistogram myPart(pavingBox);
+   // a container for the boxes
+   vector<ivector> Pboxes;
+   size_t PartSize;
+  
+   bool Mixture_bool = true;
+  //if Mixture_bool == false, true density = 1
+  double trueF=1;
+  
+   vector<int> mixShapeInt;
+   if (Mixture_bool) {
+      // mixture shape
+  //   string mixShape = "2,2,1";
+    //string mixShape = "1,1";
+    //string mixShape = "3,3,2,1";
+    string mixShape = "3,4,4, 2, 2, 3, 3";      
+    myPart.splitToShape(mixShape);// uniform mixture      
+      SPSnodePtrs Pleaves; // set up empty container for leaf node pointers
+      SPSnodePtrsItr it; // and an iterator over the container
+      myPart.getSubPaving()->getLeaves(Pleaves); // fill the container
+      // container is filled by reading leaves off tree from left to right
+      for(it = Pleaves.begin(); it < Pleaves.end(); it++) {
+         Pboxes.push_back((*it)->getBox());
+      }
+    PartSize = Pboxes.size();
+    cout << PartSize << endl;
+    
+  
+   } // end of Mixture_bool == true
+  
+  
+   //----end of data generating
+       partition----------------------------------------
+     /*
+    cout << "Generating data: " << endl;
+     // data sampled as uniform equi-mixture over leaves of sub-paving myPart
+     RVecData theData;   
+     for (int i = 0; i < n; i++) {
+            rvector thisrv(d);
+            if(Mixture_bool) {
+              size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
+              //cout << Pboxes[RndBoxNum] << endl;
+              thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);
+            }
+            else {
+              for(int i=1; i <= d; i++) {
+                  thisrv[i]  = gsl_rng_uniform(r);
+              }
+            }
+            // put points generated into container
+            //cout << thisrv;
+            theData.push_back(thisrv);
+      }  // data  should be in theData
+    
+    //==============start
+       priorityStageSplit=====================================
+    // indicators
+    bool successfulInsertion = false;
+  
+    //maximum number of points in each leaf box        
+    int finalK = 1;
+    SplitNever sn;
+       
+    // now split with priority queue
+    // Stopping Criteria: critCount
+    CompCountVal nodeCompCount;
+    CritLargestCount_LTEV critCount(finalK);
+    cout << "========================================================" << endl;
+    cout << "Running hold out estimation for a uniform mixture distribution..."
+       << endl;
+    cout << "Max k is: " << finalK << endl; 
+    cout << "Performing hold-out estimation: " << endl;
+   
+    // Put the data from the container into the histogram  
+    AdaptiveHistogramValidation myHistVal(pavingBox);
+    int holdOutCount = int(n*1.0/(3.0));   
+    successfulInsertion = myHistVal.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+ 
+    /* //optional output for counters in leaf boxes
+  SPSVnodePtrs leaves; // set up empty container for leaf node pointers
+  SPSVnodePtrsItr it; // and an iterator over the container
+  myHist.getSubPaving()->getLeaves(leaves); // fill the container
+  // container is filled by reading leaves off tree from left to right
+  // a container for the counts
+  IntVec counts;  // IntVec is a typedef for vector<int>
+                        // the iterator is typedefed as IntVecItr
+        for(it = leaves.begin(); it < leaves.end(); it++) {
+      // remember that it points to a pointer, so *it is still a ptr
+            // get the counts in all the leaves
+      cout << "Counter \t VCounter\n" << (*it)->getCounter() << "\t\t" << (*
+      it)->getVcounter() << endl;
+        }
+   */ // end of optional output
+/*  
+   if (successfulInsertion) { // if data successfully inserted       
+       //create an AdaptiveHistogramCollator object
+       AdaptiveHistogramVCollator coll;
+    
+       //start the clock
+       clock_t start, end;
+       start = clock();
+       
+       //start the hold out estimation
+       //tolerance for stopping criteria
+       long double tol = pow(10, -2);
+       int distr = 1;
+       cout << "running priorityStageSplit: " << endl;
+       coll=myHistVal.priorityStageSplit(nodeCompCount, critCount, NOLOG, 
+                                        0, 0.0, tol, distr, trueF);
+
+       //output time taken
+       end = clock();
+       double timing;
+       timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+       cout << "Computing time : " << timing << " s."<< endl;
+ 
+      //cout << coll << endl;
+      int numberCollated = coll.getNumberCollated();
+      cout << numberCollated << " histograms collated." << endl;
+      
+      //output the collator to a .txt file
+     // coll.outputToTxtTabs("CollatorHistogram.txt"); 
+   
+   //
+      ===========================================================================
+   /* 
+   RegHist myRegHist;
+   myRegHist = makeRegularHist(theData, pavingBox);
+  
+   cout << "get the IAE of the regular histogram: " << endl;
+  real regHistIAE;
+  regHistIAE = getRegHistUnifIAE(n, weights, trueBoxes, myRegHist.theBoxes, 
+                                   myRegHist.heights, myRegHist.binwidth);
+                                   
+  cout << "output IAE to .txt file" << endl;
+                        
+  //output IAE to .txt file------------------
+  ofstream os;         // ofstream object
+        os << scientific;  // set formatting for input to oss
+        os.precision(5);
+  
+  string outputFileName;// for output file
+  outputFileName = "IAERegHist.txt";
+  os.open(outputFileName.c_str());
+  os << regHistIAE << endl;
+  os << flush;
+  os.close();
+  std::cout << "IAE output to " << outputFileName << endl;
+*/  
+//  } // end of successful insertion            
+   
+  return 0; 
+} // end of uniform mixture test program
+\end{DoxyCode}

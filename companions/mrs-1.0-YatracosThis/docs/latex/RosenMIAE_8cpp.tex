@@ -1,0 +1,249 @@
+\hypertarget{RosenMIAE_8cpp}{\subsection{\-Rosen\-M\-I\-A\-E.\-cpp \-File \-Reference}
+\label{RosenMIAE_8cpp}\index{\-Rosen\-M\-I\-A\-E.\-cpp@{\-Rosen\-M\-I\-A\-E.\-cpp}}
+}
+
+
+\-Calculate the \-M\-I\-A\-E of adaptive histograms for \-Rosen.  
+
+
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-F\-Levy2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-F\-Rosenbrock.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-R\-Sampler.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-math.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-monte.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-monte\-\_\-miser.\-h$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{RosenMIAE_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Calculate the \-M\-I\-A\-E of adaptive histograms for \-Rosen. 
+
+\-Definition in file \hyperlink{RosenMIAE_8cpp_source}{\-Rosen\-M\-I\-A\-E.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{RosenMIAE_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Rosen\-M\-I\-A\-E.\-cpp@{\-Rosen\-M\-I\-A\-E.\-cpp}!main@{main}}
+\index{main@{main}!RosenMIAE.cpp@{\-Rosen\-M\-I\-A\-E.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{RosenMIAE_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 56 of file \-Rosen\-M\-I\-A\-E.\-cpp.
+
+
+
+\-References \-R\-S\-Sample\-::\-Envelope\-Integral, subpavings\-::\-Adaptive\-Histogram\-::get\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Leaves(), \-Height, subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-S\-Sample(), \-R\-S\-Sample\-::\-Integral\-Estimate(), \-R\-S\-Sample\-::\-Mean(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), \-R\-S\-Sample\-::\-Samples, and \-Tinverse.
+
+
+\begin{DoxyCode}
+{
+   //=======================================================================//
+  //------set up parameters for data---------------------------------
+   // cannot use manual input as will affect Rosenbrock function
+  cout << "Setting up parameters: " << endl;
+  int H = 100; // number of simulations
+   int step = 200; // step size
+  size_t n_samples = 100000; // number of data to generate
+  size_t maxN = (n_samples/2); // do not need to split till n
+  cout << maxN << endl;
+   //---------string formatting-----------------------------------------
+   string outputFileName;// for output file
+    ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(10);
+  //=======================================================================//
+     
+   //================Setting up parameters for the Rosenbrock density========//
+   //Parameters specific to the Rosenbrock target
+   // set default values
+   int n_dimensions = 2;
+   int n_boxes = 10000;
+   double Alb = 1.0;// partition until lower bound on Acceptance Prob. is > Alb
+   //Parameters specific to the Rosenbrock target
+   real Tinverse = 1.0;
+   real Height = 100.0;
+   real RosenDomainLimit = 10.0;
+   //========================================================================//
+  
+  //=================Start simulations=====================================//
+  
+  
+  for (int h=1; h<=H; h++){
+    cout << "Doing hist number " << h << endl;
+    //record time taken
+    vector<double> timeVec;
+    vector<double>::iterator itTimeVec;
+      //keep the IAEs in a vector 
+    vector<real> IAEVec;
+    vector<real>::iterator IAEVecIt;
+    //record number of leaf boxes for each histogram
+    vector<int> numBinVec;
+    vector<int>::iterator numBinVecIt;
+   
+     //generate data
+    unsigned theSeed =  time (NULL) * getpid() + h; 
+     if (argc >= 2) {
+         sscanf (argv[1], "%i", &n_dimensions);
+         if (argc >= 3) {
+            sscanf (argv[2], "%i", &n_boxes);
+            if (argc >= 4) sscanf (argv[3], "%i", &n_samples);
+            if (argc >= 5) sscanf (argv[4], "%ui", &theSeed);
+            if (argc >= 6)
+            cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>; 
+      "
+             << "extra arguments ignored.\n";
+         }
+         else 
+         cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>; "
+                 << "extra arguments ignored.\n";
+      }
+     cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes
+        << "  n_samples: " << n_samples << "  rng_seed = " << theSeed
+        << endl; //getchar();
+      bool UseLogPi = false; // log scale won't work naively
+      bool use_f_scale = false;
+      // make the function object
+      FRosenbrock FRosen (n_dimensions, Tinverse, Height, RosenDomainLimit, 
+      UseLogPi);
+      // produce the samples
+      MRSampler theSampler (FRosen, n_boxes, Alb, theSeed, (use_f_scale == 1));
+    RSSample rs_sample;
+    cout << "before Rej..SampleMany \n";
+    cout << "n_samples: " << n_samples << endl;
+    theSampler.RejectionSampleMany (n_samples, rs_sample);
+    cout << "after Rej..SampleMany \n";
+    double IntegralEstimate = _double (rs_sample.IntegralEstimate ());
+    cout << "rs_sample IU, N, Nrs: " << rs_sample.EnvelopeIntegral << " "
+        << rs_sample.Samples.size() << " " << rs_sample.Samples.size() << endl;
+    cout << "RSSampleMany, integral est: " << IntegralEstimate << endl;
+    cout << "RSSampleMany mean: \n"; rs_sample.Mean ();
+
+       
+    //start the priority queue 
+    for (int mC = 1; mC <= maxN/step; mC++){
+      int maxC = mC*step;
+      cout << "Maximum count is : " << maxC << endl;
+        
+       //set up flags
+      bool successfulPQSplit = false;
+      bool successfulInsertion = false;
+        
+       //create an AdaptiveHistogram object
+      AdaptiveHistogram myHist;
+        successfulInsertion = myHist.insertFromRSSample(rs_sample, NOLOG, 0);
+      if (successfulInsertion) {        
+        CompCount nodeCompCount;  // compare counts
+        CritLargestCount_LTE critCount(maxC); // maxC is stopping criteria
+        clock_t start, end;
+        start = clock();
+        successfulPQSplit = myHist.prioritySplit(nodeCompCount, 
+                                    critCount, NOLOG);
+        end = clock();
+        double timing;
+        timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+        cout << "Computing time : " << timing << " s."<< endl;
+        timeVec.push_back(timing);
+      } // end of successfulInsertion
+
+      if (successfulPQSplit) {         
+            /* // optional - if you want to get a txt output of each histogram
+            // create a name for the file to output
+            string fileName = "HistBiG";
+            //convert j to a string
+            // std::ostringstream stm2;
+            // stm2 << j;
+            // add the stringed j to the filename
+            // fileName += stm2.str();
+             fileName += ".txt"; // and finish the filename
+            // To realize a file output
+             myHist.outputToTxtTabs(fileName);
+            */ // optional
+             //get number of bins for this histogram
+        numBinVec.push_back(myHist.getRootLeaves());
+    
+        //get IAE 
+        real IAE = myHist.getIAE(3);
+        IAEVec.push_back(IAE);
+      } // end of if(successfulPQSplit)
+      cout << "-----------------End of maxC = " << maxC << "for hist " << h
+           << endl;
+    } // end of loop for maxCount
+  
+  
+    //output vecIAE to .txt file
+      //name of file
+    outputFileName = "RosenIAEHist";
+    std::ostringstream stm1;
+    stm1 << h;
+    outputFileName += stm1.str();
+    outputFileName+= ".txt";
+ 
+      //read into file
+    oss.open(outputFileName.c_str());
+    for (IAEVecIt = IAEVec.begin(); IAEVecIt < IAEVec.end(); IAEVecIt++){
+      oss << (*IAEVecIt) << endl;
+    }
+    oss << flush;
+    oss.close();
+    cout << "IAE output to " << outputFileName << endl;
+
+      //read time taken into file
+    string timeFileName;
+    timeFileName = "RosenTime";
+    timeFileName += stm1.str(); //hist number
+    timeFileName += ".txt";
+    oss.open(timeFileName.c_str());
+    for(itTimeVec = timeVec.begin(); itTimeVec < timeVec.end(); itTimeVec++){
+      oss << (*itTimeVec) << endl ;
+    }
+    oss << flush;
+    oss.close();
+    cout << "Timings output to " << timeFileName << endl;
+    
+     //read number of bins into file
+    string binFileName;
+    binFileName = "RosenBins";
+    binFileName += stm1.str(); //hist number
+    binFileName += ".txt";
+    oss.open(binFileName.c_str());
+    for(numBinVecIt = numBinVec.begin(); numBinVecIt < numBinVec.end(); 
+         numBinVecIt++){
+      oss << *numBinVecIt << endl ;
+    }
+    oss << flush;
+    oss.close();
+    cout << "Number of bins output to " << binFileName << endl;
+    cout << "----------------------------------------------" << endl;
+
+
+
+   cout << "===================done with hist " << h << "============" << endl;
+  } // end of loop for histograms
+  
+
+return 0;
+} // end of Rosen MIAE
+\end{DoxyCode}

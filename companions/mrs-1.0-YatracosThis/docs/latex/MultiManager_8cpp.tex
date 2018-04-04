@@ -1,0 +1,58 @@
+\hypertarget{MultiManager_8cpp}{\subsection{\-Multi\-Manager.\-cpp \-File \-Reference}
+\label{MultiManager_8cpp}\index{\-Multi\-Manager.\-cpp@{\-Multi\-Manager.\-cpp}}
+}
+
+
+\-Testing \hyperlink{classMultiTreeManager}{\-Multi\-Tree\-Manager} class.  
+
+
+{\ttfamily \#include \char`\"{}spnodeall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}spsnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}multitreemanager.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{MultiManager_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \hyperlink{classMultiTreeManager}{\-Multi\-Tree\-Manager} class. 
+
+\-Definition in file \hyperlink{MultiManager_8cpp_source}{\-Multi\-Manager.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MultiManager_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Multi\-Manager.\-cpp@{\-Multi\-Manager.\-cpp}!main@{main}}
+\index{main@{main}!MultiManager.cpp@{\-Multi\-Manager.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiManager_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 37 of file \-Multi\-Manager.\-cpp.
+
+
+
+\-References \-Multi\-Tree\-Manager\-::make\-Outcome\-Space(), and \-Multi\-Tree\-Manager\-::map\-Pavings().
+
+
+\begin{DoxyCode}
+{
+    MultiTreeManager multiTM; // make a MultiTreeManager object
+
+    int splits = 10;
+    // make a graph of the outcome space after splits splits
+    // ie, all full binary trees with splits+1 leaf nodes
+    //multiTM.makeAndGraphOutcomeSpace(splits);
+
+    multiTM.makeOutcomeSpace(splits);
+    multiTM.mapPavings();
+
+    return 0;
+
+} // end of multimanager test
+\end{DoxyCode}

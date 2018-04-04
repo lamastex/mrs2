@@ -1,0 +1,19 @@
+\form#0:$ \Re^2 \rightarrow \Re $
+\form#1:\[ f(x,y) = \sum_{i=1}^5 i \cos((i - 1)x + i)\sum_{j=1}^5j\cos((j + 1)y + j) \]
+\form#2:$T$
+\form#3:\[ l_{T}(x) = \exp \left( - \frac{1}{T}\sum_{i=1}^5 i \cos((i - 1)x_1 + i) \sum_{j=1}^5j\cos((j + 1)x_2 + j) \right) \]
+\form#4:$l_{40}(x_1,x_2): [-10,10]\times [-10,10] \to \Re $
+\form#5:$ D $
+\form#6:\[ f(x) = \exp \left( - \sum_{i=2}^D \left( 100(x_i - x_{i-1}^2)^2 + ( 1 - x_{i-1})^2 \right) \right) \]
+\form#7:$ h_j $
+\form#8:$ j $
+\form#9:$ \frac{n_j}{Nvol_j} $
+\form#10:$ n_j $
+\form#11:$ vol_j $
+\form#12:$ N $
+\form#13:$ N = \sum_{bins j} n_j $
+\form#14:\[ sum_{bins j} h_jvol_j = 1 \]
+\form#15:$ \frac{1}{2} minVolB \frac{(logN)^2}{N} $
+\form#16:$ \frac{k}{n} \rightarrow 0 $
+\form#17:$ n \rightarrow \infty $
+\form#18:$ r $

@@ -1,0 +1,169 @@
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck}{\subsection{subpavings\-:\-:\-Reimann\-Diff\-Tolerance\-Check \-Class \-Reference}
+\label{classsubpavings_1_1ReimannDiffToleranceCheck}\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+}
+
+
+\-A type that visits  \-S\-Pnodes to check if they meet a '\-Reimann \-Difference' tolerance requirement.  
+
+
+
+
+{\ttfamily \#include $<$sp\-\_\-check\-\_\-visitor.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Reimann\-Diff\-Tolerance\-Check\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Reimann\-Diff\-Tolerance\-Check\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_a28f47ed9d5b431cc2e7b915443d85e92}{\-Reimann\-Diff\-Tolerance\-Check} (const \hyperlink{classsubpavings_1_1MappedFobj}{\-Mapped\-Fobj} \&\hyperlink{errorfunc_8hpp_aacb77b1211a6ca2e2beff1811cf9ecf4}{f}, cxsc\-::real tol)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_a85ec1af41f9cb2d7a4b34ceda35be98b}{$\sim$\-Reimann\-Diff\-Tolerance\-Check} ()
+\item 
+void \hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_a2b5d9ad63206b70e195b5044fec56e39}{visit} (const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} $\ast$const spn) const 
+\begin{DoxyCompactList}\small\item\em \-The visit operation. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_a61eb963b4e6767a29479f37b32c23ce8}{get\-Result} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the result of the visit operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_aefe8d51eaccb256b3631296a6413a799}{\-Reimann\-Diff\-Tolerance\-Check} ()
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{classsubpavings_1_1MappedFobj}{\-Mapped\-Fobj} \& \hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_ad9e4145536f0654d9982cc86931c1f27}{fobj}
+\item 
+const cxsc\-::real \hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_a169f5efe98a632fc95bc8bd39f963193}{tolerance}
+\item 
+bool \hyperlink{classsubpavings_1_1ReimannDiffToleranceCheck_ad750609be6399d2f013430a6651420ca}{result}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A type that visits  \-S\-Pnodes to check if they meet a '\-Reimann \-Difference' tolerance requirement. 
+
+\-The '\-Reimann \-Difference' tolerance requirement is that the difference in the \-Reimann \-Integral taken to the top of the interval image of the box associated with the node against the \-Reimann \-Integral taken to the bottom of the interval image of the box associated should be less than or equal to the tolerance given by the constructor argument {\itshape tol\/}.
+
+ie the \-Reimann \-Difference can also be seen as the 'area' represented by the interval image of the box associated with the node, or the volume of the box associated with the node multiplied by the diameter of the interval enclosure of the box associated with the node.
+
+\-A node may not meet the requirement but not be splittable\-: in this case the result of the visit should be true (ie the node is deemed to meet the requirement because it is as close as it can be to meeting it).
+
+\-The visit operation should return true if either the the node visited meets the \-Reimann \-Difference tolerance requirement or the node does not meet the requirement but is not splittable. \-Return false otherwise. 
+
+\-Definition at line 189 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_a28f47ed9d5b431cc2e7b915443d85e92}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!\-Reimann\-Diff\-Tolerance\-Check@{\-Reimann\-Diff\-Tolerance\-Check}}
+\index{\-Reimann\-Diff\-Tolerance\-Check@{\-Reimann\-Diff\-Tolerance\-Check}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{\-Reimann\-Diff\-Tolerance\-Check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::\-Reimann\-Diff\-Tolerance\-Check} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Mapped\-Fobj} \&}]{f, }
+\item[{cxsc\-::real}]{tol}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_a28f47ed9d5b431cc2e7b915443d85e92}
+
+
+\-Constructor. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em f} & describes a function against which to check the interval image tolerance requirement. \\
+\hline
+{\em tol} & describes the tolerance to be used in the check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+{\itshape tol\/} $>$= cxsc\-::\-Min\-Real. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_a85ec1af41f9cb2d7a4b34ceda35be98b}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!$\sim$\-Reimann\-Diff\-Tolerance\-Check@{$\sim$\-Reimann\-Diff\-Tolerance\-Check}}
+\index{$\sim$\-Reimann\-Diff\-Tolerance\-Check@{$\sim$\-Reimann\-Diff\-Tolerance\-Check}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{$\sim$\-Reimann\-Diff\-Tolerance\-Check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::$\sim$\-Reimann\-Diff\-Tolerance\-Check} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_a85ec1af41f9cb2d7a4b34ceda35be98b}
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_aefe8d51eaccb256b3631296a6413a799}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!\-Reimann\-Diff\-Tolerance\-Check@{\-Reimann\-Diff\-Tolerance\-Check}}
+\index{\-Reimann\-Diff\-Tolerance\-Check@{\-Reimann\-Diff\-Tolerance\-Check}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{\-Reimann\-Diff\-Tolerance\-Check}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::\-Reimann\-Diff\-Tolerance\-Check} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_aefe8d51eaccb256b3631296a6413a799}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_a61eb963b4e6767a29479f37b32c23ce8}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!get\-Result@{get\-Result}}
+\index{get\-Result@{get\-Result}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{get\-Result}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::get\-Result} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_a61eb963b4e6767a29479f37b32c23ce8}
+
+
+\-Get the result of the visit operation. 
+
+
+
+\-Implements \hyperlink{classsubpavings_1_1SPCheckVisitor_a6ea58710e956211e24fe4997eed3d94f}{subpavings\-::\-S\-P\-Check\-Visitor}.
+
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_a2b5d9ad63206b70e195b5044fec56e39}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!visit@{visit}}
+\index{visit@{visit}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{visit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::visit} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-Pnode} $\ast$const}]{spn}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_a2b5d9ad63206b70e195b5044fec56e39}
+
+
+\-The visit operation. 
+
+\-Checks the node pointed to by {\itshape spn\/} and stores the result true if the \-Reimann \-Difference tolerance requirement is met.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em spn} & a pointer to an \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} to be visited. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true if {\itshape spn\/} meets the \-Reimann \-Difference tolerance requirement or the node does not meet the requirement but is not splittable. \-Return false otherwise. 
+\end{DoxyReturn}
+
+
+\-Implements \hyperlink{classsubpavings_1_1SPCheckVisitor_ad5fd0bde6d256676290e790c6387f01a}{subpavings\-::\-S\-P\-Check\-Visitor}.
+
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_ad9e4145536f0654d9982cc86931c1f27}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!fobj@{fobj}}
+\index{fobj@{fobj}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{fobj}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Mapped\-Fobj}\& {\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::fobj}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_ad9e4145536f0654d9982cc86931c1f27}
+
+
+\-Definition at line 224 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_ad750609be6399d2f013430a6651420ca}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!result@{result}}
+\index{result@{result}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{result}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::result}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_ad750609be6399d2f013430a6651420ca}
+
+
+\-Definition at line 227 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+\hypertarget{classsubpavings_1_1ReimannDiffToleranceCheck_a169f5efe98a632fc95bc8bd39f963193}{\index{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}!tolerance@{tolerance}}
+\index{tolerance@{tolerance}!subpavings::ReimannDiffToleranceCheck@{subpavings\-::\-Reimann\-Diff\-Tolerance\-Check}}
+\paragraph[{tolerance}]{\setlength{\rightskip}{0pt plus 5cm}const cxsc\-::real {\bf subpavings\-::\-Reimann\-Diff\-Tolerance\-Check\-::tolerance}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1ReimannDiffToleranceCheck_a169f5efe98a632fc95bc8bd39f963193}
+
+
+\-Definition at line 225 of file sp\-\_\-check\-\_\-visitor.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sp__check__visitor_8hpp}{sp\-\_\-check\-\_\-visitor.\-hpp}\end{DoxyCompactItemize}

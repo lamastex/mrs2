@@ -1,0 +1,49 @@
+\hypertarget{adaptivehistogram_8hpp}{\subsection{adaptivehistogram.\-hpp \-File \-Reference}
+\label{adaptivehistogram_8hpp}\index{adaptivehistogram.\-hpp@{adaptivehistogram.\-hpp}}
+}
+
+
+\-Adaptive\-Histogram declarations.  
+
+
+{\ttfamily \#include \char`\"{}spsnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}splitdecisionobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}nodecompobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/\-Int.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/dim2taylor.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}piecewise\-\_\-constant\-\_\-function.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsubpavings_1_1AdaptiveHistogram}{subpavings\-::\-Adaptive\-Histogram}
+\begin{DoxyCompactList}\small\item\em \-A wrapper or manager for an \hyperlink{classsubpavings_1_1SPSnode}{\-S\-P\-Snode} aka \-Stats\-Sub\-Paving in conjunction with massive amounts of sample data. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1HistException}{subpavings\-::\-Hist\-Exception}
+\item 
+class \hyperlink{classsubpavings_1_1HistDescription}{subpavings\-::\-Hist\-Description}
+\begin{DoxyCompactList}\small\item\em \-A class for the histogram description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{namespacesubpavings_a7b0c2cba5230c058d175234c14d4f3af}{subpavings\-::operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&hd)
+\begin{DoxyCompactList}\small\item\em \-Output the \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} object. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_a91aca11d8ef070d592dcd968dd82d89d}{subpavings\-::operator$<$} (const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&lhs, const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Comparison operator for the histogram description. \end{DoxyCompactList}\item 
+std\-::ostream \& \hyperlink{namespacesubpavings_aa76489a659f3ddc671bcd47d227baad1}{subpavings\-::operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&adh)
+\begin{DoxyCompactList}\small\item\em \-Output the contents of an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\void {\bfseries std\-::swap} (\hyperlink{classsubpavings_1_1AdaptiveHistogram}{subpavings\-::\-Adaptive\-Histogram} \&a1, \hyperlink{classsubpavings_1_1AdaptiveHistogram}{subpavings\-::\-Adaptive\-Histogram} \&a2)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Adaptive\-Histogram declarations. 
+
+\-Definition in file \hyperlink{adaptivehistogram_8hpp_source}{adaptivehistogram.\-hpp}.
+

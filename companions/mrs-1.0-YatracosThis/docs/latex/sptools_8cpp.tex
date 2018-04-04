@@ -1,0 +1,61 @@
+\hypertarget{sptools_8cpp}{\subsection{sptools.\-cpp \-File \-Reference}
+\label{sptools_8cpp}\index{sptools.\-cpp@{sptools.\-cpp}}
+}
+
+
+\-Implementation of sptools functions.  
+
+
+{\ttfamily \#include \char`\"{}sptools.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$cassert$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{sptools_8cpp_a02b0c81114274d453e6645820ee4a138}{find\-Black} (string line, string seek)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Implementation of sptools functions. / 
+
+\-Definition in file \hyperlink{sptools_8cpp_source}{sptools.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{sptools_8cpp_a02b0c81114274d453e6645820ee4a138}{\index{sptools.\-cpp@{sptools.\-cpp}!find\-Black@{find\-Black}}
+\index{find\-Black@{find\-Black}!sptools.cpp@{sptools.\-cpp}}
+\paragraph[{find\-Black}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf find\-Black} (
+\begin{DoxyParamCaption}
+\item[{string}]{line, }
+\item[{string}]{seek}
+\end{DoxyParamCaption}
+)}}\label{sptools_8cpp_a02b0c81114274d453e6645820ee4a138}
+
+
+\-Definition at line 325 of file sptools.\-cpp.
+
+
+\begin{DoxyCode}
+    {
+        bool found = false;
+        size_t start = line.find(seek.substr(0,1));
+        if (start != string::npos) {
+            size_t startseek = 1;
+            string seekrest = seek.substr(startseek,string::npos);
+            found = true;
+            while (seekrest.length() > 1 && found) {
+                if (line.find(seekrest.substr(1,string::npos)) != start+1)
+                    found = false;
+                startseek ++;
+                seekrest = seek.substr(startseek,string::npos);
+            }
+        }
+        return found;
+    }
+\end{DoxyCode}

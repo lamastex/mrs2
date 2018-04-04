@@ -1,0 +1,131 @@
+\hypertarget{TestGaussianFobj_8cpp}{\subsection{\-Test\-Gaussian\-Fobj.\-cpp \-File \-Reference}
+\label{TestGaussianFobj_8cpp}\index{\-Test\-Gaussian\-Fobj.\-cpp@{\-Test\-Gaussian\-Fobj.\-cpp}}
+}
+
+
+\-Testing \-Gaussian function object.  
+
+
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$iostream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{TestGaussianFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Gaussian function object. 
+
+\-Definition in file \hyperlink{TestGaussianFobj_8cpp_source}{\-Test\-Gaussian\-Fobj.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{TestGaussianFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Test\-Gaussian\-Fobj.\-cpp@{\-Test\-Gaussian\-Fobj.\-cpp}!main@{main}}
+\index{main@{main}!TestGaussianFobj.cpp@{\-Test\-Gaussian\-Fobj.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{TestGaussianFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 40 of file \-Test\-Gaussian\-Fobj.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-Fobj\-::image\-Mid(), and subpavings\-::to\-String().
+
+
+\begin{DoxyCode}
+{
+  try {
+    GaussianFobj realF;
+    
+    vector <int> dims;
+    dims.push_back(1);
+    dims.push_back(2);
+    dims.push_back(10);
+    
+    for (size_t i = 0; i < dims.size(); ++i) {
+      int dd = dims[i];
+    
+      
+      ivector ivec(dd);
+      rvector rvec(dd);
+      real rr1(-0.8);
+      real rr2(0.4);
+      interval ii1(-1.5,1.1);
+      interval ii2(-1.3,1.2);
+      for(int k=1; k <= dd; k+=2) {
+        ivec[k] = ii1;
+        rvec[k] = rr1;
+      }
+      for(int k=2; k <= dd; k+=2) {
+        ivec[k] = ii2;
+        rvec[k] = rr2;
+      }
+      
+      cout << "\n\nd = " << dd << endl;
+      
+      cout << "ivec = " << (toString(ivec)) << endl;
+      interval i_image = realF(ivec);
+      cout << "interval image of ivec = " << (toString(i_image)) << endl;
+      real rmid_image = realF.imageMid(ivec);
+      cout << "real mid-image of ivec = " << rmid_image << endl;
+      
+      cout << "rvec = " << toString(rvec) << endl;
+      real r_image = realF(rvec);
+      cout << "real image of rvec = " << r_image << endl;
+      
+      //gsl_ran_bivariate_gaussian_pdf
+      if (dd == 1) {
+        
+        double gsl_inf = gsl_ran_gaussian_pdf (_double(Inf(ivec[1])), 1.0);
+        //double gsl_sup = gsl_ran_gaussian_pdf (_double(Sup(ivec[1])), 1.0);
+        double gsl_sup = gsl_ran_gaussian_pdf (0.0, 1.0);
+        cout << "\ngsl interval image result = [" << gsl_inf << " " << gsl_sup 
+      << "]"<< endl;
+        
+        double gsl_mid = gsl_ran_gaussian_pdf (_double(mid(ivec[1])), 1.0);
+        cout << "gsl real mid-image result = " << gsl_mid << endl;
+        double gsl_result = gsl_ran_gaussian_pdf (_double(rvec[1]), 1.0);
+        cout << "gsl real image result = " << gsl_result << endl;
+      }
+      if (dd == 2) {
+        
+        double gsl_inf = gsl_ran_bivariate_gaussian_pdf (_double(Inf(ivec[1])),
+       _double(Inf(ivec[2])), 1.0, 1.0, 0.0);
+        //double gsl_sup = gsl_ran_gaussian_pdf (_double(Sup(ivec[1])), 1.0);
+        double gsl_sup = gsl_ran_bivariate_gaussian_pdf (0.0, 0.0, 1.0, 1.0, 0.
+      0);
+        cout << "\ngsl interval image result = [" << gsl_inf << " " << gsl_sup 
+      << "]"<< endl;
+        
+        double gsl_mid = gsl_ran_bivariate_gaussian_pdf (_double(mid(ivec[1])),
+       _double(mid(ivec[2])), 1.0, 1.0, 0.0);
+        cout << "gsl real mid-image result = " << gsl_mid << endl;
+        double gsl_result = gsl_ran_bivariate_gaussian_pdf (_double(rvec[1]), 
+      _double(rvec[2]), 1.0, 1.0, 0.0);
+        cout << "gsl real image result = " << gsl_result << endl;
+      }
+    }
+    
+    return 0;
+  }
+  catch (std::exception& e) {
+    cout << "Exception:\n" << e.what() << endl;
+    throw;
+  }
+  catch (...) {
+    cout << "Unknown exception" << endl;
+    throw;
+  }
+  
+}
+\end{DoxyCode}

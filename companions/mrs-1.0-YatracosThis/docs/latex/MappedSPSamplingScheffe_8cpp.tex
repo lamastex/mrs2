@@ -1,0 +1,798 @@
+\hypertarget{MappedSPSamplingScheffe_8cpp}{\subsection{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp \-File \-Reference}
+\label{MappedSPSamplingScheffe_8cpp}\index{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}\-Fin\-Mix\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj1\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj10\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj100\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnodevisitor\-\_\-expand.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-F\-Rosenbrock.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-R\-Sampler.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classLexicoSorting}{\-Lexico\-Sorting$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MappedSPSamplingScheffe_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+void \hyperlink{MappedSPSamplingScheffe_8cpp_a2ebd3788007a04909c0805d18f7cc302}{get\-All\-Weights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ double $>$ \&\-Weights\-Vector, vector$<$ interval $>$ \&\-Weights\-Int)
+\item 
+void \hyperlink{MappedSPSamplingScheffe_8cpp_a071c6769f9c807ff0719ce7470b94a86}{get\-Height\-And\-Box} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, vector$<$ ivector $>$ \&\-Box\-Vector, vector$<$ real $>$ \&\-Heights\-Vector)
+\item 
+void \hyperlink{MappedSPSamplingScheffe_8cpp_aaccdd027128215abfb51d30ca3bfc190}{norm\-Heights} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$this\-Node\-Ptr, double total\-Area, vector$<$ \hyperlink{classsubpavings_1_1RangeCollectionClass}{\-Range\-Collection\-Class}$<$ real $>$ $>$ \&height\-Norm)
+\item 
+int \hyperlink{MappedSPSamplingScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MappedSPSamplingScheffe_8cpp_a2ebd3788007a04909c0805d18f7cc302}{\index{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}!get\-All\-Weights@{get\-All\-Weights}}
+\index{get\-All\-Weights@{get\-All\-Weights}!MappedSPSamplingScheffe.cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}}
+\paragraph[{get\-All\-Weights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-All\-Weights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ double $>$ \&}]{\-Weights\-Vector, }
+\item[{vector$<$ interval $>$ \&}]{\-Weights\-Int}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingScheffe_8cpp_a2ebd3788007a04909c0805d18f7cc302}
+
+
+\-Definition at line 99 of file \-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp.
+
+
+
+\-References get\-All\-Weights(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Weights(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), subpavings\-::\-S\-Pnode\-::is\-Leaf(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     //get the weights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getWeights(WeightsVector, WeightsInt, thisNodePtr->nodeVolume(
+      ));
+  }
+
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getAllWeights(thisNodePtr->getLeftChild(), WeightsVector, WeightsInt);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getAllWeights(thisNodePtr->getRightChild(), WeightsVector, WeightsInt);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingScheffe_8cpp_a071c6769f9c807ff0719ce7470b94a86}{\index{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}!get\-Height\-And\-Box@{get\-Height\-And\-Box}}
+\index{get\-Height\-And\-Box@{get\-Height\-And\-Box}!MappedSPSamplingScheffe.cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}}
+\paragraph[{get\-Height\-And\-Box}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-Height\-And\-Box} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{vector$<$ ivector $>$ \&}]{\-Box\-Vector, }
+\item[{vector$<$ real $>$ \&}]{\-Heights\-Vector}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingScheffe_8cpp_a071c6769f9c807ff0719ce7470b94a86}
+
+
+\-Definition at line 119 of file \-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::get\-Box(), subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::get\-Height(), get\-Height\-And\-Box(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), and subpavings\-::\-S\-Pnode\-::is\-Leaf().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) && thisNodePtr->isLeaf()) { // this is a
+       non-empty leaf
+     //push back this box into the BoxVector
+     BoxVector.push_back(thisNodePtr->getBox());
+     
+     //get the heights
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     myContainer.getHeight(HeightsVector);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    getHeightAndBox(thisNodePtr->getLeftChild(), BoxVector, HeightsVector);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    getHeightAndBox(thisNodePtr->getRightChild(), BoxVector, HeightsVector);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}!main@{main}}
+\index{main@{main}!MappedSPSamplingScheffe.cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingScheffe_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 162 of file \-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), \-Draw\-Unif\-Box(), \-R\-S\-Sample\-::\-Envelope\-Integral, get\-All\-Weights(), get\-Height\-And\-Box(), \-Height, \-R\-S\-Sample\-::\-Integral\-Estimate(), \-R\-S\-Sample\-::\-Mean(), norm\-Heights(), output(), taylor\-::pow(), \-M\-R\-Sampler\-::\-Rejection\-Sample\-Many(), \-R\-S\-Sample\-::\-Samples, and \-Tinverse.
+
+
+\begin{DoxyCode}
+{
+  //===========user-defined parameters==============================//
+  if ( argc != 7 ) {
+    cerr << "Syntax: MappedFunctions n dataSeed dims lb ub critLeaves maxCheck
+       approxLeaves" << endl;
+    exit(0);
+  }
+
+  //user inputs
+  const int n = atoi(argv[1]); //number of points
+  long int dataSeed = atoi(argv[2]); //seed for generating data
+  int simNum = dataSeed;
+  int dims = atoi(argv[3]); //which data set 
+
+ 
+  size_t critLeaves = atoi(argv[4]);
+
+  int maxCheck = atoi(argv[5]);
+  
+  int approxLeaves = atoi(argv[6]);
+
+  //string formatting
+  ofstream oss;         // ofstream object
+  oss << scientific;  // set formatting for input to oss
+  oss.precision(10);
+
+  //=========================end of setting up parameter===================//
+
+//=========set up to estimate the function==============================// 
+  // Function object
+  GaussianFobj1D realF;
+//   GaussianFobj2D realF;
+//   GaussianFobj10D realF;
+  //RosenFobj2D realF;  
+  //RosenFobj10D realF;
+
+  //make a root box
+  ivector pavingBox(dims);
+  interval pavingInterval(-5,5);
+  //interval pavingInterval(-2,3);
+  for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+   RealMappedSPnode nodeEst(pavingBox); // make a MappedSPnode object
+    // estimate the function
+   MappedSPnodeVisitorExpand expander(realF, 0);
+   vector<real> eps;
+   nodeEst.priorityAccept(expander, approxLeaves, eps);
+   cout << "Estimate function has " << nodeEst.getNumLeaves() << " leaf nodes."
+       << endl;
+   
+   //output to .txt  
+   string thefilename = "EstFunction.txt";
+   output(thefilename, nodeEst);
+  //=======================================================================//
+  
+  //==================Get the weights of the boxes=========================//
+   cout << "Getting boxes and weights:" << endl;
+    vector<ivector> BoxVector;
+   vector<real> HeightsVector;
+   RealMappedSPnode* nodePtr;
+   nodePtr = &nodeEst;
+   vector<double>* WeightsVectorPtr;
+   WeightsVectorPtr = new vector<double>;
+   vector<interval>* WeightsIntPtr;
+   WeightsIntPtr = new vector<interval>;
+   
+   // iterate through the leaf nodes to get boxes and heights and weights
+   getHeightAndBox(nodePtr, BoxVector, HeightsVector);
+   getAllWeights(nodePtr, *WeightsVectorPtr, *WeightsIntPtr);
+   
+   //now put elements of WeightsVector into an array of doubles
+   size_t sizeWeight =(*WeightsVectorPtr).size();
+   //check that number of boxes < 10^6
+   if (sizeWeight > pow(10,7)) { 
+      cerr << "Too many boxes (" << sizeWeight << ")." << endl;
+      exit(1);
+   }
+
+  // normalize using heights
+  interval areaInt = interval(0);
+   //normalize the heights so that the function integrates to 1
+   for (size_t i = 0; i < sizeWeight; i++) {
+    areaInt = areaInt + (*WeightsIntPtr)[i];
+    
+    //cout << (*WeightsVectorPtr)[i] << "\t" << (*WeightsIntPtr)[i] << endl;
+   }
+  cout << "Total area: " << mid(areaInt) << endl; 
+   
+   double totalArea = _double(mid(areaInt));
+   
+   // very important - normalize the heights in nodeEst
+   vector< RangeCollectionClass<real> >* heightNorm = new vector<
+       RangeCollectionClass<real> >;
+   normHeights(nodePtr, totalArea, *heightNorm);
+   nodeEst.allocateRanges(*heightNorm, 0);
+   string filename = "EstFunctionAfterNormalized.txt";
+   output(filename, nodeEst);
+   
+   //need to check that the weights equal to 1
+   double densityCheck = 0.0;
+    //convert vector to array
+   double WeightsArray[sizeWeight];
+   for (size_t i = 0; i < sizeWeight; i++) {
+      WeightsArray[i] = (*WeightsVectorPtr)[i];
+      densityCheck += (*WeightsVectorPtr)[i]/totalArea;
+   }
+   
+  cout << "Total area after normalizing: " << densityCheck << endl;
+  /*
+  if ( (densityCheck != 1.0) ) {
+    cout << densityCheck << endl; 
+    cerr << "Function does not integrate to 1. Need to normalize." << endl; 
+    exit(0); 
+  }
+  */
+  
+   //return to the system the memory that was pointed to by WeightsVectorPtr
+   // and heightNorm
+   delete WeightsVectorPtr;
+   delete heightNorm;
+   
+    //now get the lookup table returned from gsl_ran_discrete_preproc
+   //i.e. the box indices with their weights
+   gsl_ran_discrete_t* gslpdfstruct;
+   gslpdfstruct = gsl_ran_discrete_preproc(sizeWeight, WeightsArray);
+
+   //===================end of getting box weights=======================//
+
+  //===================generate data===================================
+  // set up a random number generator to draw from weighted boxes
+  const gsl_rng_type * T;
+  gsl_rng * r;
+
+  //create a generator chosen by the environment variable GSL_RNG_TYPE
+  gsl_rng_env_setup();
+  T = gsl_rng_default;
+  r = gsl_rng_alloc (T);
+  // set a seed for the data
+  gsl_rng_set(r, dataSeed);
+
+  //now sample n data points from boxes given by the proposed indices
+  cout << "Sample data points using weighted boxes:" << endl;
+  RVecData theData;   // a container for all the points generated
+   // make a simulated data set
+  // data sampled as weighted-uniform-mixtures
+  for (int i = 0; i < n; i++) {
+    rvector thisrv(dims);
+    size_t proposedIndex = gsl_ran_discrete(r, gslpdfstruct);
+    //int proposed_index = static_cast<int>(gsl_ran_discrete(r, gslpdfstruct));
+    thisrv = DrawUnifBox(r, BoxVector[proposedIndex]);
+    // put points generated into container
+    theData.push_back(thisrv);
+  }  // data  should be in theData
+
+    // /* optional output for data
+    //string dataFileName = "FinMix";
+    //dataFileName += mix.str();
+    string dataFileName = "MappedData"; 
+    //dataFileName += simNum.str();
+    dataFileName += ".txt"; 
+    oss.open(dataFileName.c_str());
+      for (size_t i = 0; i < n; i++) { 
+        for (size_t j = 1; j <= dims; j++) {
+            //cout << (*theData)[i][j] << endl;
+          oss << (theData)[i][j] << "\t";
+        }
+        oss << "\n";
+      }
+      oss << flush;
+      oss.close();
+    // */
+
+  //================Setting up parameters for the Rosenbrock density========//
+   //Parameters specific to the Rosenbrock target
+   // set default values
+   int n_dimensions = 2;
+   int n_boxes = 1000000;
+   double Alb = 1.0;// partition until lower bound on Acceptance Prob. is > Alb
+   //Parameters specific to the Rosenbrock target
+   real Tinverse = 1.0;
+   real Height = 100.0;
+   
+   real RosenDomainLimit = 3.0;
+   
+  unsigned theSeed =  1; 
+
+/*
+   if (argc >= 2) {
+         sscanf (argv[1], "%i", &n_dimensions);
+         if (argc >= 3) {
+            sscanf (argv[2], "%i", &n_boxes);
+            if (argc >= 4) sscanf (argv[3], "%i", &n_samples);
+            if (argc >= 5) sscanf (argv[4], "%ui", &theSeed);
+            if (argc >= 6)
+            cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>;
+       "
+             << "extra arguments ignored.\n";
+         }
+         else 
+         cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>; "
+                 << "extra arguments ignored.\n";
+      }*/
+      
+     cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes
+        << "  n: " << n << "  rng_seed = " << theSeed
+        << endl; //getchar();
+      bool UseLogPi = false; // log scale won't work naively
+      bool use_f_scale = false;
+      // make the function object
+      FRosenbrock FRosen (n_dimensions, Tinverse, Height, RosenDomainLimit, 
+      UseLogPi);
+      // produce the samples
+      MRSampler theSampler (FRosen, n_boxes, Alb, theSeed, (use_f_scale == 1));
+    RSSample rs_sample;
+    cout << "before Rej..SampleMany \n";
+    cout << "n_samples: " << n << endl;
+    theSampler.RejectionSampleMany (n, rs_sample);
+    cout << "after Rej..SampleMany \n";
+    double IntegralEstimate = _double (rs_sample.IntegralEstimate ());
+    cout << "rs_sample IU, N, Nrs: " << rs_sample.EnvelopeIntegral << " "
+        << rs_sample.Samples.size() << " " << rs_sample.Samples.size() << endl;
+    cout << "RSSampleMany, integral est: " << IntegralEstimate << endl;
+    cout << "RSSampleMany mean: \n"; rs_sample.Mean ();
+
+    vector<LabPnt>::iterator LabPntIt; //to iterate over labData.Samples
+    dataFileName = "Data.txt";
+    oss.open(dataFileName.c_str());
+    for (LabPntIt = rs_sample.Samples.begin(); LabPntIt < rs_sample.Samples.end
+      ();
+          LabPntIt++) {
+        (*LabPntIt).Print(oss);
+    }
+    oss << flush;
+    oss.close();
+    
+  //==================Hold-out MDE===========================================
+  
+  /*
+  cout << "========================================================" << endl;
+  cout << "Run hold out estimation..." << endl;
+
+  //=========insert data into an AdaptiveHistogramValidation object=========//
+  //containers for output needed
+  vector<real> IAEV;
+  vector<int> NumLeafNodesV;
+  vector<double> timings;
+  double timing = 0;
+  
+  
+  // stopping criteria 
+  bool stopCrit = true; // to remove this?
+
+  //maximum number of leaf nodes allowed
+  int holdOutCount = int(n/3);
+  int trainCount = n-holdOutCount; 
+  cout << n-holdOutCount << " training data and " 
+      << holdOutCount << " validation data inserted." << endl; 
+  size_t maxLeafNodes = 1500;
+//  size_t maxLeafNodes = int(trainCount/log(trainCount*(2*dims+1))); //
+       temporarily
+  //size_t maxLeafNodes = 50;
+  //cout << "max leaf nodes: " << maxLeafNodes << endl;
+
+  // indicators
+   bool successfulInsertion1 = false;
+   bool successfulInsertion2 = false;
+   bool successfulInsertion3 = false;
+   bool successfulInsertion4 = false;
+   bool successfulInsertion5 = false;
+   bool successfulInsertion6 = false;
+   bool successfulInsertion7 = false;
+   bool successfulInsertion8 = false;
+   
+   
+   bool successfulPQSplit1 = false;
+   bool successfulPQSplit2 = false;
+   bool successfulPQSplit3 = false;
+   bool successfulPQSplit4 = false;
+   bool successfulPQSplit5 = false;
+   bool successfulPQSplit6 = false;
+   bool successfulPQSplit7 = false;
+   bool successfulPQSplit8 = false;
+   
+   
+   // comparison objects
+   CompCountVal compCount;
+   CompVolVal compVol;
+   CompAreaVal compArea;
+   CompMeanMassVal compMeanMass;
+   CompCovarVal compCovarMass;
+   CompHellingerDistMassVal compH;
+   CompHellingerDistMassDiamVal compHD;
+   SplitNever sn;   
+  bool holdAllStats = true;
+  
+  int finalK = 1;
+  //CritLargestCount_LTEV critCount(finalK);
+  size_t minChildPoints = 0;
+  CritLeaves_GTEV critCount(critLeaves);
+
+  //container for scheffe tournament candidates
+  vector<AdaptiveHistogramValidation> optHist;
+
+  cout << "PQ1" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal1(pavingBox);
+  AdaptiveHistogramValidation optHist1(pavingBox);
+  int m = 1;
+  successfulInsertion1 = myHistVal1.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+  if (successfulInsertion1) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit1 = myHistVal1.prioritySplitAndEstimate(compCount, 
+                        critCount, NOLOG, minChildPoints, 
+                         0.0, stopCrit, nodeEst, m, simNum, 
+                         maxLeafNodes, maxCheck, optHist1);
+    end = clock();
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit1) { 
+      optHist1.outputToTxtTabs("HistPQ1.txt");
+      optHist.push_back(optHist1); timings.push_back(timing);}
+  }
+  
+  
+  cout << "\nPQ2 " << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal2(pavingBox);
+  AdaptiveHistogramValidation optHist2(pavingBox);   
+  m=2;
+  successfulInsertion2 = myHistVal2.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+  if (successfulInsertion2) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit2 = myHistVal2.prioritySplitAndEstimate(compVol, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, nodeEst, m, simNum, 
+                         maxLeafNodes, maxCheck, optHist2);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit2) { 
+      optHist2.outputToTxtTabs("HistPQ2.txt");
+      optHist.push_back(optHist2); timings.push_back(timing); }
+  }
+  
+  cout << "\nPQ3" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal3(pavingBox);   
+  AdaptiveHistogramValidation optHist3(pavingBox);
+  successfulInsertion3 = myHistVal3.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+  if (successfulInsertion3) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit3 = myHistVal3.prioritySplitAndEstimateWithSwitch(compVol,
+       
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, nodeEst, 3, simNum, 
+                         maxLeafNodes, maxCheck, optHist3);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit3) { 
+      optHist3.outputToTxtTabs("HistPQ3.txt");
+      optHist.push_back(optHist3); timings.push_back(timing);}
+  }
+  
+  cout << "\nPQ4" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal4(pavingBox);
+  AdaptiveHistogramValidation optHist4(pavingBox);
+  successfulInsertion4 = myHistVal4.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+
+  if (successfulInsertion4) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit4 =
+       myHistVal4.prioritySplitAndEstimateWithSwitch(compArea, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, nodeEst, 4, simNum, 
+                         maxLeafNodes, maxCheck,  optHist4);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit4) { 
+      optHist4.outputToTxtTabs("HistPQ4.txt");
+      optHist.push_back(optHist4); timings.push_back(timing);}
+  }
+  
+  
+  cout << "\nPQ5" <<  endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal5(pavingBox, holdAllStats);   
+  AdaptiveHistogramValidation optHist5(pavingBox, holdAllStats);
+  successfulInsertion5 = myHistVal5.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+  //cout << myHistVal5.getHoldAllStats() << endl;
+  //cout << myHistVal5.getSubPaving() << endl;
+  if (successfulInsertion5) {
+    clock_t start, end;
+    start = clock();
+    int m = 5;
+    successfulPQSplit5 =
+       myHistVal5.prioritySplitAndEstimateWithSwitch(compMeanMass, 
+                        critCount, NOLOG, 
+                         minChildPoints, 0.0, stopCrit, nodeEst, m, simNum, 
+                         maxLeafNodes, maxCheck, optHist5);
+ 
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit5) { 
+      optHist5.outputToTxtTabs("HistPQ5.txt");
+      optHist.push_back(optHist5); timings.push_back(timing);
+    }
+  }
+  
+  cout << "\nPQ6" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal6(pavingBox, holdAllStats); 
+  AdaptiveHistogramValidation  optHist6(pavingBox, holdAllStats);
+  successfulInsertion6 = myHistVal6.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+  if (successfulInsertion6) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit6 =
+       myHistVal6.prioritySplitAndEstimateWithSwitch(compCovarMass, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, nodeEst, 6, simNum, 
+                         maxLeafNodes, maxCheck, optHist6);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit6) { 
+      optHist6.outputToTxtTabs("HistPQ6.txt");
+      optHist.push_back(optHist6); timings.push_back(timing); }
+  }
+  
+  cout << "\nPQ7" << endl << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal7(pavingBox, holdAllStats); 
+  AdaptiveHistogramValidation optHist7(pavingBox, holdAllStats);
+  
+  successfulInsertion7 = myHistVal7.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+  if (successfulInsertion7) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit7 = myHistVal7.prioritySplitAndEstimateWithSwitch(compH, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, nodeEst, 7, simNum, 
+                         maxLeafNodes, maxCheck, optHist7);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit7) { 
+      optHist7.outputToTxtTabs("HistPQ7.txt");
+      optHist.push_back(optHist7); timings.push_back(timing);}
+  }
+  
+  cout << "\nPQ8" << endl;
+  // Put the data from the container into the histogram  
+  AdaptiveHistogramValidation myHistVal8(pavingBox, holdAllStats);
+  AdaptiveHistogramValidation optHist8(pavingBox, holdAllStats);
+  successfulInsertion8 = myHistVal8.insertFromRVecForHoldOut(theData, sn,
+       holdOutCount, NOLOG);
+  if (successfulInsertion8) {
+    clock_t start, end;
+    start = clock();
+    successfulPQSplit8 = myHistVal8.prioritySplitAndEstimateWithSwitch(compHD, 
+                        critCount, NOLOG, 
+                         0, 0.0, stopCrit, nodeEst, 8, simNum, 
+                         maxLeafNodes, maxCheck, optHist8);
+    end = clock();  
+    timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+    cout << "Computing time : " << timing << " s."<< endl;
+    if (successfulPQSplit8) { 
+      optHist8.outputToTxtTabs("HistPQ8.txt");
+      optHist.push_back(optHist8); timings.push_back(timing);}
+  }
+  
+//================start the Scheffe tournament======================//
+//  if (successfulPQSplit1 && successfulPQSplit2 && successfulPQSplit3 &&
+//    successfulPQSplit4 && successfulPQSplit5 && successfulPQSplit6 &&
+//    successfulPQSplit7 && successfulPQSplit8) {
+
+  ofstream os;         // ofstream object
+  os << scientific;  // set formatting for input to oss
+  os.precision(5);
+
+  vector<real> TrueDelta;
+  AdaptiveHistogramVCollator coll;
+  size_t agg = 0;
+  vector<real> IAEMDE;
+  vector<real> IAEMDEFull;
+
+  for (size_t i = 0; i < optHist.size(); i++) {
+    IAEMDE.push_back(optHist[i].getMappedFunctionIAE(nodeEst, 0));
+    IAEMDEFull.push_back(optHist[i].getMappedFunctionIAE(nodeEst, 1));
+    coll.addToCollationWithVal(optHist[i], 1, agg);
+  }
+
+  cout << "Get the Yatracos set for theorem checks: " << endl;
+  vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
+
+  vector<double> maxDelta;
+  vector<double>::iterator it;
+  clock_t start, end;
+  start = clock();
+  coll.getMinDistEst(maxDelta, vecYatSet);
+  end = clock();  
+  timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+  cout << "Computing time : " << timing << " s."<< endl;
+  timings.push_back(timing);  
+  
+  double minMaxDelta = 100;
+  real minMinIAE = 100;
+  int minPosIAE; 
+  int minPosDelta;
+  
+  for (size_t i = 0; i < coll.getNumberCollated(); i++) {
+    cout << maxDelta[i] << "\t" << IAEMDE[i] << endl;
+    if (maxDelta[i] < minMaxDelta) { minPosDelta = i+1; minMaxDelta =
+       maxDelta[i]; }
+    if (IAEMDE[i] < minMinIAE) { minPosIAE = i+1; minMinIAE = IAEMDE[i]; }
+  }
+
+  cout << "Min IAE at candidate " << minPosIAE << endl;
+  cout << "Min delta max at candidate " << minPosDelta << endl;
+
+  //get the true Delta
+  vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >::iterator
+       vecYatSetIt;
+  real trueDelta = 0.0;
+  if (!vecYatSet.empty()) {
+    for (vecYatSetIt = vecYatSet.begin(); vecYatSetIt < vecYatSet.end();
+       vecYatSetIt++) {
+      real trueDeltaR = getMappedFunctionTrueDelta(nodeEst, *vecYatSetIt);
+      trueDeltaR = abs(trueDeltaR);
+      //cout << trueDeltaR << "\t";
+      trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
+      //cout << trueDelta << endl; 
+    }
+    cout << "Delta over the Yatracos set: " << trueDelta << endl;
+  }
+  else { trueDelta = -1; }
+  
+  ostringstream stm;
+  stm << simNum;
+  string deltaFile;
+  deltaFile = "TrueDeltaAll";
+  deltaFile += stm.str();
+  deltaFile += ".txt";
+  os.open(deltaFile.c_str());
+  os << trueDelta << endl;
+  os << flush;
+  os.close();
+
+
+  string IAEMDEFile = "IAEMDEandDeltaMax";
+  IAEMDEFile += stm.str();
+  IAEMDEFile += ".txt";
+  os.open(IAEMDEFile.c_str());
+  for (size_t i = 0; i < IAEMDE.size(); i++) {
+    os << IAEMDE[i] << "\t" << IAEMDEFull[i] << "\t" << maxDelta[i] << endl;
+  }
+  os << flush;
+  os.close();
+
+  string TimeFile = "Times";
+  TimeFile += stm.str();
+  TimeFile += ".txt";
+  os.open(TimeFile.c_str());
+  for (size_t i = 0; i < timings.size(); i++) {
+    os << timings[i] << endl;
+  }
+  os << flush;
+  os.close();
+*/
+  // free the random number generator
+  gsl_rng_free (r);  
+  gsl_ran_discrete_free (gslpdfstruct);
+
+  return 0;
+}
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingScheffe_8cpp_aaccdd027128215abfb51d30ca3bfc190}{\index{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}!norm\-Heights@{norm\-Heights}}
+\index{norm\-Heights@{norm\-Heights}!MappedSPSamplingScheffe.cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}}
+\paragraph[{norm\-Heights}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf norm\-Heights} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} $\ast$}]{this\-Node\-Ptr, }
+\item[{double}]{total\-Area, }
+\item[{vector$<$ {\bf \-Range\-Collection\-Class}$<$ real $>$ $>$ \&}]{height\-Norm}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingScheffe_8cpp_aaccdd027128215abfb51d30ca3bfc190}
+
+
+\-Definition at line 141 of file \-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp.
+
+
+
+\-References subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Left\-Child(), subpavings\-::\-Real\-Mapped\-S\-Pnode\-::get\-Right\-Child(), subpavings\-::\-S\-Pnode\-::has\-L\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::has\-R\-Cwith\-Box(), subpavings\-::\-S\-Pnode\-::is\-Empty(), norm\-Heights(), and subpavings\-::\-Range\-Collection\-Class$<$ T $>$\-::norm\-Node\-Height().
+
+
+\begin{DoxyCode}
+{
+  if (!(thisNodePtr->isEmpty()) ) { // this is non-empty
+     RangeCollectionClass<real> myContainer;
+     myContainer = thisNodePtr->getRangeCollection();
+     real newHeight = myContainer.normNodeHeight(totalArea);
+     
+     RangeCollectionClass<real> height(newHeight);
+    heightNorm.push_back(height);
+  }
+  //recurse on the children
+  if (thisNodePtr->hasLCwithBox()) {
+    normHeights(thisNodePtr->getLeftChild(), totalArea, heightNorm);
+  }
+   if (thisNodePtr->hasRCwithBox()) {
+    normHeights(thisNodePtr->getRightChild(), totalArea, heightNorm);
+   }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPSamplingScheffe_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}!output@{output}}
+\index{output@{output}!MappedSPSamplingScheffe.cpp@{\-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{MappedSPSamplingScheffe_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 82 of file \-Mapped\-S\-P\-Sampling\-Scheffe.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+   // To generate a file output
+   ofstream os(filename.c_str());         // Filename, c-string version
+   if (os.is_open()) {
+      node.leavesOutputTabs(os); // the output
+      std::cout << "The output of the estimated function"
+               << " has been written to " << filename << std::endl << std::endl
+      ;
+         os.close();
+      }
+   else {
+      std::cerr << "Error: could not open file named "
+         << filename << std::endl << std::endl;
+   }
+}
+\end{DoxyCode}

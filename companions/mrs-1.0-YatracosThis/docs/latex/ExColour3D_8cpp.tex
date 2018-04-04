@@ -1,0 +1,178 @@
+\hypertarget{ExColour3D_8cpp}{\subsection{\-Ex\-Colour3\-D.\-cpp \-File \-Reference}
+\label{ExColour3D_8cpp}\index{\-Ex\-Colour3\-D.\-cpp@{\-Ex\-Colour3\-D.\-cpp}}
+}
+
+
+\-Mapped\-S\-Pnode example with colours 2-\/d main.  
+
+
+{\ttfamily \#include \char`\"{}\-R\-G\-B\-Colour.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ExColour3D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+int \hyperlink{ExColour3D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Mapped\-S\-Pnode example with colours 2-\/d main. 
+
+\-Definition in file \hyperlink{ExColour3D_8cpp_source}{\-Ex\-Colour3\-D.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{ExColour3D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Ex\-Colour3\-D.\-cpp@{\-Ex\-Colour3\-D.\-cpp}!main@{main}}
+\index{main@{main}!ExColour3D.cpp@{\-Ex\-Colour3\-D.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ExColour3D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 36 of file \-Ex\-Colour3\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::allocate\-Ranges(), output(), and subpavings\-::\-Mapped\-S\-Pnode$<$ T $>$\-::split\-To\-Shape().
+
+
+\begin{DoxyCode}
+{
+
+    cout << "\nExColour3D\n" << endl;
+
+    int dims = 3;
+    ivector pavingBox(dims);
+    interval pavingInterval(-4,4);
+    for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+    MappedSPnode<RGBColour> nodeOne(pavingBox); // make a MappedSPnode object
+
+    MappedSPnode<RGBColour> nodeTwo(pavingBox); // make a MappedSPnode object
+
+    // split the nodes to particular shapes
+    nodeOne.splitToShape("3,3,2,1"); // split it
+    nodeTwo.splitToShape("3,4,4,2,2,3,3"); // split it
+
+
+    // allocate ranges for nodeOne
+    RangeCollectionClass<RGBColour> rangeOne1(RGBColour(1.0,1.0,1.0));
+    RangeCollectionClass<RGBColour> rangeOne2(RGBColour(0.8,0.8,0.8));
+    RangeCollectionClass<RGBColour> rangeOne3(RGBColour(0.5,0.2,0.3));
+    RangeCollectionClass<RGBColour> rangeOne4(RGBColour(1.0,1.0,0.0));
+    RangeCollectionClass<RGBColour> rangeOne5(RGBColour(0.8,0.1,0.0));
+    RangeCollectionClass<RGBColour> rangeOne6(RGBColour(0.3,0.6,0.5));
+    RangeCollectionClass<RGBColour> rangeOne7(RGBColour(1.0,0.9,0.9));
+
+
+    vector< RangeCollectionClass<RGBColour> > rangesOne;
+    rangesOne.push_back(rangeOne1);
+    rangesOne.push_back(rangeOne2);
+    rangesOne.push_back(rangeOne3);
+    rangesOne.push_back(rangeOne4);
+    rangesOne.push_back(rangeOne5);
+    rangesOne.push_back(rangeOne6);
+    rangesOne.push_back(rangeOne7);
+
+
+
+    nodeOne.allocateRanges(rangesOne, 0);
+
+
+    // allocate ranges for nodeTwo
+    RangeCollectionClass<RGBColour>  rangeTwo1(RGBColour(1.0,1.0,1.0));
+    RangeCollectionClass<RGBColour>  rangeTwo2(RGBColour(0.6,0.6,0.6));
+    RangeCollectionClass<RGBColour>  rangeTwo3(RGBColour(0.3,0.5,0.6));
+    RangeCollectionClass<RGBColour>  rangeTwo4(RGBColour(0.2,0.5,0.0));
+    RangeCollectionClass<RGBColour>  rangeTwo5(RGBColour(0.1,0.0,0.6));
+    RangeCollectionClass<RGBColour>  rangeTwo6(RGBColour(0.0,0.5,0.5));
+    RangeCollectionClass<RGBColour>  rangeTwo7(RGBColour(0.0,0.0,0.6));
+    RangeCollectionClass<RGBColour>  rangeTwo8(RGBColour(0.8,0.9,1.0));
+    RangeCollectionClass<RGBColour>  rangeTwo9(RGBColour(0.4,0.4,0.4));
+    RangeCollectionClass<RGBColour>  rangeTwo10(RGBColour(0.1,0.0,0.3));
+    RangeCollectionClass<RGBColour>  rangeTwo11(RGBColour(0.3,0.4,0.1));
+    RangeCollectionClass<RGBColour>  rangeTwo12(RGBColour(0.0,0.4,0.0));
+    RangeCollectionClass<RGBColour>  rangeTwo13(RGBColour(0.3,0.0,0.1));
+
+    vector< RangeCollectionClass<RGBColour> > rangesTwo;
+    rangesTwo.push_back(rangeTwo1);
+    rangesTwo.push_back(rangeTwo2);
+    rangesTwo.push_back(rangeTwo3);
+    rangesTwo.push_back(rangeTwo4);
+    rangesTwo.push_back(rangeTwo5);
+    rangesTwo.push_back(rangeTwo6);
+    rangesTwo.push_back(rangeTwo7);
+    rangesTwo.push_back(rangeTwo8);
+    rangesTwo.push_back(rangeTwo9);
+    rangesTwo.push_back(rangeTwo10);
+    rangesTwo.push_back(rangeTwo11);
+    rangesTwo.push_back(rangeTwo12);
+    rangesTwo.push_back(rangeTwo13);
+
+    nodeTwo.allocateRanges(rangesTwo, 0);
+
+
+    string filename = "ExColour3D_1.txt";
+    output(filename, nodeOne);
+
+    filename = "ExColour3D_2.txt";
+    output(filename, nodeTwo);
+
+    // ----------- try addition
+
+    MappedSPnode<RGBColour> addition = nodeOne + nodeTwo;
+    filename = "ExColour3D_Addition.txt";
+    output(filename, addition);
+
+    // ----------- try subtraction
+
+    MappedSPnode<RGBColour> subtraction = nodeOne - nodeTwo;
+    filename = "ExColour3D_Subtraction.txt";
+    output(filename, subtraction);
+
+    return 0;
+
+}
+\end{DoxyCode}
+\hypertarget{ExColour3D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Ex\-Colour3\-D.\-cpp@{\-Ex\-Colour3\-D.\-cpp}!output@{output}}
+\index{output@{output}!ExColour3D.cpp@{\-Ex\-Colour3\-D.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{ExColour3D_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 19 of file \-Ex\-Colour3\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+\begin{DoxyCode}
+{
+        // To generate a file output
+        ofstream os(filename.c_str());         // Filename, c-string version
+        if (os.is_open()) {
+
+            node.leavesOutputTabs(os); // the output
+            std::cout << "The output of the example"
+                    << " has been written to " << filename << std::endl << 
+      std::endl;
+            os.close();
+        }
+        else {
+            std::cerr << "Error: could not open file named "
+                << filename << std::endl << std::endl;
+        }
+}
+\end{DoxyCode}

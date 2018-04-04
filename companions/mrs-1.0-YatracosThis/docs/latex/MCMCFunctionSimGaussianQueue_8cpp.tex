@@ -1,0 +1,862 @@
+\hypertarget{MCMCFunctionSimGaussianQueue_8cpp}{\subsection{\-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp \-File \-Reference}
+\label{MCMCFunctionSimGaussianQueue_8cpp}\index{\-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp@{\-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp}}
+}
+
+
+\-Testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C new style (\-May 2012) and \-Gaussian data generated from a function estimate.  
+
+
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}intervalmappedspnode\-\_\-measurers.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}functionestimator\-\_\-interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}piecewise\-\_\-constant\-\_\-function.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Gaussian\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$unistd.\-h$>$}\*
+{\ttfamily \#include $<$limits$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{MCMCFunctionSimGaussianQueue_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C new style (\-May 2012) and \-Gaussian data generated from a function estimate. 
+
+\-Definition in file \hyperlink{MCMCFunctionSimGaussianQueue_8cpp_source}{\-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MCMCFunctionSimGaussianQueue_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp@{\-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp}!main@{main}}
+\index{main@{main}!MCMCFunctionSimGaussianQueue.cpp@{\-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{MCMCFunctionSimGaussianQueue_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 46 of file \-M\-C\-M\-C\-Function\-Sim\-Gaussian\-Queue.\-cpp.
+
+
+
+\-References subpavings\-::\-Piecewise\-Constant\-Function\-::get\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Box(), subpavings\-::\-Adaptive\-Histogram\-::get\-Root\-Leaves(), subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Total\-Integral(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Piecewise\-Constant\-Function\-::normalise(), subpavings\-::\-Piecewise\-Constant\-Function\-::output\-To\-Txt\-Tabs(), subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split(), subpavings\-::\-Adaptive\-Histogram\-::priority\-Split\-M\-C\-M\-C(), and subpavings\-::\-Piecewise\-Constant\-Function\-::simulate\-Data().
+
+
+\begin{DoxyCode}
+{
+  // sort out user-defined parameters------------------//
+  if ( argc < 19 ) {
+    cerr << "Syntax: " << argv[0] << 
+    "d maxLeavesEst n states symmetryIndicator seed burnin thinout [log_full]" 
+      << endl;
+    throw std::runtime_error("Syntax: " + std::string(argv[0]) + "d n states,
+       symmetryIndicator");
+  }
+  
+  int d = atoi(argv[1]);  // dimensions
+  size_t maxLeavesEst = atoi(argv[2]);  // number of leaves in estimator
+  const int n = atoi(argv[3]);  // number of points to generate
+
+  cout << "Dim: " << d << "\t" << "Est: " << maxLeavesEst << "\t N: " << n << 
+      endl;
+
+
+  unsigned int loops = atoi(argv[4]); // number of states to loop through
+  int symmetryIndicator = atoi(argv[5]); // 1 for symmetric, 0 otherwise
+  int dataSeed = atoi(argv[6]); // seed for data generation
+  unsigned int burnin = atoi(argv[7]); 
+  unsigned int thinout = atoi(argv[8]); 
+
+  cout << "Seed: " << dataSeed << endl;
+  cout << "Burnin: " << burnin << "\t" << "Thinout: " << thinout << endl; 
+
+  size_t hist1Crit = atoi(argv[9]);
+  size_t hist2Crit = atoi(argv[10]);
+  size_t hist3Crit = atoi(argv[11]);
+  
+  size_t hist1CritLeaf = atoi(argv[12]);
+  size_t hist2CritLeaf = atoi(argv[13]);
+  
+  size_t NumStatesChosen = atoi(argv[14]);
+  
+  bool computeIAE = atoi(argv[15]);
+  
+  size_t minPoints = 1;
+  size_t minPQPoints1 = 1;
+  size_t minPQPoints2 = 1;
+  size_t minPQPoints3 = 1;
+
+  bool shiftCatalan = 0;
+
+  bool minVolControl = atoi(argv[16]);
+  int loggingType = atoi(argv[17]); //1 - NOLOG; 2 - LOGSTATETRACE
+  bool IAEPQ = atoi(argv[18]);
+  
+  /* for logging to output the logposterior for the sample average and current
+       state */
+  /* use LOGSTATETRACE only for current state */
+  LOGGING_LEVEL logging;
+  
+  if ( loggingType == 1) { logging = NOLOG; }
+  else if ( loggingType == 2 ) { logging = LOGSTATETRACE; }
+
+
+  cout << argv[0] << " : process id is " << getpid() << std::endl;
+
+  // set up proposal distribution object
+  UniformProposal proposal;
+  // set up prior distribution object
+  LogCatalanPrior logPrior;
+    
+  interval pavingIntervalSym(-6,6);
+  interval pavingIntervalNonSym(-6.5,7);
+
+  interval pavingInterval = pavingIntervalSym; // if we are doing symmetric
+       case
+  // but if we've asked for non-symmetric, change this
+  if (!symmetryIndicator) pavingInterval = pavingIntervalNonSym;
+
+  // for output purposes
+  // string formatting
+  ofstream oss;         // ofstream object
+   oss << scientific;  // set formatting for input to oss
+   oss.precision(10);
+
+  //=======get the root box from the actual data==============//
+  // set up a random number generator and use mt19937 for generator
+  gsl_rng * r = gsl_rng_alloc (gsl_rng_mt19937); // set up with default seed
+  //long unsigned int seed = 1234;
+  gsl_rng_set (r, dataSeed); // change the seed
+  cout << "Data seed is " << dataSeed << endl;
+  
+  RVecData* tempDataPtr = new RVecData;
+
+  for (size_t i = 0; i < n; i++) {
+    rvector thisrv(d);
+    for (size_t j = 1; j <= d; j++) {
+      //double z = gsl_rng_uniform(r);
+      double z = gsl_ran_gaussian(r, 1.0); // generate a normal r.v.
+      thisrv[j] = (z);
+    }
+    // put points generated into container
+    tempDataPtr->push_back(thisrv);
+  }
+
+  AdaptiveHistogram* tempHist = new AdaptiveHistogram; 
+  tempHist->insertFromRVec(*tempDataPtr);
+  ivector pavingBoxEst = tempHist->getRootBox();
+  delete tempHist;
+  delete tempDataPtr;
+  //=========end of getting a root box from the actual data=============
+  
+  //============== make estimate ============//
+  cout << "\nMake the function estimator to " << maxLeavesEst << " leaves" << 
+      endl;
+  
+  // specify function object (from /examples/MappedTargets
+  GaussianFobj fobj;
+  
+  /* function estimate is going to use same box as the histograms */
+  //ivector pavingBoxEst(d);
+  //for(int k=1; k <= d; k++) pavingBoxEst[k] = pavingInterval;
+  
+  // Use fobj and pavingBox to get an estimator
+  FunctionEstimatorInterval estimator(pavingBoxEst, fobj);
+  
+  LOGGING_LEVEL logEst = NOLOG; // logging for making estimator
+  
+  #if(1)
+  size_t maxLeavesEstDown = static_cast<size_t>(1.2*maxLeavesEst); // go down
+       to 1.2 x max
+  #endif
+  #if(0)
+    size_t maxLeavesEstDown = maxLeavesEst;
+  #endif
+  
+  cout << "pq down to max leaves " << maxLeavesEstDown << endl;
+  
+  clock_t startEst = clock();
+  
+  // priority split driven by splitting leaf with max reimann diff
+  ReimannDiffMeasurer measurer;
+  estimator.prioritySplit(measurer, maxLeavesEstDown, logEst);
+      
+  // stop recording time here
+  clock_t endEst = clock();
+  cout << "Number of leaves in estimate: " << estimator.getRootLeaves() << " s.
+      "<< endl;  
+  cout << "After split, getTotalAreaOfIntervalBand() = "
+    << estimator.getTotalAreaOfIntervalBand() << endl;
+  double timingEst1 = ((static_cast<double>(endEst - startEst)) / 
+      CLOCKS_PER_SEC);
+  cout << "Computing time for pq split in estimate: " << timingEst1 << " s."<< 
+      endl;
+  startEst = clock();
+  
+  #if(1) 
+    cout << "Hull propagation" << endl;
+    estimator.hullPropagation();
+    
+    cout << "Priority merge to " << maxLeavesEst << " leaves" << endl;
+    #if(0)
+    // priority merge driven by minimising increase the reimann diff
+    estimator.priorityMergeOnLoss(maxLeavesEst, logEst);
+    #endif
+    #if(1)
+    // priority merge driven by merging cherry with minimum reimann diff
+    estimator.priorityMerge(maxLeavesEst, logEst);
+    #endif
+          
+    // stop recording time here
+    endEst = clock(); 
+    double timingEst2 = ((static_cast<double>(endEst - startEst)) / 
+      CLOCKS_PER_SEC);
+    cout << "Computing time for hull propagate and merge up in estimate: " << 
+      timingEst2 << " s."<< endl;
+    
+    cout << "After propagation and priority merge, getTotalAreaOfIntervalBand()
+       = " 
+          << estimator.getTotalAreaOfIntervalBand() << endl;
+    cout << "number of leaves is = " << estimator.getRootLeaves() << endl;
+  #endif
+  
+  cout << "Making estimate and normalising" << endl;
+  // Make PiecewiseConstantFunction estimate from estimator
+  PiecewiseConstantFunction estimate = estimator.makePiecewiseConstantFunction(
+      );
+  estimate.normalise();
+  
+  cout << "estimate has integral " << estimate.getTotalIntegral() << endl;
+  
+  
+  //optional
+  estimate.outputToTxtTabs("pcfEstimate.txt");
+  
+  //===========end of estimating function using PCF=========================//
+
+  //===========generate data==============================================//
+  // Use PiecewiseConstantFunction to generate data, supplying our own rng
+  cout << "\nGenerating data for simulation" << endl;
+
+  RVecData* theDataPtr = new RVecData;   // a container for all the points
+       generated
+
+  clock_t startData = clock();
+
+  // Gaussian data
+  estimate.simulateData(*theDataPtr, n, r);
+
+  // stop recording time here
+  clock_t endData = clock();  
+  double timingData = ((static_cast<double>(endData - startData)) / 
+      CLOCKS_PER_SEC);
+  cout << "Computing time for simulating data: " << timingData << " s."<< endl;
+
+  cout << (*theDataPtr).size() << " points generated" << endl;
+  
+  try {
+    gsl_rng_free (r);
+    r = NULL;
+  }
+  catch(...) {}// catch and swallow
+  
+  cout << "\nStart example: n = " << n << " and d = " << d << endl;
+  //cout << "Paving interval is " << pavingInterval << endl;
+
+  //===========end of generating data=================================//
+
+  //==============MCMC with different starting states========================//
+  int numFunc = 1;
+  
+  ostringstream stmSeed;
+  stmSeed << dataSeed;
+
+  // parameters needed to start the PQ
+  LOGGING_LEVEL logPQ = NOLOG; // logging level  
+  CompVol comp2; 
+  CompVolMassMinus comp1;
+  CompCount compCount;
+  vector<real> IAEContainer; //for MCMC 
+  vector<double> Times; // for MCMC times
+
+  for (int func = 0; func < numFunc; func++) {
+    
+    double minVolB = 0.0; // to control the carving-in PQ so that it will not
+                  // over-zoom into areas with small volumes
+    
+    cout << "\n========Function : " << func << "========" << endl; 
+    ostringstream stm;
+    stm << func; // for output purposes
+    vector<size_t> LeafContainer; // to store the number of leaf nodes from
+       which the optimal posterior support is at
+    
+    /*
+    // make the paving box
+    ivector pavingBox(d);
+    for(int k=1; k <= d; k++) pavingBox[k] = pavingInterval;
+    */
+    
+    // make an Adaptive Histogram with the given pavingBox and, by default,
+    // holdAllStats = false so that the underlying rootPaving managed by the
+    // myHistFirst will not maintain all available stats, only counts
+    AdaptiveHistogram myHistFirst(pavingBoxEst); // still let the data decide
+       the box
+
+    // put in the data in a 'pulse' with no splitting, ie into root box
+    bool successfulInsertion = myHistFirst.insertFromRVec(*theDataPtr);
+
+    if (successfulInsertion) {
+
+      vector<real> ChosenStateMaxPosterior;
+      vector<AdaptiveHistogram> ChosenStateSubset;
+
+      //===== start the SEB-PQ from the root node as a sanity check====//
+      {
+      cout << "Starting the SEB-PQ from the root node:" << endl;
+      // initialize containers
+      vector<real> PosteriorChosen;
+      vector<double> EmptyBoxChosen;
+      vector<real> PosteriorSupportChosen;
+      vector<real> IAEContainerChosen;
+
+      AdaptiveHistogram myChosenHist(pavingBoxEst);
+      myChosenHist.insertFromRVec(*theDataPtr);
+
+      CritLeaves_GTE critStop(hist3Crit);
+      cout << "SEB-PQ to "  << (hist3Crit) << " leaf nodes." << endl;
+      int Txt = 9000 + func*100 + NumStatesChosen;
+      if (func == 0) {
+        myChosenHist.prioritySplitMCMC(compCount, critStop, 
+        logPQ, minPQPoints1, PosteriorChosen, logPrior, Txt, EmptyBoxChosen, 
+        PosteriorSupportChosen, IAEContainerChosen, estimate, shiftCatalan, 
+      IAEPQ);
+      }
+      else if (func == 1) {
+        myChosenHist.prioritySplitMCMC(compCount, critStop, 
+        logPQ, minPQPoints2, PosteriorChosen, logPrior, Txt, EmptyBoxChosen, 
+        PosteriorSupportChosen, IAEContainerChosen, estimate, shiftCatalan, 
+      IAEPQ);
+      }
+
+      //get the minimum volume
+      if (minVolControl == true) {
+        minVolB = myChosenHist.getBoxMinVol();
+        cout << "Minimum volume: " << minVolB << endl; 
+      }
+      else { minVolB = -1.0; }
+      
+      ostringstream stm1;
+      stm1 << NumStatesChosen;
+    
+      // optional
+      // output log-posterior
+      string PostFileName = "PosteriorChosen";
+      PostFileName += stm.str(); //for func
+      PostFileName += stm1.str(); 
+      PostFileName += ".txt";
+      oss.open(PostFileName.c_str());
+      for (size_t i = 0; i < PosteriorChosen.size(); i++) {
+        oss << PosteriorChosen[i] << endl;
+      }
+      oss << flush;
+      oss.close();
+      
+      
+      // output support log-posterior 
+      PostFileName = "PosteriorSupportChosen";
+      PostFileName += stm.str();
+      PostFileName += stm1.str();
+      PostFileName += ".txt";
+      oss.open(PostFileName.c_str());
+      for (size_t i = 0; i < PosteriorSupportChosen.size(); i++) {
+        oss << PosteriorSupportChosen[i] << endl;
+      }
+      oss << flush;
+      oss.close();
+  
+/*      // output the cumulative ratio of empty boxes
+      EmptyFileName = "EmptyChosen";
+      EmptyFileName += stm.str();
+      EmptyFileName += stm1.str();
+      EmptyFileName += ".txt";
+      oss.open(EmptyFileName.c_str());
+      for (size_t i = 0; i < EmptyBoxChosen.size(); i++) {
+        oss << EmptyBoxChosen[i] << endl;
+      }
+      oss << flush;
+      oss.close();
+*/      
+
+      //output IAE from second stage
+      string IAEFileName = "IAEPQChosen";
+      IAEFileName += stmSeed.str();
+      IAEFileName += stm1.str();
+      IAEFileName += ".txt";
+      oss.open(IAEFileName.c_str());
+      for (size_t i = 0; i < IAEContainerChosen.size(); i++) {
+        oss << IAEContainerChosen[i] << endl;
+      }
+      oss << flush;
+      oss.close();
+
+      // get the max position for this sub-set
+      size_t maxPosition = 0;
+      real maxPosterior = -1*(numeric_limits<double>::infinity());
+      for (size_t i = 0; i < PosteriorChosen.size(); i++) {
+        //cout << i << "\t" << PosteriorChosen[i] << endl;
+        if (PosteriorChosen[i] > maxPosterior) {
+          maxPosterior = PosteriorChosen[i];
+          maxPosition = i;
+        }
+      }
+      cout << "SEB-PQ from root node has log-posterior highest at index " << 
+      maxPosition;
+      ChosenStateMaxPosterior.push_back(PosteriorChosen[maxPosition]);
+
+      // now get the posterior-optimal histogram for this subset using PQ-SEB
+      AdaptiveHistogram myChosenHistSubset(pavingBoxEst);
+      myChosenHistSubset.insertFromRVec(*theDataPtr);
+      // be careful here
+      CritLeaves_GTE critValMaxSubset(maxPosition+1);
+      
+      if (func == 0) {
+        myChosenHistSubset.prioritySplit(compCount, critValMaxSubset, 
+        logPQ, minPQPoints1);
+      }
+      else if (func == 1) {
+        myChosenHistSubset.prioritySplit(compCount, critValMaxSubset, 
+        logPQ, minPQPoints2);
+      }
+      cout << " and has " << myChosenHistSubset.getRootLeaves() << " leaf
+       nodes." << endl;
+      //keep this histogram in a container
+      ChosenStateSubset.push_back(myChosenHistSubset);
+      cout << "-----------------------------" << endl;
+      
+      //optional
+      //output "best" histogram from SEBPQ from root node
+      myChosenHistSubset.outputToTxtTabs("SelectedSEBPQHist.txt");
+      
+      }
+      //-------------end of getting from the root node------------------//
+
+      //===========A carved-in PQ======================//
+      size_t histCrit;
+      if (func == 0) { histCrit = hist1Crit; }
+      else if (func==1) { histCrit = hist2Crit; }
+      CritLeaves_GTE critStop(histCrit);
+      cout << "Carving-in PQ to "  << histCrit << " leaves" << endl;
+
+      //containers to store needed outputs
+      vector<real> Posterior;
+      vector<real> PosteriorSupport;
+      vector<double> EmptyBox;
+      int Txt = func;
+      vector<real> IAEPQContainer;
+
+      bool successfulHist = false;
+      // start the carving PQ here
+      if (func == 0) {
+        successfulHist = myHistFirst.prioritySplitMCMC(comp1, critStop, 
+        logPQ, minPQPoints1, minVolB, Posterior, logPrior, Txt, EmptyBox, 
+        PosteriorSupport, IAEPQContainer, estimate, shiftCatalan, IAEPQ);
+      }
+      else if (func == 1) {
+        successfulHist = myHistFirst.prioritySplitMCMC(comp2, critStop, 
+        logPQ, minPQPoints2, minVolB, Posterior, logPrior, Txt, EmptyBox,
+        PosteriorSupport, IAEPQContainer, estimate, shiftCatalan, IAEPQ);
+      }
+
+      if (successfulHist) {
+        
+        // output log-posterior
+        string PostFileName;
+        PostFileName = "Posterior";
+        PostFileName += stm.str();
+        PostFileName += ".txt";
+        oss.open(PostFileName.c_str());
+        for (size_t i = 0; i < Posterior.size(); i++) {
+          oss << Posterior[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+        
+        
+        // output support log-posterior 
+        PostFileName = "PosteriorSupport";
+        PostFileName += stm.str();
+        PostFileName += ".txt";
+        oss.open(PostFileName.c_str());
+        for (size_t i = 0; i < PosteriorSupport.size(); i++) {
+          oss << PosteriorSupport[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+        
+        
+/*        // output the cumulative ratio of empty boxes
+        string EmptyFileName;
+        EmptyFileName = "Empty";
+        EmptyFileName += stm.str();
+        EmptyFileName += ".txt";
+        oss.open(EmptyFileName.c_str());
+        for (size_t i = 0; i < EmptyBox.size(); i++) {
+          oss << EmptyBox[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+*/        
+        
+        //output IAE from second stage
+        string IAEFileName = "IAEPQZoomIn";
+        IAEFileName += stm.str();
+        IAEFileName += ".txt";
+        oss.open(IAEFileName.c_str());
+        for (size_t i = 0; i < IAEPQContainer.size(); i++) {
+          oss << IAEPQContainer[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+        //=============end of carving in====================//
+        
+        //==== get K number of states with a local highest posterior ====//
+        cout << "Choosing " << NumStatesChosen << " states" << endl;
+        for (size_t j = 0; j < NumStatesChosen; j++) {
+          ostringstream stmj;
+          stmj << j;
+          int step = int(1.0*PosteriorSupport.size()/(1.0*NumStatesChosen));
+          //find where the posterior/log-posterior/emptyVol is the highest
+          size_t maxPosition = 0;
+          real maxPosterior = -1*(numeric_limits<double>::infinity());
+          for (size_t i = 0; i < step; i++) {
+            size_t thisPosition = j*step + i;
+            //cout << thisPosition << "\t" << PosteriorSupport[thisPosition] <<
+       endl;
+            if (PosteriorSupport[thisPosition] > maxPosterior) {
+              maxPosterior = PosteriorSupport[thisPosition];
+              maxPosition = thisPosition;
+            }
+          }
+          cout << "----------------------------------" << endl;
+          //cout << j << "-th subset: "<< endl;
+          cout << "log posterior highest at split " << maxPosition;
+          CritLeaves_GTE critValMax(maxPosition+1);
+          LeafContainer.push_back(maxPosition+1);
+
+          // now get the posterior-optimal histogram
+          AdaptiveHistogram myChosenHist(pavingBoxEst);
+          myChosenHist.insertFromRVec(*theDataPtr);
+          
+          // get the corresponding histogram
+          if (func == 0) {
+            myChosenHist.prioritySplit(comp1, critValMax, logPQ, minPQPoints1);
+          }
+          else if (func == 1) {
+            myChosenHist.prioritySplit(comp2, critValMax, logPQ, minPQPoints2);
+          }
+          size_t chosenHistLeaves = myChosenHist.getRootLeaves(); 
+          cout << " and has " << chosenHistLeaves << " leaf nodes." << endl;
+          
+          //optional hist output
+          string SelectedCarvedHistFileName = "SelectedCarvedHist";
+          SelectedCarvedHistFileName += stm.str(); //for func
+          SelectedCarvedHistFileName += stmj.str(); //for j
+          SelectedCarvedHistFileName += ".txt";
+          myChosenHist.outputToTxtTabs(SelectedCarvedHistFileName);
+          
+          //========SEB-PQ from chosen histograms======================//
+          // initialize containers
+          vector<real> PosteriorChosen;
+          vector<double> EmptyBoxChosen;
+          vector<real> PosteriorSupportChosen;
+          vector<real> IAEContainerChosen;
+
+          if (func == 0) { histCrit = hist1CritLeaf; }
+          else if (func==1) { histCrit = hist2CritLeaf; }
+          CritLargestCount_LTE critLeaf(histCrit);
+          cout << "SEB-PQ to at most "  << (histCrit) << " points in each node"
+       << endl;
+          Txt = 900 + func*10 + j;
+
+          if (func == 0) {
+            successfulHist = myChosenHist.prioritySplitMCMC(compCount, critLeaf
+      , 
+            logPQ, minPQPoints1, PosteriorChosen, logPrior, Txt, EmptyBoxChosen
+      , 
+            PosteriorSupportChosen, IAEContainerChosen, estimate, shiftCatalan,
+       IAEPQ);
+          }
+          else if (func == 1) {
+            successfulHist = myChosenHist.prioritySplitMCMC(compCount, critLeaf
+      , 
+            logPQ, minPQPoints2, PosteriorChosen, logPrior, Txt, EmptyBoxChosen
+      , 
+            PosteriorSupportChosen, IAEContainerChosen, estimate, shiftCatalan,
+       IAEPQ);
+          }
+
+          
+          // optional
+          // output log-posterior
+          PostFileName = "PosteriorChosen";
+          PostFileName += stm.str(); //for func
+          PostFileName += stmj.str(); //for j
+          PostFileName += ".txt";
+          oss.open(PostFileName.c_str());
+          for (size_t i = 0; i < PosteriorChosen.size(); i++) {
+            oss << PosteriorChosen[i] << endl;
+          }
+          oss << flush;
+          oss.close();
+          
+          
+          // output support log-posterior 
+          PostFileName = "PosteriorSupportChosen";
+          PostFileName += stm.str();
+          PostFileName += stmj.str();
+          PostFileName += ".txt";
+          oss.open(PostFileName.c_str());
+          for (size_t i = 0; i < PosteriorSupportChosen.size(); i++) {
+            oss << PosteriorSupportChosen[i] << endl;
+          }
+          oss << flush;
+          oss.close();
+  
+/*          // output the cumulative ratio of empty boxes
+          EmptyFileName = "EmptyChosen";
+          EmptyFileName += stm.str();
+          EmptyFileName += stmj.str();
+          EmptyFileName += ".txt";
+          oss.open(EmptyFileName.c_str());
+          for (size_t i = 0; i < EmptyBoxChosen.size(); i++) {
+            oss << EmptyBoxChosen[i] << endl;
+          }
+          oss << flush;
+          oss.close();
+          */
+          
+          //output IAE from second stage
+          string IAEFileName = "IAEPQChosen";
+          IAEFileName += stm.str();
+          IAEFileName += stmj.str();
+          IAEFileName += ".txt";
+          oss.open(IAEFileName.c_str());
+          for (size_t i = 0; i < IAEContainerChosen.size(); i++) {
+            oss << IAEContainerChosen[i] << endl;
+          }
+          oss << flush;
+          oss.close();
+          
+          // get the max position for this sub-set
+          maxPosition = 0;
+          for (size_t i = 0; i < PosteriorChosen.size(); i++) {
+            //cout << i << "\t" << PosteriorChosen[i] << endl; 
+            if (PosteriorChosen[i] > maxPosterior) {
+              maxPosterior = PosteriorChosen[i];
+              maxPosition = i;
+            }
+          }
+          cout << "SEB-PQ using carved support has log-posterior highest at
+       index " << maxPosition;
+          ChosenStateMaxPosterior.push_back(PosteriorChosen[maxPosition]);
+          
+          // now get the posterior-optimal histogram for this subset using
+       PQ-SEB
+          AdaptiveHistogram myChosenHistSubset(pavingBoxEst);
+          myChosenHistSubset.insertFromRVec(*theDataPtr);
+          // be careful here
+          CritLeaves_GTE critValMaxSubset(chosenHistLeaves+maxPosition);
+          
+          if (func == 0) {
+            myChosenHistSubset.prioritySplit(compCount, critValMaxSubset, 
+            logPQ, minPQPoints1);
+          }
+          else if (func == 1) {
+            myChosenHistSubset.prioritySplit(compCount, critValMaxSubset, 
+            logPQ, minPQPoints2);
+          }
+          cout << " and has " << myChosenHistSubset.getRootLeaves() << " leaf
+       nodes." << endl;
+          //keep this histogram in a container
+          ChosenStateSubset.push_back(myChosenHistSubset);
+          
+          //optional 
+          //output selected SEB-PQ hist from carved states
+          string SelectedSEBHistFileName = "SelectedSEBHist";
+          SelectedSEBHistFileName += stm.str(); //for func
+          SelectedSEBHistFileName += stmj.str(); //for j
+          SelectedSEBHistFileName += ".txt";
+          myChosenHistSubset.outputToTxtTabs(SelectedSEBHistFileName);
+
+        } // end of going through NumStatesChosen
+        cout << "-----------------------------------------------" << endl;
+        //========end of selecting K sub-sets===========================//
+
+        //=======find the maximum over the maximum======================//
+        cout << "-----------------------------" << endl;
+        // find which subset gives the maximum posterior
+        cout << "Find the maximum over the maximum log-posteriors: " << endl;
+        int maxPosition = 0;
+        real maxPosterior=-1*(numeric_limits<double>::infinity());
+        if ( ChosenStateMaxPosterior.size() != (1+NumStatesChosen) ) {
+          cerr << "Number of states is incompatible." << endl;
+          exit(0);
+        }
+        for (size_t i = 0; i < ChosenStateMaxPosterior.size(); i++) {
+          cout << "Subset: " << i << "\t" << ChosenStateMaxPosterior[i] << endl
+      ;
+          if (ChosenStateMaxPosterior[i] > maxPosterior) {
+            maxPosterior = ChosenStateMaxPosterior[i];
+            maxPosition = i;
+          }
+        }
+        cout << "Final optimal histogram is from subset " << maxPosition;
+
+        // use this histogram as the starting state for MCMC
+        AdaptiveHistogram myPosOptHist;
+        myPosOptHist = ChosenStateSubset[maxPosition];
+        cout << " and has " << myPosOptHist.getRootLeaves() << " leaf nodes."  
+      << endl;
+        cout << "---------------------------------------" << endl;
+        
+        //output the leaf container
+        string LeafFileName = "LeafChosen";
+        LeafFileName += stm.str();
+        LeafFileName += ".txt";
+        oss.open(LeafFileName.c_str());
+        for (size_t i = 0; i < LeafContainer.size(); i++) {
+          oss << LeafContainer[i] << endl;
+        }
+        oss << 1 << endl;
+        oss << flush;
+        oss.close();
+        
+        //----------End of getting an initial state---------------//
+
+        //============start MCMC==============================//
+        cout << "Starting MCMC PiecewiseConstantFunction samples with a state
+       that has " <<  
+        myPosOptHist.getRootLeaves() << " leaf nodes:" << endl;
+        
+        //optional hist output
+        myPosOptHist.outputToTxtTabs("SelectedStartingHistogram.txt");
+        
+        //set up containers to get needed traceplots
+        bool toIAE = computeIAE;
+            std::vector<real> IAEAvgHist;
+            std::vector<real> IAECurrHist;
+            vector<real> LogLikAvg;
+            vector<real> LogLikCurr;
+        
+        clock_t start, end;
+        start = clock();
+
+        cout << "clock started: " << endl;
+        PiecewiseConstantFunction mcmcAv = myPosOptHist.MCMCNEWPost(
+                            loops, burnin, thinout,
+                            proposal, logPrior,
+                            minPoints, logging, estimate, toIAE,
+                            stm.str(), IAEAvgHist, IAECurrHist,
+                            LogLikAvg, LogLikCurr);
+        end = clock();
+
+        double timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+        cout << "Computing time : "
+         << timing << " s."<< endl;
+         
+         Times.push_back(timing);
+
+        cout << "Finished MCMC sample averaging" << endl;
+        string mcmcAvFilename = "pcfAverage.txt";
+        
+        //optional
+        if ( loggingType == 2 ) { mcmcAv.outputToTxtTabs(mcmcAvFilename); }
+
+        // now get the IAE of mcmcAv against the estimate
+        cout << "Get the IAE" << endl;
+        real thisIAE = mcmcAv.getIAE(estimate);
+        IAEContainer.push_back(thisIAE);
+        cout << "IAE against the estimate is " << thisIAE << endl;
+        
+        
+        //output the current IAEs
+        IAEFileName = "IAECurrMCMCState";
+        IAEFileName += stm.str();
+        IAEFileName += ".txt";
+        oss.open(IAEFileName.c_str());
+        for (size_t i = 0; i < IAECurrHist.size(); i++) {
+          oss << IAECurrHist[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+        
+        //output the current IAEs of the averaged state
+        IAEFileName = "IAECurrMCMCAvg";
+        IAEFileName += stm.str();
+        IAEFileName += ".txt";
+        oss.open(IAEFileName.c_str());
+        for (size_t i = 0; i < IAEAvgHist.size(); i++) {
+          oss << IAEAvgHist[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+        
+      /*  
+        // output log-likelihood
+        IAEFileName = "LogLikCurrMCMC";
+        IAEFileName += stm.str();
+        IAEFileName += ".txt";
+        oss.open(IAEFileName.c_str());
+        for (size_t i = 0; i < LogLikCurr.size(); i++) {
+          oss << LogLikCurr[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+        cout << "Log-lik output to " << IAEFileName << endl;
+          
+        // output log-likelihood
+        IAEFileName = "LogLikAvgMCMC";
+        IAEFileName += stm.str();
+        IAEFileName += ".txt";
+        oss.open(IAEFileName.c_str());
+        for (size_t i = 0; i < LogLikAvg.size(); i++) {
+          oss << LogLikAvg[i] << endl;
+        }
+        oss << flush;
+        oss.close();
+        cout << "Log-lik output to " << IAEFileName << endl;
+        */
+      }
+      else cout << "Failed to insert data" << endl;
+      
+    } // end of successfulHist condition
+  } // end of loop
+  //=======================End of Chains=================================//
+
+
+
+  // output IAE from MCMC
+  string IAEFileName;
+  IAEFileName = "IAEMCMC";
+  IAEFileName += stmSeed.str();
+  IAEFileName += ".txt";
+  oss.open(IAEFileName.c_str());
+  for (size_t i = 0; i < IAEContainer.size(); i++) {
+    oss << IAEContainer[i] << "\t" << Times[i] << endl;
+  }
+  oss << flush;
+  oss.close();
+  cout << "IAE output to " << IAEFileName << endl;
+
+  delete theDataPtr;
+
+   return 0;
+
+} // end of MCMC test program
+\end{DoxyCode}

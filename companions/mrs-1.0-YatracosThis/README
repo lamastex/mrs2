@@ -1,0 +1,51 @@
+An auto-validated von Neumann Rejection Sampler via A.D. and posterior enclosures:
+Moore Rejection Sampling using interval arithmetic.
+Authors Raazesh Sainudiin (sainudii@stats.ox.ac.uk), Warwick Tucker and Thomas York.
+created: Thu Oct 26 18:36:22 BST 2006
+
+This software is copy-lefted and distributed under the terms of the 
+GNU General Public License (GPL).
+see http://www.gnu.org/copyleft/gpl.html
+
+
+The authors make no warranties with respect to the adequacies of
+this program/code for any particular purpose or with respect to
+any particular result.  They make no warranties, express or implied,
+that the programs are free of error, or are consistent with any
+standard of merchantibility, or that they will meet your requirements
+for any particulr purpose or application.  In particular, they should 
+not be relied on for solving a problem whose incorrect solution could
+result in injury to a person or loss of property.  If you do use the
+programs in such a manner, it is entirely at your own risk.  In no
+event shall the authors be liable for special, direct, indirect or
+consequential damages, losses, costs, charges, claims, demands or
+claim for lost profits, fees or expenses of any nature or kind.
+Also see the disclaimers in the C-XSC library that this program 
+builds upon. 
+
+TO COMPILE
+
+1. 
+You are assumed to have C-XSC2.1.1 already installed
+http://www.math.uni-wuppertal.de/~xsc/
+
+2.
+You are also expected to have GSL already installed
+http://www.gnu.org/software/gsl/
+GSL is distributed under the terms of the GNU General Public License (GPL).
+
+TO MAKE
+
+make 
+
+
+TO RUN
+Two example target functions are already coded
+
+./MRS 
+
+the samples will be in the output file MRS.samples 
+
+CITATION:
+"An Auto-validating Rejection Sampler", Raazesh Sainudiin and Thomas York, 
+BSCB Dept. Technical Report BU-1661-M, December 2005

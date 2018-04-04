@@ -1,0 +1,63 @@
+\hypertarget{classsubpavings_1_1PenObj}{\subsection{subpavings\-:\-:\-Pen\-Obj \-Class \-Reference}
+\label{classsubpavings_1_1PenObj}\index{subpavings\-::\-Pen\-Obj@{subpavings\-::\-Pen\-Obj}}
+}
+
+
+\-Abstract class for objects with penalty function for histogram fit.  
+
+
+
+
+{\ttfamily \#include $<$histpenalty.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Pen\-Obj\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual real \hyperlink{classsubpavings_1_1PenObj_a70c7efe90368cd85f0971ef548d678c1}{operator()} (const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} $\ast$const adh, int delta\-Leaf) const =0
+\begin{DoxyCompactList}\small\item\em the penalty function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Abstract class for objects with penalty function for histogram fit. 
+
+\-The penalty function is used in a histogram fit scoring method such as \-C\-O\-P\-E\-R\-R or \-A\-I\-C. 
+
+\-Definition at line 47 of file histpenalty.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1PenObj_a70c7efe90368cd85f0971ef548d678c1}{\index{subpavings\-::\-Pen\-Obj@{subpavings\-::\-Pen\-Obj}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::PenObj@{subpavings\-::\-Pen\-Obj}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}virtual real subpavings\-::\-Pen\-Obj\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram} $\ast$const}]{adh, }
+\item[{int}]{delta\-Leaf}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1PenObj_a70c7efe90368cd85f0971ef548d678c1}
+
+
+the penalty function. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em adh} & is the histogram object to calculate the penalty on. \\
+\hline
+{\em delta\-Leaf} & change in number leaves to take into account. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the penalty as a real. 
+\end{DoxyReturn}
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1PenAIC5_a979f8bcd09ee325303b4ca0db5c51d8c}{subpavings\-::\-Pen\-A\-I\-C5}, \hyperlink{classsubpavings_1_1PenAIC4_a67df57460a12c319e2cb6e87e0b97c5d}{subpavings\-::\-Pen\-A\-I\-C4}, \hyperlink{classsubpavings_1_1PenAIC3_ae78d7d10ecb8061fd42dbda9bcccb2d4}{subpavings\-::\-Pen\-A\-I\-C3}, \hyperlink{classsubpavings_1_1PenAIC2_afe8b5949a89a7bf9f4e3e5cd6134ffb0}{subpavings\-::\-Pen\-A\-I\-C2}, \hyperlink{classsubpavings_1_1PenAIC1_a197da85b167c9086bfb90eeab0ec2375}{subpavings\-::\-Pen\-A\-I\-C1}, and \hyperlink{classsubpavings_1_1PenLeaves_a44b8c0386d439fd855c993979dc700b1}{subpavings\-::\-Pen\-Leaves}.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histpenalty_8hpp}{histpenalty.\-hpp}\end{DoxyCompactItemize}

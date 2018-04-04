@@ -1,0 +1,163 @@
+\hypertarget{Marginalising_8cpp}{\subsection{\-Marginalising.\-cpp \-File \-Reference}
+\label{Marginalising_8cpp}\index{\-Marginalising.\-cpp@{\-Marginalising.\-cpp}}
+}
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Marginalising_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Marginalising_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Marginalising.\-cpp@{\-Marginalising.\-cpp}!main@{main}}
+\index{main@{main}!Marginalising.cpp@{\-Marginalising.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Marginalising_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 17 of file \-Marginalising.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-To\-Collation(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::make\-Average(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::marginalise(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs(), and subpavings\-::\-Adaptive\-Histogram\-::output\-To\-Txt\-Tabs().
+
+
+\begin{DoxyCode}
+{
+    // ------- prepare to generate some data for the tests -----------
+
+    // set up a random number generator for bivariate gaussian rvs
+    const gsl_rng_type * T;
+    gsl_rng * r;
+
+    int i;
+    const int n=100;  // number to generate
+    
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+
+    gsl_rng_env_setup();
+
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+
+    // ----------------   example to create and ------------------
+    //---------------- collate multiple histograms -------------------
+
+    // make a box: the same box will be used by all histograms
+    // so should be big enough for all of them
+    int d = 4; // dimensions
+    ivector pavingBox(d);
+    interval pavingInterval(0.0,1.0);
+  for (int i=1; i <= d; i++) pavingBox[i] = pavingInterval;
+
+    // make a collation object, empty at present
+    AdaptiveHistogramCollator coll;
+
+    // the number of histograms to generate
+    int numHist = 2;
+
+    // for loop to generate histograms and add to collation
+    for (int j=1; j<=numHist; j++) {
+
+        //get n uniforms
+        RVecData theData;   // a container for all the points generated
+
+        // make a sample
+        for (int i = 0; i < n; i++) {
+
+            rvector thisrv(d);
+            for (int k=1; k <= d; k++) {
+        thisrv[k] = gsl_rng_uniform(r);
+            }
+            // put points generated into container
+            theData.push_back(thisrv);
+
+        }  // data should be in theData
+
+
+        // make an Adaptive Histogram object with a specified box.  By default,
+        // holdAllStats = false so that the underlying rootPaving managed by
+       the
+        // myHistFirst will not maintain all available stats, only counts
+        AdaptiveHistogram myHist(pavingBox);
+
+        int k_int = (n/10);
+
+        bool successfulInsertion = false;
+        bool successfulPQSplit = false;
+
+        // make the function object to get max myK data members in each box
+        SplitOnK splitK(k_int);
+
+        // insert data into the histogram, splitting as we go, no logging
+        successfulInsertion = myHist.insertFromRVec(theData, splitK, NOLOG);
+
+        // only do more if some data was fed in
+        if(successfulInsertion) {
+
+            // create a name for the file to output
+            string fileName = "Hist";
+            //convert j to a string
+            std::ostringstream stm2;
+            stm2 << j;
+            // add the stringed j to the filename
+            fileName += stm2.str();
+            fileName += ".txt"; // and finish the filename
+
+            // To realize a file output
+            myHist.outputToTxtTabs(fileName);
+            cout << "Hist" << j << " output is in " << fileName<< endl;
+
+
+            // add the histogram to the collection
+            coll.addToCollation(myHist);
+
+            // optional- create graph output
+            // myHist.outputGraphDot();
+        }
+
+    } // end of for loop creating histograms
+
+    // free the random number generator
+    gsl_rng_free (r);
+
+    string collfileName = "CollatorHistogram.txt";
+    coll.outputToTxtTabs(collfileName); // output the collation to file
+    cout << "Collator output is in " << collfileName<< endl;
+
+    // optional - create graph output - don't do for lots of leaves!
+    //coll.outputGraphDot();
+
+    //  marginalise
+    int myints[] = {1,2}; 
+    std::vector < int > margDims (myints, myints + sizeof(myints) / sizeof(int)
+       );
+  
+  AdaptiveHistogramCollator marginal; 
+    if (numHist == 1) {
+    cout << "Marginalising single histogram" << endl;
+    marginal = coll.marginalise(margDims);
+  }
+  if (numHist > 1) {
+    cout << "Marginalising average histogram" << endl;
+    marginal = (coll.makeAverage()).marginalise(margDims);
+  }
+    string margfileName = "marginal.txt";     // provide a filename
+
+    marginal.outputToTxtTabs(margfileName);  // output the marginal to file
+    cout << "Marginal output is in " << margfileName<< endl;
+
+    // ---- end of example to create and collate multiple histograms -----
+
+    return 0;
+
+} 
+\end{DoxyCode}

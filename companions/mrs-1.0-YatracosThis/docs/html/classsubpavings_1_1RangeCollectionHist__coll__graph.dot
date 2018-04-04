@@ -1,0 +1,12 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{subpavings::RangeCollectionHist\n|- container\l|+ RangeCollectionHist()\l+ RangeCollectionHist()\l+ RangeCollectionHist()\l+ RangeCollectionHist()\l+ operator=()\l+ begin()\l+ end()\l+ getSize()\l+ isEmpty()\l+ getRangeCollectionValues()\land 14 more...+ outputTabs()\l+ outputTabs()\l+ outputAverage()\l+ outputAverage()\l- scalarMult()\l* outputTabs()\l* outputTabs()\l* outputAverage()\l* outputAverage()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" container" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node2 [label="{std::vector\< RangeCollectionHistPrivateValueType \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node2 [dir="back",color="orange",fontsize="10",style="solid",label=" \< RangeCollectionHistPrivateValueType \>" ,fontname="FreeSans"];
+  Node3 [label="{std::vector\< T \>\n|+ elements\l|}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip="STL class."];
+  Node4 -> Node3 [color="grey25",fontsize="10",style="solid",label=" elements" ,arrowhead="odiamond",fontname="FreeSans"];
+  Node4 [label="{T\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

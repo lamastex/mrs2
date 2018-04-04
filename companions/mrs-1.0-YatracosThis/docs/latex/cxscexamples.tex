@@ -1,0 +1,131 @@
+\-To learn how to use the \-C-\/\-X\-S\-C class library and the \-G\-S\-L you can read the page \hyperlink{cxscexamples}{\-Basic \-C-\/\-X\-S\-C \-Examples} and follow the examples described there. \-For a proper introduction to \-C-\/\-X\-S\-C and the accompanying \-Toolbox with more sophisticated applications see the \href{http://www.math.uni-wuppertal.de/wrswt/xsc/cxsc/apidoc/html/index.html}{\tt \-C-\/\-X\-S\-C \-Documentation}.
+
+\-On this page we will try to show you how to use the \-C-\/\-X\-S\-C class library with some short and simple examples.
+
+
+\begin{DoxyItemize}
+\item \hyperlink{cxscexamples_cxscexamples_sec_ex1}{\-Example 1 -\/ \-Intervals in \-C-\/\-X\-S\-C}
+\item \hyperlink{cxscexamples_cxscexamples_sec_ex2}{\-Example 2 -\/ \-Multi-\/precision \-Intervals in \-C-\/\-X\-S\-C}
+\item \hyperlink{cxscexamples_cxscexamples_sec_ex3}{\-Example 3 -\/ \-Mean in \-G\-S\-L and \-Dot \-Precision \-Accumulators in \-C-\/\-X\-S\-C}
+\item \hyperlink{cxscexamples_cxscexamples_sec_ex4}{\-Example 4 -\/ \-Range \-Enclosure with \-Automatic \-Differentiation}
+\item \hyperlink{cxscexamples_cxscexamples_sec_ex5}{\-Example 5 -\/ \-Global \-Optimisation for \-Maximum \-Likelihood}
+\end{DoxyItemize}\hypertarget{cxscexamples_cxscexamples_sec_ex1}{}\subsection{\-Example 1 -\/ Intervals in C-\/\-X\-S\-C}\label{cxscexamples_cxscexamples_sec_ex1}
+\-In the following simple program we use \-C-\/\-X\-S\-C intervals to do basic arithmetic operations and output the results\-:
+
+
+
+
+\begin{DoxyCodeInclude}
+#include "interval.hpp"  // include interval arithmetic in C-XSC
+#include <iostream>      // include standard Input Output STREAM 
+using namespace cxsc;    
+using namespace std;
+
+int main()
+{
+  interval a, b;            // Standard intervals     
+  a = 1.0;                  // a   = [1.0,1.0]       
+  "[1, 2]" >> b;          // string to interval conversion b   = [1.0,2.0]     
+         
+  cout << "a - a = " << a-a << endl;
+  cout << "b - b = " << b-b << endl;
+}
+
+/* --------------------------- Output ------------------------------
+$ ./example 
+a - a = [ -0.000000,  0.000000]
+b - b = [ -1.000000,  1.000000]
+------------------------------------------------------------------*/
+
+\end{DoxyCodeInclude}
+
+
+
+
+\-Let's start examining the code line by line. \-The first line\-:
+
+
+\begin{DoxyCodeInclude}
+#include "interval.hpp"  // include interval arithmetic in C-XSC
+
+\end{DoxyCodeInclude}
+
+
+includes the basic interval class of \-C-\/\-X\-S\-C in the program. \-The second line\-:
+
+
+\begin{DoxyCodeInclude}
+#include <iostream>      // include standard Input Output STREAM 
+
+\end{DoxyCodeInclude}
+
+
+includes the standard iostream library for basic input and output operations. \-The next two lines inform the compiler about \-C-\/\-X\-S\-C's namespace cxsc and the standard library namespace std. \-The namespace cxsc is where all of \-C-\/\-X\-S\-C's classes and methods are stored. \-This allows us to use \-C-\/\-X\-S\-C classes without having to fully qualify their identifiers.
+
+
+\begin{DoxyCodeInclude}
+using namespace cxsc;    
+using namespace std;
+
+\end{DoxyCodeInclude}
+
+
+\-Next we declare two interval variables and assign adequate values in the following lines.
+
+
+\begin{DoxyCodeInclude}
+  interval a, b;            // Standard intervals     
+  a = 1.0;                  // a   = [1.0,1.0]       
+  "[1, 2]" >> b;          // string to interval conversion b   = [1.0,2.0]     
+         
+
+\end{DoxyCodeInclude}
+
+
+\-Finally, we print out the result for our desired subtractions.
+
+
+\begin{DoxyCodeInclude}
+  cout << "a - a = " << a-a << endl;
+  cout << "b - b = " << b-b << endl;
+
+\end{DoxyCodeInclude}
+
+
+\-To compile the program we edit the \-Makefile in the examples directory. \-First we set the '\-P\-R\-O\-G\-R\-A\-M=example' and the \-P\-R\-E\-F\-I\-X to the appropriate directory that contains the \-C-\/\-X\-S\-C includes and lib directories. \-Then we type 'make all' in a \-Unix system to compile the program.\hypertarget{cxscexamples_cxscexamples_sec_ex2}{}\subsection{\-Example 2 -\/ Multi-\/precision Intervals in C-\/\-X\-S\-C}\label{cxscexamples_cxscexamples_sec_ex2}
+
+
+
+\begin{DoxyCodeInclude}
+#include "l_interval.hpp"  // interval staggered arithmetic in C-XSC
+#include <iostream>
+using namespace cxsc;
+using namespace std;
+
+int main() 
+{
+  l_interval a, b;         // Multiple-precision intervals in C-XSC
+  stagprec = 2;            // global integer variable      
+  cout << SetDotPrecision(16*stagprec, 16*stagprec-3) << RndNext;
+  // I/O for variables of type l_interval is done using
+  // the long accumulator (i.e. a dotprecision variable)   
+
+  a = 1.0;                  // a   = [1.0,1.0]       
+  "[1, 2]" >> b;          // string to interval conversion b   = [1.0,2.0]     
+         
+  cout << "a - a = " << a-a << endl;
+  cout << "b - b = " << b-b << endl;
+  cout << "a/b = " << a/b << endl;  
+}
+
+/* --------------------------- Output ------------------------------
+$ ./lexample 
+a - a = [ 0.00000000000000000000000000000, 0.00000000000000000000000000000]
+b - b = [-1.00000000000000000000000000000, 1.00000000000000000000000000000]
+a/b = [ 0.50000000000000000000000000000, 1.00000000000000000000000000000]
+------------------------------------------------------------------*/
+
+\end{DoxyCodeInclude}
+\hypertarget{cxscexamples_cxscexamples_sec_ex3}{}\subsection{\-Example 3 -\/ Mean in G\-S\-L and Dot Precision Accumulators in C-\/\-X\-S\-C}\label{cxscexamples_cxscexamples_sec_ex3}
+\hypertarget{cxscexamples_cxscexamples_sec_ex4}{}\subsection{\-Example 4 -\/ Range Enclosure with Automatic Differentiation}\label{cxscexamples_cxscexamples_sec_ex4}
+\hypertarget{cxscexamples_cxscexamples_sec_ex5}{}\subsection{\-Example 5 -\/ Global Optimisation for Maximum Likelihood}\label{cxscexamples_cxscexamples_sec_ex5}

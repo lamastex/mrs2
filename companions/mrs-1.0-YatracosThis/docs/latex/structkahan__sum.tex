@@ -1,0 +1,134 @@
+\hypertarget{structkahan__sum}{\subsection{kahan\-\_\-sum$<$ \-T $>$ \-Struct \-Template \-Reference}
+\label{structkahan__sum}\index{kahan\-\_\-sum$<$ T $>$@{kahan\-\_\-sum$<$ T $>$}}
+}
+
+
+\-Stable \-Summation \-Routine of \-Kahan's.  
+
+
+
+
+{\ttfamily \#include $<$toolz.\-hpp$>$}
+
+
+
+\-Collaboration diagram for kahan\-\_\-sum$<$ \-T $>$\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structkahan__sum_a52d524cbd59987d8ed5ca2911119dcfe}{kahan\-\_\-sum} ()
+\item 
+\-T \& \hyperlink{structkahan__sum_a65ae305aabfbc3764c2732c8242b788d}{operator()} (\-T \&v, const \-T \&i)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\-T \hyperlink{structkahan__sum_ae1b273e1cd734166b0840102e0392c3f}{s}
+\item 
+\-T \hyperlink{structkahan__sum_afab4196ad7b7070a3419edf6a22ed38c}{c}
+\item 
+\-T \hyperlink{structkahan__sum_a68f0ab79ede9b3e1e6d08279ef5b0086}{y}
+\item 
+\-T \hyperlink{structkahan__sum_a5a398ccf917c6235b89762261c7bdb77}{t}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\subsubsection*{template$<$typename T$>$struct kahan\-\_\-sum$<$ T $>$}
+
+\-Stable \-Summation \-Routine of \-Kahan's. 
+
+\-Definition at line 85 of file toolz.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{structkahan__sum_a52d524cbd59987d8ed5ca2911119dcfe}{\index{kahan\-\_\-sum@{kahan\-\_\-sum}!kahan\-\_\-sum@{kahan\-\_\-sum}}
+\index{kahan\-\_\-sum@{kahan\-\_\-sum}!kahan_sum@{kahan\-\_\-sum}}
+\paragraph[{kahan\-\_\-sum}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf kahan\-\_\-sum}$<$ \-T $>$\-::{\bf kahan\-\_\-sum} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{structkahan__sum_a52d524cbd59987d8ed5ca2911119dcfe}
+
+
+\-Definition at line 88 of file toolz.\-hpp.
+
+
+\begin{DoxyCode}
+: s(0.),c(0.),y(0.),t(0.){}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{structkahan__sum_a65ae305aabfbc3764c2732c8242b788d}{\index{kahan\-\_\-sum@{kahan\-\_\-sum}!operator()@{operator()}}
+\index{operator()@{operator()}!kahan_sum@{kahan\-\_\-sum}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T\& {\bf kahan\-\_\-sum}$<$ \-T $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{\-T \&}]{v, }
+\item[{const \-T \&}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{structkahan__sum_a65ae305aabfbc3764c2732c8242b788d}
+
+
+\-Definition at line 89 of file toolz.\-hpp.
+
+
+\begin{DoxyCode}
+  {
+    /* c is zero or close to it*/
+    y=i-c;
+
+    /* If s is big and y small, then low-order digits of y are lost during
+    the summation into t*/
+    t=s+y;
+
+    /* (t - s) recovers the high-order part of y; subtracting y
+      recovers -(low part of y)*/
+    c=(t-s)-y;
+
+    /* Algebriacally, c should always be zero. Beware eagerly optimising
+      compilers! */
+    s=t;
+
+    /* Next time around, the lost low part will be added to y in a fresh
+      attempt. */
+    return s;
+  }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{structkahan__sum_afab4196ad7b7070a3419edf6a22ed38c}{\index{kahan\-\_\-sum@{kahan\-\_\-sum}!c@{c}}
+\index{c@{c}!kahan_sum@{kahan\-\_\-sum}}
+\paragraph[{c}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf kahan\-\_\-sum}$<$ \-T $>$\-::{\bf c}}}\label{structkahan__sum_afab4196ad7b7070a3419edf6a22ed38c}
+
+
+\-Definition at line 87 of file toolz.\-hpp.
+
+\hypertarget{structkahan__sum_ae1b273e1cd734166b0840102e0392c3f}{\index{kahan\-\_\-sum@{kahan\-\_\-sum}!s@{s}}
+\index{s@{s}!kahan_sum@{kahan\-\_\-sum}}
+\paragraph[{s}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf kahan\-\_\-sum}$<$ \-T $>$\-::{\bf s}}}\label{structkahan__sum_ae1b273e1cd734166b0840102e0392c3f}
+
+
+\-Definition at line 87 of file toolz.\-hpp.
+
+\hypertarget{structkahan__sum_a5a398ccf917c6235b89762261c7bdb77}{\index{kahan\-\_\-sum@{kahan\-\_\-sum}!t@{t}}
+\index{t@{t}!kahan_sum@{kahan\-\_\-sum}}
+\paragraph[{t}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf kahan\-\_\-sum}$<$ \-T $>$\-::{\bf t}}}\label{structkahan__sum_a5a398ccf917c6235b89762261c7bdb77}
+
+
+\-Definition at line 87 of file toolz.\-hpp.
+
+\hypertarget{structkahan__sum_a68f0ab79ede9b3e1e6d08279ef5b0086}{\index{kahan\-\_\-sum@{kahan\-\_\-sum}!y@{y}}
+\index{y@{y}!kahan_sum@{kahan\-\_\-sum}}
+\paragraph[{y}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ \-T {\bf kahan\-\_\-sum}$<$ \-T $>$\-::{\bf y}}}\label{structkahan__sum_a68f0ab79ede9b3e1e6d08279ef5b0086}
+
+
+\-Definition at line 87 of file toolz.\-hpp.
+
+
+
+\-The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{toolz_8hpp}{toolz.\-hpp}\end{DoxyCompactItemize}

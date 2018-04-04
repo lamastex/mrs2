@@ -1,0 +1,63 @@
+\hypertarget{classsubpavings_1_1CompHeightVal}{\subsection{subpavings\-:\-:\-Comp\-Height\-Val \-Class \-Reference}
+\label{classsubpavings_1_1CompHeightVal}\index{subpavings\-::\-Comp\-Height\-Val@{subpavings\-::\-Comp\-Height\-Val}}
+}
+
+
+\-Class comparing on count/volume (ie histogram height) of box of node.  
+
+
+
+
+{\ttfamily \#include $<$nodecompobjval.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Comp\-Height\-Val\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Comp\-Height\-Val\-:
+\subsubsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classsubpavings_1_1CompHeightVal_a867d36d4805a3bf2aebafbb3d19cedec}{operator()} (const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const lhs, const \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} $\ast$const rhs) const 
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class comparing on count/volume (ie histogram height) of box of node. 
+
+\-Definition at line 89 of file nodecompobjval.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1CompHeightVal_a867d36d4805a3bf2aebafbb3d19cedec}{\index{subpavings\-::\-Comp\-Height\-Val@{subpavings\-::\-Comp\-Height\-Val}!operator()@{operator()}}
+\index{operator()@{operator()}!subpavings::CompHeightVal@{subpavings\-::\-Comp\-Height\-Val}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool subpavings\-::\-Comp\-Height\-Val\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{lhs, }
+\item[{const {\bf \-S\-P\-S\-Vnode} $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, private, virtual\mbox{]}}}}\label{classsubpavings_1_1CompHeightVal_a867d36d4805a3bf2aebafbb3d19cedec}
+return true if lhs is 'smaller' (lower in priority) than rhs. 
+
+\-Implements \hyperlink{classsubpavings_1_1NodeCompObjVal_a0c12ddc23446e5be6bb71d024ec40c62}{subpavings\-::\-Node\-Comp\-Obj\-Val}.
+
+
+
+\-Definition at line 91 of file nodecompobjval.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-P\-Snode\-::get\-Counter(), and subpavings\-::\-S\-Pnode\-::node\-Volume().
+
+
+\begin{DoxyCode}
+        { return (lhs->getCounter()/lhs->nodeVolume() 
+          < rhs->getCounter()/rhs->nodeVolume()); }
+\end{DoxyCode}
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{nodecompobjval_8hpp}{nodecompobjval.\-hpp}\end{DoxyCompactItemize}

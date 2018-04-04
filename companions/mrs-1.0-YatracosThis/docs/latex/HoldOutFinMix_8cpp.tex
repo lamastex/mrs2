@@ -1,0 +1,864 @@
+\hypertarget{HoldOutFinMix_8cpp}{\subsection{\-Hold\-Out\-Fin\-Mix.\-cpp \-File \-Reference}
+\label{HoldOutFinMix_8cpp}\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+}
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$iterator$>$}\*
+{\ttfamily \#include $<$valarray$>$}\*
+{\ttfamily \#include $<$map$>$}\*
+{\ttfamily \#include $<$set$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$sstream$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-cdf.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-integration.\-h$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$cmath$>$}\*
+{\ttfamily \#include $<$boost/math/distributions/normal.\-hpp$>$}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structFinMix}{\-Fin\-Mix}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{HoldOutFinMix_8cpp_a9021606bd7e0ccdbdb204b596e265de0}{\-Fin\-Mix\-P\-D\-F} (double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+double \hyperlink{HoldOutFinMix_8cpp_ae8fb9bc2f15455a39056110b8d4032d4}{\-Fin\-Mix\-C\-D\-F} (double, double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+double \hyperlink{HoldOutFinMix_8cpp_ab92e3b135b92374b9442d24e210139ad}{\-Fin\-Mix\-Int1} (double, void $\ast$)
+\item 
+double \hyperlink{HoldOutFinMix_8cpp_afb047f418e144a9bc7d15f6bb2515e34}{\-Fin\-Mix\-Int2} (double, void $\ast$)
+\item 
+double \hyperlink{HoldOutFinMix_8cpp_ab91f1fa7223911ea415a2637eadb6a26}{\-Fin\-Mix\-Abs} (double, void $\ast$)
+\begin{DoxyCompactList}\small\item\em \-Get the absolute error of a finite mixture at x. \end{DoxyCompactList}\item 
+dotprecision \hyperlink{HoldOutFinMix_8cpp_a416f731e5ce582c3e5c503b5c2aae7b3}{dp\-Fin\-Mix\-I\-A\-E} (double, double, double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+dotprecision \hyperlink{HoldOutFinMix_8cpp_ac799088b059b39fe7ba90b2baeaf0208}{dp\-Fin\-Mix\-I\-A\-E\-Boun} (double, double, vector$<$ double $>$, vector$<$ double $>$, vector$<$ double $>$)
+\item 
+int \hyperlink{HoldOutFinMix_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\item 
+\hyperlink{HoldOutFinMix_8cpp_aba38dacd61404f7db380eda000e40dc9}{cout$<$$<$ \char`\"{}\-Number of histograms collated\-: \char`\"{}$<$$<$ coll\-Min.\-get\-Number\-Collated()$<$$<$ endl;string accum\-File\-Name;accum\-File\-Name=\char`\"{}\-Accum\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Accumulation\-To\-Txt\-Tabs(accum\-File\-Name);string avgfile\-Name=\char`\"{}\-Average\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Average\-To\-Txt\-Tabs(avgfile\-Name);cout$<$$<$ \char`\"{}$\backslash$n Averaging the histograms\char`\"{}$<$$<$ endl;clock\-\_\-t start, end;start=clock();coll.\-make\-Average();end=clock();double timing;timing=((static\-\_\-cast$<$ double $>$} (end-\/start))/\-C\-L\-O\-C\-K\-S\-\_\-\-P\-E\-R\-\_\-\-S\-E\-C)
+\item 
+\hyperlink{HoldOutFinMix_8cpp_a30a5b87d0ad92ec2ac4720f718cfbe4c}{while} (!infile1.\-eof())
+\item 
+\hyperlink{HoldOutFinMix_8cpp_a94dc863b1a67c64d7a11fc8fc482d676}{vol\-A} \hyperlink{HoldOutFinMix_8cpp_a18f47afd7369146e7242725a3a3ff780}{pop\-\_\-back} ()
+\item 
+\hyperlink{HoldOutFinMix_8cpp_a0519e162e1c41359fb8bd66c112e41fb}{for} (int c=0;c$<$ xlow\-A.\-size();c++)
+\end{DoxyCompactItemize}
+\subsubsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+cout$<$$<$ \char`\"{}\-Computing time \-: \char`\"{}\*
+$<$$<$ timing$<$$<$ \char`\"{} s.\char`\"{}$<$$<$ endl;time\-Vec.\-push\-\_\-back(timing);ifstream \*
+infile1(accum\-File\-Name.\-c\-\_\-str());string \*
+ch\-Av;double vol\-Av;double \*
+counts\-Av;double xlow\-Av;double \*
+xupp\-Av;vector$<$ double $>$ \hyperlink{HoldOutFinMix_8cpp_a94dc863b1a67c64d7a11fc8fc482d676}{vol\-A}
+\item 
+vector$<$ double $>$ \hyperlink{HoldOutFinMix_8cpp_ad0ed2e852ce391062394d3fb37d83fca}{counts\-A}
+\item 
+vector$<$ double $>$ \hyperlink{HoldOutFinMix_8cpp_a3bc52ae65a3e8c94d6e239f5a95072e6}{xlow\-A}
+\item 
+vector$<$ double $>$ \hyperlink{HoldOutFinMix_8cpp_a2d959f69287f44c479f94f36fcee9b77}{xupp\-A}
+\item 
+vector$<$ ivector $>$ \hyperlink{HoldOutFinMix_8cpp_a85377091af4aac9cac693472564eca90}{boxes\-A}
+\item 
+vector$<$ double $>$ \hyperlink{HoldOutFinMix_8cpp_a55dbd38124b429effc8498fd72e75ac9}{fhat\-A}
+\item 
+dotprecision \hyperlink{HoldOutFinMix_8cpp_a894b8d12887c7363e41db774d05a13b4}{dp\-I\-A\-E} = 0.\-0
+\item 
+dotprecision \hyperlink{HoldOutFinMix_8cpp_a97e24d3d1886f2162f0daa315bc812a7}{dp\-I\-A\-E\-Boun}
+\item 
+int \hyperlink{HoldOutFinMix_8cpp_a5048e3a13ffcb20124b62a989f4c5524}{\-Nbin} = counts\-A.\-size()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{HoldOutFinMix_8cpp_aba38dacd61404f7db380eda000e40dc9}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!cout$<$$<$ \char`\"{}\-Number of histograms collated\-: \char`\"{}$<$$<$ coll\-Min.\-get\-Number\-Collated()$<$$<$ endl;string accum\-File\-Name;accum\-File\-Name=\char`\"{}\-Accum\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Accumulation\-To\-Txt\-Tabs(accum\-File\-Name);string avgfile\-Name=\char`\"{}\-Average\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Average\-To\-Txt\-Tabs(avgfile\-Name);cout$<$$<$ \char`\"{}$\backslash$n Averaging the histograms\char`\"{}$<$$<$ endl;clock\-\_\-t start, end;start=clock();coll.\-make\-Average();end=clock();double timing;timing=((static\-\_\-cast$<$ double $>$@{cout$<$$<$ ""\-Number of histograms collated\-: ""$<$$<$ coll\-Min.\-get\-Number\-Collated()$<$$<$ endl;string accum\-File\-Name;accum\-File\-Name=""\-Accum\-Fin\-Mix.\-txt"";coll\-Min.\-output\-Accumulation\-To\-Txt\-Tabs(accum\-File\-Name);string avgfile\-Name=""\-Average\-Fin\-Mix.\-txt"";coll\-Min.\-output\-Average\-To\-Txt\-Tabs(avgfile\-Name);cout$<$$<$ ""$\backslash$n Averaging the histograms""$<$$<$ endl;clock\-\_\-t start, end;start=clock();coll.\-make\-Average();end=clock();double timing;timing=((static\-\_\-cast$<$ double $>$}}
+\index{cout$<$$<$ \char`\"{}\-Number of histograms collated\-: \char`\"{}$<$$<$ coll\-Min.\-get\-Number\-Collated()$<$$<$ endl;string accum\-File\-Name;accum\-File\-Name=\char`\"{}\-Accum\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Accumulation\-To\-Txt\-Tabs(accum\-File\-Name);string avgfile\-Name=\char`\"{}\-Average\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Average\-To\-Txt\-Tabs(avgfile\-Name);cout$<$$<$ \char`\"{}$\backslash$n Averaging the histograms\char`\"{}$<$$<$ endl;clock\-\_\-t start, end;start=clock();coll.\-make\-Average();end=clock();double timing;timing=((static\-\_\-cast$<$ double $>$@{cout$<$$<$ ""\-Number of histograms collated\-: ""$<$$<$ coll\-Min.\-get\-Number\-Collated()$<$$<$ endl;string accum\-File\-Name;accum\-File\-Name=""\-Accum\-Fin\-Mix.\-txt"";coll\-Min.\-output\-Accumulation\-To\-Txt\-Tabs(accum\-File\-Name);string avgfile\-Name=""\-Average\-Fin\-Mix.\-txt"";coll\-Min.\-output\-Average\-To\-Txt\-Tabs(avgfile\-Name);cout$<$$<$ ""$\backslash$n Averaging the histograms""$<$$<$ endl;clock\-\_\-t start, end;start=clock();coll.\-make\-Average();end=clock();double timing;timing=((static\-\_\-cast$<$ double $>$}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{cout$<$$<$ ""\-Number of histograms collated\-: ""$<$$<$ coll\-Min.\-get\-Number\-Collated()$<$$<$ endl;string accum\-File\-Name;accum\-File\-Name=""\-Accum\-Fin\-Mix.\-txt"";coll\-Min.\-output\-Accumulation\-To\-Txt\-Tabs(accum\-File\-Name);string avgfile\-Name=""\-Average\-Fin\-Mix.\-txt"";coll\-Min.\-output\-Average\-To\-Txt\-Tabs(avgfile\-Name);cout$<$$<$ ""$\backslash$n Averaging the histograms""$<$$<$ endl;clock\-\_\-t start, end;start=clock();coll.\-make\-Average();end=clock();double timing;timing=((static\-\_\-cast$<$ double $>$}]{\setlength{\rightskip}{0pt plus 5cm}cout$<$$<$ \char`\"{}\-Number of histograms collated\-: \char`\"{}$<$$<$ coll\-Min.\-get\-Number\-Collated()$<$$<$ endl;string accum\-File\-Name;accum\-File\-Name=\char`\"{}\-Accum\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Accumulation\-To\-Txt\-Tabs(accum\-File\-Name);string avgfile\-Name=\char`\"{}\-Average\-Fin\-Mix.\-txt\char`\"{};coll\-Min.\-output\-Average\-To\-Txt\-Tabs(avgfile\-Name);cout$<$$<$ \char`\"{}$\backslash$n \-Averaging the histograms\char`\"{}$<$$<$ endl;clock\-\_\-t start, end;start=clock();coll.\-make\-Average();end=clock();double timing;timing=((static\-\_\-cast$<$ double $>$ (
+\begin{DoxyParamCaption}
+\item[{end-\/}]{start}
+\end{DoxyParamCaption}
+)}}\label{HoldOutFinMix_8cpp_aba38dacd61404f7db380eda000e40dc9}
+\hypertarget{HoldOutFinMix_8cpp_a416f731e5ce582c3e5c503b5c2aae7b3}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!dp\-Fin\-Mix\-I\-A\-E@{dp\-Fin\-Mix\-I\-A\-E}}
+\index{dp\-Fin\-Mix\-I\-A\-E@{dp\-Fin\-Mix\-I\-A\-E}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{dp\-Fin\-Mix\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}dotprecision {\bf dp\-Fin\-Mix\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{HoldOutFinMix_8cpp_a416f731e5ce582c3e5c503b5c2aae7b3}
+
+
+\-Definition at line 477 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References dp\-Fin\-Mix\-I\-A\-E().
+
+
+
+\-Referenced by dp\-Fin\-Mix\-I\-A\-E().
+
+
+\begin{DoxyCode}
+{
+dotprecision dpFinMixIAE;
+dpFinMixIAE = 0.0;
+double result = 0.0;
+
+//accumulate(dpFinMixIAE, result, 1.0);
+
+
+return dpFinMixIAE;
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_ac799088b059b39fe7ba90b2baeaf0208}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!dp\-Fin\-Mix\-I\-A\-E\-Boun@{dp\-Fin\-Mix\-I\-A\-E\-Boun}}
+\index{dp\-Fin\-Mix\-I\-A\-E\-Boun@{dp\-Fin\-Mix\-I\-A\-E\-Boun}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{dp\-Fin\-Mix\-I\-A\-E\-Boun}]{\setlength{\rightskip}{0pt plus 5cm}dotprecision {\bf dp\-Fin\-Mix\-I\-A\-E\-Boun} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{HoldOutFinMix_8cpp_ac799088b059b39fe7ba90b2baeaf0208}
+
+
+\-Definition at line 490 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References dp\-Fin\-Mix\-I\-A\-E\-Boun().
+
+
+\begin{DoxyCode}
+{
+dotprecision dpFinMixIAEBoun;
+dpFinMixIAEBoun = 0.0;
+double Ncomp = W.size();
+double cdfLeft = 0.0;
+double cdfRight = 0.0;
+int c;
+
+for (c=0; c < Ncomp; c++)
+{
+normal component(M[c], S[c]);
+cdfLeft += W[c]*(cdf(component, x1));
+cdfRight += 1-W[c]*(cdf(component, x2));
+}
+
+accumulate(dpFinMixIAEBoun, cdfLeft, 1.0);
+accumulate(dpFinMixIAEBoun, cdfRight, 1.0);
+
+return dpFinMixIAEBoun;
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_ab91f1fa7223911ea415a2637eadb6a26}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!\-Fin\-Mix\-Abs@{\-Fin\-Mix\-Abs}}
+\index{\-Fin\-Mix\-Abs@{\-Fin\-Mix\-Abs}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{\-Fin\-Mix\-Abs}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-Abs} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{HoldOutFinMix_8cpp_ab91f1fa7223911ea415a2637eadb6a26}
+
+
+\-Get the absolute error of a finite mixture at x. 
+
+\-Function to get absolute error
+
+get the integrated absolute of a finite mixture of boxes in the root box 
+
+\-Definition at line 191 of file errorfunc.\-cpp.
+
+
+
+\-References \-Fin\-Mix\-::fhat, \-Fin\-Mix\-Abs(), \-Fin\-Mix\-P\-D\-F(), \-Fin\-Mix\-::\-M, \-Fin\-Mix\-::\-S, and \-Fin\-Mix\-::\-W.
+
+
+
+\-Referenced by \-Fin\-Mix\-Abs(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E(), and main().
+
+
+\begin{DoxyCode}
+{
+FinMix mixt = *(FinMix *) params;
+double FinMixAbs = fabs(mixt.fhat - FinMixPDF(x, mixt.W, mixt.M, mixt.S));
+return FinMixAbs;
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_ae8fb9bc2f15455a39056110b8d4032d4}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!\-Fin\-Mix\-C\-D\-F@{\-Fin\-Mix\-C\-D\-F}}
+\index{\-Fin\-Mix\-C\-D\-F@{\-Fin\-Mix\-C\-D\-F}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{\-Fin\-Mix\-C\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-C\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{double}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{HoldOutFinMix_8cpp_ae8fb9bc2f15455a39056110b8d4032d4}
+\-Function to get \-C\-D\-F 
+
+\-Definition at line 447 of file \-Coverage\-Normal.\-cpp.
+
+
+\begin{DoxyCode}
+{
+double Ncomp = W.size();
+double CDF = 0;
+for (int c=0; c < Ncomp; c++)
+{
+normal component(M[c], S[c]);
+CDF += W[c]*(cdf(component, x2) - cdf(component, x1));
+//cout << "CDF is: " << CDF << endl;
+}
+return CDF;
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_ab92e3b135b92374b9442d24e210139ad}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!\-Fin\-Mix\-Int1@{\-Fin\-Mix\-Int1}}
+\index{\-Fin\-Mix\-Int1@{\-Fin\-Mix\-Int1}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{\-Fin\-Mix\-Int1}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-Int1} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{HoldOutFinMix_8cpp_ab92e3b135b92374b9442d24e210139ad}
+
+
+\-Definition at line 461 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References taylor\-::exp(), and \-Fin\-Mix\-Int1().
+
+
+
+\-Referenced by \-Fin\-Mix\-Int1().
+
+
+\begin{DoxyCode}
+{
+double sigma = *(double *) params;
+double FinMixInt1 =exp(-(x/sigma));
+return FinMixInt1;
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_afb047f418e144a9bc7d15f6bb2515e34}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!\-Fin\-Mix\-Int2@{\-Fin\-Mix\-Int2}}
+\index{\-Fin\-Mix\-Int2@{\-Fin\-Mix\-Int2}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{\-Fin\-Mix\-Int2}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-Int2} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{HoldOutFinMix_8cpp_afb047f418e144a9bc7d15f6bb2515e34}
+
+
+\-Definition at line 469 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References taylor\-::exp(), and \-Fin\-Mix\-Int2().
+
+
+
+\-Referenced by \-Fin\-Mix\-Int2().
+
+
+\begin{DoxyCode}
+{
+vector<double> MS = *(vector<double> *) params;
+double FinMixInt2 = exp(-0.5*((x-MS[0])/MS[1] + (x-MS[2])/MS[3]));
+return FinMixInt2; 
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_a9021606bd7e0ccdbdb204b596e265de0}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!\-Fin\-Mix\-P\-D\-F@{\-Fin\-Mix\-P\-D\-F}}
+\index{\-Fin\-Mix\-P\-D\-F@{\-Fin\-Mix\-P\-D\-F}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{\-Fin\-Mix\-P\-D\-F}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf \-Fin\-Mix\-P\-D\-F} (
+\begin{DoxyParamCaption}
+\item[{double}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{, }
+\item[{vector$<$ double $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{HoldOutFinMix_8cpp_a9021606bd7e0ccdbdb204b596e265de0}
+\-Function to get \-P\-D\-F 
+
+\-Definition at line 422 of file \-Coverage\-Normal.\-cpp.
+
+
+
+\-References taylor\-::exp(), taylor\-::pow(), and taylor\-::sqrt().
+
+
+\begin{DoxyCode}
+{
+int Ncomp = W.size();
+
+
+double PDF = 0;
+for (int c=0; c < Ncomp; c++)
+{
+//transfer to standard normal
+double  z =  (x-M[c])/S[c];
+double term = pow((z-M[c])/S[c], 2);
+PDF += W[c]*exp(-0.5*term)/S[c]/sqrt(2*M_PI);
+}  
+return PDF;
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_a0519e162e1c41359fb8bd66c112e41fb}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!for@{for}}
+\index{for@{for}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{for}]{\setlength{\rightskip}{0pt plus 5cm}{\bf for} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{HoldOutFinMix_8cpp_a0519e162e1c41359fb8bd66c112e41fb}
+
+
+\-Definition at line 489 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-References boxes\-A, counts\-A, fhat\-A, xlow\-A, and xupp\-A.
+
+
+\begin{DoxyCode}
+                                      {
+        // makes boxes into ivector
+        ivector box(1);
+        box[1] = interval(xlowA[c], xuppA[c]);
+        boxesA.push_back(box);
+        // get fhat of each box
+        fhatA.push_back(countsA[c]/collMin.getNumberCollated());
+}
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!main@{main}}
+\index{main@{main}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{HoldOutFinMix_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 77 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-References subpavings\-::check\-String(), subpavings\-::count\-Lines\-In\-Txt(), subpavings\-::count\-Numbers(), dp\-Fin\-Mix\-I\-A\-E\-Boun(), dp\-I\-A\-E, dp\-I\-A\-E\-Boun, \-F(), \-Fin\-Mix\-::fhat, \-Fin\-Mix\-Abs(), \-Fin\-Mix\-C\-D\-F(), subpavings\-::\-S\-P\-Snode\-::get\-Leaves(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Number\-Collated(), subpavings\-::\-Adaptive\-Histogram\-::get\-Sub\-Paving(), taylor\-::\-Lb(), \-Fin\-Mix\-::\-M, \-Nbin, subpavings\-::\-N\-O\-L\-O\-G, \-Fin\-Mix\-::\-S, taylor\-::sin(), subpavings\-::sp\-Leaves(), taylor\-::sqrt(), taylor\-::\-Ub(), and \-Fin\-Mix\-::\-W.
+
+
+\begin{DoxyCode}
+                                {
+
+ //--------------------generate
+       data---------------------------------------------
+  //-----read in parameters of the mixture to use
+  //user-input Kn and which dataset to use
+  int mix = atoi(argv[1]);
+  int D=atoi(argv[2]);
+
+  // Read mixture file
+  string mixfileName;
+  mixfileName = "MixtureFiles/mix";
+  std::ostringstream stm1;
+  stm1 << mix;
+  mixfileName += stm1.str();
+  mixfileName += ".txt";
+  ifstream infile(mixfileName.c_str());
+  double Weight1, Weight2, Mean1, Mean2, Var1, Var2;
+  double W, M, V;
+
+  //create vectors for Weight, Mean, Sigma
+  vector<double> Weight;
+  vector<double> Mean;
+  vector<double> Sigma;
+  
+  //read file
+  while ( !infile.eof() ) {
+    infile >> Weight1 >> Weight2 >> Mean1 >> Mean2 >> Var1 >> Var2;
+    W=Weight1/Weight2;
+    Weight.push_back(W);
+    M=Mean1/Mean2;
+    Mean.push_back(M);
+    V=Var1/Var2;
+    Sigma.push_back(sqrt(V));
+  }
+  Weight.pop_back();
+  Mean.pop_back();
+  Sigma.pop_back();
+
+  //get number of components in mixture
+  int Ncomp = countLinesInTxt(mixfileName) - 1;
+  cout << "There are " << Ncomp << " components in mixture " << mix << endl;
+
+  // put the parameters as data members of the structure
+  FinMix mixt;
+  mixt.W = Weight; mixt.M = Mean; mixt.S = Sigma;
+
+  //----------------get data from FinMixGen------------------------------------
+  //create a name for the file of random variates.
+  string samplesfileName;
+  samplesfileName = "FinMix";
+  std::ostringstream stm2;
+  stm2 << D;
+  samplesfileName += stm1.str();
+  samplesfileName += stm2.str();
+  samplesfileName += ".txt"; // and finish the filename
+  cout << "Reading data from file " << samplesfileName  << endl;
+
+   //a container for the data
+   RVecData theData;
+    // we can read rvectors as strings in c-xsc format and then convert to
+       rvectors with c-xsc::>>
+    //set up the file and read input line by line
+    // we need to convert the string argument to a c-string for ifstream
+        ifstream samplesfileName(s.c_str());
+        int dim = 0; // dimensions, to be assessed from the file
+        int howMany = 0; // how many datapoints, to be read from file
+
+        string line;
+
+        if (dataFile.is_open())
+        {
+            getline (dataFile,line); // get the first line from the file
+
+            if(line.empty()) { // if no characters extracted
+                std::cout
+                    << "Error in "
+                    << "AdaptiveHistogram::readRvectorsFromTxt: "
+                    << "nothing in input file" << std::endl;
+                dataFile.close();
+                cancontinue = false;
+            }
+
+        }
+
+        else { // dataFile not open
+            std::cout << "Error in "
+                << "AdaptiveHistogram::readRvectorsFromTxt."
+                << "Unable to open file" << std::endl;
+            cancontinue = false;
+        }
+
+        if (cancontinue) {
+
+            //  find the number of blocks of numbers with decimal points
+            // countNumbers will return 0 if the line contains illegal
+            // characters or any number is missing its decimal point
+
+            dim = countNumbers(line);
+            while (dim == 0 && dataFile.good()) { // problem try next line
+                getline(dataFile, line);
+                dim = countNumbers(line);
+            }
+
+            if (dim == 0) {     // failed to find a valid line
+                std::cout << "Error in "
+                    << "AdaptiveHistogram::readRvectorsFromTxt: "
+                    << "all lines of input file contain illegal "
+                    << "formatting" << std::endl;
+                dataFile.close();
+                cancontinue = false;
+            }
+
+            // dim now becomes the number of dimensions we expect
+        }
+
+        // if there is already data, check dimensions match
+        if (cancontinue && !theData.empty()) {
+
+            //find the data dimensions from the first datapoint
+            int dataDim = Ub(*theData.begin()) -
+                Lb(*theData.begin()) + 1;
+            if (dim != dataDim) {
+                std::cout
+                    << "Existing data different "
+                    << "dimension to data to be read in "
+                    << "- aborting read"
+                    << std::endl;
+                dataFile.close();
+                cancontinue = false;
+            }
+        }
+
+        if (cancontinue) {
+
+            dataFile.clear(); // reset the flags on the file
+            dataFile.seekg(0, ios::beg); // and put file pointer to start
+
+            rvector r(dim);
+
+            // count the lines in the file
+            while (dataFile.good() )
+            {
+                getline (dataFile,line);
+                howMany++;  // count number of lines in the file
+            }
+
+            theData.reserve(howMany);
+
+            dataFile.clear(); // reset the flags on the file
+            dataFile.seekg(0, ios::beg); // and put file pointer to start
+
+            int countIn = 0;
+            int countLines = 0;
+
+            while (dataFile.good() )
+            {
+                // get from the file line by line
+                getline (dataFile, line);
+                countLines++;
+
+
+                if (checkString(line, dim)) { // quick validity check
+
+                    // could replace all this by checking if sin is true (good)
+                    // since it will not be if failed to convert input to r
+                    // but should check this before implementing
+
+                    // convert to an istream type
+                    istringstream sin(line);
+                    // c-xsc can convert this to an rvector
+                    sin >> r;
+                    // put r into the container
+                    theData.push_back(r);
+                    countIn++;
+                }
+                else if (line != "") {  // invalid line, spit out
+                    std::cout << "Error in data input file, "
+                        << "ignored line " << countLines
+                        << ".  Data ignored is:  "
+                        << line << std::endl;
+                    // better make this output to an input error
+                    //log txt file?
+                }
+            }
+            dataFile.close();
+
+            // confirm the amount of data read in
+            std::cout << "End of reading data input file: "
+                << countIn << " valid data points read in"
+                << std::endl;
+
+            if (countIn > 0) retValue = true; // some data successfully read in
+        }
+   
+   
+   
+   
+   
+
+
+   //--------------start priorityStageSplit-----------------------------------
+    //make an Adaptive Histogram object with a specified box
+    ivector pavingBox(1);
+    interval dim(-10,10);
+    pavingBox[1] = dim;
+    AdaptiveHistogram myHist(pavingBox);
+  
+    //maximum number of points in each leaf box        
+    int finalK = 2;
+    SplitOnK splitK(finalK);
+    SplitNever sn;
+       
+   // now split with priority queue
+   // Stopping Criteria: critCount
+    CompCount nodeCompCount;
+    CritLargestCount_LTE critCount(finalK);
+    cout << "Max k is " << finalK << endl; 
+    cout << "Performing hold-out estimation: " << endl;
+   
+   // put the data from the container into the histogram
+    cout << "Put data into the histogram" << endl;
+   
+   // indicators
+    bool successfulInsertion = false;
+    bool successfulPQSplit = false;
+  
+   //number of points to be hold out is by brute force at the moment. Consider
+       putting in as argument.
+    successfulInsertion = myHist.insertFromRVecForHoldOut(theData, sn, NOLOG);
+    //successfulInsertion = myHist.insertFromRVecForHoldOut(theData, splitK,
+       NOLOG);
+ 
+  // optional output for number of leaves
+    SPSnodePtrs leaves; // set up empty container for leaf node pointers
+  SPSnodePtrsItr it; // and an iterator over the container
+  myHist.getSubPaving()->getLeaves(leaves); // fill the container
+  // container is filled by reading leaves off tree from left to right
+  // a container for the counts
+  IntVec counts;  // IntVec is a typedef for vector<int>
+                            // the iterator is typedefed as IntVecItr
+          for(it = leaves.begin(); it < leaves.end(); it++) {
+        // remember that it points to a pointer, so *it is still a ptr
+            // get the counts in all the leaves
+        cout << "Counter \t VCounter\n" << (*it)->getCounter() << "\t\t" << 
+      (*it)->getVcounter() << endl;
+      }
+   // end of optional output
+   
+   if (successfulInsertion) { // if data successfully inserted       
+       //create an AdaptiveHistogramCollator object
+       AdaptiveHistogramCollator coll;
+    
+       //start the clock
+       clock_t start, end;
+       start = clock();
+       
+       //start the hold out estimation
+       coll=myHist.priorityStageSplit(nodeCompCount, critCount, NOLOG, 0, 0.0);
+
+       //output time taken
+       end = clock();
+       double timing;
+       timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+       cout << "Computing time : " << timing << " s."<< endl;
+ 
+      //cout << coll << endl;
+      int numberCollated = coll.getNumberCollated();
+      cout << numberCollated << " histograms collated." << endl;
+      //output the collator to a .txt file
+      //coll.outputToTxtTabs("TestHold.txt"); 
+    } // end of successful insertion
+   
+   
+  
+        //-----get IAE of this histogram
+        SPSnodePtrs leaves;
+        SPSnodePtrsItr it;
+        myHist.getSubPaving()->getLeaves(leaves); // fill the container
+        // container is filled by reading leaves off tree from left to right
+
+        // a container for the counts
+        IntVec counts;  // IntVec is a typedef for vector<int>
+                            // the iterator is typedefed as IntVecItr
+        // a container for the boxes
+        vector<ivector> boxes;
+        vector<ivector>::iterator itBoxes;
+        // a container for the volumes
+        vector<double> volumes;
+       // a valarray container for the node levels, sized to fit
+        valarray<int> levels(spLeaves(myHist.getSubPaving()));
+       // a container for fhat
+       vector<double> fhat;
+       vector<double>::iterator itFhat;
+       // a container for Fstar
+       vector<double> Fstar;
+
+       double diffMu = 0;
+
+       int v=0;
+       for(it = leaves.begin(); it < leaves.end(); it++) {
+  // remember that it points to a pointer, so *it is still a ptr
+  // get the counts in all the leaves
+  counts.push_back((*it)->getCounter());
+  // get the boxes from all the leaves
+  boxes.push_back((*it)->getBox());
+  // get the volumes of all the leaves
+  volumes.push_back((*it)->nodeVolume());
+  // get the levels of the leaves
+  levels[v] = (*it)->getNodeDepth();
+  // get fhat for all leaves
+  fhat.push_back(((*it)->getCounter())/((*it)->nodeVolume())/n);
+                v++;
+
+        rvector xuppVec = Sup((*it)->getBox());
+        double xupp = _double(xuppVec[1]);
+        rvector xlowVec = Inf((*it)->getBox());
+        double xlow = _double(xlowVec[1]);
+        double CDF=FinMixCDF(xlow, xupp, Weight, Mean, Sigma);
+        Fstar.push_back(CDF);
+        } // end of looping through leaves
+
+//get IAE
+dotprecision dpIAE, dpIAEBoun;
+dpIAE = 0.0;
+
+int Nbin=counts.size();
+cout << "There are " << Nbin << " leaves in histogram " << D << endl;
+
+gsl_integration_workspace * w = gsl_integration_workspace_alloc(1000);
+double result = 0.0;
+double error;
+gsl_function F;
+F.function = &FinMixAbs;
+F.params =  &mixt;
+
+for (int k=0; k< Nbin; k++){
+//  cout << "calculating error for bin " << j+1 << endl;
+  mixt.fhat = fhat[k];
+  rvector xuppVec = Sup(boxes[k]);
+  double xupp = _double(xuppVec[1]);
+  rvector xlowVec = Inf(boxes[k]);
+  double xlow = _double(xlowVec[1]);
+  gsl_integration_qags(&F, xlow, xupp, 0, 1e-7, 1000, w, &result, &error);
+  accumulate(dpIAE, result, 1.0);
+}
+// Accounting for the boundaries
+  cout << "Calculating IAE of the boundaries" << endl;
+
+  rvector xuppVec1 = Sup(boxes[Nbin-1]);
+  double xupp1 = _double(xuppVec1[1]);
+  rvector xlowVec1 = Inf(boxes[0]);
+  double xlow1 = _double(xlowVec1[1]);
+  dpIAEBoun = dpFinMixIAEBoun(xlow1, xupp1, Weight, Mean, Sigma);
+  dpIAE += dpIAEBoun;
+  cout<<dpIAE<<endl;
+
+  gsl_integration_workspace_free (w);
+  // store IAE in vector
+  dpIAEVec.push_back(dpIAE);
+ 
+
+   } // end of successfulPQsplit
+\end{DoxyCode}
+\hypertarget{HoldOutFinMix_8cpp_a18f47afd7369146e7242725a3a3ff780}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!pop\-\_\-back@{pop\-\_\-back}}
+\index{pop\-\_\-back@{pop\-\_\-back}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{pop\-\_\-back}]{\setlength{\rightskip}{0pt plus 5cm}{\bf xupp\-A} {\bf pop\-\_\-back} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{HoldOutFinMix_8cpp_a18f47afd7369146e7242725a3a3ff780}
+\hypertarget{HoldOutFinMix_8cpp_a30a5b87d0ad92ec2ac4720f718cfbe4c}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!while@{while}}
+\index{while@{while}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{while}]{\setlength{\rightskip}{0pt plus 5cm}{\bf while} (
+\begin{DoxyParamCaption}
+\item[{!infile1.}]{eof()}
+\end{DoxyParamCaption}
+)}}\label{HoldOutFinMix_8cpp_a30a5b87d0ad92ec2ac4720f718cfbe4c}
+
+
+\-Definition at line 472 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-References counts\-A, vol\-A, xlow\-A, and xupp\-A.
+
+
+\begin{DoxyCode}
+{
+infile1 >> chAv>> volAv>> countsAv>>xlowAv>>xuppAv;
+volA.push_back(volAv);
+countsA.push_back(countsAv);
+xlowA.push_back(xlowAv);
+xuppA.push_back(xuppAv);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Variable \-Documentation}
+\hypertarget{HoldOutFinMix_8cpp_a85377091af4aac9cac693472564eca90}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!boxes\-A@{boxes\-A}}
+\index{boxes\-A@{boxes\-A}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{boxes\-A}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ivector$>$ {\bf boxes\-A}}}\label{HoldOutFinMix_8cpp_a85377091af4aac9cac693472564eca90}
+
+
+\-Definition at line 486 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by for().
+
+\hypertarget{HoldOutFinMix_8cpp_ad0ed2e852ce391062394d3fb37d83fca}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!counts\-A@{counts\-A}}
+\index{counts\-A@{counts\-A}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{counts\-A}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ {\bf counts\-A}}}\label{HoldOutFinMix_8cpp_ad0ed2e852ce391062394d3fb37d83fca}
+
+
+\-Definition at line 468 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by for(), and while().
+
+\hypertarget{HoldOutFinMix_8cpp_a894b8d12887c7363e41db774d05a13b4}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!dp\-I\-A\-E@{dp\-I\-A\-E}}
+\index{dp\-I\-A\-E@{dp\-I\-A\-E}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{dp\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dp\-I\-A\-E} = 0.\-0}}\label{HoldOutFinMix_8cpp_a894b8d12887c7363e41db774d05a13b4}
+
+
+\-Definition at line 500 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::get\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Unif\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Unif\-I\-A\-E(), get\-Unif\-True\-Delta(), and main().
+
+\hypertarget{HoldOutFinMix_8cpp_a97e24d3d1886f2162f0daa315bc812a7}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!dp\-I\-A\-E\-Boun@{dp\-I\-A\-E\-Boun}}
+\index{dp\-I\-A\-E\-Boun@{dp\-I\-A\-E\-Boun}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{dp\-I\-A\-E\-Boun}]{\setlength{\rightskip}{0pt plus 5cm}dotprecision {\bf dp\-I\-A\-E\-Boun}}}\label{HoldOutFinMix_8cpp_a97e24d3d1886f2162f0daa315bc812a7}
+
+
+\-Definition at line 500 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E(), and main().
+
+\hypertarget{HoldOutFinMix_8cpp_a55dbd38124b429effc8498fd72e75ac9}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!fhat\-A@{fhat\-A}}
+\index{fhat\-A@{fhat\-A}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{fhat\-A}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ {\bf fhat\-A}}}\label{HoldOutFinMix_8cpp_a55dbd38124b429effc8498fd72e75ac9}
+
+
+\-Definition at line 487 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by for().
+
+\hypertarget{HoldOutFinMix_8cpp_a5048e3a13ffcb20124b62a989f4c5524}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!\-Nbin@{\-Nbin}}
+\index{\-Nbin@{\-Nbin}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{\-Nbin}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Nbin} = counts\-A.\-size()}}\label{HoldOutFinMix_8cpp_a5048e3a13ffcb20124b62a989f4c5524}
+
+
+\-Definition at line 503 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Fin\-Mix\-I\-A\-E(), subpavings\-::\-Adaptive\-Histogram\-::get\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-I\-A\-E(), get\-Reg\-Hist\-Fin\-Mix\-Interval\-I\-A\-E(), get\-Reg\-Hist\-Laplace\-Interval\-I\-A\-E(), get\-Reg\-Hist\-Lognormal\-Interval\-I\-A\-E(), get\-Reg\-Hist\-Unif\-I\-A\-E(), and main().
+
+\hypertarget{HoldOutFinMix_8cpp_a94dc863b1a67c64d7a11fc8fc482d676}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!vol\-A@{vol\-A}}
+\index{vol\-A@{vol\-A}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{vol\-A}]{\setlength{\rightskip}{0pt plus 5cm}cout$<$$<$ \char`\"{}\-Computing time \-: \char`\"{} $<$$<$ timing $<$$<$ \char`\"{} s.\char`\"{}$<$$<$ endl; time\-Vec.\-push\-\_\-back(timing); ifstream infile1(accum\-File\-Name.\-c\-\_\-str());string ch\-Av; double vol\-Av; double counts\-Av; double xlow\-Av; double xupp\-Av;vector$<$double$>$ {\bf vol\-A}}}\label{HoldOutFinMix_8cpp_a94dc863b1a67c64d7a11fc8fc482d676}
+
+
+\-Definition at line 467 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by while().
+
+\hypertarget{HoldOutFinMix_8cpp_a3bc52ae65a3e8c94d6e239f5a95072e6}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!xlow\-A@{xlow\-A}}
+\index{xlow\-A@{xlow\-A}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{xlow\-A}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ {\bf xlow\-A}}}\label{HoldOutFinMix_8cpp_a3bc52ae65a3e8c94d6e239f5a95072e6}
+
+
+\-Definition at line 469 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by for(), and while().
+
+\hypertarget{HoldOutFinMix_8cpp_a2d959f69287f44c479f94f36fcee9b77}{\index{\-Hold\-Out\-Fin\-Mix.\-cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}!xupp\-A@{xupp\-A}}
+\index{xupp\-A@{xupp\-A}!HoldOutFinMix.cpp@{\-Hold\-Out\-Fin\-Mix.\-cpp}}
+\paragraph[{xupp\-A}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ {\bf xupp\-A}}}\label{HoldOutFinMix_8cpp_a2d959f69287f44c479f94f36fcee9b77}
+
+
+\-Definition at line 470 of file \-Hold\-Out\-Fin\-Mix.\-cpp.
+
+
+
+\-Referenced by for(), and while().
+

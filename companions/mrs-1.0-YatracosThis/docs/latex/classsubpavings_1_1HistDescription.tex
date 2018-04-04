@@ -1,0 +1,334 @@
+\hypertarget{classsubpavings_1_1HistDescription}{\subsection{subpavings\-:\-:\-Hist\-Description \-Class \-Reference}
+\label{classsubpavings_1_1HistDescription}\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}}
+}
+
+
+\-A class for the histogram description.  
+
+
+
+
+{\ttfamily \#include $<$adaptivehistogram.\-hpp$>$}
+
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Hist\-Description\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1HistDescription_aa037991228f9fc3595310b7d9a645a6b}{\-Hist\-Description} ()
+\begin{DoxyCompactList}\small\item\em \-Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1HistDescription_adacde2a48f78ab90db0bdd251f0d13ab}{\-Hist\-Description} (std\-::string str)
+\begin{DoxyCompactList}\small\item\em \-Constructor from string. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1HistDescription_a132244f2567c62a6b481ec3fa93ebe5e}{\-Hist\-Description} (const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \& \hyperlink{classsubpavings_1_1HistDescription_a6982d4933571625373952ffe5f7e9d4f}{operator=} (const \hyperlink{classsubpavings_1_1HistDescription}{\-Hist\-Description} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1HistDescription_ade9e4041c1ca6de14b2b82ff7c7465e1}{set\-Is\-Good} (bool b)
+\begin{DoxyCompactList}\small\item\em \-Set the good string flag. \end{DoxyCompactList}\item 
+int \hyperlink{classsubpavings_1_1HistDescription_a8f53638ba1ddc56e63174d18510d92af}{peek\-First} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the first level in the description. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1HistDescription_a493c821ce318a6a4d950ea73c1f7ff11}{pop\-First} ()
+\begin{DoxyCompactList}\small\item\em \-Strip off the first level in the description. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1HistDescription_a4c48acd03fc56cb6e8b3d2645ee35c31}{get\-Is\-Good} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the goodstring flag. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classsubpavings_1_1HistDescription_a35a0b15e904f1987b6603c7ffeb22f75}{get\-Depth\-String} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the depth\-String. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classsubpavings_1_1HistDescription_a05dabb27d7e43834ac9a8a99d8237538}{depth\-String}
+\item 
+bool \hyperlink{classsubpavings_1_1HistDescription_a3f246c1b82fb69929ec3761480c934b9}{good\-String}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class for the histogram description. 
+
+\-Describes a histogram as a ordered collection of leaf node depths. \-Root has depth 0.
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000001}{\-Todo}]complete this class and use instead of strings in describing histograms.\end{DoxyRefDesc}
+
+
+\-Definition at line 2008 of file adaptivehistogram.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1HistDescription_aa037991228f9fc3595310b7d9a645a6b}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!\-Hist\-Description@{\-Hist\-Description}}
+\index{\-Hist\-Description@{\-Hist\-Description}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{\-Hist\-Description}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Hist\-Description\-::\-Hist\-Description} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}\label{classsubpavings_1_1HistDescription_aa037991228f9fc3595310b7d9a645a6b}
+
+
+\-Default constructor. 
+
+
+
+\-Definition at line 2022 of file adaptivehistogram.\-hpp.
+
+
+\begin{DoxyCode}
+: depthString(""), goodString(true) {}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1HistDescription_adacde2a48f78ab90db0bdd251f0d13ab}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!\-Hist\-Description@{\-Hist\-Description}}
+\index{\-Hist\-Description@{\-Hist\-Description}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{\-Hist\-Description}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Hist\-Description\-::\-Hist\-Description} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}\label{classsubpavings_1_1HistDescription_adacde2a48f78ab90db0bdd251f0d13ab}
+
+
+\-Constructor from string. 
+
+
+
+\-Definition at line 2026 of file adaptivehistogram.\-hpp.
+
+
+\begin{DoxyCode}
+                                            : depthString(str),
+                                                goodString(true) {}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1HistDescription_a132244f2567c62a6b481ec3fa93ebe5e}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!\-Hist\-Description@{\-Hist\-Description}}
+\index{\-Hist\-Description@{\-Hist\-Description}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{\-Hist\-Description}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Hist\-Description\-::\-Hist\-Description} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Hist\-Description} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}\label{classsubpavings_1_1HistDescription_a132244f2567c62a6b481ec3fa93ebe5e}
+
+
+\-Copy constructor. 
+
+
+
+\-Definition at line 2031 of file adaptivehistogram.\-hpp.
+
+
+\begin{DoxyCode}
+                : depthString(other.depthString),
+                  goodString(other.goodString) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1HistDescription_a35a0b15e904f1987b6603c7ffeb22f75}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!get\-Depth\-String@{get\-Depth\-String}}
+\index{get\-Depth\-String@{get\-Depth\-String}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{get\-Depth\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf subpavings\-::\-Hist\-Description\-::get\-Depth\-String} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1HistDescription_a35a0b15e904f1987b6603c7ffeb22f75}
+
+
+\-Get the depth\-String. 
+
+
+
+\-Definition at line 2059 of file adaptivehistogram.\-hpp.
+
+
+
+\-Referenced by subpavings\-::operator$<$(), and subpavings\-::operator$<$$<$().
+
+
+\begin{DoxyCode}
+    { return depthString; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1HistDescription_a4c48acd03fc56cb6e8b3d2645ee35c31}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!get\-Is\-Good@{get\-Is\-Good}}
+\index{get\-Is\-Good@{get\-Is\-Good}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{get\-Is\-Good}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Hist\-Description\-::get\-Is\-Good} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1HistDescription_a4c48acd03fc56cb6e8b3d2645ee35c31}
+
+
+\-Get the goodstring flag. 
+
+
+
+\-Definition at line 2054 of file adaptivehistogram.\-hpp.
+
+
+\begin{DoxyCode}
+    { return goodString; }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1HistDescription_a6982d4933571625373952ffe5f7e9d4f}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!operator=@{operator=}}
+\index{operator=@{operator=}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Hist\-Description} \& \-Hist\-Description\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Hist\-Description} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1HistDescription_a6982d4933571625373952ffe5f7e9d4f}
+
+
+\-Copy assignment operator. 
+
+
+
+\-Definition at line 5818 of file adaptivehistogram.\-cpp.
+
+
+
+\-References depth\-String, and good\-String.
+
+
+\begin{DoxyCode}
+{
+    depthString = rhs.depthString;
+    goodString = rhs.goodString;
+    return *this;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1HistDescription_a8f53638ba1ddc56e63174d18510d92af}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!peek\-First@{peek\-First}}
+\index{peek\-First@{peek\-First}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{peek\-First}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Hist\-Description\-::peek\-First} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1HistDescription_a8f53638ba1ddc56e63174d18510d92af}
+
+
+\-Get the first level in the description. 
+
+
+
+\-Definition at line 5826 of file adaptivehistogram.\-cpp.
+
+
+
+\-References depth\-String, and good\-String.
+
+
+\begin{DoxyCode}
+{
+    // parse string to get first level out
+    std::string sep = ", ";
+    size_t startpos = depthString.find_first_not_of(sep);
+    size_t endpos = std::string::npos;
+    size_t newstartpos = std::string::npos;
+    int depth = 0;
+    std::string str = "";
+    if (startpos != std::string::npos) {
+        endpos = depthString.find_first_of(sep, startpos);
+        //not the last digit
+        if (endpos != std::string::npos) {
+            str = depthString.substr(startpos, endpos-startpos);
+        }
+        //last digit
+        else {
+            str = depthString.substr(startpos);
+        }
+    }
+    depth = atoi(str.c_str()); // 0 if not valid integer
+    if (depth == 0) {
+        goodString = false;
+    }
+
+    return depth; // 0 if not valid integer
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1HistDescription_a493c821ce318a6a4d950ea73c1f7ff11}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!pop\-First@{pop\-First}}
+\index{pop\-First@{pop\-First}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{pop\-First}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-Hist\-Description\-::pop\-First} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1HistDescription_a493c821ce318a6a4d950ea73c1f7ff11}
+
+
+\-Strip off the first level in the description. 
+
+
+
+\-Definition at line 5855 of file adaptivehistogram.\-cpp.
+
+
+
+\-References depth\-String.
+
+
+\begin{DoxyCode}
+{
+    bool stripped = false;
+    // parse string to get first level out
+    std::string sep = ", ";
+    size_t startpos = depthString.find_first_not_of(sep);
+    size_t endpos = std::string::npos;
+    size_t newstartpos = std::string::npos;
+    if (startpos != std::string::npos) {
+        endpos = depthString.find_first_of(sep, startpos);
+        //not the last digit
+        if (endpos != std::string::npos) {
+            newstartpos = depthString.find_first_not_of(sep,
+                                                    endpos + 1);
+        }
+
+        if (newstartpos != std::string::npos) {
+            depthString = depthString.substr(newstartpos);
+        }
+        else depthString = "";
+        stripped = true;
+    }
+
+    return stripped;
+}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1HistDescription_ade9e4041c1ca6de14b2b82ff7c7465e1}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!set\-Is\-Good@{set\-Is\-Good}}
+\index{set\-Is\-Good@{set\-Is\-Good}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{set\-Is\-Good}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Hist\-Description\-::set\-Is\-Good} (
+\begin{DoxyParamCaption}
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1HistDescription_ade9e4041c1ca6de14b2b82ff7c7465e1}
+
+
+\-Set the good string flag. 
+
+
+
+\-Definition at line 2041 of file adaptivehistogram.\-hpp.
+
+
+\begin{DoxyCode}
+    { goodString = b; }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1HistDescription_a05dabb27d7e43834ac9a8a99d8237538}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!depth\-String@{depth\-String}}
+\index{depth\-String@{depth\-String}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{depth\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf subpavings\-::\-Hist\-Description\-::depth\-String}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1HistDescription_a05dabb27d7e43834ac9a8a99d8237538}
+\-The depth string, a string of comma separated levels. 
+
+\-Definition at line 2012 of file adaptivehistogram.\-hpp.
+
+
+
+\-Referenced by operator=(), peek\-First(), and pop\-First().
+
+\hypertarget{classsubpavings_1_1HistDescription_a3f246c1b82fb69929ec3761480c934b9}{\index{subpavings\-::\-Hist\-Description@{subpavings\-::\-Hist\-Description}!good\-String@{good\-String}}
+\index{good\-String@{good\-String}!subpavings::HistDescription@{subpavings\-::\-Hist\-Description}}
+\paragraph[{good\-String}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Hist\-Description\-::good\-String}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classsubpavings_1_1HistDescription_a3f246c1b82fb69929ec3761480c934b9}
+\-A flag for whether the instruction string is good. 
+
+\-Definition at line 2016 of file adaptivehistogram.\-hpp.
+
+
+
+\-Referenced by operator=(), and peek\-First().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{adaptivehistogram_8hpp}{adaptivehistogram.\-hpp}\item 
+\hyperlink{adaptivehistogram_8cpp}{adaptivehistogram.\-cpp}\end{DoxyCompactItemize}

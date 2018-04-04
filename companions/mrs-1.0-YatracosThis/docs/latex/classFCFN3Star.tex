@@ -1,0 +1,376 @@
+\hypertarget{classFCFN3Star}{\subsection{\-F\-C\-F\-N3\-Star \-Class \-Reference}
+\label{classFCFN3Star}\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}}
+}
+
+
+1-\/dimensional \-Cavender-\/\-Farris-\/\-Neyman (\-C\-F\-N) model likelihood as a function object class.  
+
+
+
+
+{\ttfamily \#include $<$\-F\-C\-F\-N3.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-C\-F\-N3\-Star\-:
+
+
+\-Collaboration diagram for \-F\-C\-F\-N3\-Star\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFCFN3Star_a762c21a9ed9cba72242f87d27fc722fb}{\-F\-C\-F\-N3\-Star} (int \hyperlink{classFCFN3Star_a75abf79fc92c2683219829ce86a43a77}{\-Cid}, int \hyperlink{classFCFN3Star_ace3c43e5c025a8cd9976ce78202fa542}{\-Cnid}, interval \-Domain, bool \-Log\-Pi, int \-Prior)
+\begin{DoxyCompactList}\small\item\em \-A constructor. \end{DoxyCompactList}\item 
+interval \hyperlink{classFCFN3Star_af2b3d4543f1ba7f9040e24433ac7436e}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em interval function object \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3Star_a3ea99664a49607ab495aad38b6a4a31d}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em real function object \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFCFN3Star_ad9fea247c542560b3c13dd0ad340d25f}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\item 
+int \hyperlink{classFCFN3Star_aaa71b2dc822592e81afb4b12fdd8463c}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3Star_a1a5955ccbbecdce0f6cab399ef93f53c}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classFCFN3Star_a75abf79fc92c2683219829ce86a43a77}{\-Cid}
+\begin{DoxyCompactList}\small\item\em \-Cid = count of invariant sites (minimal suffcient stats) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3Star_ace3c43e5c025a8cd9976ce78202fa542}{\-Cnid}
+\begin{DoxyCompactList}\small\item\em \-Cnid = count of variant sites (minimal suffcient stats) \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3Star_a3afd13820d74fa145d6beafe2855e333}{f0}
+\begin{DoxyCompactList}\small\item\em \-Fraction of invariant sites, f0 \-:= \-Cid/(\-Cid+\-Cnid) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3Star_a47a41d53ca005cab246ef1954e8e34e0}{n\-\_\-dimensions}
+\begin{DoxyCompactList}\small\item\em \-Dimensions of the labelled \-Domain,. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3Star_a1d596a2072a382eb4e11d99bca03b81d}{\-Tot\-Sites}
+\item 
+int \hyperlink{classFCFN3Star_acdf33272ab3d95cd51709cd39a846ddd}{n\-\_\-interval\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3Star_a1f84d41d7101ffe0d1485f414065d09e}{n\-\_\-real\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+1-\/dimensional \-Cavender-\/\-Farris-\/\-Neyman (\-C\-F\-N) model likelihood as a function object class. 
+
+\-This is the ultrametric \char`\"{}star tree\char`\"{}, a trifurcating tree with all three branches having equal length. 
+
+\-Definition at line 34 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFCFN3Star_a762c21a9ed9cba72242f87d27fc722fb}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}}
+\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{\-F\-C\-F\-N3\-Star}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-C\-F\-N3\-Star\-::\-F\-C\-F\-N3\-Star} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-Countid, }
+\item[{int}]{\-Countnid, }
+\item[{interval}]{\-Domain, }
+\item[{bool}]{\-Log\-Pi, }
+\item[{int}]{\-Prior}
+\end{DoxyParamCaption}
+)}}\label{classFCFN3Star_a762c21a9ed9cba72242f87d27fc722fb}
+
+
+\-A constructor. 
+
+constructor for the likelihood of the common branchlength under \-C\-F\-N model for a rooted and clocked 3 taxa tree 
+
+\-Definition at line 51 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, n\-\_\-dimensions, n\-\_\-interval\-\_\-calls, n\-\_\-real\-\_\-calls, \-Fobj\-::\-Prior\-Type, and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+:
+Cid (Countid), Cnid (Countnid)
+{
+  n_interval_calls = 0;
+  n_real_calls = 0;
+  setUsingLogDensity (LogPi);
+  PriorType = Prior;
+  //TotSites = real(Cid+Cnid);
+  //f0 = real(Cid); // /TotSites;
+  n_dimensions=1;
+  ivector domain (1, n_dimensions);
+  LabBox Ldomain;
+  for (int i = 1; i <= n_dimensions; i++)
+  {
+    domain[i] = Domain;
+  }
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  LabDomainList.push_back (Ldomain);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFCFN3Star_aaa71b2dc822592e81afb4b12fdd8463c}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Star\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3Star_aaa71b2dc822592e81afb4b12fdd8463c}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 64 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-References n\-\_\-interval\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_interval_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFCFN3Star_a1a5955ccbbecdce0f6cab399ef93f53c}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Star\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3Star_a1a5955ccbbecdce0f6cab399ef93f53c}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 69 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-References n\-\_\-real\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_real_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFCFN3Star_ad9fea247c542560b3c13dd0ad340d25f}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-C\-F\-N3\-Star\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3Star_ad9fea247c542560b3c13dd0ad340d25f}
+\-Volume of rooted tree boxes is implemented here and \-N\-O\-T inherited from \hyperlink{classFobj}{\-Fobj} 
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 62 of file \-F\-C\-F\-N3.\-hpp.
+
+
+\begin{DoxyCode}
+{return Fobj::LabBoxVolume(LB);}
+\end{DoxyCode}
+\hypertarget{classFCFN3Star_af2b3d4543f1ba7f9040e24433ac7436e}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!operator()@{operator()}}
+\index{operator()@{operator()}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-C\-F\-N3\-Star\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCFN3Star_af2b3d4543f1ba7f9040e24433ac7436e}
+
+
+interval function object 
+
+
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 75 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Cid, \-Cnid, taylor\-::exp(), taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-interval\-\_\-calls, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_interval_calls++;
+  #ifdef TESTDIMS
+  if (Ub(X.Box) != 1 || Lb(X.Box) != 1)
+  {
+    cerr << "dimensions !=1 OR start-index != 1... exiting. " 
+         << endl; exit (EXIT_FAILURE);
+  }
+  #endif
+  interval em4t = (exp (-4.0 * X.Box[1])) ;
+  interval result = Cid*ln( ((1.0 + (3.0*em4t)) / 8.0)) + 
+                    Cnid*ln( ((1.0 - em4t) / 8.0)) ;
+  // result = (TotSites*result);
+  /*
+  if (Sup (result) < 0.0) Sup (result) = 0.0;
+  if (Inf (result) < 0.0) Inf (result) = 0.0;
+  */
+  return (UsingLogDensity) ? (result) : exp(result);
+}
+\end{DoxyCode}
+\hypertarget{classFCFN3Star_a3ea99664a49607ab495aad38b6a4a31d}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!operator()@{operator()}}
+\index{operator()@{operator()}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-C\-F\-N3\-Star\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCFN3Star_a3ea99664a49607ab495aad38b6a4a31d}
+
+
+real function object 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 98 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Cid, \-Cnid, taylor\-::exp(), taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-real\-\_\-calls, \-Lab\-Pnt\-::\-Pnt, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_real_calls++;
+  #ifdef TESTDIMS
+  if (Ub(X.Pnt) != 1 || Lb(X.Pnt) != 1)
+  {
+    cout << "dimensions !=1 OR start-index != 1... exiting. " 
+         << endl; exit (EXIT_FAILURE);
+  }
+  #endif
+  real em4t = (exp (-4.0 * X.Pnt[1])) ;
+  real result = Cid*ln( ((1.0 + (3.0*em4t)) / 8.0)) + 
+                (Cnid)*ln( ((1.0 - em4t) / 8.0)) ;
+  // result = (TotSites*result);
+  return (UsingLogDensity) ? (result) : exp(result);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFCFN3Star_a75abf79fc92c2683219829ce86a43a77}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!\-Cid@{\-Cid}}
+\index{\-Cid@{\-Cid}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{\-Cid}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Star\-::\-Cid}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3Star_a75abf79fc92c2683219829ce86a43a77}
+
+
+\-Cid = count of invariant sites (minimal suffcient stats) 
+
+
+
+\-Definition at line 36 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFCFN3Star_ace3c43e5c025a8cd9976ce78202fa542}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!\-Cnid@{\-Cnid}}
+\index{\-Cnid@{\-Cnid}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{\-Cnid}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Star\-::\-Cnid}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3Star_ace3c43e5c025a8cd9976ce78202fa542}
+
+
+\-Cnid = count of variant sites (minimal suffcient stats) 
+
+
+
+\-Definition at line 37 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFCFN3Star_a3afd13820d74fa145d6beafe2855e333}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!f0@{f0}}
+\index{f0@{f0}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{f0}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-Star\-::f0}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3Star_a3afd13820d74fa145d6beafe2855e333}
+
+
+\-Fraction of invariant sites, f0 \-:= \-Cid/(\-Cid+\-Cnid) 
+
+
+
+\-Definition at line 38 of file \-F\-C\-F\-N3.\-hpp.
+
+\hypertarget{classFCFN3Star_a47a41d53ca005cab246ef1954e8e34e0}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!n\-\_\-dimensions@{n\-\_\-dimensions}}
+\index{n\-\_\-dimensions@{n\-\_\-dimensions}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{n\-\_\-dimensions}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Star\-::n\-\_\-dimensions}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3Star_a47a41d53ca005cab246ef1954e8e34e0}
+
+
+\-Dimensions of the labelled \-Domain,. 
+
+ie, number of distinct branch lengths that have this topology label. 
+
+\-Definition at line 44 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Star().
+
+\hypertarget{classFCFN3Star_acdf33272ab3d95cd51709cd39a846ddd}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Star\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCFN3Star_acdf33272ab3d95cd51709cd39a846ddd}
+
+
+\-Track number of interval function calls. 
+
+
+
+\-Definition at line 47 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Star(), get\-\_\-interval\-\_\-calls(), and operator()().
+
+\hypertarget{classFCFN3Star_a1f84d41d7101ffe0d1485f414065d09e}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-Star\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCFN3Star_a1f84d41d7101ffe0d1485f414065d09e}
+
+
+\-Track number of real function calls. 
+
+
+
+\-Definition at line 49 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3\-Star(), get\-\_\-real\-\_\-calls(), and operator()().
+
+\hypertarget{classFCFN3Star_a1d596a2072a382eb4e11d99bca03b81d}{\index{\-F\-C\-F\-N3\-Star@{\-F\-C\-F\-N3\-Star}!\-Tot\-Sites@{\-Tot\-Sites}}
+\index{\-Tot\-Sites@{\-Tot\-Sites}!FCFN3Star@{\-F\-C\-F\-N3\-Star}}
+\paragraph[{\-Tot\-Sites}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-Star\-::\-Tot\-Sites}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3Star_a1d596a2072a382eb4e11d99bca03b81d}
+\-Total number of sites 
+
+\-Definition at line 45 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FCFN3_8hpp}{\-F\-C\-F\-N3.\-hpp}\item 
+\hyperlink{FCFN3_8cpp}{\-F\-C\-F\-N3.\-cpp}\end{DoxyCompactItemize}

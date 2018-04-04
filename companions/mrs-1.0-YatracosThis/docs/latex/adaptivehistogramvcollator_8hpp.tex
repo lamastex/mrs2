@@ -1,0 +1,129 @@
+\hypertarget{adaptivehistogramvcollator_8hpp}{\subsection{adaptivehistogramvcollator.\-hpp \-File \-Reference}
+\label{adaptivehistogramvcollator_8hpp}\index{adaptivehistogramvcollator.\-hpp@{adaptivehistogramvcollator.\-hpp}}
+}
+
+
+\-Adaptive\-Histogram\-V\-Collator declarations.  
+
+
+{\ttfamily \#include \char`\"{}adaptivehistogram.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}adaptivehistogramvalidation.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}sptypes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}histevalobjval.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$set$>$}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsubpavings_1_1AdaptiveHistogramVCollator}{subpavings\-::\-Adaptive\-Histogram\-V\-Collator}
+\begin{DoxyCompactList}\small\item\em \-A wrapper or manager for a \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{adaptivehistogramvcollator_8hpp_aa95682245eddbfef1ca00e65bba76e61}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classsubpavings_1_1AdaptiveHistogramVCollator}{subpavings\-::\-Adaptive\-Histogram\-V\-Collator} \&adhc)
+\begin{DoxyCompactList}\small\item\em \-Output the contents of an \-Adaptive\-Histogram\-V\-Collator object. \end{DoxyCompactList}\item 
+double \hyperlink{adaptivehistogramvcollator_8hpp_af83155cd50512e4cbad3f931370478ee}{is\-Negative} (double d)
+\begin{DoxyCompactList}\small\item\em \-Find if double is negative. \end{DoxyCompactList}\item 
+void \hyperlink{adaptivehistogramvcollator_8hpp_a86c8969687067aefde2c68c806c3bf28}{output\-All\-Nodes\-To\-Txt\-Tabs} (const std\-::string \&s, const \hyperlink{classsubpavings_1_1AdaptiveHistogramVCollator}{subpavings\-::\-Adaptive\-Histogram\-V\-Collator} \&adhc)
+\begin{DoxyCompactList}\small\item\em \-Output all boxes in collator to text file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Adaptive\-Histogram\-V\-Collator declarations. 
+
+\-Definition in file \hyperlink{adaptivehistogramvcollator_8hpp_source}{adaptivehistogramvcollator.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{adaptivehistogramvcollator_8hpp_af83155cd50512e4cbad3f931370478ee}{\index{adaptivehistogramvcollator.\-hpp@{adaptivehistogramvcollator.\-hpp}!is\-Negative@{is\-Negative}}
+\index{is\-Negative@{is\-Negative}!adaptivehistogramvcollator.hpp@{adaptivehistogramvcollator.\-hpp}}
+\paragraph[{is\-Negative}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf is\-Negative} (
+\begin{DoxyParamCaption}
+\item[{double}]{d}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvcollator_8hpp_af83155cd50512e4cbad3f931370478ee}
+
+
+\-Find if double is negative. 
+
+
+
+\-Definition at line 1416 of file adaptivehistogramvcollator.\-cpp.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::make\-Average(), and subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::output\-Average\-To\-Txt\-Tabs().
+
+
+\begin{DoxyCode}
+    {
+        return (d<0.0);
+    }
+\end{DoxyCode}
+\hypertarget{adaptivehistogramvcollator_8hpp_aa95682245eddbfef1ca00e65bba76e61}{\index{adaptivehistogramvcollator.\-hpp@{adaptivehistogramvcollator.\-hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!adaptivehistogramvcollator.hpp@{adaptivehistogramvcollator.\-hpp}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf subpavings\-::\-Adaptive\-Histogram\-V\-Collator} \&}]{adhc}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvcollator_8hpp_aa95682245eddbfef1ca00e65bba76e61}
+
+
+\-Output the contents of an \-Adaptive\-Histogram\-V\-Collator object. 
+
+\-Verbose output for an \-Adaptive\-Histogram object. 
+
+\-Definition at line 1405 of file adaptivehistogramvcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::get\-Sub\-Paving().
+
+
+\begin{DoxyCode}
+{
+    if (NULL != adhc.getSubPaving()) {
+        os << (adhc.getSubPaving())->nodesAllOutput(os, 1) << std::endl;
+    }
+
+    return os;
+}
+\end{DoxyCode}
+\hypertarget{adaptivehistogramvcollator_8hpp_a86c8969687067aefde2c68c806c3bf28}{\index{adaptivehistogramvcollator.\-hpp@{adaptivehistogramvcollator.\-hpp}!output\-All\-Nodes\-To\-Txt\-Tabs@{output\-All\-Nodes\-To\-Txt\-Tabs}}
+\index{output\-All\-Nodes\-To\-Txt\-Tabs@{output\-All\-Nodes\-To\-Txt\-Tabs}!adaptivehistogramvcollator.hpp@{adaptivehistogramvcollator.\-hpp}}
+\paragraph[{output\-All\-Nodes\-To\-Txt\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output\-All\-Nodes\-To\-Txt\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{const {\bf subpavings\-::\-Adaptive\-Histogram\-V\-Collator} \&}]{adhc}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvcollator_8hpp_a86c8969687067aefde2c68c806c3bf28}
+
+
+\-Output all boxes in collator to text file. 
+
+
+
+\-Definition at line 1423 of file adaptivehistogramvcollator.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-V\-Collator\-::get\-Sub\-Paving(), and subpavings\-::\-S\-Pnode\-::nodes\-All\-Output().
+
+
+\begin{DoxyCode}
+   {
+    // To generate a file output of the AdaptiveHistogramVCollator object
+    ofstream os(s.c_str());         // Filename, c-string version
+
+    adhc.getSubPaving()->nodesAllOutput(os, 1);
+    std::cout << "The output of ALL the nodes of the AdaptiveHistogramVCollator
+       has been "
+        << "written to " << s << std::endl << std::endl;
+    }
+\end{DoxyCode}

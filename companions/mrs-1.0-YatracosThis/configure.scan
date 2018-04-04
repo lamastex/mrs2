@@ -1,0 +1,102 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ(2.61)
+AC_INIT(FULL-PACKAGE-NAME, VERSION, BUG-REPORT-ADDRESS)
+AC_CONFIG_SRCDIR([examples/GOpt/PhyloPOT/PhyloPOT.cpp])
+AC_CONFIG_HEADER([config.h])
+
+# Checks for programs.
+AC_PROG_YACC
+AC_PROG_CXX
+AC_PROG_CC
+AC_PROG_LEX
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+# Checks for libraries.
+# FIXME: Replace `main' with a function in `-lBias':
+AC_CHECK_LIB([Bias], [main])
+# FIXME: Replace `main' with a function in `-lGL':
+AC_CHECK_LIB([GL], [main])
+# FIXME: Replace `main' with a function in `-lGLU':
+AC_CHECK_LIB([GLU], [main])
+# FIXME: Replace `main' with a function in `-lProfil':
+AC_CHECK_LIB([Profil], [main])
+# FIXME: Replace `main' with a function in `-lProfilPackages':
+AC_CHECK_LIB([ProfilPackages], [main])
+# FIXME: Replace `main' with a function in `-lX11':
+AC_CHECK_LIB([X11], [main])
+# FIXME: Replace `main' with a function in `-lcxsc':
+AC_CHECK_LIB([cxsc], [main])
+# FIXME: Replace `main' with a function in `-lglut':
+AC_CHECK_LIB([glut], [main])
+# FIXME: Replace `main' with a function in `-lgsl':
+AC_CHECK_LIB([gsl], [main])
+# FIXME: Replace `main' with a function in `-lgslcblas':
+AC_CHECK_LIB([gslcblas], [main])
+# FIXME: Replace `main' with a function in `-lgtkgl':
+AC_CHECK_LIB([gtkgl], [main])
+# FIXME: Replace `main' with a function in `-libex':
+AC_CHECK_LIB([ibex], [main])
+# FIXME: Replace `main' with a function in `-llr':
+AC_CHECK_LIB([lr], [main])
+# FIXME: Replace `main' with a function in `-lm':
+AC_CHECK_LIB([m], [main])
+# FIXME: Replace `main' with a function in `-lplibfnt':
+AC_CHECK_LIB([plibfnt], [main])
+# FIXME: Replace `main' with a function in `-lplibpw':
+AC_CHECK_LIB([plibpw], [main])
+# FIXME: Replace `main' with a function in `-lplibsg':
+AC_CHECK_LIB([plibsg], [main])
+# FIXME: Replace `main' with a function in `-lplibul':
+AC_CHECK_LIB([plibul], [main])
+# FIXME: Replace `main' with a function in `-ltoolbox':
+AC_CHECK_LIB([toolbox], [main])
+
+# Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([fcntl.h limits.h malloc.h memory.h stdlib.h string.h sys/time.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_STDBOOL
+AC_C_CONST
+AC_C_INLINE
+AC_TYPE_SIZE_T
+AC_HEADER_TIME
+AC_C_VOLATILE
+
+# Checks for library functions.
+AC_FUNC_ERROR_AT_LINE
+AC_FUNC_MALLOC
+AC_FUNC_REALLOC
+AC_FUNC_SELECT_ARGTYPES
+AC_CHECK_FUNCS([floor gettimeofday memmove memset modf pow select sqrt strchr strdup strtol])
+
+AC_CONFIG_FILES([examples/AIA/Exm_3_3/Makefile
+                 examples/AIA/Exm_3_4/Makefile
+                 examples/AIA/Exr_11_33/Makefile
+                 examples/AIA/Exr_11_35/Makefile
+                 examples/CXSC/Makefile
+                 examples/GOpt/Levy/Makefile
+                 examples/GOpt/PhyloPOT/Makefile
+                 examples/GOpt/Rosenbrock/Makefile
+                 examples/MooreRejSam/CFN3/Makefile
+                 examples/MooreRejSam/Levy/Makefile
+                 examples/MooreRejSam/PhyloPOT/Makefile
+                 examples/MooreRejSam/Rosenbrock/Makefile
+                 examples/MooreRejSam/Shiryaev/Makefile
+                 examples/MooreRejSam/WitchesHat/Makefile
+                 examples/StatsSubPav/BivGaussian/Makefile
+                 examples/newSubPav/Exm_3_3/Makefile
+                 examples/newSubPav/Exm_3_4/Makefile
+                 examples/newSubPav/Exr_11_33/Makefile
+                 examples/newSubPav/Exr_11_35/Makefile
+                 examples/targets/FCFN3/Makefile
+                 examples/targets/FLevy2D/Makefile
+                 examples/targets/FPhyloPOT/Makefile
+                 examples/targets/FRosenbrock/Makefile
+                 examples/targets/FShiryaev1D/Makefile
+                 examples/targets/FWitchesHat/Makefile
+                 src/Makefile])
+AC_OUTPUT

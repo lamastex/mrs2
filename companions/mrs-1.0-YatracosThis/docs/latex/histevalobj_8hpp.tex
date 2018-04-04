@@ -1,0 +1,60 @@
+\hypertarget{histevalobj_8hpp}{\subsection{histevalobj.\-hpp \-File \-Reference}
+\label{histevalobj_8hpp}\index{histevalobj.\-hpp@{histevalobj.\-hpp}}
+}
+
+
+\-Declarations for classes for evaluating when to stop changing histograms.  
+
+
+{\ttfamily \#include \char`\"{}histpenalty.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsubpavings_1_1HistEvalObj}{subpavings\-::\-Hist\-Eval\-Obj}
+\begin{DoxyCompactList}\small\item\em \-A \-Virtual class providing a way to stop histogram changes. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritLeaves__GTE}{subpavings\-::\-Crit\-Leaves\-\_\-\-G\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the number of bins of a histogram. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritLeaves__LTE}{subpavings\-::\-Crit\-Leaves\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the number of bins of a histogram. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritSmallestCount__LTE}{subpavings\-::\-Crit\-Smallest\-Count\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the count of the node with the smallest count in histogram's subpaving. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritLargestCount__LTE}{subpavings\-::\-Crit\-Largest\-Count\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the count of the node with the largest count in histogram's subpaving. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritSmallestVol__LTE}{subpavings\-::\-Crit\-Smallest\-Vol\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the volume of the box with the smallest volume in the histogram's subpaving. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritLargestVol__LTE}{subpavings\-::\-Crit\-Largest\-Vol\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the volume of the box with the largest volume in the histogram's subpaving. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritCOPERRChange__GTE}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Change\-\_\-\-G\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the change in \-C\-O\-P\-E\-R\-R score from splitting. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritAICChange__GTE}{subpavings\-::\-Crit\-A\-I\-C\-Change\-\_\-\-G\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the change in \-A\-I\-C score from splitting. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritCOPERRChangeOrLeaves__GTE}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Change\-Or\-Leaves\-\_\-\-G\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing change in \-C\-O\-P\-E\-R\-R or number leaves from splitting. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritAICChangeOrLeaves__GTE}{subpavings\-::\-Crit\-A\-I\-C\-Change\-Or\-Leaves\-\_\-\-G\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing change in \-A\-I\-C or number leaves from splitting. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritCOPERRChangeOrLargestCount__LTE}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Change\-Or\-Largest\-Count\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing change in \-C\-O\-P\-E\-R\-R or largest count from splitting. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritAICChangeOrLargestCount__LTE}{subpavings\-::\-Crit\-A\-I\-C\-Change\-Or\-Largest\-Count\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing change in \-A\-I\-C or largest count from splitting. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritCOPERRMergeChange__GTE}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Merge\-Change\-\_\-\-G\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the change in \-C\-O\-P\-E\-R\-R score from merging. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritAICMergeChange__GTE}{subpavings\-::\-Crit\-A\-I\-C\-Merge\-Change\-\_\-\-G\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing the change in \-A\-I\-C score from merging. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritCOPERRMergeChangeOrLeaves__LTE}{subpavings\-::\-Crit\-C\-O\-P\-E\-R\-R\-Merge\-Change\-Or\-Leaves\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing change in \-C\-O\-P\-E\-R\-R or number leaves from merging. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritAICMergeChangeOrLeaves__LTE}{subpavings\-::\-Crit\-A\-I\-C\-Merge\-Change\-Or\-Leaves\-\_\-\-L\-T\-E}
+\begin{DoxyCompactList}\small\item\em \-Class for testing change in \-A\-I\-C or number leaves from merging. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1CritStopAll}{subpavings\-::\-Crit\-Stop\-All}
+\begin{DoxyCompactList}\small\item\em \-Class to bale out of priority queue splitting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Declarations for classes for evaluating when to stop changing histograms. 
+
+\-Definition in file \hyperlink{histevalobj_8hpp_source}{histevalobj.\-hpp}.
+

@@ -1,0 +1,221 @@
+\hypertarget{MCMCuniform_8cpp}{\subsection{\-M\-C\-M\-Cuniform.\-cpp \-File \-Reference}
+\label{MCMCuniform_8cpp}\index{\-M\-C\-M\-Cuniform.\-cpp@{\-M\-C\-M\-Cuniform.\-cpp}}
+}
+
+
+\-Testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C new style (\-May 2012) and uniform data.  
+
+
+{\ttfamily \#include \char`\"{}histall.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}piecewise\-\_\-constant\-\_\-function.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}dataprep.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{MCMCuniform_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Stats\-Sub\-Pavings (aka \-S\-P\-Snodes) with \-M\-C\-M\-C new style (\-May 2012) and uniform data. 
+
+\-Definition in file \hyperlink{MCMCuniform_8cpp_source}{\-M\-C\-M\-Cuniform.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MCMCuniform_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-M\-C\-M\-Cuniform.\-cpp@{\-M\-C\-M\-Cuniform.\-cpp}!main@{main}}
+\index{main@{main}!MCMCuniform.cpp@{\-M\-C\-M\-Cuniform.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MCMCuniform_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 41 of file \-M\-C\-M\-Cuniform.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-Collator\-::add\-To\-Collation(), subpavings\-::\-Adaptive\-Histogram\-::insert\-From\-R\-Vec(), subpavings\-::\-Adaptive\-Histogram\-Collator\-::make\-Average(), subpavings\-::\-Adaptive\-Histogram\-::\-M\-C\-M\-Csamples(), subpavings\-::\-N\-O\-L\-O\-G, subpavings\-::\-Adaptive\-Histogram\-Collator\-::output\-To\-Txt\-Tabs(), and subpavings\-::\-Piecewise\-Constant\-Function\-::output\-To\-Txt\-Tabs().
+
+
+\begin{DoxyCode}
+{
+    // ------- prepare to generate some data for the tests -----------
+
+// set up a random number generator
+    const gsl_rng_type * T;
+    gsl_rng * r;
+
+    const int n=100000;    // number to generate
+    //create a generator chosen by the environment variable GSL_RNG_TYPE
+
+    gsl_rng_env_setup();
+
+    T = gsl_rng_default;
+    r = gsl_rng_alloc (T);
+
+    string samplesFileName; // for samples
+    string outputFileName;// for output file
+    ofstream oss;         // ofstream object
+    oss << scientific;  // set formatting for input to oss
+    oss.precision(5);
+
+    int d = 5; // dimension of the box to sample data from
+    ivector pavingBox(d);
+    interval pavingInterval(0,1);
+    for(int k=1; k <= d; k++) pavingBox[k] = pavingInterval;
+
+    RVecData theData;   // a container for all the points generated
+
+    // make a simulated data set allData to sample from
+    for (int i = 0; i < n; i++) {
+
+        rvector thisrv(d);
+        for(int j=1; j <= d; j++) {
+      thisrv[j]  = gsl_rng_uniform(r);
+        }
+
+        // put points generated into container
+        theData.push_back(thisrv);
+
+    }  // data  should be in theData
+
+    // free the random number generator
+    gsl_rng_free (r);
+
+/*
+    // output data to a file
+    string dataFile = "dataFile.txt";
+    ofstream osd(dataFile.c_str());         // replace data
+    if (osd.is_open()) {
+        RVecDataItr dit;
+        for (dit = theData.begin(); dit < theData.end(); dit++) {
+            //osd << *dit << "\n";
+            osd << (*dit)[1] << "\t" << (*dit)[2] << "\n";
+        }
+        osd.close();
+    }
+    else {
+        std::cout << "Error: could not open file named "
+            << dataFile << std::endl << std::endl;
+    }
+*/
+  unsigned int loops = 1000;
+  unsigned int burnin = 10;
+  unsigned int thinout = 1;
+  LOGGING_LEVEL logging = NOLOG;
+  int minPoints = 1;
+
+  // set up proposal distribution object
+  UniformProposal proposal;
+  // set up prior distribution object
+  LogCatalanPrior logPrior;
+    
+  cout << endl << endl;
+    cout << "\n\nStart example: n = " << n << " and d = " << d << endl;
+
+    {
+    // make an Adaptive Histogram with the given pavingBox and, by default,
+    // holdAllStats = false so that the underlying rootPaving managed by the
+    // myHistFirst will not maintain all available stats, only counts
+    AdaptiveHistogram myHistFirst(pavingBox);
+
+    // put in the data in a 'pulse' with no splitting, ie into root box
+        bool successfulInsertion = myHistFirst.insertFromRVec(theData);
+
+    if (successfulInsertion) {
+
+      cout << "Starting MCMC PiecewiseConstantFunction samples "  << endl;
+      clock_t start, end;
+      start = clock();
+
+      // MCMC with 2000 states, burn in 1500, thinout every 100 etc
+      // create a log file only for samples (no dot graphs)
+      
+      
+        std::vector < PiecewiseConstantFunction > samples;
+        samples = myHistFirst.MCMCsamplesNEW(samples, loops, burnin, thinout,
+                          proposal, logPrior,
+                          minPoints, logging);
+      #if(0)
+      PiecewiseConstantFunction mcmcAv = myHistFirst.MCMCNEW(
+                          loops, burnin, thinout,
+                          proposal, logPrior,
+                          minPoints, logging);
+      #endif
+      
+      end = clock();
+
+      cout << "Computing time : "
+         << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< 
+      endl;
+      #if(0)
+        cout << "Finished MCMC sample averaging" << endl;
+        string mcmcAvFilename = "pcfAverage.txt";
+        
+        mcmcAv.outputToTxtTabs(mcmcAvFilename);
+      #endif  
+      
+      
+    }
+    else cout << "Failed to insert data" << endl;
+  }
+
+  
+  {
+    // make an Adaptive Histogram with the given pavingBox and, by default,
+    // holdAllStats = false so that the underlying rootPaving managed by the
+    // myHistFirst will not maintain all available stats, only counts
+    AdaptiveHistogram myHistFirst(pavingBox);
+
+    // put in the data in a 'pulse' with no splitting, ie into root box
+        bool successfulInsertion = myHistFirst.insertFromRVec(theData);
+
+    if (successfulInsertion) {
+
+      cout << "Starting MCMC AdaptiveHistogram samples "  << endl;
+      clock_t start, end;
+      start = clock();
+
+      // MCMC with 2000 states, burn in 1500, thinout every 100 etc
+      // create a log file only for samples (no dot graphs)
+      
+      std::vector < AdaptiveHistogram > samples;
+      samples = myHistFirst.MCMCsamples(samples, loops, burnin, thinout,
+                        proposal, logPrior,
+                        minPoints, logging);
+      
+      #if(0)
+        AdaptiveHistogramCollator tempColl;
+        tempColl.addToCollation(samples);
+        AdaptiveHistogramCollator mcmcAv = tempColl.makeAverage();
+      #endif
+
+      
+      end = clock();
+
+      cout << "Computing time : "
+         << ((static_cast<double>(end - start)) / CLOCKS_PER_SEC) << " s."<< 
+      endl;
+
+      #if(0)
+        cout << "Finished MCMC sample averaging" << endl;
+        string mcmcAvFilename = "adhAverage.txt";
+        
+        mcmcAv.outputToTxtTabs(mcmcAvFilename);
+      #endif  
+      
+      
+    }
+    else cout << "Failed to insert data" << endl;
+  }
+  
+    return 0;
+
+} // end of MCMC test program
+\end{DoxyCode}

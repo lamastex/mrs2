@@ -1,0 +1,571 @@
+\hypertarget{adaptivehistogramvalidation_8hpp}{\subsection{adaptivehistogramvalidation.\-hpp \-File \-Reference}
+\label{adaptivehistogramvalidation_8hpp}\index{adaptivehistogramvalidation.\-hpp@{adaptivehistogramvalidation.\-hpp}}
+}
+
+
+\-Adaptive\-Histogram\-Validation declarations.  
+
+
+{\ttfamily \#include \char`\"{}spsvnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}splitdecisionobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}nodecompobjval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}adaptivehistogram.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-cdf.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-integration.\-h$>$}\*
+{\ttfamily \#include \char`\"{}errorfunc.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/\-Int.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}../examples/\-Stats\-Sub\-Pav/\-Exact\-Int/dim2taylor.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsubpavings_1_1AdaptiveHistogramValidation}{subpavings\-::\-Adaptive\-Histogram\-Validation}
+\begin{DoxyCompactList}\small\item\em \-A wrapper or manager for an \hyperlink{classsubpavings_1_1SPSVnode}{\-S\-P\-S\-Vnode} aka \-Stats\-Sub\-Paving\-Val in conjunction with massive amounts of sample data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{adaptivehistogramvalidation_8hpp_a98003f456bdd16c0db0f055e76ad48ee}{operator$<$$<$} (std\-::ostream \&os, const \hyperlink{classsubpavings_1_1AdaptiveHistogramValidation}{subpavings\-::\-Adaptive\-Histogram\-Validation} \&adh)
+\begin{DoxyCompactList}\small\item\em \-Output the contents of an \-Adaptive\-Histogram\-Validation object. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{adaptivehistogramvalidation_8hpp_a93dfc6a08f529c2082c7ffcf6a5225c8}{check\-Num\-Valley} (std\-::vector$<$ double $>$ vec\-Max\-Delta, std\-::vector$<$ int $>$ \&valley\-Hist\-Pos, bool \&plateau, int \&current\-Smallest)
+\item 
+void \hyperlink{adaptivehistogramvalidation_8hpp_a08484be3202c86d9a369d04b1a1c7e1e}{get\-Current\-Yat\-Class} (std\-::vector$<$ std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ $>$ \&vec\-Row\-Yat\-Set, std\-::vector$<$ std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ $>$ \&vec\-Col\-Yat\-Set, std\-::list$<$ std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$, std\-::less$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ $>$ \&list\-Yat\-Set)
+\item 
+cxsc\-::interval \hyperlink{adaptivehistogramvalidation_8hpp_a34c69f3d97096d5aaf88958a1449963b}{get\-Fin\-Mix\-Interval\-True\-Delta} (\hyperlink{structFinMix}{\-Fin\-Mix} \&mixt, double tol, int deg, std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$, less$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ \&\-Yat\-Set)
+\item 
+cxsc\-::real \hyperlink{adaptivehistogramvalidation_8hpp_a9a9e088604995104a0313e525d4771e7}{get\-Unif\-True\-Delta} (\hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&my\-Part, double weight, vector$<$ int $>$ holes\-Loc, std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$, less$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ \&\-Yat\-Set)
+\item 
+cxsc\-::real \hyperlink{adaptivehistogramvalidation_8hpp_a918a753fde4f86110c4fd1f958ae29b1}{get\-Mapped\-Function\-True\-Delta} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} \&node\-Est\-Hist, std\-::set$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$, less$<$ \hyperlink{classsubpavings_1_1CollatorSPVnode}{\-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ \&\-Yat\-Set)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Adaptive\-Histogram\-Validation declarations. 
+
+\-Definition in file \hyperlink{adaptivehistogramvalidation_8hpp_source}{adaptivehistogramvalidation.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{adaptivehistogramvalidation_8hpp_a93dfc6a08f529c2082c7ffcf6a5225c8}{\index{adaptivehistogramvalidation.\-hpp@{adaptivehistogramvalidation.\-hpp}!check\-Num\-Valley@{check\-Num\-Valley}}
+\index{check\-Num\-Valley@{check\-Num\-Valley}!adaptivehistogramvalidation.hpp@{adaptivehistogramvalidation.\-hpp}}
+\paragraph[{check\-Num\-Valley}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf check\-Num\-Valley} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ double $>$}]{vec\-Max\-Delta, }
+\item[{std\-::vector$<$ int $>$ \&}]{valley\-Hist\-Pos, }
+\item[{bool \&}]{plateau, }
+\item[{int \&}]{current\-Smallest}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvalidation_8hpp_a93dfc6a08f529c2082c7ffcf6a5225c8}
+
+
+\-Definition at line 3978 of file adaptivehistogramvalidation.\-cpp.
+
+
+\begin{DoxyCode}
+{
+  size_t flagValley = 0;
+  size_t flagSame = 0;
+  size_t flagSameLarger = 0;
+  int Prev = 1;
+  double currentSmallest = vecMaxDelta[0];
+  
+  for (size_t i = 1; i < (vecMaxDelta.size()); i++) {
+    //cout << "====current: " << vecMaxDelta[i] << "\t previous: " <<
+       vecMaxDelta[i-1] << "=====" << endl;
+    //cout << "Prev before checks: " << Prev << endl;
+    double stopCritCurrent = vecMaxDelta[i];
+    double stopCritPrevious = vecMaxDelta[i-1];
+  
+    // check if it is a local minimum
+    if ( ((stopCritCurrent > stopCritPrevious) && (Prev == 1)) ) { //||
+       ((flagSame >= 20) && (Prev == 1)) ) {
+      //cout << "larger: " << (stopCritCurrent > stopCritPrevious) << "\t Prev:
+       " << Prev << endl;
+      
+      if ( stopCritPrevious <= currentSmallest) {
+        currentSmallest = stopCritPrevious;
+        //valleyHistPos.pop_back(); //only keep the smallest delta
+        valleyHistPos.push_back(i-1);
+        smallestDeltaInd = i-1;
+        Prev = 0;
+        flagSame = 0;
+        flagValley++;
+        //cout << "!!! Local minima previously at split !!! " << i-1 << endl;
+      }
+    }
+    // check if stopCrit is decreasing
+    else if (stopCritCurrent < stopCritPrevious) {
+      flagSameLarger = 0;
+      //cout << "current < previous " << endl;
+      Prev = 1;
+    }
+    // if stopCritCurrent = stopCritPrevious
+    else if ( (stopCritCurrent == stopCritPrevious) && (Prev == 1) ) {
+      flagSame++;
+      //cout << "same smaller: " << flagSame << endl;
+    }
+    //  increasing
+    else if ( (stopCritCurrent == stopCritPrevious) && (Prev == 0) ) {
+      flagSameLarger++;
+      //cout << "same larger: " << flagSameLarger << endl;
+    }
+    //cout << "Prev after checks: " << Prev << endl;
+    
+    if (flagSameLarger >= 20) { 
+      plateau = 0;
+      //cout << "Perhaps have arrived at a plateau." << endl; 
+    }
+  }
+  
+  //cout << "There are " << flagValley << " valleys." << endl;
+  return flagValley;
+}
+\end{DoxyCode}
+\hypertarget{adaptivehistogramvalidation_8hpp_a08484be3202c86d9a369d04b1a1c7e1e}{\index{adaptivehistogramvalidation.\-hpp@{adaptivehistogramvalidation.\-hpp}!get\-Current\-Yat\-Class@{get\-Current\-Yat\-Class}}
+\index{get\-Current\-Yat\-Class@{get\-Current\-Yat\-Class}!adaptivehistogramvalidation.hpp@{adaptivehistogramvalidation.\-hpp}}
+\paragraph[{get\-Current\-Yat\-Class}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf get\-Current\-Yat\-Class} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::set$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ $>$ \&}]{vec\-Row\-Yat\-Set, }
+\item[{std\-::vector$<$ std\-::set$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ $>$ \&}]{vec\-Col\-Yat\-Set, }
+\item[{std\-::list$<$ std\-::set$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$, std\-::less$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ $>$ \&}]{list\-Yat\-Set}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvalidation_8hpp_a08484be3202c86d9a369d04b1a1c7e1e}
+\hypertarget{adaptivehistogramvalidation_8hpp_a34c69f3d97096d5aaf88958a1449963b}{\index{adaptivehistogramvalidation.\-hpp@{adaptivehistogramvalidation.\-hpp}!get\-Fin\-Mix\-Interval\-True\-Delta@{get\-Fin\-Mix\-Interval\-True\-Delta}}
+\index{get\-Fin\-Mix\-Interval\-True\-Delta@{get\-Fin\-Mix\-Interval\-True\-Delta}!adaptivehistogramvalidation.hpp@{adaptivehistogramvalidation.\-hpp}}
+\paragraph[{get\-Fin\-Mix\-Interval\-True\-Delta}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::interval {\bf get\-Fin\-Mix\-Interval\-True\-Delta} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Fin\-Mix} \&}]{mixt, }
+\item[{double}]{tol, }
+\item[{int}]{deg, }
+\item[{std\-::set$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$, less$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ \&}]{\-Yat\-Set}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvalidation_8hpp_a34c69f3d97096d5aaf88958a1449963b}
+\-Get the true delta for a finite gaussian mixture distribution. 
+
+\-Definition at line 4065 of file adaptivehistogramvalidation.\-cpp.
+
+
+
+\-References bisect(), get\-L1error(), \-Fin\-Mix\-::\-M, \-Fin\-Mix\-::\-S, and \-Fin\-Mix\-::\-W.
+
+
+
+\-Referenced by main(), subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), and subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch().
+
+
+\begin{DoxyCode}
+{
+  interval totalArea(0.0); //initialize
+  interval muValids(0.0);
+
+  // need to iterate through the nodes
+  set<CollatorSPVnode*, less < CollatorSPVnode* > >::iterator it;
+
+  // container is filled by reading leaves off tree from left to right
+  for(it = YatSet.begin(); it != YatSet.end(); it++) {
+    //cout << "-----------------" << endl;
+    //cout << (*it)->getNodeName() << endl;
+    //a container for the roots at this leaf node
+    vector<intervalw> rootVec;
+
+    //get the box of this leaf node
+    ivector thisBox = (*it)->getBox();
+    //cout << (*it)->getBox() << endl;
+    
+    //---------find the root at this domain
+    // make an intervalw object using thisBox
+    rvector lb = Inf(thisBox);
+    rvector ub = Sup(thisBox);
+    intervalw thisIntW(_double(lb[1]), _double(ub[1]));
+    interval thisInt(_double(lb[1]), _double(ub[1]));
+    
+    // find the root
+    //cout << "finding roots at this node " << thisInt << endl;
+    double fhat = 0;
+    bisect(thisIntW, tol, fhat, rootVec, mixt.W, mixt.M, mixt.S); 
+
+    //---------find the area at this domain and take the absolute value
+    //if rootVec is empty, there are no roots - so we can integrate over
+    //this domain
+    if ((rootVec.size() == 0)) { 
+      //cout << "no roots at " << thisInt << endl;
+      //get the L1 error
+      interval diffArea = getL1error(fhat, thisInt, deg, tol, mixt.W, mixt.M, 
+      mixt.S);
+      //add to totalArea
+      totalArea += diffArea;
+    } //end of rootVec is empty
+
+    else { //if rootVec is not empty
+      vector<intervalw> uniqueRootVec;
+      // make the elements in vector unique
+      for (int i = 0; i < (rootVec.size()); i++) {
+        //cout << "root " << i << ": " << rootVec[i] << endl;
+        //first insert into uniqueRootVec
+        uniqueRootVec.push_back(rootVec[i]);
+        //cout << i-1 << "\t" << i << "\t" << i+1 << endl;
+        //now check for uniqueness
+        if (((i-1) >= 0) && (i < rootVec.size())) {
+          //cout << rootVec[i] << "\t" << rootVec[i-1] << endl;
+          bool uniq = (subset(abs(rootVec[i] - rootVec[i-1]), intervalw(0, 1e-1
+      0)));
+          if ( uniq ) { 
+            //cout << "this root has a duplicate" << endl;
+            uniqueRootVec.pop_back(); }
+        }
+      }
+      //cout << "==There are " << uniqueRootVec.size() << " unique root(s)=="
+       << endl;
+      
+      // if there's only 1 root
+      if (uniqueRootVec.size() == 1) {
+        //cout << "there is only one root.." << endl;
+        // is the root at the left or right boundary?
+        if ( (abs(Inf(thisInt) - inf(rootVec[0])) < 1e-10) || 
+            (abs(Sup(thisInt) - inf(rootVec[0])) < 1e-10) ) {
+          //cout << "there's a root at the left/right boundary:" << rootVec[0]
+       << endl;
+          interval diffArea = getL1error(fhat, thisInt, deg, tol, mixt.W, mixt.M
+      , mixt.S);
+          totalArea += diffArea;
+        }
+        else { // the root is not at the boundaries
+          //cout << "no root at the boundaries" << endl;
+          //get the left sub-interval
+          interval thisSubIntLeft = interval(Inf(thisInt), sup(uniqueRootVec[0]
+      ));
+          //cout << "left interval: " << thisSubIntLeft << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntLeft, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          //get the right sub-interval
+          //get the left sub-interval
+          interval thisSubIntRight = interval(inf(uniqueRootVec[0]), Sup(
+      thisInt));
+          //cout << "right interval: " << thisSubIntRight << endl; 
+          diffArea = getL1error(fhat, thisSubIntRight, deg, tol, mixt.W, mixt.M
+      , mixt.S);
+          totalArea += diffArea;
+        }
+      } // end of rootVec.size() == 1
+
+        // if there is more than 1 root
+      else {
+        //cout << "let's have a look at all the roots:" << endl;
+        //for (size_t i = 0; i < uniqueRootVec.size(); i++) {
+          //cout << uniqueRootVec[i] << endl;
+        //}
+
+        //first check if the first root is at the boundary
+        //cout << "check boundaries: " << Inf(thisInt) << "\t" <<
+       inf(rootVec[0]) << endl;
+        if ( abs(Inf(thisInt) - inf(uniqueRootVec[0])) < 1e-10 ) {
+          //cout << "there's a root at the leftmost boundary:" << endl;
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(uniqueRootVec[1
+      ]));
+          //cout << "0-th interval:" << thisSubIntFirst << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntFirst, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            //cout << "the " << i+1 << "-th root is: " << rootVec[i+1] << endl;
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << i+1 << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (excep the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,deg, tol, mixt.W
+      , mixt.M, mixt.S);
+            totalArea += diffArea;
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast, deg, tol, mixt
+      .W, mixt.M, mixt.S);
+            totalArea += diffArea;
+          } 
+        } // end of if first root is the boundary
+        
+        else {
+          //cout << "root not at boundary" << endl;
+          //if it is not the boundary, make the first sub-interval
+          interval thisSubIntFirst = interval(Inf(thisInt), sup(rootVec[0]));
+          //cout << "0-th interval: " << thisSubIntFirst << endl; 
+          interval diffArea = getL1error(fhat, thisSubIntFirst, deg, tol, mixt.W
+      , mixt.M, mixt.S);
+          totalArea += diffArea;
+          
+          // now iterate through each root (except the first and last) and 
+          // get the sub-itnervals
+          //cout << "iterating through each root" << endl;
+          for (size_t i = 0; i < (uniqueRootVec.size() - 1); i++) {
+            if ( (i+1) > uniqueRootVec.size() ) { // already no more roots
+              //cout << inf(rootVec[i]) << "\t" << Sup(thisInt) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), Sup(thisInt
+      ));
+              //cout << "the " << i << "-th interval: " << thisSubInt << endl;
+              interval diffArea = getL1error(fhat, thisSubInt,  deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+            else { //there are still more roots
+              //cout << inf(rootVec[i]) << "\t" << sup(rootVec[i+1]) << endl;
+              interval thisSubInt = interval(inf(uniqueRootVec[i]), sup(
+      uniqueRootVec[i+1]));
+              //cout << "the " << i+1 << "-th interval: " << thisSubInt <<
+       endl;
+              interval diffArea = getL1error(fhat, thisSubInt,  deg, tol, mixt.W
+      , mixt.M, mixt.S);
+              totalArea += diffArea;
+            }
+          } // end of iterate through each root (except the first and last)
+          
+          // now check if the last root is at the boundary
+          if ( abs(Sup(thisInt) - sup(uniqueRootVec[uniqueRootVec.size()-1])) <
+       1e-10 ) {
+            //cout << "there's a root at the rightmost boundary:" << endl;
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-2]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,  deg, tol, 
+      mixt.W, mixt.M, mixt.S);
+          }
+          else { //the last root is not at the boundary
+            interval thisSubIntLast = interval(inf(uniqueRootVec[uniqueRootVec.
+      size()-1]), Sup(thisInt));
+            //cout << "last interval: " << thisSubIntLast << endl; 
+            interval diffArea = getL1error(fhat, thisSubIntLast,  deg, tol, 
+      mixt.W, mixt.M, mixt.S);
+            totalArea += diffArea;
+          } 
+        } // end of first root is not the boundary
+      } // end of rootVec.size() > 1
+    } // end of rootVec is not empty
+    
+    // get the empirical measure of the validation data at this node
+    interval muValid((*it)->getVemp(), (*it)->getVemp());
+    muValids = muValids + muValid;
+  } // end of iterating through the leaf nodes
+
+  // get the difference
+  interval trueDelta = totalArea - muValids;
+  
+  return trueDelta;
+}
+\end{DoxyCode}
+\hypertarget{adaptivehistogramvalidation_8hpp_a918a753fde4f86110c4fd1f958ae29b1}{\index{adaptivehistogramvalidation.\-hpp@{adaptivehistogramvalidation.\-hpp}!get\-Mapped\-Function\-True\-Delta@{get\-Mapped\-Function\-True\-Delta}}
+\index{get\-Mapped\-Function\-True\-Delta@{get\-Mapped\-Function\-True\-Delta}!adaptivehistogramvalidation.hpp@{adaptivehistogramvalidation.\-hpp}}
+\paragraph[{get\-Mapped\-Function\-True\-Delta}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf get\-Mapped\-Function\-True\-Delta} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} \&}]{node\-Est\-Hist, }
+\item[{std\-::set$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$, less$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ \&}]{\-Yat\-Set}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvalidation_8hpp_a918a753fde4f86110c4fd1f958ae29b1}
+\-Get the true delta for mapped functions. 
+
+\-Definition at line 4344 of file adaptivehistogramvalidation.\-cpp.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch().
+
+
+\begin{DoxyCode}
+{
+  //cout << "-------function called---------" << endl;
+  
+  //iterator for YatSet
+  std::set<CollatorSPVnode*, less < CollatorSPVnode* > >::iterator histNodeIt;
+
+  //traverse the tree and get the heights 
+  real trueArea = 0.0;
+  real muValid = 0.0;
+
+  for (histNodeIt = YatSet.begin(); histNodeIt != YatSet.end(); 
+      histNodeIt++) {
+    
+    real thisArea = 0.0;
+    
+    //cout << (*histNodeIt)->getNodeName() << endl;
+    ivector thisBox = (*histNodeIt)->getBox();
+
+    // need to get the area of the nodes of nodeEst in thisBox
+    //thisArea = nodeEstHist.getArea(thisArea, thisBox);
+
+    //cout << thisArea << "\t" << (*histNodeIt)->getVemp() << endl;
+     
+    trueArea += thisArea;
+    muValid += (*histNodeIt)->getVemp();
+
+  } // end of traversing iterating through YatSet
+
+  //cout << "Final: " << endl;
+  //cout << trueArea << "\t" << muValid << endl;
+  
+  real trueDelta = trueArea - muValid;
+  return abs(trueDelta);
+}
+\end{DoxyCode}
+\hypertarget{adaptivehistogramvalidation_8hpp_a9a9e088604995104a0313e525d4771e7}{\index{adaptivehistogramvalidation.\-hpp@{adaptivehistogramvalidation.\-hpp}!get\-Unif\-True\-Delta@{get\-Unif\-True\-Delta}}
+\index{get\-Unif\-True\-Delta@{get\-Unif\-True\-Delta}!adaptivehistogramvalidation.hpp@{adaptivehistogramvalidation.\-hpp}}
+\paragraph[{get\-Unif\-True\-Delta}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf get\-Unif\-True\-Delta} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Adaptive\-Histogram} \&}]{my\-Part, }
+\item[{double}]{weight, }
+\item[{vector$<$ int $>$}]{holes\-Loc, }
+\item[{std\-::set$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$, less$<$ {\bf \-Collator\-S\-P\-Vnode} $\ast$ $>$ $>$ \&}]{\-Yat\-Set}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvalidation_8hpp_a9a9e088604995104a0313e525d4771e7}
+\-Get the true delta for a finite gaussian mixture distribution. 
+
+\-Definition at line 4264 of file adaptivehistogramvalidation.\-cpp.
+
+
+
+\-References dp\-I\-A\-E, \-Intersection(), and \-Volume().
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate(), and subpavings\-::\-Adaptive\-Histogram\-Validation\-::priority\-Split\-And\-Estimate\-With\-Switch().
+
+
+\begin{DoxyCode}
+{
+  
+  //cout << "Calling dunction: " << endl;
+  real totalArea = 0; //initialize
+  real muValids = 0;
+
+  // get the true height, f of the corresponding box in myPart
+  SPSnodePtrs trueLeaves;
+  SPSnodePtrsItr trueIt;
+  (myPart).getSubPaving()->getLeaves(trueLeaves);
+  double trueF; //true density
+  ivector temp;
+
+  dotprecision dpIAE;    // use type dotprecision for summation  
+  dpIAE=0.0;
+  
+  // need to iterate through the nodes
+  set<CollatorSPVnode*, less < CollatorSPVnode* > >::iterator it;
+
+  // container is filled by reading leaves off tree from left to right
+  for(it = YatSet.begin(); it != YatSet.end(); it++) {
+    ivector thisBox = (*it)->getBox();
+    //cout  << "=====checking " << thisBox << "======" << endl;
+    size_t L = 0;
+    for (trueIt = trueLeaves.begin(); trueIt < trueLeaves.end(); trueIt++) {
+      //cout << "----True leaf: " << (*trueIt)->getBox() << "\t" << endl;
+      ivector trueBox = (*trueIt)->getBox();
+
+      if (  holesLoc[L] == 0 ) { trueF = 0; }
+      else { trueF = weight/((*trueIt)->nodeVolume()); }
+      //cout << "pdf: " << trueF << endl;
+      
+      // if this is contained in trueBox
+      if ( (*it)->getBox() <= (*trueIt)->getBox() || (*it)->getBox() == 
+      (*trueIt)->getBox() ) {
+        //use the volume of this
+        real r = ((*it)->nodeVolume())*(trueF);
+        //cout << "r: " << r << "\t" << abs(r) << endl;
+        accumulate(dpIAE, abs(r), 1.0);
+        //can move on to next leaf rather than iterating thru all trueBoxes
+        //think about this later
+      } //end of if this box is in trueBox
+      
+      // if this contains trueBox
+      else if ((*trueIt)->getBox() <= (*it)->getBox()) {
+        //use the volume of trueBox
+        real r = ((*trueIt)->nodeVolume())*(trueF);
+        //cout << "r: " << r << "\t" << abs(r) << endl;
+        accumulate(dpIAE, abs(r), 1.0);
+      } //end of if trueBox is in this box
+      
+      // if this is partially contained in trueBox 
+      else if   (Intersection(temp, thisBox, trueBox)) {
+        if (Inf(temp) != Sup(temp)){
+          double volume = Volume(temp);
+          real r = volume*(trueF);
+          //cout << "r: " << r << "\t" << abs(r) << endl;
+          accumulate(dpIAE, abs(r), 1.0);
+        }
+      }
+      L++;
+    } // end of going through trueBoxes
+
+    // get the empirical measure of the validation data at this node
+    real muValid = (*it)->getVemp();
+    muValids = muValids + muValid;
+    //cout << "Area \t Emp Mass" << endl;
+    //cout << rnd(dpIAE) << "\t" << muValids << endl;
+  } // end of iterating through the leaf nodes
+
+  // get the difference
+  totalArea = rnd(dpIAE);
+  real trueDelta = (totalArea - muValids);
+  
+  return trueDelta;
+}
+\end{DoxyCode}
+\hypertarget{adaptivehistogramvalidation_8hpp_a98003f456bdd16c0db0f055e76ad48ee}{\index{adaptivehistogramvalidation.\-hpp@{adaptivehistogramvalidation.\-hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!adaptivehistogramvalidation.hpp@{adaptivehistogramvalidation.\-hpp}}
+\paragraph[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{const {\bf subpavings\-::\-Adaptive\-Histogram\-Validation} \&}]{adh}
+\end{DoxyParamCaption}
+)}}\label{adaptivehistogramvalidation_8hpp_a98003f456bdd16c0db0f055e76ad48ee}
+
+
+\-Output the contents of an \-Adaptive\-Histogram\-Validation object. 
+
+\-Verbose output for an \-Adaptive\-Histogram\-Validation object, including all boxes (not just leaves), data, and summary statistics. 
+
+\-Definition at line 3970 of file adaptivehistogramvalidation.\-cpp.
+
+
+
+\-References subpavings\-::\-Adaptive\-Histogram\-Validation\-::get\-Sub\-Paving().
+
+
+\begin{DoxyCode}
+{
+    os << (adh.getSubPaving())->nodesAllOutput(os, 1) << std::endl;
+
+    return os;
+}
+\end{DoxyCode}

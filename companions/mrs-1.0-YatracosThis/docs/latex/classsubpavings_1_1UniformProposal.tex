@@ -1,0 +1,232 @@
+\hypertarget{classsubpavings_1_1UniformProposal}{\subsection{subpavings\-:\-:\-Uniform\-Proposal \-Class \-Reference}
+\label{classsubpavings_1_1UniformProposal}\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}}
+}
+
+
+{\ttfamily \#include $<$histmcmcobjs.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-Uniform\-Proposal\-:
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Uniform\-Proposal\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1UniformProposal_a48ba54810e93ef39de822b3a23152ada}{\-Uniform\-Proposal} ()
+\item 
+\hyperlink{classsubpavings_1_1UniformProposal_a136a544cbf9a088c25d5a044cfb4707e}{\-Uniform\-Proposal} (double p)
+\item 
+string \hyperlink{classsubpavings_1_1UniformProposal_aef037393c168f70b5849813233d7e594}{get\-Name} () const 
+\item 
+real \hyperlink{classsubpavings_1_1UniformProposal_a78acb8553a9e2f18f0c1accf3519b75f}{fill\-Node\-Proposal\-Probs} (const size\-\_\-t n\-Leaf, const size\-\_\-t n\-Cherry, \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&probs) const 
+\item 
+real \hyperlink{classsubpavings_1_1UniformProposal_a34e427b990aebdf8ea302693da8952ea}{get\-Log\-Q\-Ratio\-Split\-Proposal} (const size\-\_\-t leaves\-Now, const size\-\_\-t cherries\-Now, const size\-\_\-t leaves\-Prospective, const size\-\_\-t cherries\-Prospective) const 
+\item 
+real \hyperlink{classsubpavings_1_1UniformProposal_a0dd552bd6b2f9cfb4eb94e2a3efc5d57}{get\-Log\-Q\-Ratio\-Merge\-Proposal} (const size\-\_\-t leaves\-Now, const size\-\_\-t cherries\-Now, const size\-\_\-t leaves\-Prospective, const size\-\_\-t cherries\-Prospective) const 
+\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classsubpavings_1_1UniformProposal_a9f7fb09d33d58ac7bc938369d3ad4e3d}{prob\-Split}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Class where probability of split or merge is fixed and, given a split, the probabilities of each leaf being chosen are equal, and given a merge, the probabilities of each cherry being chosen are equal. 
+
+\-Definition at line 162 of file histmcmcobjs.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1UniformProposal_a48ba54810e93ef39de822b3a23152ada}{\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}!\-Uniform\-Proposal@{\-Uniform\-Proposal}}
+\index{\-Uniform\-Proposal@{\-Uniform\-Proposal}!subpavings::UniformProposal@{subpavings\-::\-Uniform\-Proposal}}
+\paragraph[{\-Uniform\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Uniform\-Proposal\-::\-Uniform\-Proposal} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1UniformProposal_a48ba54810e93ef39de822b3a23152ada}
+
+
+\-Definition at line 172 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+                          : MCMCProposal("UniformProposal"),
+                                probSplit(0.5) {}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1UniformProposal_a136a544cbf9a088c25d5a044cfb4707e}{\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}!\-Uniform\-Proposal@{\-Uniform\-Proposal}}
+\index{\-Uniform\-Proposal@{\-Uniform\-Proposal}!subpavings::UniformProposal@{subpavings\-::\-Uniform\-Proposal}}
+\paragraph[{\-Uniform\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Uniform\-Proposal\-::\-Uniform\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{double}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1UniformProposal_a136a544cbf9a088c25d5a044cfb4707e}
+
+
+\-Definition at line 175 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+                                  : MCMCProposal("UniformProposal"),
+                                        probSplit(p) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1UniformProposal_a78acb8553a9e2f18f0c1accf3519b75f}{\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}!fill\-Node\-Proposal\-Probs@{fill\-Node\-Proposal\-Probs}}
+\index{fill\-Node\-Proposal\-Probs@{fill\-Node\-Proposal\-Probs}!subpavings::UniformProposal@{subpavings\-::\-Uniform\-Proposal}}
+\paragraph[{fill\-Node\-Proposal\-Probs}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Uniform\-Proposal\-::fill\-Node\-Proposal\-Probs} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{n\-Leaf, }
+\item[{const size\-\_\-t}]{n\-Cherry, }
+\item[{{\bf \-Real\-Vec} \&}]{probs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1UniformProposal_a78acb8553a9e2f18f0c1accf3519b75f}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_a9a41619f829a7fd3c080f3f9c0bed705}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 183 of file histmcmcobjs.\-hpp.
+
+
+
+\-References prob\-Split.
+
+
+\begin{DoxyCode}
+        {
+
+            real retSum = 0.0;
+            probs.reserve(nLeaf + nCherry);
+
+            if (nLeaf > 0) {
+                real pLeaf = probSplit*1.0/nLeaf;
+                retSum += (1.0*nLeaf * pLeaf);
+                probs.assign(nLeaf, pLeaf);
+            }
+            if (nCherry > 0) {
+                real pCherry = (1.0-probSplit)/nCherry;
+                retSum += (1.0*nCherry * pCherry);
+                probs.insert(probs.end(), nCherry, pCherry);
+            }
+
+            return retSum;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1UniformProposal_a0dd552bd6b2f9cfb4eb94e2a3efc5d57}{\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}!get\-Log\-Q\-Ratio\-Merge\-Proposal@{get\-Log\-Q\-Ratio\-Merge\-Proposal}}
+\index{get\-Log\-Q\-Ratio\-Merge\-Proposal@{get\-Log\-Q\-Ratio\-Merge\-Proposal}!subpavings::UniformProposal@{subpavings\-::\-Uniform\-Proposal}}
+\paragraph[{get\-Log\-Q\-Ratio\-Merge\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Uniform\-Proposal\-::get\-Log\-Q\-Ratio\-Merge\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{leaves\-Now, }
+\item[{const size\-\_\-t}]{cherries\-Now, }
+\item[{const size\-\_\-t}]{leaves\-Prospective, }
+\item[{const size\-\_\-t}]{cherries\-Prospective}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1UniformProposal_a0dd552bd6b2f9cfb4eb94e2a3efc5d57}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_ae39f9b3d8afbc8be9a10d6947f59798e}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 232 of file histmcmcobjs.\-hpp.
+
+
+
+\-References prob\-Split.
+
+
+\begin{DoxyCode}
+        {
+            return log(probSplit) - log(1.0-probSplit)
+                        + log(1.0*cherriesNow) - log(1.0*leavesProspective);
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1UniformProposal_a34e427b990aebdf8ea302693da8952ea}{\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}!get\-Log\-Q\-Ratio\-Split\-Proposal@{get\-Log\-Q\-Ratio\-Split\-Proposal}}
+\index{get\-Log\-Q\-Ratio\-Split\-Proposal@{get\-Log\-Q\-Ratio\-Split\-Proposal}!subpavings::UniformProposal@{subpavings\-::\-Uniform\-Proposal}}
+\paragraph[{get\-Log\-Q\-Ratio\-Split\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf subpavings\-::\-Uniform\-Proposal\-::get\-Log\-Q\-Ratio\-Split\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{leaves\-Now, }
+\item[{const size\-\_\-t}]{cherries\-Now, }
+\item[{const size\-\_\-t}]{leaves\-Prospective, }
+\item[{const size\-\_\-t}]{cherries\-Prospective}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1UniformProposal_a34e427b990aebdf8ea302693da8952ea}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_acd6dda5380192dfc3bd38a28925dd1ce}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 208 of file histmcmcobjs.\-hpp.
+
+
+
+\-References prob\-Split.
+
+
+\begin{DoxyCode}
+        {
+            real retValue = 0;
+            if (leavesNow == 0 && cherriesProspective > 0) {
+                retValue = log(1.0-probSplit) - log(1.0*cherriesProspective);
+            }
+            else if (leavesNow > 0 && cherriesProspective == 0) {
+                retValue = log(probSplit) - log(1.0*leavesNow);
+            }
+            else if (leavesNow > 0 && cherriesProspective > 0) {
+                 retValue = log(1.0-probSplit) - log(probSplit)
+                            + log(1.0*leavesNow) - log(1.0*cherriesProspective)
+      ;
+            }
+            // else retValue = 0 - this should never occur
+            return retValue;
+        }
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1UniformProposal_aef037393c168f70b5849813233d7e594}{\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!subpavings::UniformProposal@{subpavings\-::\-Uniform\-Proposal}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf subpavings\-::\-Uniform\-Proposal\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classsubpavings_1_1UniformProposal_aef037393c168f70b5849813233d7e594}
+
+
+\-Implements \hyperlink{classsubpavings_1_1MCMCProposal_a8b96ad3e975f60ad938d4aaf6d1009b3}{subpavings\-::\-M\-C\-M\-C\-Proposal}.
+
+
+
+\-Definition at line 179 of file histmcmcobjs.\-hpp.
+
+
+
+\-References subpavings\-::\-M\-C\-M\-C\-Proposal\-::proposal\-Name.
+
+
+\begin{DoxyCode}
+        { return proposalName; }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1UniformProposal_a9f7fb09d33d58ac7bc938369d3ad4e3d}{\index{subpavings\-::\-Uniform\-Proposal@{subpavings\-::\-Uniform\-Proposal}!prob\-Split@{prob\-Split}}
+\index{prob\-Split@{prob\-Split}!subpavings::UniformProposal@{subpavings\-::\-Uniform\-Proposal}}
+\paragraph[{prob\-Split}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf subpavings\-::\-Uniform\-Proposal\-::prob\-Split}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1UniformProposal_a9f7fb09d33d58ac7bc938369d3ad4e3d}
+
+
+\-Definition at line 167 of file histmcmcobjs.\-hpp.
+
+
+
+\-Referenced by fill\-Node\-Proposal\-Probs(), get\-Log\-Q\-Ratio\-Merge\-Proposal(), and get\-Log\-Q\-Ratio\-Split\-Proposal().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histmcmcobjs_8hpp}{histmcmcobjs.\-hpp}\end{DoxyCompactItemize}

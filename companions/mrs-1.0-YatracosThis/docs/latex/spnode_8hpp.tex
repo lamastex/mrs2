@@ -1,0 +1,53 @@
+\hypertarget{spnode_8hpp}{\subsection{spnode.\-hpp \-File \-Reference}
+\label{spnode_8hpp}\index{spnode.\-hpp@{spnode.\-hpp}}
+}
+
+
+\-S\-Pnode (\-Sub\-Paving) and associated non-\/member functions declarations.  
+
+
+{\ttfamily \#include \char`\"{}sptypes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}sp\-\_\-check\-\_\-visitor.\-hpp\char`\"{}}\*
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsubpavings_1_1SPnode}{subpavings\-::\-S\-Pnode}
+\begin{DoxyCompactList}\small\item\em \-S\-Pnodes are nodes in the representation of a subpaving as a binary tree. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1SPnodeException}{subpavings\-::\-S\-Pnode\-Exception}
+\end{DoxyCompactItemize}
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \-S\-Pnode $\ast$ \hyperlink{namespacesubpavings_a7e50e3fe54ef41646fbb6155160805cc}{subpavings\-::\-Sub\-Paving}
+\begin{DoxyCompactList}\small\item\em \-Sub\-Paving is an alias for a pointer to an \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{namespacesubpavings_a7288149f86d1e0c956f45dcd849a08fc}{subpavings\-::operator$<$$<$} (std\-::ostream \&os, const \-S\-Pnode $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Output the contents of a \-Sub\-Paving. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_a72386487753f5334a70250b068f97f15}{subpavings\-::is\-Empty} (const \-S\-Pnode $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Check if a \-Sub\-Paving is empty. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacesubpavings_a6ce5e0d7ef8daa51a49872efc2ef56d8}{subpavings\-::is\-Leaf} (const \-S\-Pnode $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Check if a node is a leaf. \end{DoxyCompactList}\item 
+double \hyperlink{namespacesubpavings_a8bfd50d3105ff4944ae6e42e0138ffb6}{subpavings\-::sp\-Volume} (const \-S\-Pnode $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Get the volume of the subpaving represented by spn. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacesubpavings_acd777346441d8790899ec09af3b11d61}{subpavings\-::sp\-Leaves} (const \-S\-Pnode $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Get the number of leaves of a tree (boxes in the subpaving) \end{DoxyCompactList}\item 
+\-B\-O\-O\-L\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L \hyperlink{namespacesubpavings_aca1892906e63d34720305016dd41156d}{subpavings\-::operator$<$=} (const ivector \&z, const \-S\-Pnode $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Check for containment of interval vector in the \-Sub\-Paving. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{namespacesubpavings_aa737c3b183c306abbef9b3d515f632fb}{subpavings\-::sp\-Total\-Nodes} (const \-S\-Pnode $\ast$const spn)
+\begin{DoxyCompactList}\small\item\em \-Get the number of leaves of a tree (boxes in the subpaving) \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\void {\bfseries std\-::swap} (\hyperlink{classsubpavings_1_1SPnode}{subpavings\-::\-S\-Pnode} \&s1, \hyperlink{classsubpavings_1_1SPnode}{subpavings\-::\-S\-Pnode} \&s2)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-S\-Pnode (\-Sub\-Paving) and associated non-\/member functions declarations. 
+
+\-Definition in file \hyperlink{spnode_8hpp_source}{spnode.\-hpp}.
+

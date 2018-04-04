@@ -1,0 +1,19 @@
+How to set up the automated makefiles for a new example folder:
+
+1. vim branches/gat41/configure.ac
+
+2. Insert examples/StatsSubPav/NewExampleFolder/Makefile
+
+3. vim Makefile.am
+
+3. vim branches/gat41/StatsSubPav/Makefile.am
+
+4. Insert NewExampleFolder
+
+5. Go back to branches/gat41
+
+6. ./boostrap
+
+7. ./custom_config.sh
+
+8. make

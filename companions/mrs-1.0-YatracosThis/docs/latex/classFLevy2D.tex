@@ -1,0 +1,418 @@
+\hypertarget{classFLevy2D}{\subsection{\-F\-Levy2\-D \-Class \-Reference}
+\label{classFLevy2D}\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}}
+}
+
+
+two-\/dimensional \-Levy density as a function object class  
+
+
+
+
+{\ttfamily \#include $<$\-F\-Levy2\-D.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-Levy2\-D\-:
+
+
+\-Collaboration diagram for \-F\-Levy2\-D\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFLevy2D_a5a66e2397fa91de9792552212a9d5cdc}{\-F\-Levy2\-D} (real \hyperlink{classFLevy2D_adfc81b0fad00fd255954e5f0a6ae786a}{\-Temperature}, real \hyperlink{classFLevy2D_ab9b008eeb65b79ca24dfd782a8d1541e}{\-Global\-Max}, real \hyperlink{classFLevy2D_a2ac016c1aefc1f4885817e5c96a35b5d}{\-Center1}, real \hyperlink{classFLevy2D_a40852278de546d74fa99913e5f107b51}{\-Center2}, real \hyperlink{LevyFobj2D_8cpp_ae28a2599911ae746bc33211d3ea52aaf}{\-Domain\-Limit}, bool \-Log\-Pi)
+\begin{DoxyCompactList}\small\item\em \-Constructor. \end{DoxyCompactList}\item 
+interval \hyperlink{classFLevy2D_a0bf7bf18b3f8bdcb2034526f2b809162}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em interval operator() \end{DoxyCompactList}\item 
+real \hyperlink{classFLevy2D_a69223536c13e52445d3ee1fc435447d8}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em real operator() \end{DoxyCompactList}\item 
+\-Hess\-Type \hyperlink{classFLevy2D_a0a031a396ed8aa0591ee214a6ec20b7f}{operator()} (const \-H\-Tvector \&x, const int label=0) const 
+\begin{DoxyCompactList}\small\item\em \-Hess\-Type operator() \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFLevy2D_a8d1acd389752d1554445b0247bb06f60}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em get volume of a labeled box \end{DoxyCompactList}\item 
+int \hyperlink{classFLevy2D_a8ca0edbf796cd3d7687a86a1c80266c1}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFLevy2D_a48cec5994f9d62306e3852dda50f7f5a}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+real \hyperlink{classFLevy2D_adfc81b0fad00fd255954e5f0a6ae786a}{\-Temperature}
+\item 
+real \hyperlink{classFLevy2D_ab9b008eeb65b79ca24dfd782a8d1541e}{\-Global\-Max}
+\item 
+real \hyperlink{classFLevy2D_a2ac016c1aefc1f4885817e5c96a35b5d}{\-Center1}
+\item 
+real \hyperlink{classFLevy2D_a40852278de546d74fa99913e5f107b51}{\-Center2}
+\item 
+int \hyperlink{classFLevy2D_a3ae9783838856fc26170358ca4989818}{n\-\_\-interval\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFLevy2D_a9061075d7df97d8cbd182f049b93d404}{n\-\_\-real\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+two-\/dimensional \-Levy density as a function object class 
+
+\-Definition at line 52 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFLevy2D_a5a66e2397fa91de9792552212a9d5cdc}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!\-F\-Levy2\-D@{\-F\-Levy2\-D}}
+\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{\-F\-Levy2\-D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-Levy2\-D\-::\-F\-Levy2\-D} (
+\begin{DoxyParamCaption}
+\item[{real}]{\-T, }
+\item[{real}]{\-Glb\-Mx, }
+\item[{real}]{\-C1, }
+\item[{real}]{\-C2, }
+\item[{real}]{\-Domain\-Limit, }
+\item[{bool}]{\-Log\-Pi}
+\end{DoxyParamCaption}
+)}}\label{classFLevy2D_a5a66e2397fa91de9792552212a9d5cdc}
+
+
+\-Constructor. 
+
+\-We pass the global maximum as a parameter to ensure the containment of the density form of the original \-Levy target as an \char`\"{}energy\char`\"{} function inside the number screen. \-We get the density from energy by exponentiating its negative. \-This allows ease of likelihood inference and can be circumvented in several ways. \-For eg we can find the global min first for the \-Levy target energy and then use it as the global max parameter \-Glb\-Mx to the density form (actually the shape without the normalizing constant). \-Here we have already computed the \-Global max parameter \-Glb\-Mx using \-C-\/\-X\-S\-C \-Toolbox. 
+
+\-Definition at line 61 of file \-F\-Levy2\-D.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, \-Fobj\-::\-Prior\-Type, and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+:
+Temperature (T), GlobalMax (GlbMx), Center1 (C1), Center2 (C2)
+{
+  setUsingLogDensity (LogPi);
+
+  PriorType = 0;// Uniform PriorType is an inherited member from Fobj
+  // set up the domain list
+  ivector domain (1, 2);
+  LabBox  Ldomain;
+  for (int i = 1; i <= 2; i++)
+  {
+    domain[i] = interval (-DomainLimit, DomainLimit);
+  }
+  Ldomain.Box = domain;
+  Ldomain.L = 0;
+  LabDomainList.push_back (Ldomain);
+
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFLevy2D_a8ca0edbf796cd3d7687a86a1c80266c1}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Levy2\-D\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFLevy2D_a8ca0edbf796cd3d7687a86a1c80266c1}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 82 of file \-F\-Levy2\-D.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return n_interval_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFLevy2D_a48cec5994f9d62306e3852dda50f7f5a}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Levy2\-D\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFLevy2D_a48cec5994f9d62306e3852dda50f7f5a}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 88 of file \-F\-Levy2\-D.\-hpp.
+
+
+\begin{DoxyCode}
+    {
+      return n_real_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFLevy2D_a8d1acd389752d1554445b0247bb06f60}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf \-F\-Levy2\-D\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFLevy2D_a8d1acd389752d1554445b0247bb06f60}
+
+
+get volume of a labeled box 
+
+
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 76 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-References \-Fobj\-::\-Lab\-Box\-Volume().
+
+
+\begin{DoxyCode}
+    {
+      return Fobj::LabBoxVolume(LB);
+    }
+\end{DoxyCode}
+\hypertarget{classFLevy2D_a0bf7bf18b3f8bdcb2034526f2b809162}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-Levy2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFLevy2D_a0bf7bf18b3f8bdcb2034526f2b809162}
+
+
+interval operator() 
+
+
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 82 of file \-F\-Levy2\-D.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Center1, \-Center2, taylor\-::cos(), taylor\-::exp(), \-Global\-Max, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-interval\-\_\-calls, taylor\-::sqr(), \-Temperature, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_interval_calls++;
+
+  ivector Box = X.Box;
+  int a = Lb (Box), z = Ub (Box);
+  interval isum, jsum, hh;
+  isum = 0.0;
+  jsum = 0.0;
+  for (int i = 1; i <= 5; i++)
+  {
+    isum = isum + double(i) * cos (double(i - 1) * Box[a] + double(i));
+    jsum = jsum + double(i) * cos (double(i + 1) * Box[z] + double(i));
+  }
+
+                    // Avoid real con-
+  hh = isum * jsum + sqr (Box[a] + Center1) +
+                    // version error
+    sqr (Box[z] + Center2);
+    hh += GlobalMax;  
+  // TEMPERATURE = 1, 4, 40, 400, 4000
+  interval result = exp (-hh / Temperature);
+
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+\hypertarget{classFLevy2D_a69223536c13e52445d3ee1fc435447d8}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-Levy2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFLevy2D_a69223536c13e52445d3ee1fc435447d8}
+
+
+real operator() 
+
+
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 108 of file \-F\-Levy2\-D.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), taylor\-::exp(), \-Global\-Max, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-real\-\_\-calls, \-Lab\-Pnt\-::\-Pnt, taylor\-::sqr(), \-Temperature, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  n_real_calls++;
+  rvector Pnt = X.Pnt;
+  int a = Lb (Pnt), z = Ub (Pnt);
+  real isum, jsum, hh;
+  isum = 0.0;
+  jsum = 0.0;
+
+  for (int i = 1; i <= 5; i++)
+  {
+    isum = isum + double (i) * cos (double (i - 1) * Pnt[a] + double (i));
+    jsum = jsum + double (i) * cos (double (i + 1) * Pnt[z] + double (i));
+  }
+  // Avoid real conversion error
+  hh = isum * jsum + sqr (Pnt[a] + Center1) +
+       sqr (Pnt[z] + Center2);
+  hh += GlobalMax;
+
+  // TEMPERATURE = 1, 4, 40, 400, 4000
+  real result = exp (-hh / Temperature);
+  //result /= sqrt(Temperature);
+  //result /= Temperature;
+  assert (result < 1.0);
+  return (UsingLogDensity) ? ln (result) : result;
+}
+\end{DoxyCode}
+\hypertarget{classFLevy2D_a0a031a396ed8aa0591ee214a6ec20b7f}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!operator()@{operator()}}
+\index{operator()@{operator()}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}\-Hess\-Type \-F\-Levy2\-D\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const \-H\-Tvector \&}]{x, }
+\item[{const int}]{label = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFLevy2D_a0a031a396ed8aa0591ee214a6ec20b7f}
+
+
+\-Hess\-Type operator() 
+
+
+
+\-Reimplemented from \hyperlink{classFobj_abe7df6a2da2b1d26915b41128d7693fe}{\-Fobj}.
+
+
+
+\-Definition at line 137 of file \-F\-Levy2\-D.\-cpp.
+
+
+
+\-References \-Center1, \-Center2, taylor\-::cos(), taylor\-::exp(), \-Global\-Max, taylor\-::ln(), taylor\-::sqr(), \-Temperature, and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+
+  HessType isum(2), jsum(2), hh(2);
+  isum = 0.0;
+  jsum = 0.0;
+
+  for (int i = 1; i <= 5; i++)
+  {
+    isum = isum + double (i) * cos (double (i - 1) * x[1] + double (i));
+    jsum = jsum + double (i) * cos (double (i + 1) * x[2] + double (i));
+  }
+
+  hh = isum * jsum + sqr (x[1] + Center1 + sqr (x[2] + Center2));
+  hh = hh + GlobalMax;
+
+  // TEMPERATURE = 1, 4, 40, 400, 4000
+  hh = exp (-hh / Temperature);
+
+  return (UsingLogDensity) ? ln (hh) : hh;
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFLevy2D_a2ac016c1aefc1f4885817e5c96a35b5d}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!\-Center1@{\-Center1}}
+\index{\-Center1@{\-Center1}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{\-Center1}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Levy2\-D\-::\-Center1}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D_a2ac016c1aefc1f4885817e5c96a35b5d}
+
+
+\-Definition at line 54 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D_a40852278de546d74fa99913e5f107b51}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!\-Center2@{\-Center2}}
+\index{\-Center2@{\-Center2}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{\-Center2}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Levy2\-D\-::\-Center2}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D_a40852278de546d74fa99913e5f107b51}
+
+
+\-Definition at line 54 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D_ab9b008eeb65b79ca24dfd782a8d1541e}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!\-Global\-Max@{\-Global\-Max}}
+\index{\-Global\-Max@{\-Global\-Max}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{\-Global\-Max}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Levy2\-D\-::\-Global\-Max}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D_ab9b008eeb65b79ca24dfd782a8d1541e}
+
+
+\-Definition at line 54 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D_a3ae9783838856fc26170358ca4989818}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Levy2\-D\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFLevy2D_a3ae9783838856fc26170358ca4989818}
+
+
+\-Track number of interval function calls. 
+
+
+
+\-Definition at line 57 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D_a9061075d7df97d8cbd182f049b93d404}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-Levy2\-D\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFLevy2D_a9061075d7df97d8cbd182f049b93d404}
+
+
+\-Track number of real function calls. 
+
+
+
+\-Definition at line 60 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+\hypertarget{classFLevy2D_adfc81b0fad00fd255954e5f0a6ae786a}{\index{\-F\-Levy2\-D@{\-F\-Levy2\-D}!\-Temperature@{\-Temperature}}
+\index{\-Temperature@{\-Temperature}!FLevy2D@{\-F\-Levy2\-D}}
+\paragraph[{\-Temperature}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-Levy2\-D\-::\-Temperature}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFLevy2D_adfc81b0fad00fd255954e5f0a6ae786a}
+
+
+\-Definition at line 54 of file \-F\-Levy2\-D.\-hpp.
+
+
+
+\-Referenced by operator()().
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FLevy2D_8hpp}{\-F\-Levy2\-D.\-hpp}\item 
+\hyperlink{FLevy2D_8cpp}{\-F\-Levy2\-D.\-cpp}\end{DoxyCompactItemize}

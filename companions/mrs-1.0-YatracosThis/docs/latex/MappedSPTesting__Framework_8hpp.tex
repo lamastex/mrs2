@@ -1,0 +1,293 @@
+\hypertarget{MappedSPTesting__Framework_8hpp}{\subsection{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp \-File \-Reference}
+\label{MappedSPTesting__Framework_8hpp}\index{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}}
+}
+
+
+\-Templatised procedures for testing \-Mapped\-S\-Pnode class.  
+
+
+{\ttfamily \#include \char`\"{}mappedspnode.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{MappedSPTesting__Framework_8hpp_a6b3f69953d9f4c87002c0204d03d7b8f}{print\-Test\-Trees} (const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const lhs, const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{MappedSPTesting__Framework_8hpp_ad83a42a81322a7cb1cd5727e0a885d98}{mapped\-Addition\-Test} (const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const lhs, const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{MappedSPTesting__Framework_8hpp_a6e2ac216092625d408efa2a69eb8389c}{mapped\-Product\-Test} (const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const lhs, const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{MappedSPTesting__Framework_8hpp_ac9d6517d005d4b9c92a1362e9f4b1a4a}{mapped\-Scalar\-Mult\-Test} (const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const lhs, const \hyperlink{classsubpavings_1_1MappedSPnode}{\-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const rhs, const \-T multiplier)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Templatised procedures for testing \-Mapped\-S\-Pnode class. 
+
+\-Definition in file \hyperlink{MappedSPTesting__Framework_8hpp_source}{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MappedSPTesting__Framework_8hpp_ad83a42a81322a7cb1cd5727e0a885d98}{\index{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}!mapped\-Addition\-Test@{mapped\-Addition\-Test}}
+\index{mapped\-Addition\-Test@{mapped\-Addition\-Test}!MappedSPTesting_Framework.hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}}
+\paragraph[{mapped\-Addition\-Test}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf mapped\-Addition\-Test} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{lhs, }
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting__Framework_8hpp_ad83a42a81322a7cb1cd5727e0a885d98}
+
+
+\-Definition at line 30 of file \-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::node\-Reabsorb\-Children().
+
+
+
+\-Referenced by testing\-Intervals(), testing\-Ints(), testing\-Reals(), and testing\-Rvectors().
+
+
+\begin{DoxyCode}
+{
+    MappedSPnode<T>* addedLazy1 = NULL;
+    MappedSPnode<T>* addedLazy2 = NULL;
+    MappedSPnode<T>* addedReduced = NULL;
+
+    try {
+
+
+        cout << "Trying lazy 'addition', creating addedLazy1 = addedLazy2 = rhs
+       lazy(+) lhs" << endl;
+        cout << endl;
+
+        addedLazy1 = MappedSPnode<T>::lazyCollationNonMinimalUnion(lhs, rhs);
+
+        addedLazy2 = new MappedSPnode<T>(*addedLazy1);
+
+        cout << "addedLazy1 and addedLazy2 are the same, both are " << endl;
+        cout << addedLazy1->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        cout << "Trying addition with reduction, creating addedReduced = rhs
+       reduced(+) lhs" << endl;
+
+        addedReduced = MappedSPnode<T>::reducedAddNonMinimalUnion(lhs, rhs);
+
+
+        cout << "addedReduced is " << endl;
+        cout << addedReduced->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        cout << "Trying nodeReabsorbChildren() on addedLazy1" << endl;
+        addedLazy1->nodeReabsorbChildren();
+
+        cout << "addedLazy1 now is " << endl;
+        cout << addedLazy1->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        cout << "Trying nodeReabsorbChildrenWithHullPropagation() on addedLazy2
+      " << endl;
+        addedLazy2->nodeReabsorbChildrenWithHullPropagation();
+
+        cout << "addedLazy2 now is " << endl;
+        cout << addedLazy2->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        cout << "Trying nodeReabsorbChildrenWithHullPropagation() on
+       addedReduced" << endl;
+        addedReduced->nodeReabsorbChildrenWithHullPropagation();
+
+        cout << "addedReduced now is " << endl;
+        cout << addedReduced->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        delete addedLazy1;
+        delete addedLazy2;
+        delete addedReduced;
+        addedLazy1 = NULL; addedLazy2 = NULL; addedReduced = NULL;
+    }
+    catch (exception& e) {
+            if (addedLazy1) {
+                delete addedLazy1;
+                addedLazy1 = NULL;
+            }
+            if (addedLazy2) {
+                delete addedLazy2;
+                addedLazy2 = NULL;
+            }
+            if (addedReduced) {
+                delete addedReduced;
+                addedReduced = NULL;
+            }
+            throw;
+    }
+
+
+} // end of absolute difference test
+\end{DoxyCode}
+\hypertarget{MappedSPTesting__Framework_8hpp_a6e2ac216092625d408efa2a69eb8389c}{\index{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}!mapped\-Product\-Test@{mapped\-Product\-Test}}
+\index{mapped\-Product\-Test@{mapped\-Product\-Test}!MappedSPTesting_Framework.hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}}
+\paragraph[{mapped\-Product\-Test}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf mapped\-Product\-Test} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{lhs, }
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting__Framework_8hpp_a6e2ac216092625d408efa2a69eb8389c}
+
+
+\-Definition at line 108 of file \-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp.
+
+
+
+\-Referenced by testing\-Intervals(), testing\-Ints(), testing\-Reals(), and testing\-Rvectors().
+
+
+\begin{DoxyCode}
+{
+    MappedSPnode<T>* addedLazy1 = NULL;
+
+    try {
+
+        cout << "creating addedLazy1 rhs lazy(+) lhs" << endl;
+        cout << endl;
+
+        addedLazy1 = MappedSPnode<T>::lazyCollationNonMinimalUnion(lhs, rhs);
+
+        cout << "addedLazy1 is " << endl;
+        cout << addedLazy1->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        cout << "Trying productUnion() on addedLazy1" << endl;
+        addedLazy1->productUnion();
+
+        cout << "addedLazy1 now is " << endl;
+        cout << addedLazy1->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        delete addedLazy1;
+        addedLazy1 = NULL;
+    }
+    catch (exception& e) {
+            if (addedLazy1) {
+                delete addedLazy1;
+                addedLazy1 = NULL;
+            }
+            throw;
+    }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPTesting__Framework_8hpp_ac9d6517d005d4b9c92a1362e9f4b1a4a}{\index{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}!mapped\-Scalar\-Mult\-Test@{mapped\-Scalar\-Mult\-Test}}
+\index{mapped\-Scalar\-Mult\-Test@{mapped\-Scalar\-Mult\-Test}!MappedSPTesting_Framework.hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}}
+\paragraph[{mapped\-Scalar\-Mult\-Test}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf mapped\-Scalar\-Mult\-Test} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{lhs, }
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{rhs, }
+\item[{const \-T}]{multiplier}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting__Framework_8hpp_ac9d6517d005d4b9c92a1362e9f4b1a4a}
+
+
+\-Definition at line 143 of file \-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp.
+
+
+
+\-Referenced by testing\-Intervals(), testing\-Ints(), testing\-Reals(), and testing\-Rvectors().
+
+
+\begin{DoxyCode}
+{
+    MappedSPnode<T>* addedLazy = NULL;
+    MappedSPnode<T>* multAdded = NULL;
+    MappedSPnode<T>* multLhs = NULL;
+
+    try {
+
+
+        cout << "creating addedLazy rhs lazy(+) lhs" << endl;
+        cout << endl;
+
+        addedLazy = MappedSPnode<T>::lazyCollationNonMinimalUnion(lhs, rhs);
+
+        cout << "addedLazy is " << endl;
+        cout << addedLazy->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+
+        cout << "Trying own type scalar multiplication multLhs = lhs *
+       (supplied multiplier)" << endl;
+        cout << "Supplied multiplier is " << multiplier << endl;
+        cout << endl;
+
+        multLhs = lhs->scalarMult(multiplier);
+
+        cout << "multLhs now is " << endl;
+        cout << multLhs->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+        cout << "Trying own type scalar multiplication multAdded = addedLazy *
+       (supplied multiplier)" << endl;
+        cout << "Supplied multiplier is " << multiplier << endl;
+        cout << endl;
+
+        multAdded = addedLazy->scalarMult(multiplier);
+
+        cout << "multAdded now is " << endl;
+        cout << multAdded->nodesAllPrint(cout) << endl;
+        cout << endl;
+
+
+        delete addedLazy;
+        addedLazy = NULL;
+        delete multAdded;
+        multAdded = NULL;
+        delete multLhs;
+        multLhs = NULL;
+    }
+    catch (exception& e) {
+            if (addedLazy) {
+                delete addedLazy;
+                addedLazy = NULL;
+            }
+            if (multAdded) {
+                delete multAdded;
+                multAdded = NULL;
+            }
+            if (multLhs) {
+                delete multLhs;
+                multLhs = NULL;
+            }
+            throw;
+    }
+}
+\end{DoxyCode}
+\hypertarget{MappedSPTesting__Framework_8hpp_a6b3f69953d9f4c87002c0204d03d7b8f}{\index{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}!print\-Test\-Trees@{print\-Test\-Trees}}
+\index{print\-Test\-Trees@{print\-Test\-Trees}!MappedSPTesting_Framework.hpp@{\-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp}}
+\paragraph[{print\-Test\-Trees}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf print\-Test\-Trees} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{lhs, }
+\item[{const {\bf \-Mapped\-S\-Pnode}$<$ \-T $>$ $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{MappedSPTesting__Framework_8hpp_a6b3f69953d9f4c87002c0204d03d7b8f}
+
+
+\-Definition at line 17 of file \-Mapped\-S\-P\-Testing\-\_\-\-Framework.\-hpp.
+
+
+
+\-Referenced by testing\-Intervals(), testing\-Ints(), testing\-Reals(), and testing\-Rvectors().
+
+
+\begin{DoxyCode}
+{
+    cout << "lhs is " << endl;
+    cout <<lhs->nodesAllPrint(cout) << endl;
+    cout << endl;
+
+    cout << "rhs is " << endl;
+    cout <<rhs->nodesAllPrint(cout) << endl;
+    cout << endl;
+
+}
+\end{DoxyCode}

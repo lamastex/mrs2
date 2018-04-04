@@ -1,0 +1,756 @@
+\hypertarget{classFCFN3}{\subsection{\-F\-C\-F\-N3 \-Class \-Reference}
+\label{classFCFN3}\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}}
+}
+
+
+1,2,3-\/trans-\/dimensional \-Cavender-\/\-Farris-\/\-Neyman (\-C\-F\-N) model likelihood as a function object class  
+
+
+
+
+{\ttfamily \#include $<$\-F\-C\-F\-N3.\-hpp$>$}
+
+
+
+\-Inheritance diagram for \-F\-C\-F\-N3\-:
+
+
+\-Collaboration diagram for \-F\-C\-F\-N3\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFCFN3_ae05483641a5893ee95d3158343cf9259}{\-F\-C\-F\-N3} (int \hyperlink{classFCFN3_a70ede8e738b72b8bea0ba6eb5e44e884}{\-Cxxx}, int \hyperlink{classFCFN3_a1a5c9deec90452588e2f57f5291881b0}{\-Cxxy}, int \hyperlink{classFCFN3_a4e3aae643d4c68030d916df7ac71b538}{\-Cyxx}, int \hyperlink{classFCFN3_a60144493a83a2555c774cf7dfa4c9ec0}{\-Cxyx}, interval \-Domain, bool \-Log\-Pi, int \-Prior)
+\begin{DoxyCompactList}\small\item\em \-A constructor. \end{DoxyCompactList}\item 
+interval \hyperlink{classFCFN3_aec0a3534e5961954300b910f7a7401da}{operator()} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em interval function object \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3_a922aacaa4b75d80ef6a08ae3243e63fc}{operator()} (const \hyperlink{classLabPnt}{\-Lab\-Pnt} \&\-X) const 
+\begin{DoxyCompactList}\small\item\em real function object \end{DoxyCompactList}\item 
+virtual real \hyperlink{classFCFN3_ae16fa2a68755b135ac0d4f9faea41b20}{\-Lab\-Box\-Volume} (const \hyperlink{classLabBox}{\-Lab\-Box} \&\-L\-B)
+\begin{DoxyCompactList}\small\item\em \-Volume of rooted tree boxes is implemented here and \-N\-O\-T inherited from \hyperlink{classFobj}{\-Fobj}. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_acfca28a02e2f9dbcf8ff115a8bb4f262}{get\-\_\-interval\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_acc6f4fb7f07f280fe124499e9c5062ab}{get\-\_\-real\-\_\-calls} ()
+\begin{DoxyCompactList}\small\item\em \-Get number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classFCFN3_a70ede8e738b72b8bea0ba6eb5e44e884}{\-Cxxx}
+\begin{DoxyCompactList}\small\item\em \-Count of sites with pattern xxx (minimal suffcient stats) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_a1a5c9deec90452588e2f57f5291881b0}{\-Cxxy}
+\begin{DoxyCompactList}\small\item\em \-Count of sites with pattern xxy (minimal suffcient stats) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_a4e3aae643d4c68030d916df7ac71b538}{\-Cyxx}
+\begin{DoxyCompactList}\small\item\em \-Count of sites with pattern yxx (minimal suffcient stats) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_a60144493a83a2555c774cf7dfa4c9ec0}{\-Cxyx}
+\item 
+int \hyperlink{classFCFN3_ad9e40b33eda0764e3a289dd6be269be3}{\-Cid}
+\begin{DoxyCompactList}\small\item\em \-Cid = count of invariant sites (minimal suffcient stats for star tree) \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_a8ef5d6f9df7caa72a6dd86d65c22eb3c}{\-Cnid}
+\begin{DoxyCompactList}\small\item\em \-Cnid = count of variant sites (minimal suffcient stats for star tree) \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3_a7555e90b5424a3989f51e1afbb76a36e}{f0}
+\begin{DoxyCompactList}\small\item\em \-Fraction of invariant sites, f0 \-:= \-Cid/(\-Cid+\-Cnid) \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3_ae3655e04a444781c13aac711f1672785}{fxxx}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern xxx, \-Cxxx/\-Tot\-Sites. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3_a28619051be14083932e8c9f8018543d5}{fxxy}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern xxy, \-Cxxy/\-Tot\-Sites. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3_af6590c09108db59f2d7116837fb68917}{fyxx}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern yxx, \-Cyxx/\-Tot\-Sites. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3_a59030dc1b324e8dd4f236b97d78d69cd}{fxyx}
+\begin{DoxyCompactList}\small\item\em \-Fraction of sites with pattern xyx, \-Cxyx/\-Tot\-Sites. \end{DoxyCompactList}\item 
+real \hyperlink{classFCFN3_ac61db05a36bdc21a29f38afed405c188}{\-Tot\-Sites}
+\item 
+interval \hyperlink{classFCFN3_a53e77ef0b53f0fea50abd6e87f8a1c00}{\-Positive\-Prob\-Interval}
+\begin{DoxyCompactList}\small\item\em \-Representable interval without complete interval arithmetic. \end{DoxyCompactList}\item 
+vector$<$ real $>$ \hyperlink{classFCFN3_a50eac3a5d427bffc05f729ff3375a0ca}{vol\-\_\-labelled\-\_\-domain}
+\begin{DoxyCompactList}\small\item\em \-Volume of each labelled domain box. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_ac37ffd255223c75b83ea8805c9ca314d}{n\-\_\-interval\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of interval function calls. \end{DoxyCompactList}\item 
+int \hyperlink{classFCFN3_a6af9c2e333d52639535dc61516f8f984}{n\-\_\-real\-\_\-calls}
+\begin{DoxyCompactList}\small\item\em \-Track number of real function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+1,2,3-\/trans-\/dimensional \-Cavender-\/\-Farris-\/\-Neyman (\-C\-F\-N) model likelihood as a function object class 
+
+\-Definition at line 182 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFCFN3_ae05483641a5893ee95d3158343cf9259}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-F\-C\-F\-N3@{\-F\-C\-F\-N3}}
+\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-F\-C\-F\-N3}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-F\-C\-F\-N3\-::\-F\-C\-F\-N3} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-Cxxx, }
+\item[{int}]{\-Cxxy, }
+\item[{int}]{\-Cyxx, }
+\item[{int}]{\-Cxyx, }
+\item[{interval}]{\-Domain, }
+\item[{bool}]{\-Log\-Pi, }
+\item[{int}]{\-Prior}
+\end{DoxyParamCaption}
+)}}\label{classFCFN3_ae05483641a5893ee95d3158343cf9259}
+
+
+\-A constructor. 
+
+replace vol\-\_\-labelled\-\_\-domain with integral of prior over labelled domain use \-Lab\-Domain\-Prior\-Integral\-List
+
+\-For each topology label, \-Sampling domain is a rectangle with sides given by the interval \-Domain
+
+\-Definition at line 395 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Cid, \-Cnid, \-Cxxx, \-Cxxy, \-Cxyx, \-Cyxx, fxxx, fxxy, fxyx, fyxx, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-List, \-Fobj\-::\-Lab\-Domain\-Prior\-Integral\-List, n\-\_\-interval\-\_\-calls, n\-\_\-real\-\_\-calls, \-Positive\-Prob\-Interval, \-Fobj\-::\-Prior\-Type, \-Fobj\-::\-Setup\-Lab\-Domain\-Prior\-Integral\-List(), and \-Fobj\-::set\-Using\-Log\-Density().
+
+
+\begin{DoxyCode}
+:
+                    // , PriorType(Prior)
+Cxxx (Countxxx), Cxxy (Countxxy), Cyxx (Countyxx), Cxyx (Countxyx)
+{
+  n_interval_calls = 0;
+  n_real_calls = 0;
+  setUsingLogDensity (LogPi);
+  PriorType = Prior;
+  Cid=Cxxx;
+  Cnid=Cxxy + Cyxx + Cxyx;
+  // TotSites = real(Cxxx + Cxxy + Cyxx + Cxyx);
+  Inf(PositiveProbInterval)=1.e-300;
+  Sup(PositiveProbInterval)=1.0;
+  // f0 = real(Cid)// /TotSites;
+  fxxx = real(Cxxx);// /TotSites;
+  fxxy = real(Cxxy);// /TotSites;
+  fyxx = real(Cyxx);// /TotSites;
+  fxyx = real(Cxyx);// /TotSites;
+  const int n_dimensions_of_label[] = {1,2,2,2,3};
+  //  vol_labelled_domain.reserve(5);
+  for (int TopLab = 0; TopLab < 5; TopLab++)
+  {
+    ivector domain (1, n_dimensions_of_label[TopLab]);
+    LabBox Ldomain; 
+    //   vol_labelled_domain[TopLab]=1.0;
+    for (int i = 1; i <= n_dimensions_of_label[TopLab]; i++)
+    {
+      domain[i] = Domain;
+      //   vol_labelled_domain[TopLab] *= diam(Domain);
+    }
+    Ldomain.Box = domain;
+    Ldomain.L = TopLab;
+    LabDomainList.push_back (Ldomain);
+  }
+  // PriorType = 1; // 0 -> uniform prior, otherwise exponential
+  SetupLabDomainPriorIntegralList();
+  for(int i=0; i<5; i++)
+  {
+    cout << "label, domain vol1,2: " << i << "  " 
+         << LabDomainPriorIntegralList[i] << endl;
+  }
+
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classFCFN3_acfca28a02e2f9dbcf8ff115a8bb4f262}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}}
+\index{get\-\_\-interval\-\_\-calls@{get\-\_\-interval\-\_\-calls}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{get\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::get\-\_\-interval\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3_acfca28a02e2f9dbcf8ff115a8bb4f262}
+
+
+\-Get number of interval function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a541c0edbb08855d1e3cdbb45b0aa26af}{\-Fobj}.
+
+
+
+\-Definition at line 221 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-References n\-\_\-interval\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_interval_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFCFN3_acc6f4fb7f07f280fe124499e9c5062ab}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}}
+\index{get\-\_\-real\-\_\-calls@{get\-\_\-real\-\_\-calls}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{get\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::get\-\_\-real\-\_\-calls} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3_acc6f4fb7f07f280fe124499e9c5062ab}
+
+
+\-Get number of real function calls. 
+
+
+
+\-Implements \hyperlink{classFobj_a63df2521571faeb43663613a9a4611e7}{\-Fobj}.
+
+
+
+\-Definition at line 226 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-References n\-\_\-real\-\_\-calls.
+
+
+\begin{DoxyCode}
+    {
+      return n_real_calls;
+    }
+\end{DoxyCode}
+\hypertarget{classFCFN3_ae16fa2a68755b135ac0d4f9faea41b20}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}}
+\index{\-Lab\-Box\-Volume@{\-Lab\-Box\-Volume}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Lab\-Box\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-::\-Lab\-Box\-Volume} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-L\-B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classFCFN3_ae16fa2a68755b135ac0d4f9faea41b20}
+
+
+\-Volume of rooted tree boxes is implemented here and \-N\-O\-T inherited from \hyperlink{classFobj}{\-Fobj}. 
+
+\-Volume of rooted tree boxes specialised in our embedding (implemented and \-N\-O\-T inherited) 
+
+\-Implements \hyperlink{classFobj_a8da39e1c8780124d6826742cdf21aaf5}{\-Fobj}.
+
+
+
+\-Definition at line 448 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, and \-Lab\-Box\-::\-L.
+
+
+\begin{DoxyCode}
+{
+  if(LB.L==0) return diam(LB.Box[1]);
+  else if(LB.L==4)
+  {
+    real volume = 1.0;
+    for (int i = 1; i <= VecLen(LB.Box); i++) volume *= diam (LB.Box[i]);
+    return volume;
+  }
+  else
+  {
+    real volume = diam(LB.Box[1]);
+    //return (volume * (volume + diam (LB.Box[2])));
+                    //same as inherited LabBoxVolume--CORRECT
+    return (volume * diam (LB.Box[2]));
+  }
+}
+\end{DoxyCode}
+\hypertarget{classFCFN3_aec0a3534e5961954300b910f7a7401da}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!operator()@{operator()}}
+\index{operator()@{operator()}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}interval \-F\-C\-F\-N3\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Box} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCFN3_aec0a3534e5961954300b910f7a7401da}
+
+
+interval function object 
+
+\begin{DoxyRefDesc}{\-Todo}
+\item[\hyperlink{todo__todo000018}{\-Todo}]divide by volume of labelled domain -\/-\/ volume of rooted trees need transformation (specalise \hyperlink{classFobj}{\-Fobj} member function get\-\_\-volume\-\_\-\-Lab\-Box) \end{DoxyRefDesc}
+
+
+\-Star \-Tree (123)
+
+\-Un\-Rooted \-Tree (1\-:,2\-:,3\-:)
+
+\-Tree ((12)3)
+
+\-Tree ((23)1)
+
+\-Tree ((13)2) 
+
+\-Implements \hyperlink{classFobj_acf5ccd1fd7b302c8a1c77081b606a6ad}{\-Fobj}.
+
+
+
+\-Definition at line 467 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Cid, \-Cnid, taylor\-::exp(), \-F\-A\-T\-T\-E\-N\-\_\-\-T\-H\-I\-N\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L\-\_\-\-R\-E, fxxx, fxxy, fxyx, fyxx, \-Lab\-Box\-::\-L, \-Fobj\-::\-Lab\-Domain\-Prior\-Integral\-List, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-interval\-\_\-calls, \-Positive\-Prob\-Interval, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{ 
+  // cout << "interval FCFN3" << endl;
+  n_interval_calls++;
+  interval result;
+  if (X.L==0)       
+  {
+    #ifdef TESTDIMS
+    if (Ub(X.Box) != 1 || Lb(X.Box) != 1)
+    {
+      cerr << "dimensions !=1 OR start-index != 1... exiting. " 
+           << endl; exit (EXIT_FAILURE);
+    }
+    #endif
+    interval em4t = (exp (-4.0 * X.Box[1])) ;
+    result = Cid*ln( ((1.0 + (3.0*em4t)) / 8.0)) + 
+             (Cnid)*ln( ((1.0 - em4t) / 8.0)) ;
+  }
+  else      // un/rooted trees with > 1 distinct branch length
+  {
+    interval lxxx;
+    interval lxxy;
+    interval lyxx;
+    interval lxyx;
+    interval em2t1plust2;
+    interval em2t2plust3;
+    interval em2t1plust3;
+    if (X.L==4)     
+    {
+      #ifdef TESTDIMS
+      if (Ub(X.Box) != 3 || Lb(X.Box) != 1)
+      {
+        cout << "dimensions !=3 OR start-index != 1. exiting. " 
+             << endl; exit (EXIT_FAILURE);
+      }
+      #endif
+      em2t1plust2 = exp(-2.0*(X.Box[1]+X.Box[2]));
+      em2t2plust3 = exp(-2.0*(X.Box[2]+X.Box[3]));
+      em2t1plust3 = exp(-2.0*(X.Box[1]+X.Box[3]));
+      //cout << lxxx << lxxy << lyxx << lxyx << endl; getchar();
+    }
+    else            // Rooted trees
+    {
+      #ifdef TESTDIMS
+      if (Ub(X.Box) != 2 || Lb(X.Box) != 1)
+      {
+        cout << "dimensions !=2 OR start-index != 1. exiting. " 
+             << endl; exit (EXIT_FAILURE);
+      }
+      #endif
+      if (X.L == 1) 
+      {
+        interval B12 = 2.0 * X.Box[1];
+        em2t1plust2 = exp(-2.0 * B12);
+        em2t2plust3 = exp(-2.0*(B12 + X.Box[2]));
+                    //exp(-2.0*(B12 + X.Box[2]));
+        em2t1plust3 = em2t2plust3;
+      }
+      else if (X.L == 2)
+      {
+        interval B23 = 2.0 * X.Box[1];
+        em2t1plust2 = exp(-2.0*(B23 + X.Box[2]));
+        em2t2plust3 = exp(-2.0* B23);
+                    //exp(-2.0*(B23 + X.Box[2]));
+        em2t1plust3 = em2t1plust2;
+      }
+      else          
+      {
+        interval B13 = 2.0 * X.Box[1];
+        em2t1plust2 = exp(-2.0*(B13 + X.Box[2]));
+        em2t2plust3 = em2t1plust2;
+        em2t1plust3 = exp(-2.0* B13);
+      }
+    }
+    lxxx = ((1.0 + em2t1plust2 + em2t2plust3 + em2t1plust3) / 8.0);
+    lxxy = ((1.0 + em2t1plust2 - em2t2plust3 - em2t1plust3) / 8.0);
+    lyxx = ((1.0 - em2t1plust2 + em2t2plust3 - em2t1plust3) / 8.0);
+    lxyx = ((1.0 - em2t1plust2 - em2t2plust3 + em2t1plust3) / 8.0);
+    if(Inf(lxxx)<=0.0) lxxx = lxxx & PositiveProbInterval;
+    if(Inf(lxxy)<=0.0) lxxy = lxxy & PositiveProbInterval;
+    if(Inf(lyxx)<=0.0) lyxx = lyxx & PositiveProbInterval;
+    if(Inf(lxyx)<=0.0) lxyx = lxyx & PositiveProbInterval;
+    result = fxxx*ln(lxxx) + fxxy*ln(lxxy) + fyxx*ln(lyxx) + fxyx*ln(lxyx) ;
+  }
+  //result = exp(TotSites*result);
+  //cout << X.Box[a] << '\t' << result << '\n'; getchar();
+  //return (UsingLogDensity) ? ln(result) : (result);
+  // result = (TotSites*result);
+  //   cout << "interval result: " << result << endl;
+
+  if(FATTEN_THIN_INTERVAL_RE)
+  {
+    if(UsingLogDensity)
+    {
+      Inf(result) -= 1.0e-5;
+    }
+    else
+    {
+      Inf(result) *= (1.0 - 1.0e-5);
+    }
+  }
+  //
+  //   cout << "X.L: " << X.L << "  result: " << result << "  ln(vollabdom): " 
+  //   <<  ln(vol_labelled_domain[X.L]) << endl;
+  //   result = result - ln(vol_labelled_domain[X.L]);
+  // The following line has to do with the prior - could this go in
+  // Fobj for the basic (unif and exponential) priors?
+  result = result - ln(LabDomainPriorIntegralList[X.L]);
+  return (UsingLogDensity) ? (result) : exp(result);
+}
+\end{DoxyCode}
+\hypertarget{classFCFN3_a922aacaa4b75d80ef6a08ae3243e63fc}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!operator()@{operator()}}
+\index{operator()@{operator()}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}real \-F\-C\-F\-N3\-::operator() (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Lab\-Pnt} \&}]{\-X}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFCFN3_a922aacaa4b75d80ef6a08ae3243e63fc}
+
+
+real function object 
+
+\-Star \-Tree (123)
+
+\-Un\-Rooted \-Tree (1\-:,2\-:,3\-:)
+
+\-Tree ((12)3)
+
+\-Tree ((23)1)
+
+\-Tree ((13)2) 
+
+\-Implements \hyperlink{classFobj_a7e89aa4918cf8e40683dde607257d1ee}{\-Fobj}.
+
+
+
+\-Definition at line 583 of file \-F\-C\-F\-N3.\-cpp.
+
+
+
+\-References \-Cid, \-Cnid, taylor\-::exp(), fxxx, fxxy, fxyx, fyxx, \-Lab\-Pnt\-::\-L, \-Fobj\-::\-Lab\-Domain\-Prior\-Integral\-List, taylor\-::\-Lb(), taylor\-::ln(), n\-\_\-real\-\_\-calls, \-Lab\-Pnt\-::\-Pnt, taylor\-::\-Ub(), and \-Fobj\-::\-Using\-Log\-Density.
+
+
+\begin{DoxyCode}
+{
+  //  cout << "real FCFN3, top" << endl;
+  n_real_calls++;
+  real result;
+  if (X.L==0)       
+  {
+    #ifdef TESTDIMS
+    if (Ub(X.Pnt) != 1 || Lb(X.Pnt) != 1)
+    {
+      cerr << "dimensions !=1 OR start-index != 1... exiting. " 
+           << endl; exit (EXIT_FAILURE);
+    }
+    #endif
+    real em4t = (exp (-4.0 * X.Pnt[1])) ;
+    result = Cid*ln( ((1.0 + (3.0*em4t)) / 8.0)) + 
+             (Cnid)*ln( ((1.0 - em4t) / 8.0)) ;
+  }
+  else              // un/rooted trees with > 1 distinct branch length
+  {
+    real lxxx;
+    real lxxy;
+    real lyxx;
+    real lxyx;
+    real em2t1plust2;
+    real em2t2plust3;
+    real em2t1plust3;
+    if (X.L==4)     
+    {
+      #ifdef TESTDIMS
+      if (Ub(X.Pnt) != 3 || Lb(X.Pnt) != 1)
+      {
+        cerr << "dimensions !=3 OR start-index != 1. exiting. " 
+             << endl; exit (EXIT_FAILURE);
+      }
+      #endif
+      em2t1plust2 = exp(-2.0*(X.Pnt[1]+X.Pnt[2]));
+      em2t2plust3 = exp(-2.0*(X.Pnt[2]+X.Pnt[3]));
+      em2t1plust3 = exp(-2.0*(X.Pnt[1]+X.Pnt[3]));
+    }
+    else            // Rooted trees
+    {
+      #ifdef TESTDIMS
+      if (Ub(X.Pnt) != 2 || Lb(X.Pnt) != 1)
+      {
+        cout << "dimensions !=2 OR start-index != 1. exiting. " 
+             << endl; exit (EXIT_FAILURE);
+      }
+      #endif
+      if (X.L == 1) 
+      {
+        real B12 = 2.0 * X.Pnt[1];
+        em2t1plust2 = exp(-2.0 * B12);
+        em2t2plust3 = exp(-2.0*(B12 + X.Pnt[2]));
+                    //exp(-2.0*(B12 + X.Pnt[2]));
+        em2t1plust3 = em2t2plust3;
+      }
+      else if (X.L == 2)
+      {
+        real B23 = 2.0 * X.Pnt[1];
+        em2t1plust2 = exp(-2.0*(B23 + X.Pnt[2]));
+        em2t2plust3 = exp(-2.0* B23);
+                    //exp(-2.0*(B23 + X.Pnt[2]));
+        em2t1plust3 = em2t1plust2;
+      }
+      else          
+      {
+        real B13 = 2.0 * X.Pnt[1];
+        em2t1plust2 = exp(-2.0*(B13 + X.Pnt[2]));
+        em2t2plust3 = em2t1plust2;
+        em2t1plust3 = exp(-2.0* B13);
+      }
+    }
+    lxxx = ((1.0 + em2t1plust2 + em2t2plust3 + em2t1plust3) / 8.0);
+    lxxy = ((1.0 + em2t1plust2 - em2t2plust3 - em2t1plust3) / 8.0);
+    lyxx = ((1.0 - em2t1plust2 + em2t2plust3 - em2t1plust3) / 8.0);
+    lxyx = ((1.0 - em2t1plust2 - em2t2plust3 + em2t1plust3) / 8.0);
+    //  cout << lxxx << "  " << lxxy << "  " << lyxx << "  " << lxyx << "  " 
+    //       << endl; getchar();
+    //  cout << fxxx << "  " << fxxy << "  " << fyxx << "  " << fxyx << endl;
+    result = fxxx*ln(lxxx) + fxxy*ln(lxxy) + fyxx*ln(lyxx) + fxyx*ln(lxyx) ;
+  }
+  //result = exp(TotSites*result);
+  //  cout << X.Pnt << '\t' << result << '\n'; getchar();
+  //return (UsingLogDensity) ? ln(result) : (result);
+  // result = (TotSites*result);
+  //  cout << "real result: " << result << endl;
+  //   cout << "X.L:  " << X.L << " result: " << result << "  ln(vollabdom): " 
+  //        <<  ln(vol_labelled_domain[X.L]) << endl;
+  // result = result - ln(vol_labelled_domain[X.L]);
+  result = result - ln(LabDomainPriorIntegralList[X.L]);
+  return (UsingLogDensity) ? (result) : exp(result);
+}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classFCFN3_ad9e40b33eda0764e3a289dd6be269be3}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Cid@{\-Cid}}
+\index{\-Cid@{\-Cid}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Cid}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::\-Cid}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_ad9e40b33eda0764e3a289dd6be269be3}
+
+
+\-Cid = count of invariant sites (minimal suffcient stats for star tree) 
+
+
+
+\-Definition at line 189 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), and operator()().
+
+\hypertarget{classFCFN3_a8ef5d6f9df7caa72a6dd86d65c22eb3c}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Cnid@{\-Cnid}}
+\index{\-Cnid@{\-Cnid}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Cnid}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::\-Cnid}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a8ef5d6f9df7caa72a6dd86d65c22eb3c}
+
+
+\-Cnid = count of variant sites (minimal suffcient stats for star tree) 
+
+
+
+\-Definition at line 191 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), and operator()().
+
+\hypertarget{classFCFN3_a70ede8e738b72b8bea0ba6eb5e44e884}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Cxxx@{\-Cxxx}}
+\index{\-Cxxx@{\-Cxxx}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Cxxx}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::\-Cxxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a70ede8e738b72b8bea0ba6eb5e44e884}
+
+
+\-Count of sites with pattern xxx (minimal suffcient stats) 
+
+
+
+\-Definition at line 184 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3().
+
+\hypertarget{classFCFN3_a1a5c9deec90452588e2f57f5291881b0}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Cxxy@{\-Cxxy}}
+\index{\-Cxxy@{\-Cxxy}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Cxxy}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::\-Cxxy}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a1a5c9deec90452588e2f57f5291881b0}
+
+
+\-Count of sites with pattern xxy (minimal suffcient stats) 
+
+
+
+\-Definition at line 185 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3().
+
+\hypertarget{classFCFN3_a60144493a83a2555c774cf7dfa4c9ec0}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Cxyx@{\-Cxyx}}
+\index{\-Cxyx@{\-Cxyx}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Cxyx}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::\-Cxyx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a60144493a83a2555c774cf7dfa4c9ec0}
+\-Count of sites with pattern xyx (minimal suffcient stats) 
+
+\-Definition at line 187 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3().
+
+\hypertarget{classFCFN3_a4e3aae643d4c68030d916df7ac71b538}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Cyxx@{\-Cyxx}}
+\index{\-Cyxx@{\-Cyxx}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Cyxx}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::\-Cyxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a4e3aae643d4c68030d916df7ac71b538}
+
+
+\-Count of sites with pattern yxx (minimal suffcient stats) 
+
+
+
+\-Definition at line 186 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3().
+
+\hypertarget{classFCFN3_a7555e90b5424a3989f51e1afbb76a36e}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!f0@{f0}}
+\index{f0@{f0}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{f0}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-::f0}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a7555e90b5424a3989f51e1afbb76a36e}
+
+
+\-Fraction of invariant sites, f0 \-:= \-Cid/(\-Cid+\-Cnid) 
+
+
+
+\-Definition at line 192 of file \-F\-C\-F\-N3.\-hpp.
+
+\hypertarget{classFCFN3_ae3655e04a444781c13aac711f1672785}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!fxxx@{fxxx}}
+\index{fxxx@{fxxx}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{fxxx}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-::fxxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_ae3655e04a444781c13aac711f1672785}
+
+
+\-Fraction of sites with pattern xxx, \-Cxxx/\-Tot\-Sites. 
+
+
+
+\-Definition at line 193 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), and operator()().
+
+\hypertarget{classFCFN3_a28619051be14083932e8c9f8018543d5}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!fxxy@{fxxy}}
+\index{fxxy@{fxxy}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{fxxy}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-::fxxy}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a28619051be14083932e8c9f8018543d5}
+
+
+\-Fraction of sites with pattern xxy, \-Cxxy/\-Tot\-Sites. 
+
+
+
+\-Definition at line 194 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), and operator()().
+
+\hypertarget{classFCFN3_a59030dc1b324e8dd4f236b97d78d69cd}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!fxyx@{fxyx}}
+\index{fxyx@{fxyx}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{fxyx}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-::fxyx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a59030dc1b324e8dd4f236b97d78d69cd}
+
+
+\-Fraction of sites with pattern xyx, \-Cxyx/\-Tot\-Sites. 
+
+
+
+\-Definition at line 196 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), and operator()().
+
+\hypertarget{classFCFN3_af6590c09108db59f2d7116837fb68917}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!fyxx@{fyxx}}
+\index{fyxx@{fyxx}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{fyxx}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-::fyxx}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_af6590c09108db59f2d7116837fb68917}
+
+
+\-Fraction of sites with pattern yxx, \-Cyxx/\-Tot\-Sites. 
+
+
+
+\-Definition at line 195 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), and operator()().
+
+\hypertarget{classFCFN3_ac37ffd255223c75b83ea8805c9ca314d}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}}
+\index{n\-\_\-interval\-\_\-calls@{n\-\_\-interval\-\_\-calls}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{n\-\_\-interval\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::n\-\_\-interval\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCFN3_ac37ffd255223c75b83ea8805c9ca314d}
+
+
+\-Track number of interval function calls. 
+
+
+
+\-Definition at line 203 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), get\-\_\-interval\-\_\-calls(), and operator()().
+
+\hypertarget{classFCFN3_a6af9c2e333d52639535dc61516f8f984}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}}
+\index{n\-\_\-real\-\_\-calls@{n\-\_\-real\-\_\-calls}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{n\-\_\-real\-\_\-calls}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-F\-C\-F\-N3\-::n\-\_\-real\-\_\-calls}\hspace{0.3cm}{\ttfamily  \mbox{[}mutable, private\mbox{]}}}}\label{classFCFN3_a6af9c2e333d52639535dc61516f8f984}
+
+
+\-Track number of real function calls. 
+
+
+
+\-Definition at line 205 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), get\-\_\-real\-\_\-calls(), and operator()().
+
+\hypertarget{classFCFN3_a53e77ef0b53f0fea50abd6e87f8a1c00}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Positive\-Prob\-Interval@{\-Positive\-Prob\-Interval}}
+\index{\-Positive\-Prob\-Interval@{\-Positive\-Prob\-Interval}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Positive\-Prob\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-F\-C\-F\-N3\-::\-Positive\-Prob\-Interval}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a53e77ef0b53f0fea50abd6e87f8a1c00}
+
+
+\-Representable interval without complete interval arithmetic. 
+
+
+
+\-Definition at line 199 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-Referenced by \-F\-C\-F\-N3(), and operator()().
+
+\hypertarget{classFCFN3_ac61db05a36bdc21a29f38afed405c188}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!\-Tot\-Sites@{\-Tot\-Sites}}
+\index{\-Tot\-Sites@{\-Tot\-Sites}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{\-Tot\-Sites}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-F\-C\-F\-N3\-::\-Tot\-Sites}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_ac61db05a36bdc21a29f38afed405c188}
+\-Total number of sites 
+
+\-Definition at line 197 of file \-F\-C\-F\-N3.\-hpp.
+
+\hypertarget{classFCFN3_a50eac3a5d427bffc05f729ff3375a0ca}{\index{\-F\-C\-F\-N3@{\-F\-C\-F\-N3}!vol\-\_\-labelled\-\_\-domain@{vol\-\_\-labelled\-\_\-domain}}
+\index{vol\-\_\-labelled\-\_\-domain@{vol\-\_\-labelled\-\_\-domain}!FCFN3@{\-F\-C\-F\-N3}}
+\paragraph[{vol\-\_\-labelled\-\_\-domain}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$real$>$ {\bf \-F\-C\-F\-N3\-::vol\-\_\-labelled\-\_\-domain}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFCFN3_a50eac3a5d427bffc05f729ff3375a0ca}
+
+
+\-Volume of each labelled domain box. 
+
+
+
+\-Definition at line 201 of file \-F\-C\-F\-N3.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FCFN3_8hpp}{\-F\-C\-F\-N3.\-hpp}\item 
+\hyperlink{FCFN3_8cpp}{\-F\-C\-F\-N3.\-cpp}\end{DoxyCompactItemize}

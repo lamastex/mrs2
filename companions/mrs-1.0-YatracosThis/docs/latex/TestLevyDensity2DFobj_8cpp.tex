@@ -1,0 +1,77 @@
+\hypertarget{TestLevyDensity2DFobj_8cpp}{\subsection{\-Test\-Levy\-Density2\-D\-Fobj.\-cpp \-File \-Reference}
+\label{TestLevyDensity2DFobj_8cpp}\index{\-Test\-Levy\-Density2\-D\-Fobj.\-cpp@{\-Test\-Levy\-Density2\-D\-Fobj.\-cpp}}
+}
+
+
+\-Test \hyperlink{classLevyDensityFobj2D}{\-Levy\-Density\-Fobj2\-D}.  
+
+
+{\ttfamily \#include \char`\"{}\-Levy\-Density\-Fobj2\-D.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$iostream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{TestLevyDensity2DFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Test \hyperlink{classLevyDensityFobj2D}{\-Levy\-Density\-Fobj2\-D}. 
+
+\-Definition in file \hyperlink{TestLevyDensity2DFobj_8cpp_source}{\-Test\-Levy\-Density2\-D\-Fobj.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{TestLevyDensity2DFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Test\-Levy\-Density2\-D\-Fobj.\-cpp@{\-Test\-Levy\-Density2\-D\-Fobj.\-cpp}!main@{main}}
+\index{main@{main}!TestLevyDensity2DFobj.cpp@{\-Test\-Levy\-Density2\-D\-Fobj.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{TestLevyDensity2DFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 17 of file \-Test\-Levy\-Density2\-D\-Fobj.\-cpp.
+
+
+\begin{DoxyCode}
+{
+
+    cout << "\nLevy Density\n" << endl;
+
+    int dims = 2; // Levy can only do 2D
+  double intside = 10.0;
+  
+  if (argc > 1) dims = atoi(argv[1]);
+  if (argc > 2) intside = atof(argv[2]);
+  
+    cxsc::ivector pavingBox(dims);
+    cxsc::interval pavingInterval(-intside,intside);
+    for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+  
+  LevyDensityFobj2D realF;
+    
+  cxsc::ivector testBox(dims);
+  cxsc::interval testInterval(-intside/2,intside/2);
+  for(int k=1; k <= dims; k++) testBox[k] = testInterval;
+  cxsc::interval ival = realF(testBox);
+  
+  cxsc::rvector testRvec(dims);
+  cxsc::real testReal(intside/2);
+  for(int k=1; k <= dims; k++) testRvec[k] = testReal;
+  cxsc::real r = realF(testRvec);
+  
+  cout << "testBox = " << testBox << endl;
+  cout << "Levy(testBox) = " << ival << endl;
+  cout << "testRvec = " << testRvec << endl;
+  cout << "Levy(testRvec) = " << r << endl;
+
+  
+      
+  
+    return 0;
+
+}
+\end{DoxyCode}

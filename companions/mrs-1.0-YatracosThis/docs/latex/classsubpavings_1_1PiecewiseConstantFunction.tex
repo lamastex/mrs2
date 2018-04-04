@@ -1,0 +1,1698 @@
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction}{\subsection{subpavings\-:\-:\-Piecewise\-Constant\-Function \-Class \-Reference}
+\label{classsubpavings_1_1PiecewiseConstantFunction}\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}}
+}
+
+
+\-A wrapper or manager for an \hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} tree representing a piecewise constant function.  
+
+
+
+
+{\ttfamily \#include $<$piecewise\-\_\-constant\-\_\-function.\-hpp$>$}
+
+
+
+\-Collaboration diagram for subpavings\-:\-:\-Piecewise\-Constant\-Function\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a5532cf41ae985d1de4601826f6fd33c7}{\-Piecewise\-Constant\-Function} ()
+\begin{DoxyCompactList}\small\item\em \-No argument constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a4642d25f6dc9d2f4d6f31d9ff81f3741}{\-Piecewise\-Constant\-Function} (const ivector \&v, int lab=0)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_adb90004f77b865413b3c66878422c53a}{\-Piecewise\-Constant\-Function} (const \hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} \&rmspn, int lab=0)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a00b18c179aab77dba47a6a6df9c5684f}{\-Piecewise\-Constant\-Function} (const \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram} \&adh)
+\begin{DoxyCompactList}\small\item\em \-Initialised constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a7bfe6205559abfdfe8bce89f7ae90760}{\-Piecewise\-Constant\-Function} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&other)
+\begin{DoxyCompactList}\small\item\em \-Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a16194266ecbed94003ea484cb8b70610}{$\sim$\-Piecewise\-Constant\-Function} ()
+\begin{DoxyCompactList}\small\item\em \-Destructor. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_afb1b70cb3d82858719f489e6cc239115}{operator=} (\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} rhs)
+\begin{DoxyCompactList}\small\item\em \-Copy assignment operator. \end{DoxyCompactList}\item 
+int \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a50b455741489ca51374faee1dca38d61}{get\-Label} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the label. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a7b71fbda0321a5272e92f652119f9aa3}{set\-Label} (int lab)
+\begin{DoxyCompactList}\small\item\em \-Set the label. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ad0419b40b47ffa5bb70af1f9cfe86062}{get\-Copy\-Sub\-Paving} () const 
+\begin{DoxyCompactList}\small\item\em \-Get a copy of the subpaving managed by this. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_afecdfb659b961eab7f8d18160bea7296}{has\-Sub\-Paving} () const 
+\begin{DoxyCompactList}\small\item\em \-Get whether this has a subpaving to manage. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a892d2caaed6213ae262f2a0b1dba27b5}{has\-Negative\-Piecewise\-Constant\-Values} () const 
+\begin{DoxyCompactList}\small\item\em \-Get whether the subpaving managed by this has negative range values. \end{DoxyCompactList}\item 
+bool \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a06b96fb88f394c3b65af65e6eff44e7a}{has\-Infinite\-Piecewise\-Constant\-Values} () const 
+\begin{DoxyCompactList}\small\item\em \-Get whether the subpaving managed by this has infinite range values. \end{DoxyCompactList}\item 
+cxsc\-::ivector \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a2ca8259389efd2797732caeeab988b3d}{get\-Root\-Box} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the box of the subpaving managed by this. \end{DoxyCompactList}\item 
+int \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a08cecaf3025aeeeea90b26acbe87ce24}{get\-Dimensions} () const 
+\begin{DoxyCompactList}\small\item\em get the dimensions of the subpaving this manages. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a2bc216ff479f7edc61e1ef8619c27214}{get\-Domain\-Volume} () const 
+\begin{DoxyCompactList}\small\item\em get volume of the root box of the subpaving this manages. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a938b27618e6805bc57e70ab8f0e6280d}{get\-Root\-Leaves} () const 
+\begin{DoxyCompactList}\small\item\em \-Gets number of leaf nodes in the root paving. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_aed8e75b2af342b9c1460431c223dca8e}{\-Int\-Vec} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_aad0a7c30389235a8fa0a36fc0a1d2c7a}{get\-Leaf\-Levels} () const 
+\item 
+std\-::string \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_aa27d2f72b0d1edcddd73929a69b44dfb}{get\-Leaf\-Levels\-String} () const 
+\item 
+bool \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a6d0382e5493bd90cb80a823e567cab4f}{split\-To\-Shape} (std\-::string instruction)
+\begin{DoxyCompactList}\small\item\em \-Split this to a specified shape. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a24005b5dad3a4417de9d6fc68462258f}{allocate\-Ranges} (const std\-::vector$<$ cxsc\-::real $>$ \&ranges\-To\-Allocate)
+\begin{DoxyCompactList}\small\item\em \-Recursively allocate a collection of ranges to this and children. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a95d2cd2a73cf7a3ac06a433a35098179}{reshape\-To\-Union} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&other)
+\begin{DoxyCompactList}\small\item\em \-Change this so that the subpaving it manages is the union of this's subpaving and the subpaving of another \-Piecewise\-Constant\-Function. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_adb8c06d489bebfe579823751033b7bcd}{make\-Shape\-To\-Union} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&other)
+\begin{DoxyCompactList}\small\item\em \-Return a \-Piecewise\-Constant\-Function that has subpaving that is the union of this's subpaving and the subpaving of another \-Piecewise\-Constant\-Function. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the total integral of the piecewise constant function represented by this. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a2499c322fa30a4f07d8ad7360a8d7d95}{get\-I\-A\-E} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&pcf) const 
+\begin{DoxyCompactList}\small\item\em \-Get the total integrated absolute error (\-I\-A\-E) between this and another \-Piecewise\-Constant\-Function. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a13d88986c0752e996fced71cae4e3034}{operator+=} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Addition to self operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a324236b21b578ef2176a487d10b986b5}{operator+} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em \-Addition operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_afb8037a02dafaab611e4aac28a7326ab}{operator+=} (const cxsc\-::real \&add)
+\begin{DoxyCompactList}\small\item\em \-Self-\/scalar addition operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a63956842071d1e793d54ddc6cf759970}{operator+} (const cxsc\-::real \&add) const 
+\begin{DoxyCompactList}\small\item\em \-Scalar addition operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ae64b7e32740671dd8fb0f0905f958de5}{operator-\/=} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Subtraction from self operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a52b02b0ec1773ae11c4d986dd56a69f8}{operator-\/} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em \-Subtraction operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a83ceb8a2a57cb475b400c8436ef79831}{operator-\/=} (const cxsc\-::real \&sub)
+\begin{DoxyCompactList}\small\item\em \-Self-\/scalar subtraction operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ad2c304191876befbd35fac6a07dedd74}{operator-\/} (const cxsc\-::real \&sub) const 
+\begin{DoxyCompactList}\small\item\em \-Scalar subtraction operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_af353f8623ce62aa2bf7e87942d5e89f7}{operator$\ast$=} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Multiplication of self operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a64722ca127c5169779463574a35d661d}{operator$\ast$} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em \-Multiplication operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_aa7c90fe41fba228dbe5cbe01878e1d54}{operator$\ast$=} (const cxsc\-::real \&mult)
+\begin{DoxyCompactList}\small\item\em \-Self-\/scalar multiplication operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a2c2c76a16d5ca85d74e00a61502f31d5}{operator$\ast$} (const cxsc\-::real \&mult) const 
+\begin{DoxyCompactList}\small\item\em \-Scalar multiplication operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a6167942675f27eaab9a2b858375d9bf9}{operator/=} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs)
+\begin{DoxyCompactList}\small\item\em \-Division of self operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a3bdc0d055a65d5785c87f77ae30b2512}{operator/} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&rhs) const 
+\begin{DoxyCompactList}\small\item\em \-Division operator. \end{DoxyCompactList}\item 
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a43f950b15d9de80ae4e88353f9d63abb}{operator/=} (const cxsc\-::real \&div)
+\begin{DoxyCompactList}\small\item\em \-Self-\/scalar division operator. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ae7f061e72dc60d46956bfa0f6b4f2b4e}{operator/} (const cxsc\-::real \&div) const 
+\begin{DoxyCompactList}\small\item\em \-Scalar division operator. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_aae1c0cd836577f309def9d7a8d9a534a}{normalise} ()
+\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ae18f9fc32df16470d268b2bd70b32e9f}{make\-Normalised} () const 
+\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a501a9760b607f3275e9ce85eb5cae136}{make\-Marginal} (const std\-::vector$<$ int $>$ \&req\-Dims) const 
+\begin{DoxyCompactList}\small\item\em \-Make a marginalised version of this. \end{DoxyCompactList}\item 
+const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a414799df36e8a5aea60b6ae9b3713cf8}{make\-Slice} (const std\-::vector$<$ int $>$ \&slice\-Dims, const std\-::vector$<$ cxsc\-::real $>$ \&slice\-Pts) const 
+\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_adb4501feb027c37159cf926195e1cd44}{find\-Coverage} (const rvector \&pt) const 
+\begin{DoxyCompactList}\small\item\em \-Find the coverage value for a data point. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_abf81273304c10947eab9f5523abbd21b}{pointwise\-Extension} (const rvector \&pt) const 
+\begin{DoxyCompactList}\small\item\em \-Find the pointwise extension of the piecewise constant function for a given data point. \end{DoxyCompactList}\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ac1b7749f4bf0240e24517d87a832dbd7}{get\-L1\-Distance} (const \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&other) const 
+\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a7253ce68ea35a9fb37fd8873ca0c23ef}{output\-To\-Stream\-Tabs} (std\-::ostream \&os, int prec=5) const 
+\begin{DoxyCompactList}\small\item\em \-Output the subpaving managed by this to a given stream. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a779f82e68a07656a602089a25e994748}{output\-Graph\-Dot} () const 
+\begin{DoxyCompactList}\small\item\em \-Make a .dot graph file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf \-Output the nodes constituting coverage region $\backslash$a cov}\par
+{\em to a file called {\itshape cov\-File\-Name\/}.
+
+\-The coverage region is the smallest subset of the boxes of the leaf nodes of the subpaving managed by this such that the sum of the \char`\"{}areas\char`\"{} of those leaf boxes is $>$= cov $\ast$ total sum of the \char`\"{}areas\char`\"{} of the leaf nodes of the subpaving managed by this.
+
+ie it is the elements of the partition whose integral is at least cov\% of the integral of the whole when the elements are chosen in order from \char`\"{}tallest\char`\"{} first downwards.
+
+\begin{DoxyPrecond}{\-Precondition}
+\-This must have a subpaving to manage. 
+
+0.\-0 =$<$ cov $<$= 1.\-0. 
+
+\-The subpaving managed by this must have no negative ranges, ie \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a892d2caaed6213ae262f2a0b1dba27b5}{has\-Negative\-Piecewise\-Constant\-Values()} = false. 
+
+\-The subpaving managed by this must have no infinite ranges, ie \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a06b96fb88f394c3b65af65e6eff44e7a}{has\-Infinite\-Piecewise\-Constant\-Values()} = false. 
+\end{DoxyPrecond}
+}\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a86b60ec6a406396eafd09123c20deedf}{output\-Coverage\-Region} (std\-::ostream \&os, cxsc\-::real cov, int prec) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a213cebe89d7510df1b0e0c3790c9e33a}{output\-Coverage\-Region} (std\-::ostream \&os, cxsc\-::real cov) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a4208d0549a7254c38af194e1953c6cc7}{output\-Coverage\-Region} (const std\-::string \&cov\-File\-Name, cxsc\-::real cov, int prec, bool confirm=true) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a38e6bded7df5f65184c4fc5a9b3997f8}{output\-Coverage\-Region} (const std\-::string \&cov\-File\-Name, cxsc\-::real cov, bool confirm=true) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf \-Simulate some data from this.}\par
+{\em \-Data is simulated from this according to a uniform mixture distribution where each leaf box of the subpaving managed by this a component in the mixture with weight equal to contribtuion to the total integral over this. \-The result should be equivalent to simulating the by, for each data point, choosing a leaf box randomly with probability according to the relative \char`\"{}areas\char`\"{} (value x volume) of the leaves and then randomly selecting a data point within that box (ie uniform probability of selection over the entire box).
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em container} & is a reference to a container for the data. \\
+\hline
+{\em number\-To\-Simulate} & is the number of data points to simulate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the reference to {\itshape container\/}. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+{\itshape container\/} contains any data it had before the operation and then {\itshape number\-To\-Simulate\/} data points simulated from this. 
+\end{DoxyPostcond}
+}\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a3fd630a95c48dda0a828bb2229c9d854}{simulate\-Data} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&container, size\-\_\-t number\-To\-Simulate, gsl\-\_\-rng $\ast$r) const 
+\begin{DoxyCompactList}\small\item\em \-Simulator taking a random number generator argument. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ad818b3800904d40fbee121f0bea973b5}{simulate\-Data} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&container, size\-\_\-t number\-To\-Simulate, long unsigned int seed) const 
+\begin{DoxyCompactList}\small\item\em \-Simulator taking a random number generator seed argument. \end{DoxyCompactList}\item 
+\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_abe41e3bc175dbb124d40e242e2ee6b06}{simulate\-Data} (\hyperlink{namespacesubpavings_a30e15e24c8d81a2160d7422ef3c39d68}{\-R\-Vec\-Data} \&container, size\-\_\-t number\-To\-Simulate) const 
+\begin{DoxyCompactList}\small\item\em \-Simulator using default random number generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf \-Output the subpaving managed by this to a txt file.}\par
+{\em \-Format is a tab-\/delimited file of numeric data starting with node\-Name, then the node box volume, then the node counter, then the description of the node box as a tab-\/delimited list of interval upper and lower bounds.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & the name of the txt file to send output to. \\
+\hline
+{\em prec} & the precision for output formatting. ie, number of decimal places. \\
+\hline
+{\em confirm} & is a boolean controlling whether confirmation goes to console output. \\
+\hline
+\end{DoxyParams}
+}\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ad542b85e0f7364a34a6504721d65c1b3}{output\-To\-Txt\-Tabs} (const std\-::string \&s, int prec=5) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a8080671674947611b47430996d91413a}{output\-To\-Txt\-Tabs} (const std\-::string \&s, int prec, bool confirm) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}{\bf \-Output details of full sample (from root) to txt file.}\par
+{\em \-Format is a mixture of alpha and numeric data.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & the name of the txt file to send output to. \\
+\hline
+{\em prec} & the precision for output formatting. ie, number of decimal places. \\
+\hline
+{\em confirm} & is a boolean controlling whether confirmation goes to console output. \\
+\hline
+\end{DoxyParams}
+}\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a9e8783522bdfd696bee2403b867c50d3}{output\-Root\-To\-Txt} (const std\-::string \&s, int prec=5) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a581599becf533c7fbe4fbccdfb6df4ee}{output\-Root\-To\-Txt} (const std\-::string \&s, int prec, bool confirm) const 
+\end{DoxyCompactItemize}
+\end{Indent}
+\subsubsection*{\-Output all nodes of the subpaving managed by this to}
+\label{_amgrpe3da267e02faa91f65dbf8a3d7dd03f3}%
+ a given stream.
+
+\-Format is a tab-\/delimited data giving details of all nodes.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em os} & is a reference to the stream to output to. \\
+\hline
+{\em prec} & the precision for output formatting. ie, number of decimal places, defaulting to 5. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+a reference to the given stream. 
+\end{DoxyReturn}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_aef23daaf4b73237b67ed40985b3038a3}{root\-Paving}
+\begin{DoxyCompactList}\small\item\em \-Pointer to the root node of the subpaving tree. \end{DoxyCompactList}\item 
+int \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a622a9d3b705f1c81cd7a5a7b95e8d4c8}{label}
+\item 
+std\-::ostream \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a94a4166cf5d3a009021be8b43e41f9ed}{output\-Root\-To\-Stream\-Tabs} (std\-::ostream \&os, int prec=5) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a411e285d0cc7c8de1f6ac29706ddb2d4}{output\-Log} (const std\-::string \&s, int i, int prec=5) const 
+\begin{DoxyCompactList}\small\item\em \-Append current state of estimator to a txt log file. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_abb23fd1b7e0dc5ee81c976c23c1452a0}{string\-Summary} () const 
+\begin{DoxyCompactList}\small\item\em \-Get a string summary of this estimator's properties. \end{DoxyCompactList}\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a5b106e9526613ce2a0f81bd4e303b6cf}{swap} (\hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} \&pcf)
+\item 
+\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} $\ast$ \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a88d23ec0f66eef3215b2081cec17815c}{get\-Sub\-Paving} () const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a9327e86ac242a9af67266686cc107370}{output\-Log\-Start} (const std\-::string \&s) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ae3058b35de92dbf4f0606e9a51012373}{\-\_\-normalise} ()
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a893720267a24aa9cf6dbabbcc9e92b4a}{\-\_\-marginalise} (const std\-::vector$<$ int $>$ \&req\-Dims)
+\item 
+cxsc\-::real \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a00ec6162ad7be5fd75b9f71df9e6010e}{\-\_\-coverage} (const rvector \&pt) const 
+\item 
+\hyperlink{classsubpavings_1_1RealMappedSPnode_a5fc20ec0cd33f031e874f50251156e65}{subpavings\-::\-Real\-Mapped\-S\-Pnode\-::\-Const\-Ptrs} \& \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a739e54236b59b4c1cbe8d5d20f5f4950}{find\-Coverage\-Region} (\hyperlink{classsubpavings_1_1RealMappedSPnode_a5fc20ec0cd33f031e874f50251156e65}{subpavings\-::\-Real\-Mapped\-S\-Pnode\-::\-Const\-Ptrs} \&cov\-Nodes, cxsc\-::real cov) const 
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ac6bc781088b8a8554bc6598f25e75988}{handle\-S\-P\-Error} (\hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} \&spn)
+\item 
+void \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a498990673c6fb4821bbfa6e26f3ebc04}{constructor\-\_\-error\-\_\-handler} ()
+\item 
+static bool \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a2dfb56b2c05c101ea7a27781e37762ee}{check\-Box} (const cxsc\-::ivector \&box)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A wrapper or manager for an \hyperlink{classsubpavings_1_1RealMappedSPnode}{\-Real\-Mapped\-S\-Pnode} tree representing a piecewise constant function. 
+
+
+
+\-Definition at line 44 of file piecewise\-\_\-constant\-\_\-function.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a5532cf41ae985d1de4601826f6fd33c7}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}}
+\index{\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-Piecewise\-Constant\-Function}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-Piecewise\-Constant\-Function} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a5532cf41ae985d1de4601826f6fd33c7}
+
+
+\-No argument constructor. 
+
+\begin{DoxyPostcond}{\-Postcondition}
+\-This has no subpaving and label 0. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a4642d25f6dc9d2f4d6f31d9ff81f3741}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}}
+\index{\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-Piecewise\-Constant\-Function}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-Piecewise\-Constant\-Function} (
+\begin{DoxyParamCaption}
+\item[{const ivector \&}]{v, }
+\item[{int}]{lab = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a4642d25f6dc9d2f4d6f31d9ff81f3741}
+
+
+\-Initialised constructor. 
+
+\-Initialised with domain box and label.
+
+\-Constructor to be used if piecewise constant function is to be subsequently formed by, for example, split\-To\-Shape and allocate\-Ranges.
+
+\-Throws a \hyperlink{classsubpavings_1_1MalconstructedBox__Error}{\-Malconstructed\-Box\-\_\-\-Error} if the box is not suitable as the basis of a subpaving (eg, box has no dimensions, or the box has a thin interval on at least one dimension).
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em v} & \-The box to use for the subpaving to be managed. \\
+\hline
+{\em lab} & \-The label for this (defaults to 0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{\-Postcondition}
+\-This has subpaving that consists of single leaf node (the root) with a box like {\itshape v\/}) and the range on that single node is 0.\-0. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_adb90004f77b865413b3c66878422c53a}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}}
+\index{\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-Piecewise\-Constant\-Function}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-Piecewise\-Constant\-Function} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Real\-Mapped\-S\-Pnode} \&}]{rmspn, }
+\item[{int}]{lab = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_adb90004f77b865413b3c66878422c53a}
+
+
+\-Initialised constructor. 
+
+\-Initialised with a subpaving.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em spn} & \-A subpaving to copy as the subpaving to be managed. \\
+\hline
+{\em lab} & \-The label for this (defaults to 0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+{\itshape rmspn\/} has a box. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+\-The piecewise constant function constructed has label {\itshape lab\/}, and a subpaving that is a copy of {\itshape rmspn\/}. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a00b18c179aab77dba47a6a6df9c5684f}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}}
+\index{\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-Piecewise\-Constant\-Function}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-Piecewise\-Constant\-Function} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Adaptive\-Histogram} \&}]{adh}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a00b18c179aab77dba47a6a6df9c5684f}
+
+
+\-Initialised constructor. 
+
+\-Initialised with an \hyperlink{classsubpavings_1_1AdaptiveHistogram}{\-Adaptive\-Histogram}.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em adh} & \-A subpaving to copy as the subpaving to be managed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+{\itshape adh\/} has a subpaving. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+\-The piecewise constant function constructed has a subpaving that is a copy of the subpaving managed by adh and label the same as the label for {\itshape adh\/}. \-The value mapped onto each node of this is equal to the count/(volume) of the equivalent node of the subpaving managed by {\itshape adh\/} {\bfseries after} normalising for the total count in the whole histogram, ie the \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()} = 1.\-0. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a7bfe6205559abfdfe8bce89f7ae90760}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}}
+\index{\-Piecewise\-Constant\-Function@{\-Piecewise\-Constant\-Function}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-Piecewise\-Constant\-Function}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-Piecewise\-Constant\-Function} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a7bfe6205559abfdfe8bce89f7ae90760}
+
+
+\-Copy constructor. 
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a16194266ecbed94003ea484cb8b70610}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!$\sim$\-Piecewise\-Constant\-Function@{$\sim$\-Piecewise\-Constant\-Function}}
+\index{$\sim$\-Piecewise\-Constant\-Function@{$\sim$\-Piecewise\-Constant\-Function}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{$\sim$\-Piecewise\-Constant\-Function}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Piecewise\-Constant\-Function\-::$\sim$\-Piecewise\-Constant\-Function} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a16194266ecbed94003ea484cb8b70610}
+
+
+\-Destructor. 
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a00ec6162ad7be5fd75b9f71df9e6010e}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-\_\-coverage@{\-\_\-coverage}}
+\index{\-\_\-coverage@{\-\_\-coverage}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-\_\-coverage}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-\_\-coverage} (
+\begin{DoxyParamCaption}
+\item[{const rvector \&}]{pt}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a00ec6162ad7be5fd75b9f71df9e6010e}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a893720267a24aa9cf6dbabbcc9e92b4a}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-\_\-marginalise@{\-\_\-marginalise}}
+\index{\-\_\-marginalise@{\-\_\-marginalise}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-\_\-marginalise}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-\_\-marginalise} (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ int $>$ \&}]{req\-Dims}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a893720267a24aa9cf6dbabbcc9e92b4a}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ae3058b35de92dbf4f0606e9a51012373}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!\-\_\-normalise@{\-\_\-normalise}}
+\index{\-\_\-normalise@{\-\_\-normalise}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{\-\_\-normalise}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::\-\_\-normalise} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_ae3058b35de92dbf4f0606e9a51012373}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a24005b5dad3a4417de9d6fc68462258f}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!allocate\-Ranges@{allocate\-Ranges}}
+\index{allocate\-Ranges@{allocate\-Ranges}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{allocate\-Ranges}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::allocate\-Ranges} (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ cxsc\-::real $>$ \&}]{ranges\-To\-Allocate}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a24005b5dad3a4417de9d6fc68462258f}
+
+
+\-Recursively allocate a collection of ranges to this and children. 
+
+\-Allocation order is this, left child with remainder of allocation, right child with remainder. \hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a2dfb56b2c05c101ea7a27781e37762ee}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!check\-Box@{check\-Box}}
+\index{check\-Box@{check\-Box}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{check\-Box}]{\setlength{\rightskip}{0pt plus 5cm}static bool {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::check\-Box} (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::ivector \&}]{box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a2dfb56b2c05c101ea7a27781e37762ee}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a498990673c6fb4821bbfa6e26f3ebc04}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!constructor\-\_\-error\-\_\-handler@{constructor\-\_\-error\-\_\-handler}}
+\index{constructor\-\_\-error\-\_\-handler@{constructor\-\_\-error\-\_\-handler}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{constructor\-\_\-error\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::constructor\-\_\-error\-\_\-handler} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a498990673c6fb4821bbfa6e26f3ebc04}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_adb4501feb027c37159cf926195e1cd44}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!find\-Coverage@{find\-Coverage}}
+\index{find\-Coverage@{find\-Coverage}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{find\-Coverage}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::find\-Coverage} (
+\begin{DoxyParamCaption}
+\item[{const rvector \&}]{pt}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_adb4501feb027c37159cf926195e1cd44}
+
+
+\-Find the coverage value for a data point. 
+
+\-The coverage value refers to the subpaving managed by this and is 1 -\/ (sum of \char`\"{}area\char`\"{} of all leaf nodes with value $>$ the value of the leaf node whose box contains {\itshape pt\/})/ (sum of \char`\"{}area\char`\"{} of all leaf nodes) .
+
+\-If the point is not in the root box of the subpaving managed by this, coverage = 0.\-0; \-If the point is in the box of the node associated with the lowest value in this, coverage = area lowest node / total area; \-If the point is in the box of the node associated with the highest value in this, coverage = 1.\-0.
+
+\begin{DoxyNote}{\-Note}
+\-The coverage value returned will be in the interval \mbox{[}0,1\mbox{]} whether this is normalised or not (ie it is a adjusted if necessary to be a proportion of the total integral).
+\end{DoxyNote}
+\begin{DoxyWarning}{\-Warning}
+\-Coverage only makes sense for piecewise constant functions with non-\/negative values associated with all boxes (eg density estimates).
+\end{DoxyWarning}
+\-Throws a \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the dimensions of this and {\itshape pt\/} are not equal.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em pt} & the point to find coverage for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+coverage for the point given. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This must have a subpaving to manage. 
+
+\-Dimensions of {\itshape pt\/} and this must match. 
+
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a892d2caaed6213ae262f2a0b1dba27b5}{has\-Negative\-Piecewise\-Constant\-Values()} = false. 
+
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a06b96fb88f394c3b65af65e6eff44e7a}{has\-Infinite\-Piecewise\-Constant\-Values()} = false. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a739e54236b59b4c1cbe8d5d20f5f4950}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!find\-Coverage\-Region@{find\-Coverage\-Region}}
+\index{find\-Coverage\-Region@{find\-Coverage\-Region}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{find\-Coverage\-Region}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-Real\-Mapped\-S\-Pnode\-::\-Const\-Ptrs}\& {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::find\-Coverage\-Region} (
+\begin{DoxyParamCaption}
+\item[{{\bf subpavings\-::\-Real\-Mapped\-S\-Pnode\-::\-Const\-Ptrs} \&}]{cov\-Nodes, }
+\item[{cxsc\-::real}]{cov}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a739e54236b59b4c1cbe8d5d20f5f4950}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ad0419b40b47ffa5bb70af1f9cfe86062}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Copy\-Sub\-Paving@{get\-Copy\-Sub\-Paving}}
+\index{get\-Copy\-Sub\-Paving@{get\-Copy\-Sub\-Paving}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Copy\-Sub\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Real\-Mapped\-S\-Pnode} {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Copy\-Sub\-Paving} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ad0419b40b47ffa5bb70af1f9cfe86062}
+
+
+\-Get a copy of the subpaving managed by this. 
+
+\begin{DoxyReturn}{\-Returns}
+a copy of the subpaving managed by this. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_afecdfb659b961eab7f8d18160bea7296}{has\-Sub\-Paving()} == true. 
+\end{DoxyPrecond}
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::reshape\-To\-Union().
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a08cecaf3025aeeeea90b26acbe87ce24}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Dimensions@{get\-Dimensions}}
+\index{get\-Dimensions@{get\-Dimensions}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Dimensions}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Dimensions} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a08cecaf3025aeeeea90b26acbe87ce24}
+
+
+get the dimensions of the subpaving this manages. 
+
+\begin{DoxyReturn}{\-Returns}
+0 if this does not have a subpaving, else returns the dimensions of the subpaving. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a2bc216ff479f7edc61e1ef8619c27214}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Domain\-Volume@{get\-Domain\-Volume}}
+\index{get\-Domain\-Volume@{get\-Domain\-Volume}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Domain\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Domain\-Volume} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a2bc216ff479f7edc61e1ef8619c27214}
+
+
+get volume of the root box of the subpaving this manages. 
+
+\begin{DoxyReturn}{\-Returns}
+volume of the root box of the subpaving this manages, or 0.\-0 if this has no subpaving. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a2499c322fa30a4f07d8ad7360a8d7d95}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-I\-A\-E@{get\-I\-A\-E}}
+\index{get\-I\-A\-E@{get\-I\-A\-E}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-I\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-I\-A\-E} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{pcf}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a2499c322fa30a4f07d8ad7360a8d7d95}
+
+
+\-Get the total integrated absolute error (\-I\-A\-E) between this and another \-Piecewise\-Constant\-Function. 
+
+\-The \-I\-A\-E is the total of the absolute value of the differences in the integrals of this and the other \-Piecewise\-Constant\-Function {\itshape pcf\/}.
+
+\begin{DoxyNote}{\-Note}
+that this method does not check that either this or {\itshape rmsp\/} have the same total integrals nor does it check that either is normalised.
+\end{DoxyNote}
+\-If any of the values on the leaf nodes of the subpaving managed by this or {\itshape pcf\/} is \-Infinity, the value returned will be \-Infinity.
+
+\-This method is symmetric, ie get\-I\-A\-E(pcf) == pcf.\-get\-I\-A\-E($\ast$this).
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em pcf} & the \-Piecewise\-Constant\-Function against which to calculate the \-I\-A\-E. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+total absolute area of the difference between function represented by this and function represented by {\itshape pcf\/}. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+this and {\itshape pcf\/} have the same domain box. 
+
+\-Both this and {\itshape pcf\/} must have a subpaving to manage. 
+\end{DoxyPrecond}
+
+
+\-Referenced by main().
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ac1b7749f4bf0240e24517d87a832dbd7}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-L1\-Distance@{get\-L1\-Distance}}
+\index{get\-L1\-Distance@{get\-L1\-Distance}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-L1\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-L1\-Distance} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{other}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ac1b7749f4bf0240e24517d87a832dbd7}
+\-Gets the \-L1 distance between this and another \-Piecewise\-Constant\-Function.
+
+\-The \-L1 distance is defined as the sum of the absolute values of the differences in 'area' represented by this and {\itshape other\/} over the union of their partitions (leaf nodes in subpaving managed).
+
+\-Throws the following exceptions\-: 
+\begin{DoxyItemize}
+\item \-Throws a \-Null\-Subpaving\-\_\-\-Error if either this or by {\itshape other\/} have no subpaving. 
+\item \-Throws a \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the dimensions and sizes of the root boxes of this and {\itshape other\/} are not the same. 
+\end{DoxyItemize}
+
+\begin{DoxyNote}{\-Note}
+this will not attempt to adjust for any difference in total integral between this and {\itshape other\-:\/} the \-L1 distance is simply taken as the difference between the 'areas' of the leaf boxes.
+
+\-If this or {\itshape other\/} manages a subpaving in which there are leaf nodes with infinite value then the \-L1 distance between them will be infinite (cxsc\-::\-Infinity).
+\end{DoxyNote}
+
+\begin{DoxyParams}{\-Parameters}
+{\em other} & the \-Piecewise\-Constant\-Function to calculate the \-L1 distance against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape other\/} must have subpavings to manage and the root boxes of those subpavings must be the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this will be unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a50b455741489ca51374faee1dca38d61}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Label@{get\-Label}}
+\index{get\-Label@{get\-Label}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Label}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Label} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a50b455741489ca51374faee1dca38d61}
+
+
+\-Get the label. 
+
+\begin{DoxyReturn}{\-Returns}
+the label for this. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_aad0a7c30389235a8fa0a36fc0a1d2c7a}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Leaf\-Levels@{get\-Leaf\-Levels}}
+\index{get\-Leaf\-Levels@{get\-Leaf\-Levels}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Leaf\-Levels}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Int\-Vec} {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Leaf\-Levels} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_aad0a7c30389235a8fa0a36fc0a1d2c7a}
+\-Get a vector of the leaf node levels.
+
+\-Root is level 0, next level down is 1, etc.
+
+\begin{DoxyReturn}{\-Returns}
+a vector of leaf levels, left to right order, 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_aa27d2f72b0d1edcddd73929a69b44dfb}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Leaf\-Levels\-String@{get\-Leaf\-Levels\-String}}
+\index{get\-Leaf\-Levels\-String@{get\-Leaf\-Levels\-String}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Leaf\-Levels\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Leaf\-Levels\-String} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_aa27d2f72b0d1edcddd73929a69b44dfb}
+\-Get a string of the leaf node levels.
+
+\-Root is level 0, next level down is 1, etc. \-Example return string \char`\"{}3,3,2,1\char`\"{}
+
+\begin{DoxyReturn}{\-Returns}
+a comma separated string of leaf levels, left to right order 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a2ca8259389efd2797732caeeab988b3d}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Root\-Box@{get\-Root\-Box}}
+\index{get\-Root\-Box@{get\-Root\-Box}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Root\-Box}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::ivector {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Root\-Box} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a2ca8259389efd2797732caeeab988b3d}
+
+
+\-Get the box of the subpaving managed by this. 
+
+\begin{DoxyNote}{\-Note}
+with the present constructors, it is impossible for this to have a subpaving but for the subpaving to have no box.
+\end{DoxyNote}
+\begin{DoxyReturn}{\-Returns}
+copy of the box of the subpaving managed by this. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_afecdfb659b961eab7f8d18160bea7296}{has\-Sub\-Paving()} == true. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a938b27618e6805bc57e70ab8f0e6280d}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Root\-Leaves@{get\-Root\-Leaves}}
+\index{get\-Root\-Leaves@{get\-Root\-Leaves}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Root\-Leaves}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Root\-Leaves} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a938b27618e6805bc57e70ab8f0e6280d}
+
+
+\-Gets number of leaf nodes in the root paving. 
+
+\begin{DoxyReturn}{\-Returns}
+the total number of leaves in the subpaving managed by this. \-Returns 0 if this has no subpaving to manage. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a88d23ec0f66eef3215b2081cec17815c}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Sub\-Paving@{get\-Sub\-Paving}}
+\index{get\-Sub\-Paving@{get\-Sub\-Paving}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Sub\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Mapped\-S\-Pnode}$\ast$ {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Sub\-Paving} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a88d23ec0f66eef3215b2081cec17815c}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!get\-Total\-Integral@{get\-Total\-Integral}}
+\index{get\-Total\-Integral@{get\-Total\-Integral}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{get\-Total\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::get\-Total\-Integral} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}
+
+
+\-Get the total integral of the piecewise constant function represented by this. 
+
+\-The integral is calculated as the sum over all the leaves of the subpaving managed by this of the absolute value of the real range on the leaf multiplied by the volume of the box represented by the leaf.
+
+\-If any of the values on the leaf nodes of the subpaving managed by this is \-Infinity, the value returned will be \-Infinity.
+
+\begin{DoxyReturn}{\-Returns}
+total area between function and 0 for the function as represented by this. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This must have a subpaving to manage. 
+\end{DoxyPrecond}
+
+
+\-Referenced by main().
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ac6bc781088b8a8554bc6598f25e75988}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!handle\-S\-P\-Error@{handle\-S\-P\-Error}}
+\index{handle\-S\-P\-Error@{handle\-S\-P\-Error}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{handle\-S\-P\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::handle\-S\-P\-Error} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Real\-Mapped\-S\-Pnode} \&}]{spn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_ac6bc781088b8a8554bc6598f25e75988}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a06b96fb88f394c3b65af65e6eff44e7a}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!has\-Infinite\-Piecewise\-Constant\-Values@{has\-Infinite\-Piecewise\-Constant\-Values}}
+\index{has\-Infinite\-Piecewise\-Constant\-Values@{has\-Infinite\-Piecewise\-Constant\-Values}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{has\-Infinite\-Piecewise\-Constant\-Values}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::has\-Infinite\-Piecewise\-Constant\-Values} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a06b96fb88f394c3b65af65e6eff44e7a}
+
+
+\-Get whether the subpaving managed by this has infinite range values. 
+
+\begin{DoxyReturn}{\-Returns}
+true if the subpaving managed by this has infinite ranges, false otherwise. \-Returns false if this has no subpaving to manage. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a892d2caaed6213ae262f2a0b1dba27b5}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!has\-Negative\-Piecewise\-Constant\-Values@{has\-Negative\-Piecewise\-Constant\-Values}}
+\index{has\-Negative\-Piecewise\-Constant\-Values@{has\-Negative\-Piecewise\-Constant\-Values}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{has\-Negative\-Piecewise\-Constant\-Values}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::has\-Negative\-Piecewise\-Constant\-Values} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a892d2caaed6213ae262f2a0b1dba27b5}
+
+
+\-Get whether the subpaving managed by this has negative range values. 
+
+\begin{DoxyReturn}{\-Returns}
+true if the subpaving managed by this has negative ranges, false otherwise. \-Returns false if this has no subpaving to manage. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_afecdfb659b961eab7f8d18160bea7296}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!has\-Sub\-Paving@{has\-Sub\-Paving}}
+\index{has\-Sub\-Paving@{has\-Sub\-Paving}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{has\-Sub\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::has\-Sub\-Paving} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_afecdfb659b961eab7f8d18160bea7296}
+
+
+\-Get whether this has a subpaving to manage. 
+
+\begin{DoxyNote}{\-Note}
+with the present constructors, it is impossible for this to have a subpaving but for the subpaving to have no box.
+\end{DoxyNote}
+\begin{DoxyReturn}{\-Returns}
+true if this has a subpaving to manage. false otherwise. 
+\end{DoxyReturn}
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::reshape\-To\-Union().
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a501a9760b607f3275e9ce85eb5cae136}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!make\-Marginal@{make\-Marginal}}
+\index{make\-Marginal@{make\-Marginal}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{make\-Marginal}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::make\-Marginal} (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ int $>$ \&}]{req\-Dims}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a501a9760b607f3275e9ce85eb5cae136}
+
+
+\-Make a marginalised version of this. 
+
+\-Marginalises to take out the given dimensions and adjusts the constant values for each node of the subpaving managed by this so that the node vol x node value is the same as before marginalisation, and hence that the overall sum of (node vol x valu3) over all leaf nodes (\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()}) is the same as before marginalisation.
+
+\begin{DoxyNote}{\-Note}
+allowed dimensions start at 1, ie dimensions to marginalise on can include 1, 2, ... dimensions of this.
+\end{DoxyNote}
+\-Throws a \-Null\-Subpavings\-\_\-\-Error if the subpaving that this manages is a \-N\-U\-L\-L pointer.
+
+\-Throws a \hyperlink{classsubpavings_1_1NoBox__Error}{\-No\-Box\-\_\-\-Error} if the subpaving box is empty.
+
+\-Throws an std\-::invalid\-\_\-argument if the required dimensions {\itshape req\-Dim\/} is empty or contains dimensions outside the range of the dimensions of this.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em req\-Dims} & is a vector of the dimensions to include in marginal. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \hyperlink{classsubpavings_1_1PiecewiseConstantFunction}{\-Piecewise\-Constant\-Function} managing a subpaving which is the marginalised version of the subpaving managed by this. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage and {\itshape req\-Dims\/} must be compatible with current dimensions. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+returned estimator will have sum over leaf nodes of (node vol x value) equal to that for this. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ae18f9fc32df16470d268b2bd70b32e9f}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!make\-Normalised@{make\-Normalised}}
+\index{make\-Normalised@{make\-Normalised}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{make\-Normalised}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::make\-Normalised} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ae18f9fc32df16470d268b2bd70b32e9f}
+\-Make a normalised version of this.
+
+\-Normalises this so that the sum over all the leaf nodes of the subpaving managed by this of the product of the volume of the box represented by the leaf node and the constant function value on that box is 1.\-0.
+
+\-Throws a \-Null\-Subpavings\-\_\-\-Error if the subpaving that this manages is a \-N\-U\-L\-L pointer.
+
+\-Throws an std\-::runtime\-\_\-error if the subpaving managed by this has no 'area', ie \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()} $<$= 0.
+
+\begin{DoxyReturn}{\-Returns}
+\-The normalised version of this. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage and \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()} $>$ 0.\-0. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_adb8c06d489bebfe579823751033b7bcd}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!make\-Shape\-To\-Union@{make\-Shape\-To\-Union}}
+\index{make\-Shape\-To\-Union@{make\-Shape\-To\-Union}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{make\-Shape\-To\-Union}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function} {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::make\-Shape\-To\-Union} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_adb8c06d489bebfe579823751033b7bcd}
+
+
+\-Return a \-Piecewise\-Constant\-Function that has subpaving that is the union of this's subpaving and the subpaving of another \-Piecewise\-Constant\-Function. 
+
+\-Throws a \-Null\-Subpavings\-\_\-\-Error if the subpaving that this manages is a \-N\-U\-L\-L pointer or if the subpaving managed by {\itshape other\/} is a \-N\-U\-L\-L pointer.
+
+\-Throws a \hyperlink{classsubpavings_1_1NoBox__Error}{\-No\-Box\-\_\-\-Error} if the subpaving of this has no box or if the the subpaving of {\itshape other\/} has no box.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the subpaving boxes of this and {\itshape other\/} are not identical.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em other} & is the \-Piecewise\-Constant\-Function to make the union against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that has a subpaving that is the union of the shape of the subpaving managed by this and the shape of the subpaving managed by {\itshape other\/}. {\itshape this\/} and other are unchanged. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape other\/} have subpavings with boxes to manage. 
+
+\-The boxes of the subpavings of this and {\itshape other\/} are the same. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a414799df36e8a5aea60b6ae9b3713cf8}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!make\-Slice@{make\-Slice}}
+\index{make\-Slice@{make\-Slice}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{make\-Slice}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::make\-Slice} (
+\begin{DoxyParamCaption}
+\item[{const std\-::vector$<$ int $>$ \&}]{slice\-Dims, }
+\item[{const std\-::vector$<$ cxsc\-::real $>$ \&}]{slice\-Pts}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a414799df36e8a5aea60b6ae9b3713cf8}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_aae1c0cd836577f309def9d7a8d9a534a}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!normalise@{normalise}}
+\index{normalise@{normalise}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{normalise}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::normalise} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_aae1c0cd836577f309def9d7a8d9a534a}
+\-Normalise this.
+
+\-Normalises this so that the sum over all the leaf nodes of the subpaving managed by this of the product of the volume of the box represented by the leaf node and the constant function value on that box is 1.\-0.
+
+\-Throws a \-Null\-Subpavings\-\_\-\-Error if the subpaving that this manages is a \-N\-U\-L\-L pointer.
+
+\-Throws an std\-::runtime\-\_\-error if the subpaving managed by this has no 'area', ie \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()} $<$= 0.
+
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage and \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()} $>$ 0.\-0. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+\-This has the same subpaving as before the operation and \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()} == 1.\-0 
+\end{DoxyPostcond}
+
+
+\-Referenced by main().
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a64722ca127c5169779463574a35d661d}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a64722ca127c5169779463574a35d661d}
+
+
+\-Multiplication operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+\begin{DoxyNote}{\-Note}
+\-Note that if this and {\itshape rhs\/} have the same label the result of the operation will have that label, but if this and {\itshape rhs\/} do not have the same label, the result will get the default label (0).
+\end{DoxyNote}
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to multiply this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of that subpaving is the result of multiplying the values on the equivalent nodes of this by the values on the equivalent nodes of {\itshape rhs\/}. \-If the labels of this and {\itshape rhs\/} are the same, the returned object will have the same label as this; otherwise the returned object's label will be the default label (0). 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a2c2c76a16d5ca85d74e00a61502f31d5}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{mult}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a2c2c76a16d5ca85d74e00a61502f31d5}
+
+
+\-Scalar multiplication operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em mult} & the value to multiply this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that the same as the subpaving managed by this and the value on each node of that subpaving is the result of multiplying the values on the equivalent nodes of this by {\itshape mult\/}. \-The label of this is unchanged. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_af353f8623ce62aa2bf7e87942d5e89f7}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_af353f8623ce62aa2bf7e87942d5e89f7}
+
+
+\-Multiplication of self operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to multiply this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of the subpaving is the result of multiplying the values on the equivalent nodes of this by the values on the equivalent nodes of {\itshape rhs\/} before the operation. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_aa7c90fe41fba228dbe5cbe01878e1d54}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{mult}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_aa7c90fe41fba228dbe5cbe01878e1d54}
+
+
+\-Self-\/scalar multiplication operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em mult} & the value to multiply this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the same as the subpaving managed by this before the operation and the value on each node of the subpaving is the result of multiplying the values on the equivalent nodes of this by {\itshape mult\/}. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a324236b21b578ef2176a487d10b986b5}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator+@{operator+}}
+\index{operator+@{operator+}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a324236b21b578ef2176a487d10b986b5}
+
+
+\-Addition operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+\begin{DoxyNote}{\-Note}
+\-Note that if this and {\itshape rhs\/} have the same label the result of the operation will have that label, but if this and {\itshape rhs\/} do not have the same label, the result will get the default label (0).
+\end{DoxyNote}
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to add to this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of that subpaving is the result of adding the values on the equivalent nodes of this and {\itshape rhs\/}. \-If the labels of this and {\itshape rhs\/} are the same, the returned object will have the same label as this; otherwise the returned object's label will be the default label (0). 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a63956842071d1e793d54ddc6cf759970}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator+@{operator+}}
+\index{operator+@{operator+}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{add}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a63956842071d1e793d54ddc6cf759970}
+
+
+\-Scalar addition operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em add} & the value to add to this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that the same as the subpaving managed by this and the value on each node of that subpaving is the result of adding {\itshape add\/} to the values on the equivalent nodes of this. \-The label of this is unchanged. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a13d88986c0752e996fced71cae4e3034}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a13d88986c0752e996fced71cae4e3034}
+
+
+\-Addition to self operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to add to this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of the subpaving is the result of adding the values on the equivalent nodes of this before the operation and {\itshape rhs\/}. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_afb8037a02dafaab611e4aac28a7326ab}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{add}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_afb8037a02dafaab611e4aac28a7326ab}
+
+
+\-Self-\/scalar addition operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em add} & the value to add to this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the same as the subpaving managed by this before the operation and the value on each node of the subpaving is the result of adding {\itshape add\/} to the values on the equivalent nodes of this. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a52b02b0ec1773ae11c4d986dd56a69f8}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a52b02b0ec1773ae11c4d986dd56a69f8}
+
+
+\-Subtraction operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+\begin{DoxyNote}{\-Note}
+\-Note that if this and {\itshape rhs\/} have the same label the result of the operation will have that label, but if this and {\itshape rhs\/} do not have the same label, the result will get the default label (0).
+\end{DoxyNote}
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to subtract from this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of that subpaving is the result of subtracting the values on the equivalent nodes of {\itshape rhs\/} from the values on the equivalent nodes of this. \-If the labels of this and {\itshape rhs\/} are the same, the returned object will have the same label as this; otherwise the returned object's label will be the default label (0). 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ad2c304191876befbd35fac6a07dedd74}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{sub}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ad2c304191876befbd35fac6a07dedd74}
+
+
+\-Scalar subtraction operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em sub} & the value to subtract from this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that is the same as the subpaving managed by this and the value on each node of that subpaving is the result of subtracting {\itshape sub\/} from the values on the equivalent nodes of this. \-The label of this is unchanged. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ae64b7e32740671dd8fb0f0905f958de5}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_ae64b7e32740671dd8fb0f0905f958de5}
+
+
+\-Subtraction from self operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to subtract from this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of the subpaving is the result of subtracting the values on the equivalent nodes of {\itshape rhs\/} from the values on the equivalent nodes of this before the operation. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a83ceb8a2a57cb475b400c8436ef79831}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{sub}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a83ceb8a2a57cb475b400c8436ef79831}
+
+
+\-Self-\/scalar subtraction operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em sub} & the value to subtract from this. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the same as the subpaving managed by this before the operation and the value on each node of the subpaving is the result of subtracting {\itshape sub\/} from the values on the equivalent nodes of this. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a3bdc0d055a65d5785c87f77ae30b2512}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator/@{operator/}}
+\index{operator/@{operator/}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a3bdc0d055a65d5785c87f77ae30b2512}
+
+
+\-Division operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+\begin{DoxyNote}{\-Note}
+\-Note that if this and {\itshape rhs\/} have the same label the result of the operation will have that label, but if this and {\itshape rhs\/} do not have the same label, the result will get the default label (0).
+
+\-If any of the nodes of the subpaving managed by {\itshape rhs\/} have a value of 0.\-0 on them, then the \-Piecewise\-Constant\-Function returned will manage a subpaving that has nodes with infinite values on them (the result of dividing by 0.\-0).
+\end{DoxyNote}
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to divide this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of that subpaving is the result of dividing the values on the equivalent nodes of this by the values on the equivalent nodes of {\itshape rhs\/}. \-If the labels of this and {\itshape rhs\/} are the same, the returned object will have the same label as this; otherwise the returned object's label will be the default label (0). 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ae7f061e72dc60d46956bfa0f6b4f2b4e}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator/@{operator/}}
+\index{operator/@{operator/}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf \-Piecewise\-Constant\-Function} subpavings\-::\-Piecewise\-Constant\-Function\-::operator/ (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{div}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ae7f061e72dc60d46956bfa0f6b4f2b4e}
+
+
+\-Scalar division operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em div} & the value to multiply this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-A \-Piecewise\-Constant\-Function that manages a subpaving that the same as the subpaving managed by this and the value on each node of that subpaving is the result of dividing the values on the equivalent nodes of this by {\itshape div\/}. \-The label of this is unchanged. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+
+{\itshape div\/} != 0.\-0. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a6167942675f27eaab9a2b858375d9bf9}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a6167942675f27eaab9a2b858375d9bf9}
+
+
+\-Division of self operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if either this or {\itshape rhs\/} do not have a subpaving to manage.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the root boxes of this and {\itshape rhs\/} are not identical.
+
+\begin{DoxyNote}{\-Note}
+\-If any of the nodes of the subpaving managed by {\itshape rhs\/} have a value of 0.\-0 on them, then after the division this will have nodes with infinite values on them (the result of dividing by 0.\-0).
+\end{DoxyNote}
+
+\begin{DoxyParams}{\-Parameters}
+{\em rhs} & the object to divide this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape rhs\/} have subpavings to manage. 
+
+\-This and {\itshape rhs\/} have identical root boxes. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the non-\/minimal union of the subpavings managed by this and {\itshape rhs\/} and the value on each node of the subpaving is the result of dividing the values on the equivalent nodes of this by the values on the equivalent nodes of {\itshape rhs\/} before the operation. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a43f950b15d9de80ae4e88353f9d63abb}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator/= (
+\begin{DoxyParamCaption}
+\item[{const cxsc\-::real \&}]{div}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a43f950b15d9de80ae4e88353f9d63abb}
+
+
+\-Self-\/scalar division operator. 
+
+\-Throws a \hyperlink{classsubpavings_1_1NullSubpavingPointer__Error}{\-Null\-Subpaving\-Pointer\-\_\-\-Error} if this does not have a subpaving to manage.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em div} & the value to divide this by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-This has a subpaving to manage. 
+
+{\itshape div\/} != 0.\-0. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this manages a subpaving that is the same as the subpaving managed by this before the operation and the value on each node of the subpaving is the result of dividing the values on the equivalent nodes of this by {\itshape div\/}. \-The label of this is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_afb1b70cb3d82858719f489e6cc239115}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!operator=@{operator=}}
+\index{operator=@{operator=}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Piecewise\-Constant\-Function}\& subpavings\-::\-Piecewise\-Constant\-Function\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Piecewise\-Constant\-Function}}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_afb1b70cb3d82858719f489e6cc239115}
+
+
+\-Copy assignment operator. 
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a86b60ec6a406396eafd09123c20deedf}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Coverage\-Region@{output\-Coverage\-Region}}
+\index{output\-Coverage\-Region@{output\-Coverage\-Region}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Coverage\-Region}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Coverage\-Region} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{cxsc\-::real}]{cov, }
+\item[{int}]{prec}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a86b60ec6a406396eafd09123c20deedf}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a213cebe89d7510df1b0e0c3790c9e33a}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Coverage\-Region@{output\-Coverage\-Region}}
+\index{output\-Coverage\-Region@{output\-Coverage\-Region}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Coverage\-Region}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Coverage\-Region} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{cxsc\-::real}]{cov}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a213cebe89d7510df1b0e0c3790c9e33a}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a4208d0549a7254c38af194e1953c6cc7}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Coverage\-Region@{output\-Coverage\-Region}}
+\index{output\-Coverage\-Region@{output\-Coverage\-Region}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Coverage\-Region}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Coverage\-Region} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{cov\-File\-Name, }
+\item[{cxsc\-::real}]{cov, }
+\item[{int}]{prec, }
+\item[{bool}]{confirm = {\ttfamily true}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a4208d0549a7254c38af194e1953c6cc7}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a38e6bded7df5f65184c4fc5a9b3997f8}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Coverage\-Region@{output\-Coverage\-Region}}
+\index{output\-Coverage\-Region@{output\-Coverage\-Region}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Coverage\-Region}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Coverage\-Region} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{cov\-File\-Name, }
+\item[{cxsc\-::real}]{cov, }
+\item[{bool}]{confirm = {\ttfamily true}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a38e6bded7df5f65184c4fc5a9b3997f8}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a779f82e68a07656a602089a25e994748}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Graph\-Dot@{output\-Graph\-Dot}}
+\index{output\-Graph\-Dot@{output\-Graph\-Dot}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Graph\-Dot}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Graph\-Dot} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a779f82e68a07656a602089a25e994748}
+
+
+\-Make a .dot graph file. 
+
+\-Makes a simple .dot graph from the piecewise constant function using node names and also makes the .png image for this graph.
+
+\begin{DoxyPostcond}{\-Postcondition}
+a .dot file and a .png in the same directory as the program creating it was run in. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a411e285d0cc7c8de1f6ac29706ddb2d4}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Log@{output\-Log}}
+\index{output\-Log@{output\-Log}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Log}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Log} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{int}]{i, }
+\item[{int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a411e285d0cc7c8de1f6ac29706ddb2d4}
+
+
+\-Append current state of estimator to a txt log file. 
+
+\-Format is a tab-\/delimited file of numeric data. \-Output includes node contributions to unscaled \-E\-M\-P under \-C\-O\-P\-E\-R\-R and \-A\-I\-C and the changes in \-E\-M\-P that would result from splitting the node.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em s} & the name of the txt file to send output to. \\
+\hline
+{\em i} & the number of pass (ie, 0, 1, 2, 3 etc) in process. \\
+\hline
+{\em prec} & the precision for output formatting. ie, number of decimal places. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a9327e86ac242a9af67266686cc107370}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Log\-Start@{output\-Log\-Start}}
+\index{output\-Log\-Start@{output\-Log\-Start}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Log\-Start}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Log\-Start} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a9327e86ac242a9af67266686cc107370}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a94a4166cf5d3a009021be8b43e41f9ed}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Root\-To\-Stream\-Tabs@{output\-Root\-To\-Stream\-Tabs}}
+\index{output\-Root\-To\-Stream\-Tabs@{output\-Root\-To\-Stream\-Tabs}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Root\-To\-Stream\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Root\-To\-Stream\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a94a4166cf5d3a009021be8b43e41f9ed}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a9e8783522bdfd696bee2403b867c50d3}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Root\-To\-Txt@{output\-Root\-To\-Txt}}
+\index{output\-Root\-To\-Txt@{output\-Root\-To\-Txt}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Root\-To\-Txt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Root\-To\-Txt} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a9e8783522bdfd696bee2403b867c50d3}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a581599becf533c7fbe4fbccdfb6df4ee}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-Root\-To\-Txt@{output\-Root\-To\-Txt}}
+\index{output\-Root\-To\-Txt@{output\-Root\-To\-Txt}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-Root\-To\-Txt}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-Root\-To\-Txt} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{int}]{prec, }
+\item[{bool}]{confirm}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a581599becf533c7fbe4fbccdfb6df4ee}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a7253ce68ea35a9fb37fd8873ca0c23ef}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-To\-Stream\-Tabs@{output\-To\-Stream\-Tabs}}
+\index{output\-To\-Stream\-Tabs@{output\-To\-Stream\-Tabs}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-To\-Stream\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-To\-Stream\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{os, }
+\item[{int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a7253ce68ea35a9fb37fd8873ca0c23ef}
+
+
+\-Output the subpaving managed by this to a given stream. 
+
+\-Format is a tab-\/delimited data giving details of leaf nodes.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em os} & is a reference to the stream to output the histogramm to. \\
+\hline
+{\em prec} & the precision for output formatting. ie, number of decimal places. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+a reference to the given stream. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ad542b85e0f7364a34a6504721d65c1b3}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-To\-Txt\-Tabs@{output\-To\-Txt\-Tabs}}
+\index{output\-To\-Txt\-Tabs@{output\-To\-Txt\-Tabs}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-To\-Txt\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-To\-Txt\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{int}]{prec = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ad542b85e0f7364a34a6504721d65c1b3}
+
+
+\-Referenced by main().
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a8080671674947611b47430996d91413a}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!output\-To\-Txt\-Tabs@{output\-To\-Txt\-Tabs}}
+\index{output\-To\-Txt\-Tabs@{output\-To\-Txt\-Tabs}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{output\-To\-Txt\-Tabs}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::output\-To\-Txt\-Tabs} (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{s, }
+\item[{int}]{prec, }
+\item[{bool}]{confirm}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a8080671674947611b47430996d91413a}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_abf81273304c10947eab9f5523abbd21b}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!pointwise\-Extension@{pointwise\-Extension}}
+\index{pointwise\-Extension@{pointwise\-Extension}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{pointwise\-Extension}]{\setlength{\rightskip}{0pt plus 5cm}cxsc\-::real {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::pointwise\-Extension} (
+\begin{DoxyParamCaption}
+\item[{const rvector \&}]{pt}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_abf81273304c10947eab9f5523abbd21b}
+
+
+\-Find the pointwise extension of the piecewise constant function for a given data point. 
+
+\-The pointwise extension is the value associated with the leaf node of the subpaving managed by this that has the box containing {\itshape pt\/}.
+
+\begin{DoxyNote}{\-Note}
+the pointwise extension is not adjusted if this is not normalised (\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_ade6c94a0c5b7ffc5ec2ca5ab5e9c6375}{get\-Total\-Integral()} != 1.\-0)\-: it is just the value associated with the leaf node containing {\itshape pt\/} no matter what the total integral of the function over the domain is.
+\end{DoxyNote}
+\-If the point is not in the rootbox of the subpaving managed by this at all, the pointwise extension is 0; \-Throws a \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the dimensions of this and {\itshape pt\/} are not equal.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em pt} & the point to find empirical density for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the empirical density at the point. 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\-This must have a subpaving to manage. 
+
+\-Dimensions of {\itshape pt\/} and this must match. 
+\end{DoxyPrecond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a95d2cd2a73cf7a3ac06a433a35098179}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!reshape\-To\-Union@{reshape\-To\-Union}}
+\index{reshape\-To\-Union@{reshape\-To\-Union}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{reshape\-To\-Union}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::reshape\-To\-Union} (
+\begin{DoxyParamCaption}
+\item[{const {\bf \-Piecewise\-Constant\-Function} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a95d2cd2a73cf7a3ac06a433a35098179}
+
+
+\-Change this so that the subpaving it manages is the union of this's subpaving and the subpaving of another \-Piecewise\-Constant\-Function. 
+
+\-Throws a \-Null\-Subpavings\-\_\-\-Error if the subpaving that this manages is a \-N\-U\-L\-L pointer or if the subpaving managed by {\itshape other\/} is a \-N\-U\-L\-L pointer.
+
+\-Throws a \hyperlink{classsubpavings_1_1NoBox__Error}{\-No\-Box\-\_\-\-Error} if the subpaving of this has no box or if the subpaving of {\itshape other\/} has no box.
+
+\-Throws an \hyperlink{classsubpavings_1_1IncompatibleDimensions__Error}{\-Incompatible\-Dimensions\-\_\-\-Error} if the subpaving boxes of this and {\itshape other\/} are not identical.
+
+\-There will be no change in this if the subpaving of  is everywhere less split than the subpaving of this.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em other} & is the \-Piecewise\-Constant\-Function to make the union against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{\-Precondition}
+\-Both this and {\itshape other\/} have subpavings with boxes to manage. 
+
+\-The boxes of the subpavings of this and {\itshape other\/} are the same. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+the subpaving managed by this has the shape that is the union of its shape before the operation and the shape of the subpaving managed by {\itshape other\/}. {\itshape other\/} is unchanged. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a7b71fbda0321a5272e92f652119f9aa3}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!set\-Label@{set\-Label}}
+\index{set\-Label@{set\-Label}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{set\-Label}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::set\-Label} (
+\begin{DoxyParamCaption}
+\item[{int}]{lab}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a7b71fbda0321a5272e92f652119f9aa3}
+
+
+\-Set the label. 
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a3fd630a95c48dda0a828bb2229c9d854}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!simulate\-Data@{simulate\-Data}}
+\index{simulate\-Data@{simulate\-Data}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{simulate\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-R\-Vec\-Data}\& {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::simulate\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-R\-Vec\-Data} \&}]{container, }
+\item[{size\-\_\-t}]{number\-To\-Simulate, }
+\item[{gsl\-\_\-rng $\ast$}]{r}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_a3fd630a95c48dda0a828bb2229c9d854}
+
+
+\-Simulator taking a random number generator argument. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em r} & is a random number generator to use for the simulation. \\
+\hline
+\end{DoxyParams}
+
+
+\-Referenced by main().
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_ad818b3800904d40fbee121f0bea973b5}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!simulate\-Data@{simulate\-Data}}
+\index{simulate\-Data@{simulate\-Data}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{simulate\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-R\-Vec\-Data}\& {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::simulate\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-R\-Vec\-Data} \&}]{container, }
+\item[{size\-\_\-t}]{number\-To\-Simulate, }
+\item[{long unsigned int}]{seed}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_ad818b3800904d40fbee121f0bea973b5}
+
+
+\-Simulator taking a random number generator seed argument. 
+
+\-Simulation uses the gsl\-\_\-rng\-\_\-mt19937 generator and seed {\itshape seed\/}.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em seed} & is a random number generator seed to use for the simulation. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_abe41e3bc175dbb124d40e242e2ee6b06}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!simulate\-Data@{simulate\-Data}}
+\index{simulate\-Data@{simulate\-Data}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{simulate\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-R\-Vec\-Data}\& {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::simulate\-Data} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-R\-Vec\-Data} \&}]{container, }
+\item[{size\-\_\-t}]{number\-To\-Simulate}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_abe41e3bc175dbb124d40e242e2ee6b06}
+
+
+\-Simulator using default random number generator. 
+
+\-Simulation uses the gsl\-\_\-rng\-\_\-mt19937 generator and seed = 1234. \hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a6d0382e5493bd90cb80a823e567cab4f}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!split\-To\-Shape@{split\-To\-Shape}}
+\index{split\-To\-Shape@{split\-To\-Shape}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{split\-To\-Shape}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::split\-To\-Shape} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{instruction}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a6d0382e5493bd90cb80a823e567cab4f}
+
+
+\-Split this to a specified shape. 
+
+\begin{DoxyNote}{\-Note}
+that ranges for each node in the revised shape will have to be set explicitly, using \hyperlink{classsubpavings_1_1PiecewiseConstantFunction_a24005b5dad3a4417de9d6fc68462258f}{allocate\-Ranges()}.
+\end{DoxyNote}
+\-Throws a \-Null\-Subpavings\-\_\-\-Error if the subpaving that this manages is a \-N\-U\-L\-L pointer.
+
+\-Throws a \hyperlink{classsubpavings_1_1NoBox__Error}{\-No\-Box\-\_\-\-Error} if the subpaving box is empty.
+
+\-Prints a message to the standard error output if the instruction could not be carried out.
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em instruction} & specifies the required shape, eg \char`\"{}3, 3, 2, 1\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+true if the split was successful, false otherwise 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{\-Precondition}
+\hyperlink{classsubpavings_1_1PiecewiseConstantFunction_afecdfb659b961eab7f8d18160bea7296}{has\-Sub\-Paving()} == true. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{\-Postcondition}
+this has subpaving with shape specified by {\itshape instruction\/} and the function value mapped to each node in the subpaving is the same as the value mapped to the root box before the operation. 
+\end{DoxyPostcond}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_abb23fd1b7e0dc5ee81c976c23c1452a0}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!string\-Summary@{string\-Summary}}
+\index{string\-Summary@{string\-Summary}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{string\-Summary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::string\-Summary} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classsubpavings_1_1PiecewiseConstantFunction_abb23fd1b7e0dc5ee81c976c23c1452a0}
+
+
+\-Get a string summary of this estimator's properties. 
+
+\-A string description of this. \-Includes the address of the subpaving managed but not details of that subpaving.
+
+\begin{DoxyReturn}{\-Returns}
+the string summary. 
+\end{DoxyReturn}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a5b106e9526613ce2a0f81bd4e303b6cf}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!swap@{swap}}
+\index{swap@{swap}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::swap} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Piecewise\-Constant\-Function} \&}]{pcf}
+\end{DoxyParamCaption}
+)}}\label{classsubpavings_1_1PiecewiseConstantFunction_a5b106e9526613ce2a0f81bd4e303b6cf}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_a622a9d3b705f1c81cd7a5a7b95e8d4c8}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!label@{label}}
+\index{label@{label}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{label}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::label}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_a622a9d3b705f1c81cd7a5a7b95e8d4c8}
+\-The label. 
+
+\-Definition at line 1039 of file piecewise\-\_\-constant\-\_\-function.\-hpp.
+
+\hypertarget{classsubpavings_1_1PiecewiseConstantFunction_aef23daaf4b73237b67ed40985b3038a3}{\index{subpavings\-::\-Piecewise\-Constant\-Function@{subpavings\-::\-Piecewise\-Constant\-Function}!root\-Paving@{root\-Paving}}
+\index{root\-Paving@{root\-Paving}!subpavings::PiecewiseConstantFunction@{subpavings\-::\-Piecewise\-Constant\-Function}}
+\paragraph[{root\-Paving}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Real\-Mapped\-S\-Pnode}$\ast$ {\bf subpavings\-::\-Piecewise\-Constant\-Function\-::root\-Paving}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classsubpavings_1_1PiecewiseConstantFunction_aef23daaf4b73237b67ed40985b3038a3}
+
+
+\-Pointer to the root node of the subpaving tree. 
+
+
+
+\-Definition at line 1035 of file piecewise\-\_\-constant\-\_\-function.\-hpp.
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{piecewise__constant__function_8hpp}{piecewise\-\_\-constant\-\_\-function.\-hpp}\end{DoxyCompactItemize}

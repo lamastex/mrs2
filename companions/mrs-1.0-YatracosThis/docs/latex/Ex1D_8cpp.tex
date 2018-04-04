@@ -1,0 +1,129 @@
+\hypertarget{Ex1D_8cpp}{\subsection{\-Ex1\-D.\-cpp \-File \-Reference}
+\label{Ex1D_8cpp}\index{\-Ex1\-D.\-cpp@{\-Ex1\-D.\-cpp}}
+}
+
+
+\-Mapped\-S\-Pnode example 1-\/d main.  
+
+
+{\ttfamily \#include \char`\"{}\-Example\-Fobj1\-D\-\_\-1.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Example\-Fobj1\-D\-\_\-2.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}realmappedspnode.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}mappedspnodevisitor\-\_\-expand.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$fstream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Ex1D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{output} (string \&filename, const \hyperlink{classsubpavings_1_1SPnode}{\-S\-Pnode} \&node)
+\item 
+int \hyperlink{Ex1D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Mapped\-S\-Pnode example 1-\/d main. \-Mapped\-S\-Pnode example 1-\/d oscillating main.
+
+\-This example is f(x) = exp(-\/x$^\wedge$2) 
+
+\-Definition in file \hyperlink{Ex1D_8cpp_source}{\-Ex1\-D.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{Ex1D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Ex1\-D.\-cpp@{\-Ex1\-D.\-cpp}!main@{main}}
+\index{main@{main}!Ex1D.cpp@{\-Ex1\-D.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Ex1D_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\-Definition at line 38 of file \-Ex1\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::accept(), and output().
+
+
+\begin{DoxyCode}
+{
+
+        cout << "\nEx1D\n" << endl;
+
+        real tolerance = 0.07;
+
+        int dims = 1;
+        ivector pavingBox(dims);
+        interval pavingInterval(-4,4);
+        for(int k=1; k <= dims; k++) pavingBox[k] = pavingInterval;
+
+
+        RealMappedSPnode nodeRoot1(pavingBox); // make a MappedSPnode object
+        RealMappedSPnode nodeRoot2(pavingBox); // make a MappedSPnode object
+
+        ExampleMappedFobj1D_1 realF1;
+        ExampleMappedFobj1D_2 realF2;
+
+        MappedSPnodeVisitorExpand expander1(realF1, tolerance);
+        MappedSPnodeVisitorExpand expander2(realF2, tolerance);
+
+        nodeRoot1.accept(expander1);
+        nodeRoot2.accept(expander2);
+
+        string filename = "Ex1D_pt07_1.txt";
+        output(filename, nodeRoot1);
+
+        filename = "Ex1D_pt07_2.txt";
+        output(filename, nodeRoot2);
+
+
+        RealMappedSPnode nodeRoot = nodeRoot1 + nodeRoot2;
+        filename = "Ex1D_pt07_added.txt";
+        output(filename, nodeRoot);
+
+
+
+    return 0;
+
+}
+\end{DoxyCode}
+\hypertarget{Ex1D_8cpp_a91337b8216794ab4371528e4d8f07aa2}{\index{\-Ex1\-D.\-cpp@{\-Ex1\-D.\-cpp}!output@{output}}
+\index{output@{output}!Ex1D.cpp@{\-Ex1\-D.\-cpp}}
+\paragraph[{output}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf output} (
+\begin{DoxyParamCaption}
+\item[{string \&}]{filename, }
+\item[{const {\bf \-S\-Pnode} \&}]{node}
+\end{DoxyParamCaption}
+)}}\label{Ex1D_8cpp_a91337b8216794ab4371528e4d8f07aa2}
+
+
+\-Definition at line 21 of file \-Ex1\-D.\-cpp.
+
+
+
+\-References subpavings\-::\-S\-Pnode\-::leaves\-Output\-Tabs().
+
+
+
+\-Referenced by do\-M\-C\-M\-C\-G\-R\-Auto(), and main().
+
+
+\begin{DoxyCode}
+{
+        // To generate a file output
+        ofstream os(filename.c_str());         // Filename, c-string version
+        if (os.is_open()) {
+
+            node.leavesOutputTabs(os); // the output
+            std::cout << "The output of the example"
+                    << " has been written to " << filename << std::endl << 
+      std::endl;
+            os.close();
+        }
+        else {
+            std::cerr << "Error: could not open file named "
+                << filename << std::endl << std::endl;
+        }
+}
+\end{DoxyCode}

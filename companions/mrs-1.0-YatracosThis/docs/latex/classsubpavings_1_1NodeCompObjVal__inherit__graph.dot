@@ -1,0 +1,34 @@
+digraph G
+{
+  edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
+  node [fontname="FreeSans",fontsize="10",shape=record];
+  Node1 [label="{subpavings::NodeCompObjVal\n||+ operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node2 [label="{subpavings::CompAreaVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompAreaVal.shtml",tooltip="Class comparing the area of a histogram."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node3 [label="{subpavings::CompCountVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompCountVal.shtml",tooltip="Class comparing on count of data points associated with a node."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node4 [label="{subpavings::CompCovarMassVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompCovarMassVal.shtml",tooltip="Class comparing the Chebyshev distance between the var-covar and uniform var-covar multiplied with th..."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node5 [label="{subpavings::CompCovarVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompCovarVal.shtml",tooltip="Class comparing the Chebyshev distance between the var-covar and uniform var-covar multiplied with th..."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node6 [label="{subpavings::CompHeightVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompHeightVal.shtml",tooltip="Class comparing on count/volume (ie histogram height) of box of node."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node7 [label="{subpavings::CompHellingerDist1DMassDiamVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompHellingerDist1DMassDiamVal.shtml",tooltip="Class comparing the Chebyshev distance between the var-covar and uniform var-covar multiplied with th..."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node8 [label="{subpavings::CompHellingerDist1DMassVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompHellingerDist1DMassVal.shtml",tooltip="Class comparing the Chebyshev distance between the var-covar and uniform var-covar multiplied with th..."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node9 [label="{subpavings::CompHellingerDist1DVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompHellingerDist1DVal.shtml",tooltip="Class comparing the Chebyshev distance between the var-covar and uniform var-covar multiplied with th..."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node10 [label="{subpavings::CompHellingerDistMassDiamVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompHellingerDistMassDiamVal.shtml",tooltip="Class comparing the Chebyshev distance between the var-covar and uniform var-covar multiplied with th..."];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node11 [label="{subpavings::CompHellingerDistMassVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompHellingerDistMassVal.shtml",tooltip="Class comparing the Chebyshev distance between the var-covar and uniform var-covar multiplied with th..."];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node12 [label="{subpavings::CompMeanMassVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompMeanMassVal.shtml",tooltip="Class comparing the Chebyshev distance between the mean and uniform mean multiplied with the emprical..."];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node13 [label="{subpavings::CompMeanVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompMeanVal.shtml",tooltip="Class comparing the Chebyshev distance between the mean and uniform mean."];
+  Node1 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node14 [label="{subpavings::CompNothingVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompNothingVal.shtml",tooltip="Class comparing nodes to give no change in ordering."];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node15 [label="{subpavings::CompVolVal\n||- operator()()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsubpavings_1_1CompVolVal.shtml",tooltip="Class comparing on volume of box of node."];
+}

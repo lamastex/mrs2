@@ -1,0 +1,219 @@
+\hypertarget{MooreImpSam_2Rosenbrock_2Rosenbrock_8cpp}{\subsection{\-Rosenbrock.\-cpp \-File \-Reference}
+\label{MooreImpSam_2Rosenbrock_2Rosenbrock_8cpp}\index{\-Rosenbrock.\-cpp@{\-Rosenbrock.\-cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\*
+{\ttfamily \#include $<$fstream$>$}\*
+{\ttfamily \#include $<$set$>$}\*
+{\ttfamily \#include $<$vector$>$}\*
+{\ttfamily \#include $<$string$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include $<$getopt.\-h$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include \char`\"{}interval.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}rmath.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}intvector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ivector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}rvector.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}imatrix.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-randist.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-rng.\-h$>$}\*
+{\ttfamily \#include $<$gsl/gsl\-\_\-qrng.\-h$>$}\*
+{\ttfamily \#include $<$functional$>$}\*
+{\ttfamily \#include $<$algorithm$>$}\*
+{\ttfamily \#include $<$numeric$>$}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$assert.\-h$>$}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$ctype.\-h$>$}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Small\-Classes.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-F\-Rosenbrock.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}\-M\-R\-Sampler.\-hpp\char`\"{}}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{MooreImpSam_2Rosenbrock_2Rosenbrock_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{MooreImpSam_2Rosenbrock_2Rosenbrock_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{\index{\-Moore\-Imp\-Sam/\-Rosenbrock/\-Rosenbrock.\-cpp@{\-Moore\-Imp\-Sam/\-Rosenbrock/\-Rosenbrock.\-cpp}!main@{main}}
+\index{main@{main}!MooreImpSam/Rosenbrock/Rosenbrock.cpp@{\-Moore\-Imp\-Sam/\-Rosenbrock/\-Rosenbrock.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}}\label{MooreImpSam_2Rosenbrock_2Rosenbrock_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+\-Definition at line 63 of file \-Moore\-Imp\-Sam/\-Rosenbrock/\-Rosenbrock.\-cpp.
+
+
+
+\-References f(), \-F\-Rosenbrock\-::get\-\_\-interval\-\_\-calls(), \-M\-R\-Sampler\-::get\-\_\-n\-\_\-topologies(), \-F\-Rosenbrock\-::get\-\_\-real\-\_\-calls(), \-Height, \-M\-R\-Sampler\-::\-Importance\-Sample\-Many(), \-M\-R\-Sampler\-::\-Importance\-Sample\-Many\-Quasi(), \-I\-S\-Sample\-::\-Integral\-Estimate(), mean(), \-I\-S\-Sample\-::\-Mean(), \-M\-S\-E(), \-I\-S\-Sample\-::\-Print\-Means(), taylor\-::sqrt(), \-Tinverse, and var().
+
+
+\begin{DoxyCode}
+{
+  ios::sync_with_stdio ();  // call this function so iostream works with stdio
+  cout << SetPrecision (20, 15);  // Number of mantissa digits in I/O
+  
+  // set default values
+  int n_dimensions = 2; 
+  int n_boxes = 100;
+  int n_samples = 50;
+  double Alb = 1.0;// partition until lower bound on Acceptance Prob. is > Alb
+  unsigned theSeed = 0;
+  unsigned theMethod = 0;
+  bool UseResidualSampling = false;
+  long Nrep = 1;
+  
+  if (argc >= 2)
+  {
+    sscanf (argv[1], "%i", &n_dimensions);
+    if (argc >= 3)
+    {
+      sscanf (argv[2], "%i", &n_boxes);
+      
+      if (argc >= 4)
+        sscanf (argv[3], "%i", &n_samples);
+      if (argc >= 5) 
+        sscanf (argv[4], "%ui", &theSeed);
+      if (argc >= 6)
+        sscanf (argv[5], "%ui", &theMethod);    //0 = IMPSAM-PseudoRnd, 1 =
+       IMPSAM-QuasiRnd
+
+      if (argc >= 7)
+        cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>
+       <method(IS-pseudo/IS-quasi::0/1)>; "
+             << "extra arguments ignored.\n";
+    }
+    
+    else cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>
+       <method(IS-pseudo/IS-quasi::0/1)>; "
+              << "extra arguments ignored.\n";    
+  }
+  
+  cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes 
+       << "  n_samples: " << n_samples << "  rng_seed = " << theSeed  
+       << endl; //getchar();
+  cout << "theMethod: " << theMethod << endl;
+  cout << "UseResidualSampling: " << UseResidualSampling << endl;
+  
+  bool REJSAM = false;
+  bool IMPSAM = true;
+  bool PSEUDO = true;   //when false we use Quasi-random streams
+  
+  if (theMethod == 0)
+  {
+    REJSAM = false;
+    IMPSAM = true;
+    PSEUDO = true;
+  }
+  if (theMethod == 1)
+  {
+    REJSAM = false;
+    IMPSAM = true;
+    PSEUDO = false;
+  }
+  
+  //Parameters specific to the Rosenbrock target
+  real Tinverse = 1.0;
+  real Height = 100.0;
+  real RosenDomainLimit = 10.0;
+    
+  bool UseLogPi = false; // log scale won't work naively
+  bool use_f_scale = false;
+  
+  // make the function object
+  FRosenbrock f (n_dimensions, 
+                      Tinverse, Height, RosenDomainLimit, UseLogPi);
+  
+  clock_t T1 = clock (), T2, T3;
+  // Construct theSampler with the chosen target shape object FTG
+  MRSampler theSampler (f, n_boxes, Alb, theSeed, (use_f_scale == 1));
+  T2 = clock ();
+  double Ptime = (double) (T2 - T1) / CLOCKS_PER_SEC;
+  
+  vector<double> results(Nrep);
+  vector<double> errests(Nrep);
+  cout << "begin REPS ... \n" << endl;
+  for (int irep = 0; irep < Nrep; irep++)
+  {
+    
+    if (IMPSAM)
+    {
+      ISSample is_sample;
+      if (PSEUDO)
+      {
+        cout << "before ImportanceSampleMany" << endl;
+        theSampler.ImportanceSampleMany (n_samples, UseResidualSampling, 1, 
+      is_sample);
+      }
+
+      else
+      {
+        cout << "before ImpSampleManyQuasi" << endl;
+        theSampler.ImportanceSampleManyQuasi (n_samples,
+                                              UseResidualSampling,
+                                              is_sample);
+      }
+      vector<real> integral_ests(theSampler.get_n_topologies());
+      double IntegralEstimate = _double (is_sample.IntegralEstimate (
+      integral_ests));
+      results[irep] = IntegralEstimate;
+    //cout << "is_sample IU, N, N: " << is_sample.EnvelopeIntegral << " " <<
+       is_sample.Samples.size() << " " << is_sample.Samples.size() << endl;
+      cout << "ISSampleMany, integral est: " << IntegralEstimate << endl;
+      for(size_t i=0; i<size_t(theSampler.get_n_topologies()); i++){ cout << i 
+      << "    " << integral_ests[i] << endl; }
+    //    cout << "ISSampleMany mean: \n" << is_sample.Mean () << endl;
+      vector<rvector> means = is_sample.Mean();
+      is_sample.PrintMeans(cout);
+      for(size_t i=0; i<means.size(); i++){cout << "label: " << i << endl << "
+      mean: " << endl << means[i] << endl; }
+    //  cout << "ISSampleMany sample: \n" ; is_sample.Print(cout); cout <<
+       endl;
+    }
+  }       //REPS loop
+  
+  cout << "after Reps loop " << endl;
+  
+  cout << "n interval function calls: " << f.get_interval_calls () << endl;
+  cout << "n real function calls: " << f.get_real_calls () /
+    (double) Nrep << endl;
+  
+  if(Nrep > 1)
+  {
+    double themean = mean (Nrep, (&results[0]));
+    double thevar = var (Nrep, (&results[0]));
+    double mean_errest = mean (Nrep, (&errests[0]));
+    cout << "mean, stddev, stddev/mean, whMSE, whRMSE: " << themean << " " <<
+      sqrt (thevar) << " " << (sqrt (thevar) / themean) << " " << MSE (1.0,
+                                                                       Nrep,
+                                                                       (&
+      results[0]))
+      << " " << sqrt (MSE (1.0, Nrep, (&results[0]))) << endl;
+    cout << "mean err est: " << mean_errest << endl;
+  }
+  
+  //
+      ---------------------------------------------------------------------------------- -
+  T3 = clock ();
+  double Stime = (double) (T3 - T2) / CLOCKS_PER_SEC;
+  cout << "# CPU Time (seconds). Partitioning: " << Ptime << "  Sampling: " <<
+    Stime << "  Total: " << (Ptime + Stime) << endl;
+  cout << "# CPU time (secods) per replication: " << Ptime + Stime / (double) 
+      Nrep << endl;
+  cout << "# CPU time (secods) per estimate per replication: " << (Ptime + 
+      Stime) / (double) (Nrep*n_samples) << endl;
+  cout << "# N interval function evals: " << 2 *
+    n_boxes << "   N real function evals: " << n_samples << endl;
+  cout << "Domain Partition: \n" ;
+  
+  return 0;     // end main statement
+}
+\end{DoxyCode}

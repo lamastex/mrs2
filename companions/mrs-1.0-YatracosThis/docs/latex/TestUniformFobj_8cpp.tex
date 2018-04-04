@@ -1,0 +1,189 @@
+\hypertarget{TestUniformFobj_8cpp}{\subsection{\-Test\-Uniform\-Fobj.\-cpp \-File \-Reference}
+\label{TestUniformFobj_8cpp}\index{\-Test\-Uniform\-Fobj.\-cpp@{\-Test\-Uniform\-Fobj.\-cpp}}
+}
+
+
+\-Testing \-Uniform function object.  
+
+
+{\ttfamily \#include \char`\"{}\-Uniform\-Fobj.\-hpp\char`\"{}}\*
+{\ttfamily \#include \char`\"{}toolz.\-hpp\char`\"{}}\*
+{\ttfamily \#include $<$stdexcept$>$}\*
+{\ttfamily \#include $<$iostream$>$}\*
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{TestUniformFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Testing \-Uniform function object. 
+
+\-Definition in file \hyperlink{TestUniformFobj_8cpp_source}{\-Test\-Uniform\-Fobj.\-cpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{TestUniformFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{\-Test\-Uniform\-Fobj.\-cpp@{\-Test\-Uniform\-Fobj.\-cpp}!main@{main}}
+\index{main@{main}!TestUniformFobj.cpp@{\-Test\-Uniform\-Fobj.\-cpp}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{TestUniformFobj_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\-Definition at line 40 of file \-Test\-Uniform\-Fobj.\-cpp.
+
+
+
+\-References subpavings\-::\-Mapped\-Fobj\-::image\-Mid(), and subpavings\-::to\-String().
+
+
+\begin{DoxyCode}
+{
+  try {
+    
+    vector <int> dims;
+    dims.push_back(1);
+    dims.push_back(2);
+    dims.push_back(10);
+    
+    for (size_t i = 0; i < dims.size(); ++i) {
+      int dd = dims[i];
+    
+      ivector domain(dd);
+      interval domainInterval(-5,5);
+      for(int i=1; i <= dd; i++) { domain[i] = domainInterval; }
+      UniformFobj realF(domain);
+      
+      {
+        ivector ivec(dd);
+        rvector rvec(dd);
+        real rr1(-0.8);
+        real rr2(0.4);
+        interval ii1(-1.5,1.1);
+        interval ii2(-1.3,1.2);
+        for(int k=1; k <= dd; k+=2) {
+          ivec[k] = ii1;
+          rvec[k] = rr1;
+        }
+        for(int k=2; k <= dd; k+=2) {
+          ivec[k] = ii2;
+          rvec[k] = rr2;
+        }
+        
+        cout << "\n\nd = " << dd << endl;
+        
+        cout << "ivec = " << (toString(ivec)) << endl;
+        interval i_image = realF(ivec);
+        cout << "interval image of ivec = " << (toString(i_image)) << endl;
+        real rmid_image = realF.imageMid(ivec);
+        cout << "real mid-image of ivec = " << rmid_image << endl;
+        
+        cout << "rvec = " << toString(rvec) << endl;
+        real r_image = realF(rvec);
+        cout << "real image of rvec = " << r_image << endl;
+      }
+      {
+        ivector ivec(dd);
+        rvector rvec(dd);
+        real rr1(6.0);
+        real rr2(0.4);
+        interval ii1(-1.5,6.0);
+        interval ii2(-1.3,1.2);
+        for(int k=1; k <= dd; k+=2) {
+          ivec[k] = ii1;
+          rvec[k] = rr1;
+        }
+        for(int k=2; k <= dd; k+=2) {
+          ivec[k] = ii2;
+          rvec[k] = rr2;
+        }
+        
+        cout << "\n\nd = " << dd << endl;
+        
+        cout << "ivec = " << (toString(ivec)) << endl;
+        interval i_image = realF(ivec);
+        cout << "interval image of ivec = " << (toString(i_image)) << endl;
+        real rmid_image = realF.imageMid(ivec);
+        cout << "real mid-image of ivec = " << rmid_image << endl;
+        
+        cout << "rvec = " << toString(rvec) << endl;
+        real r_image = realF(rvec);
+        cout << "real image of rvec = " << r_image << endl;
+      }
+      {
+        ivector ivec(dd);
+        rvector rvec(dd);
+        real rr1(-6.0);
+        real rr2(0.4);
+        interval ii1(-5.5,6.0);
+        interval ii2(-1.3,1.2);
+        for(int k=1; k <= dd; k+=2) {
+          ivec[k] = ii1;
+          rvec[k] = rr1;
+        }
+        for(int k=2; k <= dd; k+=2) {
+          ivec[k] = ii2;
+          rvec[k] = rr2;
+        }
+        
+        cout << "\n\nd = " << dd << endl;
+        
+        cout << "ivec = " << (toString(ivec)) << endl;
+        interval i_image = realF(ivec);
+        cout << "interval image of ivec = " << (toString(i_image)) << endl;
+        real rmid_image = realF.imageMid(ivec);
+        cout << "real mid-image of ivec = " << rmid_image << endl;
+        
+        cout << "rvec = " << toString(rvec) << endl;
+        real r_image = realF(rvec);
+        cout << "real image of rvec = " << r_image << endl;
+      }
+      {
+        ivector ivec(dd);
+        rvector rvec(dd);
+        real rr1(-6.0);
+        real rr2(6.0);
+        interval ii1(-6.5,-5.5);
+        interval ii2(-1.3,1.2);
+        for(int k=1; k <= dd; k+=2) {
+          ivec[k] = ii1;
+          rvec[k] = rr1;
+        }
+        for(int k=2; k <= dd; k+=2) {
+          ivec[k] = ii2;
+          rvec[k] = rr2;
+        }
+        
+        cout << "\n\nd = " << dd << endl;
+        
+        cout << "ivec = " << (toString(ivec)) << endl;
+        interval i_image = realF(ivec);
+        cout << "interval image of ivec = " << (toString(i_image)) << endl;
+        real rmid_image = realF.imageMid(ivec);
+        cout << "real mid-image of ivec = " << rmid_image << endl;
+        
+        cout << "rvec = " << toString(rvec) << endl;
+        real r_image = realF(rvec);
+        cout << "real image of rvec = " << r_image << endl;
+      }
+          
+    }
+    
+    return 0;
+  }
+  catch (std::exception& e) {
+    cout << "Exception:\n" << e.what() << endl;
+    throw;
+  }
+  catch (...) {
+    cout << "Unknown exception" << endl;
+    throw;
+  }
+  
+}
+\end{DoxyCode}

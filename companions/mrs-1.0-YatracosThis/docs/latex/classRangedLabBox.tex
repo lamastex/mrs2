@@ -1,0 +1,201 @@
+\hypertarget{classRangedLabBox}{\subsection{\-Ranged\-Lab\-Box \-Class \-Reference}
+\label{classRangedLabBox}\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}}
+}
+
+
+\-A class for `labeled box with range' of a real-\/valued function over it.  
+
+
+
+
+{\ttfamily \#include $<$\-Small\-Classes.\-hpp$>$}
+
+
+
+\-Collaboration diagram for \-Ranged\-Lab\-Box\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+interval \hyperlink{classRangedLabBox_a42112d471f344fe4b1d6b25ad69dbe24}{\-Box\-Integral} (bool logpi, real f\-\_\-scale) const 
+\begin{DoxyCompactList}\small\item\em interval enclosure of the integral of the function over the labeled box with scaling. \end{DoxyCompactList}\item 
+interval \hyperlink{classRangedLabBox_aa1df213904910695bc467278ac2c8ab8}{\-Box\-Integral} (bool logpi) const 
+\begin{DoxyCompactList}\small\item\em interval enclosure of the integral of the function over the labeled box. \end{DoxyCompactList}\item 
+void \hyperlink{classRangedLabBox_a9e8b6e359342c3273f655507a7b9c6b9}{\-Print} (ostream \&out) const 
+\begin{DoxyCompactList}\small\item\em print the label, components of the box, range enclosure and integral. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Public \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classLabBox}{\-Lab\-Box} \hyperlink{classRangedLabBox_a2e70b4cbd89cb43736b04612d35efd89}{\-L\-Box}
+\begin{DoxyCompactList}\small\item\em \-The labeled box. \end{DoxyCompactList}\item 
+interval \hyperlink{classRangedLabBox_ae8b300e377bb19858a20929900e56411}{\-Box\-R\-E}
+\begin{DoxyCompactList}\small\item\em \-The interval range enclosure of the function over the labeled box. \end{DoxyCompactList}\item 
+real \hyperlink{classRangedLabBox_a39c03a61c15dd970e865d0619e81fa03}{\-Box\-Vol}
+\begin{DoxyCompactList}\small\item\em \-Product of diams of intervals in labeled box, ie volume of labeled box. \end{DoxyCompactList}\item 
+real \hyperlink{classRangedLabBox_a748168b1418e7a0a4f42a3373be377f2}{\-Box\-Prior\-Integral}
+\begin{DoxyCompactList}\small\item\em \-Integral of the prior density over the box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-A class for `labeled box with range' of a real-\/valued function over it. 
+
+\-Definition at line 122 of file \-Small\-Classes.\-hpp.
+
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classRangedLabBox_a42112d471f344fe4b1d6b25ad69dbe24}{\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}!\-Box\-Integral@{\-Box\-Integral}}
+\index{\-Box\-Integral@{\-Box\-Integral}!RangedLabBox@{\-Ranged\-Lab\-Box}}
+\paragraph[{\-Box\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Ranged\-Lab\-Box\-::\-Box\-Integral} (
+\begin{DoxyParamCaption}
+\item[{bool}]{logpi, }
+\item[{real}]{f\-\_\-scale}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRangedLabBox_a42112d471f344fe4b1d6b25ad69dbe24}
+
+
+interval enclosure of the integral of the function over the labeled box with scaling. 
+
+\-We use a f\-\_\-scale value to stay in the number screen. \-Necessary for product likelihod targets. 
+
+\-Definition at line 140 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Box\-Prior\-Integral, \-Box\-R\-E, and taylor\-::exp().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Bisect(), \-M\-R\-Sampler\-::\-First\-Box(), \-Print(), and \-M\-R\-Sampler\-::update\-Integral().
+
+
+\begin{DoxyCode}
+    {
+      return (logpi)? 
+        exp(BoxRE-f_scale)*BoxPriorIntegral: BoxRE/f_scale*BoxPriorIntegral;
+    }
+\end{DoxyCode}
+\hypertarget{classRangedLabBox_aa1df213904910695bc467278ac2c8ab8}{\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}!\-Box\-Integral@{\-Box\-Integral}}
+\index{\-Box\-Integral@{\-Box\-Integral}!RangedLabBox@{\-Ranged\-Lab\-Box}}
+\paragraph[{\-Box\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Ranged\-Lab\-Box\-::\-Box\-Integral} (
+\begin{DoxyParamCaption}
+\item[{bool}]{logpi}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRangedLabBox_aa1df213904910695bc467278ac2c8ab8}
+
+
+interval enclosure of the integral of the function over the labeled box. 
+
+
+
+\-Definition at line 147 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Box\-Prior\-Integral, \-Box\-R\-E, and taylor\-::exp().
+
+
+\begin{DoxyCode}
+    {
+      return (logpi)? exp(BoxRE)*BoxPriorIntegral: BoxRE*BoxPriorIntegral;
+    }
+\end{DoxyCode}
+\hypertarget{classRangedLabBox_a9e8b6e359342c3273f655507a7b9c6b9}{\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}!\-Print@{\-Print}}
+\index{\-Print@{\-Print}!RangedLabBox@{\-Ranged\-Lab\-Box}}
+\paragraph[{\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Ranged\-Lab\-Box\-::\-Print} (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classRangedLabBox_a9e8b6e359342c3273f655507a7b9c6b9}
+
+
+print the label, components of the box, range enclosure and integral. 
+
+
+
+\-Definition at line 153 of file \-Small\-Classes.\-hpp.
+
+
+
+\-References \-Lab\-Box\-::\-Box, \-Box\-Integral(), \-Box\-R\-E, \-Lab\-Box\-::\-L, taylor\-::\-Lb(), \-L\-Box, and taylor\-::\-Ub().
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-First\-Box().
+
+
+\begin{DoxyCode}
+    {
+      out << LBox.L;
+      for(int i=Lb(LBox.Box); i<=Ub(LBox.Box); i++) out << " " << LBox.Box[i];
+      out << " RE: " << BoxRE <<  " BoxIntegral: " << BoxIntegral(0) << endl;
+      return;
+    }
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classRangedLabBox_a748168b1418e7a0a4f42a3373be377f2}{\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}!\-Box\-Prior\-Integral@{\-Box\-Prior\-Integral}}
+\index{\-Box\-Prior\-Integral@{\-Box\-Prior\-Integral}!RangedLabBox@{\-Ranged\-Lab\-Box}}
+\paragraph[{\-Box\-Prior\-Integral}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Ranged\-Lab\-Box\-::\-Box\-Prior\-Integral}}}\label{classRangedLabBox_a748168b1418e7a0a4f42a3373be377f2}
+
+
+\-Integral of the prior density over the box. 
+
+
+
+\-Definition at line 132 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-Box\-Integral(), \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info(), \-Sort\-Box\-::operator()(), and \-M\-R\-Sampler\-::\-Setup\-P\-D\-F().
+
+\hypertarget{classRangedLabBox_ae8b300e377bb19858a20929900e56411}{\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}!\-Box\-R\-E@{\-Box\-R\-E}}
+\index{\-Box\-R\-E@{\-Box\-R\-E}!RangedLabBox@{\-Ranged\-Lab\-Box}}
+\paragraph[{\-Box\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}interval {\bf \-Ranged\-Lab\-Box\-::\-Box\-R\-E}}}\label{classRangedLabBox_ae8b300e377bb19858a20929900e56411}
+
+
+\-The interval range enclosure of the function over the labeled box. 
+
+
+
+\-Definition at line 128 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Bisect(), \-Box\-Integral(), \-M\-R\-Sampler\-::\-First\-Box(), \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info(), \-Sort\-Box\-::operator()(), \-Print(), \-M\-R\-Sampler\-::\-Setup\-P\-D\-F(), and \-M\-R\-Sampler\-::update\-Umax().
+
+\hypertarget{classRangedLabBox_a39c03a61c15dd970e865d0619e81fa03}{\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}!\-Box\-Vol@{\-Box\-Vol}}
+\index{\-Box\-Vol@{\-Box\-Vol}!RangedLabBox@{\-Ranged\-Lab\-Box}}
+\paragraph[{\-Box\-Vol}]{\setlength{\rightskip}{0pt plus 5cm}real {\bf \-Ranged\-Lab\-Box\-::\-Box\-Vol}}}\label{classRangedLabBox_a39c03a61c15dd970e865d0619e81fa03}
+
+
+\-Product of diams of intervals in labeled box, ie volume of labeled box. 
+
+
+
+\-Definition at line 130 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info(), and \-M\-R\-Sampler\-::\-Setup\-P\-D\-F().
+
+\hypertarget{classRangedLabBox_a2e70b4cbd89cb43736b04612d35efd89}{\index{\-Ranged\-Lab\-Box@{\-Ranged\-Lab\-Box}!\-L\-Box@{\-L\-Box}}
+\index{\-L\-Box@{\-L\-Box}!RangedLabBox@{\-Ranged\-Lab\-Box}}
+\paragraph[{\-L\-Box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Lab\-Box} {\bf \-Ranged\-Lab\-Box\-::\-L\-Box}}}\label{classRangedLabBox_a2e70b4cbd89cb43736b04612d35efd89}
+
+
+\-The labeled box. 
+
+
+
+\-Definition at line 126 of file \-Small\-Classes.\-hpp.
+
+
+
+\-Referenced by \-M\-R\-Sampler\-::\-Bisect(), \-M\-R\-Sampler\-::\-First\-Box(), \-M\-R\-Sampler\-::get\-Box\-R\-E\-Info(), \-M\-R\-Sampler\-::\-M\-R\-Soutput(), \-Print(), \-M\-R\-Sampler\-::\-Print\-Boxes(), \-M\-R\-Sampler\-::\-Setup\-P\-D\-F(), and \-M\-R\-Sampler\-::update\-Umax().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SmallClasses_8hpp}{\-Small\-Classes.\-hpp}\end{DoxyCompactItemize}

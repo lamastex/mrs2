@@ -1,0 +1,72 @@
+\hypertarget{histpenalty_8hpp}{\subsection{histpenalty.\-hpp \-File \-Reference}
+\label{histpenalty_8hpp}\index{histpenalty.\-hpp@{histpenalty.\-hpp}}
+}
+
+
+\-Declaration of classes for histogram penalty objects declarations.  
+
+
+\subsubsection*{\-Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsubpavings_1_1PenObj}{subpavings\-::\-Pen\-Obj}
+\begin{DoxyCompactList}\small\item\em \-Abstract class for objects with penalty function for histogram fit. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1PenLeaves}{subpavings\-::\-Pen\-Leaves}
+\begin{DoxyCompactList}\small\item\em \-Penalty function as number of leaves in histogram. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1PenAIC1}{subpavings\-::\-Pen\-A\-I\-C1}
+\begin{DoxyCompactList}\small\item\em \-Class for penalty function 1 for \-A\-I\-C. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1PenAIC2}{subpavings\-::\-Pen\-A\-I\-C2}
+\begin{DoxyCompactList}\small\item\em \-Class for penalty function 2 for \-A\-I\-C. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1PenAIC3}{subpavings\-::\-Pen\-A\-I\-C3}
+\begin{DoxyCompactList}\small\item\em \-Class for penalty function 3 for \-A\-I\-C. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1PenAIC4}{subpavings\-::\-Pen\-A\-I\-C4}
+\begin{DoxyCompactList}\small\item\em \-Class for penalty function 4 for \-A\-I\-C. \end{DoxyCompactList}\item 
+class \hyperlink{classsubpavings_1_1PenAIC5}{subpavings\-::\-Pen\-A\-I\-C5}
+\begin{DoxyCompactList}\small\item\em \-Class for penalty function 5 for \-A\-I\-C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacesubpavings}{subpavings}
+\begin{DoxyCompactList}\small\item\em \-The namespace subpavings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{histpenalty_8hpp_a1dc9bf6a99daaa6cf7349f16c1e558f5}{l\-Ck} (const int k)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Declaration of classes for histogram penalty objects declarations. 
+
+\-Definition in file \hyperlink{histpenalty_8hpp_source}{histpenalty.\-hpp}.
+
+
+
+\subsubsection{\-Function \-Documentation}
+\hypertarget{histpenalty_8hpp_a1dc9bf6a99daaa6cf7349f16c1e558f5}{\index{histpenalty.\-hpp@{histpenalty.\-hpp}!l\-Ck@{l\-Ck}}
+\index{l\-Ck@{l\-Ck}!histpenalty.hpp@{histpenalty.\-hpp}}
+\paragraph[{l\-Ck}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf l\-Ck} (
+\begin{DoxyParamCaption}
+\item[{const int}]{k}
+\end{DoxyParamCaption}
+)}}\label{histpenalty_8hpp_a1dc9bf6a99daaa6cf7349f16c1e558f5}
+
+
+\-Definition at line 310 of file toolz.\-cpp.
+
+
+
+\-Referenced by subpavings\-::\-Log\-Catalan\-Prior\-::operator()(), subpavings\-::\-Pen\-A\-I\-C1\-::operator()(), subpavings\-::\-Pen\-A\-I\-C2\-::operator()(), subpavings\-::\-Pen\-A\-I\-C3\-::operator()(), and subpavings\-::\-Pen\-A\-I\-C4\-::operator()().
+
+
+\begin{DoxyCode}
+{
+    double retValue = 0.0;
+    if (k > 1) {
+        for (int i = 0; i < k-1; i++) {
+            retValue += (log(2*k-i) - log(k-i));
+        }
+    }
+    return retValue; // return 0 for k=0, k=1
+}
+\end{DoxyCode}

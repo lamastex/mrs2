@@ -1,0 +1,58 @@
+noinst_PROGRAMS = MappedScheffe MappedScheffeIAE \
+				MappedRosenScheffe MappedRosenIAE \
+				MappedScheffeKL MappedRosenKL
+
+TARGETS = ../../MappedTargetsTrunk
+
+MappedScheffe_SOURCES = MappedScheffe.cpp \
+						../../MappedTargetsTrunk/GaussianFobj.cpp \
+						../../MappedTargetsTrunk/GaussianFobj.hpp \
+						testDenCommon.cpp testDenCommon.hpp \
+						testDenTools.cpp testDenTools.hpp					
+MappedScheffeIAE_SOURCES = MappedScheffeIAE.cpp \
+						../../MappedTargetsTrunk/GaussianFobj.cpp \
+						../../MappedTargetsTrunk/GaussianFobj.hpp
+MappedRosenScheffe_SOURCES = MappedRosenScheffe.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.hpp \
+						../../targets/FRosenbrock.cpp \
+						../../targets/FRosenbrock.hpp \
+						testDenCommon.cpp testDenCommon.hpp \
+						testDenTools.cpp testDenTools.hpp	
+MappedRosenIAE_SOURCES = MappedRosenIAE.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.hpp \
+						../../targets/FRosenbrock.cpp \
+						../../targets/FRosenbrock.hpp
+MappedRosenKL_SOURCES = MappedRosenKL.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.hpp \
+						../../targets/FRosenbrock.cpp \
+						../../targets/FRosenbrock.hpp \
+						testDenCommon.cpp testDenCommon.hpp \
+						testDenTools.cpp testDenTools.hpp		
+MappedScheffeKL_SOURCES = MappedScheffeKL.cpp \
+						../../MappedTargetsTrunk/GaussianFobj.cpp \
+						../../MappedTargetsTrunk/GaussianFobj.hpp \
+						testDenCommon.cpp testDenCommon.hpp \
+						testDenTools.cpp testDenTools.hpp													
+
+EXTRA_DIST = 
+MappedScheffe_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk
+MappedScheffe_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+MappedScheffeIAE_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk
+MappedScheffeIAE_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+MappedRosenScheffe_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk -I../../targets
+MappedRosenScheffe_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+MappedRosenIAE_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk -I../../targets
+MappedRosenIAE_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+MappedRosenKL_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk -I../../targets
+MappedRosenKL_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+MappedScheffeKL_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk -I../../targets
+MappedScheffeKL_LDADD = -lcxsc ${top_builddir}/src/libmrs.a

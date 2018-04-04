@@ -1,0 +1,167 @@
+\hypertarget{classsubpavings_1_1MCMCProposal}{\subsection{subpavings\-:\-:\-M\-C\-M\-C\-Proposal \-Class \-Reference}
+\label{classsubpavings_1_1MCMCProposal}\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+}
+
+
+\-Abstract class for \-M\-C\-M\-C proposal distributions.  
+
+
+
+
+{\ttfamily \#include $<$histmcmcobjs.\-hpp$>$}
+
+
+
+\-Inheritance diagram for subpavings\-:\-:\-M\-C\-M\-C\-Proposal\-:
+\subsubsection*{\-Public \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsubpavings_1_1MCMCProposal_a4ce28643aa42dbdbacbf31cb0b1065b2}{\-M\-C\-M\-C\-Proposal} ()
+\item 
+\hyperlink{classsubpavings_1_1MCMCProposal_a0ef78a8a1abaa03ed0bb35edd21dd178}{\-M\-C\-M\-C\-Proposal} (string pn)
+\item 
+virtual string \hyperlink{classsubpavings_1_1MCMCProposal_a8b96ad3e975f60ad938d4aaf6d1009b3}{get\-Name} () const =0
+\item 
+virtual real \hyperlink{classsubpavings_1_1MCMCProposal_a9a41619f829a7fd3c080f3f9c0bed705}{fill\-Node\-Proposal\-Probs} (const size\-\_\-t n\-Leaf, const size\-\_\-t n\-Cherry, \hyperlink{namespacesubpavings_af2d57bb6e12f4a73169f2e496d6a641f}{\-Real\-Vec} \&probs) const =0
+\item 
+virtual real \hyperlink{classsubpavings_1_1MCMCProposal_acd6dda5380192dfc3bd38a28925dd1ce}{get\-Log\-Q\-Ratio\-Split\-Proposal} (const size\-\_\-t leaves\-Now, const size\-\_\-t cherries\-Now, const size\-\_\-t leaves\-Prospective, const size\-\_\-t cherries\-Prospective) const =0
+\item 
+virtual real \hyperlink{classsubpavings_1_1MCMCProposal_ae39f9b3d8afbc8be9a10d6947f59798e}{get\-Log\-Q\-Ratio\-Merge\-Proposal} (const size\-\_\-t leaves\-Now, const size\-\_\-t cherries\-Now, const size\-\_\-t leaves\-Prospective, const size\-\_\-t cherries\-Prospective) const =0
+\end{DoxyCompactItemize}
+\subsubsection*{\-Protected \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classsubpavings_1_1MCMCProposal_a9ce4ff476ddf57622979e46888f81c09}{proposal\-Name}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{\-Detailed \-Description}
+\-Abstract class for \-M\-C\-M\-C proposal distributions. 
+
+\-The proposal distribution function object cannot work directly or solely with the state of the node tree because the \-M\-C\-M\-C definition allows some leaf nodes to be excluded from those proposable for splitting. \-Hence the proposal distributions should be based on the splittable leaf and cherry nodes, not all the leaf and cherry nodes in the tree. 
+
+\-Definition at line 124 of file histmcmcobjs.\-hpp.
+
+
+
+\subsubsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classsubpavings_1_1MCMCProposal_a4ce28643aa42dbdbacbf31cb0b1065b2}{\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}!\-M\-C\-M\-C\-Proposal@{\-M\-C\-M\-C\-Proposal}}
+\index{\-M\-C\-M\-C\-Proposal@{\-M\-C\-M\-C\-Proposal}!subpavings::MCMCProposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+\paragraph[{\-M\-C\-M\-C\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-M\-C\-M\-C\-Proposal\-::\-M\-C\-M\-C\-Proposal} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1MCMCProposal_a4ce28643aa42dbdbacbf31cb0b1065b2}
+
+
+\-Definition at line 132 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+: proposalName("") {}
+\end{DoxyCode}
+\hypertarget{classsubpavings_1_1MCMCProposal_a0ef78a8a1abaa03ed0bb35edd21dd178}{\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}!\-M\-C\-M\-C\-Proposal@{\-M\-C\-M\-C\-Proposal}}
+\index{\-M\-C\-M\-C\-Proposal@{\-M\-C\-M\-C\-Proposal}!subpavings::MCMCProposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+\paragraph[{\-M\-C\-M\-C\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}{\bf subpavings\-::\-M\-C\-M\-C\-Proposal\-::\-M\-C\-M\-C\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{string}]{pn}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classsubpavings_1_1MCMCProposal_a0ef78a8a1abaa03ed0bb35edd21dd178}
+
+
+\-Definition at line 134 of file histmcmcobjs.\-hpp.
+
+
+\begin{DoxyCode}
+: proposalName(pn) {}
+\end{DoxyCode}
+
+
+\subsubsection{\-Member \-Function \-Documentation}
+\hypertarget{classsubpavings_1_1MCMCProposal_a9a41619f829a7fd3c080f3f9c0bed705}{\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}!fill\-Node\-Proposal\-Probs@{fill\-Node\-Proposal\-Probs}}
+\index{fill\-Node\-Proposal\-Probs@{fill\-Node\-Proposal\-Probs}!subpavings::MCMCProposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+\paragraph[{fill\-Node\-Proposal\-Probs}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf subpavings\-::\-M\-C\-M\-C\-Proposal\-::fill\-Node\-Proposal\-Probs} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{n\-Leaf, }
+\item[{const size\-\_\-t}]{n\-Cherry, }
+\item[{{\bf \-Real\-Vec} \&}]{probs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1MCMCProposal_a9a41619f829a7fd3c080f3f9c0bed705}
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1EquiProbProposal_a69979ac7c2578262f03556e763e81558}{subpavings\-::\-Equi\-Prob\-Proposal}, and \hyperlink{classsubpavings_1_1UniformProposal_a78acb8553a9e2f18f0c1accf3519b75f}{subpavings\-::\-Uniform\-Proposal}.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::propose\-Change\-M\-C\-M\-C\-State().
+
+\hypertarget{classsubpavings_1_1MCMCProposal_ae39f9b3d8afbc8be9a10d6947f59798e}{\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}!get\-Log\-Q\-Ratio\-Merge\-Proposal@{get\-Log\-Q\-Ratio\-Merge\-Proposal}}
+\index{get\-Log\-Q\-Ratio\-Merge\-Proposal@{get\-Log\-Q\-Ratio\-Merge\-Proposal}!subpavings::MCMCProposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+\paragraph[{get\-Log\-Q\-Ratio\-Merge\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf subpavings\-::\-M\-C\-M\-C\-Proposal\-::get\-Log\-Q\-Ratio\-Merge\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{leaves\-Now, }
+\item[{const size\-\_\-t}]{cherries\-Now, }
+\item[{const size\-\_\-t}]{leaves\-Prospective, }
+\item[{const size\-\_\-t}]{cherries\-Prospective}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1MCMCProposal_ae39f9b3d8afbc8be9a10d6947f59798e}
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1EquiProbProposal_af7a44db43cc40978a791913baf083661}{subpavings\-::\-Equi\-Prob\-Proposal}, and \hyperlink{classsubpavings_1_1UniformProposal_a0dd552bd6b2f9cfb4eb94e2a3efc5d57}{subpavings\-::\-Uniform\-Proposal}.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::decision\-M\-C\-M\-C\-Merge().
+
+\hypertarget{classsubpavings_1_1MCMCProposal_acd6dda5380192dfc3bd38a28925dd1ce}{\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}!get\-Log\-Q\-Ratio\-Split\-Proposal@{get\-Log\-Q\-Ratio\-Split\-Proposal}}
+\index{get\-Log\-Q\-Ratio\-Split\-Proposal@{get\-Log\-Q\-Ratio\-Split\-Proposal}!subpavings::MCMCProposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+\paragraph[{get\-Log\-Q\-Ratio\-Split\-Proposal}]{\setlength{\rightskip}{0pt plus 5cm}virtual real {\bf subpavings\-::\-M\-C\-M\-C\-Proposal\-::get\-Log\-Q\-Ratio\-Split\-Proposal} (
+\begin{DoxyParamCaption}
+\item[{const size\-\_\-t}]{leaves\-Now, }
+\item[{const size\-\_\-t}]{cherries\-Now, }
+\item[{const size\-\_\-t}]{leaves\-Prospective, }
+\item[{const size\-\_\-t}]{cherries\-Prospective}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1MCMCProposal_acd6dda5380192dfc3bd38a28925dd1ce}
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1EquiProbProposal_a14cfb9c0c63ee3a5d1ed978cac89b903}{subpavings\-::\-Equi\-Prob\-Proposal}, and \hyperlink{classsubpavings_1_1UniformProposal_a34e427b990aebdf8ea302693da8952ea}{subpavings\-::\-Uniform\-Proposal}.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::decision\-M\-C\-M\-C\-Split().
+
+\hypertarget{classsubpavings_1_1MCMCProposal_a8b96ad3e975f60ad938d4aaf6d1009b3}{\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!subpavings::MCMCProposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+\paragraph[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}virtual string {\bf subpavings\-::\-M\-C\-M\-C\-Proposal\-::get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}\label{classsubpavings_1_1MCMCProposal_a8b96ad3e975f60ad938d4aaf6d1009b3}
+
+
+\-Implemented in \hyperlink{classsubpavings_1_1EquiProbProposal_afc31fba60e3a5686d4431f7236597ae8}{subpavings\-::\-Equi\-Prob\-Proposal}, and \hyperlink{classsubpavings_1_1UniformProposal_aef037393c168f70b5849813233d7e594}{subpavings\-::\-Uniform\-Proposal}.
+
+
+
+\-Referenced by subpavings\-::\-Adaptive\-Histogram\-::\-M\-C\-M\-C\-Start\-Log\-File().
+
+
+
+\subsubsection{\-Member \-Data \-Documentation}
+\hypertarget{classsubpavings_1_1MCMCProposal_a9ce4ff476ddf57622979e46888f81c09}{\index{subpavings\-::\-M\-C\-M\-C\-Proposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}!proposal\-Name@{proposal\-Name}}
+\index{proposal\-Name@{proposal\-Name}!subpavings::MCMCProposal@{subpavings\-::\-M\-C\-M\-C\-Proposal}}
+\paragraph[{proposal\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf subpavings\-::\-M\-C\-M\-C\-Proposal\-::proposal\-Name}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}\label{classsubpavings_1_1MCMCProposal_a9ce4ff476ddf57622979e46888f81c09}
+
+
+\-Definition at line 128 of file histmcmcobjs.\-hpp.
+
+
+
+\-Referenced by subpavings\-::\-Uniform\-Proposal\-::get\-Name(), and subpavings\-::\-Equi\-Prob\-Proposal\-::get\-Name().
+
+
+
+\-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{histmcmcobjs_8hpp}{histmcmcobjs.\-hpp}\end{DoxyCompactItemize}
