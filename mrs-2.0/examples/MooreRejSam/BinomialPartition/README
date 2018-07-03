@@ -9,4 +9,7 @@
 #n_1 = 250000, y_1 = 1264 and n_2 = 250000, y_2 = 1542
 ################################################################3
 #to statically compile do
+#make clean
+#make
+#rm BinomialPartition
 #g++ -static -g -O2  -L/home/raazesh/all/software/cxsc/cxsc-2-5-4/lib -L/home/raazesh/all/software/gsl/gsl-2.1/lib -o BinomialPartition BinomialPartition-BinomialPartition.o ../../targets/BinomialPartition-FBinomialPartition.o -lcxsc ../../../src/libmrs.a -lcxsc -lgsl -lgslcblas -lm

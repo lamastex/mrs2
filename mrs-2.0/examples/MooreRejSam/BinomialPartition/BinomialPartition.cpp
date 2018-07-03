@@ -366,6 +366,7 @@ main (int argc, char **argv)
          cout << "Example usage for 4 treatments of pine seedling data:" << endl
               << "$./BinomialPartition 250000 100000 0 1 4 100 59 100 89 100 88 100 95 " << endl;
 
+        exit(1);
   }
    
   cout << "  n_boxes: " << n_boxes << "  n_samples: " << n_samples << "  rng_seed: " << theSeed 
