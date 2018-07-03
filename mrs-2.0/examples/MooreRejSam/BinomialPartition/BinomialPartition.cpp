@@ -54,11 +54,12 @@ using namespace cxsc;
 #include "FBinomialPartition.hpp"
 #include "MRSampler.hpp"
 
+
 void
-ProduceMRSamples(Fobj & f, int n_boxes, int n_samples, 
+ProduceMRSamples(Fobj & f, int n_boxes, int n_samples, int M,
                  double Alb, unsigned seed, bool use_f_scale) 
 {
-  ofstream out ("MRS_BinomialPartition.samples");//file to store the i.i.d samples
+  //ofstream out ("MRS_BinomialPartition.samples");//file to store the i.i.d samples
   clock_t T1 = clock (), T2, T3;
   // Construct theSampler with the chosen target shape object FTG
   MRSampler theSampler (f, n_boxes, Alb, seed, (use_f_scale == 1));
@@ -90,7 +91,201 @@ ProduceMRSamples(Fobj & f, int n_boxes, int n_samples,
   cout << "rs_sample IU, N, Nrs: " << rs_sample.EnvelopeIntegral << " " 
        << rs_sample.Samples.size() << " " << rs_sample.Samples.size() << endl;
   cout << "RSSampleMany, integral est: " << IntegralEstimate << endl;
-  cout << "RSSampleMany mean: \n"; rs_sample.Mean ();
+
+  /*std::vector<rvector> means = rs_sample.Mean();
+  std::vector<rvector> means;
+  std::vector<int> labels;
+  std::vector<real> props;*/
+
+  MeansLabelsProportions mlp = rs_sample.MeanLabelProportion();
+  // more convenient output
+      cout << "label proportions posterior_means" << endl; 
+      std::vector<rvector>::const_iterator it;
+      for(size_t i=0; i<mlp.means.size(); i++)
+      {
+        cout << mlp.labels[i] << " " << mlp.proportions[i] << " " << endl << mlp.means[i] << endl;
+      }
+    cout << "______________________ number of treatments, models = "<< M << " , " << mlp.means.size() << endl;
+    cout << "model_labels number_of_parameters posterior_probability posterior_means" << endl;
+    cout << "-----------------------------------------------------------------------" << endl;
+    if(M==1){//just 1 binomial trial y_1
+      // model 0 = {{1}}
+      cout << mlp.labels[0] << " "  << VecLen(mlp.means[0]) << " "  << mlp.proportions[0] << "\t"; 
+      if (mlp.proportions[0]==0.0) cout << "NaN" << endl;
+      else cout << mlp.means[0][1] << endl;
+    }
+    if(M==2){//just 2 binomial trials y_1,y_2
+      //model 0 = {{1,2}}
+      cout << mlp.labels[0] << "\t"  << VecLen(mlp.means[0]) << "\t"  << mlp.proportions[0] << "\t"; 
+      if (mlp.proportions[0]==0.0) cout << "NaN\tNaN" << endl;
+      else cout << mlp.means[0][1] << "\t" << mlp.means[0][1] << endl;
+      //model 1 = {{1},{2}}
+      cout << mlp.labels[1] << "\t"  << VecLen(mlp.means[1]) << "\t"  << mlp.proportions[1] << "\t"; 
+      if (mlp.proportions[0]==0.0) cout << "NaN\tNaN" << endl;
+      else cout  << mlp.means[1][1] << "\t" << mlp.means[1][2] << endl;
+    }
+    if(M==3){//just 3 binomial trials y_1,y_2,y_3
+      //model 0 = {{1,2,3}}
+      cout << mlp.labels[0] << "\t" << VecLen(mlp.means[0]) << "\t" << mlp.proportions[0] << "\t"; 
+      if (mlp.proportions[0]==0.0) cout << "NaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[0][1] << "\t"
+           << mlp.means[0][1] << "\t"
+           << mlp.means[0][1] << endl;
+      //model 1 = {{1},{2,3}}
+      cout << mlp.labels[1] << "\t" << VecLen(mlp.means[1]) << "\t" << mlp.proportions[1] << "\t"; 
+      if (mlp.proportions[1]==0.0) cout << "NaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[1][1] << "\t"
+           << mlp.means[1][2] << "\t"
+           << mlp.means[1][2] << endl;
+      //model 2 = {{2},{1,3}}
+      cout << mlp.labels[2] << "\t"  << VecLen(mlp.means[2]) << "\t"  << mlp.proportions[2] << "\t"; 
+      if (mlp.proportions[2]==0.0) cout << "NaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[2][2] << "\t"
+           << mlp.means[2][1] << "\t"
+           << mlp.means[2][2] << endl;
+      //model 3 = {{3},{1,2}}
+      cout << mlp.labels[3] << "\t"  << VecLen(mlp.means[3]) << "\t"  << mlp.proportions[3] << "\t"; 
+      if (mlp.proportions[3]==0.0) cout << "NaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[3][2] << "\t"
+           << mlp.means[3][2] << "\t"
+           << mlp.means[3][1] << endl;
+      //model 4 = {{1},{2},{3}}
+      cout << mlp.labels[4] << "\t"  << VecLen(mlp.means[4]) << "\t"  << mlp.proportions[4] << "\t"; 
+      if (mlp.proportions[4]==0.0) cout << "NaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[4][1] << "\t"
+           << mlp.means[4][2] << "\t"
+           << mlp.means[4][3] << endl;
+    }
+    if(M==4){//just 4 binomial trials y_1,y_2,y_3,y_4
+      //model label 0 = [{1, 2, 3, 4}] 
+      cout << mlp.labels[0] << "\t"  << VecLen(mlp.means[0]) << "\t"  << mlp.proportions[0] << "\t"; 
+      if (mlp.proportions[0]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[0][1] << "\t" 
+           << mlp.means[0][1] << "\t" 
+           << mlp.means[0][1] << "\t" 
+           << mlp.means[0][1] << endl;
+      // model label 1 = [{1}, {2, 3, 4}], 
+      cout << mlp.labels[1] << "\t"  << VecLen(mlp.means[1]) << "\t"  << mlp.proportions[1] << "\t";
+      if (mlp.proportions[1]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[1][1] << "\t" 
+           << mlp.means[1][2] << "\t" 
+           << mlp.means[1][2] << "\t" 
+           << mlp.means[1][2] << endl;
+      // model label 2 = [{2}, {1, 3, 4}], 
+      cout << mlp.labels[2] << "\t"  << VecLen(mlp.means[2]) << "\t"  << mlp.proportions[2] << "\t";
+      if (mlp.proportions[2]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[2][2] << "\t" 
+           << mlp.means[2][1] << "\t" 
+           << mlp.means[2][2] << "\t" 
+           << mlp.means[2][2] << endl;
+      // model label 3 = [{3}, {1, 2, 4}], 
+      cout << mlp.labels[3] << "\t"  << VecLen(mlp.means[3]) << "\t"  << mlp.proportions[3] << "\t";
+      if (mlp.proportions[3]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[3][2] << "\t" 
+           << mlp.means[3][2] << "\t" 
+           << mlp.means[3][1] << "\t" 
+           << mlp.means[3][2] << endl;
+      // model label 4 = [{4}, {1, 2, 3}], 
+      cout << mlp.labels[4] << "\t"  << VecLen(mlp.means[4]) << "\t"  << mlp.proportions[4] << "\t";
+      if (mlp.proportions[4]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[4][2] << "\t" 
+           << mlp.means[4][2] << "\t" 
+           << mlp.means[4][2] << "\t" 
+           << mlp.means[4][1] << endl;
+      // model label 5 = [{1, 2}, {3, 4}],
+      cout << mlp.labels[5] << "\t"  << VecLen(mlp.means[5]) << "\t"  << mlp.proportions[5] << "\t";
+      if (mlp.proportions[5]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[5][1] << "\t" 
+           << mlp.means[5][1] << "\t" 
+           << mlp.means[5][2] << "\t" 
+           << mlp.means[5][2] << endl;
+      // model label 6 = [{1, 3}, {2, 4}], 
+      cout << mlp.labels[6] << "\t"  << VecLen(mlp.means[6]) << "\t"  << mlp.proportions[6] << "\t";
+      if (mlp.proportions[6]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[6][1] << "\t" 
+           << mlp.means[6][2] << "\t" 
+           << mlp.means[6][1] << "\t" 
+           << mlp.means[6][2] << endl;
+      // model label 7 = [{1, 4}, {2, 3}], 
+      cout << mlp.labels[7] << "\t"  << VecLen(mlp.means[7]) << "\t"  << mlp.proportions[7] << "\t";
+      if (mlp.proportions[7]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[7][1] << "\t" 
+           << mlp.means[7][2] << "\t" 
+           << mlp.means[7][2] << "\t" 
+           << mlp.means[7][1] << endl;
+      // model label 8 = [{1}, {2}, {3, 4}], 
+      cout << mlp.labels[8] << "\t"  << VecLen(mlp.means[8]) << "\t"  << mlp.proportions[8] << "\t";
+      if (mlp.proportions[8]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[8][1] << "\t" 
+           << mlp.means[8][2] << "\t" 
+           << mlp.means[8][3] << "\t" 
+           << mlp.means[8][3] << endl;
+      // model label 9 = [{1}, {3}, {2, 4}],
+      cout << mlp.labels[9] << "\t"  << VecLen(mlp.means[9]) << "\t"  << mlp.proportions[9] << "\t";
+      if (mlp.proportions[9]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[9][1] << "\t" 
+           << mlp.means[9][3] << "\t" 
+           << mlp.means[9][2] << "\t" 
+           << mlp.means[9][3] << endl;
+      // model label 10 = [{1}, {4}, {2, 3}], 
+      cout << mlp.labels[10] << "\t"  << VecLen(mlp.means[10]) << "\t"  << mlp.proportions[10] << "\t";
+      if (mlp.proportions[10]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[10][1] << "\t" 
+           << mlp.means[10][3] << "\t" 
+           << mlp.means[10][3] << "\t" 
+           << mlp.means[10][2] << endl;
+      // model label 11 = [{2}, {3}, {1, 4}], 
+      cout << mlp.labels[11] << "\t"  << VecLen(mlp.means[11]) << "\t"  << mlp.proportions[11] << "\t";
+      if (mlp.proportions[11]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[11][3] << "\t" 
+           << mlp.means[11][1] << "\t" 
+           << mlp.means[11][2] << "\t" 
+           << mlp.means[11][3] << endl;
+      // model label 12 = [{2}, {4}, {1, 3}], 
+      cout << mlp.labels[12] << "\t"  << VecLen(mlp.means[12]) << "\t"  << mlp.proportions[12] << "\t";
+      if (mlp.proportions[12]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[12][3] << "\t" 
+           << mlp.means[12][1] << "\t" 
+           << mlp.means[12][3] << "\t" 
+           << mlp.means[12][2] << endl;
+      // model label 13 = [{3}, {4}, {1, 2}], 
+      cout << mlp.labels[13] << "\t"  << VecLen(mlp.means[13]) << "\t"  << mlp.proportions[13] << "\t";
+      if (mlp.proportions[13]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[13][3] << "\t" 
+           << mlp.means[13][3] << "\t" 
+           << mlp.means[13][1] << "\t" 
+           << mlp.means[13][2] << endl;
+      // model label 14 = [{1}, {2}, {3}, {4}], 
+      cout << mlp.labels[14] << "\t"  << VecLen(mlp.means[14]) << "\t"  << mlp.proportions[14] << "\t";
+      if (mlp.proportions[14]==0.0) cout << "NaN\tNaN\tNaN\tNaN" << endl;
+      else cout 
+           << mlp.means[14][1] << "\t" 
+           << mlp.means[14][2] << "\t" 
+           << mlp.means[14][3] << "\t" 
+           << mlp.means[14][4] << endl;
+     }
+    cout << "-----------------------------------------------------------------------" << endl;
+    cout << "______________________ end of model posteriors" << endl;
+
   ///---------------------------------------------------------------------------
   ///---To see the accepted samples uncomment this - I/O intensive outputcall 
   ///---best to comment it if you are only interested in posterior model probs 
@@ -124,8 +319,9 @@ main (int argc, char **argv)
   bool use_f_scale = true;
   int tmpULP= 1;
   int tmpint= 0;
-  vector<int> Ns(0,2);
-  vector<int> Ys(0,2);
+  int M = 4;
+  vector<int> Ns; //(0,2);
+  vector<int> Ys; //(0,2);
 
   if (argc >= 2)
     {
@@ -138,60 +334,54 @@ main (int argc, char **argv)
 	    sscanf (argv[3], "%ui", &theSeed);	    
 	  }
 	  if (argc >= 5){
-	    //cout << "N[0]: " << argv[4] << endl;
-	    sscanf (argv[4], "%i", &tmpint);
-            Ns[0]=tmpint; 
-	  }
-	  if (argc >= 6) {
-	    //cout << "Y[0]: " << argv[5] << endl;
-	    sscanf (argv[5], "%i", &tmpint);
-            Ys[0]=tmpint; 
-	  }
-	  if (argc >= 7){
-	    //cout << "N[1]: " << argv[6] << endl;
-	    sscanf (argv[6], "%i", &tmpint);
-            Ns[1]=tmpint; 
-	  }
-	  if (argc >= 8){
-	    //cout << "Y[1]: " << argv[7] << endl;
-	    sscanf (argv[7], "%i", &tmpint);
-            Ys[1]=tmpint; 
-	  }
-	  if(argc >= 9){
-	    sscanf (argv[8], "%i", &tmpULP);
+	    sscanf (argv[4], "%i", &tmpULP);
 	    UseLogPi = (bool)tmpULP;
 	    //cout << "UseLogPi: " << argv[8] << endl;
-	  }  
-	  if (argc >= 10){
-	   cout << "# Usage: " << argv[0] << "<n_boxes> <n_samples> "
-           << "<seed> <N[0]=number of first coin tosses> <Y[0]=number of heads in first coin tosses>"
-           << "<N[1]=number of second coin tosses> <Y[1]=number of heads in second coin tosses> <UseLogPi>" 
-           << "; extra arguments ignored.\n";
 	  }
-
-	}
+	  if (argc >= 6) {
+	    sscanf (argv[5], "%i", &M);
+            assert(M >=1 && M <= 4);
+            Ns.push_back(M); // M=number of treatments 
+            Ys.push_back(M); // M=number of treatments 
+            assert(argc == 6+2*M);// make sure we have M ys and M ns
+	  }
+	  if (argc >= 6+2*M) {
+	    for (int i=6; i < argc; ++i){
+	      sscanf (argv[i], "%i", &tmpint); Ns.push_back(tmpint); 
+	      sscanf (argv[1+i], "%i", &tmpint); Ys.push_back(tmpint); 
+              ++i;
+	    }
+          }
+	  }  
     }
 
   else { 
 	 cout << "# Usage: " << argv[0] << "<n_boxes> <n_samples> "
-         << "<seed> <N[0]=number of first coin tosses> <Y[0]=number of heads in first coin tosses>"
-         << "<N[1]=number of second coin tosses> <Y[1]=number of heads in second coin tosses> <UseLogPi>" 
+         << "<seed> <UseLogPi> <NumberOfTreatments=M>"
+         << " <N[1]=number of trials in first treatment> <Y[1]=number of successes in first treatment>" 
+         << " <N[2]=number of trials in second treatment> <Y[2]=number of successes in second treatment>" 
+         << " ... "
+         << " <N[M]=number of trials in last treatment> <Y[M]=number of successes in last treatment>" 
          << "; extra arguments ignored.\n";
+         cout << "Example usage for 4 treatments of pine seedling data:" << endl
+              << "$./BinomialPartition 250000 100000 0 1 4 100 59 100 89 100 88 100 95 " << endl;
 
   }
    
-  cout << "  n_boxes: " << n_boxes << "  n_samples: " << n_samples << "  rng_seed = " 
-       << theSeed  << endl; 
+  cout << "  n_boxes: " << n_boxes << "  n_samples: " << n_samples << "  rng_seed: " << theSeed 
+       << " UseLogPi: " << UseLogPi << " Number_of_Treatments=M: " << M << endl; 
+  cout << "M N[1] N[2] ... N[M]" << endl;
+  for (int i = 0; i < Ns.size(); i++) cout << Ns[i] << " "; cout << endl;
+  cout << "M N[1] N[2] ... N[M]" << endl;
+  for (int i = 0; i < Ys.size(); i++) cout << Ys[i] << " "; cout << endl;
+
 /*
-       << "  N[0]=number of first coin tosses          : " << Ns[0] << endl
-       << "  Y[0]=number of heads in first coin tosses : " << Ys[0] << endl
-       << "  N[1]=number of second coin tosses         : " << Ns[1] << endl
-       << "  Y[1]=number of heads in second coin tosses: " << Ys[1] << endl; //getchar();
+// pine seedling data
+61 38 93 65 73 51 49 42
 */
-  // FBinomialPartition(int N[0], int Y[0], int N[1], int Y[1], bool LogPi);
-  //FBinomialPartition FTG (Ns, Ys, UseLogPi);
-  FBinomialPartition FTG (UseLogPi);
-  ProduceMRSamples(FTG, n_boxes, n_samples, Alb, theSeed, use_f_scale);
+FBinomialPartition FTG (Ns, Ys, UseLogPi);
+//FBinomialPartition FTG (UseLogPi);
+ProduceMRSamples(FTG, n_boxes, n_samples, M, Alb, theSeed, use_f_scale);
 
   return 0;			// for the main statement
 }

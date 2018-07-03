@@ -220,6 +220,12 @@ class SortBox
 */
 typedef  std::set<RangedLabBox, SortBox> RangedLabBoxSet;
 
+struct MeansLabelsProportions{
+  std::vector<rvector> means;
+  std::vector<int> labels;
+  std::vector<real> proportions;
+};
+
 //! A class for the status of a Rejection Sampler
 class RSSample
 {
@@ -306,6 +312,70 @@ class RSSample
              << std::endl << "Labelled Mean:\n" << sums[LabelSet[i]] << std::endl;
       }
       return sums;
+    }
+    
+    //! Arithmetic mean of the sampled labeled points, proportions and label: label-specific way 
+    MeansLabelsProportions MeanLabelProportion()
+    {
+      bool printOut = false;
+      MeansLabelsProportions mlp;
+      if (printOut) std::cout << "   Number of labels or topologies = " << Ntopologies << std::endl;
+      std::vector<int>::const_iterator itINTV = 
+        max_element(LabelSet.begin(),LabelSet.end());
+      int MaxLabelNum = *itINTV;
+      
+      //! Flag for IF a label has been encountered in the samples
+      std::vector<bool> first(MaxLabelNum+1, true);
+      
+      //! number of distinct labels in the samples
+      std::vector<long> L_sums(MaxLabelNum+1, 0);
+                    
+      //! sum of distinct labels in the samples
+      std::vector<rvector> sums(MaxLabelNum+1);
+
+      //! model labels in the samples
+      std::vector<int> ModelLabels(Ntopologies);
+
+      //! model proportions in the samples
+      std::vector<real> ModelProportions(Ntopologies,0.0);
+
+      /*! \todo Either replace with gsl_mean like computations due to their 
+        diff eqns form or Kahan Summations Function Obj using std::transform 
+        or DotAccum in c-xsc 
+      */
+      std::vector<LabPnt>::const_iterator it = Samples.begin();
+      for(; it != Samples.end(); it++)
+      {
+        int label = it->L;
+        if(first[label])
+        {
+          sums[label] = rvector(it->Pnt);
+          L_sums[label] = 1;
+          first[label] = false;
+        }
+        else
+        {
+          sums[label] += it->Pnt;
+          L_sums[label] += 1;
+        }
+      }
+      for(int i=0; i<Ntopologies; i++)
+      {
+        if(L_sums[LabelSet[i]] > 0)
+        { 
+          sums[LabelSet[i]] /= (real)L_sums[LabelSet[i]];
+        }
+        real prop_i =  (real)L_sums[LabelSet[i]]/(real)(long)Samples.size(); 
+        ModelProportions[i]= prop_i;
+        ModelLabels[i]=LabelSet[i];
+        if (printOut) {
+          std::cout << "label: " << LabelSet[i] << "  proportion: " 
+             << prop_i
+             << std::endl << "Labelled Mean:\n" << sums[LabelSet[i]] << std::endl;
+        }
+      }
+      mlp.means = sums; mlp.labels=ModelLabels; mlp.proportions=ModelProportions;
+      return mlp;
     }
     
     //! Print label-specific sample means from Mean().

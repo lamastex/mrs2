@@ -59,9 +59,10 @@ class FBinomialPartition: public Fobj{
     //! Track number of real function calls
     mutable int n_real_calls;
 public:
-    //! A constructor.
+    //! A default hard-coded constructor.
     FBinomialPartition(bool LogPi);
-    //FBinomialPartition(vector<int> ns, vector<int> ys, bool LogPi);
+    //! An initialized constructor.
+    FBinomialPartition(vector<int> ns, vector<int> ys, bool LogPi);
     // vector<LabBox> get_domain();
     //! interval function object
     interval operator()(const LabBox& X) const;
