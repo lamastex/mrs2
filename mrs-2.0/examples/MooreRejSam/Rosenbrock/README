@@ -1,0 +1,4 @@
+With the -static flag in Makefile.am you can make an executible that cna be used to simulate samples to std-out for piped-RDDs in Apache Spark as:
+```
+./Rosenbrock 3 10000 10 0 1 | sed '1,/after Refine/d' -
+```

@@ -127,6 +127,7 @@ main (int argc, char **argv)
 	int n_samples = 50;
 	double Alb = 1.0;// partition until lower bound on Acceptance Prob. is > Alb
 	unsigned theSeed = 0;
+	unsigned stdOut = 0;// write samples to files by default
 	
 	//Parameters specific to the Rosenbrock target
 	real Tinverse = 1.0;
@@ -144,18 +145,20 @@ main (int argc, char **argv)
 				sscanf (argv[3], "%i", &n_samples);
 			if (argc >= 5) 
 				sscanf (argv[4], "%ui", &theSeed);
-			if (argc >= 6)
+			if (argc >= 6) 
+				sscanf (argv[5], "%ui", &stdOut);// if set to 1 then the samples are returned in stdout
+			if (argc >= 7)
 				cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>; "
              << "extra arguments ignored.\n";
 		}
 		
-		else cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed>; "
+		else cout << "# Usage: MRS <n_dimensions> <n_boxes> <n_samples> <seed> <stdOut?>; "
               << "extra arguments ignored.\n";
 		
 	}
 	
 	cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes 
-       << "  n_samples: " << n_samples << "  rng_seed = " << theSeed  
+       << "  n_samples: " << n_samples << "  rng_seed = " << theSeed << " stdOut = " << stdOut 
        << endl; //getchar();
 	
 	bool UseLogPi = false; // log scale won't work naively
@@ -166,7 +169,13 @@ main (int argc, char **argv)
                       Tinverse, Height, RosenDomainLimit, UseLogPi);
 	
 	// produce the samples
-	ProduceMRSamples(FRosen, n_boxes, n_samples, 
+        if(stdOut != 0) {
+          MRSampler theSampler (FRosen, n_boxes, Alb, theSeed, (use_f_scale == 1));
+          RSSample rs_sample;
+          theSampler.RejectionSampleMany (n_samples, rs_sample);
+          rs_sample.Print(cout);
+        }
+        else ProduceMRSamples(FRosen, n_boxes, n_samples, 
                    Alb, theSeed, use_f_scale);
 	
 	return 0;			// end main statement
