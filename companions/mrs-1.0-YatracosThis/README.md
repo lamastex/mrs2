@@ -1,3 +1,4 @@
-#Minimum estimation density branch
+# Minimum estimation density branch
 
-#gat41's branch from mrs-1
+# gat41's thesis branch from mrs-1
+
