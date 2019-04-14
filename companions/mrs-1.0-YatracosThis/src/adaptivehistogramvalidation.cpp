@@ -2529,7 +2529,6 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimateWithSwitch(
    return (cancontinue);
 }
 
-//20160830
 // prioritySplitAndEstimate for mapped functions
 // method for data splitting and hold out estimation
 // method to make a leaf node histogram into a multi-node histogram
@@ -2603,7 +2602,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
    return cancontinue;
 }
 
-//20160817
+//what i need to clean
 // prioritySplitAndEstimate for mapped functions
 bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
                    const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
@@ -2613,48 +2612,51 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 						 size_t maxLeafNodes, int maxCheck,
 						 int& minTheta, vector<int> sequence,
 						 vector<double> & vecMaxDelta, vector<real> & vecIAE)
- {	 cout << "calling prioritySplitAndEstimate:" << endl;
+ {	
+	 cout << "calling prioritySplitAndEstimate!!" << endl;
 	 int n = getSubPaving()->getCounter();
 	 bool cancontinue = false;
 	 bool TooManyLeaves = false;
 	 bool boolVal = true;     //boolean for validation data
-    
-    // for stopping criteria
-    size_t flagStop = 0; int currentSmallest = 0;
-    
+        
     //set up collator to keep the histograms as splits happen
     AdaptiveHistogramVCollator coll;
     
-	 //=======initializing containers======================================
+	//initializing containers//
 	//set up a list for the Yatracos set 
 	list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet = new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
+	
 	//set up a vector for sets of pointers to CollatorSPVnode (row)
 	vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
+	
 	//set up a vector for sets of pointers to CollatorSPVnode (col)
 	vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
+	
 	//set up a vector for maximum Delta_theta vectors
-	//vector< vector<double> > vecMaxDeltaVec;
+	vector< vector<double> > vecMaxDeltaVec;
+	
 	//initializing the vector - to allow the delta vector to be in 
-	// right order  since the first histogram does not have a 
-	// Yatracos set
-	//the first element in this vector will not be plotted since 
-	// the first histogram is an empty set
+	//right order  since the first histogram does not have a 
+	//Yatracos set; the first element in this vector will not be plotted since 
+	//the first histogram is an empty set
 	vector<double> theta0;
-	theta0.push_back(-1*(numeric_limits<double>::infinity())); 
-	//the supremum of an empty set is -Infimum 
-	//vecMaxDeltaVec.push_back(theta0);
+	theta0.push_back(-1*(numeric_limits<double>::infinity())); //the supremum of an empty set is -Infimum 
+	vecMaxDeltaVec.push_back(theta0);
+	
 	//set up a vector of the corresponding theta with the minimum 
 	// distance estimates
-	//vector< vector<int> > vecMinDistTheta;
+	vector< vector<int> > vecMinDistTheta;
+	
 	// set up a vector for the infimum 
 	vector<double> vecInfDelta;
+	
 	// set up a vector for the integrated absolute error for each histogram
-   //vector<real>* vecIAE = new vector<real>; 
-   vector<real> vecIAEFull;
-   real minIAE = 1000.00;
-   int numHist = (vecIAE).size();	
+	vector<real> vecIAEFull;
+	real minIAE = 1000.00;
+	int numHist = (vecIAE).size();	
+   
    //for getMinDistEst
-   //vector<double>* vecMaxDelta = new vector<double>;
+  // vector<double>* vecMaxDelta = new vector<double>;
    vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
    
    vector<real> TrueDelta;
@@ -2663,34 +2665,37 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
    real trueDeltaCurrent = 0;
    
    // to keep the histograms
-   //vector<AdaptiveHistogramValidation> tempHist;
-   //==============end of initializing containers=============================//   
+   vector<AdaptiveHistogramValidation> tempHist;
+   //end of initializing containers//   
+   
    // check if the root box is empty
     if (NULL == rootVpaving) {
             throw HistException("No root paving for prioritySplit");
     }
     try {       
-        // add the histogram before any split happens into the collator
-        size_t agg = 0;
-		  coll.addToCollationWithVal(*this, 1, agg);
-		  //tempHist.push_back(*this);
-		  //make into a PCF to compute the IAE
-		  PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
-		  // calculate the IAE 
-		  real IAE = 0;
-		  if ( maxCheck == 0 ) IAE = nodeEst.getIAE(*tempPCF);
-		  delete tempPCF;
-		  // push back into vecIAE 
-		  (vecIAE).push_back(IAE);
-		  numHist = (vecIAE).size();
-		  //minIAE = (IAE < minIAE) ? IAE : minIAE;
+        // add the histogram into the collator before any split happens
+		size_t agg = 0;
+		coll.addToCollationWithVal(*this, 1, agg);
+		
+		//tempHist.push_back(*this);
+		
+		//make into a PCF to compute the IAE
+		PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+		
+		// calculate the IAE 
+		real IAE = 0;
+		if ( maxCheck == 0 ) IAE = nodeEst.getIAE(*tempPCF);
+		delete tempPCF;
+		// push back into vecIAE 
+		(vecIAE).push_back(IAE);
+		numHist = (vecIAE).size();
+		minIAE = (IAE < minIAE) ? IAE : minIAE;
 			
-			//get the IAE for the full data set
-		//	real IAEF = mid(getFinMixIntervalIAE(mixt, tol, deg, 1));
-		  // push back into vecIAE 
-		 // vecIAEFull.push_back(IAEF);
+		//get the IAE for the full data set
+		// push back into vecIAE 
+		// vecIAEFull.push_back(IAEF);
 
-		//============checks  for splittable nodes=============================//
+		//checks  for splittable nodes//
         bool volChecking = false; // record if we need to check volume before split
         double minVol = -1.0; // minimum volume (used only if checking)
         //logging
@@ -2743,9 +2748,8 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
         if(!cancontinue) {
             std::cout << "No splittable leaves to split - aborting" << std::endl;
         }        
-        //==================end of checks=====================================//
+        //end of checks for splittable nodes//
   
-			size_t ch = 0;
 			
         //=========start priority queue====================================//
         // split until the HistEvalObj he () operator returns true
@@ -2783,8 +2787,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
             }
             // split the biggest one and divide up its training and validation 
             // data
-            
-
+           
             //cout << "--------------Hist " << numHist + 1 << endl;
             ExpandWithValid(chosenLargest, boolVal);
                           
@@ -2812,46 +2815,28 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
                 i++;
             }
 
-		      //==========get IAE for this histogram======================//
-			  //cout << "get IAE for histogram " << coll.getNumberCollated() << endl;
+	      //==========get IAE for this histogram======================//
 			  //make into a PCF
 			  PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
 			  // calculate the IAE 
 			  // gotta double check this (that it is only using the height 
 			  // from counter and not from Vcounter
 			  real IAE = 0;
-	  		  if ( maxCheck == 0 ) IAE = nodeEst.getIAE(*tempPCF);
+	 		  if ( maxCheck == 0 ) IAE = nodeEst.getIAE(*tempPCF);
 			  //minIAE = (IAE < minIAE) ? IAE : minIAE;
 			  (vecIAE).push_back(IAE); 
 			  delete tempPCF;
-	          numHist = (vecIAE).size();
+	       numHist = (vecIAE).size();
 				//real IAEF = mid(getFinMixIntervalIAE(mixt, tol, deg, 1));
 				//vecIAEFull.push_back(IAEF); 
 				
-				// keep this histogram in a container 
-				//tempHist.push_back(*this);
-				
-				/*
-				string fileName = "QueueHist";
-				ostringstream stm;
-				stm << ch;
-				fileName += stm.str();
-				fileName += ".txt";
-				outputToTxtTabs(fileName);
-				ch++;
-				*/
-				
-				//====only collate every n-th histogram and obtain the delta values
+				//only collate every n-th histogram and obtain the delta values
 				// add current histogram to collation
 				size_t agg = 0;
-				//cout << "#histograms in collator now: " << coll.getNumberCollated() << endl;
-				//cout << "----" << numHist << "-----" << endl;
-				if (stopCrit == FALSE && (numHist - 1) % maxCheck == 0 && numHist != 0){ 
-					coll.addToCollationWithVal(*this, 1, agg);
-					//cout << "add into collator" << endl;
-				}
-				else if (stopCrit == TRUE && 
-						find (sequence.begin(), sequence.end(), numHist) != sequence.end() ) {
+			//	cout << "#histograms in collator now: " << coll.getNumberCollated() << endl;
+			//	cout << "----" << numHist << "-----" << endl;
+				
+				if (find (sequence.begin(), sequence.end(), numHist) != sequence.end() ) {
 					coll.addToCollationWithVal(*this, 1, agg);
 					cout << "---- Hist " << numHist << "-----" << endl;
 					//cout << "add into collator" << endl;
@@ -2922,15 +2907,6 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 				//not sure where to put this...
      			//delete tempPCF;
 
-				//stopping criteria
-				/*if (stopCrit == true) {
-					//cout << "checking stopping criteria: " << endl;
-					bool toStop = coll.getMinDelta(maxCheck, vecMaxDeltaVec);
-					if (toStop == true) {
-						cout << "Stopping criteria met." << endl;
-						break;
-					} 
-				}*/
 				//==========checks to see if need to split again=========//
             //checking if there are any more 'largest' nodes in the priority queue
             bigEnough = (!pq.empty());
@@ -2951,7 +2927,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 			cout << "===========End of splitting=============" << endl;
         
 			coll.getMinDistEst(vecMaxDelta, vecYatSet);				
-			//cout << "size of vecmaxdelta: " << (vecMaxDelta).size() << endl; 
+			cout << "size of vecmaxdelta: " << (vecMaxDelta).size() << endl; 
 			//================Outputs to .txt files=================== 
 			ofstream os;         // ofstream object
 			os << scientific;  // set formatting for input to oss
@@ -2964,7 +2940,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 			//coll.getYatracosDeltaEnd(*listYatSet, *vecRowYatSet, 
 			//						 *vecColYatSet, *vecMaxDelta);
 			
-			int F = (vecMaxDelta).size();
+			//int F = (vecMaxDelta).size();
 			//cout << F << endl;
 			//double minDelta = 1000;
 			//int minTheta = 0;
@@ -3078,6 +3054,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
     
    return (cancontinue);
 }
+
 
 // prioritySplitAndEstimate for finite mixtures
 // method for data splitting and hold out estimation
