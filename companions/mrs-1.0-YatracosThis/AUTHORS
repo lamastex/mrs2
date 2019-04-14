@@ -1,12 +1,11 @@
 Principal Authors:
-Raazesh Sainudiin (r.sainudiin@math.canterbury.ac.nz) -- overall design  
-Thomas York (tly2@cornell.edu) -- sampler and integrator design 
-
-Module Authors:
-Jennifer Harlow and Raazesh Sainudiin -- sub-pavings arithmetics
+Jennifer Harlow 
+Raazesh Sainudiin (raazesh.sainudiin@gmail.com)   
+Gloria Teng (gloriatengaihui@xmu.edu.my) 
+Thomas York (tly2@cornell.edu)  
 
 Autoconfiscated by:
-Brendan Bycroft (brb44@student.canterbury.ac.nz)
+Brendan Bycroft
 
 Distribution:
-http://www.math.canterbury.ac.nz/~r.sainudiin/codes/mrs/
+https://github.com/lamastex/mrs2
