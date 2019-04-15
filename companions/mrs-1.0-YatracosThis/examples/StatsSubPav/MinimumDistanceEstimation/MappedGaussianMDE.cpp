@@ -223,7 +223,8 @@ int main(int argc, char* argv[])
 	cout << (*theDataPtr).size() << " points generated" << endl;
 	
 	// optional - remove comments to output simulated data 
-	///*string dataFileName = "SimulatedData";
+	///*
+	string dataFileName = "SimulatedData";
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
@@ -237,7 +238,7 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	cout << "Simulated data written to  " << dataFileName << endl;
-  // */
+  	// */
 	// End of generating data--------//
 
  //   // Miminimum distance estimation--------//
