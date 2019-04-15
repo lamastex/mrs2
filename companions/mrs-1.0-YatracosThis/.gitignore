@@ -1,0 +1,12 @@
+Makefile
+autom4te.cache/
+config.h
+config.log
+config.status
+.dirstamp
+Makefile.in
+aclocal.m4
+config.h.in
+configure
+.deps/
+

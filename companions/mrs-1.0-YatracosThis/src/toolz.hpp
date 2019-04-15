@@ -37,9 +37,11 @@
 #include <gsl/gsl_rng.h>
 #include <gsl/gsl_qrng.h>
 #include <gsl/gsl_statistics.h>
-
 #include <vector>
 #include <functional>
+
+#include <sys/types.h>
+#include <unistd.h>
 
 using namespace std;
 using namespace cxsc;
