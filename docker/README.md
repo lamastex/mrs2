@@ -1,73 +1,55 @@
 # To Use mrs-2.0 docker container 
 (See next heding for how to build this docker container from source.)
 
-```%sh
-$ docker run -it raazesh/mrs2 /bin/bash
-Unable to find image 'raazesh/mrs2:latest' locally
-latest: Pulling from raazesh/mrs2
-Digest: sha256:c1f636b1a6383ab4a6a77dfe0519eb357fbc818cb443a19fca62992868a1a496
-Status: Downloaded newer image for raazesh/mrs2:latest
-root@e8142f03bc52:/# cd /mrs2/mrs-2.0/
-root@e8142f03bc52:/mrs2/mrs-2.0# ls
-AUTHORS   ChangeLog  Makefile     NEWS        autom4te.cache  config.h     config.status  custom_config.sh  l1LTIDE   tests
-CONTENTS  Doxyfile   Makefile.am  README.md   bootstrap       config.h.in  configure      docs              src
-COPYING   INSTALL    Makefile.in  aclocal.m4  config          config.log   configure.ac   examples          stamp-h1
-
-```
-
-To test out a routine try:
+Due to changes in gcc compiler collection and the frozen c-xsc project, we are using docker container with the compatible compiler collection for c-xsc to do the compilation and development of mrs2 for now.
 
 ```%sh
-root@e8142f03bc52:/mrs2/mrs-2.0# cd examples/MooreRejSam/Rosenbrock/
-root@e8142f03bc52:/mrs2/mrs-2.0/examples/MooreRejSam/Rosenbrock# ./Rosenbrock
-# n_dimensions: 2  n_boxes: 100  n_samples: 50  rng_seed = 0
-in FirstBox, before getBoxREInfo. k: 0
-0 [ -10.000000000000000,  10.000000000000000] [ -10.000000000000000,  10.000000000000000] RE: [   0.000000000000000,   1.000000000000000] BoxIntegral: [   0.000000000000000, 400.000000000000000]
-in FirstBox, after getBoxREInfo 
-0 [ -10.000000000000000,  10.000000000000000] [ -10.000000000000000,  10.000000000000000]
-Umax:    1.000000000000000
-f_scale:    1.000000000000000  1.000000000000000E-200
-bottom of updateUmax 
-in FirstBox, after updateUmax 
-bottom of FirstBox. 
-after FirstBox, before Refine 
-Umax:    0.623344308959635
-Umax:    1.000000000000000
-f_scale:    1.000000000000000  1.000000000000000E-200
-bottom of updateUmax 
-in AdaptPartition after updateUmax2 
-in updateIntegral. IL, IU:    0.000000016151201 1.323273005754416E+003
-# Adaptive partitioning complete. Boxes: 100  Lower bound on Acceptance Prob.: 5.23875e-09 IL, IU: 1.61511e-08   3.083
-#Using log(pi)? 0
-#No. of Boxes with proposal mass function <= 1e-16 39
-#No. of Boxes with proposal mass function <= 1e-10 40
-#No. of Boxes with proposal mass function >= 1e-6 54
-#No. of Boxes with proposal mass function >= 1e-3 44
-after Refine 
-output has been written to MRS_IsIt1or2CoinsRangeDomainSet.txt
+$ docker run -d -it lamastex/mrs2 # run the docker image, from hub if needed
+$  docker ps # list the docker processes runing to get the container-ID = 1b486f581c1e THIS will be different for you! 
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+1b486f581c1e        lamastex/mrs2       "/bin/bash"         34 minutes ago      Up 34 minutes                           loving_booth
+```
 
-before Rej..SampleMany 
-n_samples: 50
-after Rej..SampleMany 
-rs_sample IU, N, Nrs:    3.083004958896712 50 50
-RSSampleMany, integral est: 0.297014
-RSSampleMany mean: 
-   Number of labels or topologies = 1
-label: 0  proportion:    1.000000000000000
-Labelled Mean:
-   0.981980795094569
-   1.548461800444056
-
-n interval function calls: 199
-n real function calls: 522
-# CPU Time (seconds). Partitioning: 0.006633  Sampling: 0.001503  Total: 0.008136
-# CPU time (secods) per estimate: 0.00016272
-root@e8142f03bc52:/mrs2/mrs-2.0/examples/MooreRejSam/Rosenbrock# 
+Now, you can execute bash in the runnign container (use YOUR conteiner-ID output from above command: `docker ps` for `lamastex/mrs2` image):
 
 ```
+$  docker exec -it 1b486f581c1e bash
+```
+
+**Tip**: See https://stackoverflow.com/questions/39794509/how-to-open-multiple-terminals-in-docker to be able to use multiple terminals into the docker container.
+
+Now, go into the git cloned repository and start working.
+
+You can follow the same steps of bootstrap, configure and make in `cd git/mrs2/companions/mrs-1.0-YatracosThis/`.
+
+```%sh
+root@1b486f581c1e:/git/mrs2/mrs-2.0# history
+    1  cd git/
+    2  ls
+    3  git clone  https://github.com/lamastex/mrs2.git
+    4  cd mrs2/mrs-2.0/
+    5  ./bootstrap 
+    6  ./custom_config.sh 
+    7  make
+    8  ./examples/MooreRejSam/Rosenbrock/Rosenbrock
+```
+
 
 # Steps in Making mrs2 docker container
-Only do this if you want to rebuild from source the minimal dependencies (GSL and C-XSC for MRS-2.0)
+Only do this if you want to rebuild from source the minimal dependencies (GSL and C-XSC for MRS-2.0). 
+Currently the lamastex/mrs2 image is built from raazesh/mrs2 that was successfully built and tested when c-xsc2 was compatible with gcc version from 2017 (see Step 1 and 2 below).
+
+## Step 0
+This is to build, tag and push lamastex/mrs2 to docker hub.
+
+```
+$ cd docker_mrs2
+$ make build
+$ docker tag mrs2 lamastex/mrs2
+$ docker push lamastex/mrs2
+$ docker run -it lamastex/mrs2 bash
+```
+
 ## Step 1 
 This Step 1 is already done and can be pulled from docker hub as raazesh/mrs2-gsl-cxsc.
 If you want to redo it from source then:
@@ -106,3 +88,4 @@ raazesh/mrs2-gsl-cxsc   latest              62e46ee1f0f6        24 minutes ago  
 $ docker push raazesh/mrs2
 The push refers to a repository [docker.io/raazesh/mrs2]
 ```
+

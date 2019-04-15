@@ -5,7 +5,18 @@ If you want to redo it from source then do the following.
 ```
 make build-gsl
 ```
+
+Next, push this to dockerhub lamastex/mrs2-gsl.
+
+```
+$ docker tag lamastex/mrs2-gsl:latest
+$  docker images # make sure image is tagged correctly
+$  docker login # login to docker
+$  docker push lamastex/mrs2-gsl:latest
+```
+
 because cxsc needs interactive build we will call
+
 ```
 make run-gsl-cxsc 
 ```
@@ -21,7 +32,7 @@ e2564d53e479        mrs2-gsl            "/bin/bash"         14 minutes ago      
 Now, you can commit this image **after** it has been built with c-xsc library that requires interaction during its build, as detailed further below on 'how to build mrs2-gsl-cxsc'.
 
 ```%sh
-$ docker commit mrs2-gsl-cxsc raazesh/mrs2-gsl-cxsc
+$ docker commit mrs2-gsl-cxsc lamastex/mrs2-gsl-cxsc
 sha256:089db06cd01bd2ab9e09eaf7a8945945f13a99911397e0a57c814b60bcac68c1
 
 $ docker images
@@ -34,8 +45,8 @@ Username (raazesh): raazesh
 Password: 
 Login Succeeded
 
-$ docker push raazesh/mrs2-gsl-cxsc
-The push refers to a repository [docker.io/raazesh/mrs2-gsl-cxsc]
+$ docker push lamastex/mrs2-gsl-cxsc
+The push refers to a repository [docker.io/lamastex/mrs2-gsl-cxsc]
 0d36b84a7fea: Pushed 
 cc73d0632e42: Pushed 
 21f825eed08a: Pushed 
@@ -57,12 +68,6 @@ latest: digest: sha256:6a5895aa51b2443cc64e81c27206f85428f943c3637ca4749ca7d73cb
 ```%sh
 Successfully built 50d545d6f21d
 Successfully tagged mrs2-gsl:latest
-raazesh@raazesh-Inspiron-15-7579:~/all/git/mrs2/docker$ make run-gsl-cxsc
-docker: Error response from daemon: Conflict. The container name "/mrs2-gsl-cxsc" is already in use by container "77b09cead07a0d06ba280bc21c41f715837c6a153d70f52f6671ce39409c1662". You have to remove (or rename) that container to be able to reuse that name.
-See 'docker run --help'.
-Makefile:12: recipe for target 'run-gsl-cxsc' failed
-make: *** [run-gsl-cxsc] Error 125
-raazesh@raazesh-Inspiron-15-7579:~/all/git/mrs2/docker$ docker rm mrs2-gsl-cxsc > /dev/null || true
 raazesh@raazesh-Inspiron-15-7579:~/all/git/mrs2/docker$ make run-gsl-cxsc
 root@e2564d53e479:/# cd mrs2/companions/cxsc-2-5-4/
 root@e2564d53e479:/mrs2/companions/cxsc-2-5-4# echo $CXSCDIR

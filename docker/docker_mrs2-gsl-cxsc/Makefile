@@ -1,5 +1,5 @@
 build-gsl:
-	@docker build -t mrs2-gsl .
+	@docker build -t lamastex/mrs2-gsl .
 
 run-gsl:
 	@docker run \
@@ -7,11 +7,11 @@ run-gsl:
 	  --name mrs2-gsl mrs2-gsl
 
 # because cxsc needs interactive build we will call 
-# 'make run-gsl-cxsc' and 'docker commit mrs2-gsl-cxsc raazesh/mrs2:latest' 
+# 'make run-gsl-cxsc' and 'docker commit mrs2-gsl-cxsc lamastex/mrs2:latest' 
 run-gsl-cxsc:
 	@docker run \
 	  -it \
-	  --name mrs2-gsl-cxsc mrs2-gsl /bin/bash
+	  --name mrs2-gsl-cxsc lamastex/mrs2-gsl /bin/bash
 ### to mount a volume from host file system
 	  #-v /home/raazesh/all/git/mrs2:/mrs2 \
 

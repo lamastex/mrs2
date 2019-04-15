@@ -12,7 +12,7 @@ ENV LD_LIBRARY_PATH $CXSCDIR/lib:$LD_LIBRARY_PATH
 ENV LD_LIBRARY_PATH $GSLDIR/lib:$LD_LIBRARY_PATH
 
 RUN apt-get -y update
-RUN apt-get install -y wget zip make automake gawk gcc g++ vim
+RUN apt-get install -y wget zip make automake gawk gcc g++ vim git
 
 # Move over JDK and Scala
 #ADD . /
