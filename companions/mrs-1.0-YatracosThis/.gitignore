@@ -9,4 +9,11 @@ aclocal.m4
 config.h.in
 configure
 .deps/
-
+examples/MappedTargetsTrunk/TestGaussianFobj
+examples/MappedTargetsTrunk/TestLevyDensity2DFobj
+examples/MappedTargetsTrunk/TestRosenDensityFobj
+examples/MappedTargetsTrunk/TestUniformFobj
+examples/StatsSubPav/MinimumDistanceEstimation/MappedScheffe
+examples/StatsSubPav/MinimumDistanceEstimation/MappedScheffeIAE
+examples/StatsSubPav/MinimumDistanceEstimation/MappedScheffeKL
+config/compile

@@ -171,6 +171,7 @@ examples/newSubPav/Exr_11_35/Makefile
 examples/newSubPav/Makefile
 examples/targets/.deps/
 examples/targets/.dirstamp
+examples/StatsSubPav/CVOptMap/SimpleIO
 include/
 src/.deps/
 src/Makefile
