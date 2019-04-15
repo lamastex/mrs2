@@ -2533,12 +2533,12 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimateWithSwitch(
 // method for data splitting and hold out estimation
 // outputs to a log file if logging is true
 bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
-                   const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
+             const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
 						 LOGGING_LEVEL logging, size_t minChildPoints, 
 						 double minVolB, bool stopCrit, 
-						 PiecewiseConstantFunction& nodeEst, int method, 
-						 size_t maxLeafNodes, int maxCheck,
-						 int& minTheta, vector<int> sequence,
+						 PiecewiseConstantFunction& nodeEst, 
+						 size_t maxLeafNodes, bool computeIAE,
+						 vector<int> sequence,
 						 vector<double> & vecMaxDelta, vector<real> & vecIAE)
 {
     gsl_rng * rgsl = NULL;
@@ -2555,8 +2555,8 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 
         // call the function with a random number generator
         cancontinue = prioritySplitAndEstimate(compTest, he, logging, minChildPoints, 
-											  minVolB, rgsl, stopCrit, nodeEst, method,
-											  maxLeafNodes, maxCheck, minTheta, sequence,
+											  minVolB, rgsl, stopCrit, nodeEst, 
+											  maxLeafNodes, computeIAE, sequence,
 											  vecMaxDelta, vecIAE);
         gsl_rng_free (rgsl);
     }
@@ -2597,163 +2597,94 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 }
 
 //what i need to clean
-// prioritySplitAndEstimate for mapped functions
+//prioritySplitAndEstimate for mapped functions
 bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
-                   const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
-						 LOGGING_LEVEL logging, size_t minChildPoints, 
-						 double minVolB, gsl_rng * rgsl, bool stopCrit, 
-						 PiecewiseConstantFunction& nodeEst, int method, 
-						 size_t maxLeafNodes, int maxCheck,
-						 int& minTheta, vector<int> sequence,
-						 vector<double> & vecMaxDelta, vector<real> & vecIAE)
-{	 
-  cout << "calling prioritySplitAndEstimate:" << endl;
-	int n = getSubPaving()->getCounter();
-	bool cancontinue = false;
-	bool TooManyLeaves = false;
-	bool boolVal = true;     //boolean for validation data
+            const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
+						LOGGING_LEVEL logging, size_t minChildPoints, 
+						double minVolB, gsl_rng * rgsl, bool stopCrit, 
+						PiecewiseConstantFunction& nodeEst, 
+						size_t maxLeafNodes, bool computeIAE,
+						vector<int> sequence,
+						vector<double> & vecMaxDelta, vector<real> & vecIAE)
+ {
+		cout << "Calling prioritySplitAndEstimate..." << endl;
+		int n = getSubPaving()->getCounter();
+		bool cancontinue = false;
+		bool TooManyLeaves = false;
+		bool boolVal = true;     //boolean for validation data
+	  size_t numHist = 0; //a counter to track the number of histograms
+	    
+		//set up collator to keep the histograms as splits happen
+		AdaptiveHistogramVCollator coll;
     
-  // for stopping criteria
-  size_t flagStop = 0; int currentSmallest = 0;
-    
-  //set up collator to keep the histograms as splits happen
-  AdaptiveHistogramVCollator coll;
-=======
- {	
-	 cout << "calling prioritySplitAndEstimate!!" << endl;
-	 int n = getSubPaving()->getCounter();
-	 bool cancontinue = false;
-	 bool TooManyLeaves = false;
-	 bool boolVal = true;     //boolean for validation data
-        
-    //set up collator to keep the histograms as splits happen
-    AdaptiveHistogramVCollator coll;
->>>>>>> 406e6a2251f4f6b53b08ed168162bc1ac4427bec
-    
-	//initializing containers//
-	//set up a list for the Yatracos set 
-	list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet = new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
-	
+		//initializing containers
+		//container for getMinDistEst()
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
 
-  //set up a vector for sets of pointers to CollatorSPVnode (row)
-	vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
+		//set up a list for the Yatracos set for ...
+		list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet 
+		= new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
 	
-  //set up a vector for sets of pointers to CollatorSPVnode (col)
-	vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
+		//set up a vector for sets of pointers to CollatorSPVnode (row)
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet
+		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
 	
-  //set up a vector for maximum Delta_theta vectors
-	//vector< vector<double> > vecMaxDeltaVec;
+		//set up a vector for sets of pointers to CollatorSPVnode (col)
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet
+		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
+	
+		//set up a vector for maximum Delta_theta vectors
+		//vector< vector<double> > vecMaxDeltaVec;
+		//initializing the vector - to allow the delta vector to be in 
+		// right order  since the first histogram does not have a 
+		// Yatracos set
+		//the first element in this vector will not be plotted since 
+		// the first histogram is an empty set
+		vector<double> theta0;
+		theta0.push_back(-1*(numeric_limits<double>::infinity())); 
+		//the supremum of an empty set is -Infimum 
+		//vecMaxDeltaVec.push_back(theta0);
+		//set up a vector of the corresponding theta with the minimum 
+		// distance estimates
+		//vector< vector<int> > vecMinDistTheta;
+		// set up a vector for the infimum 
+		vector<double> vecInfDelta;
+		// set up a vector for the integrated absolute error for each histogram
+		//vector<real>* vecIAE = new vector<real>; 
+		vector<real> vecIAEFull;
+		real minIAE = 1000.00;
 
-	//set up a vector for sets of pointers to CollatorSPVnode (row)
-	vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
-	
-	//set up a vector for sets of pointers to CollatorSPVnode (col)
-	vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
-	
-	//set up a vector for maximum Delta_theta vectors
-	vector< vector<double> > vecMaxDeltaVec;
-	
->>>>>>> 406e6a2251f4f6b53b08ed168162bc1ac4427bec
-	//initializing the vector - to allow the delta vector to be in 
-	//right order  since the first histogram does not have a 
-	//Yatracos set; the first element in this vector will not be plotted since 
-	//the first histogram is an empty set
-	vector<double> theta0;
-	theta0.push_back(-1*(numeric_limits<double>::infinity())); //the supremum of an empty set is -Infimum 
-	vecMaxDeltaVec.push_back(theta0);
-	
-	//set up a vector of the corresponding theta with the minimum 
-	// distance estimates
-
-	//vector< vector<int> > vecMinDistTheta;
-	
-  // set up a vector for the infimum 
-	vector<double> vecInfDelta;
-	
-  // set up a vector for the integrated absolute error for each histogram
-  //vector<real>* vecIAE = new vector<real>; 
-  vector<real> vecIAEFull;
-  real minIAE = 1000.00;
-  int numHist = (vecIAE).size();	
-  
-  //for getMinDistEst
-  //vector<double>* vecMaxDelta = new vector<double>;
-
-	vector< vector<int> > vecMinDistTheta;
-	
-	// set up a vector for the infimum 
-	vector<double> vecInfDelta;
-	
-	// set up a vector for the integrated absolute error for each histogram
-	vector<real> vecIAEFull;
-	real minIAE = 1000.00;
-	int numHist = (vecIAE).size();	
    
-   //for getMinDistEst
-  // vector<double>* vecMaxDelta = new vector<double>;
->>>>>>> 406e6a2251f4f6b53b08ed168162bc1ac4427bec
-   vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
-   
-   vector<real> TrueDelta;
-   TrueDelta.push_back(-1); 
-   
-   real trueDeltaCurrent = 0;
-   
-   // to keep the histograms
-   //vector<AdaptiveHistogramValidation> tempHist;
-   //=============end of initializing containers==========================//   
-   vector<AdaptiveHistogramValidation> tempHist;
-   //end of initializing containers//   
-   
-   // check if the root box is empty
-    if (NULL == rootVpaving) {
-            throw HistException("No root paving for prioritySplit");
+		vector<real> TrueDelta;
+		TrueDelta.push_back(-1); 
+		real trueDeltaCurrent = 0;
+   	//end of initializing containers//
+   	   
+		// check if the root box is empty
+		if (NULL == rootVpaving) {
+				throw HistException("No root paving for prioritySplit");
     }
     try {       
         // add the histogram before any split happens into the collator
         size_t agg = 0;
-		    coll.addToCollationWithVal(*this, 1, agg);
-		    //tempHist.push_back(*this);
-		    
-        //make into a PCF to compute the IAE
-		    PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
-		    
-        // calculate the IAE 
-		    real IAE = 0;
-		    if ( maxCheck == 0 ) IAE = nodeEst.getIAE(*tempPCF);
-		    delete tempPCF;
-		    // push back into vecIAE 
-		    (vecIAE).push_back(IAE);
-		    numHist = (vecIAE).size();
-		    //minIAE = (IAE < minIAE) ? IAE : minIAE;
-			
-			 //==========checks  for splittable nodes=============================//
-        // add the histogram into the collator before any split happens
-		size_t agg = 0;
-		coll.addToCollationWithVal(*this, 1, agg);
+				coll.addToCollationWithVal(*this, 1, agg);
+				numHist += 1;
 		
-		//tempHist.push_back(*this);
-		
-		//make into a PCF to compute the IAE
-		PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
-		
-		// calculate the IAE 
-		real IAE = 0;
-		if ( maxCheck == 0 ) IAE = nodeEst.getIAE(*tempPCF);
-		delete tempPCF;
-		// push back into vecIAE 
-		(vecIAE).push_back(IAE);
-		numHist = (vecIAE).size();
-		minIAE = (IAE < minIAE) ? IAE : minIAE;
-			
-		//get the IAE for the full data set
-		// push back into vecIAE 
-		// vecIAEFull.push_back(IAEF);
+				if (computeIAE == TRUE) {
+					PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+					real IAE = nodeEst.getIAE(*tempPCF);
+					delete tempPCF;
+					(vecIAE).push_back(IAE);
+				}
+				
+				//get the IAE for the full data set
+				//	real IAEF = mid(getFinMixIntervalIAE(mixt, tol, deg, 1));
+				// push back into vecIAE 
+				// vecIAEFull.push_back(IAEF);
 
-		//checks  for splittable nodes//
-        bool volChecking = false; // record if we need to check volume before split
+				//checks for splittable nodes//
+				bool volChecking = false; // record if we need to check volume before split
         double minVol = -1.0; // minimum volume (used only if checking)
-        
         //logging
         std::string baseFileName = "";
         std::string s = "";
@@ -2768,17 +2699,19 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
             minVol = getMinVol(minVolB);
             volChecking = true;
         }
-      
-        // a multiset for the queue (key values are not necessarily unique)
-        multiset<SPSVnode*, MyCompare> pq((MyCompare(compTest)));
-        int i=0;
-        if (logging != NOLOG) {
+				// a multiset for the queue (key values are not necessarily unique)
+				multiset<SPSVnode*, MyCompare> pq((MyCompare(compTest)));
+				int i=0;
+				if (logging != NOLOG) {
              // Start log file with filename and timestamp
             outputLogStart(s);    
             i++;
-        }
+				}
       
-        // put nodes into the starting set IF they meet minVol test AND IF either there are enough points in the whole node and minChildCountIfSplit is 0 (ie all points go to one child) or the minChildCountIfSplit test passed
+				// put nodes into the starting set IF they meet minVol test AND IF either
+				// there are enough points in the whole node
+				// and minChildCountIfSplit is 0 (ie all points go to one child)
+				// or the minChildCountIfSplit test passed
         if (rootVpaving->isLeaf()) {
             // check to insert a copy of the rootVpaving pointer into the set
            if (checkNodeCountForSplit(rootVpaving, volChecking, minVol,
@@ -2803,49 +2736,45 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
         if(!cancontinue) {
             std::cout << "No splittable leaves to split - aborting" << std::endl;
         }        
-        //==================end of checks===================================//
-  
-        //end of checks for splittable nodes//
-  
-			
-        //=========start priority queue====================================//
+        //end of checks//
+		
+				//start priority queue//
         // split until the HistEvalObj he () operator returns true
         // we only put splittable nodes into the set, so we don't have to check
         // that they are splittable when we take them out	  
-		    while (bigEnough && !he(this) && !TooManyLeaves) {          
-            SPSVnode* largest = *(pq.rbegin ()); // the last largest in the set
-            SPSVnode* chosenLargest;
-            // find if there are any more equal to largest around
-            multiset<SPSVnode*, MyCompare>::iterator mit;
-            pair<multiset<SPSVnode*, MyCompare>::iterator,
-                multiset<SPSVnode*, MyCompare>::iterator> equalLargest;
-            equalLargest = pq.equal_range(largest); // everything that = largest
-            size_t numberLargest = pq.count(largest); // number of =largest
+				while (bigEnough && !he(this) && !TooManyLeaves) {          
+					SPSVnode* largest = *(pq.rbegin ()); // the last largest in the set
+					SPSVnode* chosenLargest;
+					// find if there are any more equal to largest around
+					multiset<SPSVnode*, MyCompare>::iterator mit;
+					pair<multiset<SPSVnode*, MyCompare>::iterator,
+							multiset<SPSVnode*, MyCompare>::iterator> equalLargest;
+					equalLargest = pq.equal_range(largest); // everything that = largest
+					size_t numberLargest = pq.count(largest); // number of =largest
 
-            if (numberLargest > 1) {
-                // draw a random number in [0,1)
-                double rand = gsl_rng_uniform(rgsl);
-                real sum = 0.0;
-                // random selection of the =largest node to chose
-                for (mit=equalLargest.first; mit!=equalLargest.second; ++mit) {
-                    sum += 1.0/(1.0*numberLargest);
-                    if (rand < sum) {
-                        break;
-                    }
-                }
-                chosenLargest = *(mit); // the chosen largest in the set
-                pq.erase(mit);// take the iterator to chosen largest out of the set
+					if (numberLargest > 1) {
+							// draw a random number in [0,1)
+							double rand = gsl_rng_uniform(rgsl);
+							real sum = 0.0;
+							// random selection of the =largest node to chose
+							for (mit=equalLargest.first; mit!=equalLargest.second; ++mit) {
+									sum += 1.0/(1.0*numberLargest);
+									if (rand < sum) {
+											break;
+									}
+							}
+							chosenLargest = *(mit); // the chosen largest in the set
+							pq.erase(mit);// take the iterator to chosen largest out of the set
+           }
+           else {
+							chosenLargest = *(pq.rbegin ()); // the only largest
+							multiset<SPSVnode*, MyCompare>::iterator it = pq.end();
+							it--;
+							pq.erase(it);// take this largest out of the set
             }
-            else {
-                chosenLargest = *(pq.rbegin ()); // the only largest
-                multiset<SPSVnode*, MyCompare>::iterator it = pq.end();
-                it--;
-                pq.erase(it);// take this largest out of the set
-            }
+            
             // split the biggest one and divide up its training and validation 
             // data
-           
-            //cout << "--------------Hist " << numHist + 1 << endl;
             ExpandWithValid(chosenLargest, boolVal);
                           
             // add the new child names to the creation string
@@ -2854,16 +2783,16 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
             // but only put the children into the container if they can be
             // split, which means IF the child meets the min vol test AND IF
             // either there are enough points in the whole child and
-                // the child's minChildCountIfSplit is 0 (ie all points go to
-                // one child of the child)
+            // the child's minChildCountIfSplit is 0 (ie all points go to
+            // one child of the child)
             // or the child's minChildCountIfSplit test is passed
             if (checkNodeCountForSplit(chosenLargest->getLeftChild(),
-                    volChecking, minVol, minChildPoints)) {
+                volChecking, minVol, minChildPoints)) {
                 // insert the new left child into the multiset
                 pq.insert(chosenLargest->getLeftChild());
             }
             if (checkNodeCountForSplit(chosenLargest->getRightChild(),
-                    volChecking, minVol, minChildPoints)) {
+                volChecking, minVol, minChildPoints)) {
                 // insert the new right child into the multiset
                 pq.insert(chosenLargest->getRightChild());
             }
@@ -2872,230 +2801,211 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
                 i++;
             }
 
-	      //==========get IAE for this histogram======================//
-			  //make into a PCF
-			  PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
-			  // calculate the IAE 
-			  // gotta double check this (that it is only using the height 
-			  // from counter and not from Vcounter
-			  real IAE = 0;
-	 		  if ( maxCheck == 0 ) IAE = nodeEst.getIAE(*tempPCF);
-			  //minIAE = (IAE < minIAE) ? IAE : minIAE;
-			  (vecIAE).push_back(IAE); 
-			  delete tempPCF;
-        numHist = (vecIAE).size();
+						//get IAE for this histogram if computeIAE == TRUE
+						if (computeIAE == TRUE) {
+							PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+							// gotta double check this (that it is only using the height 
+							// from counter and not from Vcounter
+							real IAE = nodeEst.getIAE(*tempPCF);
+							(vecIAE).push_back(IAE); 
+							delete tempPCF;
+	          	//real IAEF = mid(getFinMixIntervalIAE(mixt, tol, deg, 1));
+							//vecIAEFull.push_back(IAEF); 
+						}
+						numHist += 1;
 				
-				//====only collate every n-th histogram and obtain the delta values
-				//real IAEF = mid(getFinMixIntervalIAE(mixt, tol, deg, 1));
-				//vecIAEFull.push_back(IAEF); 
-				
-				//only collate every n-th histogram and obtain the delta values
-				// add current histogram to collation
-				size_t agg = 0;
-			//	cout << "#histograms in collator now: " << coll.getNumberCollated() << endl;
-			//	cout << "----" << numHist << "-----" << endl;
-				
-				if (find (sequence.begin(), sequence.end(), numHist) != sequence.end() ) {
-					coll.addToCollationWithVal(*this, 1, agg);
-					cout << "---- Hist " << numHist << "-----" << endl;
-					//cout << "add into collator" << endl;
-				}
+						// only collate the k-th histogram and obtain the delta values
+						if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
+							coll.addToCollationWithVal(*this, 1, agg);
+							cout << "---- Hist " << numHist << "-----" << endl;
+						}
 					
-				//cout << "get the split node" << endl;
-				// first we need a pointer to the corresponding CollatorSPVnode 
-				// of the SPSVnode* chosenLargest     
-				//CollatorSPVnode * splitCollNode;
-				//coll.getSplitNodePtr(splitCollNode, chosenLargest);
-				//cout << chosenLargest->getNodeName() << "\t" << splitCollNode->getNodeName() << endl;
-				
- 				//cout << "get the yat class" << endl;
-				// get the Yatracos class for this collation
-				//coll.getYatracosClassAll(splitCollNode, *vecRowYatSet,
-				//										*vecColYatSet, 
-				//										*listYatSet);
-				//} //end of every k-th histogram
-				
-				//cout << "get delta theta" << endl;
-				// get delta_theta for each theta
-				//coll.getYatracosDelta(listYatSet, vecRowYatSet, vecColYatSet, 
-					//							vecMaxDeltaVec);
-
-				/*later...
-				// get the true delta
-				real trueDelta = 0.0;
-				vector< set<CollatorSPVnode*, less < CollatorSPVnode* > > >::iterator listIt;   
-				//cout << "Current Yatracos set has " << (*tempList).size() << " nodes." << endl;
-				for (listIt = (vecRowYatSet).begin(); listIt < vecRowYatSet.end(); listIt++) {
-					if ( !(*listIt).empty() ) {
-							real trueDeltaR = getMappedFunctionTrueDelta(nodeEst, (*listIt));
-							trueDeltaR = abs(trueDeltaR);
-							trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
-							//cout << "previous: " << trueDeltaCurrent << "\t current: " << trueDelta << endl;
-							trueDelta = (trueDeltaCurrent > trueDelta) ? trueDeltaCurrent : trueDelta;
-							//cout << "delta after comparison: " << trueDelta << endl;
-							trueDeltaCurrent = trueDelta;
-							//TrueDelta.push_back(trueDelta);
+						//cout << "get the split node" << endl;
+						// first we need a pointer to the corresponding CollatorSPVnode 
+						// of the SPSVnode* chosenLargest     
+						//CollatorSPVnode * splitCollNode;
+						//coll.getSplitNodePtr(splitCollNode, chosenLargest);
+						//cout << chosenLargest->getNodeName() << "\t" << splitCollNode->getNodeName() << endl;
+						
+		 				//cout << "get the yat class" << endl;
+						// get the Yatracos class for this collation
+						//coll.getYatracosClassAll(splitCollNode, *vecRowYatSet,
+						//										*vecColYatSet, 
+						//										*listYatSet);
+						//} //end of every k-th histogram
+						
+						//cout << "get delta theta" << endl;
+						// get delta_theta for each theta
+						//coll.getYatracosDelta(listYatSet, vecRowYatSet, vecColYatSet, 
+							//							vecMaxDeltaVec);
+		
+						/*later...
+						// get the true delta
+						real trueDelta = 0.0;
+						vector< set<CollatorSPVnode*, less < CollatorSPVnode* > > >::iterator listIt;   
+						//cout << "Current Yatracos set has " << (*tempList).size() << " nodes." << endl;
+						for (listIt = (vecRowYatSet).begin(); listIt < vecRowYatSet.end(); listIt++) {
+							if ( !(*listIt).empty() ) {
+									real trueDeltaR = getMappedFunctionTrueDelta(nodeEst, (*listIt));
+									trueDeltaR = abs(trueDeltaR);
+									trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
+									//cout << "previous: " << trueDeltaCurrent << "\t current: " << trueDelta << endl;
+									trueDelta = (trueDeltaCurrent > trueDelta) ? trueDeltaCurrent : trueDelta;
+									//cout << "delta after comparison: " << trueDelta << endl;
+									trueDeltaCurrent = trueDelta;
+									//TrueDelta.push_back(trueDelta);
+								}
+							}
+		
+						for (listIt = (vecColYatSet).begin(); listIt < vecColYatSet.end(); listIt++) {
+							if ( !(*listIt).empty() ) {
+								real trueDeltaR = getMappedFunctionTrueDelta(nodeEst, (*listIt));
+								trueDeltaR = abs(trueDeltaR);
+								trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
+								//cout << "previous: " << trueDeltaCurrent << "\t current: " << trueDelta << endl;
+								trueDelta = (trueDeltaCurrent > trueDelta) ? trueDeltaCurrent : trueDelta;
+								//cout << "delta after comparison: " << trueDelta << endl;
+								trueDeltaCurrent = trueDelta;
+								//TrueDelta.push_back(trueDelta);
+							}
 						}
-					}
-
-					for (listIt = (vecColYatSet).begin(); listIt < vecColYatSet.end(); listIt++) {
-						if ( !(*listIt).empty() ) {
-							real trueDeltaR = getMappedFunctionTrueDelta(nodeEst, (*listIt));
-							trueDeltaR = abs(trueDeltaR);
-							trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
-							//cout << "previous: " << trueDeltaCurrent << "\t current: " << trueDelta << endl;
-							trueDelta = (trueDeltaCurrent > trueDelta) ? trueDeltaCurrent : trueDelta;
-							//cout << "delta after comparison: " << trueDelta << endl;
-							trueDeltaCurrent = trueDelta;
-							//TrueDelta.push_back(trueDelta);
-						}
-					}
-				
-			
-				if ( vecRowYatSet.empty() && vecColYatSet.empty() ) 
-				{ trueDelta = -1; TrueDelta.push_back(trueDelta); } 
-				
-				TrueDelta.push_back(trueDelta);
-				
-				//check theorem 10.1
-				//cout << "check theorem: " << endl;
-				//cout << IAE << "\t" << minIAE << "\t" << trueDelta << endl;
-				//if ( trueDelta >= 0) {	assert(IAE <= (3*minIAE + 4*trueDelta)); }
-				*/
-	
-				//not sure where to put this...
-     			//delete tempPCF;
-
-				//==========checks to see if need to split again=========//
-            //checking if there are any more 'largest' nodes in the priority queue
+										
+						if ( vecRowYatSet.empty() && vecColYatSet.empty() ) 
+						{ trueDelta = -1; TrueDelta.push_back(trueDelta); } 
+						
+						TrueDelta.push_back(trueDelta);
+						
+						//check theorem 10.1
+						//cout << "check theorem: " << endl;
+						//cout << IAE << "\t" << minIAE << "\t" << trueDelta << endl;
+						//if ( trueDelta >= 0) {	assert(IAE <= (3*minIAE + 4*trueDelta)); }
+						*/
+						
+						//checks to see if need to split again
+						//checking if there are any more 'largest' nodes in the priority queue
             bigEnough = (!pq.empty());
             if (!bigEnough){    
-					std::cout << "Terminated splitting: no splittable nodes left"
+							std::cout << "Terminated splitting: no splittable nodes left"
                     << std::endl;
             }
-				// check if number of leaf nodes in subpaving > maxLeafNodes
-				// maximum number of leaf nodes allowed
-				//n^B, A+B > 1, 0  < A < 1, 0 < B < 1 - refer Prop. 1 in PQ paper
-				TooManyLeaves = (getRootLeaves() > maxLeafNodes);
-				if ( TooManyLeaves) {
-					std::cout << "Terminated splitting: maximum number of leaf nodes = "<< maxLeafNodes << " reached"
+						// check if number of leaf nodes in subpaving > maxLeafNodes
+						// maximum number of leaf nodes allowed
+						//n^B, A+B > 1, 0  < A < 1, 0 < B < 1 - refer Prop. 1 in PQ paper
+						TooManyLeaves = (getRootLeaves() > maxLeafNodes);
+						if ( TooManyLeaves) {
+							std::cout << "Terminated splitting: maximum number of leaf nodes = "<< maxLeafNodes << " reached"
                           << std::endl;
-				}
-			} // end of while loop
+						}
+					} // end of while loop
+				
+					//get the Delta values
+					coll.getMinDistEst(vecMaxDelta, vecYatSet);				
+					
+					//Outputs to .txt files
+					//ofstream os;         // ofstream object
+					//os << scientific;  // set formatting for input to oss
+					//os.precision(5);
+          // int Theta=0;
+          //cout << "get delta theta using YatEnd" << endl;
+					// get delta_theta
+					//vector<double>* vecMaxDelta = new vector<double>;
 			
-			cout << "===========End of splitting=============" << endl;
-        
-			coll.getMinDistEst(vecMaxDelta, vecYatSet);				
-			cout << "size of vecmaxdelta: " << (vecMaxDelta).size() << endl; 
-			//================Outputs to .txt files=================== 
-			ofstream os;         // ofstream object
-			os << scientific;  // set formatting for input to oss
-			os.precision(5);
-            int Theta=0;
-            //cout << "get delta theta using YatEnd" << endl;
-			// get delta_theta
-			//vector<double>* vecMaxDelta = new vector<double>;
+					//coll.getYatracosDeltaEnd(*listYatSet, *vecRowYatSet, 
+					//						 *vecColYatSet, *vecMaxDelta);
 			
-			//coll.getYatracosDeltaEnd(*listYatSet, *vecRowYatSet, 
-			//						 *vecColYatSet, *vecMaxDelta);
-			
-			//int F = (vecMaxDelta).size();
-			//cout << F << endl;
-			//double minDelta = 1000;
-			//int minTheta = 0;
-			/*
-			Theta = 0;
-			for (size_t i = 0; i < F; i++){
-			//	cout << "Theta: " << i << "\t" << vecMaxDelta[i] << endl;
-				if ( vecMaxDelta[i] < minDelta ) { 
-					minDelta = vecMaxDelta[i]; 
-					minTheta = i; 
-				} 
-			}
-			 cout << "minDelta = " << minDelta << " giving MDE at " 
-				<< minTheta << endl; 
-			*/
-			
-			/* // get the minimum delta to get the MDE histogram
-			vector< vector<double> >::iterator it1; 
-			vector<double>::iterator it2;
+					//int F = (vecMaxDelta).size();
+					//cout << F << endl;
+					//double minDelta = 1000;
+					//int minTheta = 0;
+					/*
+					Theta = 0;
+					for (size_t i = 0; i < F; i++){
+					//	cout << "Theta: " << i << "\t" << vecMaxDelta[i] << endl;
+						if ( vecMaxDelta[i] < minDelta ) { 
+							minDelta = vecMaxDelta[i]; 
+							minTheta = i; 
+						} 
+					}
+					 cout << "minDelta = " << minDelta << " giving MDE at " 
+						<< minTheta << endl; 
+					*/
+				
+					/* // get the minimum delta to get the MDE histogram
+					vector< vector<double> >::iterator it1; 
+					vector<double>::iterator it2;
+		
+					//cout << "MaxDelta" << endl;
+					size_t F = vecMaxDeltaVec.size(); 
+					double minDelta = 1000;
+					//int minTheta = 0;
+					Theta = 0;
+					for (size_t i = 0; i < F; i++){
+						cout << "Theta: " << Theta << "\t" << vecMaxDeltaVec[F-1][i] << endl;
+						if ( vecMaxDeltaVec[F-1][i] < minDelta ) { 
+							minDelta = vecMaxDeltaVec[F-1][i]; 
+							minTheta = Theta; 
+						} 
+						Theta++;
+					}
+	
+				  cout << "minDelta = " << minDelta << " giving MDE at " 
+						<< minTheta << endl; 
+		          *//*
+					// output vecDeltaMaxVec into .txt 
+					ostringstream stm1, stm2;
+					//stm1 << hist;
+					stm2 << method;
+					string fileNameDelta = "Mapped";
+					//fileNameDelta += stm2.str();
+					fileNameDelta += "DeltaMax";
+					fileNameDelta += stm2.str();
+					fileNameDelta += ".txt";  
+					os.open(fileNameDelta.c_str());
+					for (it1 = vecMaxDeltaVec.begin(); it1 < vecMaxDeltaVec.end(); it1++){ 
+						for (it2 = (*it1).begin(); it2 < (*it1).end(); it2++){
+							os << (*it2) << "\t";
+						}
+						os << "\n";
+					}*/         
+				
+					//comment this out later
+					/*cout << "output to txt" << endl;
+					for (size_t i = 0; i < F; i++){
+						os << (vecMaxDelta)[i] << endl;
+					}
+					os << flush;
+					os.close();
+					
+					fileNameDelta = "MappedIAE";
+					fileNameDelta += stm2.str();
+					fileNameDelta += ".txt";  
+					os.open(fileNameDelta.c_str());
+					for (size_t i = 0; i < (vecIAE).size(); i++){
+						os << (vecIAE)[i] << endl;
+					}			 
+					os << flush;
+					os.close();
+					std::cout << "Files written." << endl;
+					*/
+					delete listYatSet, vecRowYatSet, vecColYatSet;
+							
+		      /* //output vecIAE to .txt file
+					string outputFileName;// for output file
+					outputFileName = "Mapped";
+					//outputFileName += stm2.str();
+					outputFileName += "IAEandTrueDelta";
+					outputFileName += stm2.str();
+					outputFileName += ".txt";
+					os.open(outputFileName.c_str());
+					for (size_t i = 0; i < vecIAE.size(); i++){
+						//os << vecIAE[i] << "\t" << vecIAEFull[i] << TrueDelta[i] << endl;
+						os << vecIAE[i] << endl;
+					}
+					os << flush;
+					os.close();
+					std::cout << "IAE output to " << outputFileName << endl;*/
 
-			//cout << "MaxDelta" << endl;
-			size_t F = vecMaxDeltaVec.size(); 
-			double minDelta = 1000;
-			//int minTheta = 0;
-			Theta = 0;
-			for (size_t i = 0; i < F; i++){
-				cout << "Theta: " << Theta << "\t" << vecMaxDeltaVec[F-1][i] << endl;
-				if ( vecMaxDeltaVec[F-1][i] < minDelta ) { 
-					minDelta = vecMaxDeltaVec[F-1][i]; 
-					minTheta = Theta; 
-				} 
-				Theta++;
-			}
-
-		  cout << "minDelta = " << minDelta << " giving MDE at " 
-				<< minTheta << endl; 
-          *//*
-			// output vecDeltaMaxVec into .txt 
-			ostringstream stm1, stm2;
-			//stm1 << hist;
-			stm2 << method;
-			string fileNameDelta = "Mapped";
-			//fileNameDelta += stm2.str();
-			fileNameDelta += "DeltaMax";
-			fileNameDelta += stm2.str();
-			fileNameDelta += ".txt";  
-			os.open(fileNameDelta.c_str());
-			for (it1 = vecMaxDeltaVec.begin(); it1 < vecMaxDeltaVec.end(); it1++){ 
-				for (it2 = (*it1).begin(); it2 < (*it1).end(); it2++){
-					os << (*it2) << "\t";
-				}
-				os << "\n";
-			}*/         
-			
-			//comment this out later
-			/*cout << "output to txt" << endl;
-			for (size_t i = 0; i < F; i++){
-				os << (vecMaxDelta)[i] << endl;
-			}
-			os << flush;
-			os.close();
-			
-			fileNameDelta = "MappedIAE";
-			fileNameDelta += stm2.str();
-			fileNameDelta += ".txt";  
-			os.open(fileNameDelta.c_str());
-			for (size_t i = 0; i < (vecIAE).size(); i++){
-				os << (vecIAE)[i] << endl;
-			}			 
-			os << flush;
-			os.close();
-			std::cout << "Files written." << endl;
-			*/
-			//delete vecIAE;
-			//delete vecMaxDelta;
-			delete listYatSet, vecRowYatSet, vecColYatSet;
-			
-			//----------------end of output for vecDeltaMaxVec-------------
- 
-        /* //output vecIAE to .txt file
-			string outputFileName;// for output file
-			outputFileName = "Mapped";
-			//outputFileName += stm2.str();
-			outputFileName += "IAEandTrueDelta";
-			outputFileName += stm2.str();
-			outputFileName += ".txt";
-			os.open(outputFileName.c_str());
-			for (size_t i = 0; i < vecIAE.size(); i++){
-				//os << vecIAE[i] << "\t" << vecIAEFull[i] << TrueDelta[i] << endl;
-				os << vecIAE[i] << endl;
-			}
-			os << flush;
-			os.close();
-			std::cout << "IAE output to " << outputFileName << endl;*/
-			//=================end of output for vecIAE---------------------------			
-   } // end of try
+		} // end of try
     
     catch (SPnodeException& spe) {
         string oldmsg(spe.what());
@@ -3113,6 +3023,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
     
    return (cancontinue);
 }
+
 
 
 // prioritySplitAndEstimate for finite mixtures

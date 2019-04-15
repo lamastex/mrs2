@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
 	const int n = atoi(argv[3]);  // number of points to generate
 	size_t maxLeavesEst = atoi(argv[4]);  // number of leaves in estimator
 	size_t critLeaves = atoi(argv[5]); //maximum number of leaves for PQ to stop splitting 
-	int increment = atoi(argv[6]); // ... every k-th histogram
+	int num_checks = atoi(argv[6]); // check k histograms
 	size_t num_iters = atoi(argv[7]); // ...to zoom in
 	
 	cout << argv[0] << " : process id is " << getpid() << std::endl;
@@ -240,9 +240,10 @@ int main(int argc, char* argv[])
 
 	// parameters for prioritySplitAndEstimate
 	CompCountVal compCount; 
-	CritLeaves_GTEV critToStop(critLeaves); //the PQ will stop after critLeaves are reached
+	CritLeaves_GTEV he(critLeaves); //the PQ will stop after critLeaves are reached
 	size_t minChildPoints = 0;
 	size_t maxLeafNodes = 1000000; 
+	bool computeIAE = FALSE; // do not compute the IAE first
 
 	//?
 	bool stopCrit = 1; // remove this later
@@ -254,6 +255,7 @@ int main(int argc, char* argv[])
 	sequence.push_back(critLeaves);
 	
 	//sequence to be used
+	int increment = (critLeaves-startLeaves)/(num_checks);
 	cout << "Increment by : " << increment << endl;
 	int temp = startLeaves;
 	while ( temp < critLeaves) {
@@ -262,8 +264,8 @@ int main(int argc, char* argv[])
 	 }
 	sort(sequence.begin(), sequence.end());
 	sequence.erase( unique( sequence.begin(), sequence.end() ), sequence.end() );
-	for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
-		cout << *it << endl;
+	//for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
+		//cout << *it << endl;
 		
 	cout << "Perform " << num_iters << " iterations" << endl; 
 	vector<double>* vecMaxDelta = new vector<double>;	//which delta vector is this?
@@ -271,7 +273,6 @@ int main(int argc, char* argv[])
 	
 	size_t k = 3; //take the best three  delta - what is best?
 
-	
 	// start the clock here for ...?
 	double timing = 0;
 	clock_t start, end;
@@ -279,8 +280,8 @@ int main(int argc, char* argv[])
 
 	size_t iters = 0;
 
-	while ( (increment > 1) && (iters < num_iters) ) {			
-		cout << "Iteration: " << iters << endl;
+	while ( (increment) > 1 && iters < num_iters && (critLeaves - startLeaves) > num_checks) {				
+		cout << "\nIteration " << iters << "......" << endl;
 
 		// insert simulated data into an AdaptiveHistogramValidation object
  		AdaptiveHistogramValidation myHistVal(pavingBoxEst);
@@ -288,91 +289,83 @@ int main(int argc, char* argv[])
 			
 	 	//run MDE
 	 	myHistVal.prioritySplitAndEstimate
-	 					(compCount, critToStop, NOLOG, 
+	 					(compCount, he, NOLOG, 
 	 					minChildPoints, 0.0, stopCrit, estimate, 
-	 					dataSeed, 
-	 					maxLeafNodes, increment, minTheta, sequence,	
+	 					maxLeafNodes, computeIAE, sequence,	
 	 					*vecMaxDelta, *vecIAE); //don't compute vecIAE here - is it possible?
-
-	//get the best 3 delta max values			
-	vector<int> indtop;
-	topk(*vecMaxDelta, indtop, 3);
-	(*vecMaxDelta).clear();
-	(*vecIAE).clear();
-	cout << "Best three indices: " << endl;
-	for ( vector<int>::iterator it = indtop.begin(); it != indtop.end(); it++)
-		//*it = position //*sequence[*it] = leaves
-	 	{ cout << *it << "\t" << sequence[*it] << endl;}
-		
-	//update final_sequence
-	startLeaves = sequence[indtop[0]];
-	critLeaves = sequence[indtop[2]];
-	if ( (critLeaves - startLeaves) < increment ) 
-	 	{ increment = critLeaves - startLeaves; }
 	
-	increment = (critLeaves - startLeaves)/increment;
-			
-	temp = startLeaves;
-	while ( temp < critLeaves) {
-	 		temp += increment;
-	 		sequence.push_back(temp); 
-	}
-	sort(sequence.begin(), sequence.end());
-	sequence.erase( unique( sequence.begin(), sequence.end() ), sequence.end() );
+		//get the best 3 delta max values			
+		vector<int> indtop;
+		topk(*vecMaxDelta, indtop, 3);
+		(*vecMaxDelta).clear();
+		(*vecIAE).clear();
+		//cout << "Best three indices: " << endl;
+		//for ( vector<int>::iterator it = indtop.begin(); it != indtop.end(); it++)
+			// //*it = position //*sequence[*it] = leaves
+		 	//{ cout << *it << "\t" << sequence[*it] << endl;}
 		
-	cout << "updated sequence: " << endl;
-	for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
-	 	cout << *it << endl;	
-			
-	 	//increment iters
-	 	iters++;
+		//update final_sequence
+		startLeaves = sequence[indtop[0]];
+		critLeaves = sequence[indtop[2]];
+		if ( (critLeaves - startLeaves) < num_checks ) 
+		{ num_checks = critLeaves - startLeaves; }
+		
+		increment = (critLeaves-startLeaves)/(num_checks);
+		//cout << " Increment by: " << increment << endl;
+		
+		temp = startLeaves;
+		while ( temp < critLeaves) {
+			temp += increment;
+			//cout << "temp: "<< temp << endl;
+			sequence.push_back(temp); 
+		}
+		sort(sequence.begin(), sequence.end());
+		sequence.erase( unique( sequence.begin(), sequence.end() ), sequence.end() );
+		
+		//cout << "updated sequence: " << endl;
+		//for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
+			//cout << *it << endl;	
+				
+		//increment iters
+		iters++;
 	 } //end of while loop
 
 	//Run MDE with the final sequence after breaking out of the loop	
-	//AdaptiveHistogramValidation myHistVal(pavingBoxEst);
-	//myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+	cout << "\nRun MDE with the final sequence..." << endl;
+	AdaptiveHistogramValidation myHistVal(pavingBoxEst);
+	myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
 
-	// //run MDE
-	// myHistVal1.prioritySplitAndEstimate
-	// 				(compCount, critToStop, NOLOG, 
-	// 				minChildPoints, 0.0, stopCrit, estimate, 
-	// 				dataSeed, 
-	// 				maxLeafNodes, maxCheck, minTheta, final_sequence,	
-	// 				*vecMaxDelta, *vecIAE);
+	computeIAE = TRUE;
+	myHistVal.prioritySplitAndEstimate
+	 				(compCount, he, NOLOG, 
+	 				minChildPoints, 0.0, stopCrit, estimate, 
+	 				maxLeafNodes, computeIAE, sequence,	
+	 				*vecMaxDelta, *vecIAE);
 						
 	end = clock();
 	timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
 	cout << "Computing time for MDE: " << timing << " s."<< endl;
 		
-	// //find the minimum delta
-	// //double minDelta = *min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
+	//find the minimum delta
+	double minDelta = *min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
 
-	// //find the position of the minimum delta
-	// size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
-	// int numLeavesDelta = final_sequence[minPos];
+	//find the position of the minimum delta
+	size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
+	int numLeavesDelta = sequence[minPos];
 		
-	// //get the IAE using vecIAE
-	// real IAEforMinDelta = (*vecIAE)[numLeavesDelta - 1];
+	//get the IAE using vecIAE
+	real IAEforMinDelta = (*vecIAE)[numLeavesDelta - 1];
 		
-	// AdaptiveHistogramValidation* optHist = new AdaptiveHistogramValidation(pavingBoxEst);
-	// (*optHist).insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
-	// CritLeaves_GTEV critCountOpt(numLeavesDelta);
-	// (*optHist).prioritySplit(compCount, critCountOpt, NOLOG, minChildPoints, 0.0, maxLeafNodes); 	
-	// PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*optHist);
-	// IAEforMinDelta = estimate.getIAE(*tempPCF);
-	// delete optHist; 
-
 	// get minimum IAE
-	//real minIAE = *min_element((*vecIAE).begin(), (*vecIAE).end());
+	real minIAE = *min_element((*vecIAE).begin(), (*vecIAE).end());
 		
 	//find the position of the minimum IAE	
-	//int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
+	int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
 
 	//delete pointers;
 	delete vecIAE;
 	delete vecMaxDelta;	
 	delete theDataPtr;
-	//delete tempPCF;
 
 	try {
 		gsl_rng_free (r);
@@ -381,7 +374,6 @@ int main(int argc, char* argv[])
 	catch(...) {}// catch and swallow
 
 	// output results to txt file
-	/*
 	cout << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
 	string outputName;
 	outputName = "results";
@@ -392,7 +384,6 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	cout << "Error computations output to " << outputName << endl;
-	*/
 	
 	// optional - remove comments to output ...
 	/*
@@ -407,9 +398,6 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	*/	
-
-  // End of MDE---------//
-
 		
 	return 0;
 

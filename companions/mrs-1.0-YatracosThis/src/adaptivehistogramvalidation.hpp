@@ -729,19 +729,17 @@ private:
                            size_t minChildPoints, double minVolB, 
 									gsl_rng * rgsl, bool stopCrit,
 									PiecewiseConstantFunction& nodeEst, 
-									int method, 
-									size_t maxLeafNodes, int maxCheck,
-									int& minTheta, vector<int> sequence,
+									size_t maxLeafNodes, bool computeIAE,
+									vector<int> sequence,
 									vector<double> & vecMaxDelta, vector<real> & vecIAE);
 									
 	 bool prioritySplitAndEstimate(const NodeCompObjVal& compTest,
 									const HistEvalObjVal& he, LOGGING_LEVEL logging,
 									size_t minChildPoints, double minVolB, 
 									bool stopCrit, 
-									PiecewiseConstantFunction& nodeEst, 
-									int method, 
-									size_t maxLeafNodes, int maxCheck,
-									int& minTheta, vector<int> sequence,
+									PiecewiseConstantFunction& nodeEst,  
+									size_t maxLeafNodes, bool computeIAE,
+									vector<int> sequence,
 									vector<double> & vecMaxDelta, vector<real> & vecIAE);
     
     /** With random number generator. All other parameters supplied.*/
