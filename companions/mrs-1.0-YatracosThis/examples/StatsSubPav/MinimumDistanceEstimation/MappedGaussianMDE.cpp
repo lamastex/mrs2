@@ -20,15 +20,16 @@
 */
 
 /*! \file
-\brief MDE for Mapped Gaussians
- */
+	\brief Get histogram estimates for mapped Gaussian densities using minimum distance estimation (MDE) with hold-out (Devroye and Lugosi, 2001).
+*/
+
 
 #include "histall.hpp"  // headers for the histograms
 #include "intervalmappedspnode_measurers.hpp" // ordering for pq split
 #include "functionestimator_interval.hpp"
 #include "piecewise_constant_function.hpp"  
 
-#include "GaussianFobj.hpp" // fobj
+#include "GaussianFobj.hpp" //function estimator object for Gaussian densities
 #include "toolz.hpp"
 
 #include <vector>
@@ -49,6 +50,7 @@ using namespace std;
 using namespace subpavings;
 
 // return a vector of the top k indices of a
+// ?.....more desc on what this is for
 void topk(vector<double> a, vector<int> & indtop, size_t k){
 	multimap<double, size_t> m; // mapping from value to its index
 	vector<double>::iterator it;
@@ -73,62 +75,59 @@ void topk(vector<double> a, vector<int> & indtop, size_t k){
 
 int main(int argc, char* argv[])
 {
-	// sort out user-defined parameters------------------//
+	// User-defined parameters------------------//
 	if ( argc < 7 ) {
 		cerr << "Syntax: " << argv[0] << 
-		" d maxLeavesEst n dataSeed critLeaves maxCheck" << endl;
+		" dataSeed d n maxLeavesEst critLeaves maxCheck" << endl;
 		throw std::runtime_error("Syntax: " + std::string(argv[0]) + "d n states, symmetryIndicator");
 	}
 	
-	int d = atoi(argv[1]);  // ds
-	size_t maxLeavesEst = atoi(argv[2]);  // number of leaves in estimator
+	int dataSeed = atoi(argv[1]); // seed for data generation
+	int d = atoi(argv[2]);  // dimension
 	const int n = atoi(argv[3]);  // number of points to generate
-	int dataSeed = atoi(argv[4]); // seed for data generation
-    size_t critLeaves = atoi(argv[5]); //maximum number of leaves for PQ to stop splitting 
-	int maxCheck = atoi(argv[6]); //maximum number of checks based on delta
-    bool flexi = atoi(argv[7]);
-    size_t startLeaves = atoi(argv[8]);
-    int padding = atoi(argv[9]);
-	size_t num_iters = atoi(argv[10]);
+	size_t maxLeavesEst = atoi(argv[4]);  // number of leaves in estimator
+  size_t critLeaves = atoi(argv[5]); //maximum number of leaves for PQ to stop splitting 
+	int maxCheck = atoi(argv[6]); //? maximum number of checks based on delta
     
-    vector<int> sequence; //input sequence
-    if (argc > 10) {
-		for (size_t i=11; i<argc; i++) {
-			//cout << argv[i] << endl;
-			sequence.push_back(atoi(argv[i]));
-		}
-	}
-    //cout << sequence.size() << endl;
-    cout << argv[0] << " : process id is " << getpid() << std::endl;
-    //-------------------------------------------------------//
-  
-	// for output purposes
-	// string formatting
-	ofstream oss;         // ofstream object
-   oss << scientific;  // set formatting for input to oss
-   oss.precision(10);
-   ostringstream stm;
+ //   bool flexi = atoi(argv[7]); //?
+ //   size_t startLeaves = atoi(argv[8]); //?
+ //   int padding = atoi(argv[9]); //?
+	// 	size_t num_iters = atoi(argv[10]); //?
+    
+ //    vector<int> sequence; //? input sequence
+ //    if (argc > 10) {
+	// 	for (size_t i=11; i<argc; i++) {
+	// 		//cout << argv[i] << endl;
+	// 		sequence.push_back(atoi(argv[i]));
+	// 	}
+	// }
+   //cout << sequence.size() << endl;
 
-	//=======generate actual data and get the root box==============//
-	// set up a random number generator and use mt19937 for generator
+  cout << argv[0] << " : process id is " << getpid() << std::endl;
+  // End of user-defined parameters--------//
+  
+	// string formatting for output purposes
+	ofstream oss;       // ofstream object
+	oss << scientific;  // set formatting for input to oss
+  oss.precision(10);
+  ostringstream stm;
+ 	stm << dataSeed; // index the txt file produced by stm
+
+	// Set up a random number generator and use mt19937 for generator
 	gsl_rng * r = gsl_rng_alloc (gsl_rng_mt19937); // set up with default seed
-	//long unsigned int seed = 1234;
 	gsl_rng_set (r, dataSeed); // change the seed
 	cout << "Data seed is " << dataSeed << endl;
 	
-	//============== make estimate ============//
+	// Make the function estimator--------//
 	cout << "\nMake the function estimator to " << maxLeavesEst << " leaves" << endl;
 	
 	// specify function object (from /examples/MappedTargetsTrunk)
 	GaussianFobj fobj;
 	
-	/* function estimate is going to use same box as the histograms */
-	// Use fobj and pavingBox to get an estimator
-	
 	//data generating partition
-   ivector pavingBoxEst(d);
-   interval pavingInterval(-5,5);
-   for(int i=1; i <= d; i++) { pavingBoxEst[i] = pavingInterval; }
+  ivector pavingBoxEst(d);
+  interval pavingInterval(-5,5);
+  for(int i=1; i <= d; i++) { pavingBoxEst[i] = pavingInterval; }
 	
 	FunctionEstimatorInterval estimator(pavingBoxEst, fobj);
 	cout << estimator << endl;
@@ -142,9 +141,9 @@ int main(int argc, char* argv[])
 	#if(0)
 		size_t maxLeavesEstDown = maxLeavesEst;
 	#endif
-	
 	cout << "pq down to max leaves " << maxLeavesEstDown << endl;
 	
+	// start clock to record time for pq split in estimate
 	clock_t startEst = clock();
 	
 	// priority split driven by splitting leaf with max reimann diff
@@ -159,6 +158,7 @@ int main(int argc, char* argv[])
 	double timingEst1 = ((static_cast<double>(endEst - startEst)) / CLOCKS_PER_SEC);
 	cout << "Computing time for pq split in estimate: " << timingEst1 << " s."<< endl;
 	
+	// start clock to record time for hull propogation and merging up
 	startEst = clock();
 	#if(1) 
 		cout << "Hull propagation" << endl;
@@ -192,24 +192,23 @@ int main(int argc, char* argv[])
 	estimate.normalise();
 	cout << "estimate has integral " << estimate.getTotalIntegral() << endl;
 	
-	//optional
-	/*
+	// optional - remove comments if want to output function estimator 
+	///*
 	estimate.outputToTxtTabs("PCF.txt");
-
 	string Integral = "Integral.txt";
 	oss.open(Integral.c_str());
 	oss << before << "\t" << estimate.getTotalIntegral() << endl;
 	oss << flush;
 	oss.close();
-	*/
-	//===========end of estimating function using PCF=========================//
+	//*/
+	// End of making function estimator--------//
 
-	//===========generate data==============================================//
-	// Use PiecewiseConstantFunction to generate data, supplying our own rng
+	// Use PiecewiseConstantFunction to generate data, supplying our own rng---//
 	cout << "\nGenerating data for simulation" << endl;
 
 	RVecData* theDataPtr = new RVecData;   // a container for all the points generated
 
+	// start clock to record time taken to simulate data
 	clock_t startData = clock();
 
 	// Gaussian data
@@ -223,9 +222,9 @@ int main(int argc, char* argv[])
 
 	cout << (*theDataPtr).size() << " points generated" << endl;
 	
-	 //optional 
-	/*string dataFileName = "MappedData";
-	//dataFileName += stm.str(); 
+	// optional - remove comments to output simulated data 
+	///*string dataFileName = "SimulatedData";
+	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
 	for (size_t i = 0; i < n; i++) { 
@@ -237,274 +236,273 @@ int main(int argc, char* argv[])
 	}
 	oss << flush;
 	oss.close();
-	cout << "Estimated data written to  " << dataFileName << endl;
-    */
-	//===========end of generating data=================================//
+	cout << "Simulated data written to  " << dataFileName << endl;
+  // */
+	// End of generating data--------//
 
-    //=====Start MDE============================================//
-   	cout << "========================================================" << endl;
-	cout << "Run hold out estimation..." << endl;
-    cout << "\nStart example: n = " << n << " and d = " << d << endl;
+ //   // Miminimum distance estimation--------//
+ //   	cout << "========================================================" << endl;
+	// cout << "Run hold out estimation..." << endl;
+ //    cout << "\nStart example: n = " << n << " and d = " << d << endl;
 
-	//=========insert data into an AdaptiveHistogramValidation object=========//
-	//containers for output needed
-	//vector<real> IAEV;
-	//vector<int> NumLeafNodesV;
-	//vector<double> timings;
-	double timing = 0;
+	// //=========insert data into an AdaptiveHistogramValidation object=========//
+	// //containers for output needed
+	// //vector<real> IAEV;
+	// //vector<int> NumLeafNodesV;
+	// //vector<double> timings;
+	// double timing = 0;
 	
-	// stopping criteria 
-	bool stopCrit = flexi; //temp: flexi scheme or every k-th
-	// if true, allow for flag checking 
+	// // stopping criteria 
+	// bool stopCrit = flexi; //temp: flexi scheme or every k-th
+	// // if true, allow for flag checking 
 	
-	int trainCount = n; 
-	int holdOutCount = N-n;
-	cout << n << " training data and " 
-			<< holdOutCount << " validation data inserted." << endl; 
-	//size_t maxLeafNodes = int(trainCount/log(trainCount*(2*d+1))); // temporarily
-	size_t maxLeafNodes = 1000000;
-	cout << "max leaf nodes: " << maxLeafNodes << endl;
+	// int trainCount = n; 
+	// int holdOutCount = N-n;
+	// cout << n << " training data and " 
+	// 		<< holdOutCount << " validation data inserted." << endl; 
+	// //size_t maxLeafNodes = int(trainCount/log(trainCount*(2*d+1))); // temporarily
+	// size_t maxLeafNodes = 1000000;
+	// cout << "max leaf nodes: " << maxLeafNodes << endl;
 
-	// indicators
-   bool successfulInsertion1 = false;   
-   bool successfulPQSplit1 = false;   
+	// // indicators
+ //   bool successfulInsertion1 = false;   
+ //   bool successfulPQSplit1 = false;   
    
-   // comparison objects
-   CompCountVal compCount;
-   CompVolVal compVol;
-   SplitNever sn;   
+ //   // comparison objects
+ //   CompCountVal compCount;
+ //   CompVolVal compVol;
+ //   SplitNever sn;   
 
-	//what is this? 
-	//int finalK = 1;
-	//CritLargestCount_LTEV critCount(finalK);
-	size_t minChildPoints = 0;
-	CritLeaves_GTEV critToStop(critLeaves);
-	cout << "split until there are " << critLeaves << " leaf nodes" << endl;
+	// //what is this? 
+	// //int finalK = 1;
+	// //CritLargestCount_LTEV critCount(finalK);
+	// size_t minChildPoints = 0;
+	// CritLeaves_GTEV critToStop(critLeaves);
+	// cout << "split until there are " << critLeaves << " leaf nodes" << endl;
 	
-	int minTheta = 0;
-	int m = 1;
+	// int minTheta = 0;
+	// int m = 1;
 	
-	vector<int> final_sequence; //to store all the thetas
-	final_sequence.push_back(startLeaves);
-	final_sequence.push_back(critLeaves);
-	size_t k = 3; //take the best three
+	// vector<int> final_sequence; //to store all the thetas
+	// final_sequence.push_back(startLeaves);
+	// final_sequence.push_back(critLeaves);
+	// size_t k = 3; //take the best three
 
-	//sequence to be used
-	int increment = (critLeaves-startLeaves)/(maxCheck);
-	//cout << "Increment by : increment" << endl;
-	int temp = startLeaves;
-	while ( temp < critLeaves) {
-		temp += increment;
-		final_sequence.push_back(temp); 
-	}
+	// //sequence to be used
+	// int increment = (critLeaves-startLeaves)/(maxCheck);
+	// //cout << "Increment by : increment" << endl;
+	// int temp = startLeaves;
+	// while ( temp < critLeaves) {
+	// 	temp += increment;
+	// 	final_sequence.push_back(temp); 
+	// }
 	
-	sort(final_sequence.begin(), final_sequence.end());
-	final_sequence.erase( unique( final_sequence.begin(), final_sequence.end() ), final_sequence.end() );
-	//for ( vector<int>::iterator it = final_sequence.begin(); it != final_sequence.end(); it++)
-	//	cout << *it << endl;
+	// sort(final_sequence.begin(), final_sequence.end());
+	// final_sequence.erase( unique( final_sequence.begin(), final_sequence.end() ), final_sequence.end() );
+	// //for ( vector<int>::iterator it = final_sequence.begin(); it != final_sequence.end(); it++)
+	// //	cout << *it << endl;
 
-	//adaptive sequencing starts here
-	clock_t start, end;
-	start = clock();
+	// //adaptive sequencing starts here
+	// clock_t start, end;
+	// start = clock();
 	
-	cout << "Perform " << num_iters << " iterations" << endl;
-	vector<double>* vecMaxDelta = new vector<double>;	
-	vector<real>* vecIAE = new vector<real>;		
-	size_t i = 0;
+	// cout << "Perform " << num_iters << " iterations" << endl;
+	// vector<double>* vecMaxDelta = new vector<double>;	
+	// vector<real>* vecIAE = new vector<real>;		
+	// size_t i = 0;
 	
-	while ( (increment) > 1 && i < num_iters && (critLeaves - startLeaves) > maxCheck) {			
-		cout << "Iteration: " << i << endl;
+	// while ( (increment) > 1 && i < num_iters && (critLeaves - startLeaves) > maxCheck) {			
+	// 	cout << "Iteration: " << i << endl;
 
-		AdaptiveHistogramValidation myHistVal1(pavingBoxEst);
-		myHistVal1.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+	// 	AdaptiveHistogramValidation myHistVal1(pavingBoxEst);
+	// 	myHistVal1.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
 		
-		/*
-		dataSeed = i*1;
-		ostringstream stm;
-		stm << dataSeed;
-		string sequenceName;
-		sequenceName = "Sequence";
-		sequenceName += stm.str();
-		sequenceName += ".txt";
-		oss.open(sequenceName.c_str());
-		for ( vector<int>::iterator it = final_sequence.begin(); it != final_sequence.end(); it++) {
-			oss << *it << endl;
-		}			 
-		oss << flush;
-		oss.close();
-		*/
+	// 	/*
+	// 	dataSeed = i*1;
+	// 	ostringstream stm;
+	// 	stm << dataSeed;
+	// 	string sequenceName;
+	// 	sequenceName = "Sequence";
+	// 	sequenceName += stm.str();
+	// 	sequenceName += ".txt";
+	// 	oss.open(sequenceName.c_str());
+	// 	for ( vector<int>::iterator it = final_sequence.begin(); it != final_sequence.end(); it++) {
+	// 		oss << *it << endl;
+	// 	}			 
+	// 	oss << flush;
+	// 	oss.close();
+	// 	*/
 		
-		//run MDE
-		myHistVal1.prioritySplitAndEstimate
-						(compCount, critToStop, NOLOG, 
-						minChildPoints, 0.0, stopCrit, estimate, 
-						dataSeed, 
-						maxLeafNodes, maxCheck, minTheta, final_sequence,	
-						*vecMaxDelta, *vecIAE);
+	// 	//run MDE
+	// 	myHistVal1.prioritySplitAndEstimate
+	// 					(compCount, critToStop, NOLOG, 
+	// 					minChildPoints, 0.0, stopCrit, estimate, 
+	// 					dataSeed, 
+	// 					maxLeafNodes, maxCheck, minTheta, final_sequence,	
+	// 					*vecMaxDelta, *vecIAE);
 
-		//get the best 3 delta max values			
-		vector<int> indtop;
-		topk(*vecMaxDelta, indtop, 3);
-		(*vecMaxDelta).clear();
-		(*vecIAE).clear();
-		//cout << "Best three indices: " << endl;
-		//for ( vector<int>::iterator it = indtop.begin(); it != indtop.end(); it++)
-		//	{ cout << *it << "\t" << final_sequence[*it] << endl;}
+	// 	//get the best 3 delta max values			
+	// 	vector<int> indtop;
+	// 	topk(*vecMaxDelta, indtop, 3);
+	// 	(*vecMaxDelta).clear();
+	// 	(*vecIAE).clear();
+	// 	//cout << "Best three indices: " << endl;
+	// 	//for ( vector<int>::iterator it = indtop.begin(); it != indtop.end(); it++)
+	// 	//	{ cout << *it << "\t" << final_sequence[*it] << endl;}
 
 		
-		//adjust indtop with padding 
-		//if ( final_sequence[indtop[0]] == 1) { final_sequence[indtop[0]]; } 
-		//else { final_sequence[indtop[0]] = final_sequence[indtop[0]] - padding; }
-		//final_sequence[indtop[2]] = final_sequence[indtop[2]] + padding;
-		//cout << "updated sequence with padding: " << endl;			
+	// 	//adjust indtop with padding 
+	// 	//if ( final_sequence[indtop[0]] == 1) { final_sequence[indtop[0]]; } 
+	// 	//else { final_sequence[indtop[0]] = final_sequence[indtop[0]] - padding; }
+	// 	//final_sequence[indtop[2]] = final_sequence[indtop[2]] + padding;
+	// 	//cout << "updated sequence with padding: " << endl;			
 		
-		//update final_sequence
-		startLeaves = final_sequence[indtop[0]];
-		critLeaves = final_sequence[indtop[2]];
-		if ( (critLeaves - startLeaves) < maxCheck ) 
-		{ maxCheck = critLeaves - startLeaves; }
+	// 	//update final_sequence
+	// 	startLeaves = final_sequence[indtop[0]];
+	// 	critLeaves = final_sequence[indtop[2]];
+	// 	if ( (critLeaves - startLeaves) < maxCheck ) 
+	// 	{ maxCheck = critLeaves - startLeaves; }
 		
-		increment = (critLeaves-startLeaves)/(maxCheck);
-		cout << startLeaves << " Increment by: " << increment << " " << critLeaves << endl;
+	// 	increment = (critLeaves-startLeaves)/(maxCheck);
+	// 	cout << startLeaves << " Increment by: " << increment << " " << critLeaves << endl;
 		
-		temp = startLeaves;
-		while ( temp < critLeaves) {
-			temp += increment;
-			//cout << "temp: "<< temp << endl;
-			final_sequence.push_back(temp); 
-		}
-		sort(final_sequence.begin(), final_sequence.end());
-		final_sequence.erase( unique( final_sequence.begin(), final_sequence.end() ), final_sequence.end() );
+	// 	temp = startLeaves;
+	// 	while ( temp < critLeaves) {
+	// 		temp += increment;
+	// 		//cout << "temp: "<< temp << endl;
+	// 		final_sequence.push_back(temp); 
+	// 	}
+	// 	sort(final_sequence.begin(), final_sequence.end());
+	// 	final_sequence.erase( unique( final_sequence.begin(), final_sequence.end() ), final_sequence.end() );
 		
-		//cout << "updated sequence: " << endl;
-		//for ( vector<int>::iterator it = final_sequence.begin(); it != final_sequence.end(); it++)
-		//	cout << *it << endl;	
+	// 	//cout << "updated sequence: " << endl;
+	// 	//for ( vector<int>::iterator it = final_sequence.begin(); it != final_sequence.end(); it++)
+	// 	//	cout << *it << endl;	
 			
-		//increment i
-		i++;
-	} //end of while loop
+	// 	//increment i
+	// 	i++;
+	// } //end of while loop
 	
-	//Run MDE with the final sequence after breaking out of the loop	
-	AdaptiveHistogramValidation myHistVal1(pavingBoxEst);
-	myHistVal1.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+	// //Run MDE with the final sequence after breaking out of the loop	
+	// AdaptiveHistogramValidation myHistVal1(pavingBoxEst);
+	// myHistVal1.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
 
-	//run MDE
-	//dataSeed = i;
-	myHistVal1.prioritySplitAndEstimate
-					(compCount, critToStop, NOLOG, 
-					minChildPoints, 0.0, stopCrit, estimate, 
-					dataSeed, 
-					maxLeafNodes, maxCheck, minTheta, final_sequence,	
-					*vecMaxDelta, *vecIAE);
+	// //run MDE
+	// //dataSeed = i;
+	// myHistVal1.prioritySplitAndEstimate
+	// 				(compCount, critToStop, NOLOG, 
+	// 				minChildPoints, 0.0, stopCrit, estimate, 
+	// 				dataSeed, 
+	// 				maxLeafNodes, maxCheck, minTheta, final_sequence,	
+	// 				*vecMaxDelta, *vecIAE);
 						
-	//temporary misusing maxcheck so that will only compute the IAEs once		 
-	end = clock();
-	timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
-	cout << "Computing time : " << timing << " s."<< endl;
+	// //temporary misusing maxcheck so that will only compute the IAEs once		 
+	// end = clock();
+	// timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+	// cout << "Computing time : " << timing << " s."<< endl;
 		
-	//find the minimum delta
-	//double minDelta = *min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
+	// //find the minimum delta
+	// //double minDelta = *min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
 	
-	//find the position of the minimum delta
-	size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
-	int numLeavesDelta = final_sequence[minPos];
+	// //find the position of the minimum delta
+	// size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
+	// int numLeavesDelta = final_sequence[minPos];
 		
-	//get the IAE using vecIAE
-	real IAEforMinDelta = (*vecIAE)[numLeavesDelta - 1];
+	// //get the IAE using vecIAE
+	// real IAEforMinDelta = (*vecIAE)[numLeavesDelta - 1];
 		
-	//get the KL distance
-	AdaptiveHistogramValidation* optHist = new AdaptiveHistogramValidation(pavingBoxEst);
-	(*optHist).insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
-	CritLeaves_GTEV critCountOpt(numLeavesDelta);
-	(*optHist).prioritySplit(compCount, critCountOpt, NOLOG, minChildPoints, 0.0, maxLeafNodes); 	
-	PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*optHist);
-	IAEforMinDelta = estimate.getIAE(*tempPCF);
-	delete optHist;
+	// //get the KL distance
+	// AdaptiveHistogramValidation* optHist = new AdaptiveHistogramValidation(pavingBoxEst);
+	// (*optHist).insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+	// CritLeaves_GTEV critCountOpt(numLeavesDelta);
+	// (*optHist).prioritySplit(compCount, critCountOpt, NOLOG, minChildPoints, 0.0, maxLeafNodes); 	
+	// PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*optHist);
+	// IAEforMinDelta = estimate.getIAE(*tempPCF);
+	// delete optHist;
 	
-	// get quasi random points in the box
-	size_t intN = 1000000;
-    size_t intNcensored = intN;
-	ivector box = tempPCF->getRootBox();
-	std::vector < std::vector < real > > qrPts;
-	getQuasiRandomPoints(box, qrPts, intN);
+	// // get quasi random points in the box
+	// size_t intN = 1000000;
+ //    size_t intNcensored = intN;
+	// ivector box = tempPCF->getRootBox();
+	// std::vector < std::vector < real > > qrPts;
+	// getQuasiRandomPoints(box, qrPts, intN);
 				
-    // get points from true density
-    RVecData* rintPts = new RVecData;
-    estimate.simulateData(*rintPts, intN, r);
+ //    // get points from true density
+ //    RVecData* rintPts = new RVecData;
+ //    estimate.simulateData(*rintPts, intN, r);
 
-	/*
-    vector <vector <real> > intPts(intN, vector<real> (d));
-	for (size_t i = 0; i < intN; i++) {
-		for (size_t j = 0; j < d; j++) {
-			intPts[i][j] = (*rintPts)[i][j+1];
-		}
-	}
-	//delete rintPts;*/
+	// /*
+ //    vector <vector <real> > intPts(intN, vector<real> (d));
+	// for (size_t i = 0; i < intN; i++) {
+	// 	for (size_t j = 0; j < d; j++) {
+	// 		intPts[i][j] = (*rintPts)[i][j+1];
+	// 	}
+	// }
+	// //delete rintPts;*/
 	    
     
-    /*get histogram densities at the remaining integration points*/
-    std::vector < real > estDensities_IS;
-    PiecewiseConstantFunction pcfSmeared = tempPCF->makeSmearZeroValues(1/(1000000.0));
-    getPCFDensitiesCensor(pcfSmeared, *rintPts, estDensities_IS, d);
+ //    /*get histogram densities at the remaining integration points*/
+ //    std::vector < real > estDensities_IS;
+ //    PiecewiseConstantFunction pcfSmeared = tempPCF->makeSmearZeroValues(1/(1000000.0));
+ //    getPCFDensitiesCensor(pcfSmeared, *rintPts, estDensities_IS, d);
       
-     /*get true densities at the remaining integration points points */
-     std::vector < real > trueIntPtDensities_IS;
-     PiecewiseConstantFunction pcfTrueSmeared = estimate.makeSmearZeroValues(1/(1000000.0));
-     getPCFDensitiesCensor(pcfTrueSmeared, *rintPts, trueIntPtDensities_IS, d);
+ //     /*get true densities at the remaining integration points points */
+ //     std::vector < real > trueIntPtDensities_IS;
+ //     PiecewiseConstantFunction pcfTrueSmeared = estimate.makeSmearZeroValues(1/(1000000.0));
+ //     getPCFDensitiesCensor(pcfTrueSmeared, *rintPts, trueIntPtDensities_IS, d);
        
-      /*get average log true den and pcf den and ratios*/
-      real avLogTrueDen = avLogDen(trueIntPtDensities_IS); 
-      real avLogEstDen = avLogDen(estDensities_IS);
-      real KLDist = avLogTrueDen - avLogEstDen;
+ //      /*get average log true den and pcf den and ratios*/
+ //      real avLogTrueDen = avLogDen(trueIntPtDensities_IS); 
+ //      real avLogEstDen = avLogDen(estDensities_IS);
+ //      real KLDist = avLogTrueDen - avLogEstDen;
 
 	
-	//get minimum IAE
-	real minIAE = *min_element((*vecIAE).begin(), (*vecIAE).end());
+	// //get minimum IAE
+	// real minIAE = *min_element((*vecIAE).begin(), (*vecIAE).end());
 		
-	//find the position of the minimum IAE	
-	int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
+	// //find the position of the minimum IAE	
+	// int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
 	
-	//delete pointers;
-	delete vecIAE;
-	delete vecMaxDelta;	
+	// //delete pointers;
+	// delete vecIAE;
+	// delete vecMaxDelta;	
 	delete theDataPtr;
-	delete tempPCF;
-	delete rintPts;
+	// delete tempPCF;
+	// delete rintPts;
 	
-	try {
-		gsl_rng_free (r);
-		r = NULL;
-	}
-	catch(...) {}// catch and swallow
+	// try {
+	// 	gsl_rng_free (r);
+	// 	r = NULL;
+	// }
+	// catch(...) {}// catch and swallow
 
-	//output results
-	//cout << "Output results:" << endl;
-	//cout << IAEforMinDelta << "\t" << KLDist << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
- 	stm << dataSeed;
-	string outputName;
-	outputName = "results";
-	outputName += stm.str();
-	outputName += ".txt";
-	oss.open(outputName.c_str());
-	//IAEforMinDelta KLDistanceForMinDelta #leaves minIAE #leaves 
-	oss << IAEforMinDelta << "\t" << KLDist << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << "\t" << timing << endl;
-	oss << flush;
-	oss.close();
+	// //output results
+	// //cout << "Output results:" << endl;
+	// //cout << IAEforMinDelta << "\t" << KLDist << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
+	// string outputName;
+	// outputName = "results";
+	// outputName += stm.str();
+	// outputName += ".txt";
+	// oss.open(outputName.c_str());
+	// //IAEforMinDelta KLDistanceForMinDelta #leaves minIAE #leaves 
+	// oss << IAEforMinDelta << "\t" << KLDist << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << "\t" << timing << endl;
+	// oss << flush;
+	// oss.close();
 	
-	/*
-	//dataSeed = i;
-	//stm << dataSeed;
-	string sequenceName;
-	sequenceName = "Sequence";
-	//sequenceName += stm.str();
-	sequenceName += ".txt";
-	oss.open(sequenceName.c_str());
-	for (size_t i = 0; i < (final_sequence).size(); i++){
-		oss << (final_sequence)[i] << endl;
-	}			 
-	oss << flush;
-	oss.close();*/	
-    //==============end of MDE=======================================//
+	// /*
+	// //dataSeed = i;
+	// //stm << dataSeed;
+	// string sequenceName;
+	// sequenceName = "Sequence";
+	// //sequenceName += stm.str();
+	// sequenceName += ".txt";
+	// oss.open(sequenceName.c_str());
+	// for (size_t i = 0; i < (final_sequence).size(); i++){
+	// 	oss << (final_sequence)[i] << endl;
+	// }			 
+	// oss << flush;
+	// oss.close();*/	
+ //    //==============end of MDE=======================================//
 	
 		
 	return 0;
