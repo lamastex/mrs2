@@ -206,7 +206,7 @@ $ vim RunMappedRosenbrockMDESimulations.sh #adjust parameters accordingly
 
 $ ./RunMappedRosenbrockMDE.sh
 ```
-The output will be similar to that of `./RunMappedRosenbrockMDE.sh`.
+The output will be similar to that of `./RunMappedGaussianMDESimulations.sh`.
 
 
 ### MDE for Uniform Densities
