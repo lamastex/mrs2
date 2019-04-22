@@ -20,7 +20,7 @@ $ cd examples/StatsSubPav/MinimumDistanceEstimation
 $ vim RunMappedGaussianMDE.sh
 ------Adjust parameters accordingly-----------------
 #!/bin/bash
-#File: RunMapedGaussianMDE.sh
+#File: RunMappedGaussianMDE.sh
 DATASEED=1 #seed use to generate data
 D=1 #dimensions
 N=100 #number of points
@@ -138,7 +138,7 @@ $ cd examples/StatsSubPav/MinimumDistanceEstimation
 $ vim RunMappedGaussianMDESimulations.sh
 ------Adjust parameters accordingly-----------------
 #!/bin/bash
-#File: RunMapedGaussianMDESimulations.sh
+#File: RunMappedGaussianMDESimulations.sh
 
 rm *.txt #be careful not to remove txt files that you want to keep
 
@@ -175,6 +175,27 @@ $ cat n100critleaves100all.txt
 ```
 
 ### MDE for Mapped Rosenbrock Densities
+```%sh
+$ cd examples/StatsSubPav/MinimumDistanceEstimation
+
+$ vim RunMappedRosenbrockMDE.sh
+------Adjust parameters accordingly-----------------
+#!/bin/bash
+#File: RunMappedGaussianMDE.sh
+DATASEED=1 #seed use to generate data
+D=1 #dimensions
+N=100 #number of points
+MAXLEAVESEST=100 #maximum number of leaves in the function estimator
+CRITLEAVES=100 #split until this number of leaves in the PQ
+NUM_CHECKS=10 #collate the num_check-th histogram
+NUM_ITERS=5 #number of iterations for "zooming-in" 
+
+./MappedGaussianMDE $DATASEED $D $N $MAXLEAVESEST $CRITLEAVES $NUM_CHECKS $NUM_ITERS
+------------------------------------------------------
+
+$ ./RunMappedRosenbrockMDE.sh
+```
+The output will be similar to that of `./RunMappedGaussianMDE.sh`.
 
 ### MDE for Uniform Densities
 
