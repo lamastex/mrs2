@@ -725,18 +725,17 @@ private:
 	//20160830								
     /** With random number generator. All other parameters supplied.*/
     bool prioritySplitAndEstimate(const NodeCompObjVal& compTest, 
-                           const HistEvalObjVal& he, LOGGING_LEVEL logging, 
-                           size_t minChildPoints, double minVolB, 
-									gsl_rng * rgsl, bool stopCrit,
-									PiecewiseConstantFunction& nodeEst, 
-									size_t maxLeafNodes, bool computeIAE,
-									vector<int> sequence,
-									vector<double> & vecMaxDelta, vector<real> & vecIAE);
+                          const HistEvalObjVal& he, LOGGING_LEVEL logging, 
+                          size_t minChildPoints, double minVolB, 
+													gsl_rng * rgsl, 
+													PiecewiseConstantFunction& nodeEst, 
+													size_t maxLeafNodes, bool computeIAE,
+													vector<int> sequence,
+													vector<double> & vecMaxDelta, vector<real> & vecIAE);
 									
 	 bool prioritySplitAndEstimate(const NodeCompObjVal& compTest,
 									const HistEvalObjVal& he, LOGGING_LEVEL logging,
-									size_t minChildPoints, double minVolB, 
-									bool stopCrit, 
+									size_t minChildPoints, double minVolB,  
 									PiecewiseConstantFunction& nodeEst,  
 									size_t maxLeafNodes, bool computeIAE,
 									vector<int> sequence,

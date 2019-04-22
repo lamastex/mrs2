@@ -1,4 +1,4 @@
-noinst_PROGRAMS = MappedGaussianMDE 
+noinst_PROGRAMS = MappedGaussianMDE MappedRosenbrockMDE
 
 TARGETS = ../../MappedTargetsTrunk
 
@@ -8,7 +8,20 @@ MappedGaussianMDE_SOURCES = MappedGaussianMDE.cpp \
 						testDenCommon.cpp testDenCommon.hpp \
 						testDenTools.cpp testDenTools.hpp					
 
+MappedRosenbrockMDE_SOURCES = MappedRosenbrockMDE.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.hpp \
+						../../targets/FRosenbrock.cpp \
+						../../targets/FRosenbrock.hpp \
+						testDenCommon.cpp testDenCommon.hpp \
+						testDenTools.cpp testDenTools.hpp	
+
+
 EXTRA_DIST = 
 MappedGaussianMDE_CPPFLAGS = -I${top_builddir}/src \
 -I../../MappedTargetsTrunk
 MappedGaussianMDE_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+
+MappedRosenbrockMDE_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk -I../../targets
+MappedRosenbrockMDE_LDADD = -lcxsc ${top_builddir}/src/libmrs.a

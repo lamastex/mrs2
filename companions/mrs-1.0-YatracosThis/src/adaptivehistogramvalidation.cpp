@@ -2535,7 +2535,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimateWithSwitch(
 bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
              const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
 						 LOGGING_LEVEL logging, size_t minChildPoints, 
-						 double minVolB, bool stopCrit, 
+						 double minVolB, 
 						 PiecewiseConstantFunction& nodeEst, 
 						 size_t maxLeafNodes, bool computeIAE,
 						 vector<int> sequence,
@@ -2555,7 +2555,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 
         // call the function with a random number generator
         cancontinue = prioritySplitAndEstimate(compTest, he, logging, minChildPoints, 
-											  minVolB, rgsl, stopCrit, nodeEst, 
+											  minVolB, rgsl, nodeEst, 
 											  maxLeafNodes, computeIAE, sequence,
 											  vecMaxDelta, vecIAE);
         gsl_rng_free (rgsl);
@@ -2601,7 +2601,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
             const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
 						LOGGING_LEVEL logging, size_t minChildPoints, 
-						double minVolB, gsl_rng * rgsl, bool stopCrit, 
+						double minVolB, gsl_rng * rgsl, 
 						PiecewiseConstantFunction& nodeEst, 
 						size_t maxLeafNodes, bool computeIAE,
 						vector<int> sequence,

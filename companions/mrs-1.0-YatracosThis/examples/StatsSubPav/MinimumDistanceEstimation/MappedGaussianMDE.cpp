@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
 	oss << scientific;  // set formatting for input to oss
 	oss.precision(10);
 	ostringstream stm;
-		stm << dataSeed; // index the txt file produced by stm
+	stm << dataSeed; // index the txt file produced by stm
 
 	// Set up a random number generator and use mt19937 for generator
 	gsl_rng * r = gsl_rng_alloc (gsl_rng_mt19937); // set up with default seed
@@ -244,10 +244,6 @@ int main(int argc, char* argv[])
 	size_t minChildPoints = 0;
 	size_t maxLeafNodes = 1000000; 
 	bool computeIAE = FALSE; // do not compute the IAE first
-
-	//?
-	bool stopCrit = 1; // remove this later
-	int minTheta = 0; //?
 	
 	vector<int> sequence; //to store all the thetas
 	size_t startLeaves = 0; 
@@ -290,7 +286,7 @@ int main(int argc, char* argv[])
 	 	//run MDE
 	 	myHistVal.prioritySplitAndEstimate
 	 					(compCount, he, NOLOG, 
-	 					minChildPoints, 0.0, stopCrit, estimate, 
+	 					minChildPoints, 0.0, estimate, 
 	 					maxLeafNodes, computeIAE, sequence,	
 	 					*vecMaxDelta, *vecIAE); //don't compute vecIAE here - is it possible?
 	
@@ -338,7 +334,7 @@ int main(int argc, char* argv[])
 	computeIAE = TRUE;
 	myHistVal.prioritySplitAndEstimate
 	 				(compCount, he, NOLOG, 
-	 				minChildPoints, 0.0, stopCrit, estimate, 
+	 				minChildPoints, 0.0, estimate, 
 	 				maxLeafNodes, computeIAE, sequence,	
 	 				*vecMaxDelta, *vecIAE);
 						
@@ -380,7 +376,7 @@ int main(int argc, char* argv[])
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
-	oss << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << "\t" << timing << endl;
+	oss << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
 	oss << flush;
 	oss.close();
 	cout << "Error computations output to " << outputName << endl;
