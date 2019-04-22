@@ -181,7 +181,7 @@ $ cd examples/StatsSubPav/MinimumDistanceEstimation
 $ vim RunMappedRosenbrockMDE.sh
 ------Adjust parameters accordingly-----------------
 #!/bin/bash
-#File: RunMappedGaussianMDE.sh
+#File: RunMappedRosenbrockMDE.sh
 DATASEED=1 #seed use to generate data
 D=1 #dimensions
 N=100 #number of points
@@ -196,6 +196,18 @@ NUM_ITERS=5 #number of iterations for "zooming-in"
 $ ./RunMappedRosenbrockMDE.sh
 ```
 The output will be similar to that of `./RunMappedGaussianMDE.sh`.
+
+### Simulations for Mapped Rosenbrock Densities
+The script `RunMappedRosenbrockMDESimulations.sh`can be used to run repeated trials of the MDE. 
+```%sh
+$ cd examples/StatsSubPav/MinimumDistanceEstimation
+
+$ vim RunMappedRosenbrockMDESimulations.sh #adjust parameters accordingly
+
+$ ./RunMappedRosenbrockMDE.sh
+```
+The output will be similar to that of `./RunMappedRosenbrockMDE.sh`.
+
 
 ### MDE for Uniform Densities
 
