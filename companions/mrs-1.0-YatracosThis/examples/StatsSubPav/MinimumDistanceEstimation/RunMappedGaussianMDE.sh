@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #File: RunMapedGaussianMDE.sh
-#Syntax: "....
 
 DATASEED=1
 D=1

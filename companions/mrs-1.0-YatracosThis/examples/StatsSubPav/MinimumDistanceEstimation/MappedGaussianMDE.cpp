@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
 	if ( argc < 7 ) {
 		cerr << "Syntax: " << argv[0] << 
 		" dataSeed d n maxLeavesEst critLeaves maxCheck" << endl;
-		throw std::runtime_error("Syntax: " + std::string(argv[0]) + "d n states, symmetryIndicator");
+		throw std::runtime_error("Syntax: " + std::string(argv[0]) + "data seed, d, n, maxLeavesEst, critLeaves, num_checks, num_iters");
 	}
 
 	int dataSeed = atoi(argv[1]); // seed for data generation
