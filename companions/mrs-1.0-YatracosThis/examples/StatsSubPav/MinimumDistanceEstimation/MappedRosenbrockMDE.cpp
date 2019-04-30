@@ -45,6 +45,7 @@
 
 #include "testDenCommon.hpp" // to use density testing tools
 #include "testDenTools.hpp"
+#include "mdeTools.hpp"
 
 // to use assert
 #include "assert.h"
@@ -52,30 +53,6 @@
 using namespace cxsc;
 using namespace std;
 using namespace subpavings;
-
-//====Method to find the top 3 k======//
-// return a vector of the top k indices of a
-void topk(vector<double> a, vector<int> & indtop, size_t k){
-	multimap<double, size_t> m; // mapping from value to its index
-	vector<double>::iterator it;
-	
-	for (it = a.begin(); it != a.end(); ++it)
-		m.insert(make_pair(*it, it - a.begin()));
-	
-	multimap<double, size_t>::iterator itm; // mapping from value to its index
-	size_t indx=0;
-	double val =0;
-	for (itm = m.begin(); itm != m.end(); ++itm){
-		//cout << itm->first <<" , "<< itm->second << endl;
-		//if (itm->first != val) { 
-			indtop.push_back(itm->second);
-			indx++;
-		//}
-		//val = itm->first;
-		if ( indx == k) break; 
-	}	
-	sort(indtop.begin(), indtop.end());
-}
 
 //====Methods needed for the Rosenbrock===============//
 void
