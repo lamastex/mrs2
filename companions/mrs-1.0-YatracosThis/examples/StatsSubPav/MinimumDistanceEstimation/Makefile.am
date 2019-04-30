@@ -1,4 +1,4 @@
-noinst_PROGRAMS = MappedGaussianMDE MappedRosenbrockMDE MDETxt
+noinst_PROGRAMS = MappedGaussianMDE MappedRosenbrockMDE MDETest
 
 TARGETS = ../../MappedTargetsTrunk
 
@@ -6,7 +6,8 @@ MappedGaussianMDE_SOURCES = MappedGaussianMDE.cpp \
 						../../MappedTargetsTrunk/GaussianFobj.cpp \
 						../../MappedTargetsTrunk/GaussianFobj.hpp \
 						testDenCommon.cpp testDenCommon.hpp \
-						testDenTools.cpp testDenTools.hpp					
+						testDenTools.cpp testDenTools.hpp	\
+						mdeTools.cpp mdeTools.hpp				
 
 MappedRosenbrockMDE_SOURCES = MappedRosenbrockMDE.cpp \
 						../../MappedTargetsTrunk/RosenDensityFobj.cpp \
@@ -14,13 +15,18 @@ MappedRosenbrockMDE_SOURCES = MappedRosenbrockMDE.cpp \
 						../../targets/FRosenbrock.cpp \
 						../../targets/FRosenbrock.hpp \
 						testDenCommon.cpp testDenCommon.hpp \
-						testDenTools.cpp testDenTools.hpp	
+						testDenTools.cpp testDenTools.hpp	 \
+						mdeTools.cpp mdeTools.hpp				
 
-MDETxt_SOURCES = MDETxt.cpp \
+
+MDETest_SOURCES = MDETest.cpp \
 						../../MappedTargetsTrunk/GaussianFobj.cpp \
 						../../MappedTargetsTrunk/GaussianFobj.hpp \
 						testDenCommon.cpp testDenCommon.hpp \
-						testDenTools.cpp testDenTools.hpp	
+						testDenTools.cpp testDenTools.hpp \	
+						mdeTools.cpp mdeTools.hpp				
+
+
 EXTRA_DIST = 
 MappedGaussianMDE_CPPFLAGS = -I${top_builddir}/src \
 -I../../MappedTargetsTrunk
@@ -30,6 +36,6 @@ MappedRosenbrockMDE_CPPFLAGS = -I${top_builddir}/src \
 -I../../MappedTargetsTrunk -I../../targets
 MappedRosenbrockMDE_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
 
-MDETxt_CPPFLAGS = -I${top_builddir}/src \
+MDETest_CPPFLAGS = -I${top_builddir}/src \
 -I../../MappedTargetsTrunk
-MDETxt_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+MDETest_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
