@@ -436,6 +436,26 @@ private:
 										  const SplitDecisionObj& boolTest,
 										  const std::size_t headerlines = 0,
 										  LOGGING_LEVEL logging=NOLOG);
+		
+    /** All rvectors are associated with the root paving for hold out estimation, no spliting. */
+    bool insertRvectorsFromTxtForHoldOut(const std::string& s,
+																				 std::vector<size_t>& numNodes,
+																				 double holdOutPercent,
+																				 const std::size_t headerlines = 0,
+																				 LOGGING_LEVEL logging=NOLOG)
+    {
+        SplitNever sn; // a dummy split decision object
+        return insertRvectorsFromTxtForHoldOut(s, numNodes, holdOutPercent, sn, headerlines, logging);
+    }
+
+		/** Adaptive splitting with each data point inserted. */
+    bool insertRvectorsFromTxtForHoldOut(const std::string& s,
+	   								  std::vector<size_t>& numNodes,
+	   								  double holdOutPercent,
+										  const SplitDecisionObj& boolTest,
+										  const std::size_t headerlines = 0,
+										  LOGGING_LEVEL logging=NOLOG);
+
     //@}
 
  

@@ -649,6 +649,62 @@ bool AdaptiveHistogramValidation::insertRvectorsFromTxt(const std::string& s,
     return retValue;
 }
 
+// method to insert rvectors from a txt file for hold out
+bool AdaptiveHistogramValidation::insertRvectorsFromTxtForHoldOut(const std::string& s,
+																	std::vector<size_t> & numNodes,
+																	double holdOutPercent,
+																	const SplitDecisionObj& boolTest,										  
+																	const std::size_t headerlines,
+																	LOGGING_LEVEL logging)
+{
+    bool retValue = false;
+
+    try {
+        RVecData myDataRvectors; // container for the rvectors we take in
+
+        // try to read in the file
+        retValue = readRvectorsFromTxt(myDataRvectors, s, headerlines);
+
+        if (retValue) {
+						size_t holdOutCount = round(myDataRvectors.size() * holdOutPercent);
+					
+						cout << "Holding out " << holdOutCount << " data points" << endl;						
+            vector<size_t> temp;
+            retValue = completeDataInsertionFromVec(myDataRvectors,
+                                     boolTest, logging, holdOutCount, temp);
+        }
+    }
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory inserting data.  Orginal error: "
+                                            + oldmsg;
+        cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error inserting data.  Orginal error: "
+                                    + oldmsg;
+        cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException inserting data.  Orginal error: " + oldmsg;
+        cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error inserting data.  Orginal error: " + oldmsg;
+        cout << msg << std::endl;
+        throw HistException(msg);
+    }
+
+    return retValue;
+}
+
+
 
 // method to insert all rvectors from an RVecData object
 bool AdaptiveHistogramValidation::insertFromRVec(const RVecData& rvec,
