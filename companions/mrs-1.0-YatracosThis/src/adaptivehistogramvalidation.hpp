@@ -439,17 +439,21 @@ private:
 		
     /** All rvectors are associated with the root paving for hold out estimation, no spliting. */
     bool insertRvectorsFromTxtForHoldOut(const std::string& s,
+																				 RVecData& theData,
 																				 std::vector<size_t>& numNodes,
 																				 double holdOutPercent,
 																				 const std::size_t headerlines = 0,
 																				 LOGGING_LEVEL logging=NOLOG)
     {
         SplitNever sn; // a dummy split decision object
-        return insertRvectorsFromTxtForHoldOut(s, numNodes, holdOutPercent, sn, headerlines, logging);
+        return insertRvectorsFromTxtForHoldOut(s, theData, numNodes, 
+																							 holdOutPercent, sn, 
+																							headerlines, logging);
     }
 
 		/** Adaptive splitting with each data point inserted. */
     bool insertRvectorsFromTxtForHoldOut(const std::string& s,
+											RVecData& theData,
 	   								  std::vector<size_t>& numNodes,
 	   								  double holdOutPercent,
 										  const SplitDecisionObj& boolTest,
@@ -709,29 +713,7 @@ private:
 									AdaptiveHistogramValidation& opthist);
    //@}
 	
-	/** @name Data splitting method to obtain the "best" estimate for uniform 
-	          mixtures.
-	 
-   The implementation is the same as above except that the IAE calculations are
-	for uniform mixtures.
-	 
-   \param compTest is an instance of a class providing a function for
-    comparing spsnodes, to order the nodes to prioitise splitting.
-   \param he is an instance of a class which provides a function to determine
-    when to stop splitting.
-   \param logging an enum controlling whether histogram creation output is
-    sent to a log file (defaults to no logging).
-   \param minChildPoints is the minimum number of points any prospective child
-    must have for a leaf node to be splittable.
-   \param minVolB is a multiplier applied to (log n)^2/n to give the the
-    minimum volume for a splittable node.  A node with
-    volume < minVolB(log n)^2/n is not splittable.  Important with AIC or COPERR.
-   \param rgsl is a pointer to a gls random number generator.
-   \param tol is the tolerance for the stopping criteria.
-   \param myPart is a reference to to StatsSubPaving that is split into a
-	uniform mixture. 
-   \return coll an \link AdaptiveHistogramCollator AdaptiveHistogramCollator 
-	  \endlink object.
+	/** @name Data splitting method to obtain the "best" estimate for mapped functions
     */
     //@{
     /** minVolB and minChildPoints supplied but no random number generator.*/
@@ -742,7 +724,7 @@ private:
 									RealMappedSPnode& nodeEst, int method, 
 									size_t maxLeafNodes, int maxCheck,
 									AdaptiveHistogramValidation& optHist);
-	//20160830								
+						
     /** With random number generator. All other parameters supplied.*/
     bool prioritySplitAndEstimate(const NodeCompObjVal& compTest, 
                           const HistEvalObjVal& he, LOGGING_LEVEL logging, 
@@ -772,6 +754,27 @@ private:
    
    //@}
 	
+	/** @name Data splitting method to obtain the "best" estimate given a data set
+	 * - no IAE computations are involved since we do not have the true distribution
+    */
+    //@{
+    /** With random number generator. All other parameters supplied.*/
+    bool prioritySplitAndEstimatePlain(const NodeCompObjVal& compTest, 
+                          const HistEvalObjVal& he, LOGGING_LEVEL logging, 
+                          size_t minChildPoints, double minVolB, 
+													gsl_rng * rgsl, 
+													size_t maxLeafNodes,
+													vector<int> sequence,
+													vector<double> & vecMaxDelta);
+									
+	 bool prioritySplitAndEstimatePlain(const NodeCompObjVal& compTest,
+									const HistEvalObjVal& he, LOGGING_LEVEL logging,
+									size_t minChildPoints, double minVolB,  
+									size_t maxLeafNodes,
+									vector<int> sequence,
+									vector<double> & vecMaxDelta);
+   //@}
+
 
 			
    /*! \brief Merge a multileaf histogram up to just root box.

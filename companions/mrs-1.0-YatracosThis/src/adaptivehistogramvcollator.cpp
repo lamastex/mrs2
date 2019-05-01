@@ -1294,8 +1294,7 @@ void AdaptiveHistogramVCollator::getHistYatSet(
 			if ( (k != j) && (k < j) ) {
 				set<CollatorSPVnode*, less < CollatorSPVnode* > > RowSet;
 				set<CollatorSPVnode*, less < CollatorSPVnode* > > ColSet;
-				//cout << "k= " << k << "\t" << "theta = " << j << endl;
-				
+				//cout << "k= " << k << "\t" << "theta = " << j << endl;	
 				getSubPaving()->getYatSet(RowSet, ColSet, k, j);
 				vecYatSet.push_back(RowSet);
 				vecYatSet.push_back(ColSet);
@@ -1305,7 +1304,7 @@ void AdaptiveHistogramVCollator::getHistYatSet(
 	
 	sort( vecYatSet.begin(), vecYatSet.end() );
 	vecYatSet.erase( unique( vecYatSet.begin(), vecYatSet.end() ), vecYatSet.end() );
-} // end of function getHistScheffeSet
+} // end of function getHistYatSet
 
 // Get winner of the knock out.
 /*

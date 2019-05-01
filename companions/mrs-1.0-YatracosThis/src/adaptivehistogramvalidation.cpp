@@ -290,19 +290,22 @@ size_t AdaptiveHistogramValidation::insertDataFromContainer(const RVecData& theD
 	 //int hist = 0;
 	 RVecDataCItr cit;
     // feed the data to myHist
-    for(cit = theData.begin(); cit < theData.end(); cit++) {
+    for(cit = theData.begin(); cit < theData.end(); cit++) {		
         // put it into dataCollection
         BigDataItr it = dataCollection.end();
         it = dataCollection.insert(it, *cit);
         SPSVnode* insertedInto = NULL;
         if (counter < holdOutCount) {
-          // try inserting 
+					//cout << "hold out" << *cit << endl;
+					// try inserting 
           boolVal = true;
           insertedInto =
                 rootVpaving->insertOneFind(it,ON_PARENT, boolTest, boolVal);
         }
         else {
-         boolVal = false;
+					boolVal = false;
+					//cout << "not hold out" << *cit << endl;
+         
 			// try inserting
          insertedInto =
                 rootVpaving->insertOneFind(it,ON_PARENT, boolTest, boolVal);
@@ -649,8 +652,11 @@ bool AdaptiveHistogramValidation::insertRvectorsFromTxt(const std::string& s,
     return retValue;
 }
 
+
 // method to insert rvectors from a txt file for hold out
-bool AdaptiveHistogramValidation::insertRvectorsFromTxtForHoldOut(const std::string& s,
+bool AdaptiveHistogramValidation::insertRvectorsFromTxtForHoldOut(
+																	const std::string& s,
+																	RVecData& theData,
 																	std::vector<size_t> & numNodes,
 																	double holdOutPercent,
 																	const SplitDecisionObj& boolTest,										  
@@ -660,17 +666,15 @@ bool AdaptiveHistogramValidation::insertRvectorsFromTxtForHoldOut(const std::str
     bool retValue = false;
 
     try {
-        RVecData myDataRvectors; // container for the rvectors we take in
-
         // try to read in the file
-        retValue = readRvectorsFromTxt(myDataRvectors, s, headerlines);
+        retValue = readRvectorsFromTxt(theData, s, headerlines);
 
         if (retValue) {
-						size_t holdOutCount = round(myDataRvectors.size() * holdOutPercent);
-					
+						
+						size_t holdOutCount = round(theData.size() * holdOutPercent);
 						cout << "Holding out " << holdOutCount << " data points" << endl;						
             vector<size_t> temp;
-            retValue = completeDataInsertionFromVec(myDataRvectors,
+            retValue = completeDataInsertionFromVec(theData,
                                      boolTest, logging, holdOutCount, temp);
         }
     }
@@ -703,8 +707,6 @@ bool AdaptiveHistogramValidation::insertRvectorsFromTxtForHoldOut(const std::str
 
     return retValue;
 }
-
-
 
 // method to insert all rvectors from an RVecData object
 bool AdaptiveHistogramValidation::insertFromRVec(const RVecData& rvec,
@@ -2663,7 +2665,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 						vector<int> sequence,
 						vector<double> & vecMaxDelta, vector<real> & vecIAE)
  {
-		cout << "Calling prioritySplitAndEstimate..." << endl;
+		cout << "Calling prioritySplitAndEstimate for mapped functions..." << endl;
 		int n = getSubPaving()->getCounter();
 		bool cancontinue = false;
 		bool TooManyLeaves = false;
@@ -2678,16 +2680,16 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
 
 		//set up a list for the Yatracos set for ...
-		list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet 
-		= new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
+		//list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet 
+		//= new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
 	
 		//set up a vector for sets of pointers to CollatorSPVnode (row)
-		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet
-		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
+		//vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet
+		// = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
 	
 		//set up a vector for sets of pointers to CollatorSPVnode (col)
-		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet
-		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
+		//vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet
+		// = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
 	
 		//set up a vector for maximum Delta_theta vectors
 		//vector< vector<double> > vecMaxDeltaVec;
@@ -2696,24 +2698,23 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 		// Yatracos set
 		//the first element in this vector will not be plotted since 
 		// the first histogram is an empty set
-		vector<double> theta0;
-		theta0.push_back(-1*(numeric_limits<double>::infinity())); 
+		//vector<double> theta0;
+		//theta0.push_back(-1*(numeric_limits<double>::infinity())); 
 		//the supremum of an empty set is -Infimum 
 		//vecMaxDeltaVec.push_back(theta0);
 		//set up a vector of the corresponding theta with the minimum 
 		// distance estimates
 		//vector< vector<int> > vecMinDistTheta;
 		// set up a vector for the infimum 
-		vector<double> vecInfDelta;
+		//vector<double> vecInfDelta;
 		// set up a vector for the integrated absolute error for each histogram
 		//vector<real>* vecIAE = new vector<real>; 
-		vector<real> vecIAEFull;
-		real minIAE = 1000.00;
+		//vector<real> vecIAEFull;
+		//real minIAE = 1000.00;
 
-   
-		vector<real> TrueDelta;
-		TrueDelta.push_back(-1); 
-		real trueDeltaCurrent = 0;
+		//vector<real> TrueDelta;
+		//TrueDelta.push_back(-1); 
+		//real trueDeltaCurrent = 0;
    	//end of initializing containers//
    	   
 		// check if the root box is empty
@@ -2725,7 +2726,16 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
         size_t agg = 0;
 				coll.addToCollationWithVal(*this, 1, agg);
 				numHist += 1;
-		
+				cout << "---- Hist " << numHist << "-----" << endl;
+				
+				/*string fileName = "Hist";
+				ostringstream stm;
+				stm << numHist;
+				fileName += stm.str();
+				fileName += ".txt";
+				outputToTxtTabs(fileName);
+				*/
+				
 				if (computeIAE == TRUE) {
 					PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
 					real IAE = nodeEst.getIAE(*tempPCF);
@@ -2874,6 +2884,14 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 						if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
 							coll.addToCollationWithVal(*this, 1, agg);
 							cout << "---- Hist " << numHist << "-----" << endl;
+							/*
+							string fileName = "Hist";
+							ostringstream stm;
+							stm << numHist;
+							fileName += stm.str();
+							fileName += ".txt";
+							outputToTxtTabs(fileName);
+							*/
 						}
 					
 						//cout << "get the split node" << endl;
@@ -2955,6 +2973,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 					} // end of while loop
 				
 					//get the Delta values
+					cout << "get the delta values " << endl;
 					coll.getMinDistEst(vecMaxDelta, vecYatSet);				
 					
 					//Outputs to .txt files
@@ -3043,7 +3062,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 					os.close();
 					std::cout << "Files written." << endl;
 					*/
-					delete listYatSet, vecRowYatSet, vecColYatSet;
+					//delete listYatSet, vecRowYatSet, vecColYatSet;
 							
 		      /* //output vecIAE to .txt file
 					string outputFileName;// for output file
@@ -3080,7 +3099,315 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
    return (cancontinue);
 }
 
+//---------------------------------
+// prioritySplitAndEstimate for a given data set without any IAE computations
+// method for data splitting and hold out estimation
+// outputs to a log file if logging is true
+bool AdaptiveHistogramValidation::prioritySplitAndEstimatePlain(
+             const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
+						 LOGGING_LEVEL logging, size_t minChildPoints, 
+						 double minVolB, 
+						 size_t maxLeafNodes,
+						 vector<int> sequence,
+						 vector<double> & vecMaxDelta)
+{
+    gsl_rng * rgsl = NULL;
+    bool cancontinue;
 
+    try {
+        // set up a random number generator for uniform rvs
+        const gsl_rng_type * tgsl;
+        // set the library variables *gsl_rng_default and
+        // gsl_rng_default_seed to default environmental vars
+        gsl_rng_env_setup();
+        tgsl = gsl_rng_default; // make tgsl the default type
+        rgsl = gsl_rng_alloc (tgsl); // set up with default seed
+
+        // call the function with a random number generator
+        cancontinue = prioritySplitAndEstimatePlain(compTest, he, logging, minChildPoints, 
+											  minVolB, rgsl, 
+											  maxLeafNodes, sequence,
+											  vecMaxDelta);
+        gsl_rng_free (rgsl);
+    }
+
+    catch (bad_alloc& ba) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory in priority stage split.  Orginal error: "
+                                     + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(e.what());
+        string msg = "HistException error in priority stage split.  Orginal error: "
+                                    + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(spe.what());
+        string msg = "SPnodeException in priority stage split.  Orginal error: "
+                                    + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(e.what());
+        string msg = "Error in priority split.  Orginal error: " + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+   
+   return cancontinue;
+}
+
+//prioritySplitAndEstimate for a given data set without any IAE computations
+bool AdaptiveHistogramValidation::prioritySplitAndEstimatePlain(
+            const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
+						LOGGING_LEVEL logging, size_t minChildPoints, 
+						double minVolB, gsl_rng * rgsl, 
+						size_t maxLeafNodes, 
+						vector<int> sequence,
+						vector<double> & vecMaxDelta)
+ {
+		cout << "Calling prioritySplitAndEstimatePlain..." << endl;
+		int n = getSubPaving()->getCounter();
+		bool cancontinue = false;
+		bool TooManyLeaves = false;
+		bool boolVal = true;     //boolean for validation data
+	  size_t numHist = 0; //a counter to track the number of histograms
+	    
+		//set up collator to keep the histograms as splits happen
+		AdaptiveHistogramVCollator coll;
+    
+		//initializing containers
+		//container for getMinDistEst()
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
+
+		//set up a list for the Yatracos set for ...
+		list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet 
+		= new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
+	
+		//set up a vector for sets of pointers to CollatorSPVnode (row)
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet
+		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
+	
+		//set up a vector for sets of pointers to CollatorSPVnode (col)
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet
+		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
+	
+		//set up a vector for maximum Delta_theta vectors
+		//vector< vector<double> > vecMaxDeltaVec;
+		//initializing the vector - to allow the delta vector to be in 
+		// right order  since the first histogram does not have a 
+		// Yatracos set
+		//the first element in this vector will not be plotted since 
+		// the first histogram is an empty set
+		vector<double> theta0;
+		theta0.push_back(-1*(numeric_limits<double>::infinity())); 
+		//the supremum of an empty set is -Infimum 
+		//vecMaxDeltaVec.push_back(theta0);
+		//set up a vector of the corresponding theta with the minimum 
+		// distance estimates
+		//vector< vector<int> > vecMinDistTheta;
+		// set up a vector for the infimum 
+		vector<double> vecInfDelta;
+		// set up a vector for the integrated absolute error for each histogram
+		//vector<real>* vecIAE = new vector<real>; 
+		vector<real> vecIAEFull;
+		real minIAE = 1000.00;
+
+   
+		vector<real> TrueDelta;
+		TrueDelta.push_back(-1); 
+		real trueDeltaCurrent = 0;
+   	//end of initializing containers//
+   	   
+		// check if the root box is empty
+		if (NULL == rootVpaving) {
+				throw HistException("No root paving for prioritySplit");
+    }
+    try {       
+        // add the histogram before any split happens into the collator
+        size_t agg = 0;
+				coll.addToCollationWithVal(*this, 1, agg);
+				numHist += 1;
+				
+				//checks for splittable nodes//
+				bool volChecking = false; // record if we need to check volume before split
+        double minVol = -1.0; // minimum volume (used only if checking)
+        //logging
+        std::string baseFileName = "";
+        std::string s = "";
+        if (logging != NOLOG) {
+            // pass to log output to keep track of splits
+            baseFileName = "pqOutput";
+            s = getUniqueFilename(baseFileName);
+        }
+        // make volChecking true if minVolB is > 0.0
+        if (minVolB > 0.0) {
+            // minimum volume of a splittable node is minVolB(log n)^2/n
+            minVol = getMinVol(minVolB);
+            volChecking = true;
+        }
+				// a multiset for the queue (key values are not necessarily unique)
+				multiset<SPSVnode*, MyCompare> pq((MyCompare(compTest)));
+				int i=0;
+				if (logging != NOLOG) {
+             // Start log file with filename and timestamp
+            outputLogStart(s);    
+            i++;
+				}
+      
+				// put nodes into the starting set IF they meet minVol test AND IF either
+				// there are enough points in the whole node
+				// and minChildCountIfSplit is 0 (ie all points go to one child)
+				// or the minChildCountIfSplit test passed
+        if (rootVpaving->isLeaf()) {
+            // check to insert a copy of the rootVpaving pointer into the set
+           if (checkNodeCountForSplit(rootVpaving, volChecking, minVol,
+                minChildPoints)) {
+                    pq.insert(rootVpaving);
+            }
+        }
+        else { // root is not a leaf
+            SPSVnodePtrs leaves;
+            rootVpaving->getLeaves(leaves);
+            // check to insert each of the leaves into the set
+            SPSVnodePtrsItr sit;            
+            for (sit = leaves.begin(); sit < leaves.end(); sit++) {
+                if (checkNodeCountForSplit((*sit), volChecking, minVol,
+                minChildPoints)) {
+						   pq.insert(*sit);
+                }
+            }
+        }
+        cancontinue = (!pq.empty());
+        bool bigEnough = cancontinue;
+        if(!cancontinue) {
+            std::cout << "No splittable leaves to split - aborting" << std::endl;
+        }        
+        //end of checks//
+		
+				//start priority queue//
+        // split until the HistEvalObj he () operator returns true
+        // we only put splittable nodes into the set, so we don't have to check
+        // that they are splittable when we take them out	  
+				while (bigEnough && !he(this) && !TooManyLeaves) {          
+					SPSVnode* largest = *(pq.rbegin ()); // the last largest in the set
+					SPSVnode* chosenLargest;
+					// find if there are any more equal to largest around
+					multiset<SPSVnode*, MyCompare>::iterator mit;
+					pair<multiset<SPSVnode*, MyCompare>::iterator,
+							multiset<SPSVnode*, MyCompare>::iterator> equalLargest;
+					equalLargest = pq.equal_range(largest); // everything that = largest
+					size_t numberLargest = pq.count(largest); // number of =largest
+
+					if (numberLargest > 1) {
+							// draw a random number in [0,1)
+							double rand = gsl_rng_uniform(rgsl);
+							real sum = 0.0;
+							// random selection of the =largest node to chose
+							for (mit=equalLargest.first; mit!=equalLargest.second; ++mit) {
+									sum += 1.0/(1.0*numberLargest);
+									if (rand < sum) {
+											break;
+									}
+							}
+							chosenLargest = *(mit); // the chosen largest in the set
+							pq.erase(mit);// take the iterator to chosen largest out of the set
+           }
+           else {
+							chosenLargest = *(pq.rbegin ()); // the only largest
+							multiset<SPSVnode*, MyCompare>::iterator it = pq.end();
+							it--;
+							pq.erase(it);// take this largest out of the set
+            }
+            
+            // split the biggest one and divide up its training and validation 
+            // data
+            ExpandWithValid(chosenLargest, boolVal);
+                          
+            // add the new child names to the creation string
+            creationString += chosenLargest->getChildNodeNames();
+
+            // but only put the children into the container if they can be
+            // split, which means IF the child meets the min vol test AND IF
+            // either there are enough points in the whole child and
+            // the child's minChildCountIfSplit is 0 (ie all points go to
+            // one child of the child)
+            // or the child's minChildCountIfSplit test is passed
+            if (checkNodeCountForSplit(chosenLargest->getLeftChild(),
+                volChecking, minVol, minChildPoints)) {
+                // insert the new left child into the multiset
+                pq.insert(chosenLargest->getLeftChild());
+            }
+            if (checkNodeCountForSplit(chosenLargest->getRightChild(),
+                volChecking, minVol, minChildPoints)) {
+                // insert the new right child into the multiset
+                pq.insert(chosenLargest->getRightChild());
+            }
+            if (logging != NOLOG) {
+                // To add current state of histogram to log file                   
+                i++;
+            }
+
+						numHist += 1;
+				
+						// only collate the k-th histogram and obtain the delta values
+						if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
+							coll.addToCollationWithVal(*this, 1, agg);
+							cout << "---- Hist " << numHist << "-----" << endl;
+						}
+									
+						//checks to see if need to split again
+						//checking if there are any more 'largest' nodes in the priority queue
+            bigEnough = (!pq.empty());
+            if (!bigEnough){    
+							std::cout << "Terminated splitting: no splittable nodes left"
+                    << std::endl;
+            }
+						// check if number of leaf nodes in subpaving > maxLeafNodes
+						// maximum number of leaf nodes allowed
+						//n^B, A+B > 1, 0  < A < 1, 0 < B < 1 - refer Prop. 1 in PQ paper
+						TooManyLeaves = (getRootLeaves() > maxLeafNodes);
+						if ( TooManyLeaves) {
+							std::cout << "Terminated splitting: maximum number of leaf nodes = "<< maxLeafNodes << " reached"
+                          << std::endl;
+						}
+					} // end of while loop
+				
+					//get the Delta values
+					coll.getMinDistEst(vecMaxDelta, vecYatSet);				
+					
+					delete listYatSet, vecRowYatSet, vecColYatSet;
+							
+		} // end of try
+    
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException in priority stage split.  Orginal error: "
+                                    + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error in priority stage split.  Orginal error: " + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    
+   return (cancontinue);
+}
+
+
+//---------------------------------
 
 // prioritySplitAndEstimate for finite mixtures
 // method for data splitting and hold out estimation

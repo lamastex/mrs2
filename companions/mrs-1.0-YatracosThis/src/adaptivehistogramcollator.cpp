@@ -1740,9 +1740,9 @@ void AdaptiveHistogramCollator::getHistScheffeWinner(
 void AdaptiveHistogramCollator::getHistYatSet(
 		vector< set<CollatorSPnode*, less<CollatorSPnode*> > > & vecYatSet)
 {
-   //=============end of setting up containers================================// 
-	int numAdd = getNumberCollated()-1; // the number of histograms collated including the 0-th histogram
-	// but not the last histogram as it is the validatino histogram
+	int numAdd = getNumberCollated()-1; 
+	// the number of histograms collated including the 0-th histogram
+	// but not the last histogram as it is the validation histogram
 	//============begin pairwise comparisons===================================//
 	for (size_t k= 0; k < numAdd; k++) {
 		// get A_ij
@@ -1757,10 +1757,13 @@ void AdaptiveHistogramCollator::getHistYatSet(
 			}
 		}
 	} // end of pairwise comparisons
-} // end of function getHistScheffeSet
+} // end of function getHistYatSet
 
-void AdaptiveHistogramCollator::getMinDistEst(vector<double> & maxDelta, 	vector< set<CollatorSPnode*, less<CollatorSPnode*> > > & vecYatSet)
+void AdaptiveHistogramCollator::getMinDistEst(
+																				vector<double> & maxDelta, 	
+vector< set<CollatorSPnode*, less<CollatorSPnode*> > > & vecYatSet)
 {
+	//cout << "calling getmindistest" << endl;
 	//get the yatracos class for ALL the candidates
 	getHistYatSet(vecYatSet); 
 	
