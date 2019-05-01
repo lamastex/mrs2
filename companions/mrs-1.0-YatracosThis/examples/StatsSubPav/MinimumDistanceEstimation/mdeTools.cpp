@@ -8,6 +8,7 @@
 #include <map>	//std::multimap
 #include <algorithm>    // std::sort
 
+// return a vector of the top k indices
 void topk(std::vector<double> a, std::vector<int> & indtop, size_t k)
 {
 	std::multimap<double, size_t> m; // mapping from value to its index
@@ -32,3 +33,14 @@ void topk(std::vector<double> a, std::vector<int> & indtop, size_t k)
 	std::sort(indtop.begin(), indtop.end());
 
 } // end of topk
+
+// return a vector of the sequence of leaf nodes for collation
+void getSequence(std::vector<int> & seq, int temp, int critLeaves, int increment)
+{
+	while ( temp < critLeaves) {
+		temp += increment;
+	 	seq.push_back(temp); 
+	 }
+	std::sort(seq.begin(), seq.end());
+	seq.erase( unique( seq.begin(), seq.end() ), seq.end() );
+} // end of getSequence
