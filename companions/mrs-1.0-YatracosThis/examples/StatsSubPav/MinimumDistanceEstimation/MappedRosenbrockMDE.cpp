@@ -172,11 +172,7 @@ int main(int argc, char* argv[])
 	
 	// specify function object (from /examples/MappedTargets
 	RosenDensityFobj fobj;
-	
-	/* function estimate is going to use same box as the histograms */
-	//ivector pavingBoxEst(d);
-	//for(int k=1; k <= d; k++) pavingBoxEst[k] = pavingInterval;
-	
+		
 	// Use fobj and pavingBox to get an estimator
 	FunctionEstimatorInterval estimator(pavingBoxEst, fobj);
 	
@@ -252,7 +248,7 @@ int main(int argc, char* argv[])
 	*/
 	//===========end of estimating function using PCF=========================//
 	
-		// Use PiecewiseConstantFunction to generate data, supplying our own rng---//
+	// Use PiecewiseConstantFunction to generate data, supplying our own rng---//
 	cout << "\nGenerating data for simulation" << endl;
 
 	RVecData* theDataPtr = new RVecData;   // a container for all the points generated
@@ -270,8 +266,7 @@ int main(int argc, char* argv[])
 	cout << (*theDataPtr).size() << " points generated" << endl;
 
 	// optional - remove comments to output simulated data 
-	/*
-	string dataFileName = "SimulatedData";
+	string dataFileName = "simulated_rosenbrock_data";
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
@@ -280,15 +275,13 @@ int main(int argc, char* argv[])
 				oss << (*theDataPtr)[i][j] << "\t";
 		}
 		oss << "\n";
-		//cout << "\n";
 	}
 	oss << flush;
 	oss.close();
 	cout << "Simulated data written to  " << dataFileName << endl;
-	*/
 	// End of generating data--------//
 	
-	// Minimum distance estimation with hold-out--------//
+		// Minimum distance estimation with hold-out--------//
 	cout << "\nRunning minimum distance estimation with hold-out..." << endl;
 	
 	int trainCount = n; 
@@ -304,7 +297,7 @@ int main(int argc, char* argv[])
 	size_t minChildPoints = 0;
 	size_t maxLeafNodes = 1000000; 
 	bool computeIAE = FALSE; // do not compute the IAE first
-
+	
 	vector<int> sequence; //to store all the thetas
 	size_t startLeaves = 0; 
 	sequence.push_back(startLeaves + 1);
@@ -314,41 +307,34 @@ int main(int argc, char* argv[])
 	int increment = (critLeaves-startLeaves)/(num_checks);
 	cout << "Increment by : " << increment << endl;
 	int temp = startLeaves;
-	while ( temp < critLeaves) {
-		temp += increment;
-	 	sequence.push_back(temp); 
-	 }
-	sort(sequence.begin(), sequence.end());
-	sequence.erase( unique( sequence.begin(), sequence.end() ), sequence.end() );
+	getSequence(sequence, temp, critLeaves, increment);
 	//for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
-		//cout << *it << endl;
+	//	cout << *it << endl;
 		
 	cout << "Perform " << num_iters << " iterations" << endl; 
-	vector<double>* vecMaxDelta = new vector<double>;	//which delta vector is this?
-	vector<real>* vecIAE = new vector<real>;		//which IAE is this?
-	
-	size_t k = 3; //take the best three  delta - what is best?
+	vector<double>* vecMaxDelta = new vector<double>;	
+	vector<real>* vecIAE = new vector<real>;		
+	size_t k = 3;
+	size_t iters = 0;
 
-	// start the clock here for ...?
+	// start the clock here
 	double timing = 0;
 	clock_t start, end;
 	start = clock();
-
-	size_t iters = 0;
 
 	while ( (increment) > 1 && iters < num_iters && (critLeaves - startLeaves) > num_checks) {				
 		cout << "\nIteration " << iters << "......" << endl;
 
 		// insert simulated data into an AdaptiveHistogramValidation object
- 		AdaptiveHistogramValidation myHistVal(pavingBoxEst);
- 		myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+		AdaptiveHistogramValidation myHistVal(pavingBoxEst);
+		myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
 			
 	 	//run MDE
 	 	myHistVal.prioritySplitAndEstimate
 	 					(compCount, he, NOLOG, 
 	 					minChildPoints, 0.0, estimate, 
 	 					maxLeafNodes, computeIAE, sequence,	
-	 					*vecMaxDelta, *vecIAE); //don't compute vecIAE here - is it possible?
+	 					*vecMaxDelta, *vecIAE); 
 	
 		//get the best 3 delta max values			
 		vector<int> indtop;
@@ -357,42 +343,34 @@ int main(int argc, char* argv[])
 		(*vecIAE).clear();
 		//cout << "Best three indices: " << endl;
 		//for ( vector<int>::iterator it = indtop.begin(); it != indtop.end(); it++)
-			// //*it = position //*sequence[*it] = leaves
-		 	//{ cout << *it << "\t" << sequence[*it] << endl;}
+			//*it = position //*sequence[*it] = leaves
+		//	{ cout << *it << "\t" << sequence[*it] << endl;}
 		
 		//update final_sequence
 		startLeaves = sequence[indtop[0]];
 		critLeaves = sequence[indtop[2]];
 		if ( (critLeaves - startLeaves) < num_checks ) 
-		{ num_checks = critLeaves - startLeaves; }
-		
+			{ num_checks = critLeaves - startLeaves; }
 		increment = (critLeaves-startLeaves)/(num_checks);
 		//cout << " Increment by: " << increment << endl;
 		
 		temp = startLeaves;
-		while ( temp < critLeaves) {
-			temp += increment;
-			//cout << "temp: "<< temp << endl;
-			sequence.push_back(temp); 
-		}
-		sort(sequence.begin(), sequence.end());
-		sequence.erase( unique( sequence.begin(), sequence.end() ), sequence.end() );
-		
+		getSequence(sequence, temp, critLeaves, increment);		
 		//cout << "updated sequence: " << endl;
 		//for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
-			//cout << *it << endl;	
+		//	cout << *it << endl;	
 				
 		//increment iters
 		iters++;
 	 } //end of while loop
 
+
 	//Run MDE with the final sequence after breaking out of the loop	
 	cout << "\nRun MDE with the final sequence..." << endl;
-	AdaptiveHistogramValidation myHistVal(pavingBoxEst);
-	myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
-
 	computeIAE = TRUE;
-	myHistVal.prioritySplitAndEstimate
+	AdaptiveHistogramValidation finalHist(pavingBoxEst);
+	finalHist.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+	finalHist.prioritySplitAndEstimate
 	 				(compCount, he, NOLOG, 
 	 				minChildPoints, 0.0, estimate, 
 	 				maxLeafNodes, computeIAE, sequence,	
@@ -408,7 +386,7 @@ int main(int argc, char* argv[])
 	//find the position of the minimum delta
 	size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
 	int numLeavesDelta = sequence[minPos];
-		
+				
 	//get the IAE using vecIAE
 	real IAEforMinDelta = (*vecIAE)[numLeavesDelta - 1];
 		
@@ -417,22 +395,12 @@ int main(int argc, char* argv[])
 		
 	//find the position of the minimum IAE	
 	int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
-
-	//delete pointers;
-	delete vecIAE;
-	delete vecMaxDelta;	
-	delete theDataPtr;
-
-	try {
-		gsl_rng_free (r);
-		r = NULL;
-	}
-	catch(...) {}// catch and swallow
-
-	// output results to txt file
+	
+	// optional - remove comments to output IAE to txt file
+	cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes." << endl;
 	cout << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
 	string outputName;
-	outputName = "results";
+	outputName = "iaes_leaves";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
@@ -441,20 +409,39 @@ int main(int argc, char* argv[])
 	oss.close();
 	cout << "Error computations output to " << outputName << endl;
 	
-	// optional - remove comments to output ...
-	/*
-	string sequenceName;
-	sequenceName = "Sequence";
-	sequenceName += stm.str();
-	sequenceName += ".txt";
-	oss.open(sequenceName.c_str());
-	for (size_t i = 0; i < (final_sequence).size(); i++){
-		oss << (final_sequence)[i] << endl;
+	// optional - remove comments to output the sequence of leaf nodes
+	outputName = "sequence";
+	outputName += stm.str();
+	outputName += ".txt";
+	oss.open(outputName.c_str());
+	for (size_t i = 0; i < (sequence).size(); i++){
+		oss << (sequence)[i] << endl;
 	}			 
 	oss << flush;
 	oss.close();
-	*/	
+
+	// optional - remove comments to output the deltas to txt
+	outputName = "deltas.txt";
+	outputName += stm.str();
+	outputName += ".txt";
+	oss.open(outputName.c_str());
+	for (size_t i = 0; i < (*vecMaxDelta).size(); i++){
+			oss << (*vecMaxDelta)[i] << endl;
+	}		
+	oss << flush;
+	oss.close();
+
+	try {
+		gsl_rng_free (r);
+		r = NULL;
+	}
+	catch(...) {}// catch and swallow
 		
+	//delete pointers;
+	delete vecIAE;
+	delete vecMaxDelta;	
+	delete theDataPtr;
+			
 	return 0;
 
 
