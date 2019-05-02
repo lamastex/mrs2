@@ -548,6 +548,15 @@ bool AdaptiveHistogramValidation::hasSubPaving() const
     return ( getSubPaving() != NULL );
 }
 
+cxsc::ivector AdaptiveHistogramValidation::getRootBox() const
+{
+	if (!hasSubPaving()) {
+		throw NullSubpavingPointer_Error(
+							"AdaptiveHistogramValidation::getRootBox()");
+	}
+	return getSubPaving()->getBox();
+}
+
 //src_trunk_0701
 int AdaptiveHistogramValidation::getLabel() const
 {
@@ -3188,45 +3197,6 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimatePlain(
 		//initializing containers
 		//container for getMinDistEst()
 		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
-
-		//set up a list for the Yatracos set for ...
-		list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet 
-		= new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
-	
-		//set up a vector for sets of pointers to CollatorSPVnode (row)
-		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet
-		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
-	
-		//set up a vector for sets of pointers to CollatorSPVnode (col)
-		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet
-		 = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
-	
-		//set up a vector for maximum Delta_theta vectors
-		//vector< vector<double> > vecMaxDeltaVec;
-		//initializing the vector - to allow the delta vector to be in 
-		// right order  since the first histogram does not have a 
-		// Yatracos set
-		//the first element in this vector will not be plotted since 
-		// the first histogram is an empty set
-		vector<double> theta0;
-		theta0.push_back(-1*(numeric_limits<double>::infinity())); 
-		//the supremum of an empty set is -Infimum 
-		//vecMaxDeltaVec.push_back(theta0);
-		//set up a vector of the corresponding theta with the minimum 
-		// distance estimates
-		//vector< vector<int> > vecMinDistTheta;
-		// set up a vector for the infimum 
-		vector<double> vecInfDelta;
-		// set up a vector for the integrated absolute error for each histogram
-		//vector<real>* vecIAE = new vector<real>; 
-		vector<real> vecIAEFull;
-		real minIAE = 1000.00;
-
-   
-		vector<real> TrueDelta;
-		TrueDelta.push_back(-1); 
-		real trueDeltaCurrent = 0;
-   	//end of initializing containers//
    	   
 		// check if the root box is empty
 		if (NULL == rootVpaving) {
@@ -3237,6 +3207,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimatePlain(
         size_t agg = 0;
 				coll.addToCollationWithVal(*this, 1, agg);
 				numHist += 1;
+				cout << "---- Hist " << numHist << "-----" << endl;
 				
 				//checks for splittable nodes//
 				bool volChecking = false; // record if we need to check volume before split
@@ -3383,9 +3354,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimatePlain(
 					} // end of while loop
 				
 					//get the Delta values
-					coll.getMinDistEst(vecMaxDelta, vecYatSet);				
-					
-					delete listYatSet, vecRowYatSet, vecColYatSet;
+					coll.getMinDistEst(vecMaxDelta, vecYatSet);		
 							
 		} // end of try
     

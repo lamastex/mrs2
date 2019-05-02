@@ -180,6 +180,7 @@ private:
     including an allowance for padding.
     */
     static ivector makeBox(const RVecData& theData, const size_t dim);
+    
 
     /*! \brief Insert training and validation data from a container.
 
@@ -307,6 +308,20 @@ private:
     \return true if this has a subpaving to manage.
 	false otherwise.*/
     bool hasSubPaving() const;
+    
+		/*! \brief Get the box of the subpaving managed by this.
+	
+	\note with the present constructors, it is impossible for
+	this to have a subpaving but for the subpaving to have no box.
+
+  \return copy of the box of the subpaving managed by this.
+	\pre hasSubPaving() == true.*/
+	cxsc::ivector getRootBox() const;
+	
+		/*! \brief Make a box given an ivector
+    */ 
+    void makeBox(ivector v);
+
     
       //src_trunk_0701
     /*! \brief Return the label for this.

@@ -189,7 +189,7 @@ int main(int argc, char* argv[])
 
 	// optional - remove comments to output simulated data 
 	
-	string dataFileName = "simulated_data";
+	string dataFileName = "simulated_gaussian_data";
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
@@ -345,7 +345,7 @@ int main(int argc, char* argv[])
 	oss.close();
 
 	// optional - remove comments to output the deltas to txt
-	outputName = "deltas.txt";
+	outputName = "deltas";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());

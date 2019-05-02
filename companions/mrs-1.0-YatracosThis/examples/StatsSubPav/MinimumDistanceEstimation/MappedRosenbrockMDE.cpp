@@ -142,7 +142,7 @@ int main(int argc, char* argv[])
 	real Tinverse = 1.0;
 	real Height = 100.0;
 	real RosenDomainLimit = 10.0;
-	int n_boxes = 1000000; 	
+	int n_boxes = 1000000; 
 	cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes 
        << "  n_samples: " << n_samples << "  rng_seed = " << theSeed  
        << endl; //getchar();
@@ -270,7 +270,7 @@ int main(int argc, char* argv[])
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
-	for (size_t i = 0; i < n; i++) { 
+	for (size_t i = 0; i < N; i++) { 
 		for (size_t j = 1; j <= d; j++) {
 				oss << (*theDataPtr)[i][j] << "\t";
 		}
@@ -421,7 +421,7 @@ int main(int argc, char* argv[])
 	oss.close();
 
 	// optional - remove comments to output the deltas to txt
-	outputName = "deltas.txt";
+	outputName = "deltas";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
