@@ -30,7 +30,6 @@
 #include "functionestimator_interval.hpp"
 #include "piecewise_constant_function.hpp"  
 
-#include "GaussianFobj.hpp" //function estimator object for Gaussian densities
 #include "toolz.hpp"
 
 #include <vector>
