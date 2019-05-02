@@ -43,6 +43,8 @@
 #include "testDenTools.hpp"
 #include "mdeTools.hpp"
 
+#include "UniformFobj.hpp" //function estimator object for Gaussian densities
+
 // to use assert
 #include "assert.h"
 
@@ -61,16 +63,22 @@ int main(int argc, char* argv[])
 
 	int dataSeed = atoi(argv[1]); // seed for data generation
 	int d = atoi(argv[2]);  // dimension
-	string mixShape = argv[3];
-	const int n = atoi(argv[4]);  // number of points to generate
-	double holdOutPercent = atof(argv[5]);
-	size_t maxLeavesEst = atoi(argv[6]);  // number of leaves in estimator
-	size_t critLeaves = atoi(argv[7]); //maximum number of leaves for PQ to stop splitting 
-	int num_checks = atoi(argv[8]); // check k histograms
-	size_t num_iters = atoi(argv[9]); // ...to zoom in
+	const int n = atoi(argv[3]);  // number of points to generate
+	double holdOutPercent = atof(argv[4]);
+	size_t maxLeavesEst = atoi(argv[5]);  // number of leaves in estimator
+	size_t critLeaves = atoi(argv[6]); //maximum number of leaves for PQ to stop splitting 
+	int num_checks = atoi(argv[7]); // check k histograms
+	size_t num_iters = atoi(argv[8]); // ...to zoom in
 	
 	cout << argv[0] << " : process id is " << getpid() << std::endl;
 	// End of user-defined parameters--------//
+
+	//--future?
+	/*MIXSHAPE="1,1"
+	MIXSHAPE="2,2,1"
+	MIXSHAPE="3,3,2,1"
+	MIXSHAPE="3,4,4, 2, 2, 3, 3"
+	*///----
 
 	// string formatting for output purposes
 	ofstream oss;       // ofstream object
@@ -84,43 +92,97 @@ int main(int argc, char* argv[])
 	gsl_rng_set (r, dataSeed); // change the seed
 	cout << "Data seed is " << dataSeed << endl;
 
-	// data generating partition
-  ivector pavingBox(d);
-  interval pavingInterval(0,1); //standard uniform distribution
-  for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
-	AdaptiveHistogram myPart(pavingBox); // make an Adaptive Histogram object with a specified box
-   
-  // create a uniform mixture 
-	// a container for the boxes
-  vector<ivector> Pboxes;
-  size_t PartSize;
-  SPSnodePtrs Pleaves; // set up empty container for leaf node pointers
-  SPSnodePtrsItr it; // and an iterator over the container
+	// Make the function estimator--------//
+	cout << "\nMake the function estimator to " << maxLeavesEst << " leaves" << endl;
 
-	myPart.splitToShape(mixShape);// uniform mixture	    
-  myPart.getSubPaving()->getLeaves(Pleaves); // fill the container
-  // container is filled by reading leaves off tree from left to right
-  for(it = Pleaves.begin(); it < Pleaves.end(); it++) {
-      Pboxes.push_back((*it)->getBox());
-  }
-	PartSize = Pboxes.size();
-	myPart.outputToTxtTabs("unifHist.txt"); //comment out if do not want to ouput
-				
-	//data sampled as uniform mixture over leaves of sub-paving myPart
-  cout << "\nGenerating data for simulation" << endl;
-	RVecData* theDataPtr = new RVecData;  // a container for the points generated
+	//data generating partition
+  ivector pavingBoxEst(d);
+  interval pavingInterval(0,1); //standard uniform distribution
+	for(int i=1; i <= d; i++) { pavingBoxEst[i] = pavingInterval; }
+
+	// specify function object (from /examples/MappedTargetsTrunk)
+	UniformFobj fobj(pavingBoxEst);
+	FunctionEstimatorInterval estimator(pavingBoxEst, fobj);
+
+	LOGGING_LEVEL logEst = NOLOG; // logging for making estimator
+
+	#if(1)
+	size_t maxLeavesEstDown = static_cast<size_t>(1.2*maxLeavesEst); 
+	// go down to 1.2 x max
+	#endif
+	#if(0)
+		size_t maxLeavesEstDown = maxLeavesEst;
+	#endif
+	cout << "pq down to max leaves " << maxLeavesEstDown << endl;
+
+	// start clock to record time for pq split in estimate
+	clock_t startEst = clock();
+
+	// priority split driven by splitting leaf with max reimann diff
+	ReimannDiffMeasurer measurer;
+	estimator.prioritySplit(measurer, maxLeavesEstDown, logEst);
+			
+	// stop recording time here
+	clock_t endEst = clock();
+	cout << "Number of leaves in estimate: " << estimator.getRootLeaves() << " s."<< endl;	
+	cout << "After split, getTotalAreaOfIntervalBand() = "
+		<< estimator.getTotalAreaOfIntervalBand() << endl;
+	double timingEst1 = ((static_cast<double>(endEst - startEst)) / CLOCKS_PER_SEC);
+	cout << "Computing time for pq split in estimate: " << timingEst1 << " s."<< endl;
+
+	// start clock to record time for hull propogation and merging up
+	startEst = clock();
+	#if(1) 
+		cout << "Hull propagation" << endl;
+		estimator.hullPropagation();
+		
+		cout << "Priority merge to " << maxLeavesEst << " leaves" << endl;
+		#if(0)
+		// priority merge driven by minimising increase the reimann diff
+		estimator.priorityMergeOnLoss(maxLeavesEst, logEst);
+		#endif
+		#if(1)
+		// priority merge driven by merging cherry with minimum reimann diff
+		estimator.priorityMerge(maxLeavesEst, logEst);
+		#endif
+					
+		// stop recording time here
+		endEst = clock();	
+		double timingEst2 = ((static_cast<double>(endEst - startEst)) / CLOCKS_PER_SEC);
+		cout << "Computing time for hull propagate and merge up in estimate: " << timingEst2 << " s."<< endl;
+		
+		cout << "After propagation and priority merge, getTotalAreaOfIntervalBand() = " 
+					<< estimator.getTotalAreaOfIntervalBand() << endl;
+		cout << "number of leaves is = " << estimator.getRootLeaves() << endl;
+	#endif
+
+	cout << "Making estimate and normalising" << endl;
+	// Make PiecewiseConstantFunction estimate from estimator
+	PiecewiseConstantFunction estimate = estimator.makePiecewiseConstantFunction();
+	cout << "estimate has integral " << estimate.getTotalIntegral() << " before normalizing" << endl;
+	real before = estimate.getTotalIntegral();
+	estimate.normalise();
+	cout << "estimate has integral " << estimate.getTotalIntegral() << endl;
+
+	// optional - remove comments to output function estimator 
+	/*estimate.outputToTxtTabs("PCF.txt");
+	string Integral = "Integral.txt";
+	oss.open(Integral.c_str());
+	oss << before << "\t" << estimate.getTotalIntegral() << endl;
+	oss << flush;
+	oss.close();
+	*/
+	// End of making function estimator--------//
+
+	// Use PiecewiseConstantFunction to generate data, supplying our own rng---//
+	cout << "\nGenerating data for simulation" << endl;
+
+	RVecData* theDataPtr = new RVecData;   // a container for all the points generated
 
 	// start clock to record time taken to simulate data
 	clock_t startData = clock();
-	
-  for (int i = 0; i < n; i++) {
-    rvector thisrv(d);
-    size_t RndBoxNum = floor(PartSize*gsl_rng_uniform(r));
-    //cout << RndBoxNum << "\t" << Pboxes[RndBoxNum] << endl;
-    thisrv = DrawUnifBox(r,Pboxes[RndBoxNum]);         
-		//cout << thisrv << endl;
-    (*theDataPtr).push_back(thisrv);
-  }  // data  should be in theData
+
+	estimate.simulateData(*theDataPtr, n, r);
 
 	// stop recording time here
 	clock_t endData = clock();	
@@ -128,7 +190,7 @@ int main(int argc, char* argv[])
 	cout << (*theDataPtr).size() << " points generated" << endl;
 	cout << "Computing time for simulating data: " << timingData << " s."<< endl;
 
-	// optional - remove comments to output simulated data 
+	//optional - remove comments to output simulated data 
 	string dataFileName = "simulated_uniform_data";
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
@@ -183,6 +245,7 @@ int main(int argc, char* argv[])
 	double timing = 0;
 	clock_t start, end;
 	start = clock();
+
 
 	while ( (increment) > 1 && iters < num_iters && (critLeaves - startLeaves) > num_checks) {				
 		cout << "\nIteration " << iters << "......" << endl;
@@ -292,7 +355,7 @@ int main(int argc, char* argv[])
 	}		
 	oss << flush;
 	oss.close();
-*/
+
 	try {
 		gsl_rng_free (r);
 		r = NULL;
@@ -300,8 +363,8 @@ int main(int argc, char* argv[])
 	catch(...) {}// catch and swallow
 		
 	//delete pointers;
-//	delete vecIAE;
-	//delete vecMaxDelta;	
+	delete vecIAE;
+	delete vecMaxDelta;	
 	delete theDataPtr;
 	
 		

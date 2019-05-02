@@ -21,7 +21,9 @@ MappedRosenbrockMDE_SOURCES = MappedRosenbrockMDE.cpp \
 UniformMDE_SOURCES = UniformMDE.cpp \
 						testDenCommon.cpp testDenCommon.hpp \
 						testDenTools.cpp testDenTools.hpp	\
-						mdeTools.cpp mdeTools.hpp	
+						mdeTools.cpp mdeTools.hpp	\
+						../../MappedTargetsTrunk/UniformFobj.cpp \
+						../../MappedTargetsTrunk/UniformFobj.hpp
 
 MDETest_SOURCES = MDETest.cpp \
 						testDenCommon.cpp testDenCommon.hpp \
