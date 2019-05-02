@@ -285,8 +285,7 @@ int main(int argc, char* argv[])
 	cout << "\nRunning minimum distance estimation with hold-out..." << endl;
 	
 	int holdOutCount = round(n*holdOutPercent);
-	int trainCount = n - holdOutCount; 
-	cout << n << " training data and " << holdOutCount << " validation data inserted." << endl; 
+	cout << holdOutCount << " points held out." << endl; 
 
 	// parameters for function insertRVectorForHoldOut()
 	SplitNever sn; 

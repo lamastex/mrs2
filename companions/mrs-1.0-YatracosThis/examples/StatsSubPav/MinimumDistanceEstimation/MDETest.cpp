@@ -105,6 +105,7 @@ int main(int argc, char* argv[])
 		
 		int n = (*theDataPtr).size(); 
 		int holdOutCount = round(n*holdOutPercent);
+		cout << holdOutCount << " points held out." << endl; 
 	
 		// parameters for function insertRVectorForHoldOut()
 		SplitNever sn; 
