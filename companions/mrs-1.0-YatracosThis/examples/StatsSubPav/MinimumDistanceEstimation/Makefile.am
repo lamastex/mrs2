@@ -18,9 +18,7 @@ MappedRosenbrockMDE_SOURCES = MappedRosenbrockMDE.cpp \
 						testDenTools.cpp testDenTools.hpp	 \
 						mdeTools.cpp mdeTools.hpp				
 
-UniformMDE_SOURCES = MappedGaussianMDE.cpp \
-						../../MappedTargetsTrunk/GaussianFobj.cpp \
-						../../MappedTargetsTrunk/GaussianFobj.hpp \
+UniformMDE_SOURCES = UniformMDE.cpp \
 						testDenCommon.cpp testDenCommon.hpp \
 						testDenTools.cpp testDenTools.hpp	\
 						mdeTools.cpp mdeTools.hpp	
