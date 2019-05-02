@@ -98,16 +98,18 @@ int main(int argc, char* argv[])
 	if ( argc < 7 ) {
 		cerr << "Syntax: " << argv[0] << 
 		" dataSeed d n maxLeavesEst critLeaves maxCheck" << endl;
-		throw std::runtime_error("Syntax: " + std::string(argv[0]) + "data seed, d, n, maxLeavesEst, critLeaves, num_checks, num_iters");
+		throw std::runtime_error("Syntax: " + std::string(argv[0]) + 
+		"data seed, d, n, holdOutPercent, maxLeavesEst, critLeaves, num_checks, num_iters");
 	}
 
 	int dataSeed = atoi(argv[1]); // seed for data generation
 	int d = atoi(argv[2]);  // dimension
 	const int n = atoi(argv[3]);  // number of points to generate
-	size_t maxLeavesEst = atoi(argv[4]);  // number of leaves in estimator
-	size_t critLeaves = atoi(argv[5]); //maximum number of leaves for PQ to stop splitting 
-	int num_checks = atoi(argv[6]); // check k histograms
-	size_t num_iters = atoi(argv[7]); // ...to zoom in
+	double holdOutPercent = atof(argv[4]);
+	size_t maxLeavesEst = atoi(argv[5]);  // number of leaves in estimator
+	size_t critLeaves = atoi(argv[6]); //maximum number of leaves for PQ to stop splitting 
+	int num_checks = atoi(argv[7]); // check k histograms
+	size_t num_iters = atoi(argv[8]); // ...to zoom in
 	
 	cout << argv[0] << " : process id is " << getpid() << std::endl;
 	// End of user-defined parameters--------//
@@ -131,10 +133,8 @@ int main(int argc, char* argv[])
 	cout << "Data seed is " << dataSeed << endl;
 	
 	// set default values
-	int N = 1.5*n;
-	cout << "---------------------" << N << "--------------" << endl;
 	int n_dimensions = d; 
-	int n_samples = N;
+	int n_samples = n;
 	double Alb = 1.0;// partition until lower bound on Acceptance Prob. is > Alb
 	unsigned theSeed = dataSeed;
 	
@@ -142,7 +142,7 @@ int main(int argc, char* argv[])
 	real Tinverse = 1.0;
 	real Height = 100.0;
 	real RosenDomainLimit = 10.0;
-	int n_boxes = 1000000; 
+ 	int n_boxes = 1000000; 
 	cout << "# n_dimensions: " << n_dimensions << "  n_boxes: " << n_boxes 
        << "  n_samples: " << n_samples << "  rng_seed = " << theSeed  
        << endl; //getchar();
@@ -256,7 +256,7 @@ int main(int argc, char* argv[])
 	// start clock to record time taken to simulate data
 	clock_t startData = clock();
 
-	estimate.simulateData(*theDataPtr, N, r);
+	estimate.simulateData(*theDataPtr, n, r);
 
 	// stop recording time here
 	clock_t endData = clock();	
@@ -270,7 +270,7 @@ int main(int argc, char* argv[])
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
-	for (size_t i = 0; i < N; i++) { 
+	for (size_t i = 0; i < n; i++) { 
 		for (size_t j = 1; j <= d; j++) {
 				oss << (*theDataPtr)[i][j] << "\t";
 		}
@@ -284,8 +284,8 @@ int main(int argc, char* argv[])
 		// Minimum distance estimation with hold-out--------//
 	cout << "\nRunning minimum distance estimation with hold-out..." << endl;
 	
-	int trainCount = n; 
-	int holdOutCount = N-n;
+	int holdOutCount = round(n*holdOutPercent);
+	int trainCount = n - holdOutCount; 
 	cout << n << " training data and " << holdOutCount << " validation data inserted." << endl; 
 
 	// parameters for function insertRVectorForHoldOut()
