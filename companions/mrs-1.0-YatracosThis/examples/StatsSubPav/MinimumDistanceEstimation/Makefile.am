@@ -1,4 +1,5 @@
-noinst_PROGRAMS = MappedGaussianMDE MappedRosenbrockMDE UniformMDE MDETest
+noinst_PROGRAMS = MappedGaussianMDE MappedRosenbrockMDE UniformMDE \
+									MDETest CheckBounds
 
 TARGETS = ../../MappedTargetsTrunk
 
@@ -28,8 +29,21 @@ UniformMDE_SOURCES = UniformMDE.cpp \
 MDETest_SOURCES = MDETest.cpp \
 						testDenCommon.cpp testDenCommon.hpp \
 						testDenTools.cpp testDenTools.hpp \	
-						mdeTools.cpp mdeTools.hpp				
-
+						mdeTools.cpp mdeTools.hpp			
+						
+							
+CheckBounds_SOURCES = CheckBounds.cpp \
+						testDenCommon.cpp testDenCommon.hpp \
+						testDenTools.cpp testDenTools.hpp	\
+						mdeTools.cpp mdeTools.hpp	\
+						../../MappedTargetsTrunk/UniformFobj.cpp \
+						../../MappedTargetsTrunk/UniformFobj.hpp \
+						../../MappedTargetsTrunk/GaussianFobj.cpp \
+						../../MappedTargetsTrunk/GaussianFobj.hpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.cpp \
+						../../MappedTargetsTrunk/RosenDensityFobj.hpp \
+						../../targets/FRosenbrock.cpp \
+						../../targets/FRosenbrock.hpp
 
 EXTRA_DIST = 
 MappedGaussianMDE_CPPFLAGS = -I${top_builddir}/src \
@@ -47,3 +61,7 @@ UniformMDE_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
 MDETest_CPPFLAGS = -I${top_builddir}/src \
 -I../../MappedTargetsTrunk
 MDETest_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
+
+CheckBounds_CPPFLAGS = -I${top_builddir}/src \
+-I../../MappedTargetsTrunk
+CheckBounds_LDADD = -lcxsc ${top_builddir}/src/libmrs.a
