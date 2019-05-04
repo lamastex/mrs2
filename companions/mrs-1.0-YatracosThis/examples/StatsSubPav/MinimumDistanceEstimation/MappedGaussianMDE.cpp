@@ -304,7 +304,7 @@ int main(int argc, char* argv[])
 		
 	//find the minimum delta
 	double minDelta = *min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
-
+	
 	//find the position of the minimum delta
 	size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
 	int numLeavesDelta = sequence[minPos];
@@ -317,10 +317,12 @@ int main(int argc, char* argv[])
 		
 	//find the position of the minimum IAE	
 	int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
+	//cout << (*vecIAE).size() << "\t" << (*vecMaxDelta).size() << endl;
+	
+	cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes with IAE" << IAEforMinDelta << endl;
+	cout << "The minimum IAE is"  << minIAE << " at " << numLeavesIAE << " leaf nodes." << endl;
 	
 	// optional - remove comments to output IAE to txt file
-	cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes." << endl;
-	cout << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
 	string outputName;
 	outputName = "iaes_leaves";
 	outputName += stm.str();
@@ -329,7 +331,7 @@ int main(int argc, char* argv[])
 	oss << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
 	oss << flush;
 	oss.close();
-	cout << "Error computations output to " << outputName << endl;
+	cout << "Main results output to " << outputName << endl;
 	
 	// optional - remove comments to output the sequence of leaf nodes
 	outputName = "sequence";
@@ -341,6 +343,7 @@ int main(int argc, char* argv[])
 	}			 
 	oss << flush;
 	oss.close();
+	cout << "Sequence of histograms used output to " << outputName << endl;
 
 	// optional - remove comments to output the deltas to txt
 	outputName = "deltas";
@@ -352,6 +355,19 @@ int main(int argc, char* argv[])
 	}		
 	oss << flush;
 	oss.close();
+	cout << "Delta values output to " << outputName << endl;
+	
+	// optional - remove comments to output the IAEs to txt
+	outputName = "iaes";
+	outputName += stm.str();
+	outputName += ".txt";
+	oss.open(outputName.c_str());
+	for (size_t i = 0; i < (*vecIAE).size(); i++){
+			oss << (*vecIAE)[i] << endl;
+	}		
+	oss << flush;
+	oss.close();
+	cout << "IAEs output to " << outputName << endl;
 
 	try {
 		gsl_rng_free (r);
