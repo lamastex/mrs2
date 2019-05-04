@@ -159,14 +159,7 @@ int main(int argc, char* argv[])
 	cout << "estimate has integral " << estimate.getTotalIntegral() << endl;
 
 	// optional - remove comments to output function estimator 
-	/*
-	estimate.outputToTxtTabs("PCF.txt");
-	string Integral = "Integral.txt";
-	oss.open(Integral.c_str());
-	oss << before << "\t" << estimate.getTotalIntegral() << endl;
-	oss << flush;
-	oss.close();
-	*/
+	estimate.outputToTxtTabs("PCF.txt");		
 	// End of making function estimator--------//
 
 	// Use PiecewiseConstantFunction to generate data, supplying our own rng---//
@@ -187,9 +180,8 @@ int main(int argc, char* argv[])
 
 	cout << (*theDataPtr).size() << " points generated" << endl;
 
-	// optional - remove comments to output simulated data 
-	
-	string dataFileName = "simulated_gaussian_data";
+	// optional - remove comments to output simulated data 	
+	string dataFileName = "simulated_data_for_bounds";
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
@@ -218,86 +210,40 @@ int main(int argc, char* argv[])
 	CritLeaves_GTEV he(critLeaves); //the PQ will stop after critLeaves are reached
 	size_t minChildPoints = 0;
 	size_t maxLeafNodes = 1000000; 
-	bool computeIAE = FALSE; // do not compute the IAE first
 	
 	vector<int> sequence; //to store all the thetas
 	size_t startLeaves = 0; 
 	sequence.push_back(startLeaves + 1);
 	sequence.push_back(critLeaves);
-	
 	//sequence to be used
 	int increment = (critLeaves-startLeaves)/(num_checks);
 	cout << "Increment by : " << increment << endl;
 	int temp = startLeaves;
 	getSequence(sequence, temp, critLeaves, increment);
 	//for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
-	//	cout << *it << endl;
-		
-	cout << "Perform " << num_iters << " iterations" << endl; 
+	
+	vector<double>* vecMaxDeltaTheta = new vector<double>;	
 	vector<double>* vecMaxDelta = new vector<double>;	
-	vector<real>* vecIAE = new vector<real>;		
-	size_t k = 3;
-	size_t iters = 0;
-
+	vector<real>* vecIAEHoldOut = new vector<real>;		
+	vector<real>* vecIAEAllPoints = new vector<real>;	
+	
 	// start the clock here
 	double timing = 0;
 	clock_t start, end;
 	start = clock();
 
-	while ( (increment) > 1 && iters < num_iters && (critLeaves - startLeaves) > num_checks) {				
-		cout << "\nIteration " << iters << "......" << endl;
-
-		// insert simulated data into an AdaptiveHistogramValidation object
-		AdaptiveHistogramValidation myHistVal(pavingBoxEst);
-		myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+	// insert simulated data into an AdaptiveHistogramValidation object
+	AdaptiveHistogramValidation myHistVal(pavingBoxEst);
+	myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
 			
-	 	//run MDE
-	 	myHistVal.prioritySplitAndEstimate
+ 	//run MDE
+ 	myHistVal.checkMDEBounds
 	 					(compCount, he, NOLOG, 
 	 					minChildPoints, 0.0, estimate, 
-	 					maxLeafNodes, computeIAE, sequence,	
-	 					*vecMaxDelta, *vecIAE); 
-	
-		//get the best 3 delta max values			
-		vector<int> indtop;
-		topk(*vecMaxDelta, indtop, 3);
-		(*vecMaxDelta).clear();
-		(*vecIAE).clear();
-		//cout << "Best three indices: " << endl;
-		//for ( vector<int>::iterator it = indtop.begin(); it != indtop.end(); it++)
-			//*it = position //*sequence[*it] = leaves
-		//	{ cout << *it << "\t" << sequence[*it] << endl;}
+	 					maxLeafNodes, sequence,	
+	 					*vecMaxDelta, *vecMaxDeltaTheta,
+	 					*vecIAEHoldOut); 
 		
-		//update final_sequence
-		startLeaves = sequence[indtop[0]];
-		critLeaves = sequence[indtop[2]];
-		if ( (critLeaves - startLeaves) < num_checks ) 
-			{ num_checks = critLeaves - startLeaves; }
-		increment = (critLeaves-startLeaves)/(num_checks);
-		//cout << " Increment by: " << increment << endl;
-		
-		temp = startLeaves;
-		getSequence(sequence, temp, critLeaves, increment);		
-		//cout << "updated sequence: " << endl;
-		//for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
-		//	cout << *it << endl;	
-				
-		//increment iters
-		iters++;
-	 } //end of while loop
-
-
-	//Run MDE with the final sequence after breaking out of the loop	
-	cout << "\nRun MDE with the final sequence..." << endl;
-	computeIAE = TRUE;
-	AdaptiveHistogramValidation finalHist(pavingBoxEst);
-	finalHist.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
-	finalHist.prioritySplitAndEstimate
-	 				(compCount, he, NOLOG, 
-	 				minChildPoints, 0.0, estimate, 
-	 				maxLeafNodes, computeIAE, sequence,	
-	 				*vecMaxDelta, *vecIAE);
-						
 	end = clock();
 	timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
 	cout << "Computing time for MDE: " << timing << " s."<< endl;
@@ -310,13 +256,13 @@ int main(int argc, char* argv[])
 	int numLeavesDelta = sequence[minPos];
 				
 	//get the IAE using vecIAE
-	real IAEforMinDelta = (*vecIAE)[numLeavesDelta - 1];
+	real IAEforMinDelta = (*vecIAEHoldOut)[numLeavesDelta - 1];
 		
 	// get minimum IAE
-	real minIAE = *min_element((*vecIAE).begin(), (*vecIAE).end());
+	real minIAE = *min_element((*vecIAEHoldOut).begin(), (*vecIAEHoldOut).end());
 		
 	//find the position of the minimum IAE	
-	int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
+	int numLeavesIAE = min_element((*vecIAEHoldOut).begin(), (*vecIAEHoldOut).end()) - (*vecIAEHoldOut).begin() + 1;
 	
 	// optional - remove comments to output IAE to txt file
 	cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes." << endl;
@@ -330,25 +276,15 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	cout << "Error computations output to " << outputName << endl;
-	
-	// optional - remove comments to output the sequence of leaf nodes
-	outputName = "sequence";
-	outputName += stm.str();
-	outputName += ".txt";
-	oss.open(outputName.c_str());
-	for (size_t i = 0; i < (sequence).size(); i++){
-		oss << (sequence)[i] << endl;
-	}			 
-	oss << flush;
-	oss.close();
+
 
 	// optional - remove comments to output the deltas to txt
-	outputName = "deltas";
+	outputName = "delta_and_iae";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	for (size_t i = 0; i < (*vecMaxDelta).size(); i++){
-			oss << (*vecMaxDelta)[i] << endl;
+			oss << (*vecMaxDelta)[i] << "\t" << (*vecIAEHoldOut)[i] << endl;
 	}		
 	oss << flush;
 	oss.close();
@@ -359,9 +295,12 @@ int main(int argc, char* argv[])
 	}
 	catch(...) {}// catch and swallow
 		
+	//	(*vecMaxDelta).clear();
+//	(*vecIAE).clear();	
+		
 	//delete pointers;
-	delete vecIAE;
-	delete vecMaxDelta;	
+	delete vecIAEHoldOut, vecIAEAllPoints;
+	delete vecMaxDelta, vecMaxDeltaTheta;	
 	delete theDataPtr;
 	
 		

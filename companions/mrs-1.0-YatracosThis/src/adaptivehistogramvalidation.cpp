@@ -2663,7 +2663,6 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
    return cancontinue;
 }
 
-//what i need to clean
 //prioritySplitAndEstimate for mapped functions
 bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
             const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
@@ -2687,44 +2686,6 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 		//initializing containers
 		//container for getMinDistEst()
 		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
-
-		//set up a list for the Yatracos set for ...
-		//list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* listYatSet 
-		//= new list< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
-	
-		//set up a vector for sets of pointers to CollatorSPVnode (row)
-		//vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecRowYatSet
-		// = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;
-	
-		//set up a vector for sets of pointers to CollatorSPVnode (col)
-		//vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >* vecColYatSet
-		// = new vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > >;    
-	
-		//set up a vector for maximum Delta_theta vectors
-		//vector< vector<double> > vecMaxDeltaVec;
-		//initializing the vector - to allow the delta vector to be in 
-		// right order  since the first histogram does not have a 
-		// Yatracos set
-		//the first element in this vector will not be plotted since 
-		// the first histogram is an empty set
-		//vector<double> theta0;
-		//theta0.push_back(-1*(numeric_limits<double>::infinity())); 
-		//the supremum of an empty set is -Infimum 
-		//vecMaxDeltaVec.push_back(theta0);
-		//set up a vector of the corresponding theta with the minimum 
-		// distance estimates
-		//vector< vector<int> > vecMinDistTheta;
-		// set up a vector for the infimum 
-		//vector<double> vecInfDelta;
-		// set up a vector for the integrated absolute error for each histogram
-		//vector<real>* vecIAE = new vector<real>; 
-		//vector<real> vecIAEFull;
-		//real minIAE = 1000.00;
-
-		//vector<real> TrueDelta;
-		//TrueDelta.push_back(-1); 
-		//real trueDeltaCurrent = 0;
-   	//end of initializing containers//
    	   
 		// check if the root box is empty
 		if (NULL == rootVpaving) {
@@ -2877,10 +2838,8 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
             }
 
 						//get IAE for this histogram if computeIAE == TRUE
-						if (computeIAE == TRUE) {
+					  if (computeIAE == TRUE) {
 							PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
-							// gotta double check this (that it is only using the height 
-							// from counter and not from Vcounter
 							real IAE = nodeEst.getIAE(*tempPCF);
 							(vecIAE).push_back(IAE); 
 							delete tempPCF;
@@ -2889,7 +2848,7 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 						}
 						numHist += 1;
 				
-						// only collate the k-th histogram and obtain the delta values
+						// only collate the k-th histogram
 						if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
 							coll.addToCollationWithVal(*this, 1, agg);
 							cout << "---- Hist " << numHist << "-----" << endl;
@@ -2902,67 +2861,6 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 							outputToTxtTabs(fileName);
 							*/
 						}
-					
-						//cout << "get the split node" << endl;
-						// first we need a pointer to the corresponding CollatorSPVnode 
-						// of the SPSVnode* chosenLargest     
-						//CollatorSPVnode * splitCollNode;
-						//coll.getSplitNodePtr(splitCollNode, chosenLargest);
-						//cout << chosenLargest->getNodeName() << "\t" << splitCollNode->getNodeName() << endl;
-						
-		 				//cout << "get the yat class" << endl;
-						// get the Yatracos class for this collation
-						//coll.getYatracosClassAll(splitCollNode, *vecRowYatSet,
-						//										*vecColYatSet, 
-						//										*listYatSet);
-						//} //end of every k-th histogram
-						
-						//cout << "get delta theta" << endl;
-						// get delta_theta for each theta
-						//coll.getYatracosDelta(listYatSet, vecRowYatSet, vecColYatSet, 
-							//							vecMaxDeltaVec);
-		
-						/*later...
-						// get the true delta
-						real trueDelta = 0.0;
-						vector< set<CollatorSPVnode*, less < CollatorSPVnode* > > >::iterator listIt;   
-						//cout << "Current Yatracos set has " << (*tempList).size() << " nodes." << endl;
-						for (listIt = (vecRowYatSet).begin(); listIt < vecRowYatSet.end(); listIt++) {
-							if ( !(*listIt).empty() ) {
-									real trueDeltaR = getMappedFunctionTrueDelta(nodeEst, (*listIt));
-									trueDeltaR = abs(trueDeltaR);
-									trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
-									//cout << "previous: " << trueDeltaCurrent << "\t current: " << trueDelta << endl;
-									trueDelta = (trueDeltaCurrent > trueDelta) ? trueDeltaCurrent : trueDelta;
-									//cout << "delta after comparison: " << trueDelta << endl;
-									trueDeltaCurrent = trueDelta;
-									//TrueDelta.push_back(trueDelta);
-								}
-							}
-		
-						for (listIt = (vecColYatSet).begin(); listIt < vecColYatSet.end(); listIt++) {
-							if ( !(*listIt).empty() ) {
-								real trueDeltaR = getMappedFunctionTrueDelta(nodeEst, (*listIt));
-								trueDeltaR = abs(trueDeltaR);
-								trueDelta = (trueDeltaR > trueDelta) ? trueDeltaR : trueDelta;
-								//cout << "previous: " << trueDeltaCurrent << "\t current: " << trueDelta << endl;
-								trueDelta = (trueDeltaCurrent > trueDelta) ? trueDeltaCurrent : trueDelta;
-								//cout << "delta after comparison: " << trueDelta << endl;
-								trueDeltaCurrent = trueDelta;
-								//TrueDelta.push_back(trueDelta);
-							}
-						}
-										
-						if ( vecRowYatSet.empty() && vecColYatSet.empty() ) 
-						{ trueDelta = -1; TrueDelta.push_back(trueDelta); } 
-						
-						TrueDelta.push_back(trueDelta);
-						
-						//check theorem 10.1
-						//cout << "check theorem: " << endl;
-						//cout << IAE << "\t" << minIAE << "\t" << trueDelta << endl;
-						//if ( trueDelta >= 0) {	assert(IAE <= (3*minIAE + 4*trueDelta)); }
-						*/
 						
 						//checks to see if need to split again
 						//checking if there are any more 'largest' nodes in the priority queue
@@ -2982,112 +2880,8 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 					} // end of while loop
 				
 					//get the Delta values
-					cout << "get the delta values " << endl;
+					//cout << "get the delta values " << endl;
 					coll.getMinDistEst(vecMaxDelta, vecYatSet);				
-					
-					//Outputs to .txt files
-					//ofstream os;         // ofstream object
-					//os << scientific;  // set formatting for input to oss
-					//os.precision(5);
-          // int Theta=0;
-          //cout << "get delta theta using YatEnd" << endl;
-					// get delta_theta
-					//vector<double>* vecMaxDelta = new vector<double>;
-			
-					//coll.getYatracosDeltaEnd(*listYatSet, *vecRowYatSet, 
-					//						 *vecColYatSet, *vecMaxDelta);
-			
-					//int F = (vecMaxDelta).size();
-					//cout << F << endl;
-					//double minDelta = 1000;
-					//int minTheta = 0;
-					/*
-					Theta = 0;
-					for (size_t i = 0; i < F; i++){
-					//	cout << "Theta: " << i << "\t" << vecMaxDelta[i] << endl;
-						if ( vecMaxDelta[i] < minDelta ) { 
-							minDelta = vecMaxDelta[i]; 
-							minTheta = i; 
-						} 
-					}
-					 cout << "minDelta = " << minDelta << " giving MDE at " 
-						<< minTheta << endl; 
-					*/
-				
-					/* // get the minimum delta to get the MDE histogram
-					vector< vector<double> >::iterator it1; 
-					vector<double>::iterator it2;
-		
-					//cout << "MaxDelta" << endl;
-					size_t F = vecMaxDeltaVec.size(); 
-					double minDelta = 1000;
-					//int minTheta = 0;
-					Theta = 0;
-					for (size_t i = 0; i < F; i++){
-						cout << "Theta: " << Theta << "\t" << vecMaxDeltaVec[F-1][i] << endl;
-						if ( vecMaxDeltaVec[F-1][i] < minDelta ) { 
-							minDelta = vecMaxDeltaVec[F-1][i]; 
-							minTheta = Theta; 
-						} 
-						Theta++;
-					}
-	
-				  cout << "minDelta = " << minDelta << " giving MDE at " 
-						<< minTheta << endl; 
-		          *//*
-					// output vecDeltaMaxVec into .txt 
-					ostringstream stm1, stm2;
-					//stm1 << hist;
-					stm2 << method;
-					string fileNameDelta = "Mapped";
-					//fileNameDelta += stm2.str();
-					fileNameDelta += "DeltaMax";
-					fileNameDelta += stm2.str();
-					fileNameDelta += ".txt";  
-					os.open(fileNameDelta.c_str());
-					for (it1 = vecMaxDeltaVec.begin(); it1 < vecMaxDeltaVec.end(); it1++){ 
-						for (it2 = (*it1).begin(); it2 < (*it1).end(); it2++){
-							os << (*it2) << "\t";
-						}
-						os << "\n";
-					}*/         
-				
-					//comment this out later
-					/*cout << "output to txt" << endl;
-					for (size_t i = 0; i < F; i++){
-						os << (vecMaxDelta)[i] << endl;
-					}
-					os << flush;
-					os.close();
-					
-					fileNameDelta = "MappedIAE";
-					fileNameDelta += stm2.str();
-					fileNameDelta += ".txt";  
-					os.open(fileNameDelta.c_str());
-					for (size_t i = 0; i < (vecIAE).size(); i++){
-						os << (vecIAE)[i] << endl;
-					}			 
-					os << flush;
-					os.close();
-					std::cout << "Files written." << endl;
-					*/
-					//delete listYatSet, vecRowYatSet, vecColYatSet;
-							
-		      /* //output vecIAE to .txt file
-					string outputFileName;// for output file
-					outputFileName = "Mapped";
-					//outputFileName += stm2.str();
-					outputFileName += "IAEandTrueDelta";
-					outputFileName += stm2.str();
-					outputFileName += ".txt";
-					os.open(outputFileName.c_str());
-					for (size_t i = 0; i < vecIAE.size(); i++){
-						//os << vecIAE[i] << "\t" << vecIAEFull[i] << TrueDelta[i] << endl;
-						os << vecIAE[i] << endl;
-					}
-					os << flush;
-					os.close();
-					std::cout << "IAE output to " << outputFileName << endl;*/
 
 		} // end of try
     
@@ -3107,6 +2901,305 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
     
    return (cancontinue);
 }
+
+// bounds checking
+bool AdaptiveHistogramValidation::checkMDEBounds(
+             const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
+						 LOGGING_LEVEL logging, size_t minChildPoints, 
+						 double minVolB, 
+						 PiecewiseConstantFunction& nodeEst, 
+						 size_t maxLeafNodes, vector<int> sequence,
+						 vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+						 vector<real> & vecIAEHoldOut)
+{
+    gsl_rng * rgsl = NULL;
+    bool cancontinue;
+
+    try {
+        // set up a random number generator for uniform rvs
+        const gsl_rng_type * tgsl;
+        // set the library variables *gsl_rng_default and
+        // gsl_rng_default_seed to default environmental vars
+        gsl_rng_env_setup();
+        tgsl = gsl_rng_default; // make tgsl the default type
+        rgsl = gsl_rng_alloc (tgsl); // set up with default seed
+
+        // call the function with a random number generator
+        cancontinue = checkMDEBounds(compTest, he, logging, minChildPoints, 
+											  minVolB, rgsl, nodeEst, 
+											  maxLeafNodes, sequence,
+											  vecMaxDeltaTheta, vecMaxDelta, vecIAEHoldOut);
+        gsl_rng_free (rgsl);
+    }
+
+    catch (bad_alloc& ba) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory in priority stage split.  Orginal error: "
+                                     + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(e.what());
+        string msg = "HistException error in priority stage split.  Orginal error: "
+                                    + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(spe.what());
+        string msg = "SPnodeException in priority stage split.  Orginal error: "
+                                    + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(e.what());
+        string msg = "Error in priority split.  Orginal error: " + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+   
+   return cancontinue;
+}
+
+
+bool AdaptiveHistogramValidation::checkMDEBounds(
+            const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
+						LOGGING_LEVEL logging, size_t minChildPoints, 
+						double minVolB, gsl_rng * rgsl, 
+						PiecewiseConstantFunction& nodeEst, 
+						size_t maxLeafNodes, vector<int> sequence,
+						vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+						vector<real> & vecIAEHoldOut)
+ {
+		cout << "Checking MDEBounds for mapped functions..." << endl;
+		int n = getSubPaving()->getCounter();
+		bool cancontinue = false;
+		bool TooManyLeaves = false;
+		bool boolVal = true;     //boolean for validation data
+	  size_t numHist = 0; //a counter to track the number of histograms
+	    
+		//set up collator to keep the histograms as splits happen
+		AdaptiveHistogramVCollator coll;
+    
+		//container for getMinDistEst()
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > vecYatSet;
+	 	   
+		// check if the root box is empty
+		if (NULL == rootVpaving) {
+				throw HistException("No root paving for prioritySplit");
+    }
+    try {       
+        // add the histogram before any split happens into the collator
+        size_t agg = 0;
+				coll.addToCollationWithVal(*this, 1, agg);
+				numHist += 1;
+				cout << "---- Hist " << numHist << "-----" << endl;
+				
+				/*string fileName = "Hist";
+				ostringstream stm;
+				stm << numHist;
+				fileName += stm.str();
+				fileName += ".txt";
+				outputToTxtTabs(fileName);
+				*/
+				
+				// get IAE for the histogram with data held out
+				PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+				real IAE = nodeEst.getIAE(*tempPCF);
+				delete tempPCF;
+				(vecIAEHoldOut).push_back(IAE);
+
+				//checks for splittable nodes//
+				bool volChecking = false; // record if we need to check volume before split
+        double minVol = -1.0; // minimum volume (used only if checking)
+        //logging
+        std::string baseFileName = "";
+        std::string s = "";
+        if (logging != NOLOG) {
+            // pass to log output to keep track of splits
+            baseFileName = "pqOutput";
+            s = getUniqueFilename(baseFileName);
+        }
+        // make volChecking true if minVolB is > 0.0
+        if (minVolB > 0.0) {
+            // minimum volume of a splittable node is minVolB(log n)^2/n
+            minVol = getMinVol(minVolB);
+            volChecking = true;
+        }
+				// a multiset for the queue (key values are not necessarily unique)
+				multiset<SPSVnode*, MyCompare> pq((MyCompare(compTest)));
+				int i=0;
+				if (logging != NOLOG) {
+             // Start log file with filename and timestamp
+            outputLogStart(s);    
+            i++;
+				}
+      
+				// put nodes into the starting set IF they meet minVol test AND IF either
+				// there are enough points in the whole node
+				// and minChildCountIfSplit is 0 (ie all points go to one child)
+				// or the minChildCountIfSplit test passed
+        if (rootVpaving->isLeaf()) {
+            // check to insert a copy of the rootVpaving pointer into the set
+           if (checkNodeCountForSplit(rootVpaving, volChecking, minVol,
+                minChildPoints)) {
+                    pq.insert(rootVpaving);
+            }
+        }
+        else { // root is not a leaf
+            SPSVnodePtrs leaves;
+            rootVpaving->getLeaves(leaves);
+            // check to insert each of the leaves into the set
+            SPSVnodePtrsItr sit;            
+            for (sit = leaves.begin(); sit < leaves.end(); sit++) {
+                if (checkNodeCountForSplit((*sit), volChecking, minVol,
+                minChildPoints)) {
+						   pq.insert(*sit);
+                }
+            }
+        }
+        cancontinue = (!pq.empty());
+        bool bigEnough = cancontinue;
+        if(!cancontinue) {
+            std::cout << "No splittable leaves to split - aborting" << std::endl;
+        }        
+        //end of checks//
+		
+				//start priority queue//
+        // split until the HistEvalObj he () operator returns true
+        // we only put splittable nodes into the set, so we don't have to check
+        // that they are splittable when we take them out	  
+				while (bigEnough && !he(this) && !TooManyLeaves) {          
+					SPSVnode* largest = *(pq.rbegin ()); // the last largest in the set
+					SPSVnode* chosenLargest;
+					// find if there are any more equal to largest around
+					multiset<SPSVnode*, MyCompare>::iterator mit;
+					pair<multiset<SPSVnode*, MyCompare>::iterator,
+							multiset<SPSVnode*, MyCompare>::iterator> equalLargest;
+					equalLargest = pq.equal_range(largest); // everything that = largest
+					size_t numberLargest = pq.count(largest); // number of =largest
+
+					if (numberLargest > 1) {
+							// draw a random number in [0,1)
+							double rand = gsl_rng_uniform(rgsl);
+							real sum = 0.0;
+							// random selection of the =largest node to chose
+							for (mit=equalLargest.first; mit!=equalLargest.second; ++mit) {
+									sum += 1.0/(1.0*numberLargest);
+									if (rand < sum) {
+											break;
+									}
+							}
+							chosenLargest = *(mit); // the chosen largest in the set
+							pq.erase(mit);// take the iterator to chosen largest out of the set
+           }
+           else {
+							chosenLargest = *(pq.rbegin ()); // the only largest
+							multiset<SPSVnode*, MyCompare>::iterator it = pq.end();
+							it--;
+							pq.erase(it);// take this largest out of the set
+            }
+            
+            // split the biggest one and divide up its training and validation 
+            // data
+            ExpandWithValid(chosenLargest, boolVal);
+                          
+            // add the new child names to the creation string
+            creationString += chosenLargest->getChildNodeNames();
+
+            // but only put the children into the container if they can be
+            // split, which means IF the child meets the min vol test AND IF
+            // either there are enough points in the whole child and
+            // the child's minChildCountIfSplit is 0 (ie all points go to
+            // one child of the child)
+            // or the child's minChildCountIfSplit test is passed
+            if (checkNodeCountForSplit(chosenLargest->getLeftChild(),
+                volChecking, minVol, minChildPoints)) {
+                // insert the new left child into the multiset
+                pq.insert(chosenLargest->getLeftChild());
+            }
+            if (checkNodeCountForSplit(chosenLargest->getRightChild(),
+                volChecking, minVol, minChildPoints)) {
+                // insert the new right child into the multiset
+                pq.insert(chosenLargest->getRightChild());
+            }
+            if (logging != NOLOG) {
+                // To add current state of histogram to log file                   
+                i++;
+            }
+				
+						numHist += 1;
+						
+						// only collate the k-th histogram and obtain the delta values
+						if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
+							coll.addToCollationWithVal(*this, 1, agg);
+							cout << "---- Hist " << numHist << "-----" << endl;
+							/*
+							string fileName = "Hist";
+							ostringstream stm;
+							stm << numHist;
+							fileName += stm.str();
+							fileName += ".txt";
+							outputToTxtTabs(fileName);
+							*/
+							
+							//get IAE for this histogram
+							PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+							real IAE = nodeEst.getIAE(*tempPCF);
+							(vecIAEHoldOut).push_back(IAE); 
+							delete tempPCF;
+						}
+						
+						//checks to see if need to split again
+						//checking if there are any more 'largest' nodes in the priority queue
+            bigEnough = (!pq.empty());
+            if (!bigEnough){    
+							std::cout << "Terminated splitting: no splittable nodes left"
+                    << std::endl;
+            }
+						// check if number of leaf nodes in subpaving > maxLeafNodes
+						// maximum number of leaf nodes allowed
+						//n^B, A+B > 1, 0  < A < 1, 0 < B < 1 - refer Prop. 1 in PQ paper
+						TooManyLeaves = (getRootLeaves() > maxLeafNodes);
+						if ( TooManyLeaves) {
+							std::cout << "Terminated splitting: maximum number of leaf nodes = "<< maxLeafNodes << " reached"
+                          << std::endl;
+						}
+					} // end of while loop
+				
+					//get the Delta theta values
+					coll.getMinDistEst(vecMaxDeltaTheta, vecYatSet);		
+					
+					cout << vecYatSet.size() << endl;
+				
+					//get the Delta value
+					real Delta = getMappedFunctionDelta(nodeEst, vecYatSet);
+
+		} // end of try
+    
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException in priority stage split.  Orginal error: "
+                                    + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error in priority stage split.  Orginal error: " + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    
+   return (cancontinue);
+}
+//------end of bounds checking code
 
 //---------------------------------
 // prioritySplitAndEstimate for a given data set without any IAE computations
@@ -4244,78 +4337,6 @@ real AdaptiveHistogramValidation::get2DIAE(taylor::dim2taylor (*testpnt)(taylor:
 	return result;	
 }
 
-// For samples drawn from MappedSPnodes
-// method for data splitting and hold out estimation
-// method to make a leaf node histogram into a multi-node histogram
-// by prioritising which node to split first
-// keeps splitting until the function object he returns true
-// or until there are no more splittable nodes
-// or until a stopping criteria is fulfilled
-// outputs to a log file if logging is true
-// makes its own random number generator
-/*
-AdaptiveHistogramVCollator AdaptiveHistogramValidation::prioritySplitAndEstimate(
-									const NodeCompObjVal& compTest,
-									const HistEvalObjVal& he, LOGGING_LEVEL logging,
-                           size_t minChildPoints, double minVolB, 
-									bool stopCrit, int maxCheck, size_t hist,
-									size_t maxLeafNodes, RealMappedSPnode& nodeEst)
-{
-    gsl_rng * rgsl = NULL;
-
-    AdaptiveHistogramVCollator coll;
-
-    try {
-        // set up a random number generator for uniform rvs
-        const gsl_rng_type * tgsl;
-        // set the library variables *gsl_rng_default and
-        // gsl_rng_default_seed to default environmental vars
-        gsl_rng_env_setup();
-        tgsl = gsl_rng_default; // make tgsl the default type
-        rgsl = gsl_rng_alloc (tgsl); // set up with default seed
-
-        // call the function with a random number generator
-        coll = prioritySplitAndEstimate(compTest, he, logging, minChildPoints, 
-											  minVolB, rgsl, stopCrit,maxCheck, hist,
-											  maxLeafNodes, nodeEst);
-        gsl_rng_free (rgsl);
-    }
-
-    catch (bad_alloc& ba) {
-        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
-        string oldmsg(ba.what());
-        string msg = "Error allocating memory in priority stage split.  Orginal error: "
-                                     + oldmsg;
-        std::cout << msg << std::endl;
-        throw HistException(msg);
-    }
-    catch (HistException& e) {
-        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
-        string oldmsg(e.what());
-        string msg = "HistException error in priority stage split.  Orginal error: "
-                                    + oldmsg;
-        std::cout << msg << std::endl;
-        throw HistException(msg);
-    }
-    catch (SPnodeException& spe) {
-        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
-        string oldmsg(spe.what());
-        string msg = "SPnodeException in priority stage split.  Orginal error: "
-                                    + oldmsg;
-        std::cout << msg << std::endl;
-        throw HistException(msg);
-    }
-    catch (exception& e) {
-        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
-        string oldmsg(e.what());
-        string msg = "Error in priority split.  Orginal error: " + oldmsg;
-        std::cout << msg << std::endl;
-        throw HistException(msg);
-    }
-   
-   return coll;
-}
-*/
 
 // Get the IAE for a finite gaussian mixture distribution using interval 
 // techniques.
@@ -4521,59 +4542,6 @@ cxsc::interval AdaptiveHistogramValidation::getFinMixIntervalIAE(FinMix& mixt, d
 	//cout << "IAE: " << totalArea << endl;
 	return totalArea;
 }
-
-/*
-// get the IAE for mapped functions
-real AdaptiveHistogramValidation::getMappedFunctionIAE(RealMappedSPnode& nodeEst, bool full)
-{
-	ivector thisBox = getSubPaving()->getBox();
-	RealMappedSPnode histMap(thisBox);
-	int n = rootVpaving->getCounter();
-	int allN = n + rootVpaving->getVcounter();
-	
-	// split the root box into the shape of myHist
-	string leafLevelString = getLeafLevelsString();
-	int depth = atoi(leafLevelString.c_str());
-	if (depth != 0) {
-		histMap.splitToShape(leafLevelString); 
-	}
-
-	//container to store heights for histNodes 
-	vector< RangeCollectionClass<real> > heightHist;
-	//get all the nodes in the histogram 
-	SPSVnodePtrs histNodes;
-	SPSVnodePtrsItr histNodeIt;
-	getSubPaving()->getAllNodes(histNodes); 
-
-	//traverse the tree and get the heights 
-	//cout << "get the height at each node" << endl;
-	for (histNodeIt = histNodes.begin(); histNodeIt < histNodes.end(); 
-			histNodeIt++) {
-				
-		//get the height in this leaf node
-		real fhat;
-		if ( full == 0 ) { 
-			fhat = (*histNodeIt)->getCounter()/((*histNodeIt)->nodeVolume()*n);
-			//cout << (*histNodeIt)->getCounter() << "\t" << ((*histNodeIt)->nodeVolume())<< "\t" << n << endl;
-		}
-		else {
-			size_t totalCount = (*histNodeIt)->getCounter() + (*histNodeIt)->getVcounter();
-			fhat = totalCount/((*histNodeIt)->nodeVolume()*allN);
-			//cout << totalCount << "\t" << fhat << endl;
-		}
-		
-		//cout << (*histNodeIt)->getNodeName() << "\tfhat: " << fhat << endl;
-		
-		//get the height at each node
-		RangeCollectionClass<real> height(fhat);
-		heightHist.push_back(height);
-	} // end of traversing all nodes in histogram
-	
-	//allocate ranges for histNode
-	histMap.allocateRanges(heightHist, 0);
-	return nodeEst.getMappedSPIAE(histMap);
-}
-*/
 
 
 // ----------------------------- non member functions
@@ -4951,11 +4919,15 @@ cxsc::real getUnifTrueDelta(
 	return trueDelta;
 }
 
-// get the IAE for mapped functions
-real getMappedFunctionTrueDelta(PiecewiseConstantFunction& nodeEstHist,
-					std::set<CollatorSPVnode*, less < CollatorSPVnode* > >& YatSet)
+// get the delta for mapped functions
+real getMappedFunctionDelta(PiecewiseConstantFunction& nodeEstHist,
+					std::vector< std::set<CollatorSPVnode*, std::less<CollatorSPVnode*> > > & vecYatSet)
 {
-	//cout << "-------function called---------" << endl;
+	cout << "get Delta for mapped functions" << endl;
+	
+	
+	SPSnodePtrs trueLeaves;
+	SPSnodePtrsItr trueIt;
 	
 	//iterator for YatSet
 	std::set<CollatorSPVnode*, less < CollatorSPVnode* > >::iterator histNodeIt;
@@ -4964,28 +4936,25 @@ real getMappedFunctionTrueDelta(PiecewiseConstantFunction& nodeEstHist,
 	real trueArea = 0.0;
 	real muValid = 0.0;
 
-	for (histNodeIt = YatSet.begin(); histNodeIt != YatSet.end(); 
+	for (size_t k = 0; k < vecYatSet.size(); k++) {
+		for (histNodeIt = vecYatSet[k].begin(); histNodeIt != vecYatSet[k].end(); 
 			histNodeIt++) {
 		
-		real thisArea = 0.0;
+			real thisArea = 0.0;
 		
-		cout << (*histNodeIt)->getNodeName() << endl;
-		ivector thisBox = (*histNodeIt)->getBox();
+			cout << (*histNodeIt)->getNodeName() << endl;
+			ivector thisBox = (*histNodeIt)->getBox();
 
-		// need to get the area of the nodes of nodeEst in thisBox
-		//cout << nodeEstHist.getDimensions() << "\t" << nodeEstHist.getRootBox() << endl;
-		//thisArea = nodeEstHist.getArea(thisArea, thisBox);
-
-		//cout << thisArea << "\t" << (*histNodeIt)->getVemp() << endl;
-		 
-		trueArea += thisArea;
-		muValid += (*histNodeIt)->getVemp();
-
-	} // end of traversing iterating through YatSet
-
-	//cout << "Final: " << endl;
-	//cout << trueArea << "\t" << muValid << endl;
+			// need to get the area of the nodes of nodeEst in thisBox
+			nodeEstHist.getIntegralForScheffeSet(thisBox);
+			trueArea += thisArea;
+			muValid += (*histNodeIt)->getVemp();
+		} // end of traversing iterating through YatSet
+	}
 	
+	cout << "Final: " << endl;
+	cout << trueArea << "\t" << muValid << endl;
 	real trueDelta = trueArea - muValid;
 	return abs(trueDelta);
+	
 }

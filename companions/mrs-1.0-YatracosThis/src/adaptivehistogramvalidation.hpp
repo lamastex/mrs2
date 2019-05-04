@@ -571,7 +571,7 @@ private:
 	 
    The implementation is the same as above except that the IAE calculations are
 	for uniform mixtures.
-	 
+	 m
    \param compTest is an instance of a class providing a function for
     comparing spsnodes, to order the nodes to prioitise splitting.
    \param he is an instance of a class which provides a function to determine
@@ -768,6 +768,29 @@ private:
 									AdaptiveHistogramValidation& optHist);
    
    //@}
+   
+   /** @name Routines to numerically verify the bounds of Theorems 2 and 3 of JJSDS paper
+    */
+    //@{
+    /** With random number generator. All other parameters supplied.*/
+    bool checkMDEBounds(const NodeCompObjVal& compTest, 
+                          const HistEvalObjVal& he, LOGGING_LEVEL logging, 
+                          size_t minChildPoints, double minVolB, 
+													gsl_rng * rgsl, 
+													PiecewiseConstantFunction& nodeEst, 
+													size_t maxLeafNodes, vector<int> sequence,
+													vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+													vector<real> & vecIAEHoldOut);
+									
+	 bool checkMDEBounds(const NodeCompObjVal& compTest,
+									const HistEvalObjVal& he, LOGGING_LEVEL logging,
+									size_t minChildPoints, double minVolB,  
+									PiecewiseConstantFunction& nodeEst,  
+									size_t maxLeafNodes, vector<int> sequence,
+									vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+									vector<real> & vecIAEHoldOut);
+   //@}
+   
 	
 	/** @name Data splitting method to obtain the "best" estimate given a data set
 	 * - no IAE computations are involved since we do not have the true distribution
@@ -902,8 +925,8 @@ std::list < std::set<CollatorSPVnode*, std::less < CollatorSPVnode* > > >& listY
 		std::set<CollatorSPVnode*, less < CollatorSPVnode* > >& YatSet);
 
 /** Get the true delta for mapped functions. */
-	cxsc::real getMappedFunctionTrueDelta(PiecewiseConstantFunction& nodeEstHist, 
-				std::set<CollatorSPVnode*, less < CollatorSPVnode* > >& YatSet);
+	cxsc::real getMappedFunctionDelta(PiecewiseConstantFunction& nodeEstHist, 
+				std::vector< std::set<CollatorSPVnode*, std::less<CollatorSPVnode*> > > & vecYatSet);
 
 
 
