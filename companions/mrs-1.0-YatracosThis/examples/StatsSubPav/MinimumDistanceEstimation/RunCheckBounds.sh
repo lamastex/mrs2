@@ -1,8 +1,8 @@
 #!/bin/bash
 #File: RunCheckBounds.sh
 
-NUM_SIMS=10; #How many simulations
-DATASEED=1
+rm *.txt
+NUM_SIMS=5; #How many simulations
 D=1
 N=150
 HOLDOUTPERCENT=0.33
@@ -15,7 +15,8 @@ for DATASEED in `seq 1 ${NUM_SIMS}`
 	do 
 	echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
 	./CheckBounds $DATASEED $D $N $HOLDOUTPERCENT $MAXLEAVESEST $CRITLEAVES $NUM_CHECKS $NUM_ITERS
-	cat theorem2_check${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}all.txt
+	cat theorem2_check${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}theorem2.txt
+	cat theorem_values${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}theorem_values.txt
 done
 
 

@@ -206,7 +206,7 @@ int main(int argc, char* argv[])
 	// parameters for function insertRVectorForHoldOut()
 	SplitNever sn; 
 
-	// parameters for prioritySplitAndEstimate
+	// parameters for getMDETheorem
 	CompCountVal compCount; 
 	CritLeaves_GTEV he(critLeaves); //the PQ will stop after critLeaves are reached
 	size_t minChildPoints = 0;
@@ -228,6 +228,7 @@ int main(int argc, char* argv[])
 	vector<real>* vecIAEHoldOut = new vector<real>;		
 	vector<real>* vecIAEAllPoints = new vector<real>;	
 	
+	// to get the required values for Theorem 2	
 	// start the clock here
 	double timing = 0;
 	clock_t start, end;
@@ -248,7 +249,28 @@ int main(int argc, char* argv[])
 	end = clock();
 	timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
 	cout << "Computing time for MDE: " << timing << " s."<< endl;
-		
+	
+	// to get the IAEs for Theorem 3
+	cout << "\nGetting the IAEs needed for Theorem 3..." << endl;
+	// start the clock here
+	start = clock();
+
+	// insert simulated data into an AdaptiveHistogram object
+	AdaptiveHistogram myHist(pavingBoxEst);
+	myHist.insertFromRVec(*theDataPtr, NOLOG);
+	
+	CompCount compCount1; 
+	CritLeaves_GTE he1(critLeaves); //the PQ will stop after critLeaves are reached
+
+ 	myHist.prioritySplitMappedIAE
+	 					(compCount1, he1,
+             NOLOG, maxLeafNodes,
+  					 estimate, *vecIAEAllPoints); 
+	
+	end = clock();
+	timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
+	cout << "Computing time for prioritySplit: " << timing << " s."<< endl;
+			
 	//find the minimum Delta theta
 	double minDeltaTheta = *min_element((*vecMaxDeltaTheta).begin(), (*vecMaxDeltaTheta).end());	
 
@@ -256,21 +278,29 @@ int main(int argc, char* argv[])
 	size_t minPos = min_element((*vecMaxDeltaTheta).begin(), (*vecMaxDeltaTheta).end()) - (*vecMaxDeltaTheta).begin();
 	int numLeavesDelta = sequence[minPos];
 				
-	//get the IAE using vecIAE
+	//get the IAE using vecIAEHoldOut
 	real IAEforMinDelta = (*vecIAEHoldOut)[minPos];
 		
-	//get minimum IAE
+	//get minimum IAEHoldOut
 	real minIAE = *min_element((*vecIAEHoldOut).begin(), (*vecIAEHoldOut).end());
 		
-	//find the position of the minimum IAE	
+	//find the position of the minimum IAEHoldOut	
 	minPos = min_element((*vecIAEHoldOut).begin(), (*vecIAEHoldOut).end()) - (*vecIAEHoldOut).begin();
 	int numLeavesIAE = sequence[minPos];
 	
 	//find the maximum Delta
 	real maxDelta = *max_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
 	
-	cout << "The minimum Delta theta is " << minDeltaTheta << " at " << numLeavesDelta << " leaf nodes with IAE" << IAEforMinDelta << endl;
-	cout << "The minimum IAE is"  << minIAE << " at " << numLeavesIAE << " leaf nodes." << endl;
+	//get minimum IAEAllPoints
+	real minIAEAllPoints = *min_element((*vecIAEAllPoints).begin(), (*vecIAEAllPoints).end());
+		
+	//find the position of the minimum IAEHoldOut	
+	minPos = min_element((*vecIAEAllPoints).begin(), (*vecIAEAllPoints).end()) - (*vecIAEAllPoints).begin();
+	int numLeavesIAEAllPoints = sequence[minPos];
+
+	cout << "The minimum Delta theta is " << minDeltaTheta << " at " << numLeavesDelta << " leaf nodes with IAE" << IAEforMinDelta <<endl;
+	cout << "The minimum IAEHoldOut is"  << minIAE << " at " << numLeavesIAE << " leaf nodes." << endl;
+	cout << "The minimum IAE for all points is"  << minIAEAllPoints << " at " << numLeavesIAEAllPoints << " leaf nodes." << endl;
 	cout << "The maximum Delta value is " << maxDelta << endl;
 	
 	// check theorem 2
@@ -278,7 +308,7 @@ int main(int argc, char* argv[])
 	cout << "RHS: " << IAEforMinDelta << "\t" << "LHS: " << 3*minIAE + 4*maxDelta << endl;
 	cout << boolalpha;
 	cout << "Inequality for Theorem 2 is " << check << "." << endl;
-
+	
 	// optional - remove comments to txt file
 	string outputName;
 	outputName = "theorem2_check";
@@ -291,29 +321,42 @@ int main(int argc, char* argv[])
 	cout << "Main results output to " << outputName << endl;
 
 	// optional - remove comments to output the deltas and iaes to txt
-	outputName = "delta_theta_and_iae";
+	// delta_theta "\t" iaeholdout "\t" iaeallpoints 
+	outputName = "delta_theta_and_iaes";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	for (size_t i = 0; i < (*vecMaxDeltaTheta).size(); i++){
-			oss << (*vecMaxDeltaTheta)[i] << "\t" << (*vecIAEHoldOut)[i] << endl;
+			oss << (*vecMaxDeltaTheta)[i] << "\t" << (*vecIAEHoldOut)[i] << "\t" << (*vecIAEAllPoints)[i] << endl;
 	}		
 	oss << flush;
 	oss.close();
 	cout << "Delta theta values and IAEs output to " << outputName << endl;
 	
-	// optional - remove comments to output the deltas and iaes to txt
+	// optional - remove comments to output the deltas to txt
 	outputName = "delta";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	for (size_t i = 0; i < (*vecMaxDelta).size(); i++){
-			oss << (*vecMaxDelta)[i] << "\t" << (*vecIAEHoldOut)[i] << endl;
+			oss << (*vecMaxDelta)[i] << endl;
 	}		
 	oss << flush;
 	oss.close();
 	cout << "Delta values output to " << outputName << endl;
 	
+	// optional - remove comments to txt file
+	outputName = "theorem_values";
+	outputName += stm.str();
+	outputName += ".txt";
+	oss.open(outputName.c_str());
+	oss << IAEforMinDelta << "\t" << minIAE << "\t" << minIAEAllPoints << maxDelta << endl;
+	oss << flush;
+	oss.close();
+	cout << "Required values for theorem output to " << outputName << endl;
+
+	
+		
 	try {
 		gsl_rng_free (r);
 		r = NULL;

@@ -3014,7 +3014,7 @@ bool AdaptiveHistogramValidation::getMDETheoremValues(
 				real IAE = nodeEst.getIAE(*tempPCF);
 				delete tempPCF;
 				(vecIAEHoldOut).push_back(IAE);
-
+				
 				//checks for splittable nodes//
 				bool volChecking = false; // record if we need to check volume before split
         double minVol = -1.0; // minimum volume (used only if checking)
@@ -3139,7 +3139,6 @@ bool AdaptiveHistogramValidation::getMDETheoremValues(
 						// only collate the k-th histogram and obtain the delta values
 						if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
 							coll.addToCollationWithVal(*this, 1, agg);
-							cout << "---- Hist " << numHist << "-----" << endl;
 							/*
 							string fileName = "Hist";
 							ostringstream stm;
@@ -3154,6 +3153,7 @@ bool AdaptiveHistogramValidation::getMDETheoremValues(
 							real IAE = nodeEst.getIAE(*tempPCF);
 							(vecIAEHoldOut).push_back(IAE); 
 							delete tempPCF;
+							cout << "IAE vec size:" << vecIAEHoldOut.size() << endl;
 						}
 						
 						//checks to see if need to split again
@@ -4945,6 +4945,6 @@ void getMappedFunctionDelta(PiecewiseConstantFunction& nodeEstHist,
 			trueIntegral += thisIntegral;
 			muValid += (*histNodeIt)->getVemp();
 		} // end of traversing iterating through YatSet
-		vecMaxDelta.push_back(trueIntegral - muValid);
+		vecMaxDelta.push_back(abs(trueIntegral - muValid));
 	}
 }

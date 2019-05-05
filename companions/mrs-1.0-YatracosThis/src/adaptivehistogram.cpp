@@ -5806,6 +5806,309 @@ void AdaptiveHistogram::swap(AdaptiveHistogram& adh) // throw()
 	std::swap(rootPaving, adh.rootPaving); // just swap the pointers
 }
 
+//----------------
+bool AdaptiveHistogram::prioritySplitMappedIAE(
+														const NodeCompObj& compTest,
+                            const HistEvalObj& he,
+                            LOGGING_LEVEL logging,
+                            size_t minChildPoints, double minVolB, 
+														size_t maxLeafNodes, 
+														PiecewiseConstantFunction& nodeEst,
+														std::vector<real>& vecIAE)
+{
+    bool retValue = false;
+
+    gsl_rng * rgsl = NULL;
+
+    try {
+        // set up a random number generator for uniform rvs
+        const gsl_rng_type * tgsl;
+        // set the library variables *gsl_rng_default and
+        // gsl_rng_default_seed to default environmental vars
+        gsl_rng_env_setup();
+        tgsl = gsl_rng_default; // make tgsl the default type
+        rgsl = gsl_rng_alloc (tgsl); // set up with default seed
+
+        retValue = prioritySplitMappedIAE(compTest, he, logging,
+                                    minChildPoints, minVolB, rgsl, maxLeafNodes,
+                                    nodeEst, vecIAE);
+        gsl_rng_free (rgsl);
+    }
+
+    catch (bad_alloc& ba) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory in priority split.  Orginal error: "
+                                     + oldmsg;
+        std::cerr << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(e.what());
+        string msg = "HistException error in priority split.  Orginal error: "
+                                    + oldmsg;
+        std::cerr << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(spe.what());
+        string msg = "SPnodeException in priority split.  Orginal error: "
+                                    + oldmsg;
+        std::cerr << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        if (NULL != rgsl) gsl_rng_free(rgsl); // free the random number generator
+        string oldmsg(e.what());
+        string msg = "Error in priority split.  Orginal error: " + oldmsg;
+        std::cerr << msg << std::endl;
+        throw HistException(msg);
+    }
+
+    return retValue;
+}
+
+bool AdaptiveHistogram::prioritySplitMappedIAE(
+																const NodeCompObj& compTest,
+                                const HistEvalObj& he,
+                                LOGGING_LEVEL logging,
+                                size_t minChildPoints, double minVolB,
+                                gsl_rng * rgsl, size_t maxLeafNodes,
+                                PiecewiseConstantFunction& nodeEst,
+																std::vector<real>& vecIAE)
+{    
+		size_t numHist = 0; //a counter to track the number of histograms
+	    
+    bool cancontinue = false;
+    bool TooManyLeaves = false;
+    
+    if (NULL == rootPaving) {
+            throw HistException("No root paving for prioritySplit");
+    }
+
+    try {
+				numHist += 1;
+				cout << "---- Hist " << numHist << "-----" << endl;
+				// get the IAE of the first histogram
+				PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+				real IAE = nodeEst.getIAE(*tempPCF);
+				delete tempPCF;
+				(vecIAE).push_back(IAE);
+
+        bool volChecking = false; // record if we need to check volume before split
+        double minVol = -1.0; // minimum volume (used only if checking)
+        size_t n; // for number of points in histogram
+
+        int i = 0;
+        std::string baseFileName = "";
+        std::string s = "";
+        if (logging != NOLOG) {
+            // pass to log output to keep track of splits
+            baseFileName = "pqOutput";
+            s = getUniqueFilename(baseFileName);
+        }
+
+        // make volChecking true if minVolB is > 0.0
+        if (minVolB > 0.0) {
+            // minimum volume of a splittable node is minVolB(log n)^2/n
+            minVol = getMinVol(minVolB);
+	         volChecking = true;
+        }
+
+        // a multiset for the queue (key values are not necessarily unique)
+        multiset<SPSnode*, MyCompare> pq((MyCompare(compTest)));
+
+        n = rootPaving->getCounter(); // number of points in histogram
+
+        if (logging != NOLOG) {
+             // Start log file with filename and timestamp
+            outputLogStart(s);
+            // log the current state of the histogram
+            outputLog(s, i);
+            outputLogEMPAIC(s); // add AIC scores
+            i++;
+        }
+
+        // put nodes into the starting set IF they meet minVol test AND IF either
+        // there are enough points in the whole node
+                // and minChildCountIfSplit is 0 (ie all points go to one child)
+        // or the minChildCountIfSplit test passed
+
+        if (rootPaving->isLeaf()) {
+            // check to insert a copy of the rootPaving pointer into the set
+            if (checkNodeCountForSplit(rootPaving, volChecking, minVol,
+                minChildPoints)) {
+                    pq.insert(rootPaving);
+            }
+        }
+        else { // root is not a leaf
+            SPSnodePtrs leaves;
+            rootPaving->getLeaves(leaves);
+            // check to insert each of the leaves into the set
+            SPSnodePtrsItr sit;
+            for (sit = leaves.begin(); sit < leaves.end(); sit++) {
+                if (checkNodeCountForSplit((*sit), volChecking, minVol,
+                minChildPoints)) {
+                    pq.insert(*sit);
+                }
+            }
+        }
+
+        cancontinue = (!pq.empty());
+		  
+        bool bigEnough = cancontinue;
+	     TooManyLeaves = (getRootLeaves() > maxLeafNodes);
+
+        if(!cancontinue) {
+            std::cout << "No splittable leaves to split - aborting" << std::endl;
+        }
+
+			
+        // split until the HistEvalObj he () operator returns true
+        // we only put splittable nodes into the set, so we don't have to check
+        // that they are splittable when we take them out
+        while (bigEnough && !he(this) && !TooManyLeaves) {
+            
+            SPSnode* largest = *(pq.rbegin ()); // the last largest in the set
+            SPSnode* chosenLargest;
+            
+            // find if there are any more equal to largest around
+            multiset<SPSnode*, MyCompare>::iterator mit;
+            pair<multiset<SPSnode*, MyCompare>::iterator,
+                multiset<SPSnode*, MyCompare>::iterator> equalLargest;
+
+            equalLargest = pq.equal_range(largest); // everything that = largest
+            size_t numberLargest = pq.count(largest); // number of =largest
+
+            if (numberLargest > 1) {
+
+                // draw a random number in [0,1)
+                double rand = gsl_rng_uniform(rgsl);
+
+                real sum = 0.0;
+
+                // random selection of the =largest node to chose
+                for (mit=equalLargest.first; mit!=equalLargest.second; ++mit) {
+
+                    sum += 1.0/(1.0*numberLargest);
+                    if (rand < sum) {
+
+                        break;
+                    }
+                }
+                chosenLargest = *(mit); // the chosen largest in the set
+                pq.erase(mit);// take the iterator to chosen largest out of the set
+            }
+
+            else {
+
+                chosenLargest = *(pq.rbegin ()); // the only largest
+                multiset<SPSnode*, MyCompare>::iterator it = pq.end();
+                it--;
+                pq.erase(it);// take this largest out of the set
+            }
+
+            // split the biggest one and divide up its data
+						// cout << "chosenLargest: " << chosenLargest->getNodeName() << "\t" << chosenLargest->getCounter() << endl;
+            Expand(chosenLargest);
+            
+          	numHist += 1;
+          	cout << "---- Hist " << numHist << "-----" << endl;
+						// get the IAE of the first histogram
+						PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+						real IAE = nodeEst.getIAE(*tempPCF);
+						delete tempPCF;
+						(vecIAE).push_back(IAE);
+            
+            // add the new child names to the creation string
+            creationString += chosenLargest->getChildNodeNames();
+
+            // but only put the children into the container if they can be
+            // split, which means IF the child meets the min vol test AND IF
+            // either there are enough points in the whole child and
+                // the child's minChildCountIfSplit is 0 (ie all points go to
+                // one child of the child)
+            // or the child's minChildCountIfSplit test is passed
+
+            if (checkNodeCountForSplit(chosenLargest->getLeftChild(),
+                    volChecking, minVol, minChildPoints)) {
+                // insert the new left child into the multiset
+                
+                pq.insert(chosenLargest->getLeftChild());
+            }
+
+            if (checkNodeCountForSplit(chosenLargest->getRightChild(),
+                    volChecking, minVol, minChildPoints)) {
+                // insert the new right child into the multiset
+               
+                pq.insert(chosenLargest->getRightChild());
+            }
+
+            if (logging != NOLOG) {
+                // To add current state of histogram to log file
+                outputLog(s, i);
+                outputLogEMPAIC(s); // add AIC scores
+                i++;
+            }
+
+            bigEnough = (!pq.empty());
+            if (!bigEnough)
+                std::cout << "Terminated splitting: no splittable nodes left"
+                    << std::endl;
+				
+				
+				// check if number of leaf nodes in subpaving > maxLeafNodes
+				// maximum number of leaf nodes allowed
+				//n^B, A+B > 1, 0  < A < 1, 0 < B < 1 - refer Prop. 1 in PQ paper
+				TooManyLeaves = (getRootLeaves() > maxLeafNodes);
+				if ( TooManyLeaves) {
+					std::cout << "Terminated splitting: maximum number of leaf nodes = "<< maxLeafNodes << " reached"
+                          << std::endl;
+				}
+		  
+	}
+
+        if (cancontinue && (logging != NOLOG)) {
+            // log the leaf levels line
+            outputFile(s, getLeafLevelsString());
+
+        }
+   }
+
+    catch (bad_alloc& ba) {
+        string oldmsg(ba.what());
+        string msg = "Error allocating memory iin priority split.  Orginal error: "
+                                    + oldmsg;
+        std::cout << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (HistException& e) {
+        string oldmsg(e.what());
+        string msg = "HistException error in priority split.  Orginal error: "
+                                    + oldmsg;
+        std::cerr << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (SPnodeException& spe) {
+        string oldmsg(spe.what());
+        string msg = "SPnodeException in priority split.  Orginal error: "
+                                    + oldmsg;
+        std::cerr << msg << std::endl;
+        throw HistException(msg);
+    }
+    catch (exception& e) {
+        string oldmsg(e.what());
+        string msg = "Error in priority split.  Orginal error: " + oldmsg;
+        std::cerr << msg << std::endl;
+        throw HistException(msg);
+    }
+
+    return (cancontinue);
+}
+//---------
+
 
 
 

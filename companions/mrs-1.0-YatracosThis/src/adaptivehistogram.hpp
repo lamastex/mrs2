@@ -1977,8 +1977,38 @@ private:
 	and \a adh will also be swapped.  */
 	void swap(AdaptiveHistogram& adh); // throw()
 
+/** @name prioritySplit methods which will ouput the IAE for mapped functions at each split.
+*/
+  //@{
+   /** minVolB and minChildPoints supplied but no random number generator.*/
+    bool prioritySplitMappedIAE(const NodeCompObj& compTest, const HistEvalObj& he,
+                      LOGGING_LEVEL logging, size_t minChildPoints, 
+											double minVolB, size_t maxLeafNodes,
+  										PiecewiseConstantFunction& nodeEst,
+  										std::vector<real>& vecIAE);
+    
+    /** Neither minVolB nor minChildPoints supplied, no random number generator. */
+    bool prioritySplitMappedIAE(const NodeCompObj& compTest, const HistEvalObj& he,
+                      LOGGING_LEVEL logging, size_t maxLeafNodes, 
+                      PiecewiseConstantFunction& nodeEst,
+                      std::vector<real>& vecIAE)
+    { return prioritySplitMappedIAE(compTest, he, logging, 0, 0.0, maxLeafNodes, nodeEst, vecIAE); }
 
+   /** With random number generator. All other parameters supplied.*/
+    bool prioritySplitMappedIAE(const NodeCompObj& compTest, const HistEvalObj& he,
+                      LOGGING_LEVEL logging,
+                      size_t minChildPoints, double minVolB, gsl_rng * rgsl,
+							 size_t maxLeafNodes, PiecewiseConstantFunction& nodeEst,
+							 std::vector<real>& vecIAE);
 
+    /** With random number generator. Neither minVolB nor minChildPoints supplied. */
+    bool prioritySplitIAEMappedIAE(const NodeCompObj& compTest, const HistEvalObj& he,
+                      LOGGING_LEVEL logging, gsl_rng * rgsl, size_t maxLeafNodes, 
+                      PiecewiseConstantFunction& nodeEst,
+                      std::vector<real>& vecIAE)
+    { return prioritySplitMappedIAE(compTest, he, logging, 0, 0.0, rgsl, maxLeafNodes, nodeEst, vecIAE); }
+     
+  //@}
 }; // end of AdaptiveHistogram class declarations
 
 
