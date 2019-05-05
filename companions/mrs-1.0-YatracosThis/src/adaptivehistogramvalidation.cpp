@@ -2903,13 +2903,13 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 }
 
 // bounds checking
-bool AdaptiveHistogramValidation::checkMDEBounds(
+bool AdaptiveHistogramValidation::getMDETheoremValues(
              const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
 						 LOGGING_LEVEL logging, size_t minChildPoints, 
 						 double minVolB, 
 						 PiecewiseConstantFunction& nodeEst, 
 						 size_t maxLeafNodes, vector<int> sequence,
-						 vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+						 vector<double> & vecMaxDeltaTheta, vector<real> & vecMaxDelta, 
 						 vector<real> & vecIAEHoldOut)
 {
     gsl_rng * rgsl = NULL;
@@ -2925,7 +2925,7 @@ bool AdaptiveHistogramValidation::checkMDEBounds(
         rgsl = gsl_rng_alloc (tgsl); // set up with default seed
 
         // call the function with a random number generator
-        cancontinue = checkMDEBounds(compTest, he, logging, minChildPoints, 
+        cancontinue = getMDETheoremValues(compTest, he, logging, minChildPoints, 
 											  minVolB, rgsl, nodeEst, 
 											  maxLeafNodes, sequence,
 											  vecMaxDeltaTheta, vecMaxDelta, vecIAEHoldOut);
@@ -2968,13 +2968,13 @@ bool AdaptiveHistogramValidation::checkMDEBounds(
 }
 
 
-bool AdaptiveHistogramValidation::checkMDEBounds(
+bool AdaptiveHistogramValidation::getMDETheoremValues(
             const NodeCompObjVal& compTest, const HistEvalObjVal& he, 
 						LOGGING_LEVEL logging, size_t minChildPoints, 
 						double minVolB, gsl_rng * rgsl, 
 						PiecewiseConstantFunction& nodeEst, 
 						size_t maxLeafNodes, vector<int> sequence,
-						vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+						vector<double> & vecMaxDeltaTheta, vector<real> & vecMaxDelta, 
 						vector<real> & vecIAEHoldOut)
  {
 		cout << "Checking MDEBounds for mapped functions..." << endl;
@@ -3175,12 +3175,9 @@ bool AdaptiveHistogramValidation::checkMDEBounds(
 				
 					//get the Delta theta values
 					coll.getMinDistEst(vecMaxDeltaTheta, vecYatSet);		
-					
-					cout << vecYatSet.size() << endl;
 				
 					//get the Delta value
-					real Delta = getMappedFunctionDelta(nodeEst, vecYatSet);
-
+					getMappedFunctionDelta(nodeEst, vecYatSet, vecMaxDelta);
 		} // end of try
     
     catch (SPnodeException& spe) {
@@ -4920,41 +4917,34 @@ cxsc::real getUnifTrueDelta(
 }
 
 // get the delta for mapped functions
-real getMappedFunctionDelta(PiecewiseConstantFunction& nodeEstHist,
-					std::vector< std::set<CollatorSPVnode*, std::less<CollatorSPVnode*> > > & vecYatSet)
+void getMappedFunctionDelta(PiecewiseConstantFunction& nodeEstHist,
+					std::vector< std::set<CollatorSPVnode*, std::less<CollatorSPVnode*> > > & vecYatSet,
+					vector<real> & vecMaxDelta)
 {
-	cout << "get Delta for mapped functions" << endl;
-	
-	
-	SPSnodePtrs trueLeaves;
-	SPSnodePtrsItr trueIt;
-	
 	//iterator for YatSet
 	std::set<CollatorSPVnode*, less < CollatorSPVnode* > >::iterator histNodeIt;
+	cout << "there are " << vecYatSet.size() << " elements in the Yatracos set" << endl;
 
 	//traverse the tree and get the heights 
-	real trueArea = 0.0;
+	real trueIntegral = 0.0;
 	real muValid = 0.0;
 
 	for (size_t k = 0; k < vecYatSet.size(); k++) {
 		for (histNodeIt = vecYatSet[k].begin(); histNodeIt != vecYatSet[k].end(); 
 			histNodeIt++) {
 		
-			real thisArea = 0.0;
+			real thisIntegral = 0.0;
+			real thisVol = (*histNodeIt)->nodeVolume();
 		
-			cout << (*histNodeIt)->getNodeName() << endl;
 			ivector thisBox = (*histNodeIt)->getBox();
-
+			//cout << "scheffe element:" << (*histNodeIt)->getNodeName() << "\t" << thisBox << endl;
+		
 			// need to get the area of the nodes of nodeEst in thisBox
-			nodeEstHist.getIntegralForScheffeSet(thisBox);
-			trueArea += thisArea;
+			thisIntegral = nodeEstHist.getTotalIntegralForScheffeElement(thisBox, thisVol);
+			
+			trueIntegral += thisIntegral;
 			muValid += (*histNodeIt)->getVemp();
 		} // end of traversing iterating through YatSet
+		vecMaxDelta.push_back(trueIntegral - muValid);
 	}
-	
-	cout << "Final: " << endl;
-	cout << trueArea << "\t" << muValid << endl;
-	real trueDelta = trueArea - muValid;
-	return abs(trueDelta);
-	
 }

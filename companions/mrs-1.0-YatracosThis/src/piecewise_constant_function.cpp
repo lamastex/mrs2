@@ -415,6 +415,22 @@ cxsc::real PiecewiseConstantFunction::getTotalIntegral() const
 	return getSubPaving()->getTotalAbsLeafAreaRangeWithBox();
 }
 
+//-------
+cxsc::real PiecewiseConstantFunction::getTotalIntegralForScheffeElement
+																		(ivector& box, cxsc::real vol) const
+{
+	if (!hasSubPaving()) {
+		throw NullSubpavingPointer_Error(
+		"PiecewiseConstantFunction::getTotalIntegralForScheffeElement()");
+	}
+	
+	cxsc::real result = 0.0;
+	bool split = false;
+	result = getSubPaving()->getIntegralForScheffeElement(box, vol, split);		
+	return result;
+}
+//--------
+
 cxsc::real PiecewiseConstantFunction::getIAE(
 						const PiecewiseConstantFunction& pcf) const
 {

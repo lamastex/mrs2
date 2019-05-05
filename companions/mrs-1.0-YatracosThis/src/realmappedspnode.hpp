@@ -479,6 +479,13 @@ namespace subpavings {
 		both have the same box.*/
 		cxsc::real getLogLikelihood(const SPSnode& spn) const;
 				
+		/*! \brief Get the the "area" of the range and the box of an element
+		 *  of a Scheffe set based on a given box
+		*/ 
+		virtual cxsc::real
+			getIntegralForScheffeElement(ivector& box, cxsc::real vol, bool split) const;
+
+		
 		/*! \brief  Get the "area" of the range and the box
 		of this.
 		
@@ -757,6 +764,7 @@ namespace subpavings {
 			
 	
 }; // end RealMappedSPnode class
+
 
 
 

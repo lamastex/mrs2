@@ -773,21 +773,21 @@ private:
     */
     //@{
     /** With random number generator. All other parameters supplied.*/
-    bool checkMDEBounds(const NodeCompObjVal& compTest, 
+    bool getMDETheoremValues(const NodeCompObjVal& compTest, 
                           const HistEvalObjVal& he, LOGGING_LEVEL logging, 
                           size_t minChildPoints, double minVolB, 
 													gsl_rng * rgsl, 
 													PiecewiseConstantFunction& nodeEst, 
 													size_t maxLeafNodes, vector<int> sequence,
-													vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+													vector<double> & vecMaxDeltaTheta, vector<real> & vecMaxDelta, 
 													vector<real> & vecIAEHoldOut);
 									
-	 bool checkMDEBounds(const NodeCompObjVal& compTest,
+	 bool getMDETheoremValues(const NodeCompObjVal& compTest,
 									const HistEvalObjVal& he, LOGGING_LEVEL logging,
 									size_t minChildPoints, double minVolB,  
 									PiecewiseConstantFunction& nodeEst,  
 									size_t maxLeafNodes, vector<int> sequence,
-									vector<double> & vecMaxDeltaTheta, vector<double> & vecMaxDelta, 
+									vector<double> & vecMaxDeltaTheta, vector<real> & vecMaxDelta, 
 									vector<real> & vecIAEHoldOut);
    //@}
    
@@ -925,8 +925,9 @@ std::list < std::set<CollatorSPVnode*, std::less < CollatorSPVnode* > > >& listY
 		std::set<CollatorSPVnode*, less < CollatorSPVnode* > >& YatSet);
 
 /** Get the true delta for mapped functions. */
-	cxsc::real getMappedFunctionDelta(PiecewiseConstantFunction& nodeEstHist, 
-				std::vector< std::set<CollatorSPVnode*, std::less<CollatorSPVnode*> > > & vecYatSet);
+	void getMappedFunctionDelta(PiecewiseConstantFunction& nodeEstHist, 
+				std::vector< std::set<CollatorSPVnode*, std::less<CollatorSPVnode*> > > & vecYatSet, 
+				std::vector<real> & vecMaxDelta);
 
 
 

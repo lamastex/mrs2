@@ -618,7 +618,41 @@ cxsc::real RealMappedSPnode::getLogLikelihood(const SPSnode& spn) const
 
 	return result;
 }
-		
+	
+//-------------------	
+/* Get the the "area" of the range and the box of an element
+of a Scheffe set based on a given box*/ 
+cxsc::real RealMappedSPnode::getIntegralForScheffeElement
+																	(ivector& box, cxsc::real vol, bool split) const
+{
+	cxsc::real result = 0.0;
+	
+	//cout << box << "vs" << getBox() << endl;
+
+	if ( isLeaf() ) {
+		if (box <= getBox() && split == false ) {
+			result += getRange() * vol;
+		}
+		else if ( isLeaf() && split == true ) {
+			result += getRange() * nodeRealVolume();
+		}
+		return result;
+	}  	
+	else if ( box == getBox() ) {
+		split = true;
+		return (
+		getLeftChild()->getIntegralForScheffeElement(box, vol, split)
+		+ getRightChild()->getIntegralForScheffeElement(box, vol, split));			
+	}	
+	else {
+		return (
+		getLeftChild()->getIntegralForScheffeElement(box, vol, split)
+		+ getRightChild()->getIntegralForScheffeElement(box, vol, split));
+	}
+}	
+//---------------	
+
+
 /*Volume of box represented by this multiplied by
 real range of this.*/
 cxsc::real RealMappedSPnode::getRealAreaRangeWithBox() const

@@ -1504,7 +1504,8 @@ void AdaptiveHistogramVCollator::makeMinimal()
 	}
 
 
-void AdaptiveHistogramVCollator::getMinDistEst(vector<double> & maxDelta, 	vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > & vecYatSet)
+void AdaptiveHistogramVCollator::getMinDistEst(vector<double> & maxDelta, 	
+		vector< set<CollatorSPVnode*, less<CollatorSPVnode*> > > & vecYatSet)
 {
 	//get the yatracos class for ALL the candidates
 	getHistYatSet(vecYatSet); 

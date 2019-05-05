@@ -293,6 +293,22 @@ class PiecewiseConstantFunction {
 	\pre This must have a subpaving to manage.*/
 	cxsc::real getTotalIntegral() const;
 	
+	/*! \brief  Get the integral of a specified box or union of boxes of the piecewise constant 
+	function represented by this.
+	
+	The integral is calculated as the sum over
+	all the leaves of the subpaving managed by this of the absolute
+	value of the real range on the leaf multiplied by the volume of the 
+	box represented by the leaf.
+	* 
+	If any of the values on the leaf nodes of the subpaving managed by
+	this is Infinity, the value returned will be Infinity. 
+	
+	\return total area between function and 0 for the function as
+	represented by this.
+	\pre This must have a subpaving to manage.*/
+	cxsc::real getTotalIntegralForScheffeElement(ivector& box, cxsc::real vol) const;
+
 	/*! \brief  Get the total integrated absolute error (IAE) between
 	this and another %PiecewiseConstantFunction.
 	

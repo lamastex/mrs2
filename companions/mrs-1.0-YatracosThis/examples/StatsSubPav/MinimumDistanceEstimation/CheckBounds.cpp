@@ -159,7 +159,8 @@ int main(int argc, char* argv[])
 	cout << "estimate has integral " << estimate.getTotalIntegral() << endl;
 
 	// optional - remove comments to output function estimator 
-	estimate.outputToTxtTabs("PCF.txt");		
+	estimate.outputToTxtTabs("PCF.txt");	
+	
 	// End of making function estimator--------//
 
 	// Use PiecewiseConstantFunction to generate data, supplying our own rng---//
@@ -223,7 +224,7 @@ int main(int argc, char* argv[])
 	//for ( vector<int>::iterator it = sequence.begin(); it != sequence.end(); it++)
 	
 	vector<double>* vecMaxDeltaTheta = new vector<double>;	
-	vector<double>* vecMaxDelta = new vector<double>;	
+	vector<real>* vecMaxDelta = new vector<real>;	
 	vector<real>* vecIAEHoldOut = new vector<real>;		
 	vector<real>* vecIAEAllPoints = new vector<real>;	
 	
@@ -237,49 +238,72 @@ int main(int argc, char* argv[])
 	myHistVal.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
 			
  	//run MDE
- 	myHistVal.checkMDEBounds
+ 	myHistVal.getMDETheoremValues
 	 					(compCount, he, NOLOG, 
 	 					minChildPoints, 0.0, estimate, 
 	 					maxLeafNodes, sequence,	
-	 					*vecMaxDelta, *vecMaxDeltaTheta,
+	 					*vecMaxDeltaTheta, *vecMaxDelta,
 	 					*vecIAEHoldOut); 
 		
 	end = clock();
 	timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
 	cout << "Computing time for MDE: " << timing << " s."<< endl;
 		
-	//find the minimum delta
-	double minDelta = *min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
+	//find the minimum Delta theta
+	double minDeltaTheta = *min_element((*vecMaxDeltaTheta).begin(), (*vecMaxDeltaTheta).end());	
 
 	//find the position of the minimum delta
-	size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
+	size_t minPos = min_element((*vecMaxDeltaTheta).begin(), (*vecMaxDeltaTheta).end()) - (*vecMaxDeltaTheta).begin();
 	int numLeavesDelta = sequence[minPos];
 				
 	//get the IAE using vecIAE
-	real IAEforMinDelta = (*vecIAEHoldOut)[numLeavesDelta - 1];
+	real IAEforMinDelta = (*vecIAEHoldOut)[minPos];
 		
-	// get minimum IAE
+	//get minimum IAE
 	real minIAE = *min_element((*vecIAEHoldOut).begin(), (*vecIAEHoldOut).end());
 		
 	//find the position of the minimum IAE	
-	int numLeavesIAE = min_element((*vecIAEHoldOut).begin(), (*vecIAEHoldOut).end()) - (*vecIAEHoldOut).begin() + 1;
+	minPos = min_element((*vecIAEHoldOut).begin(), (*vecIAEHoldOut).end()) - (*vecIAEHoldOut).begin();
+	int numLeavesIAE = sequence[minPos];
 	
-	// optional - remove comments to output IAE to txt file
-	cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes." << endl;
-	cout << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
+	//find the maximum Delta
+	real maxDelta = *max_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
+	
+	cout << "The minimum Delta theta is " << minDeltaTheta << " at " << numLeavesDelta << " leaf nodes with IAE" << IAEforMinDelta << endl;
+	cout << "The minimum IAE is"  << minIAE << " at " << numLeavesIAE << " leaf nodes." << endl;
+	cout << "The maximum Delta value is " << maxDelta << endl;
+	
+	// check theorem 2
+	bool check = IAEforMinDelta <= 3*minIAE + 4*maxDelta;
+	cout << "RHS: " << IAEforMinDelta << "\t" << "LHS: " << 3*minIAE + 4*maxDelta << endl;
+	cout << boolalpha;
+	cout << "Inequality for Theorem 2 is " << check << "." << endl;
+
+	// optional - remove comments to txt file
 	string outputName;
-	outputName = "iaes_leaves";
+	outputName = "theorem2_check";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
-	oss << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
+	oss << IAEforMinDelta << "\t" << (3*minIAE + 4*maxDelta) << "\t" << check << endl;
 	oss << flush;
 	oss.close();
-	cout << "Error computations output to " << outputName << endl;
+	cout << "Main results output to " << outputName << endl;
 
-
-	// optional - remove comments to output the deltas to txt
-	outputName = "delta_and_iae";
+	// optional - remove comments to output the deltas and iaes to txt
+	outputName = "delta_theta_and_iae";
+	outputName += stm.str();
+	outputName += ".txt";
+	oss.open(outputName.c_str());
+	for (size_t i = 0; i < (*vecMaxDeltaTheta).size(); i++){
+			oss << (*vecMaxDeltaTheta)[i] << "\t" << (*vecIAEHoldOut)[i] << endl;
+	}		
+	oss << flush;
+	oss.close();
+	cout << "Delta theta values and IAEs output to " << outputName << endl;
+	
+	// optional - remove comments to output the deltas and iaes to txt
+	outputName = "delta";
 	outputName += stm.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
@@ -288,16 +312,14 @@ int main(int argc, char* argv[])
 	}		
 	oss << flush;
 	oss.close();
-
+	cout << "Delta values output to " << outputName << endl;
+	
 	try {
 		gsl_rng_free (r);
 		r = NULL;
 	}
 	catch(...) {}// catch and swallow
-		
-	//	(*vecMaxDelta).clear();
-//	(*vecIAE).clear();	
-		
+			
 	//delete pointers;
 	delete vecIAEHoldOut, vecIAEAllPoints;
 	delete vecMaxDelta, vecMaxDeltaTheta;	
