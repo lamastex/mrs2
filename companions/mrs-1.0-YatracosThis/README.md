@@ -30,26 +30,206 @@ Shell scripts have been set up for each executable. Details for each executable 
 
 3. [Check bounds of Theorems 2 and 3](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#3-check-bounds-of-theorems-2-and-3)
 ---
-
+---
 ## 1. MDE for Densities Built using Piecewise Constant Functions
 	
-### Mapped Gaussian densities: 
+The programs ``MappedGaussianMDE``, ``MappedRosenbrockMDE``, and ``UniformMDE`` will build the corresponding density object (``fobj``) which is then stored as a `PiecewiseConstantFunction` object.  To output the object, remove the comments at lines **162** and **169**.
+
+Data is generated from this density object and stored in a `RVecData` container. 
+The data is input into an `AdaptiveHistogramValidation` object. Toggle comments at lines **192 - 204** for output of the data set. 
+
+The Yatracos set and Delta_theta values for the histogram estimates built using this data set are then computed by calling `AdaptiveHistogramValidation::prioritySplitAndEstimate`. 
+
+The shell scripts `RunMappedGaussianMDE.sh` or `RunMappedRosenbrockMDE.sh` or `RunUniformMDE.sh` allows us to input the following parameters needed to run the code:
+
+ - `DATASEED`: value of the seed for the random number generator
+ - `D`: dimension of the data set to be generated
+ - `N`: number of data points to be generated
+ - `HOLDOUTPERCENT`: % of data to be held out.
+ - `MAXLEAVESEST`: integer, maximum number of leaves in the function estimator for the `fobj` object
+ - `CRITLEAVES`: this should an integer, and is the stopping criteria for the PQ. The splitting will stop when this number of leaves is reached.
+ - `NUM_CHECKS`: see [(2)]([https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files)) for details.
+ - `NUM_ITERS`: see [(2)]([https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files)) for details.
+
+**Output:** 
+
+ - `iaes_leaves{DATASEED}.txt`: there are 4 values in this txt file - 
+	 - the IAE value corresponding to the minimum Delta_theta value
+	 - the number of leaf nodes corresponding to the minimum Delta_theta value
+	 - the minimum IAE value
+	 - the number of leaf nodes corresponding the minimum IAE value
+ - `sequence{DATASEED}.txt`: the number of leaf nodes / thetas used to obtain the Yatracos set and thus Delta_theta values
+ - `deltas{DATASEED}.txt`: the Delta_theta values corresponding to sequence.
+ - `iaes{DATASEED}.txt`: the IAE values of each histogram obtained at each split starting from the root node to `CRITLEAVES`. There will `CRITLEAVES` IAE values.
+
+Note: to suppress any of these output files, comment the corresponding lines **325 - 370**.
+
+
+### An example using ``MappedGaussianMDE``
 ```%sh
-./RunMappedGaussianMDE.sh
-./RunMappedGaussianMDESimulations.sh
+$ vim RunMappedGaussianMDE.sh
+------Adjust parameters accordingly-----------------
+#!/bin/bash
+#File: RunMappedGaussianMDE.sh
+
+DATASEED=1
+D=1
+N=150
+HOLDOUTPERCENT=0.33
+MAXLEAVESEST=100 #maximum number of leaves in the function estimator
+CRITLEAVES=100 #split until this number of leaves in the PQ
+NUM_CHECKS=10 #collate num_checks histogram
+NUM_ITERS=5 #number of iterations for "zooming-in" 
+
+./MappedGaussianMDE $DATASEED $D $N $HOLDOUTPERCENT $MAXLEAVESEST $CRITLEAVES $NUM_CHECKS $NUM_ITERS
+------------------------------------------------------
+
+$ ./RunMappedGaussianMDE.sh
+./MappedGaussianMDE : process id is 3346
+Data seed is 1
+
+Make the function estimator to 100 leaves
+pq down to max leaves 120
+Number of leaves in estimate: 120 s.
+After split, getTotalAreaOfIntervalBand() =   0.041459
+Computing time for pq split in estimate: 0.296687 s.
+Hull propagation
+Priority merge to 100 leaves
+Computing time for hull propagate and merge up in estimate: 0.000195 s.
+After propagation and priority merge, getTotalAreaOfIntervalBand() =   0.050950
+number of leaves is = 100
+Making estimate and normalising
+estimate has integral   0.999871 before normalizing
+estimate has integral   1.000000
+
+Generating data for simulation
+Computing time for simulating data: 0.000103 s.
+150 points generated
+Simulated data written to  simulated_gaussian_data1.txt
+
+Running minimum distance estimation with hold-out...
+50 points held out.
+Increment by : 10
+Perform 5 iterations
+
+Iteration 0......
+Calling prioritySplitAndEstimate for mapped functions...
+---- Hist 1-----
+---- Hist 10-----
+---- Hist 20-----
+---- Hist 30-----
+---- Hist 40-----
+---- Hist 50-----
+---- Hist 60-----
+---- Hist 70-----
+---- Hist 80-----
+---- Hist 90-----
+---- Hist 100-----
+
+Iteration 1......
+Calling prioritySplitAndEstimate for mapped functions...
+---- Hist 1-----
+---- Hist 10-----
+---- Hist 20-----
+---- Hist 22-----
+---- Hist 24-----
+---- Hist 26-----
+---- Hist 28-----
+---- Hist 30-----
+---- Hist 32-----
+---- Hist 34-----
+---- Hist 36-----
+---- Hist 38-----
+---- Hist 40-----
+---- Hist 50-----
+---- Hist 60-----
+---- Hist 70-----
+---- Hist 80-----
+---- Hist 90-----
+---- Hist 100-----
+
+Run MDE with the final sequence...
+Calling prioritySplitAndEstimate for mapped functions...
+---- Hist 1-----
+---- Hist 10-----
+---- Hist 20-----
+---- Hist 22-----
+---- Hist 23-----
+---- Hist 24-----
+---- Hist 25-----
+---- Hist 26-----
+---- Hist 28-----
+---- Hist 30-----
+---- Hist 32-----
+---- Hist 34-----
+---- Hist 36-----
+---- Hist 38-----
+---- Hist 40-----
+---- Hist 50-----
+---- Hist 60-----
+---- Hist 70-----
+---- Hist 80-----
+---- Hist 90-----
+---- Hist 100-----
+Computing time for MDE: 0.164816 s.
+The minimum max delta is 0.1675 at 22 leaf nodes with IAE  0.465737
+The minimum IAE is  0.268294 at 6 leaf nodes.
+Main results output to iaes_leaves1.txt
+Sequence of histograms used output to sequence1.txt
+Delta values output to deltas1.txt
+IAEs output to iaes1.txt
 ```
 
-### Mapped Rosenbrock densities
-```%sh
-./RunMappedRosenbrockMDE.sh
-./RunMappedRosenbrockMDESimulations.sh
-```
+### Performing Simulations
+The scripts `RunMappedGaussianMDESimulations.sh`/ `RunMappedRosenbrockMDESimulations.sh` / `RunUniformMDESimulations.sh`can be used to run repeated trials of the MDE. 
 
-### Uniform densities
-```%sh
-./RunUniformMDE.sh
-```
+The output files are same as the above, indexed by the data seed. The `iae_leaves{DATASEED}.txt` files will be appended to one text file `n${N}critleaves${CRITLEAVES}all.txt` for the ease of comparison.
 
+```%sh
+$ cd examples/StatsSubPav/MinimumDistanceEstimation
+
+$ vim RunMappedGaussianMDESimulations.sh
+------Adjust parameters accordingly-----------------
+#!/bin/bash
+#File: RunMappedGaussianMDESimulations.sh
+
+rm *.txt #be careful not to remove txt files that you want to keep
+
+NUM_SIMS=3; #How many simulations
+
+DIM=1 #dimensions
+HOLDOUTPERCENT=0.33 #how many percent of the data to hold out
+MAXLEAVESEST=100 #maximum number of leaves in the function estimator
+CRITLEAVES=100 #split until this number of leaves in the PQ
+NUM_CHECKS=10 #collate num_checks histogram
+NUM_ITERS=5 #number of iterations for "zooming-in" 
+
+for N in 150
+do
+   #mkdir ${MYDIR}/n${N}critleaves${CRITLEAVES} #mkdir if required
+	for DATASEED in `seq 1 ${NUM_SIMS}`
+		do 
+		echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
+		./MappedGaussianMDE ${DATASEED} ${DIM} $N ${HOLDOUTPERCENT} ${MAXLEAVESEST} ${CRITLEAVES} ${NUM_CHECKS} ${NUM_ITERS}  
+		#mv *.txt ${MYDIR}/n${I}L${L}
+		#append the results for each loop to an overall file #make sure in the correct folder depending on n and L
+		cat iaes_leaves${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}all.txt
+		rm iaes_leaves${DATASEED}.txt
+	done
+done
+----------------------------------
+
+$ ./RunMappedGaussianMDESimulations.sh
+#the console output will be similar to ./RunMappedGaussianMDE.sh
+```
+An example of `cat n150critleaves100all.txt` for 3 simulations:
+```%sh 
+$ cat n150critleaves100all.txt
+  0.465737	22	  0.268294	6
+  0.247111	14	  0.227635	11
+  0.426323	17	  0.262360	8
+```
+--- 
 ## 2. MDE for Input with Text Files
 The program ``MDETest`` takes in data from a text file and outputs a histogram estimate using minimum distance estimation with a hold-out scheme.
 
@@ -210,7 +390,7 @@ Sequence of histograms output to sequence.txt
 Delta theta values output to deltas.txt
 ```
 
-
+---
 ## 3. Check bounds of Theorems 2 and 3
 ```%sh
 ./RunCheckBounds.sh
