@@ -85,19 +85,15 @@ int main(int argc, char* argv[])
 	
 	// the root box will be made based on the data set given
 	// comment these two lines if want to define own root box
-	AdaptiveHistogramValidation noSplitHist; 	
+	AdaptiveHistogramValidation finalHist; 	
 		
 	//insert data from text into a RVecData container and store as pointer
 	vector<size_t> numNodes; 
 	RVecData* theDataPtr = new RVecData; 
-  bool successfulInsertion = false;
-	successfulInsertion = noSplitHist.insertRvectorsFromTxtForHoldOut(
-																											inputFileName, 
-																											*theDataPtr,
-																											numNodes, 
-																											holdOutPercent,
-																											0, NOLOG);
-	ivector pavingBox = noSplitHist.getRootBox();
+  	bool successfulInsertion = false;
+	successfulInsertion = finalHist.insertRvectorsFromTxtForHoldOut(
+	inputFileName, *theDataPtr, numNodes, holdOutPercent, 0, NOLOG);
+	ivector pavingBox = finalHist.getRootBox();
 	
 	if (successfulInsertion) {	
 		// Minimum distance estimation with hold-out--------//
@@ -185,8 +181,8 @@ int main(int argc, char* argv[])
 	
 		//Run MDE with the final sequence after breaking out of the loop	
 		cout << "\nRun MDE with the final sequence..." << endl;
-		noSplitHist.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
-		noSplitHist.prioritySplitAndEstimatePlain
+		finalHist.insertFromRVecForHoldOut(*theDataPtr, sn, holdOutCount, NOLOG);
+		finalHist.prioritySplitAndEstimatePlain
 		 				(compCount, he, NOLOG, 
 		 				minChildPoints, 0.0,
 		 				maxLeafNodes, sequence,	
@@ -205,14 +201,27 @@ int main(int argc, char* argv[])
 	
 		cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes." << endl;
 		
+		//build an adaptivehistogram based on numLeavesDelta
+		AdaptiveHistogram mdeHist(pavingBox);
+		mdeHist.insertFromRVec(*theDataPtr, NOLOG);
+		CompCount compCountMDE;
+		CritLeaves_GTE heMDE(numLeavesDelta);
+		mdeHist.prioritySplit(compCountMDE, heMDE, NOLOG, maxLeafNodes);	
+
+		//output the histogram built using minimum distance estimate
+		string outputName = "mdehist.txt";
+		mdeHist.outputToTxtTabs(outputName);
+		cout << "MDE histogram output to " << outputName << endl;
+		
 		// optional - remove comments to output the sequence of leaf nodes
-		string outputName = "sequence.txt";
+		outputName = "sequence.txt";
 		oss.open(outputName.c_str());
 		for (size_t i = 0; i < (sequence).size(); i++){
 			oss << (sequence)[i] << endl;
 		}			 
 		oss << flush;
 		oss.close();
+		cout << "Sequence of histograms output to " << outputName << endl;
 	
 		// optional - remove comments to output the delta values
 		outputName = "deltas.txt";
@@ -222,6 +231,7 @@ int main(int argc, char* argv[])
 		}		
 		oss << flush;
 		oss.close();
+		cout << "Delta theta values output to " << outputName << endl;
 		
 		//delete pointers;
 		delete vecIAE;
