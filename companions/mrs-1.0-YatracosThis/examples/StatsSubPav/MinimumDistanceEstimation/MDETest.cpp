@@ -80,11 +80,11 @@ int main(int argc, char* argv[])
 	ivector pavingBox(d); 
 	interval pavingInterval(-5, 5);
 	for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
-	AdaptiveHistogramValidation noSplitHist(pavingBox);
+	AdaptiveHistogramValidation finalHist(pavingBox);
 	*/
 	
 	// the root box will be made based on the data set given
-	// comment these two lines if want to define own root box
+	// comment this line if want to define own root box
 	AdaptiveHistogramValidation finalHist; 	
 		
 	//insert data from text into a RVecData container and store as pointer
