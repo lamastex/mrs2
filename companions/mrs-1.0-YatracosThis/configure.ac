@@ -66,7 +66,6 @@ examples/Makefile
 examples/StatsSubPav/Makefile
 examples/StatsSubPav/MinimumDistanceEstimation/Makefile
 examples/MappedTargetsTrunk/Makefile
-examples/StatsSubPav/MappedSPSampling/Makefile
 examples/targets/Makefile
 ])
 

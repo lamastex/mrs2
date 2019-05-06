@@ -1,5 +1,4 @@
-noinst_PROGRAMS = MappedGaussianMDE MappedRosenbrockMDE UniformMDE \
-									MDETest CheckBounds
+noinst_PROGRAMS = MappedGaussianMDE MappedRosenbrockMDE UniformMDE MDETest CheckBounds
 
 TARGETS = ../../MappedTargetsTrunk
 
@@ -28,8 +27,8 @@ UniformMDE_SOURCES = UniformMDE.cpp \
 
 MDETest_SOURCES = MDETest.cpp \
 						testDenCommon.cpp testDenCommon.hpp \
-						testDenTools.cpp testDenTools.hpp \	
-						mdeTools.cpp mdeTools.hpp			
+						testDenTools.cpp testDenTools.hpp \
+                                                mdeTools.cpp mdeTools.hpp			
 						
 							
 CheckBounds_SOURCES = CheckBounds.cpp \
