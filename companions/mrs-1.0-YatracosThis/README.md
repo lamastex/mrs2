@@ -24,11 +24,11 @@ UniformMDE
 ```  
 Shell scripts have been set up for each executable. Details for each executable are given in the following.  
 
-1. ...
+1. [MDE for Densities Built using Piecewise Constant Functions](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#1-mde-for-densities-built-using-piecewise-constant-functions)
 
 2. [MDE for Input with Text Files](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files)
 
-3. ...
+3. [Check bounds of Theorems 2 and 3](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#3-check-bounds-of-theorems-2-and-3)
 ---
 
 ## 1. MDE for Densities Built using Piecewise Constant Functions
