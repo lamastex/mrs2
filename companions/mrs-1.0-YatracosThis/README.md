@@ -392,6 +392,79 @@ Delta theta values output to deltas.txt
 
 ---
 ## 3. Check bounds of Theorems 2 and 3
+The program `CheckBounds` calls the function `AdaptiveHistogramValidation::getMDETheoremValues` to obtain the required values to check the bounds of Theorems 2 and 3 of the JJSD paper (in revision). Data generated from  `fobj` density objects will be used to check the bounds.
+
+The required values for checking bounds:
+
+ - `IAEforMinDelta`:  the IAE corresponding to the minimum distance estimate (for Theorems 2 and 3)
+ - `minIAE`: the minimum IAE for the histogram built using `(n - m)`  data points (for Thoerem 2)
+ - `maxDelta`: the max Delta value (for Theorem 2)
+ - `minIAEAllPoints`: the minimum IAE for the histogram built using `n` data points (for Theorem 3) 
+ 
+The shell script `RunCheckBounds.sh` allows us to input the parameters needed to run the code, These parameters are similar to those in [(1)](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#1-mde-for-densities-built-using-piecewise-constant-functions).
+
+
+**Output:** 
+
+ - `theorem2_check{DATASEED}.txt`
+	 - For Theorem 2, we need to check that `IAEforMinDelta <= 3*minIAE + 4maxDelta`. 
+	 - The text file has 3 columns: 
+	 `(IAEforMinDelta) (3*minIAE + 4maxDelta) (Boolean for IAEforMinDelta <= 3*minIAE + 4maxDelta)`
+	 
+ - `delta_theta_and_iaes{DATASEED}.txt`: this text file has 3 columns:
+	 - the delta_theta values for each theta
+	 - the IAE values based on `n-m` data points for each theta
+	 - the IAE values based on `n` data points for each theta
+ 
+ - `delta{DATASEED}.txt`: the Delta values (Theorem 2).
+
+- `theorem_values{DATASEED}.txt`:  this txt file has 4 columns and will be appended to an overall file for the ease of computing the bounds of Theorem 3 (and theorem 2 if needed). The 4 columns 
+	- The IAE of the minimum distance estimate
+	 - The minimum IAE value based on `n-m` data points 
+	 - The minimum IAE value based on `n` data points
+	 - The max Delta value 
+
+**Example**
 ```%sh
-./RunCheckBounds.sh
+#!/bin/bash
+#File: RunCheckBounds.sh
+rm *.txt #be careful not to remove files that you need!
+NUM_SIMS=5; #How many simulations
+D=1
+N=150
+HOLDOUTPERCENT=0.33
+MAXLEAVESEST=100 #maximum number of leaves in the function estimator
+CRITLEAVES=10 #split until this number of leaves in the PQ
+NUM_CHECKS=10 #collate num_checks histogram
+NUM_ITERS=5 #number of iterations for "zooming-in" 
+
+for DATASEED in `seq 1 ${NUM_SIMS}`
+	do 
+	echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
+	./CheckBounds $DATASEED $D $N $HOLDOUTPERCENT $MAXLEAVESEST $CRITLEAVES $NUM_CHECKS $NUM_ITERS
+	cat theorem2_check${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}theorem2.txt
+	cat theorem_values${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}theorem_values.txt
+done
 ```
+All the text files will be indexed by the data seed. In particular, the files `theorem2_checks` and `theorem_values` will be appended to an "overall" file:
+
+- The checks for Theorem 2 for `NUM_SIMS` simulations can be found in `n150critleaves10theorem2.txt`.
+```%sh
+$ cat n150critleaves10theorem2.txt
+  0.285261        2.362927      1
+  0.228297        3.181038      1
+  0.281473        3.329704      1
+  0.250825        3.269828      1
+  0.357540        1.919254      1
+```
+- The values needed for Theorem 3 over `NUM_SIMS` simulations can be found in `n150critleaves10theorem2.txt`. We can either use a program or spreadsheet program to get the average value of the first and third columns, and perform the necessary computations to check the bounds. 
+- Note that the average of the first column corresponds to the LHS of Theorem 3, while the average of the third column corresponds to the RHS.
+
+```%sh
+$ cat n150critleaves10theorem_values.txt
+  0.285261        0.268294        0.230660  0.389511
+  0.228297        0.228297        0.205668  0.624037
+  0.281473        0.262360        0.236288  0.635656
+  0.250825        0.227325        0.261430  0.646963
+  0.357540        0.319937        0.308794  0.239861
+  ```
