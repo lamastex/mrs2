@@ -1,7 +1,7 @@
 #!/bin/bash
 #File: RunMappedGaussianMDESimulations.sh
 
-rm *.txt #be careful not to remove txt files that you want to keep
+#rm *.txt #be careful not to remove txt files that you want to keep
 
 NUM_SIMS=3; #How many simulations
 
