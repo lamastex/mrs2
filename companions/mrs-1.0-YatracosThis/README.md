@@ -48,8 +48,8 @@ The shell scripts `RunMappedGaussianMDE.sh` or `RunMappedRosenbrockMDE.sh` or `R
  - `HOLDOUTPERCENT`: % of data to be held out.
  - `MAXLEAVESEST`: integer, maximum number of leaves in the function estimator for the `fobj` object
  - `CRITLEAVES`: this should an integer, and is the stopping criteria for the PQ. The splitting will stop when this number of leaves is reached.
- - `NUM_CHECKS`: see [(2)]([https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files)) for details.
- - `NUM_ITERS`: see [(2)]([https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files)) for details.
+ - `NUM_CHECKS`: see [(2)](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files) for details.
+ - `NUM_ITERS`: see [(2)](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files) for details.
 
 **Output:** 
 
