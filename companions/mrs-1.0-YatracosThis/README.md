@@ -24,6 +24,13 @@ UniformMDE
 ```  
 Shell scripts have been set up for each executable. Details for each executable are given in the following.  
 
+1. ...
+
+2. [MDE for Input with Text Files]([https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files])
+
+3. ...
+---
+
 ## 1. MDE for Densities Built using Piecewise Constant Functions
 	
 ### Mapped Gaussian densities: 
