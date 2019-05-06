@@ -26,7 +26,7 @@ Shell scripts have been set up for each executable. Details for each executable 
 
 1. ...
 
-2. [MDE for Input with Text Files]([https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files])
+2. [MDE for Input with Text Files](https://github.com/lamastex/mrs2/blob/master/companions/mrs-1.0-YatracosThis/README.md#2-mde-for-input-with-text-files)
 
 3. ...
 ---
