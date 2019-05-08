@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 
 	//data generating partition
 	ivector pavingBoxEst(d);
-	interval pavingInterval(-5,5);
+	interval pavingInterval(0,1);
 	for(int i=1; i <= d; i++) { pavingBoxEst[i] = pavingInterval; }
 
 	// specify function object (from /examples/MappedTargetsTrunk)
