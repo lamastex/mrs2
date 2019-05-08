@@ -53,11 +53,10 @@ The shell scripts `RunMappedGaussianMDE.sh` or `RunMappedRosenbrockMDE.sh` or `R
 
 **Output:** 
 
- - `iaes_leaves{DATASEED}.txt`: there are 4 values in this txt file - 
+ - `iaes_and_diffs{DATASEED}.txt`: there are 4 values in this txt file - 
 	 - the IAE value corresponding to the minimum Delta_theta value
-	 - the number of leaf nodes corresponding to the minimum Delta_theta value
 	 - the minimum IAE value
-	 - the number of leaf nodes corresponding the minimum IAE value
+	 - the absolute difference between the values in first and second columns
  - `sequence{DATASEED}.txt`: the number of leaf nodes / thetas used to obtain the Yatracos set and thus Delta_theta values
  - `deltas{DATASEED}.txt`: the Delta_theta values corresponding to sequence.
  - `iaes{DATASEED}.txt`: the IAE values of each histogram obtained at each split starting from the root node to `CRITLEAVES`. There will `CRITLEAVES` IAE values.
@@ -72,7 +71,7 @@ $ vim RunMappedGaussianMDE.sh
 #File: RunMappedGaussianMDE.sh
 
 DATASEED=1
-D=1
+DIM=1
 N=150
 HOLDOUTPERCENT=0.33
 MAXLEAVESEST=100 #maximum number of leaves in the function estimator
@@ -83,18 +82,18 @@ NUM_ITERS=5 #number of iterations for "zooming-in"
 ./MappedGaussianMDE $DATASEED $D $N $HOLDOUTPERCENT $MAXLEAVESEST $CRITLEAVES $NUM_CHECKS $NUM_ITERS
 ------------------------------------------------------
 
-$ ./RunMappedGaussianMDE.sh
-./MappedGaussianMDE : process id is 3346
+$ ./RunMappedGaussianMDE.sh 
+./MappedGaussianMDE : process id is 8864
 Data seed is 1
 
 Make the function estimator to 100 leaves
-pq down to max leaves 120
-Number of leaves in estimate: 120 s.
-After split, getTotalAreaOfIntervalBand() =   0.041459
-Computing time for pq split in estimate: 0.296687 s.
+pq down to max leaves 119
+Number of leaves in estimate: 119 s.
+After split, getTotalAreaOfIntervalBand() =   0.041837
+Computing time for pq split in estimate: 0.59 s.
 Hull propagation
 Priority merge to 100 leaves
-Computing time for hull propagate and merge up in estimate: 0.000195 s.
+Computing time for hull propagate and merge up in estimate: 0 s.
 After propagation and priority merge, getTotalAreaOfIntervalBand() =   0.050950
 number of leaves is = 100
 Making estimate and normalising
@@ -102,9 +101,8 @@ estimate has integral   0.999871 before normalizing
 estimate has integral   1.000000
 
 Generating data for simulation
-Computing time for simulating data: 0.000103 s.
+Computing time for simulating data: 0 s.
 150 points generated
-Simulated data written to  simulated_gaussian_data1.txt
 
 Running minimum distance estimation with hold-out...
 50 points held out.
@@ -170,50 +168,44 @@ Calling prioritySplitAndEstimate for mapped functions...
 ---- Hist 80-----
 ---- Hist 90-----
 ---- Hist 100-----
-Computing time for MDE: 0.164816 s.
+Computing time for MDE: 0.2 s.
 The minimum max delta is 0.1675 at 22 leaf nodes with IAE  0.465737
-The minimum IAE is  0.268294 at 6 leaf nodes.
-Main results output to iaes_leaves1.txt
-Sequence of histograms used output to sequence1.txt
-Delta values output to deltas1.txt
-IAEs output to iaes1.txt
+The minimum IAE is  0.300462 at 10 leaf nodes.
+Main results output to gaussian_1d_150n_iaes_and_diff1.txt
 ```
 
 ### Performing Simulations
 The scripts `RunMappedGaussianMDESimulations.sh`/ `RunMappedRosenbrockMDESimulations.sh` / `RunUniformMDESimulations.sh`can be used to run repeated trials of the MDE. 
 
-The output files are same as the above, indexed by the data seed. The `iae_leaves{DATASEED}.txt` files will be appended to one text file `n${N}critleaves${CRITLEAVES}all.txt` for the ease of comparison.
+The output files are same as the above, indexed by the data seed. The `iaes_and_diff` files will be appended to one text file `n${N}critleaves${CRITLEAVES}all.txt` for the ease of comparison.
 
 ```%sh
-$ cd examples/StatsSubPav/MinimumDistanceEstimation
-
-$ vim RunMappedGaussianMDESimulations.sh
+$ vim RunMappedGaussianMDE.sh
 ------Adjust parameters accordingly-----------------
 #!/bin/bash
 #File: RunMappedGaussianMDESimulations.sh
 
 rm *.txt #be careful not to remove txt files that you want to keep
 
-NUM_SIMS=3; #How many simulations
-
-DIM=1 #dimensions
-HOLDOUTPERCENT=0.33 #how many percent of the data to hold out
+NUM_SIMS=10; #How many simulations
+HOLDOUTPERCENT=0.33
 MAXLEAVESEST=100 #maximum number of leaves in the function estimator
 CRITLEAVES=100 #split until this number of leaves in the PQ
 NUM_CHECKS=10 #collate num_checks histogram
 NUM_ITERS=5 #number of iterations for "zooming-in" 
 
-for N in 150
+for DIM in 1 #may need more CRITLEAVES for higher dims 
 do
-   #mkdir ${MYDIR}/n${N}critleaves${CRITLEAVES} #mkdir if required
-	for DATASEED in `seq 1 ${NUM_SIMS}`
-		do 
-		echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
-		./MappedGaussianMDE ${DATASEED} ${DIM} $N ${HOLDOUTPERCENT} ${MAXLEAVESEST} ${CRITLEAVES} ${NUM_CHECKS} ${NUM_ITERS}  
-		#mv *.txt ${MYDIR}/n${I}L${L}
-		#append the results for each loop to an overall file #make sure in the correct folder depending on n and L
-		cat iaes_leaves${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}all.txt
-		rm iaes_leaves${DATASEED}.txt
+	for N in 150 1500 
+	do
+		for DATASEED in `seq 1 ${NUM_SIMS}`
+			do 
+			echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
+			./MappedGaussianMDE ${DATASEED} ${DIM} $N ${HOLDOUTPERCENT} ${MAXLEAVESEST} ${CRITLEAVES} ${NUM_CHECKS} ${NUM_ITERS}  
+			cat gaussian_${DIM}d_${N}n_iaes_and_diff${DATASEED}.txt >> gaussian_${DIM}d_${N}n_iaes_and_diff_${NUM_SIMS}sims.txt
+			rm gaussian_${DIM}d_${N}n_iaes_and_diff${DATASEED}.txt
+		done
+		echo Simulation results appended to gaussian_${DIM}d_${N}n_iaes_and_diff_${NUM_SIMS}sims.txt
 	done
 done
 ----------------------------------
@@ -221,12 +213,15 @@ done
 $ ./RunMappedGaussianMDESimulations.sh
 #the console output will be similar to ./RunMappedGaussianMDE.sh
 ```
-An example of `cat n150critleaves100all.txt` for 3 simulations:
+
+An example of `gaussian_1d_150n_iaes_and_diff_5sims.txt` for 5 simulations:
 ```%sh 
-$ cat n150critleaves100all.txt
-  0.465737	22	  0.268294	6
-  0.247111	14	  0.227635	11
-  0.426323	17	  0.262360	8
+$ cat gaussian_1d_150n_iaes_and_diff_5sims.txt 
+  0.465737	  0.300462	  0.165275
+  0.247111	  0.230395	  0.016716
+  0.426323	  0.363088	  0.063235
+  0.422476	  0.232552	  0.189924
+  0.363403	  0.363403	  0.000000
 ```
 --- 
 ## 2. MDE for Input with Text Files
