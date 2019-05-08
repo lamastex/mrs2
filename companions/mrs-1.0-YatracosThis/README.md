@@ -62,8 +62,7 @@ The shell scripts `RunMappedGaussianMDE.sh` or `RunMappedRosenbrockMDE.sh` or `R
  - `deltas{DATASEED}.txt`: the Delta_theta values corresponding to sequence.
  - `iaes{DATASEED}.txt`: the IAE values of each histogram obtained at each split starting from the root node to `CRITLEAVES`. There will `CRITLEAVES` IAE values.
 
-Note: to suppress any of these output files, comment the corresponding lines **325 - 370**.
-
+Note: to （un)suppress any of these output files, toggle the corresponding comments (see lines **325 - 370**).
 
 ### An example using ``MappedGaussianMDE``
 ```%sh
@@ -364,9 +363,7 @@ Run MDE with the final sequence...
 Calling prioritySplitAndEstimatePlain...
 ---- Hist 1-----
 ---- Hist 10-----
----- Hist 11-----
 ---- Hist 12-----
----- Hist 13-----
 ---- Hist 14-----
 ---- Hist 16-----
 ---- Hist 18-----
@@ -392,7 +389,7 @@ Delta theta values output to deltas.txt
 
 ---
 ## 3. Check bounds of Theorems 2 and 3
-The program `CheckBounds` calls the function `AdaptiveHistogramValidation::getMDETheoremValues` to obtain the required values to check the bounds of Theorems 2 and 3 of the JJSD paper (in revision). Data generated from  `fobj` density objects will be used to check the bounds.
+The program `CheckBounds` calls the function `AdaptiveHistogramValidation::getMDETheoremValues` to obtain the required values to check the bounds of Theorems 2 and 3 of the JJSD paper (in revision). Data generated from  `fobj` density objects will be used to check the bounds. The current set up is such that data points are generated from a standard uniform distribution. To use another density object, edit line *100* and the root box (line *96*) if necessary.
 
 The required values for checking bounds:
 
@@ -406,10 +403,14 @@ The shell script `RunCheckBounds.sh` allows us to input the parameters needed to
 
 **Output:** 
 
- - `theorem2_check{DATASEED}.txt`
+ - `theorem2_check.txt`
 	 - For Theorem 2, we need to check that `IAEforMinDelta <= 3*minIAE + 4maxDelta`. 
 	 - The text file has 3 columns: 
 	 `(IAEforMinDelta) (3*minIAE + 4maxDelta) (Boolean for IAEforMinDelta <= 3*minIAE + 4maxDelta)`
+	 
+- `theorem3_iaes.txt`:  this txt file has 2 columns and will be appended to an overall file for the ease of computing the bounds of Theorem 3. The 2 columns are 
+	- The IAE of the minimum distance estimate
+	- The minimum IAE value based on `n` data points 
 	 
  - `delta_theta_and_iaes{DATASEED}.txt`: this text file has 3 columns:
 	 - the delta_theta values for each theta
@@ -418,53 +419,62 @@ The shell script `RunCheckBounds.sh` allows us to input the parameters needed to
  
  - `delta{DATASEED}.txt`: the Delta values (Theorem 2).
 
-- `theorem_values{DATASEED}.txt`:  this txt file has 4 columns and will be appended to an overall file for the ease of computing the bounds of Theorem 3 (and theorem 2 if needed). The 4 columns 
-	- The IAE of the minimum distance estimate
-	 - The minimum IAE value based on `n-m` data points 
-	 - The minimum IAE value based on `n` data points
-	 - The max Delta value 
+Note: toggle the corresponding comments to suppress/output the files needed. See lines *318 - 374*.
 
 **Example**
 ```%sh
 #!/bin/bash
 #File: RunCheckBounds.sh
-rm *.txt #be careful not to remove files that you need!
-NUM_SIMS=5; #How many simulations
-D=1
-N=150
+
+#Executes MDETest which will produce uniform random variates to obtain 
+#the values needed to check the bounds of Theorems 2 and 3.
+
+rm *.txt
+
+NUM_SIMS=10; #How many simulations
 HOLDOUTPERCENT=0.33
 MAXLEAVESEST=100 #maximum number of leaves in the function estimator
-CRITLEAVES=10 #split until this number of leaves in the PQ
+CRITLEAVES=100 #split until this number of leaves in the PQ (this will also be Theta)
 NUM_CHECKS=10 #collate num_checks histogram
-NUM_ITERS=5 #number of iterations for "zooming-in" 
 
-for DATASEED in `seq 1 ${NUM_SIMS}`
-	do 
-	echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
-	./CheckBounds $DATASEED $D $N $HOLDOUTPERCENT $MAXLEAVESEST $CRITLEAVES $NUM_CHECKS $NUM_ITERS
-	cat theorem2_check${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}theorem2.txt
-	cat theorem_values${DATASEED}.txt >> n${N}critleaves${CRITLEAVES}theorem_values.txt
+for DIM in 3  
+do
+  for N in 1500
+  do
+    for DATASEED in `seq 1 ${NUM_SIMS}`
+    do 
+    	./CheckBounds $DATASEED $DIM $N $HOLDOUTPERCENT $MAXLEAVESEST $CRITLEAVES $NUM_CHECKS
+	cat uniform_${DIM}d_${N}n_theorem2_check${DATASEED}.txt >> uniform_${DIM}d_${N}n_theorem2_check_${NUM_SIMS}sims.txt
+	cat uniform_${DIM}d_${N}n_theorem3_iaes${DATASEED}.txt >> uniform_${DIM}d_${N}n_theorem3_iaes_${NUM_SIMS}sims.txt
+	
+	rm uniform_${DIM}d_${N}n_theorem2_check${DATASEED}.txt
+	rm uniform_${DIM}d_${N}n_theorem3_iaes${DATASEED}.txt
+    done
+	echo Results for Theorem 2 appended to uniform_${DIM}d_${N}n_theorem2_check_${NUM_SIMS}sims.txt
+	echo Results for Theorem 3 appended to uniform_${DIM}d_${N}n_theorem3_iaes_${NUM_SIMS}sims.txt
+  done
 done
 ```
-All the text files will be indexed by the data seed. In particular, the files `theorem2_checks` and `theorem_values` will be appended to an "overall" file:
 
-- The checks for Theorem 2 for `NUM_SIMS` simulations can be found in `n150critleaves10theorem2.txt`.
+All text files will be indexed by the data seed. In particular, the files `theorem2_check` and `theorem3_iaes` will each be appended to an "overall" file.
+
+- The checks for Theorem 2 for `NUM_SIMS` simulations can be found in `uniform_1d_1500n_theorem2_check_5sims.txt `.
 ```%sh
-$ cat n150critleaves10theorem2.txt
-  0.285261        2.362927      1
-  0.228297        3.181038      1
-  0.281473        3.329704      1
-  0.250825        3.269828      1
-  0.357540        1.919254      1
+$ cat uniform_3d_1500n_theorem2_check_5sims.txt 
+  0.160199	  5.417866	1
+  0.000000	  1.606439	1
+  0.104104	  2.050189	1
+  0.100124	  3.654924	1
+  0.067164	  0.538889	1
 ```
-- The values needed for Theorem 3 over `NUM_SIMS` simulations can be found in `n150critleaves10theorem2.txt`. We can either use a program or spreadsheet program to get the average value of the first and third columns, and perform the necessary computations to check the bounds. 
-- Note that the average of the first column corresponds to the LHS of Theorem 3, while the average of the third column corresponds to the RHS.
+- The values needed for Theorem 3 over `NUM_SIMS` simulations can be found in `uniform_3d_1500n_theorem3_iaes_5sims.txt `. We can either use a program or spreadsheet program to get the average values of the first and second columns, and perform the necessary computations to check the bounds. 
+- Note that the average of the first column corresponds to the LHS of Theorem 3, while the average of the second column corresponds to the RHS.
 
 ```%sh
-$ cat n150critleaves10theorem_values.txt
-  0.285261        0.268294        0.230660  0.389511
-  0.228297        0.228297        0.205668  0.624037
-  0.281473        0.262360        0.236288  0.635656
-  0.250825        0.227325        0.261430  0.646963
-  0.357540        0.319937        0.308794  0.239861
-  ```
+$ cat uniform_3d_1500n_theorem3_iaes_5sims.txt 
+  0.160199	  0.000000
+  0.000000	  0.000000
+  0.104104	  0.000000
+  0.100124	  0.000000
+  0.067164	  0.000000
+```
