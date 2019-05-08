@@ -1985,28 +1985,28 @@ private:
                       LOGGING_LEVEL logging, size_t minChildPoints, 
 											double minVolB, size_t maxLeafNodes,
   										PiecewiseConstantFunction& nodeEst,
-  										std::vector<real>& vecIAE);
+  										std::vector<real>& vecIAE, std::vector<int> sequence);
     
     /** Neither minVolB nor minChildPoints supplied, no random number generator. */
     bool prioritySplitMappedIAE(const NodeCompObj& compTest, const HistEvalObj& he,
                       LOGGING_LEVEL logging, size_t maxLeafNodes, 
                       PiecewiseConstantFunction& nodeEst,
-                      std::vector<real>& vecIAE)
-    { return prioritySplitMappedIAE(compTest, he, logging, 0, 0.0, maxLeafNodes, nodeEst, vecIAE); }
+                      std::vector<real>& vecIAE, std::vector<int> sequence)
+    { return prioritySplitMappedIAE(compTest, he, logging, 0, 0.0, maxLeafNodes, nodeEst, vecIAE, sequence); }
 
    /** With random number generator. All other parameters supplied.*/
     bool prioritySplitMappedIAE(const NodeCompObj& compTest, const HistEvalObj& he,
                       LOGGING_LEVEL logging,
                       size_t minChildPoints, double minVolB, gsl_rng * rgsl,
 							 size_t maxLeafNodes, PiecewiseConstantFunction& nodeEst,
-							 std::vector<real>& vecIAE);
+							 std::vector<real>& vecIAE, std::vector<int> sequence);
 
     /** With random number generator. Neither minVolB nor minChildPoints supplied. */
     bool prioritySplitIAEMappedIAE(const NodeCompObj& compTest, const HistEvalObj& he,
                       LOGGING_LEVEL logging, gsl_rng * rgsl, size_t maxLeafNodes, 
                       PiecewiseConstantFunction& nodeEst,
-                      std::vector<real>& vecIAE)
-    { return prioritySplitMappedIAE(compTest, he, logging, 0, 0.0, rgsl, maxLeafNodes, nodeEst, vecIAE); }
+                      std::vector<real>& vecIAE, std::vector<int> sequence)
+    { return prioritySplitMappedIAE(compTest, he, logging, 0, 0.0, rgsl, maxLeafNodes, nodeEst, vecIAE, sequence); }
      
   //@}
 }; // end of AdaptiveHistogram class declarations

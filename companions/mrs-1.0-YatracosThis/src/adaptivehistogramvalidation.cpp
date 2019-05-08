@@ -3138,6 +3138,7 @@ bool AdaptiveHistogramValidation::getMDETheoremValues(
 						// only collate the k-th histogram and obtain the delta values
 						if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
 							coll.addToCollationWithVal(*this, 1, agg);
+							cout << "---- Hist " << numHist << "-----" << endl;
 							/*
 							string fileName = "Hist";
 							ostringstream stm;
@@ -3152,7 +3153,7 @@ bool AdaptiveHistogramValidation::getMDETheoremValues(
 							real IAE = nodeEst.getIAE(*tempPCF);
 							(vecIAEHoldOut).push_back(IAE); 
 							delete tempPCF;
-							cout << "IAE vec size:" << vecIAEHoldOut.size() << endl;
+							//cout << "IAE vec size:" << vecIAEHoldOut.size() << endl;
 						}
 						
 						//checks to see if need to split again

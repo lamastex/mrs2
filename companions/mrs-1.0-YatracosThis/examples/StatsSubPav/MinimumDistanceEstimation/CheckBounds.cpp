@@ -29,7 +29,8 @@
 #include "functionestimator_interval.hpp"
 #include "piecewise_constant_function.hpp"  
 
-#include "GaussianFobj.hpp" //function estimator object for Gaussian densities
+#include "GaussianFobj.hpp" //function estimator object for Gaussian densitiesi
+#include "UniformFobj.hpp"
 #include "toolz.hpp"
 
 #include <vector>
@@ -56,8 +57,8 @@ int main(int argc, char* argv[])
 	// User-defined parameters------------------//
 	if ( argc < 7 ) {
 		cerr << "Syntax: " << argv[0] << 
-		" dataSeed d n maxLeavesEst critLeaves maxCheck" << endl;
-		throw std::runtime_error("Syntax: " + std::string(argv[0]) + "data seed, d, n, holdOutPercent, maxLeavesEst, critLeaves, num_checks, num_iters");
+		" data seed, d, n, holdOutPercent, maxLeavesEst, critLeaves, num_checks " << endl;
+		throw std::runtime_error("Syntax: " + std::string(argv[0]) + "data seed, d, n, holdOutPercent, maxLeavesEst, critLeaves, num_checks");
 	}
 
 	int dataSeed = atoi(argv[1]); // seed for data generation
@@ -67,7 +68,7 @@ int main(int argc, char* argv[])
 	size_t maxLeavesEst = atoi(argv[5]);  // number of leaves in estimator
 	size_t critLeaves = atoi(argv[6]); //maximum number of leaves for PQ to stop splitting 
 	int num_checks = atoi(argv[7]); // check k histograms
-	size_t num_iters = atoi(argv[8]); // ...to zoom in
+	//size_t num_iters = atoi(argv[8]); // ...to zoom in
 	
 	cout << argv[0] << " : process id is " << getpid() << std::endl;
 	// End of user-defined parameters--------//
@@ -76,8 +77,10 @@ int main(int argc, char* argv[])
 	ofstream oss;       // ofstream object
 	oss << scientific;  // set formatting for input to oss
 	oss.precision(10);
-	ostringstream stm;
-	stm << dataSeed; // index the txt file produced by stm
+	ostringstream stm_seed, stm_d, stm_n;
+	stm_seed << dataSeed; // index the txt file produced by stm
+	stm_d << d;
+	stm_n << n;
 
 	// Set up a random number generator and use mt19937 for generator
 	gsl_rng * r = gsl_rng_alloc (gsl_rng_mt19937); // set up with default seed
@@ -87,13 +90,14 @@ int main(int argc, char* argv[])
 	// Make the function estimator--------//
 	cout << "\nMake the function estimator to " << maxLeavesEst << " leaves" << endl;
 
-	// specify function object (from /examples/MappedTargetsTrunk)
-	GaussianFobj fobj;
-
 	//data generating partition
 	ivector pavingBoxEst(d);
 	interval pavingInterval(-5,5);
 	for(int i=1; i <= d; i++) { pavingBoxEst[i] = pavingInterval; }
+
+	// specify function object (from /examples/MappedTargetsTrunk)
+	//GaussianFobj fobj;
+	UniformFobj fobj(pavingBoxEst);
 
 	FunctionEstimatorInterval estimator(pavingBoxEst, fobj);
 	//cout << estimator << endl;
@@ -159,7 +163,7 @@ int main(int argc, char* argv[])
 	cout << "estimate has integral " << estimate.getTotalIntegral() << endl;
 
 	// optional - remove comments to output function estimator 
-	estimate.outputToTxtTabs("PCF.txt");	
+	//estimate.outputToTxtTabs("PCF.txt");	
 	
 	// End of making function estimator--------//
 
@@ -182,6 +186,7 @@ int main(int argc, char* argv[])
 	cout << (*theDataPtr).size() << " points generated" << endl;
 
 	// optional - remove comments to output simulated data 	
+	/*
 	string dataFileName = "simulated_data_for_bounds";
 	dataFileName += stm.str(); 
 	dataFileName += ".txt"; 
@@ -195,6 +200,7 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	cout << "Simulated data written to  " << dataFileName << endl;
+	*/
 	// End of generating data--------//
 	
 	// Minimum distance estimation with hold-out--------//
@@ -265,7 +271,7 @@ int main(int argc, char* argv[])
  	myHist.prioritySplitMappedIAE
 	 					(compCount1, he1,
              NOLOG, maxLeafNodes,
-  					 estimate, *vecIAEAllPoints); 
+  					 estimate, *vecIAEAllPoints, sequence); 
 	
 	end = clock();
 	timing = ((static_cast<double>(end - start)) / CLOCKS_PER_SEC);
@@ -311,19 +317,38 @@ int main(int argc, char* argv[])
 	
 	// optional - remove comments to txt file
 	string outputName;
-	outputName = "theorem2_check";
-	outputName += stm.str();
+	outputName = "uniform_";
+	outputName += stm_d.str();
+	outputName += "d_";
+	outputName += stm_n.str();
+	outputName += "n_theorem2_check";
+	outputName += stm_seed.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	oss << IAEforMinDelta << "\t" << (3*minIAE + 4*maxDelta) << "\t" << check << endl;
 	oss << flush;
 	oss.close();
-	cout << "Main results output to " << outputName << endl;
+	cout << "Checks for Theorem 2 output to " << outputName << endl;
+	
+	// optional - remove comments to txt file
+	outputName = "uniform_";
+	outputName += stm_d.str();
+	outputName += "d_";
+	outputName += stm_n.str();
+	outputName += "n_theorem3_iaes";
+	outputName += stm_seed.str();
+	outputName += ".txt";
+	oss.open(outputName.c_str());
+	oss << IAEforMinDelta << "\t" << minIAEAllPoints << endl;
+	oss << flush;
+	oss.close();
+	cout << "Required values for Theorem 3 output to " << outputName << "\n" << endl;
 
-	// optional - remove comments to output the deltas and iaes to txt
-	// delta_theta "\t" iaeholdout "\t" iaeallpoints 
+		// optional - remove comments to output the deltas and iaes to txt
+	// outputs are: delta_theta   iaeholdout    iaeallpoints 
+	/*
 	outputName = "delta_theta_and_iaes";
-	outputName += stm.str();
+	outputName += stm_seed.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	for (size_t i = 0; i < (*vecMaxDeltaTheta).size(); i++){
@@ -332,10 +357,12 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	cout << "Delta theta values and IAEs output to " << outputName << endl;
+	*/
 	
 	// optional - remove comments to output the deltas to txt
+	/*
 	outputName = "delta";
-	outputName += stm.str();
+	outputName += stm_seed.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	for (size_t i = 0; i < (*vecMaxDelta).size(); i++){
@@ -344,18 +371,7 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	cout << "Delta values output to " << outputName << endl;
-	
-	// optional - remove comments to txt file
-	outputName = "theorem_values";
-	outputName += stm.str();
-	outputName += ".txt";
-	oss.open(outputName.c_str());
-	oss << IAEforMinDelta << "\t" << minIAE << "\t" << minIAEAllPoints << maxDelta << endl;
-	oss << flush;
-	oss.close();
-	cout << "Required values for theorem output to " << outputName << endl;
-
-	
+	*/
 		
 	try {
 		gsl_rng_free (r);

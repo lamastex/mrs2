@@ -10,9 +10,9 @@ CRITLEAVES=100 #split until this number of leaves in the PQ
 NUM_CHECKS=10 #collate num_checks histogram
 NUM_ITERS=5 #number of iterations for "zooming-in" 
 
-for N in 150 1500
+for DIM in 1 2 5 #may need more CRITLEAVES for higher dims 
 do
-	for DIM in 1 2 5 #may need more CRITLEAVES for higher dims 
+	for N in 150 1500 
 	do
 		for DATASEED in `seq 1 ${NUM_SIMS}`
 			do 

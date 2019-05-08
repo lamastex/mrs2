@@ -5814,7 +5814,7 @@ bool AdaptiveHistogram::prioritySplitMappedIAE(
                             size_t minChildPoints, double minVolB, 
 														size_t maxLeafNodes, 
 														PiecewiseConstantFunction& nodeEst,
-														std::vector<real>& vecIAE)
+														std::vector<real>& vecIAE, vector<int> sequence)
 {
     bool retValue = false;
 
@@ -5831,7 +5831,7 @@ bool AdaptiveHistogram::prioritySplitMappedIAE(
 
         retValue = prioritySplitMappedIAE(compTest, he, logging,
                                     minChildPoints, minVolB, rgsl, maxLeafNodes,
-                                    nodeEst, vecIAE);
+                                    nodeEst, vecIAE, sequence);
         gsl_rng_free (rgsl);
     }
 
@@ -5877,7 +5877,7 @@ bool AdaptiveHistogram::prioritySplitMappedIAE(
                                 size_t minChildPoints, double minVolB,
                                 gsl_rng * rgsl, size_t maxLeafNodes,
                                 PiecewiseConstantFunction& nodeEst,
-																std::vector<real>& vecIAE)
+																std::vector<real>& vecIAE, vector<int> sequence)
 {    
 		size_t numHist = 0; //a counter to track the number of histograms
 	    
@@ -6015,12 +6015,16 @@ bool AdaptiveHistogram::prioritySplitMappedIAE(
             Expand(chosenLargest);
             
           	numHist += 1;
-          	cout << "---- Hist " << numHist << "-----" << endl;
-						// get the IAE of the first histogram
-						PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
-						real IAE = nodeEst.getIAE(*tempPCF);
-						delete tempPCF;
-						(vecIAE).push_back(IAE);
+          	
+         		if (find(sequence.begin(), sequence.end(), numHist) != sequence.end()) {
+							cout << "---- Hist " << numHist << "-----" << endl;
+						
+							// get the IAE of the first histogram
+							PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+							real IAE = nodeEst.getIAE(*tempPCF);
+							delete tempPCF;
+							(vecIAE).push_back(IAE);
+            }
             
             // add the new child names to the creation string
             creationString += chosenLargest->getChildNodeNames();
