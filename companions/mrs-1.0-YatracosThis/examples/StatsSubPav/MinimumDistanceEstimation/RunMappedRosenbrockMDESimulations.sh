@@ -5,22 +5,24 @@
 
 NUM_SIMS=10; #How many simulations
 HOLDOUTPERCENT=0.33
-DIM=2 #dimensions
 MAXLEAVESEST=10000 #maximum number of leaves in the function estimator
 CRITLEAVES=100 #split until this number of leaves in the PQ
 NUM_CHECKS=10 #collate num_checks histogram
 NUM_ITERS=5 #number of iterations for "zooming-in" 
 
-for N in 15000
+for N in 150 1500
 do
-   #mkdir ${MYDIR}/n${N}critleaves${CRITLEAVES}
-	for DATASEED in `seq 1 ${NUM_SIMS}`
-		do 
-		echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
-		./MappedRosenbrockMDE ${DATASEED} ${DIM} $N ${HOLDOUTPERCENT} ${MAXLEAVESEST} ${CRITLEAVES} ${NUM_CHECKS} ${NUM_ITERS}  
-		#mv *.txt ${MYDIR}/n${I}L${L}
-		#append the results for each loop to an overall file #make sure in the correct folder depending on n and L
-		cat iaes_leaves${DATASEED}.txt >> Rosenbrock_d${DIM}_n${N}_critleaves${CRITLEAVES}.txt
-		rm iaes_leaves${DATASEED}.txt
+	for DIM in 2 5 #may need more CRITLEAVES for 5D
+	do
+		for DATASEED in `seq 1 ${NUM_SIMS}`
+			do 
+			echo Simulation ${NUM_SIMS} for n = $N and CRITLEAVES = ${CRITLEAVES}
+			./MappedRosenbrockMDE ${DATASEED} ${DIM} $N ${HOLDOUTPERCENT} ${MAXLEAVESEST} ${CRITLEAVES} ${NUM_CHECKS} ${NUM_ITERS}  
+			cat rosenbrock_${DIM}d_${N}n_iaes_and_diff${DATASEED}.txt >> rosenbrock_${DIM}d_${N}n_iaes_and_diff_${NUM_SIMS}sims.txt
+			rm rosenbrock_${DIM}d_${N}n_iaes_and_diff${DATASEED}.txt
+		done
+		echo Simulation results appended to rosenbrock_${DIM}d_${N}n_iaes_and_diff_${NUM_SIMS}sims.txt
 	done
 done
+
+

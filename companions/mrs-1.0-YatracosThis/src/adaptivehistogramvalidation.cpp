@@ -2837,15 +2837,6 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
                 i++;
             }
 
-						//get IAE for this histogram if computeIAE == TRUE
-					  if (computeIAE == TRUE) {
-							PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
-							real IAE = nodeEst.getIAE(*tempPCF);
-							(vecIAE).push_back(IAE); 
-							delete tempPCF;
-	          	//real IAEF = mid(getFinMixIntervalIAE(mixt, tol, deg, 1));
-							//vecIAEFull.push_back(IAEF); 
-						}
 						numHist += 1;
 				
 						// only collate the k-th histogram
@@ -2860,6 +2851,14 @@ bool AdaptiveHistogramValidation::prioritySplitAndEstimate(
 							fileName += ".txt";
 							outputToTxtTabs(fileName);
 							*/
+							
+							//get IAE for this histogram if computeIAE == TRUE
+							if (computeIAE == TRUE) {
+								PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(*this);
+								real IAE = nodeEst.getIAE(*tempPCF);
+								(vecIAE).push_back(IAE); 
+								delete tempPCF;
+							}
 						}
 						
 						//checks to see if need to split again

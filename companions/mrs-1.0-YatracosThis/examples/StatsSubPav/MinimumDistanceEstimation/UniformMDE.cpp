@@ -81,11 +81,13 @@ int main(int argc, char* argv[])
 	*///----
 
 	// string formatting for output purposes
-	ofstream oss;       // ofstream object
-	oss << scientific;  // set formatting for input to oss
-	oss.precision(10);
-	ostringstream stm;
-	stm << dataSeed; // index the txt file produced by stm
+	ofstream oss;         // ofstream object
+  oss << scientific;  // set formatting for input to oss
+  oss.precision(10);
+  ostringstream stm_seed, stm_d, stm_n;
+  stm_seed << dataSeed; // index the txt file produced by stm
+  stm_d << d;
+  stm_n << n;
 
 	// Set up a random number generator and use mt19937 for generator
 	gsl_rng * r = gsl_rng_alloc (gsl_rng_mt19937); // set up with default seed
@@ -191,8 +193,9 @@ int main(int argc, char* argv[])
 	cout << "Computing time for simulating data: " << timingData << " s."<< endl;
 
 	//optional - remove comments to output simulated data 
+	/*
 	string dataFileName = "simulated_uniform_data";
-	dataFileName += stm.str(); 
+	dataFileName += stm_seed.str(); 
 	dataFileName += ".txt"; 
 	oss.open(dataFileName.c_str());
 	for (size_t i = 0; i < n; i++) { 
@@ -204,6 +207,7 @@ int main(int argc, char* argv[])
 	oss << flush;
 	oss.close();
 	cout << "Simulated data written to  " << dataFileName << endl;
+	*/
 	// End of generating data--------//
 	
 	// Minimum distance estimation with hold-out--------//
@@ -307,36 +311,45 @@ int main(int argc, char* argv[])
 		
 	//find the minimum delta
 	double minDelta = *min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end());	
-
+	
 	//find the position of the minimum delta
 	size_t minPos = min_element((*vecMaxDelta).begin(), (*vecMaxDelta).end()) - (*vecMaxDelta).begin();
 	int numLeavesDelta = sequence[minPos];
 				
 	//get the IAE using vecIAE
-	real IAEforMinDelta = (*vecIAE)[numLeavesDelta - 1];
+	real IAEforMinDelta = (*vecIAE)[minPos];
 		
 	// get minimum IAE
 	real minIAE = *min_element((*vecIAE).begin(), (*vecIAE).end());
 		
 	//find the position of the minimum IAE	
-	int numLeavesIAE = min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin() + 1;
+	int numLeavesIAE = sequence[min_element((*vecIAE).begin(), (*vecIAE).end()) - (*vecIAE).begin()];
+	//cout << (*vecIAE).size() << "\t" << (*vecMaxDelta).size() << endl;
 	
-	// optional - remove comments to output IAE to txt file
-	cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes." << endl;
-	cout << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
+	// difference of minIAE and IAEforMinDelta
+	real diffIAE = abs(IAEforMinDelta - minIAE);
+	
+	cout << "The minimum max delta is " << minDelta << " at " << numLeavesDelta << " leaf nodes with IAE" << IAEforMinDelta << endl;
+	cout << "The minimum IAE is"  << minIAE << " at " << numLeavesIAE << " leaf nodes." << endl;
+	
+		// optional - remove comments to output IAE to txt file
 	string outputName;
-	outputName = "iaes_leaves";
-	outputName += stm.str();
+	outputName = "uniform_";
+	outputName += stm_d.str();
+	outputName += "d_";
+	outputName += stm_n.str();
+	outputName += "n_iaes_and_diff";
+	outputName += stm_seed.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
-	oss << IAEforMinDelta << "\t" << numLeavesDelta << "\t" << minIAE << "\t" << numLeavesIAE << endl;
+	oss << IAEforMinDelta << "\t" << minIAE << "\t" << diffIAE << endl;
 	oss << flush;
 	oss.close();
-	cout << "Error computations output to " << outputName << endl;
-	
+	cout << "Main results output to " << outputName << "\n" << endl;
+		
 	// optional - remove comments to output the sequence of leaf nodes
-	outputName = "sequence";
-	outputName += stm.str();
+	/*outputName = "sequence";
+	outputName += stm_seed.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	for (size_t i = 0; i < (sequence).size(); i++){
@@ -344,10 +357,11 @@ int main(int argc, char* argv[])
 	}			 
 	oss << flush;
 	oss.close();
+	cout << "Sequence of histograms used output to " << outputName << endl;
 
 	// optional - remove comments to output the deltas to txt
 	outputName = "deltas";
-	outputName += stm.str();
+	outputName += stm_seed.str();
 	outputName += ".txt";
 	oss.open(outputName.c_str());
 	for (size_t i = 0; i < (*vecMaxDelta).size(); i++){
@@ -355,6 +369,20 @@ int main(int argc, char* argv[])
 	}		
 	oss << flush;
 	oss.close();
+	cout << "Delta values output to " << outputName << endl;
+	
+	// optional - remove comments to output the IAEs to txt
+	outputName = "iaes";
+	outputName += stm_seed.str();
+	outputName += ".txt";
+	oss.open(outputName.c_str());
+	for (size_t i = 0; i < (*vecIAE).size(); i++){
+			oss << (*vecIAE)[i] << endl;
+	}		
+	oss << flush;
+	oss.close();
+	cout << "IAEs output to " << outputName << endl;
+	*/
 
 	try {
 		gsl_rng_free (r);

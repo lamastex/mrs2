@@ -7,6 +7,9 @@
 #include <vector> //std::vector
 #include <map>	//std::multimap
 #include <algorithm>    // std::sort
+#include <iostream>
+
+using namespace std;
 
 // return a vector of the top k indices
 void topk(std::vector<double> a, std::vector<int> & indtop, size_t k)
@@ -21,7 +24,7 @@ void topk(std::vector<double> a, std::vector<int> & indtop, size_t k)
 	size_t indx=0;
 	double val =0;
 	for (itm = m.begin(); itm != m.end(); ++itm){
-		//cout << itm->first <<" , "<< itm->second << endl;
+		//std::cout << itm->first <<" , "<< itm->second << std::endl;
 		//if (itm->first != val) { 
 			indtop.push_back(itm->second);
 			indx++;
