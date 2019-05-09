@@ -237,6 +237,8 @@ The shell script ``RunMDETest.sh`` allows us to input the parameters needed to r
 
  - ``INPUTFILENAME``: the name of the txt file that contains the data set
  
+ - ``OUTPUTFILENAME``: a filename to be associated with the txt files that will be output from the program
+ 
  - ``HOLDOUTPERCENT``: % of data to be held out. 
 	 - The number of data points to be held out is obtained by multiplying the hold out percent with the total number of points, rounded to the nearest integer.
  
@@ -282,11 +284,11 @@ Hist 40
 ```
 
 **Output:**
- - ``deltas.txt``: the Delta_theta values for each histogram in the final sequence
- - ``sequence.txt``: the number of leaf nodes / thetas that were used
+ - ``theta_and_delta_theta.txt``: there are two columns: the number of leaf nodes / thetas that were used and the corresponding Delta_theta values for each histogram in the final sequence
  - ``mdehist.txt``: the histogram estimate built using the number of leaf nodes / theta* that minimizes Delta_theta.
+ - ``coverage.txt``: the tail probabilities for each data point
 
-Note: to suppress any of these output files, comment the corresponding lines **211 - 234**.
+Note: to suppress any of these output files, comment the corresponding lines **216 - 243**.
 
 ```%sh
 $ vim RunMDETest.sh
@@ -294,16 +296,13 @@ $ vim RunMDETest.sh
 #!/bin/bash
 #File: RunMDETest.sh
 
-#INPUTFILENAME="simulated_rosenbrock_data1.txt" 
-INPUTFILENAME="simulated_gaussian_data1.txt"
-HOLDOUTPERCENT=0.33  # % of data to be held out for validation
-#the number of data points to be held out is obtained by multiplying
-#the hold out percent with the total number of points, rounded to the nearest integer
-CRITLEAVES=100 #split until this number of leaves in the PQ
-NUM_CHECKS=10 #collate this number of histogram
+INPUTFILENAME="simulated_data_for_mdetest/simulated_gaussian_data1.txt"
+OUTPUTFILENAME="gaussian"
+HOLDOUTPERCENT=0.33  
+NUM_CHECKS=10 #collate num_checks histogram
 NUM_ITERS=5 #number of iterations for "zooming-in" 
 
-./MDETest $INPUTFILENAME $HOLDOUTPERCENT $CRITLEAVES $NUM_CHECKS $NUM_ITERS
+./MDETest $INPUTFILENAME $OUTPUTFILENAME $HOLDOUTPERCENT $CRITLEAVES $NUM_CHECKS $NUM_ITERS
 ------------------------------------------
 
 $ ./RunMDETest.sh
@@ -377,9 +376,10 @@ Calling prioritySplitAndEstimatePlain...
 ---- Hist 100-----
 Computing time for MDE: 0.099367 s.
 The minimum max delta is 0.1625 at 14 leaf nodes.
-MDE histogram output to mdehist.txt
-Sequence of histograms output to sequence.txt
-Delta theta values output to deltas.txt
+The minimum max delta is 0.1625 at 14 leaf nodes.
+MDE histogram output to gaussian_mdehist.txt
+Coverage values output to gaussian_coverage.txt
+The delta_theta values and corresponding number of leaf nodes (theta) output to gaussian_theta_and_delta_theta.txt
 ```
 
 ---
