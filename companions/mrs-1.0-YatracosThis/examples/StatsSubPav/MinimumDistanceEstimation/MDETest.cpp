@@ -210,14 +210,14 @@ int main(int argc, char* argv[])
 		CritLeaves_GTE heMDE(numLeavesDelta);
 		mdeHist.prioritySplit(compCountMDE, heMDE, NOLOG, maxLeafNodes);	
 
+		// make mdeHist into a PCF object
+		PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(mdeHist);
+		
 		//output the histogram built using minimum distance estimate
 		string outputName = stm_out.str();
 		outputName += "_mdehist.txt";
 		mdeHist.outputToTxtTabs(outputName);
 		cout << "MDE histogram output to " << outputName << endl;
-				
-		// make mdeHist into a PCF object
-		PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(mdeHist);
 		
 		// output the tail probabilties
 		outputName = stm_out.str();
