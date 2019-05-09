@@ -61,10 +61,12 @@ int main(int argc, char* argv[])
 	}
 
 	string inputFileName = argv[1];
-	double holdOutPercent = atof(argv[2]);
-	size_t critLeaves = atoi(argv[3]); //maximum number of leaves for PQ to stop splitting 
-	int num_checks = atoi(argv[4]); // check k histograms
-	size_t num_iters = atoi(argv[5]); // to zoom in
+	string outputFileName = argv[2];
+	double holdOutPercent = atof(argv[3]);
+	size_t critLeaves = atoi(argv[4]); //maximum number of leaves for PQ to stop splitting 
+	int num_checks = atoi(argv[5]); // check k histograms
+	size_t num_iters = atoi(argv[6]); // to zoom in
+	
 
 	cout << "Processing file " << inputFileName << endl;
 	// End of user-defined parameters--------//
@@ -73,7 +75,8 @@ int main(int argc, char* argv[])
 	ofstream oss;       // ofstream object
 	oss << scientific;  // set formatting for input to oss
 	oss.precision(10);
-	ostringstream stm;
+	ostringstream stm_out;
+	stm_out << outputFileName;
 	
 	// uncomment this if want to define own root box	
 	/*int d = 1; //change the value depending on dimension required
@@ -82,10 +85,9 @@ int main(int argc, char* argv[])
 	for(int i=1; i <= d; i++) { pavingBox[i] = pavingInterval; }
 	AdaptiveHistogramValidation finalHist(pavingBox);
 	*/
-	
-	// the root box will be made based on the data set given
-	// comment this line if want to define own root box
-	AdaptiveHistogramValidation finalHist; 	
+
+	// comment this line if want to define own root box	
+	AdaptiveHistogramValidation finalHist; 	// the root box will be made based on the data set given	
 		
 	//insert data from text into a RVecData container and store as pointer
 	vector<size_t> numNodes; 
@@ -209,29 +211,36 @@ int main(int argc, char* argv[])
 		mdeHist.prioritySplit(compCountMDE, heMDE, NOLOG, maxLeafNodes);	
 
 		//output the histogram built using minimum distance estimate
-		string outputName = "mdehist.txt";
+		string outputName = stm_out.str();
+		outputName += "_mdehist.txt";
 		mdeHist.outputToTxtTabs(outputName);
 		cout << "MDE histogram output to " << outputName << endl;
+				
+		// make mdeHist into a PCF object
+		PiecewiseConstantFunction* tempPCF = new PiecewiseConstantFunction(mdeHist);
 		
-		// optional - remove comments to output the sequence of leaf nodes
-		outputName = "sequence.txt";
+		// output the tail probabilties
+		outputName = stm_out.str();
+		outputName += "_coverage.txt";
 		oss.open(outputName.c_str());
-		for (size_t i = 0; i < (sequence).size(); i++){
-			oss << (sequence)[i] << endl;
-		}			 
-		oss << flush;
-		oss.close();
-		cout << "Sequence of histograms output to " << outputName << endl;
-	
-		// optional - remove comments to output the delta values
-		outputName = "deltas.txt";
-		oss.open(outputName.c_str());
-		for (size_t i = 0; i < (*vecMaxDelta).size(); i++){
-				oss << (*vecMaxDelta)[i] << endl;
+		for (size_t i = 0; i < (*theDataPtr).size(); i++){
+				oss << (*tempPCF).findCoverage((*theDataPtr)[i]) << endl;
 		}		
 		oss << flush;
 		oss.close();
-		cout << "Delta theta values output to " << outputName << endl;
+		cout << "Coverage values output to " << outputName << endl;
+		delete tempPCF;
+
+		// optional - remove comments to output the sequence of leaf nodes
+		outputName = stm_out.str();
+		outputName += "_theta_and_delta_theta.txt";
+		oss.open(outputName.c_str());
+		for (size_t i = 0; i < (sequence).size(); i++){
+			oss << (sequence)[i] <<  (*vecMaxDelta)[i] << endl;
+		}			 
+		oss << flush;
+		oss.close();
+		cout << "The delta_theta values and corresponding number of leaf nodes (theta) output to " << outputName << endl;
 		
 		//delete pointers;
 		delete vecIAE;
