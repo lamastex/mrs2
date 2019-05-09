@@ -13,22 +13,3 @@ $ ./custom_config.sh
 
 $ make
 ```
-## Examples
-### MDE for Mapped Gaussian Densities
-
-```%sh
-$ cd examples/StatsSubPav/MinimumDistanceEstimation
-
-#copy example input here later
-```
-Example output:
-```%sh
-$ ./RunMappedGaussianMDE.sh
-#show output here
-```
-
-### MDE for Mapped Rosenbrock Densities
-
-### MDE for Uniform Densities
-
-### Input .txt files
