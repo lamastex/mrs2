@@ -236,7 +236,7 @@ int main(int argc, char* argv[])
 		outputName += "_theta_and_delta_theta.txt";
 		oss.open(outputName.c_str());
 		for (size_t i = 0; i < (sequence).size(); i++){
-			oss << (sequence)[i] <<  (*vecMaxDelta)[i] << endl;
+			oss << (sequence)[i] <<  "\t" << (*vecMaxDelta)[i] << endl;
 		}			 
 		oss << flush;
 		oss.close();
