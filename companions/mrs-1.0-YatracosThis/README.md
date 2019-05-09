@@ -237,6 +237,8 @@ The shell script ``RunMDETest.sh`` allows us to input the parameters needed to r
 
  - ``INPUTFILENAME``: the name of the txt file that contains the data set
  
+ - ``OUTPUTFILENAME``: a filename to be associated with the txt files that will be output from the program
+ 
  - ``HOLDOUTPERCENT``: % of data to be held out. 
 	 - The number of data points to be held out is obtained by multiplying the hold out percent with the total number of points, rounded to the nearest integer.
  
