@@ -9,8 +9,10 @@ setwd("C:/Users/Office/Dropbox/ResearchRaaz/theorems")
 
 ############################
 #read txt file and store 
-d = c(2, 3) 
-n = c(150, 1500)
+d = c(1, 2, 5, 10, 100, 1000) 
+n = c(150, 1500, 15000, 150000, 1500000, 15000000)
+n_str = c("150", "1500", "15000", "150000", "1500000", "15000000")
+
 num_n = NROW(n)
 num_d = NROW(d)
 theta = 10
@@ -22,10 +24,12 @@ avey = matrix(0, num_n, num_d)
 
 for (i in 1:num_d){
   for (j in 1:num_n){
-    filename = paste("uniform_", d[i], "d_", n[j], "n_theorem3_iaes_5sims.txt", sep = "")
+    filename = paste("uniform_", d[i], "d_", n_str[j], "n_theorem3_iaes_5sims.txt", sep = "")
+    print(filename)
     results = read.table(filename, header = FALSE, "\t")
+    print(results)
     avex[j, i] = mean(results$V1)
-    avey[j, i] = mean(results$V2) * rhs_term_1 + 8*sqrt((log(2*theta*(theta + 1)))/(phi * n))
+    avey[j, i] = mean(results$V2) * rhs_term_1 + 8*sqrt((log(2*theta*(theta + 1)))/(phi * n[j]))
   }
 }
 
@@ -53,9 +57,9 @@ mtext(text="RHS", side=2, line=2, cex = 1.7, font = 2)
 mtext(text= "Theorem 3", side=3, line = 1, cex = 1.7, font = 2)
 
 ###############
-mycol = c("blue", "black", "red")
-#mycol =  c("#00AFBB", "#E7B800", "#FC4E07", "#d55e00", "#cc79a7", "#0072b2", "#f0e442", "#009e73")
-mypch = c(3, 4, 15, 16, 17, 18)
+#mycol = c("blue", "black", "red")
+mycol =  c("#00AFBB", "#E7B800", "#FC4E07", "#d55e00", "#cc79a7", "#0072b2", "#f0e442", "#009e73")
+mypch = c(15, 16, 17, 18, 7, 9)
 
 for (i in 1:num_d){
   for (j in 1:num_n){
@@ -65,9 +69,35 @@ for (i in 1:num_d){
 
 
 #####################
-legend("bottomright", legend = c("2D, 150", "2D, 1500", "3D, 150", "3D, 1500"), 
-       col = c(mycol[1], mycol[1], mycol[2], mycol[2]), 
-       pch = c(mypch[1], mypch[2], mypch[1], mypch[2]), cex = 1)
+vals = c(expression(paste('1D, ', "10"^"2")), expression(paste('1D, ', "10"^"3")), 
+         expression(paste('1D, ', "10"^"4")), expression(paste('1D, ', "10"^"5")),
+         expression(paste('1D, ', "10"^"6")), expression(paste('1D, ', "10"^"7")),
+         expression(paste('2D, ', "10"^"2")), expression(paste('2D, ', "10"^"3")), 
+         expression(paste('2D, ', "10"^"4")), expression(paste('2D, ', "10"^"5")),
+         expression(paste('2D, ', "10"^"6")), expression(paste('2D, ', "10"^"7")),
+         expression(paste('5D, ', "10"^"2")), expression(paste('5D, ', "10"^"3")), 
+         expression(paste('5D, ', "10"^"4")), expression(paste('5D, ', "10"^"5")),
+         expression(paste('5D, ', "10"^"6")), expression(paste('5D, ', "10"^"7")),
+         expression(paste('10D, ', "10"^"2")), expression(paste('10D, ', "10"^"3")), 
+         expression(paste('10D, ', "10"^"4")), expression(paste('10D, ', "10"^"5")),
+         expression(paste('10D, ', "10"^"6")), expression(paste('10D, ', "10"^"7")),
+         expression(paste('100D, ', "10"^"2")), expression(paste('100D, ', "10"^"3")), 
+         expression(paste('100D, ', "10"^"4")), expression(paste('100D, ', "10"^"5")),
+         expression(paste('100D, ', "10"^"6")), expression(paste('100D, ', "10"^"7")),
+         expression(paste('1000D, ', "10"^"2")), expression(paste('1000D, ', "10"^"3")), 
+         expression(paste('1000D, ', "10"^"4")), expression(paste('1000D, ', "10"^"5")),
+         expression(paste('1000D, ', "10"^"6")), expression(paste('1000D, ', "10"^"7")))
+
+c6 = c(rep(mycol[1], 6), rep(mycol[2], 6), rep(mycol[3], 6),
+       rep(mycol[4], 6), rep(mycol[5], 6), rep(mycol[6], 6))
+
+legend("bottomright", legend =vals,
+       col = c6,
+       ncol = 6, 
+       cex = 0.8, 
+       pch = mypch,
+       text.font = 1, 
+       text.col = c6)
 
 
 #####################
