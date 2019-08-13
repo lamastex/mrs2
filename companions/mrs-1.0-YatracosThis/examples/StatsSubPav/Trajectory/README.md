@@ -11,9 +11,23 @@ Upon successful compilation, the folder will contain the following executables:
 
 ```%sh
 Trajectory
+DynamicTrajectory
 ```  
 
 ### 1. Single Trajectories and Collation of Trajectories
+
+Input:
+- A txt file that contain the filenames of positional data (1st col: longitude, 2nd col: latitude
+- vol of object
+
+To execute program:
+
+```%sh
+./RunTrajectory.sh
+```
+
+Optional output:
+The trajectories for each data set and a collated histogram of these trajectories.
 
 ### 2. Dyanmic Trajectories	
 	

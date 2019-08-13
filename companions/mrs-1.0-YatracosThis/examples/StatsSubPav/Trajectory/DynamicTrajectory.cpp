@@ -40,49 +40,37 @@ using namespace std;
 int main(int argc, char* argv[])
 
 {
+	//------------------------string formatting-------------------------------- 
+  ofstream oss;         // ofstream object
+  oss << scientific;  // set formatting for input to oss
+  oss.precision(5);
+  bool successfulInsertion = false;
+
+	// input parameters
+	string DataFiles = argv[1]; // this is a row vector of filenames
+	double Vol = atof(argv[2]); //An approximate volume of the object
+
+	
+	
    //get individual trajectories and add into collator 
 	size_t starttime = atoi(argv[2]);
 	size_t totalTimeBlock = atoi(argv[3]);
 	size_t totalFlight = atoi(argv[4]);
 	
-	//------------------------string formatting-------------------------------- 
-    ofstream oss;         // ofstream object
-    oss << scientific;  // set formatting for input to oss
-    oss.precision(5);
-    bool successfulInsertion = false;
 	  
 	 //-------------- make an Adaptive Histogram object with a specified box----  
 	 
-	 int d = atoi(argv[5]); // dimension of the sample data
-    ivector pavingBox(d);
-    
-	  /*
-	 interval pavingInterval1(70, 750); //lat
-    interval pavingInterval2(50, 640); //long
-    pavingBox[1] = pavingInterval1;
-    pavingBox[2] = pavingInterval2;
-    
-	 if (d==3) {
-		interval pavingInterval3(300,47000); //alt
-		pavingBox[3] = pavingInterval3;
-    }
-	 */
-	 
-	 
-	 interval pavingInterval1(550, 1350);
-	 interval pavingInterval2(810, 1230);
-    pavingBox[1] = pavingInterval1;
-    pavingBox[2] = pavingInterval2;
+	int d = atoi(argv[5]); // dimension of the sample data
+  ivector pavingBox(d);
+  
+	interval pavingInterval1(550, 1350);
+	interval pavingInterval2(810, 1230);
+  pavingBox[1] = pavingInterval1;
+  pavingBox[2] = pavingInterval2;
    
-    
-    // /*
-	 interval pavingInterval(0,1);
-	 pavingBox[1] = pavingInterval;
-	 //*/
-	
-	 cout << "Box is: " << pavingBox << endl;
+	cout << "Box is: " << pavingBox << endl;
 	 
-   //------------------get minimum volume--------------------------------------
+   // get minimum volume--------------------------------------
    AdaptiveHistogramValidation hist(pavingBox);
    //0.1
    double craftVol = atof(argv[1]); //note this can be put into the for loop if we know each individual craft size
@@ -261,4 +249,4 @@ int main(int argc, char* argv[])
       os1.close();
 
 	return 0;
-} // end of air traffic example program
+} // end of dynamic air traffic example program
