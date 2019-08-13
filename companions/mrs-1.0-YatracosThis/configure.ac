@@ -65,7 +65,7 @@ src/Makefile
 examples/Makefile
 examples/StatsSubPav/Makefile
 examples/StatsSubPav/MinimumDistanceEstimation/Makefile
-examples/StatsSubPav/AirTraffic/Makefile
+examples/StatsSubPav/Trajectory/Makefile
 examples/MappedTargetsTrunk/Makefile
 examples/targets/Makefile
 ])
