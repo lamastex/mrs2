@@ -1,1 +1,1 @@
-SUBDIRS = MinimumDistanceEstimation AirTraffic
+SUBDIRS = MinimumDistanceEstimation Trajectory 
