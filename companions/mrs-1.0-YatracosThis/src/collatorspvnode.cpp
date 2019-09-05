@@ -1244,7 +1244,6 @@ namespace subpavings {
                     const CollatorSPVnode * const lhs,
                     const CollatorSPVnode * const rhs, double c)
     {
-        cout << "subtract pavings called" << endl;
         CollatorSPVnode* newCollator = NULL;
 
         bool done = false;
