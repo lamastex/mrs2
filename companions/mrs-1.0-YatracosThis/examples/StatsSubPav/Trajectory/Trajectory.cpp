@@ -34,14 +34,7 @@
 
 #include "toolz.hpp"    // toolz headers
 #include "histall.hpp"  // headers for the histograms
-
-//#include <gsl/gsl_statistics_double.h>
-//#include <gsl/gsl_math.h>
-//#include <gsl/gsl_sort.h>
-//#include <gsl/gsl_statistics.h>
 #include <gsl/gsl_rng.h>
-//#include <gsl/gsl_randist.h>
-//#include <gsl/gsl_cdf.h>
 
 using namespace cxsc;
 using namespace std;

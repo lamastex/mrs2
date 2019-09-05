@@ -2,7 +2,7 @@
 #File: RunTrajectory.sh
 #Executes "Trajectory"
 
-#A txt file that contain the filenames of trajectory data
+#A txt file that contain the filenames of positional data (1st col: longitude, 2nd col: latitude)
 FILENAMES=trajectory_names
 
 #For animal migration data:
