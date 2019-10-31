@@ -4,8 +4,9 @@
 Due to changes in gcc compiler collection and the frozen c-xsc project, we are using docker container with the compatible compiler collection for c-xsc to do the compilation and development of mrs2 for now.
 
 ```%sh
-$ docker run -d -it lamastex/mrs2 # run the docker image, from hub if needed
-$  docker ps # list the docker processes runing to get the container-ID = 1b486f581c1e THIS will be different for you! 
+# run the docker image, from hub if needed while mounting current dir in docker image's /git directory
+$ docker run -d -it -v "`pwd`":/git lamastex/mrs2 
+$ docker ps # list the docker processes runing to get the container-ID = 1b486f581c1e THIS will be different for you! 
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 1b486f581c1e        lamastex/mrs2       "/bin/bash"         34 minutes ago      Up 34 minutes                           loving_booth
 ```
