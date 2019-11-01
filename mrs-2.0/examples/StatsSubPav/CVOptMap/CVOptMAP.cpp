@@ -172,6 +172,7 @@ int main(int argc, char ** argv)
     burstsFileBaseName = "dataCVOptMAP/datasets/rosenbrock_d_1_n_E4";
     if (argc > 1) {
       burstsFileBaseName = argv[1];
+      //ex: ./CVOptMAP dataCVOptMAP/datasets/MRS_Rosenbrock.txt 0 0. 5.0 3 1 2
     }
     simulateOrUseDataFile = (burstsFileBaseName == "s");// this input should be the path/to/sampleDataFile eg. dataCVOptMAP/datasets/dp.txt
     if (argc > 2) {

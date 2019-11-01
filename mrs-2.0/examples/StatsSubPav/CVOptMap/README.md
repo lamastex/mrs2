@@ -26,6 +26,25 @@ export LD_LIBRARY_PATH=${GSLDIR}/lib:$LD_LIBRARY_PATH
 ./CVOptMAP s 0 0. 5.0 5 2000 2 2 0.0001 1 100 2002 &> logOutput_2_reps.txt
 ```
 
+# To generate simulated data into a file and get the histogram:
+
+```%sh
+$ pwd
+$ /git/mrs2/mrs-2.0/examples/StatsSubPav/CVOptMap
+```
+
+```%sh
+$ pushd ../examples/MooreRejSam/Rosenbrock/
+$ ./Rosenbrock 2 10000 100000
+$ popd
+$ mkdir -p dataCVOptMAP/datasets/
+$ cd dataCVOptMAP/datasets/
+$ cut -f 2,3 ../../../../MooreRejSam/Rosenbrock/MRS_Rosenbrock.samples > MRS_Rosenbrock.txt 
+$ cd ../../
+$ ./CVOptMAP dataCVOptMAP/datasets/MRS_Rosenbrock.txt 0 0. 5.0 3 1 2
+```
+
+
 ### Summary of the run
 
 ```%sh
