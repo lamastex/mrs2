@@ -1,6 +1,10 @@
 #!/bin/bash
-#to statically compile do
-#g++ -static -g -O2  -L/home/raazesh/all/software/cxsc/cxsc-2-5-4/lib -L/home/raazesh/all/software/gsl/gsl-2.1/lib -o IsIt1or2Coins IsIt1or2Coins-IsIt1or2Coins.o ../../targets/IsIt1or2Coins-FIsIt1or2Coins.o -lcxsc ../../../src/libmrs.a -lcxsc -lgsl -lgslcblas -lm
+# To statically compile for pipedRDDs in Apache Spark 
+# for embarassingly Parallel Bayesian AB-Testing in Windows or Streams do
+## within dockerised environment
+# g++ -static -g -O2  -L${CXSCDIR}/lib -L${GSLDIR}/lib -o IsIt1or2Coins IsIt1or2Coins-IsIt1or2Coins.o ../../targets/IsIt1or2Coins-FIsIt1or2Coins.o -lcxsc ../../../src/libmrs.a -lcxsc -lgsl -lgslcblas -lm
+## hard-coded
+# g++ -static -g -O2  -L/home/raazesh/all/software/cxsc/cxsc-2-5-4/lib -L/home/raazesh/all/software/gsl/gsl-2.1/lib -o IsIt1or2Coins IsIt1or2Coins-IsIt1or2Coins.o ../../targets/IsIt1or2Coins-FIsIt1or2Coins.o -lcxsc ../../../src/libmrs.a -lcxsc -lgsl -lgslcblas -lm
 #########################################################################################
 #just the prior is returned as posterior with no data
 #########################################################################################
